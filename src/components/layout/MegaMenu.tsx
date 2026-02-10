@@ -77,6 +77,17 @@ export default function MegaMenu() {
     setOpenSection(null);
   }, [pathname]);
 
+  // Click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpenSection(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -146,7 +157,7 @@ export default function MegaMenu() {
                     onMouseEnter={() => handleMouseEnter(section.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="min-w-[340px] rounded-2xl border border-surface-border/50 bg-surface-card/90 p-2.5 shadow-2xl shadow-black/50 backdrop-blur-2xl">
+                    <div className="min-w-[340px] rounded-2xl border border-surface-border/60 bg-[#0C1019] p-2.5 shadow-2xl shadow-black/60">
                       {/* Subtle glow at top */}
                       <div className="absolute -top-px left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-xrp-accent/40 to-transparent" />
                       
