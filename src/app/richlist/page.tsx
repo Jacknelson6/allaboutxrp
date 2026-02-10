@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts";
 import StatCard from "@/components/shared/StatCard";
 import Disclaimer from "@/components/shared/Disclaimer";
@@ -9,36 +9,18 @@ import TierChart from "@/components/richlist/TierChart";
 import TierCalculator from "@/components/richlist/TierCalculator";
 import TierFAQ from "@/components/richlist/TierFAQ";
 import { formatCurrency, formatCompact, formatNumber, formatPercent, shortenAddress } from "@/lib/utils/format";
-import { DollarSign, TrendingUp, BarChart3, Users, Activity } from "lucide-react";
+import { DollarSign, TrendingUp, BarChart3, Users } from "lucide-react";
 
 interface PricePoint { date: string; price: number; }
-interface RichEntry { rank: number; address: string; label: string | null; balance: number; percentage: number; }
+interface RichEntry { rank: number; address: string; label: string | null; balance: number; percentage: number; isKnown: boolean; }
 interface Distribution { range: string; accounts: number; totalXrp: number; }
-
-const mockPriceHistory: PricePoint[] = Array.from({ length: 30 }, (_, i) => ({
-  date: new Date(Date.now() - (29 - i) * 86400000).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-  price: 2.1 + Math.sin(i * 0.3) * 0.3 + Math.random() * 0.15,
-}));
-
-const mockRichList: RichEntry[] = Array.from({ length: 20 }, (_, i) => ({
-  rank: i + 1,
-  address: `r${Array.from({ length: 33 }, () => "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789"[Math.floor(Math.random() * 58)]).join("")}`,
-  label: i < 5 ? ["Ripple (1)", "Ripple Escrow", "Binance", "Uphold", "Bitfinex"][i] : null,
-  balance: Math.floor(5000000000 / (i + 1)),
-  percentage: Number((5 / (i + 1)).toFixed(2)),
-}));
-
-const mockDistribution: Distribution[] = [
-  { range: "1-1K", accounts: 2500000, totalXrp: 500000000 },
-  { range: "1K-10K", accounts: 800000, totalXrp: 3000000000 },
-  { range: "10K-100K", accounts: 200000, totalXrp: 7000000000 },
-  { range: "100K-1M", accounts: 30000, totalXrp: 10000000000 },
-  { range: "1M-10M", accounts: 5000, totalXrp: 15000000000 },
-  { range: "10M+", accounts: 500, totalXrp: 65000000000 },
-];
+interface PriceData { usd: number; usdChange24h: number; usdVolume24h: number; usdMarketCap: number; }
+interface SupplyInfo { totalSupply: number; circulatingSupply: number; escrowedSupply: number; burnedSupply: number; percentCirculating: number; percentEscrowed: number; }
+interface NetworkStats { totalAccounts: number; }
 
 const SUPPLY_COLORS = ["#0085FF", "#00BA7C", "#F7B928", "rgba(255,255,255,0.08)"];
-const timeRanges = ["24H", "7D", "30D", "90D"] as const;
+const timeRanges = ["7D", "30D", "90D"] as const;
+const DAYS_MAP: Record<string, number> = { "7D": 7, "30D": 30, "90D": 90 };
 
 const datasetSchema = {
   "@context": "https://schema.org",
@@ -60,24 +42,93 @@ const tooltipStyle = {
 
 export default function RichListPage() {
   const [range, setRange] = useState<typeof timeRanges[number]>("30D");
-  const [price, setPrice] = useState<{ price: number; change24h: number } | null>(null);
+  const [price, setPrice] = useState<PriceData | null>(null);
+  const [supply, setSupply] = useState<SupplyInfo | null>(null);
+  const [network, setNetwork] = useState<NetworkStats | null>(null);
+  const [richList, setRichList] = useState<RichEntry[]>([]);
+  const [distribution, setDistribution] = useState<Distribution[]>([]);
+  const [priceHistory, setPriceHistory] = useState<PricePoint[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch price data
   useEffect(() => {
-    fetch("/api/price")
+    fetch("/api/xrp/price")
       .then((r) => r.json())
-      .then((d: { price: number; change24h: number }) => setPrice(d))
+      .then((d) => { if (d.data) setPrice(d.data); })
       .catch(() => {});
   }, []);
 
-  const currentPrice = price?.price ?? 2.35;
-  const change = price?.change24h ?? 3.2;
+  // Fetch stats (supply + network)
+  useEffect(() => {
+    fetch("/api/xrp/stats")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.data) {
+          setSupply(d.data.supply);
+          setNetwork(d.data.network);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Fetch rich list
+  useEffect(() => {
+    setLoading(true);
+    fetch("/api/xrp/richlist?limit=20")
+      .then((r) => r.json())
+      .then((d) => { if (d.data) setRichList(d.data); })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  // Fetch distribution
+  useEffect(() => {
+    fetch("/api/xrp/distribution")
+      .then((r) => r.json())
+      .then((d) => { if (d.data) setDistribution(d.data); })
+      .catch(() => {});
+  }, []);
+
+  // Fetch price history based on selected range
+  const fetchPriceHistory = useCallback((days: number) => {
+    fetch(`/api/xrp/price-history?days=${days}`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.data && Array.isArray(d.data)) {
+          const formatted = d.data.map((p: { timestamp: number; price: number }) => ({
+            date: new Date(p.timestamp).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+            price: p.price,
+          }));
+          setPriceHistory(formatted);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetchPriceHistory(DAYS_MAP[range]);
+  }, [range, fetchPriceHistory]);
+
+  const currentPrice = price?.usd ?? 0;
+  const change = price?.usdChange24h ?? 0;
+  const volume = price?.usdVolume24h ?? 0;
+  const marketCap = price?.usdMarketCap ?? 0;
+
+  const circulatingB = supply ? supply.circulatingSupply / 1e9 : 0;
+  const escrowedB = supply ? supply.escrowedSupply / 1e9 : 0;
+  const burnedB = supply ? supply.burnedSupply / 1e6 : 0; // millions
+  const otherB = supply ? Math.max(0, (supply.totalSupply - supply.circulatingSupply - supply.escrowedSupply - supply.burnedSupply) / 1e9) : 0;
 
   const supplyData = [
-    { name: "Circulating", value: 57.6 },
-    { name: "Escrowed", value: 38.9 },
-    { name: "Burned", value: 0.5 },
-    { name: "Other", value: 3.0 },
-  ];
+    { name: "Circulating", value: Number(circulatingB.toFixed(1)) },
+    { name: "Escrowed", value: Number(escrowedB.toFixed(1)) },
+    { name: "Burned", value: Number((burnedB / 1000).toFixed(1)) || 0.01 },
+    { name: "Other", value: Number(otherB.toFixed(1)) || 0 },
+  ].filter(d => d.value > 0);
+
+  const totalAccounts = network?.totalAccounts
+    ? (network.totalAccounts >= 1e6 ? `${(network.totalAccounts / 1e6).toFixed(1)}M` : formatNumber(network.totalAccounts))
+    : "—";
 
   return (
     <>
@@ -92,10 +143,10 @@ export default function RichListPage() {
 
         {/* Stats */}
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard label="XRP Price" value={formatCurrency(currentPrice, 4)} change={formatPercent(change)} positive={change >= 0} icon={<DollarSign className="h-4 w-4" />} />
-          <StatCard label="Market Cap" value={formatCompact(currentPrice * 57600000000)} icon={<TrendingUp className="h-4 w-4" />} />
-          <StatCard label="24h Volume" value={formatCompact(2100000000)} icon={<BarChart3 className="h-4 w-4" />} />
-          <StatCard label="Total Accounts" value="5.2M" icon={<Users className="h-4 w-4" />} />
+          <StatCard label="XRP Price" value={currentPrice ? formatCurrency(currentPrice, 4) : "—"} change={price ? formatPercent(change) : undefined} positive={change >= 0} icon={<DollarSign className="h-4 w-4" />} />
+          <StatCard label="Market Cap" value={marketCap ? formatCompact(marketCap) : "—"} icon={<TrendingUp className="h-4 w-4" />} />
+          <StatCard label="24h Volume" value={volume ? formatCompact(volume) : "—"} icon={<BarChart3 className="h-4 w-4" />} />
+          <StatCard label="Total Accounts" value={totalAccounts} icon={<Users className="h-4 w-4" />} />
         </div>
 
         {/* Price Chart */}
@@ -120,20 +171,24 @@ export default function RichListPage() {
             </div>
           </div>
           <div className="mt-4 h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={mockPriceHistory} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0085FF" stopOpacity={0.2} />
-                    <stop offset="100%" stopColor="#0085FF" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} tickFormatter={(v: number) => `$${v.toFixed(2)}`} />
-                <Tooltip contentStyle={tooltipStyle} />
-                <Area type="monotone" dataKey="price" stroke="#0085FF" strokeWidth={2} fill="url(#priceGrad)" dot={false} activeDot={{ r: 4, fill: "#0085FF", stroke: "#000", strokeWidth: 2 }} />
-              </AreaChart>
-            </ResponsiveContainer>
+            {priceHistory.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={priceHistory} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#0085FF" stopOpacity={0.2} />
+                      <stop offset="100%" stopColor="#0085FF" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} tickFormatter={(v: number) => `$${v.toFixed(2)}`} />
+                  <Tooltip contentStyle={tooltipStyle} />
+                  <Area type="monotone" dataKey="price" stroke="#0085FF" strokeWidth={2} fill="url(#priceGrad)" dot={false} activeDot={{ r: 4, fill: "#0085FF", stroke: "#000", strokeWidth: 2 }} />
+                </AreaChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading chart data…</div>
+            )}
           </div>
         </section>
 
@@ -153,23 +208,29 @@ export default function RichListPage() {
               <div className="text-right">Balance (XRP)</div>
               <div className="text-right">% Supply</div>
             </div>
-            {mockRichList.map((entry) => (
-              <div key={entry.rank} className="terminal-row grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 min-w-[600px]">
-                <div className="font-mono text-sm text-text-secondary">#{entry.rank}</div>
-                <div className="font-mono text-xs text-xrp-accent truncate">{shortenAddress(entry.address)}</div>
-                <div>
-                  {entry.label ? (
-                    <span className="rounded-full border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
-                      {entry.label}
-                    </span>
-                  ) : (
-                    <span className="text-xs text-text-secondary/50">Unknown</span>
-                  )}
+            {loading ? (
+              <div className="px-4 py-8 text-center text-text-secondary text-sm">Loading rich list…</div>
+            ) : richList.length === 0 ? (
+              <div className="px-4 py-8 text-center text-text-secondary text-sm">Unable to load rich list data</div>
+            ) : (
+              richList.map((entry) => (
+                <div key={entry.rank} className="terminal-row grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 min-w-[600px]">
+                  <div className="font-mono text-sm text-text-secondary">#{entry.rank}</div>
+                  <div className="font-mono text-xs text-xrp-accent truncate">{shortenAddress(entry.address)}</div>
+                  <div>
+                    {entry.label ? (
+                      <span className="rounded-full border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
+                        {entry.label}
+                      </span>
+                    ) : (
+                      <span className="text-xs text-text-secondary/50">Unknown</span>
+                    )}
+                  </div>
+                  <div className="text-right font-mono text-sm text-text-primary">{formatNumber(entry.balance)}</div>
+                  <div className="text-right font-mono text-xs text-text-secondary">{entry.percentage}%</div>
                 </div>
-                <div className="text-right font-mono text-sm text-text-primary">{formatNumber(entry.balance)}</div>
-                <div className="text-right font-mono text-xs text-text-secondary">{entry.percentage}%</div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </section>
 
@@ -179,14 +240,18 @@ export default function RichListPage() {
             <h2 className="text-lg font-bold text-text-primary">Holder Distribution</h2>
             <p className="text-xs text-text-secondary mb-4">Accounts by XRP balance range</p>
             <div className="h-56">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={mockDistribution} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                  <XAxis dataKey="range" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} tickFormatter={(v: number) => v >= 1000000 ? `${(v/1000000).toFixed(0)}M` : v >= 1000 ? `${(v/1000).toFixed(0)}K` : String(v)} />
-                  <Tooltip contentStyle={tooltipStyle} />
-                  <Bar dataKey="accounts" fill="#0085FF" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              {distribution.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={distribution} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
+                    <XAxis dataKey="range" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} tickFormatter={(v: number) => v >= 1000000 ? `${(v/1000000).toFixed(0)}M` : v >= 1000 ? `${(v/1000).toFixed(0)}K` : String(v)} />
+                    <Tooltip contentStyle={tooltipStyle} />
+                    <Bar dataKey="accounts" fill="#0085FF" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading…</div>
+              )}
             </div>
           </section>
 
@@ -194,16 +259,20 @@ export default function RichListPage() {
             <h2 className="text-lg font-bold text-text-primary">Supply Breakdown</h2>
             <p className="text-xs text-text-secondary mb-4">100 billion total XRP</p>
             <div className="h-48">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie data={supplyData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={3} dataKey="value" strokeWidth={0}>
-                    {supplyData.map((_, i) => (
-                      <Cell key={i} fill={SUPPLY_COLORS[i % SUPPLY_COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={tooltipStyle} />
-                </PieChart>
-              </ResponsiveContainer>
+              {supplyData.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie data={supplyData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={3} dataKey="value" strokeWidth={0}>
+                      {supplyData.map((_, i) => (
+                        <Cell key={i} fill={SUPPLY_COLORS[i % SUPPLY_COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip contentStyle={tooltipStyle} />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading…</div>
+              )}
             </div>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {supplyData.map((item, i) => (

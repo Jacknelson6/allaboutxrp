@@ -12,7 +12,8 @@ type TransactionCallback = (tx: XRPLTransaction) => void;
 
 const WS_URLS = [
   'wss://xrplcluster.com',
-  'wss://s1.ripple.com:51233',
+  'wss://s1.ripple.com',
+  'wss://s2.ripple.com',
 ];
 
 let ws: WebSocket | null = null;
