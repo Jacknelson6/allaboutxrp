@@ -1,20 +1,39 @@
 import Link from "next/link";
 
-const footerLinks = [
-  { href: "/", label: "Home" },
-  { href: "/escrow", label: "Escrow" },
-  { href: "/acquisitions", label: "Acquisitions" },
-  { href: "/riddlers", label: "Riddlers" },
-  { href: "/people", label: "People" },
-  { href: "/richlist", label: "Rich List" },
-  { href: "/get-started", label: "Get Started" },
-  { href: "/donate", label: "Donate" },
+const footerSections = [
+  {
+    title: "Learn",
+    links: [
+      { href: "/learn#what-is-xrp", label: "What is XRP?" },
+      { href: "/escrow", label: "Escrow" },
+      { href: "/acquisitions", label: "Acquisitions" },
+      { href: "/riddlers", label: "Riddlers" },
+      { href: "/people", label: "Leadership" },
+      { href: "/learn/faq", label: "FAQ" },
+      { href: "/get-started", label: "Get Started" },
+    ],
+  },
+  {
+    title: "Track",
+    links: [
+      { href: "/live", label: "Live Charts" },
+      { href: "/live", label: "3D Globe" },
+      { href: "/richlist", label: "Rich List" },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      { href: "/", label: "X/Twitter Feed" },
+      { href: "/news", label: "News" },
+      { href: "/donate", label: "Donate" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative border-t border-surface-border/50 bg-surface-card/30 backdrop-blur-sm" role="contentinfo">
-      {/* Top accent line */}
       <div className="accent-line" />
 
       <div className="mx-auto max-w-7xl px-4 py-16">
@@ -34,23 +53,28 @@ export default function Footer() {
               All systems operational
             </div>
           </div>
-          <nav aria-label="Footer navigation">
-            <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-4">Navigation</p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-text-secondary transition-colors hover:text-xrp-accent">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+
+          <div className="flex flex-wrap gap-12">
+            {footerSections.map((section) => (
+              <nav key={section.title} aria-label={`${section.title} navigation`}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-4">{section.title}</p>
+                <ul className="space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.href + link.label}>
+                      <Link href={link.href} className="text-sm text-text-secondary transition-colors hover:text-xrp-accent">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
         <div className="mt-12 border-t border-surface-border/50 pt-8">
           <p className="text-xs leading-relaxed text-text-secondary/70">
-            © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice. 
-            Cryptocurrency investments carry significant risk. Always do your own research. XRP, the XRP Ledger, and Ripple are trademarks of their respective owners. 
+            © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice.
+            Cryptocurrency investments carry significant risk. Always do your own research. XRP, the XRP Ledger, and Ripple are trademarks of their respective owners.
             This website is not affiliated with or endorsed by Ripple Labs Inc.
           </p>
         </div>

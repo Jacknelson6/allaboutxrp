@@ -23,11 +23,11 @@ const menuSections: MenuSection[] = [
   {
     label: "Learn",
     items: [
-      { label: "What is XRP?", href: "/#what-is-xrp", description: "The basics of XRP and how it works" },
-      { label: "What is Ripple?", href: "/#what-is-ripple", description: "The company behind RippleNet" },
-      { label: "History & Timeline", href: "/#timeline", description: "Key milestones from 2011 to now" },
+      { label: "What is XRP?", href: "/learn#what-is-xrp", description: "The basics of XRP and how it works" },
+      { label: "What is Ripple?", href: "/learn#what-is-ripple", description: "The company behind RippleNet" },
+      { label: "History & Timeline", href: "/learn#timeline", description: "Key milestones from 2011 to now" },
       { label: "Escrow Explained", href: "/escrow", description: "How Ripple's 55B XRP escrow works" },
-      { label: "Partnerships", href: "/#vision", description: "Ripple's global partner network" },
+      { label: "Partnerships", href: "/learn#vision", description: "Ripple's global partner network" },
       { label: "Leadership Team", href: "/people", description: "Key people behind Ripple & XRPL" },
       { label: "Acquisitions", href: "/acquisitions", description: "Companies Ripple has acquired" },
       { label: "Riddlers & Lore", href: "/riddlers", description: "Community riddles and mysteries" },
@@ -58,7 +58,7 @@ const menuSections: MenuSection[] = [
     items: [
       { label: "X/Twitter Feed", href: "/", description: "Curated community feed" },
       { label: "Follow Checklist", href: "/#follow-checklist", description: "Track who you follow" },
-      { label: "Add/Suggest Accounts", href: "/#suggest", description: "Suggest accounts to feature" },
+      { label: "Suggest Accounts", href: "/#suggest", description: "Suggest accounts to feature" },
     ],
   },
   {

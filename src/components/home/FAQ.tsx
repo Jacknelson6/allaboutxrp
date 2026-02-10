@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { slugify } from "@/lib/utils/faq";
 
 interface FAQItem {
   question: string;
@@ -26,12 +28,18 @@ export default function FAQ({ items }: FAQProps) {
         <h2 className="font-display text-2xl font-bold text-text-primary md:text-3xl">
           Frequently Asked Questions
         </h2>
-        <p className="mt-2 text-text-secondary">Everything you need to know about XRP</p>
+        <p className="mt-2 text-text-secondary">
+          Everything you need to know about XRP.{" "}
+          <Link href="/learn/faq" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">
+            View all FAQ →
+          </Link>
+        </p>
       </motion.div>
 
       <div className="mt-8 space-y-2">
         {items.map((item, i) => {
           const isOpen = openIndex === i;
+          const slug = slugify(item.question);
           return (
             <motion.div
               key={i}
@@ -70,6 +78,12 @@ export default function FAQ({ items }: FAQProps) {
                   >
                     <div className="border-t border-surface-border/50 px-5 py-4">
                       <p className="text-text-secondary leading-relaxed">{item.answer}</p>
+                      <Link
+                        href={`/learn/faq/${slug}`}
+                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
+                      >
+                        Read More <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
                     </div>
                   </motion.div>
                 )}

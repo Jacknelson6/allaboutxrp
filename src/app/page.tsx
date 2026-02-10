@@ -1,20 +1,13 @@
 import { Metadata } from "next";
-import Hero from "@/components/home/Hero";
-import ContentSection from "@/components/home/ContentSection";
-import Timeline from "@/components/home/Timeline";
-import FAQ from "@/components/home/FAQ";
 import SEOSchema from "@/components/shared/SEOSchema";
-import Disclaimer from "@/components/shared/Disclaimer";
-import { getAllContent } from "@/lib/utils/markdown";
-import timelineData from "@/data/timeline.json";
-import faqData from "@/data/faq.json";
+import XFeed from "@/components/home/XFeed";
 
 export const metadata: Metadata = {
-  title: "What is XRP? Complete Guide to XRP & the XRP Ledger",
-  description: "Learn everything about XRP — what it is, who created it, how it works, its history, and why it matters. Your comprehensive XRP education resource.",
+  title: "AllAboutXRP — XRP Community Feed & Resources",
+  description: "Your XRP community hub — curated X/Twitter feed, follow checklist, live data, and comprehensive XRP education. Stay connected with the XRP ecosystem.",
   openGraph: {
-    title: "What is XRP? Complete Guide | AllAboutXRP",
-    description: "Everything you need to know about XRP — the digital asset built for fast, low-cost global payments.",
+    title: "AllAboutXRP — XRP Community Feed & Resources",
+    description: "Curated XRP community feed, education, and live data.",
     url: "https://allaboutxrp.com",
   },
 };
@@ -24,45 +17,14 @@ const organizationSchema = {
   "@type": "Organization",
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
-  description: "Comprehensive XRP education and data resource.",
+  description: "Comprehensive XRP community hub with curated feeds, education, and live data.",
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqData.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
-export default async function HomePage() {
-  const contents = await getAllContent();
-
+export default function HomePage() {
   return (
     <>
-      <SEOSchema schema={[organizationSchema, faqSchema]} />
-      <Hero />
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
-        <div className="relative mx-auto max-w-4xl px-4">
-          <Disclaimer />
-          {contents.map((content) => (
-            <ContentSection
-              key={content.slug}
-              id={content.slug}
-              title={content.title}
-              html={content.contentHtml}
-            />
-          ))}
-          <Timeline events={timelineData} />
-          <FAQ items={faqData} />
-        </div>
-      </div>
+      <SEOSchema schema={organizationSchema} />
+      <XFeed />
     </>
   );
 }
