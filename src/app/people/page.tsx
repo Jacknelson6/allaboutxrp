@@ -90,7 +90,7 @@ export default function PeoplePage() {
               aria-selected={filter === cat}
               onClick={() => setFilter(cat)}
               className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-                filter === cat ? "text-white" : "bg-surface-card text-text-secondary hover:bg-surface-elevated hover:text-text-primary"
+                filter === cat ? "text-white" : "bg-[#0A0A0B] text-text-secondary hover:bg-[#111113] hover:text-text-primary"
               }`}
             >
               {filter === cat && (
@@ -115,7 +115,7 @@ export default function PeoplePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: i * 0.02, duration: 0.3 }}
-                className="flex flex-col rounded-xl border border-surface-border bg-black p-5 "
+                className="flex flex-col rounded-xl border border-white/[0.06] bg-black p-5 "
               >
                 <div className="flex items-start gap-3">
                   <div className="relative">
@@ -124,7 +124,7 @@ export default function PeoplePage() {
                       alt={account.displayName}
                       width={48}
                       height={48}
-                      className="rounded-full ring-2 ring-surface-border"
+                      className="rounded-full ring-2 ring-white/[0.06]"
                       unoptimized
                     />
                     {account.verified && (
@@ -139,7 +139,7 @@ export default function PeoplePage() {
                     <h3 className="font-semibold text-text-primary truncate">{account.displayName}</h3>
                     <p className="text-sm text-text-secondary">@{account.handle}</p>
                   </div>
-                  <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[account.category] || "bg-surface-elevated text-text-secondary border-surface-border"}`}>
+                  <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[account.category] || "bg-[#111113] text-text-secondary border-white/[0.06]"}`}>
                     {data.categories[account.category]?.label || account.category}
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export default function PeoplePage() {
                 {account.tags.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-1">
                     {account.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="rounded-md bg-surface-primary px-2 py-0.5 text-[10px] text-text-secondary">
+                      <span key={tag} className="rounded-md bg-black px-2 py-0.5 text-[10px] text-text-secondary">
                         {tag}
                       </span>
                     ))}

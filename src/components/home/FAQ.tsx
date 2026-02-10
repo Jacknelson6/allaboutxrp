@@ -37,7 +37,7 @@ export default function FAQ({ items }: FAQProps) {
             <div
               key={i}
               className={`overflow-hidden rounded-lg border transition-colors ${
-                isOpen ? "border-xrp-accent/30" : "border-surface-border"
+                isOpen ? "border-xrp-accent/30" : "border-white/[0.06]"
               }`}
             >
               <button
@@ -51,7 +51,7 @@ export default function FAQ({ items }: FAQProps) {
                 <ChevronDown className={`h-4 w-4 shrink-0 transition-transform ${isOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
               </button>
               {isOpen && (
-                <div className="border-t border-surface-border px-4 py-3">
+                <div className="border-t border-white/[0.06] px-4 py-3">
                   <p className="text-sm text-text-secondary leading-relaxed">{item.answer}</p>
                   <Link
                     href={`/learn/faq/${slug}`}

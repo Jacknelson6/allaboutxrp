@@ -16,7 +16,7 @@ const footerSections = [
   {
     title: "Track",
     links: [
-      { href: "/live", label: "Live Charts" },
+      { href: "/charts", label: "Charts" },
       { href: "/live", label: "3D Globe" },
       { href: "/richlist", label: "Rich List" },
     ],
@@ -33,11 +33,11 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-black" role="contentinfo">
-      <div className="mx-auto max-w-7xl px-4 py-16">
-        <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-          <div className="max-w-sm">
-            <Link href="/" className="text-xl font-bold text-text-primary">
+    <footer className="border-t border-white/[0.06] bg-black" role="contentinfo">
+      <div className="mx-auto max-w-7xl px-5 py-16">
+        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
+          <div className="max-w-xs">
+            <Link href="/" className="text-[17px] font-semibold tracking-tight text-text-primary">
               All<span className="text-xrp-accent">About</span>XRP
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-text-secondary">
@@ -45,14 +45,14 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-14">
+          <div className="flex flex-wrap gap-16">
             {footerSections.map((section) => (
               <nav key={section.title} aria-label={`${section.title} navigation`}>
-                <p className="text-xs font-bold uppercase tracking-wider text-text-secondary/60 mb-4">{section.title}</p>
+                <p className="text-[11px] font-medium uppercase tracking-widest text-white/25 mb-4">{section.title}</p>
                 <ul className="space-y-2.5">
                   {section.links.map((link) => (
                     <li key={link.href + link.label}>
-                      <Link href={link.href} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+                      <Link href={link.href} className="text-[13px] text-text-secondary hover:text-text-primary transition-colors duration-200">
                         {link.label}
                       </Link>
                     </li>
@@ -65,7 +65,7 @@ export default function Footer() {
         
         <div className="section-divider mt-12 mb-6" />
         
-        <p className="text-xs text-text-secondary/50 leading-relaxed">
+        <p className="text-[11px] text-white/20 leading-relaxed">
           © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice.
           Cryptocurrency investments carry significant risk. Always do your own research. XRP, the XRP Ledger, and Ripple are trademarks of their respective owners.
           This website is not affiliated with or endorsed by Ripple Labs Inc.

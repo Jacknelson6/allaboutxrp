@@ -63,16 +63,16 @@ function EarthSphere() {
       {continentPoints.map((point, i) => (
         <mesh key={i} position={point}>
           <sphereGeometry args={[0.012, 6, 6]} />
-          <meshBasicMaterial color="#00A3FF" transparent opacity={0.6} />
+          <meshBasicMaterial color="#0085FF" transparent opacity={0.6} />
         </mesh>
       ))}
       <mesh>
         <sphereGeometry args={[1.05, 64, 64]} />
-        <meshBasicMaterial color="#00A3FF" transparent opacity={0.04} side={THREE.BackSide} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.04} side={THREE.BackSide} />
       </mesh>
       <mesh>
         <sphereGeometry args={[1.1, 64, 64]} />
-        <meshBasicMaterial color="#00A3FF" transparent opacity={0.02} side={THREE.BackSide} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.02} side={THREE.BackSide} />
       </mesh>
     </group>
   );
@@ -88,7 +88,7 @@ function GlobeScene({ arcs, onArcComplete }: GlobeSceneProps) {
     <>
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
-      <pointLight position={[-10, -10, -10]} intensity={0.2} color="#00A3FF" />
+      <pointLight position={[-10, -10, -10]} intensity={0.2} color="#0085FF" />
       <Stars radius={50} depth={50} count={3000} factor={3} saturation={0} fade speed={0.5} />
       <EarthSphere />
       {arcs.map(tx => (

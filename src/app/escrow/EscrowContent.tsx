@@ -64,7 +64,7 @@ export default function EscrowContent() {
           <Lock className="h-6 w-6" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-text-primary">
+          <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">
             XRP <span className="text-xrp-accent">Escrow</span>
           </h1>
           <p className="mt-1 text-text-secondary">
@@ -76,7 +76,7 @@ export default function EscrowContent() {
       {/* Section nav */}
       <nav className="mt-6 flex flex-wrap gap-2" aria-label="Page sections">
         {sections.map((s) => (
-          <a key={s.id} href={`#${s.id}`} className="rounded-full border border-surface-border px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
+          <a key={s.id} href={`#${s.id}`} className="rounded-full border border-white/[0.06] px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
             {s.label}
           </a>
         ))}
@@ -107,7 +107,7 @@ export default function EscrowContent() {
             { name: "EscrowFinish", desc: "Releases escrowed funds to the destination." },
             { name: "EscrowCancel", desc: "Returns funds if cancellation deadline has passed." },
           ].map((tx) => (
-            <div key={tx.name} className="rounded-lg border border-surface-border p-4">
+            <div key={tx.name} className="rounded-lg border border-white/[0.06] p-4">
               <code className="font-mono text-sm text-xrp-accent">{tx.name}</code>
               <p className="mt-1 text-sm text-text-secondary">{tx.desc}</p>
             </div>
@@ -115,16 +115,16 @@ export default function EscrowContent() {
         </div>
 
         <h3 className="mt-8 text-lg font-semibold text-text-primary">Types of Escrow</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-surface-border">
+        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-surface-border">
+            <thead className="border-b border-white/[0.06]">
               <tr>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">Type</th>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">How It Works</th>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">Example</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-surface-border">
+            <tbody className="divide-y divide-white/[0.04]">
               {escrowTypes.map((row) => (
                 <tr key={row.type} className="hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-xrp-accent">{row.type}</td>
@@ -156,7 +156,7 @@ export default function EscrowContent() {
             { label: "Trust", desc: "Ripple mathematically cannot access funds early" },
             { label: "Supply Ceiling", desc: "Hard cap of 1 billion XRP per month" },
           ].map((item) => (
-            <div key={item.label} className="flex gap-3 rounded-lg border border-surface-border p-3">
+            <div key={item.label} className="flex gap-3 rounded-lg border border-white/[0.06] p-3">
               <CheckCircle className="h-4 w-4 shrink-0 text-success mt-0.5" />
               <div>
                 <p className="font-semibold text-text-primary text-sm">{item.label}</p>
@@ -169,7 +169,7 @@ export default function EscrowContent() {
 
       {/* Monthly Releases */}
       <Section id="monthly-releases" title="Monthly Escrow Releases">
-        <div className="rounded-lg border border-surface-border p-5">
+        <div className="rounded-lg border border-white/[0.06] p-5">
           <div className="flex items-center gap-2">
             <Unlock className="h-5 w-5 text-xrp-accent" />
             <h3 className="font-semibold text-text-primary">How It Works</h3>
@@ -178,12 +178,12 @@ export default function EscrowContent() {
             On the <strong className="text-text-primary">1st of every month</strong>, escrow contracts unlock up to <span className="font-mono text-xrp-accent">1,000,000,000 XRP</span>. <strong className="text-text-primary">Unlocked ≠ sold</strong>.
           </p>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
-            <div className="flex items-center gap-2 rounded-lg border border-surface-border px-3 py-2">
+            <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
               <span className="text-xs text-text-secondary">Keep:</span>
               <span className="font-mono text-sm text-warning">200-300M</span>
             </div>
             <ArrowRight className="hidden h-4 w-4 text-text-secondary sm:block" />
-            <div className="flex items-center gap-2 rounded-lg border border-surface-border px-3 py-2">
+            <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
               <span className="text-xs text-text-secondary">Re-escrow:</span>
               <span className="font-mono text-sm text-success">700-800M</span>
             </div>
@@ -191,16 +191,16 @@ export default function EscrowContent() {
         </div>
 
         <h3 className="mt-6 text-lg font-semibold text-text-primary">Historical Pattern</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-surface-border">
+        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-surface-border">
+            <thead className="border-b border-white/[0.06]">
               <tr>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">Period</th>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">Monthly Pattern</th>
                 <th className="px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-secondary">Notes</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-surface-border">
+            <tbody className="divide-y divide-white/[0.04]">
               {historicalData.map((row) => (
                 <tr key={row.period} className="hover:bg-white/[0.02] transition-colors">
                   <td className="px-4 py-3 font-mono text-xs text-xrp-accent whitespace-nowrap">{row.period}</td>
@@ -222,7 +222,7 @@ export default function EscrowContent() {
             { label: "Schedule", value: "Fixed", sub: "1st of every month" },
             { label: "Deflationary offset", value: "14.26M burned", sub: "Fees burn XRP permanently" },
           ].map((item) => (
-            <div key={item.label} className="rounded-lg border border-surface-border p-4">
+            <div key={item.label} className="rounded-lg border border-white/[0.06] p-4">
               <p className="text-xs uppercase tracking-wider text-text-secondary">{item.label}</p>
               <p className="mt-1 font-mono text-xl font-bold text-text-primary">{item.value}</p>
               <p className="mt-1 text-xs text-text-secondary">{item.sub}</p>
@@ -244,9 +244,9 @@ export default function EscrowContent() {
       {/* Tracker */}
       <Section id="tracker" title="Escrow Tracker & Data">
         <h3 className="text-lg font-semibold text-text-primary">Key Numbers (February 2026)</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-surface-border">
+        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
           <table className="w-full text-left text-sm">
-            <tbody className="divide-y divide-surface-border">
+            <tbody className="divide-y divide-white/[0.04]">
               {[
                 ["Total XRP Supply", "100,000,000,000"],
                 ["Circulating Supply", "~60,000,000,000"],
@@ -268,7 +268,7 @@ export default function EscrowContent() {
         <h3 className="mt-6 text-lg font-semibold text-text-primary">Where to Track</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {trackerTools.map((t) => (
-            <a key={t.tool} href={t.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-surface-border p-3 hover:border-xrp-accent/30 transition-colors">
+            <a key={t.tool} href={t.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-white/[0.06] p-3 hover:border-xrp-accent/30 transition-colors">
               <Eye className="h-4 w-4 shrink-0 text-xrp-accent mt-0.5" />
               <div className="flex-1">
                 <p className="font-semibold text-text-primary text-sm">{t.tool}</p>
@@ -284,7 +284,7 @@ export default function EscrowContent() {
       <Section id="misconceptions" title="Common Misconceptions">
         <div className="space-y-3">
           {misconceptions.map((m, i) => (
-            <div key={i} className="rounded-lg border border-surface-border p-4">
+            <div key={i} className="rounded-lg border border-white/[0.06] p-4">
               <div className="flex items-start gap-3">
                 <XCircle className="h-5 w-5 text-danger shrink-0 mt-0.5" />
                 <div>
@@ -305,7 +305,7 @@ export default function EscrowContent() {
           {faqItems.map((item, i) => {
             const isOpen = openFaq === i;
             return (
-              <div key={i} className={`rounded-lg border transition-colors ${isOpen ? "border-xrp-accent/30" : "border-surface-border"}`}>
+              <div key={i} className={`rounded-lg border transition-colors ${isOpen ? "border-xrp-accent/30" : "border-white/[0.06]"}`}>
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : i)}
                   className="flex w-full items-center justify-between px-4 py-3 text-left"
@@ -315,7 +315,7 @@ export default function EscrowContent() {
                   <ChevronDown className={`h-4 w-4 shrink-0 transition-transform ${isOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
                 </button>
                 {isOpen && (
-                  <div className="border-t border-surface-border px-4 py-3">
+                  <div className="border-t border-white/[0.06] px-4 py-3">
                     <p className="text-sm text-text-secondary leading-relaxed">{item.a}</p>
                   </div>
                 )}
@@ -341,7 +341,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
   return (
     <section id={id} className="py-10 scroll-mt-20" aria-label={title}>
       <div className="section-divider mb-8" />
-      <h2 className="text-2xl font-bold text-text-primary">{title}</h2>
+      <h2 className="text-[24px] font-bold tracking-[-0.03em] text-text-primary">{title}</h2>
       <div className="mt-5">{children}</div>
     </section>
   );

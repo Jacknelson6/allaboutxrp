@@ -37,7 +37,7 @@ const mockDistribution: Distribution[] = [
   { range: "10M+", accounts: 500, totalXrp: 65000000000 },
 ];
 
-const SUPPLY_COLORS = ["#00A3FF", "#00BA7C", "#F7B928", "#2F3336"];
+const SUPPLY_COLORS = ["#0085FF", "#00BA7C", "#F7B928", "rgba(255,255,255,0.08)"];
 const timeRanges = ["24H", "7D", "30D", "90D"] as const;
 
 const datasetSchema = {
@@ -50,10 +50,10 @@ const datasetSchema = {
 };
 
 const tooltipStyle = {
-  background: "#000",
-  border: "1px solid #2F3336",
-  borderRadius: 8,
-  color: "#E7E9EA",
+  background: "#0A0A0B",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: 10,
+  color: "#F0F0F0",
   fontSize: 12,
   padding: "8px 12px",
 };
@@ -83,18 +83,15 @@ export default function RichListPage() {
     <>
       <SEOSchema schema={datasetSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <div className="flex items-center gap-3">
-          <Activity className="h-5 w-5 text-xrp-accent" />
-          <div>
-            <h1 className="text-3xl font-bold text-text-primary">XRP Rich List & Market Data</h1>
-            <p className="mt-1 text-text-secondary">Live XRP metrics, whale wallets, and supply distribution</p>
-          </div>
+        <div>
+          <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">XRP Rich List & Market Data</h1>
+          <p className="mt-1.5 text-[14px] text-text-secondary">Live XRP metrics, whale wallets, and supply distribution</p>
         </div>
 
         <div className="mt-6"><Disclaimer /></div>
 
         {/* Stats */}
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard label="XRP Price" value={formatCurrency(currentPrice, 4)} change={formatPercent(change)} positive={change >= 0} icon={<DollarSign className="h-4 w-4" />} />
           <StatCard label="Market Cap" value={formatCompact(currentPrice * 57600000000)} icon={<TrendingUp className="h-4 w-4" />} />
           <StatCard label="24h Volume" value={formatCompact(2100000000)} icon={<BarChart3 className="h-4 w-4" />} />
@@ -102,7 +99,7 @@ export default function RichListPage() {
         </div>
 
         {/* Price Chart */}
-        <section className="mt-6 rounded-xl border border-surface-border p-5" aria-label="Price chart">
+        <section className="mt-6 rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5" aria-label="Price chart">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-lg font-bold text-text-primary">Price Chart</h2>
@@ -113,7 +110,7 @@ export default function RichListPage() {
                 <button
                   key={t}
                   onClick={() => setRange(t)}
-                  className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+                  className={`rounded-lg px-3 py-1 text-xs font-medium transition-all duration-200 ${
                     range === t ? "bg-xrp-accent text-white" : "text-text-secondary hover:text-text-primary"
                   }`}
                 >
@@ -127,14 +124,14 @@ export default function RichListPage() {
               <AreaChart data={mockPriceHistory} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#00A3FF" stopOpacity={0.2} />
-                    <stop offset="100%" stopColor="#00A3FF" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#0085FF" stopOpacity={0.2} />
+                    <stop offset="100%" stopColor="#0085FF" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} tickFormatter={(v: number) => `$${v.toFixed(2)}`} />
                 <Tooltip contentStyle={tooltipStyle} />
-                <Area type="monotone" dataKey="price" stroke="#00A3FF" strokeWidth={2} fill="url(#priceGrad)" dot={false} activeDot={{ r: 4, fill: "#00A3FF", stroke: "#000", strokeWidth: 2 }} />
+                <Area type="monotone" dataKey="price" stroke="#0085FF" strokeWidth={2} fill="url(#priceGrad)" dot={false} activeDot={{ r: 4, fill: "#0085FF", stroke: "#000", strokeWidth: 2 }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -148,8 +145,8 @@ export default function RichListPage() {
               <span className="inline-flex h-2 w-2 rounded-full bg-success mr-1" />LIVE
             </span>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-surface-border">
-            <div className="grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-surface-border px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-secondary min-w-[600px]">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
+            <div className="grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-secondary min-w-[600px]">
               <div>Rank</div>
               <div>Address</div>
               <div>Label</div>
@@ -157,7 +154,7 @@ export default function RichListPage() {
               <div className="text-right">% Supply</div>
             </div>
             {mockRichList.map((entry) => (
-              <div key={entry.rank} className="terminal-row grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-surface-border px-4 py-3 min-w-[600px]">
+              <div key={entry.rank} className="terminal-row grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 min-w-[600px]">
                 <div className="font-mono text-sm text-text-secondary">#{entry.rank}</div>
                 <div className="font-mono text-xs text-xrp-accent truncate">{shortenAddress(entry.address)}</div>
                 <div>
@@ -178,7 +175,7 @@ export default function RichListPage() {
 
         {/* Distribution & Supply Charts */}
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
-          <section className="rounded-xl border border-surface-border p-5" aria-label="Distribution chart">
+          <section className="rounded-xl border border-white/[0.06] p-5" aria-label="Distribution chart">
             <h2 className="text-lg font-bold text-text-primary">Holder Distribution</h2>
             <p className="text-xs text-text-secondary mb-4">Accounts by XRP balance range</p>
             <div className="h-56">
@@ -187,13 +184,13 @@ export default function RichListPage() {
                   <XAxis dataKey="range" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} tickFormatter={(v: number) => v >= 1000000 ? `${(v/1000000).toFixed(0)}M` : v >= 1000 ? `${(v/1000).toFixed(0)}K` : String(v)} />
                   <Tooltip contentStyle={tooltipStyle} />
-                  <Bar dataKey="accounts" fill="#00A3FF" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="accounts" fill="#0085FF" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </section>
 
-          <section className="rounded-xl border border-surface-border p-5" aria-label="Supply breakdown">
+          <section className="rounded-xl border border-white/[0.06] p-5" aria-label="Supply breakdown">
             <h2 className="text-lg font-bold text-text-primary">Supply Breakdown</h2>
             <p className="text-xs text-text-secondary mb-4">100 billion total XRP</p>
             <div className="h-48">
@@ -210,7 +207,7 @@ export default function RichListPage() {
             </div>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {supplyData.map((item, i) => (
-                <div key={item.name} className="flex items-center gap-2 rounded-lg border border-surface-border px-3 py-2">
+                <div key={item.name} className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
                   <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: SUPPLY_COLORS[i] }} />
                   <span className="text-xs text-text-secondary">{item.name}</span>
                   <span className="ml-auto font-mono text-xs font-semibold text-text-primary">{item.value}B</span>

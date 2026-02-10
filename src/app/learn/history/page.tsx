@@ -123,15 +123,15 @@ export default function HistoryPage() {
               {years.map((year) => (
                 <div key={year}>
                   <h3 className="text-xl font-bold text-xrp-accent">{year}</h3>
-                  <div className="mt-4 space-y-4 border-l-2 border-surface-border pl-6">
+                  <div className="mt-4 space-y-4 border-l-2 border-white/[0.06] pl-6">
                     {eventsByYear[year].map((event, i) => (
                       <div key={`${event.date}-${i}`} className="relative">
-                        <div className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-surface-border bg-surface-primary" />
+                        <div className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-white/[0.06] bg-black" />
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="text-xs font-mono text-text-secondary">
                             {new Date(event.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric" })}
                           </span>
-                          <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[event.category] || "bg-surface-elevated text-text-secondary border-surface-border"}`}>
+                          <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[event.category] || "bg-[#111113] text-text-secondary border-white/[0.06]"}`}>
                             {event.category}
                           </span>
                           {event.significance === "high" ? (
@@ -228,7 +228,7 @@ export default function HistoryPage() {
                 { num: "4", title: "Torres Ruling (July 2023)", desc: "XRP on exchanges ruled not a security — a watershed moment for all of crypto, leading to immediate relistings." },
                 { num: "5", title: "Institutional Infrastructure (2025)", desc: "Ripple's $3.7B acquisition spree transformed it from a payments startup into a full-stack financial infrastructure provider." },
               ].map((item) => (
-                <div key={item.num} className="flex gap-4 rounded-xl border border-surface-border/60 bg-black p-5 ">
+                <div key={item.num} className="flex gap-4 rounded-xl border border-white/[0.06]/60 bg-black p-5 ">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-xrp-accent/10 font-mono text-sm font-bold text-xrp-accent">{item.num}</span>
                   <div>
                     <h3 className="font-semibold text-text-primary">{item.title}</h3>

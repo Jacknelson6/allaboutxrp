@@ -17,7 +17,7 @@ export default function LiveContent() {
   const [showFeed, setShowFeed] = useState(true);
 
   return (
-    <div className="fixed inset-0 flex flex-col bg-[#0D1117] z-40">
+    <div className="fixed inset-0 flex flex-col bg-[#000000] z-40">
       {/* Stats Bar */}
       <StatsBar stats={stats} />
 
@@ -32,10 +32,10 @@ export default function LiveContent() {
           {/* Logo overlay */}
           <div className="absolute top-4 left-4 z-10">
             <h1 className="text-2xl font-bold tracking-tight font-display">
-              <span className="text-[#F0F6FC]">All About </span>
-              <span className="text-[#00A3FF]">XRP</span>
+              <span className="text-[#F0F0F0]">All About </span>
+              <span className="text-[#0085FF]">XRP</span>
             </h1>
-            <p className="text-[10px] text-[#8b949e] font-mono tracking-widest uppercase mt-0.5">
+            <p className="text-[10px] text-[#888888] font-mono tracking-widest uppercase mt-0.5">
               Real-Time XRPL Visualizer
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function LiveContent() {
           {/* Back to site link */}
           <a
             href="/"
-            className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-[#161B22] border border-[#30363d] rounded-lg text-xs font-mono text-[#8b949e] hover:text-[#F0F6FC] hover:border-[#00A3FF]/50 transition-colors"
+            className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-xs font-mono text-[#888888] hover:text-[#F0F0F0] hover:border-[#0085FF]/50 transition-colors"
           >
             ← Back to Site
           </a>
@@ -51,14 +51,14 @@ export default function LiveContent() {
           {/* Mobile toggle */}
           <button
             onClick={() => setShowFeed(!showFeed)}
-            className="absolute bottom-4 right-4 z-10 md:hidden px-3 py-1.5 bg-[#161B22] border border-[#30363d] rounded-lg text-xs font-mono text-[#8b949e]"
+            className="absolute bottom-4 right-4 z-10 md:hidden px-3 py-1.5 bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-xs font-mono text-[#888888]"
           >
             {showFeed ? 'Hide Feed' : 'Show Feed'}
           </button>
 
           {/* Powered by */}
           <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2">
-            <span className="text-[10px] text-[#8b949e] font-mono tracking-wider">
+            <span className="text-[10px] text-[#888888] font-mono tracking-wider">
               Powered by XRPL
             </span>
           </div>
@@ -67,7 +67,7 @@ export default function LiveContent() {
         {/* Transaction Feed Sidebar */}
         <div
           className={`
-            w-80 bg-[#161B22]/95  border-l border-[#30363d]
+            w-80 bg-[#0A0A0B]/95  border-l border-[rgba(255,255,255,0.08)]
             transition-transform duration-300
             ${showFeed ? 'translate-x-0' : 'translate-x-full'}
             fixed md:relative right-0 top-0 bottom-0 md:translate-x-0 z-20

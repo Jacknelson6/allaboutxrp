@@ -24,7 +24,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             className={`overflow-hidden rounded-xl border transition-colors duration-300 ${
               isOpen
                 ? "border-xrp-accent/30 bg-xrp-accent/[0.03]"
-                : "border-surface-border bg-black hover:bg-surface-card"
+                : "border-white/[0.06] bg-black hover:bg-[#0A0A0B]"
             }`}
           >
             <button
@@ -47,7 +47,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="border-t border-surface-border/50 px-5 py-4">
+                  <div className="border-t border-white/[0.06]/50 px-5 py-4">
                     <p className="text-text-secondary leading-relaxed">{item.answer}</p>
                     <Link
                       href={`/learn/faq/${item.slug}`}

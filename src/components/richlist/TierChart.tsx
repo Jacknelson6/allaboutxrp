@@ -1,7 +1,7 @@
 "use client";
 
 const TIERS = [
-  { name: "Plankton", emoji: "🫧", min: 0, max: 10, color: "#00A3FF" },
+  { name: "Plankton", emoji: "🫧", min: 0, max: 10, color: "#0085FF" },
   { name: "Seahorse", emoji: "🪸", min: 10, max: 100, color: "#00BA7C" },
   { name: "Starfish", emoji: "⭐", min: 100, max: 500, color: "#a855f7" },
   { name: "Swordfish", emoji: "🐡", min: 500, max: 1000, color: "#22d3ee" },
@@ -15,7 +15,7 @@ export { TIERS };
 
 export default function TierChart() {
   return (
-    <section className="mt-8 rounded-xl border border-surface-border p-6" aria-label="XRP Holder Tiers">
+    <section className="mt-8 rounded-xl border border-white/[0.06] p-6" aria-label="XRP Holder Tiers">
       <h2 className="text-xl font-bold text-text-primary mb-1">XRP Holder Tiers</h2>
       <p className="text-sm text-text-secondary mb-6">Community-created XRP holder rankings</p>
 
@@ -23,7 +23,7 @@ export default function TierChart() {
         {TIERS.map((tier) => (
           <div
             key={tier.name}
-            className="flex items-center gap-4 rounded-lg border border-surface-border p-3 hover:bg-white/[0.02] transition-colors"
+            className="flex items-center gap-4 rounded-lg border border-white/[0.06] p-3 hover:bg-white/[0.02] transition-colors"
           >
             <div className="text-2xl shrink-0">{tier.emoji}</div>
             <div className="flex-1 min-w-0">

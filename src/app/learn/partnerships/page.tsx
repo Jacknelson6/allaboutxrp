@@ -203,12 +203,12 @@ export default function PartnershipsPage() {
                     className={`rounded-xl border p-4  transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
                       partner.highlight
                         ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
-                        : "border-surface-border/60 bg-black hover:border-xrp-accent/20"
+                        : "border-white/[0.06]/60 bg-black hover:border-xrp-accent/20"
                     }`}
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="font-semibold text-text-primary">{partner.name}</h3>
-                      <span className="rounded-full border border-surface-border bg-surface-elevated px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{partner.type}</span>
+                      <span className="rounded-full border border-white/[0.06] bg-[#111113] px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{partner.type}</span>
                       <span className="text-xs text-text-secondary">{partner.region}</span>
                     </div>
                     <p className="mt-2 text-sm text-text-secondary leading-relaxed">{partner.description}</p>

@@ -73,7 +73,7 @@ export default function NewsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-4 rounded-2xl border border-surface-border bg-black p-8 "
+          className="mt-4 rounded-2xl border border-white/[0.06] bg-black p-8 "
         >
           <div className="flex flex-col items-center justify-center py-12 text-center">
             <div className="rounded-2xl bg-xrp-accent/10 p-5 mb-6 ">
@@ -110,9 +110,9 @@ export default function NewsPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.05 }}
-                className="flex items-center gap-3 rounded-xl border border-surface-border bg-black p-4 "
+                className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-black p-4 "
               >
-                <div className="h-10 w-10 rounded-full bg-surface-elevated flex items-center justify-center text-xs font-bold text-xrp-accent">
+                <div className="h-10 w-10 rounded-full bg-[#111113] flex items-center justify-center text-xs font-bold text-xrp-accent">
                   X
                 </div>
                 <div className="flex-1 min-w-0">

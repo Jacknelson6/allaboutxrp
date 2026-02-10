@@ -2,38 +2,42 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Color System — X.com inspired minimal dark */
-  --color-xrp-blue: #00A3FF;
-  --color-xrp-accent: #00A3FF;
-  --color-xrp-accent-dim: #0088CC;
-  --color-xrp-accent-bright: #4DC9FF;
+  /* Color System — Linear-inspired minimal dark */
+  --color-xrp-blue: #0085FF;
+  --color-xrp-accent: #0085FF;
+  --color-xrp-accent-dim: #0070DD;
+  --color-xrp-accent-bright: #3DA5FF;
   --color-surface-primary: #000000;
-  --color-surface-card: #000000;
-  --color-surface-elevated: #0A0A0A;
-  --color-surface-border: #2F3336;
-  --color-text-primary: #E7E9EA;
-  --color-text-secondary: #71767B;
-  --color-text-accent: #00A3FF;
+  --color-surface-card: #0A0A0B;
+  --color-surface-elevated: #111113;
+  --color-surface-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #888888;
+  --color-text-accent: #0085FF;
   --color-success: #00BA7C;
   --color-warning: #F7B928;
   --color-danger: #F4212E;
 
-  /* Typography — Clean sans-serif */
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Typography — Inter (Linear's font) */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-  /* Animations — minimal */
-  --animate-fade-in: fade-in 0.3s ease;
+  /* Animations */
+  --animate-fade-in: fade-in 0.4s ease;
   --animate-ticker: ticker 0.3s ease;
 
   @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   @keyframes ticker {
     0% { opacity: 0; transform: translateY(4px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
@@ -51,10 +55,12 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 ::selection {
-  background-color: rgba(0, 163, 255, 0.25);
+  background-color: rgba(0, 133, 255, 0.25);
   color: var(--color-text-primary);
 }
 
@@ -87,61 +93,97 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(113, 118, 123, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(113, 118, 123, 0.5);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================
-   BUTTON SYSTEM — Clean, flat
+   HEADINGS — Linear tight letter-spacing
+   ========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+h1 { font-weight: 700; }
+
+/* ==========================================
+   BUTTON SYSTEM — Clean, rounded, Linear-style
    ========================================== */
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.5rem;
   background: var(--color-xrp-accent);
   color: white;
-  font-weight: 700;
-  border-radius: 9999px;
+  font-weight: 500;
+  border-radius: 0.625rem;
   font-size: 0.875rem;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: none;
 }
 
 .btn-primary:hover {
   background: var(--color-xrp-accent-bright);
+  box-shadow: 0 0 20px rgba(0, 133, 255, 0.2);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.5rem;
   background: transparent;
   color: var(--color-text-primary);
-  font-weight: 700;
-  border-radius: 9999px;
-  border: 1px solid var(--color-surface-border);
+  font-weight: 500;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.875rem;
-  transition: background 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(231, 233, 234, 0.1);
-  border-color: rgba(231, 233, 234, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================
-   SECTION DIVIDER — Simple border
+   SECTION DIVIDER — Subtle
    ========================================== */
 
 .section-divider {
   height: 1px;
-  background: var(--color-surface-border);
+  background: rgba(255, 255, 255, 0.06);
 }
+
+/* ==========================================
+   SCROLL REVEAL — CSS-only fade-up
+   ========================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
 
 /* ==========================================
    STAT REFRESH ANIMATION
@@ -152,14 +194,14 @@ body {
 }
 
 /* ==========================================
-   TERMINAL ROW — Subtle hover
+   TABLE ROW HOVER — Subtle
    ========================================== */
 
 .terminal-row {
-  transition: background 0.15s;
+  transition: background 0.15s ease;
 }
 .terminal-row:hover {
-  background-color: rgba(231, 233, 234, 0.03);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 /* ==========================================
@@ -167,7 +209,7 @@ body {
    ========================================== */
 
 .shimmer {
-  background: linear-gradient(90deg, transparent 25%, rgba(47, 51, 54, 0.5) 50%, transparent 75%);
+  background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.05) 50%, transparent 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s linear infinite;
 }
@@ -175,6 +217,44 @@ body {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+/* ==========================================
+   CARD — Linear-style
+   ========================================== */
+
+.linear-card {
+  background: var(--color-surface-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  transition: all 0.25s ease;
+}
+
+.linear-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================
+   HERO GLOW — Subtle radial gradient
+   ========================================== */
+
+.hero-glow {
+  position: relative;
+}
+
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(0, 133, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ==========================================
@@ -189,11 +269,12 @@ body {
 
 .prose-editorial h2 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-primary);
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  letter-spacing: -0.03em;
 }
 
 .prose-editorial h3 {
@@ -203,6 +284,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
+  letter-spacing: -0.02em;
 }
 
 .prose-editorial p {
@@ -237,6 +319,8 @@ body {
   padding: 0.75rem 1.25rem;
   margin: 1.5rem 0;
   color: var(--color-text-primary);
+  background: rgba(0, 133, 255, 0.03);
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 /* ==========================================
@@ -250,7 +334,7 @@ body {
   background: transparent;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--color-surface-border);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
 }
 

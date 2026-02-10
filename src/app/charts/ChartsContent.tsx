@@ -40,15 +40,15 @@ export default function ChartsContent() {
           theme: 'dark',
           style: '1',
           locale: 'en',
-          toolbar_bg: '#0D1117',
+          toolbar_bg: '#000000',
           enable_publishing: false,
           allow_symbol_change: true,
           hide_side_toolbar: false,
           withdateranges: true,
           save_image: false,
           autosize: true,
-          backgroundColor: '#0D1117',
-          gridColor: '#161B22',
+          backgroundColor: '#000000',
+          gridColor: '#111113',
         });
       }
     };
@@ -65,17 +65,17 @@ export default function ChartsContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D1117]">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-[#F0F6FC] font-display">
-            XRP <span className="text-[#00A3FF]">Charts</span>
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto px-5 py-12">
+        <div className="mb-8">
+          <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">
+            XRP <span className="text-xrp-accent">Charts</span>
           </h1>
-          <p className="text-sm text-[#8b949e] mt-1 font-mono">Live price data powered by TradingView</p>
+          <p className="text-[14px] text-text-secondary mt-1.5">Live price data powered by TradingView</p>
         </div>
 
         {/* TradingView Chart */}
-        <div className="rounded-xl border border-[#30363d] overflow-hidden bg-[#161B22]">
+        <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B]">
           <div
             id="tradingview-chart"
             ref={containerRef}
@@ -84,21 +84,21 @@ export default function ChartsContent() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <StatCard
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+          <ChartStatCard
             label="Price"
             value={price ? `$${price.usd.toFixed(4)}` : '—'}
           />
-          <StatCard
+          <ChartStatCard
             label="24h Change"
             value={price ? `${price.usdChange24h >= 0 ? '+' : ''}${price.usdChange24h.toFixed(2)}%` : '—'}
-            color={price ? (price.usdChange24h >= 0 ? '#3FB950' : '#F85149') : undefined}
+            color={price ? (price.usdChange24h >= 0 ? '#00BA7C' : '#F4212E') : undefined}
           />
-          <StatCard
+          <ChartStatCard
             label="24h Volume"
             value={price ? formatNum(price.usdVolume24h) : '—'}
           />
-          <StatCard
+          <ChartStatCard
             label="Market Cap"
             value={price ? formatNum(price.usdMarketCap) : '—'}
           />
@@ -108,11 +108,11 @@ export default function ChartsContent() {
   );
 }
 
-function StatCard({ label, value, color }: { label: string; value: string; color?: string }) {
+function ChartStatCard({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
-    <div className="rounded-xl border border-[#30363d] bg-[#161B22] p-4">
-      <p className="text-[11px] text-[#8b949e] font-mono uppercase tracking-wider mb-1">{label}</p>
-      <p className="text-lg font-bold font-mono" style={{ color: color || '#F0F6FC' }}>{value}</p>
+    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 transition-all duration-250 hover:border-white/[0.1]">
+      <p className="text-[11px] text-white/30 font-medium uppercase tracking-widest mb-1">{label}</p>
+      <p className="text-lg font-bold font-mono tracking-tight" style={{ color: color || '#F0F0F0' }}>{value}</p>
     </div>
   );
 }

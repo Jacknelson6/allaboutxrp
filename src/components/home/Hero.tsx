@@ -5,13 +5,18 @@ import PriceWidget from "../shared/PriceWidget";
 
 export default function Hero() {
   return (
-    <section className="py-20 md:py-32" aria-label="Hero">
-      <div className="mx-auto max-w-3xl px-4 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight text-text-primary md:text-6xl">
+    <section className="relative overflow-hidden py-20 md:py-28" aria-label="Hero">
+      {/* Subtle radial glow */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(0,133,255,0.06)_0%,transparent_70%)]" />
+      </div>
+
+      <div className="relative mx-auto max-w-3xl px-5 text-center">
+        <h1 className="text-[40px] font-bold tracking-[-0.04em] leading-[1.1] text-text-primary md:text-[56px]">
           What is <span className="text-xrp-accent">XRP</span>?
         </h1>
 
-        <p className="mx-auto mt-5 max-w-xl text-lg text-text-secondary">
+        <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-text-secondary">
           Your comprehensive guide to XRP — the digital asset powering fast, 
           low-cost global payments.
         </p>

@@ -15,11 +15,11 @@ export default function TierFAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="mt-6 rounded-xl border border-surface-border p-5" aria-label="FAQ">
+    <section className="mt-6 rounded-xl border border-white/[0.06] p-5" aria-label="FAQ">
       <h2 className="text-lg font-bold text-text-primary mb-4">Frequently Asked Questions</h2>
       <div className="space-y-2">
         {faqs.map((faq, i) => (
-          <div key={i} className="border-b border-surface-border last:border-0">
+          <div key={i} className="border-b border-white/[0.06] last:border-0">
             <button
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex items-center justify-between py-3 text-left text-sm text-text-primary hover:text-xrp-accent transition-colors"

@@ -57,38 +57,56 @@ export default function MegaMenu() {
     timeoutRef.current = setTimeout(() => setLearnOpen(false), 150);
   };
 
-  const linkClass = (href: string) =>
-    `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-      pathname === href || pathname.startsWith(href + "/")
-        ? "text-text-primary"
-        : "text-text-secondary hover:text-text-primary"
-    }`;
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
     <nav
-      className="sticky top-0 z-50 border-b border-surface-border bg-black"
+      className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/90 backdrop-blur-xl"
       aria-label="Main navigation"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-text-primary">
+        <Link href="/" className="text-[17px] font-semibold tracking-tight text-text-primary">
           All<span className="text-xrp-accent">About</span>XRP
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
-          <Link href="/live" className={linkClass("/live")}>
-            <span className="flex items-center gap-1.5">
-              <Globe className="h-3.5 w-3.5" />
-              Globe
-            </span>
+        <div className="hidden items-center gap-0.5 lg:flex">
+          <Link
+            href="/live"
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/live") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            <Globe className="h-3.5 w-3.5" />
+            Globe
           </Link>
 
-          <Link href="/richlist" className={linkClass("/richlist")}>
+          <Link
+            href="/charts"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/charts") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            Charts
+          </Link>
+
+          <Link
+            href="/richlist"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/richlist") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
             Rich List
           </Link>
 
-          <Link href="/news/recaps" className={linkClass("/news")}>
+          <Link
+            href="/news/recaps"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/news") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
             Analysis
           </Link>
 
@@ -100,8 +118,8 @@ export default function MegaMenu() {
             onMouseLeave={handleMouseLeave}
           >
             <button
-              className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                learnOpen || pathname.startsWith("/learn")
+              className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+                learnOpen || pathname.startsWith("/learn") || isActive("/escrow") || isActive("/riddlers") || isActive("/acquisitions")
                   ? "text-text-primary"
                   : "text-text-secondary hover:text-text-primary"
               }`}
@@ -109,12 +127,12 @@ export default function MegaMenu() {
               aria-expanded={learnOpen}
             >
               Learn
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${learnOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${learnOpen ? "rotate-180" : ""}`} />
             </button>
 
             {learnOpen && (
               <div
-                className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-surface-border bg-black py-1"
+                className="absolute left-0 top-full z-50 mt-2 min-w-[200px] rounded-lg border border-white/[0.08] bg-[#0A0A0B] py-1.5 shadow-2xl"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -122,7 +140,11 @@ export default function MegaMenu() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block px-4 py-2 text-sm text-text-secondary hover:bg-white/[0.03] hover:text-text-primary transition-colors"
+                    className={`block px-4 py-2 text-[13px] transition-colors duration-150 ${
+                      isActive(item.href)
+                        ? "text-xrp-accent bg-xrp-accent/5"
+                        : "text-text-secondary hover:text-text-primary hover:bg-white/[0.03]"
+                    }`}
                     onClick={() => setLearnOpen(false)}
                   >
                     {item.label}
@@ -134,7 +156,7 @@ export default function MegaMenu() {
 
           <Link
             href="/donate"
-            className="ml-2 rounded-full bg-xrp-accent px-4 py-1.5 text-sm font-bold text-white hover:bg-xrp-accent-bright transition-colors"
+            className="ml-3 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-[13px] font-medium text-text-primary transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.12]"
           >
             Donate
           </Link>
@@ -159,21 +181,29 @@ export default function MegaMenu() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-[53px] z-40 overflow-y-auto bg-black lg:hidden">
-          <div className="flex flex-col px-4 py-4 gap-1">
+        <div className="fixed inset-0 top-[49px] z-40 overflow-y-auto bg-black lg:hidden">
+          <div className="flex flex-col px-5 py-6 gap-0.5">
             <Link
               href="/live"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+              className="flex items-center gap-2.5 py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
             >
-              <Globe className="h-4 w-4" />
+              <Globe className="h-4 w-4 text-text-secondary" />
               Globe
+            </Link>
+
+            <Link
+              href="/charts"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
+            >
+              Charts
             </Link>
 
             <Link
               href="/richlist"
               onClick={() => setMobileOpen(false)}
-              className="py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
             >
               Rich List
             </Link>
@@ -181,31 +211,31 @@ export default function MegaMenu() {
             <Link
               href="/news/recaps"
               onClick={() => setMobileOpen(false)}
-              className="py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
             >
               Analysis
             </Link>
 
             {/* Learn accordion */}
-            <div className="border-b border-surface-border">
+            <div className="border-b border-white/[0.04]">
               <button
                 onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
                 className="flex w-full items-center justify-between py-3 text-left"
                 aria-expanded={mobileLearnOpen}
               >
-                <span className={`text-base font-semibold ${mobileLearnOpen ? "text-xrp-accent" : "text-text-primary"}`}>
+                <span className={`text-[15px] font-medium ${mobileLearnOpen ? "text-xrp-accent" : "text-text-primary"}`}>
                   Learn
                 </span>
-                <ChevronDown className={`h-4 w-4 transition-transform ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
               </button>
               {mobileLearnOpen && (
-                <div className="flex flex-col gap-0.5 pb-3 pl-2">
+                <div className="flex flex-col gap-0.5 pb-3 pl-3">
                   {learnItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="rounded-lg px-3 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
+                      className="rounded-lg px-3 py-2 text-[13px] text-text-secondary hover:text-text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -214,11 +244,11 @@ export default function MegaMenu() {
               )}
             </div>
 
-            <div className="pt-4">
+            <div className="pt-5">
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="btn-primary w-full justify-center"
+                className="btn-primary w-full"
               >
                 Donate
               </Link>

@@ -73,7 +73,7 @@ export default function GetStartedPage() {
                 className={`flex flex-col rounded-xl border p-5  ${
                   ex.featured
                     ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"
-                    : "border-surface-border bg-black"
+                    : "border-white/[0.06] bg-black"
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -102,7 +102,7 @@ export default function GetStartedPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="flex gap-5 rounded-xl border border-surface-border bg-black p-6 "
+                className="flex gap-5 rounded-xl border border-white/[0.06] bg-black p-6 "
               >
                 <div className="shrink-0">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-xrp-accent/10">
@@ -122,7 +122,7 @@ export default function GetStartedPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center "
+          className="mt-16 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-[#0A0A0B]/50 to-xrp-accent/[0.02] p-8 text-center "
         >
           <h2 className="text-xl font-bold text-text-primary">Ready to Learn More?</h2>
           <p className="mt-2 text-sm text-text-secondary">

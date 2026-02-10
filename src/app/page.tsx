@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
+import HomeHero from "@/components/home/HomeHero";
 import XFeed from "@/components/home/XFeed";
 import Newsletter from "@/components/home/Newsletter";
 
@@ -25,6 +26,7 @@ export default function HomePage() {
   return (
     <>
       <SEOSchema schema={organizationSchema} />
+      <HomeHero />
       <XFeed />
       <Newsletter />
     </>

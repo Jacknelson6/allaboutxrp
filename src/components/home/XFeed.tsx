@@ -45,35 +45,35 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   const [retweeted, setRetweeted] = useState(false);
 
   return (
-    <article className="border-b border-surface-border px-4 py-3 hover:bg-white/[0.02] transition-colors cursor-pointer">
+    <article className="border-b border-white/[0.04] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
       <div className="flex gap-3">
         <div className="shrink-0">
-          <div className="relative h-10 w-10 overflow-hidden rounded-full bg-surface-elevated">
+          <div className="relative h-10 w-10 overflow-hidden rounded-full bg-[#111113]">
             <Image src={tweet.avatarUrl} alt={tweet.displayName} fill className="object-cover" unoptimized />
           </div>
         </div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1 min-w-0">
-            <span className="font-bold text-[15px] text-text-primary truncate">{tweet.displayName}</span>
+            <span className="font-semibold text-[15px] text-text-primary truncate">{tweet.displayName}</span>
             {tweet.verified && (
               <BadgeCheck className="h-[18px] w-[18px] shrink-0 text-xrp-accent fill-xrp-accent" strokeWidth={0} />
             )}
             <span className="text-text-secondary text-[15px] truncate">@{tweet.handle}</span>
-            <span className="text-text-secondary text-[15px] shrink-0">·</span>
+            <span className="text-white/20 text-[15px] shrink-0">·</span>
             <span className="text-text-secondary text-[15px] shrink-0 hover:underline">{timeAgo(tweet.timestamp)}</span>
             <a
               href={`https://x.com/${tweet.handle}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="ml-auto shrink-0 rounded-full border border-surface-border px-3 py-1 text-xs font-bold text-text-primary hover:bg-white/[0.05] transition-colors"
+              className="ml-auto shrink-0 rounded-lg border border-white/[0.1] px-3 py-1 text-xs font-medium text-text-primary hover:bg-white/[0.04] transition-colors duration-200"
             >
               Follow
             </a>
           </div>
 
-          <div className="mt-0.5 text-[15px] text-text-primary leading-5 whitespace-pre-wrap break-words">
+          <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
             {tweet.text.split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
               /^[\$#@]/.test(part) ? (
                 <span key={i} className="text-xrp-accent">{part}</span>
@@ -84,7 +84,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           </div>
 
           {tweet.media && (
-            <div className="mt-3 overflow-hidden rounded-2xl border border-surface-border">
+            <div className="mt-3 overflow-hidden rounded-xl border border-white/[0.06]">
               <div className="relative aspect-video">
                 <Image src={tweet.media} alt="Tweet media" fill className="object-cover" unoptimized />
               </div>
@@ -92,8 +92,8 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           )}
 
           <div className="mt-2 flex items-center justify-between max-w-[425px]">
-            <button className="group flex items-center gap-1 text-text-secondary hover:text-xrp-accent transition-colors">
-              <div className="rounded-full p-1.5 group-hover:bg-xrp-accent/10 transition-colors">
+            <button className="group flex items-center gap-1 text-text-secondary hover:text-xrp-accent transition-colors duration-200">
+              <div className="rounded-full p-1.5 group-hover:bg-xrp-accent/10 transition-colors duration-200">
                 <MessageCircle className="h-4 w-4" />
               </div>
               <span className="text-xs">{formatCount(tweet.replies)}</span>
@@ -101,9 +101,9 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
 
             <button
               onClick={(e) => { e.stopPropagation(); setRetweeted(!retweeted); }}
-              className={`group flex items-center gap-1 transition-colors ${retweeted ? "text-success" : "text-text-secondary hover:text-success"}`}
+              className={`group flex items-center gap-1 transition-colors duration-200 ${retweeted ? "text-success" : "text-text-secondary hover:text-success"}`}
             >
-              <div className="rounded-full p-1.5 group-hover:bg-success/10 transition-colors">
+              <div className="rounded-full p-1.5 group-hover:bg-success/10 transition-colors duration-200">
                 <Repeat2 className="h-4 w-4" />
               </div>
               <span className="text-xs">{formatCount(tweet.retweets + (retweeted ? 1 : 0))}</span>
@@ -111,9 +111,9 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
 
             <button
               onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
-              className={`group flex items-center gap-1 transition-colors ${liked ? "text-danger" : "text-text-secondary hover:text-danger"}`}
+              className={`group flex items-center gap-1 transition-colors duration-200 ${liked ? "text-danger" : "text-text-secondary hover:text-danger"}`}
             >
-              <div className="rounded-full p-1.5 group-hover:bg-danger/10 transition-colors">
+              <div className="rounded-full p-1.5 group-hover:bg-danger/10 transition-colors duration-200">
                 <Heart className={`h-4 w-4 ${liked ? "fill-current" : ""}`} />
               </div>
               <span className="text-xs">{formatCount(tweet.likes + (liked ? 1 : 0))}</span>
@@ -124,8 +124,8 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
               <span className="text-xs">{formatCount(tweet.views)}</span>
             </div>
 
-            <button className="text-text-secondary hover:text-xrp-accent transition-colors">
-              <div className="rounded-full p-1.5 hover:bg-xrp-accent/10 transition-colors">
+            <button className="text-text-secondary hover:text-xrp-accent transition-colors duration-200">
+              <div className="rounded-full p-1.5 hover:bg-xrp-accent/10 transition-colors duration-200">
                 <Share className="h-4 w-4" />
               </div>
             </button>
@@ -173,22 +173,22 @@ export default function XFeed() {
   }, [activeTab]);
 
   return (
-    <div className="mx-auto max-w-[600px] min-h-screen border-x border-surface-border">
+    <div className="mx-auto max-w-[600px] min-h-screen border-x border-white/[0.04]">
       {/* Header */}
-      <div className="sticky top-[53px] z-10 bg-black/80  border-b border-surface-border">
-        <h1 className="px-4 py-3 text-xl font-bold text-text-primary">XRP Timeline</h1>
+      <div className="sticky top-[49px] z-10 bg-black/80 backdrop-blur-xl border-b border-white/[0.04]">
+        <h2 className="px-4 py-3 text-lg font-semibold tracking-tight text-text-primary">XRP Timeline</h2>
         <div className="flex">
           {(["trending", "recent"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className="flex-1 relative py-3 text-sm font-medium text-center hover:bg-white/[0.03] transition-colors"
+              className="flex-1 relative py-3 text-[13px] font-medium text-center hover:bg-white/[0.02] transition-colors duration-200"
             >
-              <span className={activeTab === tab ? "text-text-primary font-bold" : "text-text-secondary"}>
+              <span className={activeTab === tab ? "text-text-primary" : "text-text-secondary"}>
                 {tab === "trending" ? "Trending" : "Recent"}
               </span>
               {activeTab === tab && (
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-14 rounded-full bg-xrp-accent" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-12 rounded-full bg-xrp-accent" />
               )}
             </button>
           ))}
@@ -204,12 +204,12 @@ export default function XFeed() {
 
       {visibleCount < allTweets.length && (
         <div ref={loaderRef} className="flex justify-center py-8">
-          <div className="h-6 w-6 animate-spin rounded-full border-2 border-surface-border border-t-xrp-accent" />
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-xrp-accent" />
         </div>
       )}
 
       {visibleCount >= allTweets.length && (
-        <div className="py-8 text-center text-text-secondary text-sm">
+        <div className="py-8 text-center text-text-secondary text-[13px]">
           You&apos;re all caught up.
         </div>
       )}

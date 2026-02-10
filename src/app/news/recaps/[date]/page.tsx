@@ -106,7 +106,7 @@ export default async function RecapPage({ params }: Props) {
         <div
           className="prose prose-invert max-w-none
             prose-headings:prose-headings:text-text-primary prose-headings:font-bold
-            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-surface-border prose-h2:pb-2
+            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-white/[0.06] prose-h2:pb-2
             prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2
             prose-p:text-text-secondary prose-p:leading-relaxed
             prose-a:text-xrp-accent prose-a:no-underline hover:prose-a:underline
@@ -114,12 +114,12 @@ export default async function RecapPage({ params }: Props) {
             prose-li:text-text-secondary
             prose-ul:my-3 prose-ol:my-3
             prose-blockquote:border-xrp-accent/30 prose-blockquote:text-text-secondary
-            prose-hr:border-surface-border"
+            prose-hr:border-white/[0.06]"
           dangerouslySetInnerHTML={{ __html: html }}
         />
 
         {/* Prev / Next */}
-        <div className="mt-12 flex items-center justify-between gap-4 border-t border-surface-border pt-6">
+        <div className="mt-12 flex items-center justify-between gap-4 border-t border-white/[0.06] pt-6">
           {prev ? (
             <Link
               href={`/news/recaps/${prev}`}

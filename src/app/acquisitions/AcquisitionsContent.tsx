@@ -158,7 +158,7 @@ export default function AcquisitionsContent() {
               <Building2 className="h-6 w-6 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+              <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary md:text-[40px]">
                 Ripple&apos;s <span className="text-xrp-accent">Acquisitions</span>
               </h1>
               <p className="mt-1 text-text-secondary">
@@ -170,7 +170,7 @@ export default function AcquisitionsContent() {
 
         <nav className="mt-8 flex flex-wrap gap-2" aria-label="Page sections">
           {sections.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className="rounded-lg border border-surface-border bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
+            <a key={s.id} href={`#${s.id}`} className="rounded-lg border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
               {s.label}
             </a>
           ))}
@@ -209,7 +209,7 @@ export default function AcquisitionsContent() {
                 className={`rounded-xl border p-5 ${a.color}`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 rounded-lg bg-surface-primary p-2">{a.icon}</div>
+                  <div className="shrink-0 rounded-lg bg-black p-2">{a.icon}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs text-text-secondary">{a.year}</span>
@@ -262,9 +262,9 @@ export default function AcquisitionsContent() {
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Each acquisition maps to a specific layer of Ripple&apos;s financial infrastructure. <strong className="text-text-primary">No other crypto company has assembled this stack.</strong>
           </p>
-          <div className="overflow-x-auto rounded-xl border border-surface-border">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-surface-border bg-surface-card">
+              <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Layer</th>
                   <th className="px-4 py-3 font-medium text-text-secondary">Product</th>
@@ -272,9 +272,9 @@ export default function AcquisitionsContent() {
                   <th className="px-4 py-3 font-medium text-text-secondary">Function</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-border">
+              <tbody className="divide-y divide-white/[0.04]">
                 {fullStack.map((row) => (
-                  <tr key={row.layer} className="bg-surface-primary transition-colors hover:bg-surface-card">
+                  <tr key={row.layer} className="bg-black transition-colors hover:bg-[#0A0A0B]">
                     <td className="px-4 py-3 font-semibold text-xrp-accent text-xs whitespace-nowrap">{row.layer}</td>
                     <td className="px-4 py-3 text-text-primary text-xs">{row.product}</td>
                     <td className="px-4 py-3 text-text-secondary text-xs">{row.acquisitions}</td>
@@ -314,7 +314,7 @@ export default function AcquisitionsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-surface-border bg-black p-4"
+                className="rounded-xl border border-white/[0.06] bg-black p-4"
               >
                 <p className="font-bold text-text-primary text-sm">{l.name}</p>
                 <p className="text-xs text-xrp-accent">{l.role}</p>
@@ -353,9 +353,9 @@ export default function AcquisitionsContent() {
 
         {/* By the Numbers */}
         <Section id="numbers" title="Ripple by the Numbers">
-          <div className="overflow-x-auto rounded-xl border border-surface-border">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
-              <tbody className="divide-y divide-surface-border">
+              <tbody className="divide-y divide-white/[0.04]">
                 {[
                   ["Valuation", "~$50 billion (early 2026)"],
                   ["Global Rank", "9th most valuable private company"],
@@ -368,7 +368,7 @@ export default function AcquisitionsContent() {
                   ["Institutional Clients", "300+"],
                   ["Total Funding Raised", "$800-893 million"],
                 ].map(([label, value]) => (
-                  <tr key={label} className="bg-surface-primary transition-colors hover:bg-surface-card">
+                  <tr key={label} className="bg-black transition-colors hover:bg-[#0A0A0B]">
                     <td className="px-4 py-3 text-text-secondary">{label}</td>
                     <td className="px-4 py-3 font-mono text-text-primary text-right">{value}</td>
                   </tr>
@@ -411,7 +411,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
-      <h2 className="text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
+      <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>
   );

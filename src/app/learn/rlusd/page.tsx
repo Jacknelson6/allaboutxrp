@@ -198,7 +198,7 @@ export default function RLUSDPage() {
             <div className="mt-6 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-surface-border text-left">
+                  <tr className="border-b border-white/[0.06] text-left">
                     <th className="pb-3 font-semibold text-text-primary">Feature</th>
                     <th className="pb-3 font-semibold text-text-primary">RLUSD</th>
                     <th className="pb-3 font-semibold text-text-primary">USDT</th>
@@ -206,37 +206,37 @@ export default function RLUSDPage() {
                   </tr>
                 </thead>
                 <tbody className="text-text-secondary">
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">Issuer</td>
                     <td className="py-3 text-xrp-accent font-medium">Ripple Labs</td>
                     <td className="py-3">Tether</td>
                     <td className="py-3">Circle</td>
                   </tr>
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">Regulation</td>
                     <td className="py-3 text-xrp-accent font-medium">NYDFS Approved</td>
                     <td className="py-3">Offshore</td>
                     <td className="py-3">U.S. Regulated</td>
                   </tr>
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">Market Cap</td>
                     <td className="py-3">~$1.5B</td>
                     <td className="py-3">~$164B</td>
                     <td className="py-3">~$65B</td>
                   </tr>
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">Primary Use</td>
                     <td className="py-3 text-xrp-accent font-medium">Institutional</td>
                     <td className="py-3">Trading</td>
                     <td className="py-3">DeFi</td>
                   </tr>
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">XRP Benefit</td>
                     <td className="py-3 text-xrp-accent font-medium">Direct (fees, AMM, bridging)</td>
                     <td className="py-3">None</td>
                     <td className="py-3">None</td>
                   </tr>
-                  <tr className="border-b border-surface-border/30">
+                  <tr className="border-b border-white/[0.06]/30">
                     <td className="py-3">Reserve Audits</td>
                     <td className="py-3">Monthly attestations</td>
                     <td className="py-3">Quarterly</td>
@@ -334,7 +334,7 @@ export default function RLUSDPage() {
                 { q: "What is RLUSD's market cap?", a: "Approximately $1.5 billion as of February 2026, growing rapidly from its December 2024 launch through institutional partnerships." },
                 { q: "Can I earn yield with RLUSD and XRP?", a: "Yes. The XRPL's native AMM allows RLUSD/XRP liquidity provision, earning trading fees from swaps in the pool." },
               ].map((faq, i) => (
-                <div key={i} className="rounded-xl border border-surface-border/40 bg-black p-5">
+                <div key={i} className="rounded-xl border border-white/[0.06]/40 bg-black p-5">
                   <h3 className="text-base font-semibold text-text-primary">{faq.q}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{faq.a}</p>
                 </div>

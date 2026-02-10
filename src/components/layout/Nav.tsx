@@ -57,7 +57,7 @@ export default function Nav() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-surface-border/50 bg-black  "
+          ? "border-b border-white/[0.06]/50 bg-black  "
           : "border-b border-transparent bg-transparent"
       }`}
       aria-label="Main navigation"
@@ -122,7 +122,7 @@ export default function Nav() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full right-0 mt-2 w-52 rounded-xl border border-surface-border/50 bg-black/95 backdrop-blur-xl py-2 shadow-xl"
+                  className="absolute top-full right-0 mt-2 w-52 rounded-xl border border-white/[0.06]/50 bg-black/95 backdrop-blur-xl py-2 shadow-xl"
                 >
                   {learnLinks.map((link) => (
                     <Link
@@ -132,7 +132,7 @@ export default function Nav() {
                       className={`block px-4 py-2 text-sm transition-colors ${
                         pathname === link.href
                           ? "text-xrp-accent bg-xrp-accent/10"
-                          : "text-text-secondary hover:text-text-primary hover:bg-surface-card"
+                          : "text-text-secondary hover:text-text-primary hover:bg-[#0A0A0B]"
                       }`}
                     >
                       {link.label}
@@ -161,7 +161,7 @@ export default function Nav() {
           <PriceWidget compact />
           <button
             onClick={() => setOpen(!open)}
-            className="rounded-lg p-2 text-text-secondary transition-colors hover:bg-surface-card hover:text-text-primary"
+            className="rounded-lg p-2 text-text-secondary transition-colors hover:bg-[#0A0A0B] hover:text-text-primary"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -177,7 +177,7 @@ export default function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-surface-border/50 bg-black  md:hidden"
+            className="overflow-hidden border-t border-white/[0.06]/50 bg-black  md:hidden"
           >
             <div className="flex flex-col px-4 py-4 gap-1">
               {mainLinks.map((link) => (
@@ -188,7 +188,7 @@ export default function Nav() {
                   className={`rounded-lg px-3 py-2.5 text-sm transition-colors ${
                     pathname === link.href
                       ? "bg-xrp-accent/10 text-xrp-accent"
-                      : "text-text-secondary hover:bg-surface-card hover:text-text-primary"
+                      : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
                   }`}
                 >
                   {link.label}
@@ -201,7 +201,7 @@ export default function Nav() {
                 className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors ${
                   isLearnActive
                     ? "bg-xrp-accent/10 text-xrp-accent"
-                    : "text-text-secondary hover:bg-surface-card hover:text-text-primary"
+                    : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
                 }`}
               >
                 Learn

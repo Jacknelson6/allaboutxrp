@@ -70,10 +70,10 @@ export default function FAQBlogContent({ content }: { content: string }) {
             const headers = rows[0].split("|").filter(Boolean).map((h) => h.trim());
             const dataRows = rows.slice(1).map((r) => r.split("|").filter(Boolean).map((c) => c.trim()));
             return (
-              <div key={i} className="overflow-x-auto mt-4 mb-4 rounded-xl border border-surface-border">
+              <div key={i} className="overflow-x-auto mt-4 mb-4 rounded-xl border border-white/[0.06]">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-surface-border bg-black">
+                    <tr className="border-b border-white/[0.06] bg-black">
                       {headers.map((h, hi) => (
                         <th key={hi} className="px-4 py-3 text-left font-semibold text-text-primary">{h}</th>
                       ))}
@@ -81,7 +81,7 @@ export default function FAQBlogContent({ content }: { content: string }) {
                   </thead>
                   <tbody>
                     {dataRows.map((row, ri) => (
-                      <tr key={ri} className="border-b border-surface-border/30 last:border-0">
+                      <tr key={ri} className="border-b border-white/[0.06]/30 last:border-0">
                         {row.map((cell, ci) => (
                           <td key={ci} className="px-4 py-2.5 text-text-secondary">{cell}</td>
                         ))}
@@ -106,5 +106,5 @@ export default function FAQBlogContent({ content }: { content: string }) {
 function formatInline(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, '<strong class="text-text-primary font-semibold">$1</strong>')
-    .replace(/`(.+?)`/g, '<code class="rounded bg-surface-card px-1.5 py-0.5 text-xs font-mono text-xrp-accent">$1</code>');
+    .replace(/`(.+?)`/g, '<code class="rounded bg-[#0A0A0B] px-1.5 py-0.5 text-xs font-mono text-xrp-accent">$1</code>');
 }

@@ -49,7 +49,7 @@ export default function RecapsIndexPage() {
         </div>
 
         {recaps.length === 0 ? (
-          <div className="mt-12 rounded-2xl border border-surface-border bg-black p-12 text-center ">
+          <div className="mt-12 rounded-2xl border border-white/[0.06] bg-black p-12 text-center ">
             <Newspaper className="mx-auto h-10 w-10 text-text-secondary mb-4" />
             <h2 className="text-xl font-bold text-text-primary">No recaps yet</h2>
             <p className="mt-2 text-sm text-text-secondary">
@@ -62,7 +62,7 @@ export default function RecapsIndexPage() {
               <Link
                 key={recap.date}
                 href={`/news/recaps/${recap.date}`}
-                className="group block rounded-xl border border-surface-border bg-black p-5 "
+                className="group block rounded-xl border border-white/[0.06] bg-black p-5 "
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">

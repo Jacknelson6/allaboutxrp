@@ -24,14 +24,14 @@ export default function TransactionFeed({ transactions }: Props) {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="px-4 py-3 border-b border-[#30363d]">
-        <h2 className="text-sm font-semibold text-[#F0F6FC] tracking-wider uppercase font-mono">
+      <div className="px-4 py-3 border-b border-[rgba(255,255,255,0.08)]">
+        <h2 className="text-sm font-semibold text-[#F0F0F0] tracking-wider uppercase font-mono">
           Live Transactions
         </h2>
       </div>
       <div className="flex-1 overflow-y-auto scrollbar-thin">
         {payments.length === 0 && (
-          <div className="px-4 py-8 text-center text-[#8b949e] text-sm">
+          <div className="px-4 py-8 text-center text-[#888888] text-sm">
             Waiting for transactions...
           </div>
         )}
@@ -52,15 +52,15 @@ export default function TransactionFeed({ transactions }: Props) {
                 <span className="text-sm font-bold font-mono" style={{ color }}>
                   {formatAmount(tx.amount)} XRP
                 </span>
-                <span className="text-[10px] text-[#8b949e] font-mono">
+                <span className="text-[10px] text-[#888888] font-mono">
                   {formatTime(tx.timestamp)}
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-[#8b949e]">
+              <div className="flex items-center gap-1.5 text-[11px] text-[#888888]">
                 <span className={senderLabel ? 'text-[#58a6ff]' : ''}>
                   {senderLabel || truncateAddress(tx.account)}
                 </span>
-                <span className="text-[#30363d]">→</span>
+                <span className="text-[rgba(255,255,255,0.08)]">→</span>
                 <span className={destLabel ? 'text-[#58a6ff]' : ''}>
                   {destLabel || truncateAddress(tx.destination)}
                 </span>

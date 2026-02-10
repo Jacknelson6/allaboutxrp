@@ -73,7 +73,7 @@ export default function RiddlersContent() {
               <Eye className="h-6 w-6 text-purple-400" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+              <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary md:text-[40px]">
                 The XRP <span className="bg-gradient-to-r from-purple-400 to-xrp-accent bg-clip-text text-transparent">Riddlers</span>
               </h1>
               <p className="mt-1 text-text-secondary">
@@ -89,7 +89,7 @@ export default function RiddlersContent() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="rounded-lg border border-surface-border bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
+              className="rounded-lg border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
             >
               {s.label}
             </a>
@@ -158,7 +158,7 @@ export default function RiddlersContent() {
                 "The Triskelion — cycles and transformation",
                 "Purple beret — perseverance and identity",
               ].map((s) => (
-                <div key={s} className="flex items-center gap-2 rounded-lg bg-surface-primary px-3 py-2 text-xs text-text-secondary">
+                <div key={s} className="flex items-center gap-2 rounded-lg bg-black px-3 py-2 text-xs text-text-secondary">
                   <span className="h-1.5 w-1.5 rounded-full bg-purple-400 shrink-0" />
                   {s}
                 </div>
@@ -207,7 +207,7 @@ export default function RiddlersContent() {
                 "Timeline predictions (44 days, 77 days, Plan B)",
                 "Minimal or no text — images speak for themselves",
               ].map((s) => (
-                <div key={s} className="flex items-center gap-2 rounded-lg bg-surface-primary px-3 py-2 text-xs text-text-secondary">
+                <div key={s} className="flex items-center gap-2 rounded-lg bg-black px-3 py-2 text-xs text-text-secondary">
                   <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
                   {s}
                 </div>
@@ -260,7 +260,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.03 }}
-                className="flex gap-4 rounded-xl border border-surface-border bg-black p-4"
+                className="flex gap-4 rounded-xl border border-white/[0.06] bg-black p-4"
               >
                 <Hash className="h-4 w-4 shrink-0 text-warning mt-0.5" />
                 <div>
@@ -271,7 +271,7 @@ export default function RiddlersContent() {
             ))}
           </div>
 
-          <div className="mt-6 rounded-lg border border-surface-border bg-black p-4">
+          <div className="mt-6 rounded-lg border border-white/[0.06] bg-black p-4">
             <p className="text-xs text-text-secondary">
               <strong className="text-text-primary">Note:</strong> A purported <em>Simpsons</em> screenshot showing $589 XRP has been <strong className="text-danger">debunked as a forgery</strong>, though it contributed to the cultural momentum.
             </p>
@@ -284,17 +284,17 @@ export default function RiddlersContent() {
             Ripple&apos;s former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
           </p>
 
-          <div className="mt-6 overflow-x-auto rounded-xl border border-surface-border">
+          <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-surface-border bg-surface-card">
+              <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Post</th>
                   <th className="px-4 py-3 font-medium text-text-secondary">Community Interpretation</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-border">
+              <tbody className="divide-y divide-white/[0.04]">
                 {schwartzPosts.map((p) => (
-                  <tr key={p.post} className="bg-surface-primary transition-colors hover:bg-surface-card">
+                  <tr key={p.post} className="bg-black transition-colors hover:bg-[#0A0A0B]">
                     <td className="px-4 py-3 text-text-primary text-xs">{p.post}</td>
                     <td className="px-4 py-3 text-text-secondary text-xs">{p.interpretation}</td>
                   </tr>
@@ -318,7 +318,7 @@ export default function RiddlersContent() {
               { quote: "Be fearful when others are greedy and greedy when others are fearful", interpretation: "Buy signal during XRP volatility" },
               { quote: "We're firing on all cylinders. It's happening.", interpretation: "Confirmation of community's timeline expectations" },
             ].map((q) => (
-              <div key={q.quote} className="rounded-xl border border-surface-border bg-black p-4">
+              <div key={q.quote} className="rounded-xl border border-white/[0.06] bg-black p-4">
                 <p className="text-sm text-text-primary italic">&ldquo;{q.quote}&rdquo;</p>
                 <p className="mt-2 text-xs text-text-secondary">→ {q.interpretation}</p>
               </div>
@@ -328,17 +328,17 @@ export default function RiddlersContent() {
 
         {/* Symbols Reference */}
         <Section id="symbols" title="Symbol Reference Guide">
-          <div className="overflow-x-auto rounded-xl border border-surface-border">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-surface-border bg-surface-card">
+              <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Symbol</th>
                   <th className="px-4 py-3 font-medium text-text-secondary">Common Interpretation</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-border">
+              <tbody className="divide-y divide-white/[0.04]">
                 {symbolsData.map((s) => (
-                  <tr key={s.symbol} className="bg-surface-primary transition-colors hover:bg-surface-card">
+                  <tr key={s.symbol} className="bg-black transition-colors hover:bg-[#0A0A0B]">
                     <td className="px-4 py-3 font-semibold text-purple-400 text-xs whitespace-nowrap">{s.symbol}</td>
                     <td className="px-4 py-3 text-text-secondary text-xs">{s.meaning}</td>
                   </tr>
@@ -358,7 +358,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-surface-border bg-black p-4"
+                className="rounded-xl border border-white/[0.06] bg-black p-4"
               >
                 <p className="font-mono text-2xl font-bold text-xrp-accent">{n.num}</p>
                 <p className="mt-1 text-xs text-text-secondary">{n.meaning}</p>
@@ -400,7 +400,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
-      <h2 className="text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
+      <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>
   );
@@ -411,16 +411,16 @@ function RiddlerCard({ name, alias, icon, tagline, isOpen, onToggle, children }:
   isOpen: boolean; onToggle: () => void; children: React.ReactNode;
 }) {
   return (
-    <div className={`rounded-xl border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-surface-border bg-black"}`}>
+    <div className={`rounded-xl border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-white/[0.06] bg-black"}`}>
       <button onClick={onToggle} className="flex w-full items-center gap-4 p-5 text-left">
-        <div className="rounded-lg bg-surface-primary p-2">{icon}</div>
+        <div className="rounded-lg bg-black p-2">{icon}</div>
         <div className="flex-1">
           <p className="font-bold text-text-primary">{name}</p>
           <p className="text-xs text-text-secondary">{alias} — {tagline}</p>
         </div>
         <ChevronDown className={`h-5 w-5 text-text-secondary transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
-      {isOpen && <div className="border-t border-surface-border/50 px-5 py-5">{children}</div>}
+      {isOpen && <div className="border-t border-white/[0.06]/50 px-5 py-5">{children}</div>}
     </div>
   );
 }
