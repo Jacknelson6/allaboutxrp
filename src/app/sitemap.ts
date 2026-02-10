@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/live",
     "/learn",
     "/learn/faq",
+    "/learn/what-is-xrp",
+    "/learn/what-is-ripple",
+    "/learn/history",
+    "/learn/partnerships",
+    "/learn/leadership",
+    "/learn/get-started",
   ];
 
   const faqSlugs = getAllFAQSlugs();
