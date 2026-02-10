@@ -229,7 +229,7 @@ export default function WhatIsXRPPage() {
               <FeatureGrid columns={2} items={[
                 { title: "Cross-Border Payments", desc: "Ripple's partner network spans 55+ countries. Through ODL, XRP serves as the bridge currency — eliminating the need for pre-funded accounts in destination currencies." },
                 { title: "Institutional Settlement", desc: "With Ripple's acquisition of Hidden Road (now Ripple Prime), over $3 trillion in annual clearing volume could eventually settle on the XRPL." },
-                { title: "Stablecoin Infrastructure", desc: "Ripple's RLUSD stablecoin (launched Dec 2024) operates on XRPL. When trading pairs lack direct liquidity, XRP serves as the bridge — creating organic demand." },
+                { title: "Stablecoin Infrastructure", desc: "Ripple's RLUSD stablecoin (launched Dec 2024) operates on XRPL. Learn more about how RLUSD helps XRP in our dedicated guide." },
                 { title: "Tokenized Assets", desc: "The XRPL supports tokenization of real-world assets — real estate, gold, treasury bills. Partners like Archax, Meld Gold, and Zoniqx are building on XRPL." },
                 { title: "Central Bank Digital Currencies", desc: "Ripple is working with 20+ central banks globally on CBDC pilot programs. The XRPL's speed, low cost, and compliance features make it a natural platform." },
                 { title: "Everyday Payments", desc: "With 3-5 second settlement and fees under $0.01, XRP is one of the most practical cryptocurrencies for daily use via the Xaman wallet." },
@@ -342,8 +342,8 @@ export default function WhatIsXRPPage() {
               { href: "/learn/history", label: "XRP History & Timeline", desc: "From 2011 to present" },
               { href: "/escrow", label: "Escrow Explained", desc: "Ripple's 55B XRP escrow" },
               { href: "/learn/get-started", label: "How to Buy XRP", desc: "Beginner's guide" },
+              { href: "/learn/rlusd", label: "RLUSD & XRP", desc: "How the stablecoin helps XRP" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "Ripple's $3.7B strategy" },
             ]} />
           </RevealSection>
         </div>
