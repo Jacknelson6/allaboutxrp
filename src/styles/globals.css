@@ -4,10 +4,12 @@
   --color-xrp-blue: #23292F;
   --color-xrp-accent: #00A3FF;
   --color-xrp-accent-dim: #0077CC;
-  --color-surface-primary: #0D1117;
-  --color-surface-card: #161B22;
-  --color-surface-elevated: #1C2128;
-  --color-surface-border: #30363D;
+  --color-xrp-accent-bright: #33B5FF;
+  --color-surface-primary: #0A0E14;
+  --color-surface-card: #12171E;
+  --color-surface-elevated: #1A2030;
+  --color-surface-border: #242D3A;
+  --color-surface-glow: rgba(0, 163, 255, 0.06);
   --color-text-primary: #F0F6FC;
   --color-text-secondary: #8B949E;
   --color-text-accent: #00A3FF;
@@ -19,21 +21,54 @@
   --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --animate-fade-in: fade-in 0.5s ease-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-ticker: ticker 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-count-up: count-up 1s cubic-bezier(0.16, 1, 0.3, 1);
 
   @keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
   }
   @keyframes slide-up {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 5px rgba(0, 163, 255, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(0, 163, 255, 0.6); }
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 163, 255, 0.15), 0 0 30px rgba(0, 163, 255, 0.05); }
+    50% { box-shadow: 0 0 16px rgba(0, 163, 255, 0.3), 0 0 60px rgba(0, 163, 255, 0.1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes ticker {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes count-up {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  @keyframes border-glow {
+    0%, 100% { border-color: rgba(0, 163, 255, 0.15); }
+    50% { border-color: rgba(0, 163, 255, 0.4); }
   }
 }
 
@@ -56,13 +91,11 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Focus styles for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-xrp-accent);
   outline-offset: 2px;
 }
 
-/* Skip to content */
 .skip-to-content {
   position: absolute;
   top: -100%;
@@ -79,17 +112,99 @@ body {
   top: 0;
 }
 
-/* Scrollbar */
+/* Premium scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-surface-primary);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-border);
-  border-radius: 4px;
+  background: rgba(139, 148, 158, 0.3);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-secondary);
+  background: rgba(139, 148, 158, 0.5);
+}
+
+/* Glow card utility */
+.card-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 163, 255, 0.0), rgba(0, 163, 255, 0.0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: background 0.3s;
+  pointer-events: none;
+}
+.card-glow:hover::before {
+  background: linear-gradient(135deg, rgba(0, 163, 255, 0.3), rgba(0, 163, 255, 0.05));
+}
+.card-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 163, 255, 0.08), 0 0 1px rgba(0, 163, 255, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00A3FF, #33B5FF, #00D4FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 163, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 163, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Data terminal row hover */
+.terminal-row {
+  transition: all 0.15s ease;
+}
+.terminal-row:hover {
+  background-color: rgba(0, 163, 255, 0.04);
+  box-shadow: inset 3px 0 0 var(--color-xrp-accent);
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(0, 163, 255, 0.06) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Stat card pulse on data refresh */
+.stat-refresh {
+  animation: ticker 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Accent line */
+.accent-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-xrp-accent), transparent);
+  opacity: 0.3;
 }

@@ -47,18 +47,21 @@ export default async function HomePage() {
     <>
       <SEOSchema schema={[organizationSchema, faqSchema]} />
       <Hero />
-      <div className="mx-auto max-w-4xl px-4">
-        <Disclaimer />
-        {contents.map((content) => (
-          <ContentSection
-            key={content.slug}
-            id={content.slug}
-            title={content.title}
-            html={content.contentHtml}
-          />
-        ))}
-        <Timeline events={timelineData} />
-        <FAQ items={faqData} />
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+        <div className="relative mx-auto max-w-4xl px-4">
+          <Disclaimer />
+          {contents.map((content) => (
+            <ContentSection
+              key={content.slug}
+              id={content.slug}
+              title={content.title}
+              html={content.contentHtml}
+            />
+          ))}
+          <Timeline events={timelineData} />
+          <FAQ items={faqData} />
+        </div>
       </div>
     </>
   );
