@@ -6,6 +6,9 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, 
 import StatCard from "@/components/shared/StatCard";
 import Disclaimer from "@/components/shared/Disclaimer";
 import SEOSchema from "@/components/shared/SEOSchema";
+import TierChart from "@/components/richlist/TierChart";
+import TierCalculator from "@/components/richlist/TierCalculator";
+import TierFAQ from "@/components/richlist/TierFAQ";
 import { formatCurrency, formatCompact, formatNumber, formatPercent, shortenAddress } from "@/lib/utils/format";
 import { DollarSign, TrendingUp, BarChart3, Coins, Activity, Users } from "lucide-react";
 
@@ -47,6 +50,28 @@ const datasetSchema = {
   creator: { "@type": "Organization", name: "AllAboutXRP" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What are XRP holder tiers?",
+      acceptedAnswer: { "@type": "Answer", text: "XRP holder tiers are community-created categories that classify XRP holders based on their balance, from Shrimp (<10 XRP) to Humpback (50,000+ XRP)." },
+    },
+    {
+      "@type": "Question",
+      name: "How many XRP do I need to be a Whale?",
+      acceptedAnswer: { "@type": "Answer", text: "You need at least 10,000 XRP to be classified as a Whale. The next level, Humpback, requires 50,000+ XRP." },
+    },
+    {
+      "@type": "Question",
+      name: "How is XRP distributed among holders?",
+      acceptedAnswer: { "@type": "Answer", text: "Over 70% of funded accounts hold less than 1,000 XRP, while less than 1% hold over 100,000 XRP." },
+    },
+  ],
+};
+
 const tooltipStyle = {
   background: "rgba(18, 23, 30, 0.95)",
   border: "1px solid rgba(36, 45, 58, 0.8)",
@@ -82,6 +107,7 @@ export default function RichListPage() {
   return (
     <>
       <SEOSchema schema={datasetSchema} />
+      <SEOSchema schema={faqSchema} />
       <div className="mx-auto max-w-7xl px-4 py-12">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
@@ -292,6 +318,15 @@ export default function RichListPage() {
             </div>
           </motion.section>
         </div>
+
+        {/* XRP Holder Tier Chart */}
+        <TierChart />
+
+        {/* Interactive Tier Calculator */}
+        <TierCalculator />
+
+        {/* FAQ */}
+        <TierFAQ />
       </div>
     </>
   );

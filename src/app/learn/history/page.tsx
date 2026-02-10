@@ -186,6 +186,91 @@ export default function HistoryPage() {
           </section>
 
           <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">What Were the Most Important Moments in XRP History?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              While every event in the timeline above contributed to XRP&apos;s journey, five moments stand out as truly transformative:
+            </p>
+            <ol className="mt-3 list-decimal space-y-3 pl-6 text-text-secondary">
+              <li><strong>XRPL Genesis (June 2012):</strong> The creation of all 100 billion XRP and the launch of a blockchain that would process billions of transactions without a single moment of downtime over 14 years.</li>
+              <li><strong>55 Billion XRP Escrow (December 2017):</strong> Ripple&apos;s decision to lock over half the total supply in <Link href="/escrow" className="text-xrp-accent">cryptographic escrow</Link> created the most transparent supply management mechanism in crypto and addressed the market&apos;s biggest concern about XRP.</li>
+              <li><strong>SEC Lawsuit Filed (December 2020):</strong> The SEC&apos;s lawsuit against <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link> was the single most impactful regulatory event in cryptocurrency history, leading to delistings and years of uncertainty — but also forcing the legal clarity the industry needed.</li>
+              <li><strong>Torres Ruling (July 2023):</strong> Judge Torres&apos;s decision that XRP on exchanges is not a security was a watershed moment for all of crypto. It led to immediate exchange relistings and set legal precedent that other projects now cite.</li>
+              <li><strong>Institutional Infrastructure Era (2025):</strong> Ripple&apos;s $3.7 billion <Link href="/acquisitions" className="text-xrp-accent">acquisition spree</Link> — Hidden Road, Rail, GTreasury, Palisade — transformed the company from a payments startup into a full-stack financial infrastructure provider. Combined with RLUSD, <Link href="/learn/partnerships" className="text-xrp-accent">Mastercard partnership</Link>, and CME futures, this marked XRP&apos;s transition into institutional-grade finance.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Has XRP&apos;s Price Changed Over Time?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              XRP&apos;s price history reflects the broader narrative of crypto markets, regulatory events, and Ripple&apos;s growth:
+            </p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-surface-border text-left">
+                    <th className="pb-3 font-semibold text-text-primary">Period</th>
+                    <th className="pb-3 font-semibold text-text-primary">Price Range</th>
+                    <th className="pb-3 font-semibold text-text-primary">Key Driver</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-secondary">
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">2012-2016</td>
+                    <td className="py-3">$0.001 - $0.02</td>
+                    <td className="py-3">Early development, minimal liquidity</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">2017</td>
+                    <td className="py-3">$0.006 → $2.30</td>
+                    <td className="py-3">Crypto bull run, SBI partnership, escrow announcement</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Jan 2018</td>
+                    <td className="py-3 text-xrp-accent font-medium">ATH: $3.84</td>
+                    <td className="py-3">Peak of 2017-2018 bull run</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">2018-2020</td>
+                    <td className="py-3">$0.15 - $0.70</td>
+                    <td className="py-3">Crypto winter, building phase</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Dec 2020 - Jul 2023</td>
+                    <td className="py-3">$0.20 - $0.90</td>
+                    <td className="py-3">SEC lawsuit suppression, exchange delistings</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Jul 2023</td>
+                    <td className="py-3">$0.47 → $0.94</td>
+                    <td className="py-3">Torres ruling — 100% spike in 24 hours</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3">2024-2026</td>
+                    <td className="py-3">$0.50+</td>
+                    <td className="py-3">ETF filings, RLUSD, institutional adoption</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              Want to get started? Check our <Link href="/learn/get-started" className="text-xrp-accent">beginner&apos;s guide to buying XRP</Link>, or follow prices in real-time on our <Link href="/live" className="text-xrp-accent">live charts page</Link>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Did the XRP Community Develop?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              The XRP community — often called the &quot;XRP Army&quot; — is one of the most dedicated and distinctive communities in cryptocurrency. Forged through years of the SEC lawsuit, exchange delistings, and price suppression, the community developed a unique culture of patience, conviction, and cryptic puzzle-solving.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              The community&apos;s <Link href="/riddlers" className="text-xrp-accent">Riddler tradition</Link> — involving anonymous figures like BearableGuy123 and Mr. Pool who post cryptic predictions — is unlike anything in other crypto communities. Combined with active on-chain monitoring, legal case analysis, and <Link href="/learn/leadership" className="text-xrp-accent">Ripple executive tracking</Link>, the XRP community represents a fascinating intersection of technology, finance, and digital folklore.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              See who&apos;s worth following on our <Link href="/people" className="text-xrp-accent">XRP People to Follow</Link> page.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Why XRP&apos;s History Matters</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Understanding XRP&apos;s history is essential for evaluating its future. The SEC lawsuit, for example, created years of price suppression and uncertainty — but also resulted in the most important legal precedent in crypto history. Each era of XRP&apos;s development has built on the last, and the institutional infrastructure being assembled in 2025-2026 is the culmination of over a decade of work.

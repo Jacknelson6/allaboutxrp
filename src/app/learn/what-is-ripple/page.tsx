@@ -195,6 +195,114 @@ export default function WhatIsRipplePage() {
           </section>
 
           <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Does Ripple Make Money?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              Ripple generates revenue through multiple channels, which have evolved significantly as the company has grown:
+            </p>
+            <ol className="mt-3 list-decimal space-y-2 pl-6 text-text-secondary">
+              <li><strong>Payment processing fees:</strong> Ripple charges fees for cross-border payment services through Ripple Payments (formerly ODL)</li>
+              <li><strong>XRP sales:</strong> Ripple sells <Link href="/learn/what-is-xrp" className="text-xrp-accent">XRP</Link> from its <Link href="/escrow" className="text-xrp-accent">escrow holdings</Link> — primarily through OTC/institutional channels, not on open exchanges</li>
+              <li><strong>Custody fees:</strong> Ripple Custody (Metaco) charges institutional clients for digital asset custody services</li>
+              <li><strong>Prime brokerage:</strong> Ripple Prime (Hidden Road) generated $100M+ in revenue in 2024 from clearing and brokerage services</li>
+              <li><strong>Treasury management:</strong> Ripple Treasury (GTreasury) provides enterprise treasury solutions to Fortune 500 companies</li>
+              <li><strong>Stablecoin:</strong> RLUSD generates revenue through issuance, redemption, and the yield on reserve assets</li>
+            </ol>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              This diversified revenue model is a key differentiator from most crypto companies. Ripple is not dependent on token price appreciation — it&apos;s building recurring revenue from financial infrastructure services.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">What Is the Difference Between RippleNet, ODL, and RLUSD?</h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-surface-border text-left">
+                    <th className="pb-3 font-semibold text-text-primary">Product</th>
+                    <th className="pb-3 font-semibold text-text-primary">What It Does</th>
+                    <th className="pb-3 font-semibold text-text-primary">Uses XRP?</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-secondary">
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">RippleNet</td>
+                    <td className="py-3">Global payments network connecting banks and payment providers. Messaging layer for payment instructions.</td>
+                    <td className="py-3">Optional</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">ODL (On-Demand Liquidity)</td>
+                    <td className="py-3">Uses XRP as a bridge currency for instant cross-border settlement without pre-funded accounts.</td>
+                    <td className="py-3 text-xrp-accent font-medium">Yes — core use</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">RLUSD</td>
+                    <td className="py-3">USD-backed stablecoin on XRPL and Ethereum. For settlement, collateral, and payments.</td>
+                    <td className="py-3">XRP bridges when liquidity needed</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Ripple Custody</td>
+                    <td className="py-3">Institutional-grade digital asset custody (Metaco + Standard Custody + Palisade).</td>
+                    <td className="py-3">Supports XRP custody</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-medium">Ripple Prime</td>
+                    <td className="py-3">Multi-asset prime brokerage clearing $3T+ annually. Post-trade settlement migrating to XRPL.</td>
+                    <td className="py-3">Settlement on XRPL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Does Ripple Compare to SWIFT?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              SWIFT (Society for Worldwide Interbank Financial Telecommunication) is the dominant messaging network for international bank transfers, connecting 11,000+ institutions. But SWIFT only sends <em>messages</em> — it doesn&apos;t actually move money. The actual settlement still relies on correspondent banking, which is slow and expensive.
+            </p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-surface-border text-left">
+                    <th className="pb-3 font-semibold text-text-primary">Feature</th>
+                    <th className="pb-3 font-semibold text-text-primary">Ripple + XRP</th>
+                    <th className="pb-3 font-semibold text-text-primary">SWIFT</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-secondary">
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Settlement Time</td>
+                    <td className="py-3 text-xrp-accent font-medium">3-5 seconds</td>
+                    <td className="py-3">1-5 business days</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Cost</td>
+                    <td className="py-3 text-xrp-accent font-medium">&lt; $0.01</td>
+                    <td className="py-3">$25-50+ per transfer</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Pre-funding Required</td>
+                    <td className="py-3 text-xrp-accent font-medium">No (XRP bridges)</td>
+                    <td className="py-3">Yes (nostro/vostro accounts)</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3">Transparency</td>
+                    <td className="py-3">Real-time on-chain tracking</td>
+                    <td className="py-3">Limited visibility</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3">Network</td>
+                    <td className="py-3">55+ countries, growing</td>
+                    <td className="py-3">200+ countries, established</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              Ripple isn&apos;t necessarily trying to replace SWIFT entirely, but rather to provide a faster, cheaper alternative for specific corridors — particularly in remittance-heavy regions. See which institutions are already using Ripple on our <Link href="/learn/partnerships" className="text-xrp-accent">partnerships page</Link>.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Ripple&apos;s Acquisition Strategy</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Since 2023, Ripple has spent over <strong>$3.7 billion on acquisitions</strong>, assembling a full-stack financial infrastructure covering payments, custody, prime brokerage, treasury, and stablecoins. No other crypto company has built this comprehensive a platform.

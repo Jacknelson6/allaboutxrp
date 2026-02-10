@@ -269,6 +269,53 @@ export default function WhatIsXRPPage() {
           </section>
 
           <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Who Created XRP and the XRP Ledger?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              The XRP Ledger was created by three developers: <strong>David Schwartz</strong> (now Ripple&apos;s CTO, known online as &quot;JoelKatz&quot;), <strong>Jed McCaleb</strong> (who later co-founded Stellar), and <strong>Arthur Britto</strong>. Development began in 2011 as they sought to build a faster, more energy-efficient alternative to Bitcoin that didn&apos;t require mining.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              The XRPL went live on June 2, 2012, with all 100 billion XRP created at genesis. Shortly after, <strong>Chris Larsen</strong> — a serial fintech entrepreneur who had co-founded E-Loan and Prosper Marketplace — joined the team. Together they formed OpenCoin (later renamed to <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link>) in September 2012 to build commercial applications on the XRP Ledger.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              Importantly, <strong>the XRP Ledger was created before Ripple the company existed</strong>. The XRPL is open-source and decentralized — it would continue to operate even if Ripple ceased to exist. Learn about the people behind it on our <Link href="/learn/leadership" className="text-xrp-accent">Ripple Leadership</Link> page.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Is XRP Different from Other Cryptocurrencies?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              XRP stands apart from most cryptocurrencies in several fundamental ways:
+            </p>
+            <ol className="mt-3 list-decimal space-y-3 pl-6 text-text-secondary">
+              <li><strong>Purpose-built for payments:</strong> While Bitcoin was designed as &quot;digital gold&quot; and Ethereum as a smart contract platform, XRP was engineered specifically for fast, low-cost value transfer. Every design decision optimizes for payment speed and efficiency.</li>
+              <li><strong>No mining:</strong> XRP uses a Federated Consensus Protocol instead of energy-intensive proof-of-work mining. This means no miners, no block rewards, and no energy waste — the XRPL uses 120,000x less energy than Bitcoin.</li>
+              <li><strong>Pre-mined fixed supply:</strong> All 100 billion XRP existed from day one. There&apos;s no ongoing issuance or inflation schedule. Combined with the deflationary burn mechanism, XRP&apos;s supply only decreases over time.</li>
+              <li><strong>Enterprise adoption:</strong> XRP has one of the strongest enterprise adoption stories in crypto, with <Link href="/learn/partnerships" className="text-xrp-accent">hundreds of financial institution partnerships</Link> and a company (<Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link>) valued at $50 billion building on it.</li>
+              <li><strong>Regulatory clarity:</strong> The 2023 Torres ruling established that XRP on exchanges is not a security — a level of legal clarity that most cryptocurrencies lack. This has paved the way for <Link href="/learn/history" className="text-xrp-accent">ETF filings and institutional products</Link>.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Does XRP&apos;s Escrow System Work?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              In December 2017, Ripple placed <strong>55 billion XRP</strong> into cryptographic escrow on the XRP Ledger — over half the total supply. This was designed to provide predictability and transparency about XRP&apos;s supply schedule. Every month, up to 1 billion XRP unlocks automatically (enforced by the protocol), but Ripple typically re-escrows 60-80% immediately. Only 200-300 million XRP enters potential circulation each month.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              As of February 2026, approximately <strong>33.9 billion XRP</strong> remains in escrow. The system has operated exactly as designed for over 8 years. Read our comprehensive deep dive: <Link href="/escrow" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">XRP Escrow: The Complete Guide →</Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Can XRP Be Used for Everyday Payments?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              While XRP was primarily designed for institutional cross-border payments, it can absolutely be used for everyday transactions. With 3-5 second settlement and fees under $0.01, it&apos;s one of the most practical cryptocurrencies for daily use. The <strong>Xaman wallet</strong> (formerly XUMM) makes it easy to send and receive XRP, and the XRPL&apos;s built-in DEX allows trading directly from your wallet.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              The growing ecosystem of XRPL tokens, NFTs, and Ripple&apos;s RLUSD stablecoin expands what you can do on the network. Ready to try it? Check our <Link href="/learn/get-started" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">step-by-step guide to buying XRP</Link>.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">The SEC Case and Regulatory Clarity</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               In December 2020, the SEC sued Ripple Labs, alleging that XRP was an unregistered security. After years of litigation, <strong>Judge Analisa Torres ruled in July 2023</strong> that XRP sold on public exchanges to retail investors is <strong>not a security</strong>. This was a landmark decision for the entire cryptocurrency industry.
