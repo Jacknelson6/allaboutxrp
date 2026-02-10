@@ -262,8 +262,8 @@ export default function AcquisitionsContent() {
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Each acquisition maps to a specific layer of Ripple&apos;s financial infrastructure. <strong className="text-text-primary">No other crypto company has assembled this stack.</strong>
           </p>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
-            <table className="w-full text-left text-sm">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+            <table className="w-full min-w-[600px] text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Layer</th>
@@ -353,8 +353,8 @@ export default function AcquisitionsContent() {
 
         {/* By the Numbers */}
         <Section id="numbers" title="Ripple by the Numbers" index={6} total={6}>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
-            <table className="w-full text-left text-sm">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+            <table className="w-full min-w-[400px] text-left text-sm">
               <tbody className="divide-y divide-white/[0.04]">
                 {[
                   ["Valuation", "~$50 billion (early 2026)"],

@@ -41,7 +41,7 @@ export default function TierCalculator() {
       <h2 className="text-xl font-bold text-text-primary mb-1">Find Your Rank</h2>
       <p className="text-sm text-text-secondary mb-5">Enter your XRP balance to discover your tier</p>
 
-      <form onSubmit={handleSubmit} className="flex gap-3 max-w-md">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row max-w-md">
         <div className="relative flex-1">
           <input
             ref={inputRef}
@@ -50,7 +50,7 @@ export default function TierCalculator() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter XRP balance"
-            className="w-full rounded-full border border-white/[0.06] bg-black px-4 py-2.5 text-sm text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
+            className="w-full rounded-full border border-white/[0.06] bg-black px-4 py-2.5 text-base text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
           />
         </div>
         <button

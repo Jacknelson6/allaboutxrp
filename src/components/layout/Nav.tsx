@@ -161,7 +161,7 @@ export default function Nav() {
           <PriceWidget compact />
           <button
             onClick={() => setOpen(!open)}
-            className="rounded-lg p-2 text-text-secondary transition-colors hover:bg-[#0A0A0B] hover:text-text-primary"
+            className="rounded-lg p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-text-secondary transition-colors hover:bg-[#0A0A0B] hover:text-text-primary"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -185,7 +185,7 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                  className={`rounded-lg px-3 py-3 min-h-[44px] flex items-center text-sm transition-colors ${
                     pathname === link.href
                       ? "bg-xrp-accent/10 text-xrp-accent"
                       : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
@@ -198,7 +198,7 @@ export default function Nav() {
               {/* Mobile Learn accordion */}
               <button
                 onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
-                className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                className={`flex items-center justify-between rounded-lg px-3 py-3 min-h-[44px] text-sm transition-colors ${
                   isLearnActive
                     ? "bg-xrp-accent/10 text-xrp-accent"
                     : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
@@ -220,7 +220,7 @@ export default function Nav() {
                         key={link.href}
                         href={link.href}
                         onClick={() => { setOpen(false); setMobileLearnOpen(false); }}
-                        className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                        className={`block rounded-lg px-3 py-2.5 min-h-[44px] flex items-center text-sm transition-colors ${
                           pathname === link.href
                             ? "text-xrp-accent"
                             : "text-text-secondary hover:text-text-primary"

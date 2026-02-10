@@ -79,7 +79,7 @@ export default function ChartsContent() {
           <div
             id="tradingview-chart"
             ref={containerRef}
-            style={{ height: '70vh', minHeight: 500 }}
+            style={{ height: '60vh', minHeight: 300 }}
           />
         </div>
 

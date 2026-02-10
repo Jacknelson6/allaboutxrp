@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Mail, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "aaxrp-newsletter-email";
 const SUBSCRIBED_KEY = "aaxrp-newsletter-subscribed";
@@ -36,44 +37,56 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="mx-auto max-w-[600px] border-x border-white/[0.04] px-4 py-10">
-      <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-xrp-accent/70 mb-2">Newsletter</p>
-        <h2 className="text-lg font-semibold tracking-tight text-text-primary">
-          Get the daily XRP briefing.
-        </h2>
-        <p className="text-[13px] text-text-secondary mt-1.5">
-          Join thousands of XRP holders getting the signal, not the noise.
-        </p>
+    <section className="mx-auto max-w-5xl px-5 py-16" aria-label="Newsletter signup">
+      <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0A0A0B]">
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,133,255,0.06)_0%,transparent_70%)]" />
+        </div>
 
-        {subscribed ? (
-          <div className="mt-5 rounded-lg border border-success/20 bg-success/[0.04] px-4 py-3">
-            <p className="text-sm font-medium text-success">You&apos;re in!</p>
-            <p className="text-xs text-text-secondary mt-0.5">We&apos;ll send your first briefing soon.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-5">
-            <div className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => { setEmail(e.target.value); setError(""); }}
-                placeholder="you@email.com"
-                className="flex-1 rounded-lg border border-white/[0.08] bg-black px-4 py-2.5 text-sm text-text-primary placeholder:text-white/20 outline-none focus:border-xrp-accent/50 transition-colors duration-200"
-              />
-              <button
-                type="submit"
-                className="btn-primary shrink-0 py-2.5"
-              >
-                Subscribe
-              </button>
+        <div className="relative px-6 py-12 sm:px-12 sm:py-14">
+          <div className="flex flex-col items-center text-center max-w-lg mx-auto">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-white/[0.06] bg-white/[0.02] text-xrp-accent mb-5">
+              <Mail className="h-5 w-5" />
             </div>
-            {error && <p className="mt-2 text-xs text-danger">{error}</p>}
-            <p className="mt-2.5 text-[11px] text-white/20">
-              No spam. Unsubscribe anytime.
+
+            <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary sm:text-[30px]">
+              Get the daily XRP briefing
+            </h2>
+            <p className="mt-3 text-[14px] text-text-secondary leading-relaxed">
+              Join thousands of XRP holders getting the signal, not the noise. Market moves, ecosystem updates, and analysis — delivered daily.
             </p>
-          </form>
-        )}
+
+            {subscribed ? (
+              <div className="mt-6 rounded-xl border border-success/20 bg-success/[0.04] px-6 py-4 w-full max-w-sm">
+                <p className="text-[15px] font-semibold text-success">You&apos;re in! 🎉</p>
+                <p className="text-[13px] text-text-secondary mt-1">We&apos;ll send your first briefing soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-8 w-full max-w-sm">
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                    placeholder="you@email.com"
+                    className="flex-1 rounded-xl border border-white/[0.08] bg-black px-4 py-3 text-[15px] text-text-primary placeholder:text-white/20 outline-none focus:border-xrp-accent/40 transition-colors duration-200"
+                  />
+                  <button
+                    type="submit"
+                    className="btn-primary shrink-0 px-5 py-3 rounded-xl"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+                {error && <p className="mt-2 text-xs text-danger text-left">{error}</p>}
+                <p className="mt-3 text-[11px] text-white/20">
+                  Free forever. No spam. Unsubscribe anytime.
+                </p>
+              </form>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

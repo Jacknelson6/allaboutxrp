@@ -45,7 +45,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-16">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:flex md:gap-16">
             {footerSections.map((section) => (
               <nav key={section.title} aria-label={`${section.title} navigation`}>
                 <p className="text-[11px] font-medium uppercase tracking-widest text-white/25 mb-4">{section.title}</p>

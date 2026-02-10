@@ -176,8 +176,8 @@ export default function RiddlersContent() {
                 { period: "Early 2019", event: "Subreddit reopens; Lodestar Messages released" },
                 { period: "2019 onwards", event: "Largely disappears; legacy lives on" },
               ].map((t) => (
-                <div key={t.period} className="flex gap-4 text-sm">
-                  <span className="font-mono text-xs text-purple-400 whitespace-nowrap w-40 shrink-0">{t.period}</span>
+                <div key={t.period} className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-sm">
+                  <span className="font-mono text-xs text-purple-400 whitespace-nowrap sm:w-40 shrink-0">{t.period}</span>
                   <span className="text-text-secondary">{t.event}</span>
                 </div>
               ))}
@@ -284,8 +284,8 @@ export default function RiddlersContent() {
             Ripple&apos;s former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
           </p>
 
-          <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06]">
-            <table className="w-full text-left text-sm">
+          <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+            <table className="w-full min-w-[500px] text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Post</th>
@@ -328,8 +328,8 @@ export default function RiddlersContent() {
 
         {/* Symbols Reference */}
         <Section id="symbols" title="Symbol Reference Guide" index={7} total={8}>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
-            <table className="w-full text-left text-sm">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+            <table className="w-full min-w-[400px] text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Symbol</th>

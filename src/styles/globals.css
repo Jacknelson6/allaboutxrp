@@ -47,6 +47,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent iOS zoom on input focus — ensure 16px minimum */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 body {
@@ -308,10 +316,16 @@ h1 { font-weight: 700; }
 
 .proof-stat .value {
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
+}
+
+@media (min-width: 640px) {
+  .proof-stat .value {
+    font-size: 1.5rem;
+  }
 }
 
 .proof-stat .label {

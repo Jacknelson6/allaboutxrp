@@ -51,7 +51,7 @@ export default function LiveContent() {
           {/* Mobile toggle */}
           <button
             onClick={() => setShowFeed(!showFeed)}
-            className="absolute bottom-4 right-4 z-10 md:hidden px-3 py-1.5 bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-xs font-mono text-[#888888]"
+            className="absolute bottom-4 right-4 z-10 md:hidden px-4 py-2.5 min-h-[44px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-sm font-mono text-[#888888]"
           >
             {showFeed ? 'Hide Feed' : 'Show Feed'}
           </button>
@@ -67,7 +67,7 @@ export default function LiveContent() {
         {/* Transaction Feed Sidebar */}
         <div
           className={`
-            w-80 bg-[#0A0A0B]/95  border-l border-[rgba(255,255,255,0.08)]
+            w-full sm:w-80 bg-[#0A0A0B]/95 border-l border-[rgba(255,255,255,0.08)]
             transition-transform duration-300
             ${showFeed ? 'translate-x-0' : 'translate-x-full'}
             fixed md:relative right-0 top-0 bottom-0 md:translate-x-0 z-20

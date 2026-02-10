@@ -173,7 +173,7 @@ export default function XFeed() {
   }, [activeTab]);
 
   return (
-    <div className="mx-auto max-w-[600px] min-h-screen border-x border-white/[0.04]">
+    <div className="mx-auto max-w-[600px] min-h-screen sm:border-x border-white/[0.04]">
       {/* Header */}
       <div className="sticky top-[49px] z-10 bg-black/80 backdrop-blur-xl border-b border-white/[0.04]">
         <h2 className="px-4 py-3 text-lg font-semibold tracking-tight text-text-primary">XRP Timeline</h2>

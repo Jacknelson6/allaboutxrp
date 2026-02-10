@@ -247,8 +247,8 @@ export function DataTable({
   highlightCol?: number;
 }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
-      <table className="w-full text-left text-sm">
+    <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+      <table className="w-full min-w-[400px] text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>
             {headers.map((h, i) => (
