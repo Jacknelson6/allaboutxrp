@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/learn/partnerships", changeFrequency: "weekly", priority: 0.85 },
     { path: "/learn/leadership", changeFrequency: "monthly", priority: 0.85 },
     { path: "/learn/get-started", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/learn/rlusd", changeFrequency: "weekly", priority: 0.9 },
     { path: "/learn", changeFrequency: "weekly", priority: 0.85 },
     { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
     { path: "/escrow", changeFrequency: "weekly", priority: 0.85 },

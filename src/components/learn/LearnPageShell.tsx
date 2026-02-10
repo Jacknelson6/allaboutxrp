@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState, type ReactNode } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { ChevronDown, CheckCircle, XCircle, AlertTriangle, Info, Zap } from "lucide-react";
 
 /**
  * Animated section wrapper — reveals content on scroll with staggered delay.

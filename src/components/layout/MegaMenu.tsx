@@ -44,6 +44,7 @@ const menuSections: MenuSection[] = [
     items: [
       { label: "What is XRP?", href: "/learn/what-is-xrp", description: "The basics of XRP and how it works" },
       { label: "What is Ripple?", href: "/learn/what-is-ripple", description: "The company behind RippleNet" },
+      { label: "RLUSD & XRP", href: "/learn/rlusd", description: "How Ripple's stablecoin helps XRP" },
       { label: "History & Timeline", href: "/learn/history", description: "Key milestones from 2011 to now" },
       { label: "Escrow Explained", href: "/escrow", description: "How Ripple's 55B XRP escrow works" },
       { label: "Partnerships", href: "/learn/partnerships", description: "Ripple's global partner network" },
