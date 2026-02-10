@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Sora, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import Script from "next/script";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
 const sora = Sora({
   variable: "--font-display",
@@ -50,6 +54,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...(GSC_VERIFICATION && {
+    verification: {
+      google: GSC_VERIFICATION,
+    },
+  }),
 };
 
 const websiteSchema = {
@@ -73,6 +82,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${plusJakarta.variable} ${ibmPlexMono.variable}`}>
       <body className="min-h-screen antialiased">
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>

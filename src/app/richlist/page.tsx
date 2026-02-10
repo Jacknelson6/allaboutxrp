@@ -57,12 +57,12 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "What are XRP holder tiers?",
-      acceptedAnswer: { "@type": "Answer", text: "XRP holder tiers are community-created categories that classify XRP holders based on their balance, from Shrimp (<10 XRP) to Humpback (50,000+ XRP)." },
+      acceptedAnswer: { "@type": "Answer", text: "XRP holder tiers are community-created categories that classify XRP holders based on their balance, from Plankton (<10 XRP) to Kraken (50,000+ XRP)." },
     },
     {
       "@type": "Question",
-      name: "How many XRP do I need to be a Whale?",
-      acceptedAnswer: { "@type": "Answer", text: "You need at least 10,000 XRP to be classified as a Whale. The next level, Humpback, requires 50,000+ XRP." },
+      name: "How many XRP do I need to be a Megalodon?",
+      acceptedAnswer: { "@type": "Answer", text: "You need at least 10,000 XRP to be classified as a Megalodon. The next level, Kraken, requires 50,000+ XRP." },
     },
     {
       "@type": "Question",

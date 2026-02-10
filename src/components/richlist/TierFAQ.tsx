@@ -7,11 +7,11 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "What are XRP holder tiers?",
-    a: "XRP holder tiers are community-created categories that classify XRP holders based on their balance. From Shrimp (<10 XRP) to Humpback (50,000+ XRP), these tiers use ocean creatures to represent different levels of XRP ownership.",
+    a: "XRP holder tiers are community-created categories that classify XRP holders based on their balance. From Plankton (<10 XRP) to Kraken (50,000+ XRP), these tiers use ocean creatures to represent different levels of XRP ownership.",
   },
   {
-    q: "How many XRP do I need to be a Whale?",
-    a: "You need at least 10,000 XRP to be classified as a Whale. The next level, Humpback, requires 50,000+ XRP. These thresholds are based on community consensus and may evolve over time.",
+    q: "How many XRP do I need to be a Megalodon?",
+    a: "You need at least 10,000 XRP to be classified as a Megalodon. The next level, Kraken, requires 50,000+ XRP. These thresholds are based on community consensus and may evolve over time.",
   },
   {
     q: "How is XRP distributed among holders?",
@@ -22,8 +22,8 @@ const faqs = [
     a: "No, these tiers are not official designations from Ripple or the XRP Ledger. They are community-created categories used for fun and to help people understand where they stand relative to other holders.",
   },
   {
-    q: "What percentage of XRP holders are Whales?",
-    a: "Approximately 0.1-0.3% of all XRP accounts qualify as Whales (10,000+ XRP). The exact percentage fluctuates as the number of funded accounts grows and balances change.",
+    q: "What percentage of XRP holders are Megalodons?",
+    a: "Approximately 0.1-0.3% of all XRP accounts qualify as Megalodons (10,000+ XRP). The exact percentage fluctuates as the number of funded accounts grows and balances change.",
   },
 ];
 

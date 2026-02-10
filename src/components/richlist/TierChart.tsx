@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 const TIERS = [
-  { name: "Shrimp", emoji: "🦐", min: 0, max: 10, color: "#4a9eff", depth: "Surface", message: "Just dipping your toes in!" },
-  { name: "Crab", emoji: "🦀", min: 10, max: 100, color: "#00d4aa", depth: "Shallow Waters", message: "Scuttling along the shore" },
-  { name: "Octopus", emoji: "🐙", min: 100, max: 500, color: "#a855f7", depth: "Reef Zone", message: "Eight arms, infinite potential" },
-  { name: "Fish", emoji: "🐟", min: 500, max: 1000, color: "#22d3ee", depth: "Open Water", message: "Swimming with the current" },
-  { name: "Dolphin", emoji: "🐬", min: 1000, max: 5000, color: "#3b82f6", depth: "Deep Blue", message: "Intelligent & nimble" },
-  { name: "Shark", emoji: "🦈", min: 5000, max: 10000, color: "#6366f1", depth: "The Abyss", message: "Apex predator territory" },
-  { name: "Whale", emoji: "🐋", min: 10000, max: 50000, color: "#1e40af", depth: "Mariana Trench", message: "Making waves in the market" },
-  { name: "Humpback", emoji: "🐳", min: 50000, max: Infinity, color: "#0f172a", depth: "The Deep", message: "Legendary ocean titan" },
+  { name: "Plankton", emoji: "🫧", min: 0, max: 10, color: "#4a9eff", depth: "Surface", message: "Every ocean giant started microscopic" },
+  { name: "Seahorse", emoji: "🪸", min: 10, max: 100, color: "#00d4aa", depth: "Tidal Pools", message: "Small but steady in the current" },
+  { name: "Starfish", emoji: "⭐", min: 100, max: 500, color: "#a855f7", depth: "Reef Zone", message: "Five arms reaching for more" },
+  { name: "Swordfish", emoji: "🐡", min: 500, max: 1000, color: "#22d3ee", depth: "Open Water", message: "Cutting through the waves" },
+  { name: "Barracuda", emoji: "🐟", min: 1000, max: 5000, color: "#3b82f6", depth: "Deep Blue", message: "Fast, fierce, and focused" },
+  { name: "Orca", emoji: "🐋", min: 5000, max: 10000, color: "#6366f1", depth: "The Abyss", message: "Apex of the ocean hierarchy" },
+  { name: "Megalodon", emoji: "🦈", min: 10000, max: 50000, color: "#1e40af", depth: "Mariana Trench", message: "Ancient power, modern dominance" },
+  { name: "Kraken", emoji: "🐙", min: 50000, max: Infinity, color: "#0f172a", depth: "The Void", message: "Legendary. Unstoppable. Mythical." },
 ];
 
 export { TIERS };

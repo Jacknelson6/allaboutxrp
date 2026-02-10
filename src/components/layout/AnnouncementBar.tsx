@@ -12,6 +12,9 @@ const sites = [
   { ticker: "XDC", name: "allaboutxdc.com" },
 ];
 
+const NETWORK_NAME = "All About Cryptocurrency Network";
+const NETWORK_URL = "allaboutcryptocurrency.com";
+
 export default function AnnouncementBar() {
   const [popup, setPopup] = useState<string | null>(null);
 
@@ -19,7 +22,12 @@ export default function AnnouncementBar() {
     <>
       <div className="relative z-50 border-b border-surface-border/20 bg-[#050810]">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 px-4 py-1.5 text-xs sm:gap-6">
-          <span className="hidden text-text-secondary/40 sm:inline font-medium tracking-wide">The &quot;All About&quot; Network:</span>
+          <button
+            onClick={() => setPopup(NETWORK_URL)}
+            className="hidden text-text-secondary/40 sm:inline font-medium tracking-wide hover:text-text-secondary/60 transition-colors cursor-pointer"
+          >
+            {NETWORK_NAME}:
+          </button>
           {sites.map((site) =>
             site.current ? (
               <Link key={site.ticker} href="/" className="flex items-center gap-1.5 text-xrp-accent font-semibold transition-colors">

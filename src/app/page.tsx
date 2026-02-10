@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import XFeed from "@/components/home/XFeed";
+import Newsletter from "@/components/home/Newsletter";
 
 export const metadata: Metadata = {
   title: "AllAboutXRP — XRP Community Feed & Resources",
@@ -25,6 +26,7 @@ export default function HomePage() {
     <>
       <SEOSchema schema={organizationSchema} />
       <XFeed />
+      <Newsletter />
     </>
   );
 }
