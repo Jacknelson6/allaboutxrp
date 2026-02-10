@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-xrp-blue: #23292F;
+  --color-xrp-accent: #00A3FF;
+  --color-xrp-accent-dim: #0077CC;
+  --color-surface-primary: #0D1117;
+  --color-surface-card: #161B22;
+  --color-surface-elevated: #1C2128;
+  --color-surface-border: #30363D;
+  --color-text-primary: #F0F6FC;
+  --color-text-secondary: #8B949E;
+  --color-text-accent: #00A3FF;
+  --color-success: #3FB950;
+  --color-warning: #D29922;
+  --color-danger: #F85149;
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 163, 255, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 163, 255, 0.6); }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: rgba(0, 163, 255, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-xrp-accent);
+  outline-offset: 2px;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-xrp-accent);
+  color: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
