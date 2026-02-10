@@ -3,71 +3,40 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
-interface MenuItem {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-interface MenuSection {
-  label: string;
-  items: MenuItem[];
-}
-
-const menuSections: MenuSection[] = [
-  {
-    label: "Track",
-    items: [
-      { label: "Live Charts", href: "/live" },
-      { label: "3D Globe", href: "/live" },
-      { label: "Rich List", href: "/richlist" },
-    ],
-  },
-  {
-    label: "Analysis",
-    items: [
-      { label: "Daily Recaps", href: "/news/recaps" },
-      { label: "Ripple News", href: "/news" },
-      { label: "Acquisitions", href: "/acquisitions" },
-    ],
-  },
-  {
-    label: "Learn",
-    items: [
-      { label: "What is XRP?", href: "/learn/what-is-xrp" },
-      { label: "What is Ripple?", href: "/learn/what-is-ripple" },
-      { label: "RLUSD", href: "/learn/rlusd" },
-      { label: "History", href: "/learn/history" },
-      { label: "Escrow", href: "/escrow" },
-      { label: "Partnerships", href: "/learn/partnerships" },
-      { label: "Leadership", href: "/learn/leadership" },
-      { label: "Riddlers", href: "/riddlers" },
-      { label: "FAQ", href: "/learn/faq" },
-      { label: "Get Started", href: "/learn/get-started" },
-    ],
-  },
+const learnItems = [
+  { label: "What is XRP?", href: "/learn/what-is-xrp" },
+  { label: "What is Ripple?", href: "/learn/what-is-ripple" },
+  { label: "History", href: "/learn/history" },
+  { label: "Partnerships", href: "/learn/partnerships" },
+  { label: "Leadership", href: "/learn/leadership" },
+  { label: "Get Started", href: "/learn/get-started" },
+  { label: "Escrow", href: "/escrow" },
+  { label: "RLUSD", href: "/learn/rlusd" },
+  { label: "Riddlers", href: "/riddlers" },
+  { label: "Acquisitions", href: "/acquisitions" },
+  { label: "FAQ", href: "/learn/faq" },
 ];
 
 export default function MegaMenu() {
-  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [learnOpen, setLearnOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [mobileLearnOpen, setMobileLearnOpen] = useState(false);
   const pathname = usePathname();
-  const menuRef = useRef<HTMLDivElement>(null);
+  const learnRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMobileOpen(false);
-    setOpenSection(null);
+    setLearnOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setOpenSection(null);
+      if (learnRef.current && !learnRef.current.contains(e.target as Node)) {
+        setLearnOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -79,20 +48,26 @@ export default function MegaMenu() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const handleMouseEnter = (label: string) => {
+  const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setOpenSection(label);
+    setLearnOpen(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpenSection(null), 150);
+    timeoutRef.current = setTimeout(() => setLearnOpen(false), 150);
   };
+
+  const linkClass = (href: string) =>
+    `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+      pathname === href || pathname.startsWith(href + "/")
+        ? "text-text-primary"
+        : "text-text-secondary hover:text-text-primary"
+    }`;
 
   return (
     <nav
       className="sticky top-0 z-50 border-b border-surface-border bg-black"
       aria-label="Main navigation"
-      ref={menuRef}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         {/* Logo */}
@@ -102,57 +77,60 @@ export default function MegaMenu() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 lg:flex">
-          {menuSections.map((section) => (
-            <div
-              key={section.label}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(section.label)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button
-                className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                  openSection === section.label
-                    ? "text-text-primary"
-                    : "text-text-secondary hover:text-text-primary"
-                }`}
-                onClick={() => setOpenSection(openSection === section.label ? null : section.label)}
-                aria-expanded={openSection === section.label}
-              >
-                {section.label}
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openSection === section.label ? "rotate-180" : ""}`} />
-              </button>
-
-              {openSection === section.label && (
-                <div
-                  className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-surface-border bg-black py-1"
-                  onMouseEnter={() => handleMouseEnter(section.label)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.href + item.label}
-                      href={item.href}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                      className="block px-4 py-2 text-sm text-text-secondary hover:bg-white/[0.03] hover:text-text-primary transition-colors"
-                      onClick={() => setOpenSection(null)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-
-          <Link
-            href="/people"
-            className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-              pathname === "/people" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            People
+          <Link href="/live" className={linkClass("/live")}>
+            <span className="flex items-center gap-1.5">
+              <Globe className="h-3.5 w-3.5" />
+              Globe
+            </span>
           </Link>
+
+          <Link href="/richlist" className={linkClass("/richlist")}>
+            Rich List
+          </Link>
+
+          <Link href="/news/recaps" className={linkClass("/news")}>
+            Analysis
+          </Link>
+
+          {/* Learn dropdown */}
+          <div
+            className="relative"
+            ref={learnRef}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                learnOpen || pathname.startsWith("/learn")
+                  ? "text-text-primary"
+                  : "text-text-secondary hover:text-text-primary"
+              }`}
+              onClick={() => setLearnOpen(!learnOpen)}
+              aria-expanded={learnOpen}
+            >
+              Learn
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${learnOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {learnOpen && (
+              <div
+                className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-surface-border bg-black py-1"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {learnItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2 text-sm text-text-secondary hover:bg-white/[0.03] hover:text-text-primary transition-colors"
+                    onClick={() => setLearnOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           <Link
             href="/donate"
@@ -183,41 +161,59 @@ export default function MegaMenu() {
       {mobileOpen && (
         <div className="fixed inset-0 top-[53px] z-40 overflow-y-auto bg-black lg:hidden">
           <div className="flex flex-col px-4 py-4 gap-1">
-            {menuSections.map((section) => (
-              <div key={section.label} className="border-b border-surface-border">
-                <button
-                  onClick={() => setMobileAccordion(mobileAccordion === section.label ? null : section.label)}
-                  className="flex w-full items-center justify-between py-3 text-left"
-                  aria-expanded={mobileAccordion === section.label}
-                >
-                  <span className={`text-base font-semibold ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-primary"}`}>
-                    {section.label}
-                  </span>
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileAccordion === section.label ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
-                </button>
-                {mobileAccordion === section.label && (
-                  <div className="flex flex-col gap-0.5 pb-3 pl-2">
-                    {section.items.map((item) => (
-                      <Link
-                        key={item.href + item.label}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="rounded-lg px-3 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
             <Link
-              href="/people"
+              href="/live"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+            >
+              <Globe className="h-4 w-4" />
+              Globe
+            </Link>
+
+            <Link
+              href="/richlist"
               onClick={() => setMobileOpen(false)}
               className="py-3 text-base font-semibold text-text-primary border-b border-surface-border"
             >
-              People
+              Rich List
             </Link>
+
+            <Link
+              href="/news/recaps"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+            >
+              Analysis
+            </Link>
+
+            {/* Learn accordion */}
+            <div className="border-b border-surface-border">
+              <button
+                onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
+                className="flex w-full items-center justify-between py-3 text-left"
+                aria-expanded={mobileLearnOpen}
+              >
+                <span className={`text-base font-semibold ${mobileLearnOpen ? "text-xrp-accent" : "text-text-primary"}`}>
+                  Learn
+                </span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
+              </button>
+              {mobileLearnOpen && (
+                <div className="flex flex-col gap-0.5 pb-3 pl-2">
+                  {learnItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="rounded-lg px-3 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div className="pt-4">
               <Link
                 href="/donate"
