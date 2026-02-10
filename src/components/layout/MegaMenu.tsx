@@ -21,21 +21,6 @@ interface MenuSection {
 
 const menuSections: MenuSection[] = [
   {
-    label: "Learn",
-    items: [
-      { label: "What is XRP?", href: "/learn#what-is-xrp", description: "The basics of XRP and how it works" },
-      { label: "What is Ripple?", href: "/learn#what-is-ripple", description: "The company behind RippleNet" },
-      { label: "History & Timeline", href: "/learn#timeline", description: "Key milestones from 2011 to now" },
-      { label: "Escrow Explained", href: "/escrow", description: "How Ripple's 55B XRP escrow works" },
-      { label: "Partnerships", href: "/learn#vision", description: "Ripple's global partner network" },
-      { label: "Leadership Team", href: "/people", description: "Key people behind Ripple & XRPL" },
-      { label: "Acquisitions", href: "/acquisitions", description: "Companies Ripple has acquired" },
-      { label: "Riddlers & Lore", href: "/riddlers", description: "Community riddles and mysteries" },
-      { label: "FAQ", href: "/learn/faq", description: "Frequently asked questions" },
-      { label: "Get Started / How to Buy", href: "/get-started", description: "Start your XRP journey" },
-    ],
-  },
-  {
     label: "Track",
     items: [
       { label: "Live Charts", href: "/live", description: "Real-time XRP price and trading data" },
@@ -52,6 +37,21 @@ const menuSections: MenuSection[] = [
       { label: "Events & Sponsorships", href: "/news", description: "Conferences and events" },
       { label: "Partnerships & Acquisitions", href: "/acquisitions", description: "Latest deals and partnerships" },
       { label: "Regulatory / SEC Updates", href: "/news", description: "Legal and regulatory developments" },
+    ],
+  },
+  {
+    label: "Learn",
+    items: [
+      { label: "What is XRP?", href: "/learn#what-is-xrp", description: "The basics of XRP and how it works" },
+      { label: "What is Ripple?", href: "/learn#what-is-ripple", description: "The company behind RippleNet" },
+      { label: "History & Timeline", href: "/learn#timeline", description: "Key milestones from 2011 to now" },
+      { label: "Escrow Explained", href: "/escrow", description: "How Ripple's 55B XRP escrow works" },
+      { label: "Partnerships", href: "/learn#vision", description: "Ripple's global partner network" },
+      { label: "Leadership Team", href: "/people", description: "Key people behind Ripple & XRPL" },
+      { label: "Acquisitions", href: "/acquisitions", description: "Companies Ripple has acquired" },
+      { label: "Riddlers & Lore", href: "/riddlers", description: "Community riddles and mysteries" },
+      { label: "FAQ", href: "/learn/faq", description: "Frequently asked questions" },
+      { label: "Get Started / How to Buy", href: "/get-started", description: "Start your XRP journey" },
     ],
   },
   {
