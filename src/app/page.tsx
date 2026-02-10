@@ -15,6 +15,12 @@ export const metadata: Metadata = {
     description: "Curated XRP community feed, education, and live data.",
     url: "https://allaboutxrp.com",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AllAboutXRP — XRP Community Hub",
+    description: "Curated XRP community feed, education, live data, and comprehensive resources.",
+  },
+  alternates: { canonical: "https://allaboutxrp.com" },
 };
 
 const organizationSchema = {

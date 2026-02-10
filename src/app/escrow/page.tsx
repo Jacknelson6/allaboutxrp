@@ -77,7 +77,7 @@ const faqSchema = {
 export default function EscrowPage() {
   return (
     <>
-      <SEOSchema schema={faqSchema} />
+      <SEOSchema schema={[articleSchema, breadcrumbSchema, faqSchema]} />
       <EscrowContent />
     </>
   );

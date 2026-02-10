@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: 'Live XRPL Globe',
     description: 'Real-time XRP Ledger transaction visualizer on an interactive 3D globe.',
   },
+  alternates: { canonical: 'https://allaboutxrp.com/live' },
 };
 
 export default function LivePage() {

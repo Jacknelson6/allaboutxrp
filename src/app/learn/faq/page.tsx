@@ -13,6 +13,12 @@ export const metadata: Metadata = {
     description: "Answers to the most common questions about XRP and the XRP Ledger.",
     url: "https://allaboutxrp.com/learn/faq",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "XRP FAQ | AllAboutXRP",
+    description: "Answers to the most common questions about XRP, the XRP Ledger, and Ripple.",
+  },
+  alternates: { canonical: "https://allaboutxrp.com/learn/faq" },
 };
 
 export default function FAQPage() {

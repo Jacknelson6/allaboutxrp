@@ -10,6 +10,12 @@ export const metadata: Metadata = {
       "Discover where you rank among XRP holders. Interactive tier calculator, whale tracking, and distribution data.",
     url: "https://allaboutxrp.com/richlist",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "XRP Rich List & Holder Tiers | AllAboutXRP",
+    description: "XRP rich list, whale tracking, holder distribution, and interactive tier calculator.",
+  },
+  alternates: { canonical: "https://allaboutxrp.com/richlist" },
 };
 
 export default function RichListLayout({ children }: { children: React.ReactNode }) {
