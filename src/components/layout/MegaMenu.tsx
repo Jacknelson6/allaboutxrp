@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PriceWidget from "../shared/PriceWidget";
 
@@ -29,7 +29,7 @@ const menuSections: MenuSection[] = [
     ],
   },
   {
-    label: "News",
+    label: "Analysis",
     items: [
       { label: "Daily Recaps", href: "/news/recaps", description: "AI-generated daily XRP news summaries" },
       { label: "Ripple Corporate News", href: "/news", description: "Official Ripple announcements" },
@@ -52,21 +52,6 @@ const menuSections: MenuSection[] = [
       { label: "Riddlers & Lore", href: "/riddlers", description: "Community riddles and mysteries" },
       { label: "FAQ", href: "/learn/faq", description: "Frequently asked questions" },
       { label: "Get Started / How to Buy", href: "/get-started", description: "Start your XRP journey" },
-    ],
-  },
-  {
-    label: "Community",
-    items: [
-      { label: "X/Twitter Feed", href: "/", description: "Curated community feed" },
-      { label: "Follow Checklist", href: "/#follow-checklist", description: "Track who you follow" },
-      { label: "Suggest Accounts", href: "/#suggest", description: "Suggest accounts to feature" },
-    ],
-  },
-  {
-    label: "Support Us",
-    items: [
-      { label: "Donate XRP (Xaman)", href: "/donate", description: "Send XRP directly" },
-      { label: "Donate via PayPal/Stripe", href: "/donate", description: "Support with fiat currency" },
     ],
   },
 ];
@@ -195,9 +180,22 @@ export default function MegaMenu() {
               </AnimatePresence>
             </div>
           ))}
+          <Link
+            href="/donate"
+            className="ml-2 flex items-center gap-1.5 rounded-lg bg-xrp-accent px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90 hover:shadow-lg hover:shadow-xrp-accent/25"
+          >
+            <Heart className="h-3.5 w-3.5" />
+            Donate
+          </Link>
           <div className="ml-3">
             <PriceWidget />
           </div>
+          <Link
+            href="/donate"
+            className="ml-2 rounded-lg bg-xrp-accent px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90 hover:shadow-lg hover:shadow-xrp-accent/20"
+          >
+            Donate
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -226,7 +224,7 @@ export default function MegaMenu() {
           >
             <div className="flex flex-col px-4 py-4 gap-1">
               {menuSections.map((section) => (
-                <div key={section.label} className="border-b border-surface-border/30 last:border-0">
+                <div key={section.label} className="border-b border-surface-border/30">
                   <button
                     onClick={() => setMobileAccordion(mobileAccordion === section.label ? null : section.label)}
                     className="flex w-full items-center justify-between py-4 text-left"
@@ -270,6 +268,15 @@ export default function MegaMenu() {
                   </AnimatePresence>
                 </div>
               ))}
+              <div className="pt-4">
+                <Link
+                  href="/donate"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full rounded-lg bg-xrp-accent py-3 text-center text-base font-semibold text-white transition-all hover:bg-xrp-accent/90"
+                >
+                  Donate
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
