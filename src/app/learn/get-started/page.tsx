@@ -92,7 +92,7 @@ export default function GetStartedPage() {
 
         <div className="mt-6"><Disclaimer /></div>
 
-        <article className="mt-12 space-y-12">
+        <article className="cv-auto mt-12 space-y-12">
           {/* Step-by-Step */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Step-by-Step: How to Buy XRP</h2>
@@ -138,11 +138,11 @@ export default function GetStartedPage() {
                 >
                   <div className="flex items-center gap-3">
                     <h3 className="font-display text-lg font-bold text-text-primary">{ex.name}</h3>
-                    {ex.recommended && (
+                    {ex.recommended ? (
                       <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-2.5 py-0.5 text-xs font-semibold text-xrp-accent">
                         ★ Recommended
                       </span>
-                    )}
+                    ) : null}
                     <span className="ml-auto text-xs text-text-secondary">↗</span>
                   </div>
                   <p className="mt-2 text-sm text-text-secondary leading-relaxed">{ex.description}</p>

@@ -164,7 +164,7 @@ export default function PartnershipsPage() {
           ))}
         </div>
 
-        <article className="mt-12 space-y-12">
+        <article className="cv-auto mt-12 space-y-12">
           {/* How Ripple Partners Use XRP */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">How Partners Use XRP and Ripple Technology</h2>

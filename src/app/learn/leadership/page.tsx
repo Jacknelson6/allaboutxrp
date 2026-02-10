@@ -178,7 +178,7 @@ export default function LeadershipPage() {
 
         <div className="mt-6"><Disclaimer /></div>
 
-        <article className="mt-12 space-y-12">
+        <article className="cv-auto mt-12 space-y-12">
           {/* Executive Team */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Executive Team</h2>
@@ -197,7 +197,7 @@ export default function LeadershipPage() {
                     <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-3 py-0.5 text-xs font-semibold text-xrp-accent">
                       {leader.title}
                     </span>
-                    {leader.xHandle && (
+                    {leader.xHandle ? (
                       <a
                         href={`https://x.com/${leader.xHandle}`}
                         target="_blank"
@@ -206,7 +206,7 @@ export default function LeadershipPage() {
                       >
                         @{leader.xHandle} ↗
                       </a>
-                    )}
+                    ) : null}
                   </div>
                   <p className="mt-3 text-text-secondary leading-relaxed">{leader.description}</p>
                   <p className="mt-2 text-sm text-text-secondary/80 leading-relaxed">

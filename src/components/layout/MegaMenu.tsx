@@ -96,20 +96,20 @@ export default function MegaMenu() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-surface-border/50 bg-surface-primary/80 shadow-lg shadow-black/20 backdrop-blur-xl"
-          : "border-b border-transparent bg-surface-primary/60 backdrop-blur-md"
+          ? "border-b border-surface-border/40 bg-surface-primary/70 shadow-2xl shadow-black/30 backdrop-blur-2xl"
+          : "border-b border-transparent bg-surface-primary/40 backdrop-blur-lg"
       }`}
       aria-label="Main navigation"
       ref={menuRef}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-1 font-display text-xl font-bold text-text-primary">
-          <span className="gradient-text transition-opacity group-hover:opacity-80">All</span>
-          <span>About</span>
-          <span className="gradient-text transition-opacity group-hover:opacity-80">XRP</span>
+        <Link href="/" className="group flex items-center gap-0.5 font-display text-xl font-bold tracking-tight text-text-primary">
+          <span className="gradient-text transition-all duration-300 group-hover:opacity-80">All</span>
+          <span className="text-text-primary/90">About</span>
+          <span className="gradient-text transition-all duration-300 group-hover:opacity-80">XRP</span>
         </Link>
 
         {/* Desktop nav */}
@@ -122,7 +122,7 @@ export default function MegaMenu() {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide transition-all duration-300 ${
                   openSection === section.label
                     ? "text-xrp-accent"
                     : "text-text-secondary hover:text-text-primary"
@@ -131,23 +131,26 @@ export default function MegaMenu() {
                 aria-expanded={openSection === section.label}
               >
                 {section.label}
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${openSection === section.label ? "rotate-180" : ""}`} />
+                <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${openSection === section.label ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
                 {openSection === section.label && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 12, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-1/2 top-full z-50 mt-1 -translate-x-1/2"
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2"
                     onMouseEnter={() => handleMouseEnter(section.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="min-w-[320px] rounded-xl border border-surface-border/60 bg-surface-card/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
-                      <div className="mb-1.5 px-3 pt-1">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary/60">{section.label}</span>
+                    <div className="min-w-[340px] rounded-2xl border border-surface-border/50 bg-surface-card/90 p-2.5 shadow-2xl shadow-black/50 backdrop-blur-2xl">
+                      {/* Subtle glow at top */}
+                      <div className="absolute -top-px left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-xrp-accent/40 to-transparent" />
+                      
+                      <div className="mb-2 px-3 pt-1">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-secondary/50">{section.label}</span>
                       </div>
                       <div className="grid gap-0.5">
                         {section.items.map((item) => (
@@ -156,19 +159,19 @@ export default function MegaMenu() {
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-surface-elevated/80"
+                            className="group/item flex items-start gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-xrp-accent/[0.06]"
                             onClick={() => setOpenSection(null)}
                           >
-                            <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-xrp-accent/10 text-xrp-accent transition-colors group-hover:bg-xrp-accent/20">
-                              <ChevronRight className="h-3.5 w-3.5" />
+                            <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-surface-elevated/80 text-text-secondary transition-all duration-200 group-hover/item:bg-xrp-accent/15 group-hover/item:text-xrp-accent">
+                              <ChevronRight className="h-3 w-3" />
                             </div>
                             <div>
-                              <span className="text-sm font-medium text-text-primary group-hover:text-xrp-accent transition-colors">
+                              <span className="text-[13px] font-medium text-text-primary transition-colors duration-200 group-hover/item:text-xrp-accent">
                                 {item.label}
-                                {item.external && <span className="ml-1 text-xs text-text-secondary">↗</span>}
+                                {item.external && <span className="ml-1 text-[10px] text-text-secondary/60">↗</span>}
                               </span>
                               {item.description && (
-                                <p className="mt-0.5 text-xs text-text-secondary/70 leading-relaxed">{item.description}</p>
+                                <p className="mt-0.5 text-[11px] text-text-secondary/60 leading-relaxed">{item.description}</p>
                               )}
                             </div>
                           </Link>
@@ -182,20 +185,14 @@ export default function MegaMenu() {
           ))}
           <Link
             href="/donate"
-            className="ml-2 flex items-center gap-1.5 rounded-lg bg-xrp-accent px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90 hover:shadow-lg hover:shadow-xrp-accent/25"
+            className="btn-primary ml-3 !px-4 !py-2 text-[13px]"
           >
             <Heart className="h-3.5 w-3.5" />
-            Donate
+            <span>Donate</span>
           </Link>
           <div className="ml-3">
             <PriceWidget />
           </div>
-          <Link
-            href="/donate"
-            className="ml-2 rounded-lg bg-xrp-accent px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90 hover:shadow-lg hover:shadow-xrp-accent/20"
-          >
-            Donate
-          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -219,18 +216,27 @@ export default function MegaMenu() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[57px] z-40 overflow-y-auto bg-surface-primary/98 backdrop-blur-xl lg:hidden"
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 top-[57px] z-40 overflow-y-auto bg-surface-primary/98 backdrop-blur-2xl lg:hidden"
           >
-            <div className="flex flex-col px-4 py-4 gap-1">
-              {menuSections.map((section) => (
-                <div key={section.label} className="border-b border-surface-border/30">
+            {/* Atmospheric gradient */}
+            <div className="pointer-events-none absolute inset-0 bg-mesh-1 opacity-50" />
+            
+            <div className="relative flex flex-col px-5 py-5 gap-1">
+              {menuSections.map((section, sIdx) => (
+                <motion.div
+                  key={section.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: sIdx * 0.08 }}
+                  className="border-b border-surface-border/20"
+                >
                   <button
                     onClick={() => setMobileAccordion(mobileAccordion === section.label ? null : section.label)}
                     className="flex w-full items-center justify-between py-4 text-left"
                     aria-expanded={mobileAccordion === section.label}
                   >
-                    <span className={`font-display text-lg font-semibold ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-primary"}`}>
+                    <span className={`font-display text-lg font-semibold tracking-tight ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-primary"}`}>
                       {section.label}
                     </span>
                     <motion.div animate={{ rotate: mobileAccordion === section.label ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -257,26 +263,29 @@ export default function MegaMenu() {
                               className="rounded-lg px-3 py-2.5 text-sm text-text-secondary transition-colors hover:bg-surface-card hover:text-text-primary"
                             >
                               {item.label}
-                              {item.description && (
-                                <span className="ml-2 text-xs text-text-secondary/50">{item.description}</span>
-                              )}
                             </Link>
                           ))}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               ))}
-              <div className="pt-4">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-5"
+              >
                 <Link
                   href="/donate"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full rounded-lg bg-xrp-accent py-3 text-center text-base font-semibold text-white transition-all hover:bg-xrp-accent/90"
+                  className="btn-primary w-full justify-center text-base"
                 >
-                  Donate
+                  <Heart className="h-4 w-4" />
+                  <span>Donate</span>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

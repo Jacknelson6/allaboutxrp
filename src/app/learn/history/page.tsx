@@ -129,9 +129,9 @@ export default function HistoryPage() {
                         <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[event.category] || "bg-surface-elevated text-text-secondary border-surface-border"}`}>
                           {event.category}
                         </span>
-                        {event.significance === "high" && (
+                        {event.significance === "high" ? (
                           <span className="text-[10px] font-semibold text-warning">★ Major</span>
-                        )}
+                        ) : null}
                       </div>
                       <h4 className="mt-1 font-display font-semibold text-text-primary">{event.title}</h4>
                       <p className="mt-1 text-sm text-text-secondary leading-relaxed">{event.description}</p>

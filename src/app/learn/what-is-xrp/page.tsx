@@ -92,7 +92,7 @@ export default function WhatIsXRPPage() {
           ))}
         </div>
 
-        <article className="prose-custom mt-12 space-y-10">
+        <article className="prose-custom cv-auto mt-12 space-y-10">
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">XRP Explained: The Basics</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
