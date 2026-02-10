@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import Disclaimer from "@/components/shared/Disclaimer";
+import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
 import timelineData from "@/data/timeline.json";
 
 export const metadata: Metadata = {
@@ -31,64 +33,24 @@ const categoryColors: Record<string, string> = {
 };
 
 const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  buildArticleSchema({
     headline: "XRP History: Complete Ripple Timeline 2011-2026",
     description: "The complete history of XRP and Ripple from 2011 to 2026, covering every major milestone.",
     url: "https://allaboutxrp.com/learn/history",
     datePublished: "2026-02-10",
     dateModified: "2026-02-10",
-    author: { "@type": "Organization", name: "AllAboutXRP" },
-    publisher: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
-      { "@type": "ListItem", position: 3, name: "History & Timeline" },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "When was XRP created?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The XRP Ledger development began in 2011 by David Schwartz, Jed McCaleb, and Arthur Britto. The ledger went live and processed its first transaction on June 2, 2012, with all 100 billion XRP created at genesis.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What was XRP's all-time high price?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run, briefly becoming the second-largest cryptocurrency by market cap.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "When did the SEC sue Ripple?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The SEC filed its lawsuit against Ripple on December 22, 2020, alleging Ripple raised $1.3 billion through unregistered sales of XRP. Judge Torres ruled in July 2023 that XRP on exchanges is not a security.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Who created XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined them to co-found the company OpenCoin, which became Ripple.",
-        },
-      },
-    ],
-  },
+  }),
+  buildBreadcrumbSchema([
+    { name: "Home", url: "https://allaboutxrp.com" },
+    { name: "Learn", url: "https://allaboutxrp.com/learn" },
+    { name: "History & Timeline" },
+  ]),
+  buildFAQSchema([
+    { question: "When was XRP created?", answer: "The XRP Ledger development began in 2011 by David Schwartz, Jed McCaleb, and Arthur Britto. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis." },
+    { question: "What was XRP's all-time high price?", answer: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run, briefly becoming the second-largest cryptocurrency by market cap." },
+    { question: "When did the SEC sue Ripple?", answer: "The SEC filed its lawsuit against Ripple on December 22, 2020. Judge Torres ruled in July 2023 that XRP on exchanges is not a security." },
+    { question: "Who created XRP?", answer: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined them to co-found OpenCoin, which became Ripple." },
+  ]),
 ];
 
 // Group events by year
@@ -118,6 +80,9 @@ export default function HistoryPage() {
         <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
           <span className="gradient-text">XRP History</span>: The Complete Timeline
         </h1>
+        <div className="mt-4">
+          <AuthorByline date="2026-02-10" />
+        </div>
         <p className="mt-4 text-lg text-text-secondary leading-relaxed">
           The complete <strong>XRP history</strong> and <strong>Ripple history timeline</strong> from the very beginning. From the creation of the XRP Ledger in 2011 through the SEC lawsuit, landmark court rulings, institutional adoption, and the emergence of XRP as a cornerstone of digital finance — every major milestone documented.
         </p>
@@ -220,6 +185,29 @@ export default function HistoryPage() {
             </ul>
           </section>
 
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Why XRP&apos;s History Matters</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              Understanding XRP&apos;s history is essential for evaluating its future. The SEC lawsuit, for example, created years of price suppression and uncertainty — but also resulted in the most important legal precedent in crypto history. Each era of XRP&apos;s development has built on the last, and the institutional infrastructure being assembled in 2025-2026 is the culmination of over a decade of work.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Common Misconceptions About XRP History</h2>
+            <div className="mt-4 space-y-3">
+              {[
+                { mistake: "XRP was created by Ripple", fix: "The XRPL was built before Ripple existed. Schwartz, McCaleb, and Britto created the ledger; they then formed the company." },
+                { mistake: "The SEC lawsuit proved XRP is a security", fix: "The opposite — the Torres ruling established that XRP on exchanges is NOT a security." },
+                { mistake: "XRP is 'dead' because of years of low prices", fix: "Price suppression during the SEC era masked massive infrastructure building. Ripple spent $3.7B on acquisitions in 2025 alone." },
+              ].map((item) => (
+                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                  <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
+                  <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* FAQ */}
           <section className="mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
@@ -276,8 +264,23 @@ export default function HistoryPage() {
           </section>
         </article>
 
-        <p className="mt-12 text-xs text-text-secondary/60">
-          <em>Last updated: February 2026. Sources: XRPL.org, Ripple official announcements, SEC filings, CoinMarketCap, CoinDesk.</em>
+        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
+          <h2 className="font-display text-xl font-bold text-text-primary">The Story Continues</h2>
+          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
+            From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP&apos;s story is still being written. Stay informed and explore more.
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <Link href="/learn/what-is-xrp" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
+              What is XRP? →
+            </Link>
+            <Link href="/news/recaps" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
+              Latest News
+            </Link>
+          </div>
+        </section>
+
+        <p className="mt-8 text-xs text-text-secondary/60">
+          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple official announcements, SEC court filings, CoinMarketCap, CoinDesk, XRPScan.</em>
         </p>
       </div>
     </>

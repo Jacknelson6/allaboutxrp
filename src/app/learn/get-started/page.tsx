@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import Disclaimer from "@/components/shared/Disclaimer";
+import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
+import { buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
 
 export const metadata: Metadata = {
   title: "How to Buy XRP: Beginner's Guide 2026",
@@ -22,67 +24,29 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
+  buildHowToSchema({
     name: "How to Buy XRP",
     description: "A step-by-step guide to purchasing XRP cryptocurrency for beginners.",
     url: "https://allaboutxrp.com/learn/get-started",
-    step: [
-      { "@type": "HowToStep", position: 1, name: "Choose an Exchange", text: "Select a reputable cryptocurrency exchange that supports XRP trading, such as Uphold, Coinbase, Kraken, or Bitstamp." },
-      { "@type": "HowToStep", position: 2, name: "Create & Verify Account", text: "Sign up and complete identity verification (KYC) with a government-issued ID." },
-      { "@type": "HowToStep", position: 3, name: "Deposit Funds", text: "Add funds via bank transfer, debit card, or other supported payment method." },
-      { "@type": "HowToStep", position: 4, name: "Buy XRP", text: "Search for XRP and place your buy order at market or limit price." },
-      { "@type": "HowToStep", position: 5, name: "Secure Your XRP", text: "Consider transferring to a self-custody wallet like Xaman (XUMM) for long-term storage." },
+    steps: [
+      { name: "Choose an Exchange", text: "Select a reputable cryptocurrency exchange that supports XRP trading, such as Uphold, Coinbase, Kraken, or Bitstamp." },
+      { name: "Create & Verify Account", text: "Sign up and complete identity verification (KYC) with a government-issued ID." },
+      { name: "Deposit Funds", text: "Add funds via bank transfer, debit card, or other supported payment method." },
+      { name: "Buy XRP", text: "Search for XRP and place your buy order at market or limit price." },
+      { name: "Secure Your XRP", text: "Consider transferring to a self-custody wallet like Xaman (XUMM) for long-term storage." },
     ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
-      { "@type": "ListItem", position: 3, name: "Get Started" },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is the best exchange to buy XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "For beginners, Uphold is recommended for its simplicity and direct XRP purchases with no trading fees. Coinbase is the largest U.S. exchange with strong security. Kraken offers advanced features with low fees. Bitstamp is well-established with good XRP liquidity.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What is the minimum amount of XRP I can buy?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most exchanges allow you to buy fractional XRP — you can start with as little as $1-10 worth. Note that XRP wallets require a 10 XRP reserve to activate an account on the XRP Ledger.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What wallet should I use for XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Xaman (formerly XUMM) is the most popular XRP wallet — it's a self-custody mobile wallet built specifically for the XRP Ledger. For hardware security, Ledger and Trezor both support XRP. You can also use the XRPL's built-in DEX through Xaman.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is it safe to buy XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Buying XRP from a regulated exchange is generally safe. Use exchanges with strong security, enable two-factor authentication, and consider transferring to a self-custody wallet for long-term holding. Never share your private keys or seed phrase.",
-        },
-      },
-    ],
-  },
+  }),
+  buildBreadcrumbSchema([
+    { name: "Home", url: "https://allaboutxrp.com" },
+    { name: "Learn", url: "https://allaboutxrp.com/learn" },
+    { name: "Get Started" },
+  ]),
+  buildFAQSchema([
+    { question: "What is the best exchange to buy XRP?", answer: "For beginners, Uphold is recommended for its simplicity and direct XRP purchases. Coinbase is the largest U.S. exchange with strong security. Kraken offers advanced features with low fees." },
+    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. Note that XRP wallets require a 10 XRP reserve to activate an account on the XRP Ledger." },
+    { question: "What wallet should I use for XRP?", answer: "Xaman (formerly XUMM) is the most popular XRP wallet — a self-custody mobile wallet built for the XRP Ledger. For hardware security, Ledger and Trezor both support XRP." },
+    { question: "Is it safe to buy XRP?", answer: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding. Never share your private keys or seed phrase." },
+  ]),
 ];
 
 const exchanges = [
@@ -119,6 +83,9 @@ export default function GetStartedPage() {
         <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
           <span className="gradient-text">How to Buy XRP</span>: Beginner&apos;s Guide
         </h1>
+        <div className="mt-4">
+          <AuthorByline date="2026-02-10" />
+        </div>
         <p className="mt-4 text-lg text-text-secondary leading-relaxed">
           Want to know <strong>how to buy XRP</strong>? This complete <strong>XRP beginner guide</strong> walks you through everything — from choosing an exchange to securing your tokens in a wallet. Whether you&apos;re new to crypto or just new to XRP, you&apos;ll be set up in minutes.
         </p>
@@ -304,8 +271,8 @@ export default function GetStartedPage() {
           </section>
         </article>
 
-        <p className="mt-12 text-xs text-text-secondary/60">
-          <em>Last updated: February 2026. This is educational content, not financial advice. Always do your own research.</em>
+        <p className="mt-8 text-xs text-text-secondary/60">
+          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. This is educational content, not financial advice. Always do your own research before investing.</em>
         </p>
       </div>
     </>

@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import Disclaimer from "@/components/shared/Disclaimer";
+import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
 
 export const metadata: Metadata = {
   title: "Ripple Leadership: Who Runs Ripple in 2026",
@@ -22,56 +24,23 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  buildArticleSchema({
     headline: "Ripple Leadership: Who Runs Ripple in 2026",
     description: "Complete profiles of Ripple's executive leadership team and XRP Ledger co-creators.",
     url: "https://allaboutxrp.com/learn/leadership",
     datePublished: "2026-02-10",
     dateModified: "2026-02-10",
-    author: { "@type": "Organization", name: "AllAboutXRP" },
-    publisher: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
-      { "@type": "ListItem", position: 3, name: "Leadership" },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Who is the CEO of Ripple?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Brad Garlinghouse has served as CEO of Ripple since January 2017. Previously, he held executive positions at AOL, Hightail, and Yahoo. He led Ripple through the SEC lawsuit and the company's expansion to a $50 billion valuation.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Who created the XRP Ledger?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Development began in 2011 and the ledger went live in June 2012.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Who founded Ripple?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Ripple (originally OpenCoin) was co-founded in September 2012 by Chris Larsen, Jed McCaleb, and Arthur Britto. Chris Larsen served as the first CEO and now serves as Executive Chairman.",
-        },
-      },
-    ],
-  },
+  }),
+  buildBreadcrumbSchema([
+    { name: "Home", url: "https://allaboutxrp.com" },
+    { name: "Learn", url: "https://allaboutxrp.com/learn" },
+    { name: "Leadership" },
+  ]),
+  buildFAQSchema([
+    { question: "Who is the CEO of Ripple?", answer: "Brad Garlinghouse has served as CEO since January 2017. He led Ripple through the SEC lawsuit and the company's expansion to a $50 billion valuation." },
+    { question: "Who created the XRP Ledger?", answer: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Development began in 2011." },
+    { question: "Who founded Ripple?", answer: "Ripple (originally OpenCoin) was co-founded in September 2012 by Chris Larsen, Jed McCaleb, and Arthur Britto." },
+  ]),
 ];
 
 interface Leader {
@@ -200,6 +169,9 @@ export default function LeadershipPage() {
         <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
           <span className="gradient-text">Ripple Leadership</span>: Who Runs Ripple
         </h1>
+        <div className="mt-4">
+          <AuthorByline date="2026-02-10" />
+        </div>
         <p className="mt-4 text-lg text-text-secondary leading-relaxed">
           <strong>Ripple&apos;s leadership</strong> team combines fintech veterans, cryptography experts, Wall Street alumni, and seasoned corporate executives. The team has guided Ripple through rapid growth, the landmark SEC lawsuit, and the company&apos;s transformation into a $50 billion financial infrastructure provider. Here&apos;s <strong>who runs Ripple</strong>.
         </p>
@@ -363,8 +335,23 @@ export default function LeadershipPage() {
           </section>
         </article>
 
-        <p className="mt-12 text-xs text-text-secondary/60">
-          <em>Last updated: February 2026. Sources: Ripple.com/leadership, LinkedIn, SEC filings, CoinPaper, CryptoRank.</em>
+        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
+          <h2 className="font-display text-xl font-bold text-text-primary">Explore What They&apos;re Building</h2>
+          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
+            This leadership team has assembled $3.7B+ in acquisitions and built partnerships across 55+ countries. See the results of their strategy.
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <Link href="/acquisitions" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
+              Acquisition Strategy →
+            </Link>
+            <Link href="/learn/partnerships" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
+              View Partnerships
+            </Link>
+          </div>
+        </section>
+
+        <p className="mt-8 text-xs text-text-secondary/60">
+          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com/leadership, LinkedIn, SEC court filings, CoinPaper, CryptoRank, company announcements.</em>
         </p>
       </div>
     </>

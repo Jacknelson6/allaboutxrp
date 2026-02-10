@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import Disclaimer from "@/components/shared/Disclaimer";
+import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
 
 export const metadata: Metadata = {
   title: "Ripple Partnerships: Complete XRP Partners List 2026",
@@ -22,56 +24,23 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  buildArticleSchema({
     headline: "Ripple Partnerships: Complete XRP Partners List 2026",
     description: "A comprehensive list of Ripple's partnerships with banks, payment providers, and financial institutions worldwide.",
     url: "https://allaboutxrp.com/learn/partnerships",
     datePublished: "2026-02-10",
     dateModified: "2026-02-10",
-    author: { "@type": "Organization", name: "AllAboutXRP" },
-    publisher: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
-      { "@type": "ListItem", position: 3, name: "Partnerships" },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What banks use Ripple and XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Major banks partnered with Ripple include SBI Holdings (Japan), Banco Santander (Spain), BBVA (Spain), Standard Chartered, MUFG (Japan), Bank of America, National Australia Bank, RAKBANK (UAE), and many others across 55+ countries.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How many partners does Ripple have?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. The company has processed over $90 billion in global payments through its network.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Mastercard use XRP?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions through the Gemini Credit Card — one of the first U.S. regulated bank uses of stablecoins on a public blockchain.",
-        },
-      },
-    ],
-  },
+  }),
+  buildBreadcrumbSchema([
+    { name: "Home", url: "https://allaboutxrp.com" },
+    { name: "Learn", url: "https://allaboutxrp.com/learn" },
+    { name: "Partnerships" },
+  ]),
+  buildFAQSchema([
+    { question: "What banks use Ripple and XRP?", answer: "Major banks include SBI Holdings (Japan), Banco Santander (Spain), BBVA (Spain), Standard Chartered, MUFG (Japan), National Australia Bank, RAKBANK (UAE), and many others across 55+ countries." },
+    { question: "How many partners does Ripple have?", answer: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. Over $90 billion in global payments processed." },
+    { question: "Does Mastercard use XRP?", answer: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain." },
+  ]),
 ];
 
 interface Partner {
@@ -171,6 +140,9 @@ export default function PartnershipsPage() {
         <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
           <span className="gradient-text">Ripple Partnerships</span>: The Complete List
         </h1>
+        <div className="mt-4">
+          <AuthorByline date="2026-02-10" />
+        </div>
         <p className="mt-4 text-lg text-text-secondary leading-relaxed">
           <strong>Ripple partnerships</strong> span over 55 countries and include some of the world&apos;s largest banks, payment providers, and financial institutions. From SBI Holdings in Japan to Mastercard and BNY Mellon, Ripple has built one of the most extensive enterprise blockchain networks in the industry. Here&apos;s the complete <strong>XRP partnerships list</strong>.
         </p>
@@ -302,8 +274,23 @@ export default function PartnershipsPage() {
           </section>
         </article>
 
-        <p className="mt-12 text-xs text-text-secondary/60">
-          <em>Last updated: February 2026. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, company press releases.</em>
+        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
+          <h2 className="font-display text-xl font-bold text-text-primary">The Network Effect</h2>
+          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
+            Every new partner added to Ripple&apos;s network increases the value for all existing participants. With 55+ countries and $90B+ processed, the network effect is accelerating.
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <Link href="/learn/what-is-xrp" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
+              Understand XRP →
+            </Link>
+            <Link href="/learn/get-started" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
+              How to Buy XRP
+            </Link>
+          </div>
+        </section>
+
+        <p className="mt-8 text-xs text-text-secondary/60">
+          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, 21Shares research, company press releases.</em>
         </p>
       </div>
     </>

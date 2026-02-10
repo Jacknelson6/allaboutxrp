@@ -5,25 +5,25 @@ import { getAllRecaps } from "@/lib/utils/news";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";
 
-  const staticPages = [
-    "",
-    "/escrow",
-    "/acquisitions",
-    "/riddlers",
-    "/people",
-    "/news",
-    "/richlist",
-    "/get-started",
-    "/donate",
-    "/live",
-    "/learn",
-    "/learn/faq",
-    "/learn/what-is-xrp",
-    "/learn/what-is-ripple",
-    "/learn/history",
-    "/learn/partnerships",
-    "/learn/leadership",
-    "/learn/get-started",
+  const staticPages: { path: string; changeFrequency: "hourly" | "daily" | "weekly" | "monthly"; priority: number }[] = [
+    { path: "", changeFrequency: "hourly", priority: 1.0 },
+    { path: "/learn/what-is-xrp", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/learn/what-is-ripple", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/learn/history", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/learn/partnerships", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/learn/leadership", changeFrequency: "monthly", priority: 0.85 },
+    { path: "/learn/get-started", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/learn", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
+    { path: "/escrow", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/acquisitions", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/riddlers", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/people", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/news", changeFrequency: "hourly", priority: 0.9 },
+    { path: "/richlist", changeFrequency: "hourly", priority: 0.8 },
+    { path: "/live", changeFrequency: "hourly", priority: 0.8 },
+    { path: "/get-started", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/donate", changeFrequency: "monthly", priority: 0.4 },
   ];
 
   const faqSlugs = getAllFAQSlugs();
@@ -31,10 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages.map((page) => ({
-      url: `${baseUrl}${page}`,
+      url: `${baseUrl}${page.path}`,
       lastModified: new Date(),
-      changeFrequency: (page === "/richlist" || page === "/news" || page === "" ? "hourly" : "weekly") as "hourly" | "weekly",
-      priority: page === "" ? 1 : 0.8,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
     })),
     {
       url: `${baseUrl}/news/recaps`,
