@@ -39,7 +39,7 @@ export default function RecapsIndexPage() {
             <Newspaper className="h-5 w-5 text-xrp-accent" />
           </div>
           <div>
-            <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+            <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
               Daily XRP Recaps
             </h1>
             <p className="mt-1 text-text-secondary">

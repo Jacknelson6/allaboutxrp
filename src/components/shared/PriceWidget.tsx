@@ -43,9 +43,9 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
 
   if (!data) {
     return (
-      <div className="flex items-center gap-2 rounded-xl border border-surface-border bg-surface-card/80 px-4 py-2 text-sm backdrop-blur-sm">
+      <div className="flex items-center gap-2 rounded-xl border border-surface-border/50 bg-surface-card/60 px-4 py-2 text-sm backdrop-blur-sm">
         <span className="h-2 w-2 rounded-full bg-surface-border animate-pulse" />
-        <span className="font-mono text-text-secondary shimmer">XRP $--.--</span>
+        <span className="font-mono text-text-secondary/50 shimmer">XRP $--.--</span>
       </div>
     );
   }
@@ -62,7 +62,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
           className="flex items-center gap-1.5 text-sm group cursor-pointer"
           aria-label="Open XRP trade analysis"
         >
-          <span className={`font-mono font-semibold transition-colors duration-300 group-hover:text-xrp-accent ${flashColor}`}>
+          <span className={`font-mono font-bold transition-colors duration-300 group-hover:text-xrp-accent ${flashColor}`}>
             ${data.price.toFixed(2)}
           </span>
           <Icon className={`h-3 w-3 ${positive ? "text-success" : "text-danger"}`} />
@@ -76,31 +76,27 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
     <>
       <button
         onClick={() => setModalOpen(true)}
-        className="group relative flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card/80 px-5 py-2.5 text-sm backdrop-blur-sm transition-all hover:border-xrp-accent/40 hover:shadow-lg hover:shadow-xrp-accent/10 cursor-pointer"
+        className="group relative flex items-center gap-3.5 rounded-xl border border-surface-border/40 bg-surface-card/50 px-5 py-2.5 text-sm backdrop-blur-xl transition-all duration-300 hover:border-xrp-accent/30 hover:shadow-lg hover:shadow-xrp-accent/8 cursor-pointer"
         aria-label="Open XRP trade analysis"
       >
-        {/* Subtle glow pulse */}
-        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ boxShadow: "inset 0 0 20px rgba(0, 163, 255, 0.05)" }} />
-
-        <div className="relative flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-40" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
           </span>
-          <span className="font-semibold text-text-primary">XRP</span>
+          <span className="font-semibold text-text-primary/80">XRP</span>
         </div>
-        <span className={`relative font-mono text-lg font-bold transition-colors duration-300 ${flash ? "stat-refresh" : ""} ${flashColor}`}>
+        <span className={`font-mono text-lg font-bold transition-colors duration-300 ${flash ? "stat-refresh" : ""} ${flashColor}`}>
           ${data.price.toFixed(4)}
         </span>
-        <div className={`relative flex items-center gap-1 rounded-lg px-2 py-0.5 text-xs font-semibold ${
-          positive ? "bg-success/10 text-success" : "bg-danger/10 text-danger"
+        <div className={`flex items-center gap-1 rounded-lg px-2 py-0.5 text-[11px] font-bold ${
+          positive ? "bg-success/8 text-success" : "bg-danger/8 text-danger"
         }`}>
           <Icon className="h-3 w-3" />
           {positive ? "+" : ""}{data.change24h.toFixed(2)}%
         </div>
 
-        {/* Click hint */}
-        <div className="relative ml-1 text-text-secondary/40 group-hover:text-xrp-accent/60 transition-colors">
+        <div className="ml-1 text-text-secondary/30 group-hover:text-xrp-accent/50 transition-colors">
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>

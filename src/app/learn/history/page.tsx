@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { LearnHero, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 import timelineData from "@/data/timeline.json";
 
 export const metadata: Metadata = {
@@ -66,26 +67,27 @@ export default function HistoryPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-          <ol className="flex items-center gap-1.5">
-            <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/learn" className="hover:text-xrp-accent transition-colors">Learn</Link></li>
-            <li>/</li>
-            <li className="text-text-primary font-medium">History & Timeline</li>
-          </ol>
-        </nav>
+      <div className="relative mx-auto max-w-4xl px-4 py-12">
+        <LearnHero
+          title="XRP History:"
+          titleAccent="The Complete Timeline"
+          subtitle="Every major milestone from the creation of the XRP Ledger in 2011 through the SEC lawsuit, court rulings, and XRP's emergence as institutional infrastructure."
+          breadcrumbLabel="History &amp; Timeline"
+        >
+          <div className="mt-5">
+            <AuthorByline date="2026-02-10" />
+          </div>
+        </LearnHero>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
-          <span className="gradient-text">XRP History</span>: The Complete Timeline
-        </h1>
-        <div className="mt-4">
-          <AuthorByline date="2026-02-10" />
-        </div>
-        <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-          The complete <strong>XRP history</strong> and <strong>Ripple history timeline</strong> from the very beginning. From the creation of the XRP Ledger in 2011 through the SEC lawsuit, landmark court rulings, institutional adoption, and the emergence of XRP as a cornerstone of digital finance — every major milestone documented.
-        </p>
+        <SectionNav items={[
+          { id: "eras", label: "Eras" },
+          { id: "timeline", label: "Full Timeline" },
+          { id: "important-moments", label: "Key Moments" },
+          { id: "sec", label: "SEC Case" },
+          { id: "faq", label: "FAQ" },
+        ]} />
+
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
 
         <div className="mt-6"><Disclaimer /></div>
 

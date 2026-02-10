@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { LearnHero, StatPill, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "Ripple Partnerships: Complete XRP Partners List 2026",
@@ -126,45 +127,38 @@ export default function PartnershipsPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-          <ol className="flex items-center gap-1.5">
-            <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/learn" className="hover:text-xrp-accent transition-colors">Learn</Link></li>
-            <li>/</li>
-            <li className="text-text-primary font-medium">Partnerships</li>
-          </ol>
-        </nav>
+      <div className="relative mx-auto max-w-4xl px-4 py-12">
+        <LearnHero
+          title="Ripple"
+          titleAccent="Partnerships"
+          subtitle="From SBI Holdings to Mastercard and BNY Mellon — the complete list of banks, payment providers, and institutions in the Ripple network across 55+ countries."
+          breadcrumbLabel="Partnerships"
+        >
+          <div className="mt-5">
+            <AuthorByline date="2026-02-10" />
+          </div>
+        </LearnHero>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
-          <span className="gradient-text">Ripple Partnerships</span>: The Complete List
-        </h1>
-        <div className="mt-4">
-          <AuthorByline date="2026-02-10" />
-        </div>
-        <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-          <strong>Ripple partnerships</strong> span over 55 countries and include some of the world&apos;s largest banks, payment providers, and financial institutions. From SBI Holdings in Japan to Mastercard and BNY Mellon, Ripple has built one of the most extensive enterprise blockchain networks in the industry. Here&apos;s the complete <strong>XRP partnerships list</strong>.
-        </p>
+        <SectionNav items={[
+          { id: "how-partners-use", label: "How Partners Use XRP" },
+          { id: "strategic", label: "Strategic Partners" },
+          { id: "banks", label: "Banks" },
+          { id: "payments", label: "Payment Providers" },
+          { id: "faq", label: "FAQ" },
+        ]} />
+
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
 
         <div className="mt-6"><Disclaimer /></div>
 
-        {/* Key Stats */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {[
-            { label: "Countries", value: "55+" },
-            { label: "Payments Processed", value: "$90B+" },
-            { label: "CBDC Pilots", value: "20+" },
-            { label: "Acquisition Spend", value: "$3.7B+" },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-xl border border-surface-border bg-surface-card/50 p-4 text-center backdrop-blur-sm">
-              <div className="font-display text-xl font-bold text-xrp-accent">{stat.value}</div>
-              <div className="mt-1 text-xs text-text-secondary">{stat.label}</div>
-            </div>
-          ))}
+          <StatPill label="Countries" value="55+" delay={0} />
+          <StatPill label="Payments Processed" value="$90B+" delay={0.06} />
+          <StatPill label="CBDC Pilots" value="20+" delay={0.12} />
+          <StatPill label="Acquisition Spend" value="$3.7B+" delay={0.18} />
         </div>
 
-        <article className="cv-auto mt-12 space-y-12">
+        <article className="prose-editorial cv-auto mt-14 space-y-12">
           {/* How Ripple Partners Use XRP */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">How Partners Use XRP and Ripple Technology</h2>

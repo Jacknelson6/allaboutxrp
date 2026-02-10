@@ -28,7 +28,7 @@ export default function DonatePage() {
   return (
     <>
       <SEOSchema schema={breadcrumbSchema} />
-      <div className="mx-auto max-w-3xl px-4 py-12">
+      <div className="mx-auto max-w-3xl px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function DonatePage() {
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-xrp-accent/10">
             <Heart className="h-8 w-8 text-xrp-accent" />
           </div>
-          <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
             Donate <span className="gradient-text">XRP</span>
           </h1>
           <p className="mt-3 text-text-secondary">
@@ -52,7 +52,7 @@ export default function DonatePage() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="mt-10 flex flex-col items-center rounded-2xl border border-surface-border bg-surface-card/50 p-8 backdrop-blur-sm"
         >
-          <div className="rounded-2xl bg-white p-5 shadow-lg shadow-xrp-accent/5 animate-pulse-glow">
+          <div className="rounded-2xl bg-white p-5 shadow-2xl shadow-xrp-accent/8 animate-pulse-glow">
             <QRCodeSVG value={`xrp:${XRP_ADDRESS}`} size={200} level="M" />
           </div>
           <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-text-secondary">XRP Address</p>

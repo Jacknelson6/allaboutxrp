@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { LearnHero, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "Ripple Leadership: Who Runs Ripple in 2026",
@@ -155,7 +156,7 @@ export default function LeadershipPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mx-auto max-w-4xl px-4 py-16">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
           <ol className="flex items-center gap-1.5">
             <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
@@ -166,7 +167,7 @@ export default function LeadershipPage() {
           </ol>
         </nav>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
           <span className="gradient-text">Ripple Leadership</span>: Who Runs Ripple
         </h1>
         <div className="mt-4">

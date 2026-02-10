@@ -94,7 +94,7 @@ export default async function FAQBlogPage({ params }: Props) {
           <span className="text-text-primary truncate max-w-[200px]">{faq.question}</span>
         </nav>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl leading-tight">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
           {faq.question}
         </h1>
 

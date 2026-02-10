@@ -44,7 +44,7 @@ export default function FAQPage() {
   return (
     <>
       <SEOSchema schema={[faqSchema, breadcrumbSchema]} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mx-auto max-w-4xl px-4 py-16">
         {/* Breadcrumb */}
         <nav className="mb-8 flex items-center gap-2 text-xs text-text-secondary" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link>
@@ -54,7 +54,7 @@ export default function FAQPage() {
           <span className="text-text-primary">FAQ</span>
         </nav>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
           Frequently Asked <span className="gradient-text">Questions</span>
         </h1>
         <p className="mt-3 text-text-secondary">

@@ -79,8 +79,10 @@ export default function EscrowContent() {
 
   return (
     <div className="relative">
+      <div className="pointer-events-none absolute inset-0 bg-mesh-escrow" />
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
-      <div className="relative mx-auto max-w-5xl px-4 py-12">
+      <div className="pointer-events-none absolute inset-0 noise-overlay" />
+      <div className="relative mx-auto max-w-5xl px-4 py-16">
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
@@ -88,7 +90,7 @@ export default function EscrowContent() {
               <Lock className="h-6 w-6 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
                 XRP <span className="gradient-text">Escrow</span>
               </h1>
               <p className="mt-1 text-text-secondary">
@@ -436,16 +438,16 @@ function Section({ id, title, delay, children }: { id: string; title: string; de
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="py-12 scroll-mt-20"
+      transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="py-14 scroll-mt-20"
       aria-label={title}
     >
-      <div className="accent-line mb-8" />
-      <h2 className="font-display text-2xl font-bold text-text-primary md:text-3xl">{title}</h2>
-      <div className="mt-6">{children}</div>
+      <div className="section-divider mb-10" />
+      <h2 className="font-display text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
+      <div className="mt-7">{children}</div>
     </motion.section>
   );
 }

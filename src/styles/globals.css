@@ -573,6 +573,81 @@ body > * {
   contain-intrinsic-size: auto 500px;
 }
 
+/* ==========================================
+   LEARN PAGE — Section reveal on scroll
+   Uses CSS animation-timeline for zero-JS reveals.
+   Falls back to visible-by-default if unsupported.
+   ========================================== */
+
+.prose-editorial > section,
+.prose-editorial > div {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 25%;
+}
+
+/* Stagger sections via nth-child delays for initial page load */
+.learn-stagger > *:nth-child(1) { animation-delay: 0s; }
+.learn-stagger > *:nth-child(2) { animation-delay: 0.06s; }
+.learn-stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.learn-stagger > *:nth-child(4) { animation-delay: 0.18s; }
+.learn-stagger > *:nth-child(5) { animation-delay: 0.24s; }
+
+/* Learn page link cards — enhanced hover */
+.learn-link-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.learn-link-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-xrp-accent), var(--color-xrp-cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.learn-link-card:hover {
+  border-color: rgba(0, 180, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 180, 255, 0.06), 0 0 0 1px rgba(0, 180, 255, 0.08);
+}
+
+.learn-link-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* FAQ section in Learn pages — glass card style */
+.learn-faq {
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 180, 255, 0.04), transparent);
+  pointer-events: none;
+}
+
+/* Mistake cards — subtle pulse on hover */
+.mistake-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mistake-card:hover {
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.06);
+  transform: translateX(2px);
+}
+
 .glow-dot {
   position: relative;
 }

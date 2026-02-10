@@ -91,7 +91,7 @@ export default async function RecapPage({ params }: Props) {
             <Calendar className="h-4 w-4" />
             <time dateTime={date}>{formattedDate}</time>
           </div>
-          <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl leading-tight">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
             {recap.title}
           </h1>
           {recap.description && (

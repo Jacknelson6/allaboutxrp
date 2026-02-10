@@ -37,14 +37,14 @@ export default function GetStartedPage() {
   return (
     <>
       <SEOSchema schema={howToSchema} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mx-auto max-w-4xl px-4 py-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-xrp-accent/10 p-2">
               <Rocket className="h-5 w-5 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
+              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
                 How to Buy <span className="gradient-text">XRP</span>
               </h1>
               <p className="mt-1 text-text-secondary">

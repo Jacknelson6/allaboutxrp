@@ -37,10 +37,10 @@ export default function Timeline({ events }: TimelineProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="font-display text-2xl font-bold text-text-primary md:text-3xl">
+        <h2 className="font-display text-2xl font-bold tracking-[-0.02em] text-text-primary md:text-3xl">
           XRP Timeline
         </h2>
-        <p className="mt-2 text-text-secondary">Key milestones in XRP and Ripple history</p>
+        <p className="mt-2 text-text-secondary/70">Key milestones in XRP and Ripple history</p>
       </motion.div>
 
       <div className="mt-6 flex flex-wrap gap-2" role="tablist" aria-label="Filter timeline by category">
@@ -70,7 +70,7 @@ export default function Timeline({ events }: TimelineProps) {
 
       <div className="relative mt-10 ml-4 pl-8" role="tabpanel">
         {/* Gradient line */}
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-xrp-accent/50 via-surface-border to-transparent" />
+        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-xrp-accent/40 via-surface-border/50 to-transparent" />
 
         <AnimatePresence mode="popLayout">
           {filtered.map((event, i) => {

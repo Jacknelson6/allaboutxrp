@@ -25,7 +25,7 @@ export default function FAQ({ items }: FAQProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-display text-2xl font-bold text-text-primary md:text-3xl">
+        <h2 className="font-display text-2xl font-bold tracking-tight text-text-primary md:text-3xl">
           Frequently Asked Questions
         </h2>
         <p className="mt-2 text-text-secondary">

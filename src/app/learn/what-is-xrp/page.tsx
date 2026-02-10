@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "What is XRP? Complete Guide to XRP Cryptocurrency",
@@ -53,48 +54,44 @@ export default function WhatIsXRPPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-          <ol className="flex items-center gap-1.5">
-            <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/learn" className="hover:text-xrp-accent transition-colors">Learn</Link></li>
-            <li>/</li>
-            <li className="text-text-primary font-medium">What is XRP?</li>
-          </ol>
-        </nav>
+      <div className="relative mx-auto max-w-4xl px-4 py-16">
+        <LearnHero
+          title="What is"
+          titleAccent="XRP?"
+          subtitle="XRP is a digital asset native to the XRP Ledger (XRPL), an open-source, decentralized blockchain purpose-built for payments. Created in 2012, XRP was designed to move money globally in seconds for fractions of a cent."
+          breadcrumbLabel="What is XRP?"
+        >
+          <div className="mt-5">
+            <AuthorByline date="2026-02-10" />
+          </div>
+        </LearnHero>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
-          What is <span className="gradient-text">XRP</span>? The Complete Guide
-        </h1>
-        <div className="mt-4">
-          <AuthorByline date="2026-02-10" />
-        </div>
-        <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-          <strong>What is XRP?</strong> XRP is a digital asset native to the XRP Ledger (XRPL), an open-source, decentralized blockchain purpose-built for payments. Created in 2012, XRP was designed to move money globally in seconds for fractions of a cent — solving the inefficiencies of traditional cross-border payments that can take days and cost significant fees.
-        </p>
+        <SectionNav items={[
+          { id: "basics", label: "The Basics" },
+          { id: "how-it-works", label: "How It Works" },
+          { id: "tokenomics", label: "Tokenomics" },
+          { id: "vs-others", label: "Comparisons" },
+          { id: "use-cases", label: "Use Cases" },
+          { id: "sec-case", label: "SEC Case" },
+          { id: "faq", label: "FAQ" },
+        ]} />
 
         <div className="mt-6"><Disclaimer /></div>
 
         {/* Key Stats */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {[
-            { label: "Settlement Time", value: "3-5 sec" },
-            { label: "Transaction Fee", value: "< $0.01" },
-            { label: "Throughput", value: "1,500+ TPS" },
-            { label: "Total Supply", value: "100B (fixed)" },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-xl border border-surface-border bg-surface-card/50 p-4 text-center backdrop-blur-sm">
-              <div className="font-display text-xl font-bold text-xrp-accent">{stat.value}</div>
-              <div className="mt-1 text-xs text-text-secondary">{stat.label}</div>
-            </div>
-          ))}
+          <StatPill label="Settlement Time" value="3-5 sec" delay={0} />
+          <StatPill label="Transaction Fee" value="< $0.01" delay={0.06} />
+          <StatPill label="Throughput" value="1,500+ TPS" delay={0.12} />
+          <StatPill label="Total Supply" value="100B (fixed)" delay={0.18} />
         </div>
 
-        <article className="prose-custom cv-auto mt-12 space-y-10">
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP Explained: The Basics</h2>
+        {/* Atmospheric background */}
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+
+        <article className="prose-editorial cv-auto mt-14 space-y-12">
+          <section id="basics">
+            <h2>XRP Explained: The Basics</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               XRP is a <strong>cryptocurrency</strong> — a digital asset that uses cryptography and blockchain technology to enable secure, peer-to-peer transactions without intermediaries. But XRP isn&apos;t just another cryptocurrency. It was specifically engineered to solve one of the biggest problems in global finance: moving money across borders quickly and cheaply.
             </p>

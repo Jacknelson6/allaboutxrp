@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { LearnHero, StatPill, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "What is Ripple? Ripple vs XRP Explained",
@@ -49,46 +50,39 @@ export default function WhatIsRipplePage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-          <ol className="flex items-center gap-1.5">
-            <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/learn" className="hover:text-xrp-accent transition-colors">Learn</Link></li>
-            <li>/</li>
-            <li className="text-text-primary font-medium">What is Ripple?</li>
-          </ol>
-        </nav>
+      <div className="relative mx-auto max-w-4xl px-4 py-16">
+        <LearnHero
+          title="What is"
+          titleAccent="Ripple?"
+          subtitle="Ripple is a San Francisco-based technology company building enterprise solutions for cross-border payments, digital asset custody, prime brokerage, and stablecoin infrastructure — valued at approximately $50 billion."
+          breadcrumbLabel="What is Ripple?"
+        >
+          <div className="mt-5">
+            <AuthorByline date="2026-02-10" />
+          </div>
+        </LearnHero>
 
-        <h1 className="font-display text-3xl font-bold text-text-primary md:text-4xl">
-          What is <span className="gradient-text">Ripple</span>? The Complete Guide
-        </h1>
-        <div className="mt-4">
-          <AuthorByline date="2026-02-10" />
-        </div>
-        <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-          <strong>What is Ripple?</strong> Ripple is a San Francisco-based technology company that builds enterprise solutions for cross-border payments, digital asset custody, prime brokerage, and stablecoin infrastructure. Founded in 2012, Ripple has grown into one of the most important companies in the blockchain industry — valued at approximately $50 billion as of early 2026.
-        </p>
+        <SectionNav items={[
+          { id: "vs-xrp", label: "Ripple vs XRP" },
+          { id: "history", label: "History" },
+          { id: "products", label: "Products" },
+          { id: "revenue", label: "Revenue" },
+          { id: "faq", label: "FAQ" },
+        ]} />
 
         <div className="mt-6"><Disclaimer /></div>
 
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+
         {/* Company Stats */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {[
-            { label: "Valuation", value: "~$50B" },
-            { label: "Employees", value: "~1,400" },
-            { label: "Countries", value: "40+" },
-            { label: "Payments Processed", value: "$90B+" },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-xl border border-surface-border bg-surface-card/50 p-4 text-center backdrop-blur-sm">
-              <div className="font-display text-xl font-bold text-xrp-accent">{stat.value}</div>
-              <div className="mt-1 text-xs text-text-secondary">{stat.label}</div>
-            </div>
-          ))}
+          <StatPill label="Valuation" value="~$50B" delay={0} />
+          <StatPill label="Employees" value="~1,400" delay={0.06} />
+          <StatPill label="Countries" value="40+" delay={0.12} />
+          <StatPill label="Payments Processed" value="$90B+" delay={0.18} />
         </div>
 
-        <article className="prose-custom cv-auto mt-12 space-y-10">
+        <article className="prose-editorial cv-auto mt-14 space-y-12">
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Ripple vs. XRP: The Key Difference</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
@@ -437,42 +431,25 @@ export default function WhatIsRipplePage() {
           {/* Internal Links */}
           <section className="mt-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {[
-                { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-                { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
-                { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-                { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
-                { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
-                { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="card-glow flex flex-col rounded-xl border border-surface-border bg-surface-card/50 p-4 backdrop-blur-sm transition-colors hover:border-xrp-accent/30"
-                >
-                  <span className="font-display font-semibold text-text-primary">{link.label}</span>
-                  <span className="mt-1 text-sm text-text-secondary">{link.desc}</span>
-                </Link>
-              ))}
-            </div>
+            <LearnLinkGrid links={[
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
+              { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
+              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
+              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+            ]} />
           </section>
         </article>
 
-        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
-          <h2 className="font-display text-xl font-bold text-text-primary">Dive Deeper Into the Ripple Ecosystem</h2>
-          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
-            Now that you understand Ripple, explore the company&apos;s partnerships, leadership team, and acquisition strategy that&apos;s reshaping institutional finance.
-          </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Link href="/learn/partnerships" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
-              Explore Partnerships →
-            </Link>
-            <Link href="/acquisitions" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
-              Acquisition Strategy
-            </Link>
-          </div>
-        </section>
+        <LearnCTA
+          title="Dive Deeper Into the Ripple Ecosystem"
+          description="Explore Ripple's partnerships, leadership team, and the $3.7B acquisition strategy reshaping institutional finance."
+          primaryHref="/learn/partnerships"
+          primaryLabel="Explore Partnerships →"
+          secondaryHref="/acquisitions"
+          secondaryLabel="Acquisition Strategy"
+        />
 
         <p className="mt-8 text-xs text-text-secondary/60">
           <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com, SEC court filings, CoinMarketCap, BusinessWire, Financial Times, Ripple Quarterly Reports.</em>

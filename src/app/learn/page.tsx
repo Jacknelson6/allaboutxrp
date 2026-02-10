@@ -40,7 +40,9 @@ export default async function LearnPage() {
       <SEOSchema schema={faqSchema} />
       <Hero />
       <div className="relative">
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+        <div className="pointer-events-none absolute inset-0 bg-mesh-1" />
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-25" />
+        <div className="pointer-events-none absolute inset-0 noise-overlay" />
         <div className="relative mx-auto max-w-4xl px-4">
           <Disclaimer />
           {contents.map((content) => (
