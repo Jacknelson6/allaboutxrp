@@ -245,39 +245,11 @@ h1 { font-weight: 700; }
 }
 
 /* ==========================================
-   HERO GLOW — Subtle radial gradient
-   ========================================== */
-
-.hero-glow {
-  position: relative;
-}
-
-.hero-glow::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(0, 133, 255, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ==========================================
    GRADIENT TEXT — Firecrawl-style
    ========================================== */
 
 .gradient-text {
   background: linear-gradient(135deg, #0085FF 0%, #3DA5FF 50%, #0085FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-warm {
-  background: linear-gradient(135deg, #F0F0F0 0%, #0085FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -301,39 +273,6 @@ h1 { font-weight: 700; }
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-xrp-accent);
-}
-
-/* ==========================================
-   SOCIAL PROOF BAR
-   ========================================== */
-
-.proof-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.125rem;
-}
-
-.proof-stat .value {
-  font-family: var(--font-mono);
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--color-text-primary);
-}
-
-@media (min-width: 640px) {
-  .proof-stat .value {
-    font-size: 1.5rem;
-  }
-}
-
-.proof-stat .label {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================
