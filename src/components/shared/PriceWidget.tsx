@@ -1,45 +1,17 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { TrendingUp, TrendingDown } from "lucide-react";
 import TradeModal from "./TradeModal";
-
-interface PriceState {
-  price: number;
-  change24h: number;
-}
+import { useXRPPrice } from "@/hooks/useXRPPrice";
 
 interface PriceWidgetProps {
   compact?: boolean;
 }
 
 export default function PriceWidget({ compact = false }: PriceWidgetProps) {
-  const [data, setData] = useState<PriceState | null>(null);
-  const [flash, setFlash] = useState<"up" | "down" | null>(null);
+  const { data, flash } = useXRPPrice();
   const [modalOpen, setModalOpen] = useState(false);
-  const prevPrice = useRef<number | null>(null);
-
-  useEffect(() => {
-    const fetchPrice = async () => {
-      try {
-        const res = await fetch("/api/price");
-        if (res.ok) {
-          const json = await res.json() as PriceState;
-          if (prevPrice.current !== null && json.price !== prevPrice.current) {
-            setFlash(json.price > prevPrice.current ? "up" : "down");
-            setTimeout(() => setFlash(null), 600);
-          }
-          prevPrice.current = json.price;
-          setData(json);
-        }
-      } catch {
-        // Widget is non-critical
-      }
-    };
-    fetchPrice();
-    const interval = setInterval(fetchPrice, 30000);
-    return () => clearInterval(interval);
-  }, []);
 
   if (!data) {
     return (
@@ -61,7 +33,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
           className="flex items-center gap-1.5 text-sm cursor-pointer"
           aria-label="Open XRP trade analysis"
         >
-          <span className={`font-mono font-bold transition-colors ${flashColor}`}>
+          <span className={`font-mono font-bold transition-colors duration-300 ${flashColor}`}>
             ${data.price.toFixed(2)}
           </span>
           <Icon className={`h-3 w-3 ${positive ? "text-success" : "text-danger"}`} />
@@ -82,7 +54,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
           <span className="h-2 w-2 rounded-full bg-success" />
           <span className="font-semibold text-text-secondary">XRP</span>
         </div>
-        <span className={`font-mono text-base font-bold transition-colors ${flash ? "stat-refresh" : ""} ${flashColor}`}>
+        <span className={`font-mono text-base font-bold transition-colors duration-300 ${flash ? "stat-refresh" : ""} ${flashColor}`}>
           ${data.price.toFixed(4)}
         </span>
         <span className={`flex items-center gap-1 text-xs font-semibold ${positive ? "text-success" : "text-danger"}`}>
