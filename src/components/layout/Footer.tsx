@@ -22,10 +22,10 @@ const footerSections = [
     ],
   },
   {
-    title: "Community",
+    title: "Analysis",
     links: [
-      { href: "/", label: "X/Twitter Feed" },
-      { href: "/news", label: "News" },
+      { href: "/news/recaps", label: "Daily Recaps" },
+      { href: "/news", label: "All Analysis" },
       { href: "/donate", label: "Donate" },
     ],
   },
