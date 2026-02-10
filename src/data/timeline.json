@@ -1,0 +1,218 @@
+[
+  {
+    "date": "2011-05-01",
+    "year": 2011,
+    "title": "XRPL Development Begins",
+    "description": "David Schwartz, Jed McCaleb, and Arthur Britto begin developing the XRP Ledger, envisioning a faster, more energy-efficient alternative to Bitcoin that does not require mining.",
+    "category": "technology",
+    "significance": "high"
+  },
+  {
+    "date": "2012-06-02",
+    "year": 2012,
+    "title": "XRP Ledger Goes Live",
+    "description": "The XRP Ledger processes its first transaction. All 100 billion XRP tokens are pre-mined at genesis, with no mining mechanism required.",
+    "category": "technology",
+    "significance": "high"
+  },
+  {
+    "date": "2012-09-01",
+    "year": 2012,
+    "title": "OpenCoin Founded",
+    "description": "Chris Larsen joins Jed McCaleb and Arthur Britto to form OpenCoin (initially called NewCoin), the company that would become Ripple Labs. The founders gift 80 billion XRP to the new company.",
+    "category": "company",
+    "significance": "high"
+  },
+  {
+    "date": "2013-04-01",
+    "year": 2013,
+    "title": "Early Funding and Growth",
+    "description": "OpenCoin raises its first round of angel funding, attracting investors from the venture capital community, signaling institutional interest in the project.",
+    "category": "company",
+    "significance": "medium"
+  },
+  {
+    "date": "2013-09-26",
+    "year": 2013,
+    "title": "Rebrand to Ripple Labs",
+    "description": "OpenCoin officially rebrands to Ripple Labs, Inc., reflecting the company's focus on the Ripple payment protocol and network.",
+    "category": "company",
+    "significance": "high"
+  },
+  {
+    "date": "2013-12-01",
+    "year": 2013,
+    "title": "Jed McCaleb Departs",
+    "description": "Co-founder Jed McCaleb leaves Ripple Labs amid disagreements over the company's direction. He signs an agreement governing the sale of his XRP holdings and later goes on to create Stellar.",
+    "category": "company",
+    "significance": "medium"
+  },
+  {
+    "date": "2015-09-01",
+    "year": 2015,
+    "title": "Rebrand to Ripple",
+    "description": "Ripple Labs rebrands to simply 'Ripple,' streamlining its corporate identity as the company shifts focus toward enterprise blockchain payment solutions.",
+    "category": "company",
+    "significance": "medium"
+  },
+  {
+    "date": "2016-01-01",
+    "year": 2016,
+    "title": "SBI Holdings Partnership",
+    "description": "Ripple signs a memorandum of understanding with Japan's SBI Holdings, leading to the creation of SBI Ripple Asia in May 2016 to promote Ripple's technology across Asia.",
+    "category": "partnership",
+    "significance": "high"
+  },
+  {
+    "date": "2017-03-01",
+    "year": 2017,
+    "title": "XRP Market Cap Surges",
+    "description": "XRP's price begins a dramatic rise, climbing from under $0.01 at the start of 2017 to over $0.25 by mid-year, driven by growing interest in Ripple's cross-border payment technology.",
+    "category": "market",
+    "significance": "medium"
+  },
+  {
+    "date": "2017-12-16",
+    "year": 2017,
+    "title": "55 Billion XRP Locked in Escrow",
+    "description": "Ripple places 55 billion XRP into cryptographic escrow on the XRP Ledger, releasing 1 billion per month to provide predictability and transparency over XRP supply.",
+    "category": "company",
+    "significance": "high"
+  },
+  {
+    "date": "2018-01-04",
+    "year": 2018,
+    "title": "XRP Reaches All-Time High of $3.84",
+    "description": "XRP hits its all-time high price of $3.84 during the 2017–2018 crypto bull run, briefly making it the second-largest cryptocurrency by market capitalization.",
+    "category": "market",
+    "significance": "high"
+  },
+  {
+    "date": "2018-10-01",
+    "year": 2018,
+    "title": "xRapid Launches",
+    "description": "Ripple commercially launches xRapid, a product that uses XRP as a bridge currency for real-time cross-border payments, enabling financial institutions to source liquidity on demand.",
+    "category": "technology",
+    "significance": "high"
+  },
+  {
+    "date": "2019-06-17",
+    "year": 2019,
+    "title": "MoneyGram Partnership",
+    "description": "Ripple announces a strategic partnership with MoneyGram, investing $30 million (later up to $50 million) for the remittance giant to use Ripple's On-Demand Liquidity (ODL) powered by XRP.",
+    "category": "partnership",
+    "significance": "high"
+  },
+  {
+    "date": "2019-10-01",
+    "year": 2019,
+    "title": "xRapid Rebranded to On-Demand Liquidity",
+    "description": "Ripple rebrands its xRapid product to On-Demand Liquidity (ODL), emphasizing instant settlement without the need for pre-funded nostro accounts in destination currencies.",
+    "category": "technology",
+    "significance": "medium"
+  },
+  {
+    "date": "2020-11-01",
+    "year": 2020,
+    "title": "Flare Networks Airdrop Announced",
+    "description": "Flare Networks announces a Spark (FLR) token airdrop to XRP holders, bringing smart contract functionality to the XRP ecosystem and generating significant community excitement.",
+    "category": "technology",
+    "significance": "medium"
+  },
+  {
+    "date": "2020-12-22",
+    "year": 2020,
+    "title": "SEC Files Lawsuit Against Ripple",
+    "description": "The U.S. Securities and Exchange Commission files a lawsuit alleging Ripple Labs raised $1.3 billion through unregistered sales of XRP as securities, naming CEO Brad Garlinghouse and co-founder Chris Larsen as defendants.",
+    "category": "regulation",
+    "significance": "high"
+  },
+  {
+    "date": "2021-02-22",
+    "year": 2021,
+    "title": "MoneyGram Suspends ODL",
+    "description": "MoneyGram suspends its use of Ripple's ODL product and XRP trading due to uncertainty caused by the SEC lawsuit, though it continues using RippleNet messaging.",
+    "category": "partnership",
+    "significance": "medium"
+  },
+  {
+    "date": "2021-04-01",
+    "year": 2021,
+    "title": "Major Exchanges Delist or Suspend XRP",
+    "description": "Several major U.S. cryptocurrency exchanges, including Coinbase, suspend or delist XRP trading in response to the SEC lawsuit, significantly reducing U.S. liquidity.",
+    "category": "regulation",
+    "significance": "high"
+  },
+  {
+    "date": "2022-07-01",
+    "year": 2022,
+    "title": "Hinman Documents Released",
+    "description": "Internal SEC documents from former Director William Hinman's 2018 speech — where he said Ethereum was not a security — are made public during the Ripple case, bolstering Ripple's defense.",
+    "category": "regulation",
+    "significance": "medium"
+  },
+  {
+    "date": "2022-10-31",
+    "year": 2022,
+    "title": "XRP Ledger NFT Support (XLS-20)",
+    "description": "The XLS-20 amendment activates on the XRP Ledger, adding native NFT minting and trading functionality directly on-chain without requiring smart contracts.",
+    "category": "technology",
+    "significance": "medium"
+  },
+  {
+    "date": "2023-07-13",
+    "year": 2023,
+    "title": "Judge Torres Landmark Ruling",
+    "description": "Judge Analisa Torres rules that XRP is not a security when sold on public exchanges to retail investors, handing Ripple a major legal victory. However, certain institutional sales were found to violate securities laws.",
+    "category": "regulation",
+    "significance": "high"
+  },
+  {
+    "date": "2023-07-13",
+    "year": 2023,
+    "title": "XRP Relisted on Major Exchanges",
+    "description": "Following the Torres ruling, Coinbase, Kraken, and other major U.S. exchanges relist XRP for trading, restoring U.S. market access for the first time since early 2021.",
+    "category": "market",
+    "significance": "high"
+  },
+  {
+    "date": "2024-08-07",
+    "year": 2024,
+    "title": "Ripple Ordered to Pay $125 Million Penalty",
+    "description": "Judge Torres orders Ripple to pay $125 million in civil penalties for securities law violations related to institutional XRP sales — far less than the SEC's original demand of nearly $2 billion.",
+    "category": "regulation",
+    "significance": "high"
+  },
+  {
+    "date": "2024-10-02",
+    "year": 2024,
+    "title": "First XRP Spot ETF Filings",
+    "description": "Bitwise and Canary Capital file applications for spot XRP ETFs with the SEC, followed by 21Shares in November and WisdomTree in December, signaling growing institutional demand.",
+    "category": "market",
+    "significance": "high"
+  },
+  {
+    "date": "2024-12-17",
+    "year": 2024,
+    "title": "RLUSD Stablecoin Launches",
+    "description": "Ripple launches RLUSD, a USD-backed stablecoin issued on both the XRP Ledger and Ethereum, following approval from the New York Department of Financial Services. It debuts on exchanges including Uphold, MoonPay, and Bitstamp.",
+    "category": "technology",
+    "significance": "high"
+  },
+  {
+    "date": "2025-01-15",
+    "year": 2025,
+    "title": "SEC Appeals Torres Ruling",
+    "description": "The SEC files an appeal against aspects of the Torres ruling, continuing the legal battle. Settlement discussions follow at a closed-door SEC meeting on January 30, 2025.",
+    "category": "regulation",
+    "significance": "medium"
+  },
+  {
+    "date": "2025-05-01",
+    "year": 2025,
+    "title": "XRP Futures ETFs Launch",
+    "description": "Volatility Shares and ProShares launch XRP futures-based ETFs following the listing of XRP futures contracts on CME, marking XRP's entry into traditional financial markets.",
+    "category": "market",
+    "significance": "high"
+  }
+]

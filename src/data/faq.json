@@ -1,0 +1,87 @@
+[
+  {
+    "question": "What is XRP?",
+    "answer": "XRP is a digital asset and cryptocurrency native to the XRP Ledger, an open-source blockchain launched in June 2012. It was designed for fast, low-cost cross-border payments, settling transactions in 3–5 seconds with fees under $0.01.",
+    "page": "home"
+  },
+  {
+    "question": "Who created XRP?",
+    "answer": "XRP and the XRP Ledger were created by David Schwartz, Jed McCaleb, and Arthur Britto. Development began in 2011, and the ledger went live in June 2012. Chris Larsen joined shortly after to co-found the company now known as Ripple.",
+    "page": "home"
+  },
+  {
+    "question": "Is XRP the same as Ripple?",
+    "answer": "No. Ripple is a private fintech company that builds payment solutions. XRP is an independent digital asset on the open-source XRP Ledger. While Ripple uses XRP in some products and holds a significant amount, the XRP Ledger operates independently of Ripple.",
+    "page": "home"
+  },
+  {
+    "question": "Is XRP a security?",
+    "answer": "In July 2023, U.S. District Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security. However, certain direct institutional sales by Ripple were found to violate securities laws. The ruling was a landmark moment for crypto regulation.",
+    "page": "home"
+  },
+  {
+    "question": "How fast are XRP transactions?",
+    "answer": "XRP transactions settle in 3–5 seconds on the XRP Ledger, which can handle approximately 1,500 transactions per second. This makes it one of the fastest major cryptocurrencies for transferring value.",
+    "page": "home"
+  },
+  {
+    "question": "How much does an XRP transaction cost?",
+    "answer": "XRP transaction fees are typically fractions of a cent (around $0.0002–$0.01). A small amount of XRP is destroyed with each transaction as an anti-spam measure, making XRP slightly deflationary over time.",
+    "page": "home"
+  },
+  {
+    "question": "What is the total supply of XRP?",
+    "answer": "The total supply is 100 billion XRP, all created at the ledger's launch in 2012. No new XRP can ever be minted. As of early 2025, approximately 57 billion XRP are in circulation, with the remainder in Ripple's escrow or company holdings.",
+    "page": "home"
+  },
+  {
+    "question": "What is On-Demand Liquidity (ODL)?",
+    "answer": "On-Demand Liquidity (formerly xRapid) is Ripple's payment product that uses XRP as a bridge currency for cross-border transactions. It eliminates the need for pre-funded accounts in destination currencies, freeing up capital for financial institutions.",
+    "page": "home"
+  },
+  {
+    "question": "What happened with the SEC lawsuit against Ripple?",
+    "answer": "The SEC sued Ripple in December 2020, alleging XRP was an unregistered security. In July 2023, Judge Torres ruled XRP is not a security when sold on exchanges. Ripple was fined $125 million (later settled at $50 million) for institutional sales. The case was fully resolved in August 2025.",
+    "page": "home"
+  },
+  {
+    "question": "What is RLUSD?",
+    "answer": "RLUSD is Ripple's USD-backed stablecoin, launched in December 2024 with approval from the New York Department of Financial Services. It's issued on both the XRP Ledger and Ethereum, backed 1:1 by U.S. dollar deposits and government bonds.",
+    "page": "home"
+  },
+  {
+    "question": "Can XRP be mined?",
+    "answer": "No. Unlike Bitcoin, XRP cannot be mined. All 100 billion XRP were created at the ledger's inception in 2012. The XRP Ledger uses a consensus protocol with trusted validators instead of energy-intensive Proof-of-Work mining.",
+    "page": "home"
+  },
+  {
+    "question": "What is the XRP Ledger?",
+    "answer": "The XRP Ledger (XRPL) is an open-source, decentralized blockchain that serves as the foundation for XRP. It features a built-in decentralized exchange, native NFT support, and a consensus protocol that settles transactions in seconds without mining.",
+    "page": "home"
+  },
+  {
+    "question": "Who is Brad Garlinghouse?",
+    "answer": "Brad Garlinghouse is the CEO of Ripple, serving in the role since January 2017. He led Ripple through the SEC lawsuit and oversaw the company's global expansion. Previously, he held executive roles at AOL, Yahoo, and Hightail.",
+    "page": "people"
+  },
+  {
+    "question": "Is there an XRP ETF?",
+    "answer": "Multiple firms filed for spot XRP ETFs starting in October 2024, including Bitwise, Canary Capital, 21Shares, and others. XRP futures ETFs launched in May 2025. The first spot XRP ETF (Canary Capital) debuted in November 2025 with nearly $250 million in first-day inflows.",
+    "page": "home"
+  },
+  {
+    "question": "Where can I buy XRP?",
+    "answer": "XRP is available on most major cryptocurrency exchanges worldwide, including Coinbase, Kraken, Binance, Bitstamp, and Uphold. Following the favorable July 2023 court ruling, XRP was relisted on U.S. exchanges that had previously suspended trading.",
+    "page": "get-started"
+  },
+  {
+    "question": "What was XRP's all-time high price?",
+    "answer": "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017–2018 crypto bull run. At that point, XRP briefly became the second-largest cryptocurrency by market capitalization.",
+    "page": "home"
+  },
+  {
+    "question": "What makes XRP different from Bitcoin?",
+    "answer": "XRP settles in 3–5 seconds (vs. Bitcoin's ~10 minutes), costs fractions of a cent (vs. Bitcoin's variable fees), handles ~1,500 TPS (vs. Bitcoin's ~7), and uses no mining. XRP was designed for payments; Bitcoin was designed as a store of value.",
+    "page": "home"
+  }
+]
