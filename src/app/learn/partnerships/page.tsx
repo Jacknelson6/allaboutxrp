@@ -213,7 +213,7 @@ export default function PartnershipsPage() {
           </section>
 
           {/* FAQ */}
-          <section className="rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
+          <section className="learn-faq rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
               <div>

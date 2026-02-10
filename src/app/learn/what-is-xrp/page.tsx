@@ -86,12 +86,11 @@ export default function WhatIsXRPPage() {
           <StatPill label="Total Supply" value="100B (fixed)" delay={0.18} />
         </div>
 
-        {/* Atmospheric background */}
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
 
         <article className="prose-editorial cv-auto mt-14 space-y-12">
           <section id="basics">
-            <h2>XRP Explained: The Basics</h2>
+            <h2 className="font-display text-2xl font-bold text-text-primary">XRP Explained: The Basics</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               XRP is a <strong>cryptocurrency</strong> — a digital asset that uses cryptography and blockchain technology to enable secure, peer-to-peer transactions without intermediaries. But XRP isn&apos;t just another cryptocurrency. It was specifically engineered to solve one of the biggest problems in global finance: moving money across borders quickly and cheaply.
             </p>
@@ -359,7 +358,7 @@ export default function WhatIsXRPPage() {
                 { mistake: "Storing XRP only on exchanges", fix: "For long-term holding, use a self-custody wallet like Xaman. 'Not your keys, not your crypto.'" },
                 { mistake: "Ignoring the 10 XRP wallet reserve", fix: "XRPL accounts require a 10 XRP reserve to activate. Factor this in when setting up a new wallet." },
               ].map((item) => (
-                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                <div key={item.mistake} className="mistake-card rounded-xl border border-danger/20 bg-danger/5 p-4">
                   <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
                   <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
                 </div>
@@ -368,7 +367,7 @@ export default function WhatIsXRPPage() {
           </section>
 
           {/* FAQ Section */}
-          <section className="mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
+          <section className="learn-faq mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
 
             <div className="mt-6 space-y-6">

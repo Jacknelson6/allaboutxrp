@@ -383,7 +383,7 @@ export default function WhatIsRipplePage() {
                 { mistake: "Assuming all Ripple partners use XRP", fix: "Some partners use RippleNet messaging only. ODL partners specifically use XRP as a bridge currency." },
                 { mistake: "Ignoring the regulatory picture", fix: "Ripple's extensive license portfolio is a major competitive advantage. Regulation matters for institutional adoption." },
               ].map((item) => (
-                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                <div key={item.mistake} className="mistake-card rounded-xl border border-danger/20 bg-danger/5 p-4">
                   <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
                   <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
                 </div>
@@ -392,7 +392,7 @@ export default function WhatIsRipplePage() {
           </section>
 
           {/* FAQ */}
-          <section className="mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
+          <section className="learn-faq mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
               <div>

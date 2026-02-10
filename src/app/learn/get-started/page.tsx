@@ -4,6 +4,7 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
+import { LearnHero, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "How to Buy XRP: Beginner's Guide 2026",
@@ -69,30 +70,32 @@ export default function GetStartedPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
-      <div className="mx-auto max-w-4xl px-4 py-16">
-        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-          <ol className="flex items-center gap-1.5">
-            <li><Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/learn" className="hover:text-xrp-accent transition-colors">Learn</Link></li>
-            <li>/</li>
-            <li className="text-text-primary font-medium">Get Started</li>
-          </ol>
-        </nav>
+      <div className="relative mx-auto max-w-4xl px-4 py-12">
+        <LearnHero
+          title="How to Buy"
+          titleAccent="XRP"
+          subtitle="The complete beginner's guide — from choosing an exchange to securing your tokens in a wallet. Whether you're new to crypto or just new to XRP, you'll be set up in minutes."
+          breadcrumbLabel="Get Started"
+        >
+          <div className="mt-5">
+            <AuthorByline date="2026-02-10" />
+          </div>
+        </LearnHero>
 
-        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-          <span className="gradient-text">How to Buy XRP</span>: Beginner&apos;s Guide
-        </h1>
-        <div className="mt-4">
-          <AuthorByline date="2026-02-10" />
-        </div>
-        <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-          Want to know <strong>how to buy XRP</strong>? This complete <strong>XRP beginner guide</strong> walks you through everything — from choosing an exchange to securing your tokens in a wallet. Whether you&apos;re new to crypto or just new to XRP, you&apos;ll be set up in minutes.
-        </p>
+        <SectionNav items={[
+          { id: "steps", label: "Step by Step" },
+          { id: "exchanges", label: "Exchanges" },
+          { id: "wallets", label: "Wallets" },
+          { id: "security", label: "Security" },
+          { id: "mistakes", label: "Mistakes to Avoid" },
+          { id: "faq", label: "FAQ" },
+        ]} />
+
+        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
 
         <div className="mt-6"><Disclaimer /></div>
 
-        <article className="cv-auto mt-12 space-y-12">
+        <article className="prose-editorial cv-auto mt-14 space-y-12">
           {/* Step-by-Step */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">Step-by-Step: How to Buy XRP</h2>
@@ -263,7 +266,7 @@ export default function GetStartedPage() {
                 { mistake: "Sharing seed phrases or private keys", fix: "No legitimate service, exchange, or support team will ever ask for your seed phrase. If someone asks, it's a scam." },
                 { mistake: "Not enabling 2FA", fix: "SMS 2FA is vulnerable to SIM swapping. Use an authenticator app (Google Authenticator, Authy) for much stronger security." },
               ].map((item) => (
-                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                <div key={item.mistake} className="mistake-card rounded-xl border border-danger/20 bg-danger/5 p-4">
                   <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
                   <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
                 </div>
@@ -322,7 +325,7 @@ export default function GetStartedPage() {
           </section>
 
           {/* FAQ */}
-          <section className="rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
+          <section className="learn-faq rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
               <div>

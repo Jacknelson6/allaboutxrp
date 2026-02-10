@@ -287,7 +287,7 @@ export default function HistoryPage() {
                 { mistake: "The SEC lawsuit proved XRP is a security", fix: "The opposite — the Torres ruling established that XRP on exchanges is NOT a security." },
                 { mistake: "XRP is 'dead' because of years of low prices", fix: "Price suppression during the SEC era masked massive infrastructure building. Ripple spent $3.7B on acquisitions in 2025 alone." },
               ].map((item) => (
-                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                <div key={item.mistake} className="mistake-card rounded-xl border border-danger/20 bg-danger/5 p-4">
                   <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
                   <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
                 </div>
@@ -296,7 +296,7 @@ export default function HistoryPage() {
           </section>
 
           {/* FAQ */}
-          <section className="mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
+          <section className="learn-faq mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
             <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
               <div>
