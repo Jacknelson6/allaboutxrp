@@ -277,8 +277,8 @@ export default function GetStartedPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
+              { href: "/richlist", label: "XRP Rich List", desc: "Whale wallets & tier calculator" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/learn/history", label: "XRP History", desc: "2011 to present" },
               { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
               { href: "/learn/leadership", label: "Leadership", desc: "Who runs Ripple" },

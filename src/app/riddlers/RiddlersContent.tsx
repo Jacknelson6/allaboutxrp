@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Eye, Hash, Sparkles, MessageCircle, User, Clock, ChevronDown } from "lucide-react";
 
 const sections = [
@@ -66,6 +67,15 @@ export default function RiddlersContent() {
       <div className="pointer-events-none absolute inset-0 " />
 
       <div className="relative mx-auto max-w-5xl px-4 py-16">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-5 text-[13px] text-text-secondary">
+          <ol className="flex items-center gap-1.5">
+            <li><Link href="/" className="hover:text-text-primary transition-colors duration-200">Home</Link></li>
+            <li className="text-white/15">/</li>
+            <li className="text-text-primary">Riddlers</li>
+          </ol>
+        </nav>
+
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
@@ -99,10 +109,10 @@ export default function RiddlersContent() {
         {/* Intro */}
         <Section id="what-are-riddlers" title="What Are the XRP Riddlers?" index={1} total={8}>
           <p className="text-text-secondary leading-relaxed">
-            The XRP Riddlers are anonymous and pseudonymous figures who post cryptic images, riddles, numerical codes, and symbolic artwork — all centered around XRP, Ripple, and the broader financial system. This phenomenon is <strong className="text-text-primary">unique to XRP</strong>. No other digital asset has developed such an elaborate, mythology-driven culture of cryptic puzzle-solving.
+            The XRP Riddlers are anonymous and pseudonymous figures who post cryptic images, riddles, numerical codes, and symbolic artwork — all centered around <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link>, <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link>, and the broader financial system. This phenomenon is <strong className="text-text-primary">unique to XRP</strong>. No other digital asset has developed such an elaborate, mythology-driven culture of cryptic puzzle-solving.
           </p>
           <p className="mt-4 text-text-secondary leading-relaxed">
-            The tradition blends numerology, symbolism, geopolitics, and financial speculation into something that resembles part treasure hunt, part prophecy, part community folklore. It emerged around 2017–2018 and has sustained itself through years of the SEC lawsuit, price suppression, and the long wait for what believers call XRP&apos;s inevitable &ldquo;moment.&rdquo;
+            The tradition blends numerology, symbolism, geopolitics, and financial speculation into something that resembles part treasure hunt, part prophecy, part community folklore. It emerged around 2017–2018 — coinciding with key events in <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s history</Link> — and has sustained itself through years of the SEC lawsuit, price suppression, and the long wait for what believers call XRP&apos;s inevitable &ldquo;moment.&rdquo;
           </p>
 
           {/* Why XRP box */}
@@ -281,7 +291,7 @@ export default function RiddlersContent() {
         {/* Schwartz */}
         <Section id="schwartz" title="David Schwartz: The Accidental Riddler" index={5} total={8}>
           <p className="text-text-secondary leading-relaxed text-sm">
-            Ripple&apos;s former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
+            <Link href="/learn/leadership" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
           </p>
 
           <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
@@ -366,6 +376,33 @@ export default function RiddlersContent() {
             ))}
           </div>
         </Section>
+
+        {/* Continue Reading */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="py-14 scroll-mt-20"
+          aria-label="Continue Reading"
+        >
+          <div className="section-divider mb-10" />
+          <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">Continue Reading</h2>
+          <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <Link href="/learn/history" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">History & Timeline</h3>
+              <p className="mt-1 text-xs text-text-secondary">The full story from 2011 to present</p>
+            </Link>
+            <Link href="/learn/what-is-xrp" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">What is XRP?</h3>
+              <p className="mt-1 text-xs text-text-secondary">Complete guide to XRP and the XRPL</p>
+            </Link>
+            <Link href="/learn/leadership" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">Ripple Leadership</h3>
+              <p className="mt-1 text-xs text-text-secondary">The people behind the cryptic posts</p>
+            </Link>
+          </div>
+        </motion.section>
 
         {/* Note */}
         <motion.div

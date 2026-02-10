@@ -5,12 +5,22 @@ const footerSections = [
     title: "Learn",
     links: [
       { href: "/learn/what-is-xrp", label: "What is XRP?" },
-      { href: "/escrow", label: "Escrow" },
-      { href: "/acquisitions", label: "Acquisitions" },
-      { href: "/riddlers", label: "Riddlers" },
-      { href: "/people", label: "Leadership" },
-      { href: "/learn/faq", label: "FAQ" },
+      { href: "/learn/what-is-ripple", label: "What is Ripple?" },
+      { href: "/learn/history", label: "History & Timeline" },
       { href: "/learn/get-started", label: "Get Started" },
+      { href: "/learn/rlusd", label: "RLUSD & XRP" },
+      { href: "/learn/faq", label: "FAQ" },
+    ],
+  },
+  {
+    title: "Ecosystem",
+    links: [
+      { href: "/learn/partnerships", label: "Partnerships" },
+      { href: "/learn/leadership", label: "Leadership" },
+      { href: "/acquisitions", label: "Acquisitions" },
+      { href: "/escrow", label: "Escrow" },
+      { href: "/riddlers", label: "Riddlers" },
+      { href: "/people", label: "People to Follow" },
     ],
   },
   {

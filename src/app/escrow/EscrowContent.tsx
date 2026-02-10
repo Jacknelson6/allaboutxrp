@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Lock, Unlock, ArrowRight, TrendingUp, Eye, ChevronDown, ExternalLink, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import StatCard from "@/components/shared/StatCard";
 import Disclaimer from "@/components/shared/Disclaimer";
@@ -58,6 +59,15 @@ export default function EscrowContent() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="mb-5 text-[13px] text-text-secondary">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-text-primary transition-colors duration-200">Home</Link></li>
+          <li className="text-white/15">/</li>
+          <li className="text-text-primary">Escrow</li>
+        </ol>
+      </nav>
+
       {/* Hero */}
       <div className="flex items-center gap-3">
         <div className="text-xrp-accent">
@@ -68,7 +78,7 @@ export default function EscrowContent() {
             XRP <span className="gradient-text">Escrow</span>
           </h1>
           <p className="mt-1 text-text-secondary">
-            The complete guide to Ripple&apos;s escrow system and XRP supply management
+            The complete guide to <Link href="/learn/what-is-ripple" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">Ripple&apos;s</Link> escrow system and <Link href="/learn/what-is-xrp" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP</Link> supply management
           </p>
         </div>
       </div>
@@ -145,7 +155,7 @@ export default function EscrowContent() {
             <span className="font-semibold">December 16, 2017</span>
           </div>
           <p className="mt-2 font-mono text-2xl font-bold text-text-primary">55,000,000,000 XRP</p>
-          <p className="mt-1 text-sm text-text-secondary">Locked into cryptographically enforced escrow contracts</p>
+          <p className="mt-1 text-sm text-text-secondary">Locked into cryptographically enforced escrow contracts on the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link></p>
         </div>
 
         <h3 className="mt-6 text-lg font-semibold text-text-primary">Why They Did It</h3>
@@ -236,7 +246,7 @@ export default function EscrowContent() {
             <span className="text-sm font-semibold text-warning">The &quot;Ripple Dumping&quot; FUD</span>
           </div>
           <p className="mt-2 text-sm text-text-secondary leading-relaxed">
-            Ripple&apos;s actual XRP sales are a fraction of what critics claim. Most institutional sales happen OTC. The net new supply represents ~0.3-0.5% of circulating supply — comparable to Bitcoin&apos;s mining inflation.
+            <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> actual XRP sales are a fraction of what critics claim. Most institutional sales happen OTC. The net new supply represents ~0.3-0.5% of circulating supply — comparable to Bitcoin&apos;s mining inflation. Additionally, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> transactions on the XRPL burn XRP fees, creating deflationary pressure that partially offsets escrow releases.
           </p>
         </div>
       </Section>
@@ -322,6 +332,24 @@ export default function EscrowContent() {
               </div>
             );
           })}
+        </div>
+      </Section>
+
+      {/* Continue Reading */}
+      <Section id="continue" title="Continue Reading" index={undefined} total={undefined}>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Link href="/learn/what-is-xrp" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <h3 className="font-semibold text-text-primary">What is XRP?</h3>
+            <p className="mt-1 text-xs text-text-secondary">Complete guide to XRP and the XRP Ledger</p>
+          </Link>
+          <Link href="/learn/rlusd" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <h3 className="font-semibold text-text-primary">RLUSD & XRP</h3>
+            <p className="mt-1 text-xs text-text-secondary">How Ripple&apos;s stablecoin helps XRP</p>
+          </Link>
+          <Link href="/learn/history" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <h3 className="font-semibold text-text-primary">History & Timeline</h3>
+            <p className="mt-1 text-xs text-text-secondary">Every milestone from 2011 to present</p>
+          </Link>
         </div>
       </Section>
 

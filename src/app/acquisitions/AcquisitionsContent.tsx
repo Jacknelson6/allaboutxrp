@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Building2, DollarSign, Globe, Users, ArrowRight, TrendingUp, Shield, Layers, Landmark, Wallet } from "lucide-react";
 import StatCard from "@/components/shared/StatCard";
 import Disclaimer from "@/components/shared/Disclaimer";
@@ -151,6 +152,15 @@ export default function AcquisitionsContent() {
       <div className="pointer-events-none absolute inset-0 " />
       <div className="pointer-events-none absolute inset-0 " />
       <div className="relative mx-auto max-w-5xl px-4 py-16">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="mb-5 text-[13px] text-text-secondary">
+          <ol className="flex items-center gap-1.5">
+            <li><Link href="/" className="hover:text-text-primary transition-colors duration-200">Home</Link></li>
+            <li className="text-white/15">/</li>
+            <li className="text-text-primary">Acquisitions</li>
+          </ol>
+        </nav>
+
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
@@ -189,7 +199,7 @@ export default function AcquisitionsContent() {
         {/* Overview */}
         <Section id="overview" title="The Big Picture" index={1} total={6}>
           <p className="text-text-secondary leading-relaxed">
-            Ripple is no longer just a payments company. Through calculated acquisitions totaling over <strong className="text-text-primary">$3.7 billion</strong>, Ripple has transformed into a full-stack financial infrastructure provider — covering custody, prime brokerage, stablecoin payments, treasury management, and wallet infrastructure. Every piece connects back to the <strong className="text-xrp-accent">XRP Ledger</strong>.
+            <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> is no longer just a payments company. Through calculated acquisitions totaling over <strong className="text-text-primary">$3.7 billion</strong>, Ripple has transformed into a full-stack financial infrastructure provider — covering custody, prime brokerage, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">stablecoin</Link> payments, treasury management, and wallet infrastructure. Every piece connects back to the <strong className="text-xrp-accent"><Link href="/learn/what-is-xrp" className="text-xrp-accent">XRP Ledger</Link></strong>.
           </p>
           <p className="mt-4 text-text-secondary leading-relaxed">
             As of early 2026, Ripple is the <strong className="text-text-primary">9th most valuable private company globally</strong> at ~$50 billion, processing over $90 billion in global payments.
@@ -304,7 +314,7 @@ export default function AcquisitionsContent() {
         {/* Leadership */}
         <Section id="leadership" title="Leadership & Talent" index={4} total={6}>
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
-            Ripple isn&apos;t hiring crypto bros — they&apos;re hiring <strong className="text-text-primary">Wall Street veterans, regulatory experts, and enterprise finance leaders</strong> from Morgan Stanley, HSBC, American Express, and Goldman Sachs.
+            Ripple isn&apos;t hiring crypto bros — they&apos;re hiring <strong className="text-text-primary">Wall Street veterans, regulatory experts, and enterprise finance leaders</strong> from Morgan Stanley, HSBC, American Express, and Goldman Sachs. See the full <Link href="/learn/leadership" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple leadership team</Link> and their <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">global partnerships</Link>.
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {leaders.map((l, i) => (
@@ -377,6 +387,33 @@ export default function AcquisitionsContent() {
             </table>
           </div>
         </Section>
+
+        {/* Continue Reading */}
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="py-14 scroll-mt-20"
+          aria-label="Continue Reading"
+        >
+          <div className="section-divider mb-10" />
+          <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">Continue Reading</h2>
+          <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <Link href="/learn/leadership" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">Ripple Leadership</h3>
+              <p className="mt-1 text-xs text-text-secondary">The team driving these acquisitions</p>
+            </Link>
+            <Link href="/learn/partnerships" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">Partnerships</h3>
+              <p className="mt-1 text-xs text-text-secondary">Banks & institutions in the Ripple network</p>
+            </Link>
+            <Link href="/learn/rlusd" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+              <h3 className="font-semibold text-text-primary">RLUSD & XRP</h3>
+              <p className="mt-1 text-xs text-text-secondary">How the stablecoin fits the strategy</p>
+            </Link>
+          </div>
+        </motion.section>
 
         {/* Bottom */}
         <motion.div
