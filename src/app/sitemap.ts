@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";
-  const pages = ["", "/escrow", "/acquisitions", "/riddlers", "/people", "/news", "/richlist", "/get-started", "/donate"];
+  const pages = ["", "/escrow", "/acquisitions", "/riddlers", "/people", "/news", "/richlist", "/get-started", "/donate", "/live"];
 
   return pages.map((page) => ({
     url: `${baseUrl}${page}`,

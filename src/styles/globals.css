@@ -208,3 +208,18 @@ body {
   background: linear-gradient(90deg, transparent, var(--color-xrp-accent), transparent);
   opacity: 0.3;
 }
+
+/* Globe page scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 2px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}

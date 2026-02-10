@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "../styles/globals.css";
-import Nav from "@/components/layout/Nav";
+import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
@@ -76,7 +76,7 @@ export default function RootLayout({
         </a>
         <SEOSchema schema={websiteSchema} />
         <AnnouncementBar />
-        <Nav />
+        <MegaMenu />
         <main id="main-content" className="min-h-[80vh]">
           {children}
         </main>

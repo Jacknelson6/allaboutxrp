@@ -29,7 +29,9 @@ async function fetchJson<T>(url: string): Promise<T> {
 interface XrpscanRichListItem {
   account: string;
   balance: number;
+  supply: number;
   escrow?: number;
+  name?: { name?: string; desc?: string; username?: string } | null;
   accountName?: { name?: string; desc?: string };
 }
 
@@ -90,11 +92,11 @@ const FALLBACK_NETWORK_STATS: NetworkStats = {
 
 const FALLBACK_SUPPLY: SupplyInfo = {
   totalSupply: TOTAL_XRP,
-  circulatingSupply: 57_526_064_580,
-  escrowedSupply: 38_900_000_000,
-  burnedSupply: 12_411_386,
-  percentCirculating: 57.53,
-  percentEscrowed: 38.9,
+  circulatingSupply: 60_917_315_351,
+  escrowedSupply: 39_068_405_697,
+  burnedSupply: 14_278_952,
+  percentCirculating: 60.92,
+  percentEscrowed: 39.07,
 };
 
 // --- Public API ---
@@ -103,17 +105,22 @@ export async function getRichList(limit: number = 100): Promise<RichListEntry[]>
   return cachedFetch<RichListEntry[]>('richList', CACHE_TTLS.richList, async () => {
     try {
       const data = await fetchJson<XrpscanRichListItem[]>(
-        `${XRPSCAN_BASE}/balances/top?top=${Math.min(limit, 500)}`
+        `${XRPSCAN_BASE}/balances`
       );
-      return data.map((item, i) => ({
-        rank: i + 1,
-        address: item.account,
-        balance: Number(item.balance.toFixed(6)),
-        escrow: Number((item.escrow ?? 0).toFixed(6)),
-        label: getAccountLabel(item.account) ?? item.accountName?.name ?? null,
-        percentage: Number(((item.balance / TOTAL_XRP) * 100).toFixed(6)),
-        isKnown: isKnownAccount(item.account) || !!item.accountName?.name,
-      }));
+      // API returns balances in drops (1 XRP = 1,000,000 drops)
+      return data.slice(0, Math.min(limit, 500)).map((item, i) => {
+        const balanceXrp = item.balance / 1_000_000;
+        const escrowXrp = (item.escrow ?? 0) / 1_000_000;
+        return {
+          rank: i + 1,
+          address: item.account,
+          balance: Number(balanceXrp.toFixed(6)),
+          escrow: Number(escrowXrp.toFixed(6)),
+          label: getAccountLabel(item.account) ?? item.name?.name ?? item.name?.username ?? null,
+          percentage: Number(((balanceXrp / TOTAL_XRP) * 100).toFixed(6)),
+          isKnown: isKnownAccount(item.account) || !!item.name,
+        };
+      });
     } catch (error) {
       console.error('getRichList failed:', error);
       return [];
@@ -227,8 +234,9 @@ export async function getSupplyInfo(): Promise<SupplyInfo> {
       const md = data.market_data;
       const circulating = md.circulating_supply;
       const total = md.total_supply || TOTAL_XRP;
-      const escrowed = TOTAL_XRP - total; // Approximate
       const burned = TOTAL_XRP - total;
+      // Escrowed = total supply minus circulating supply (approximate)
+      const escrowed = total - circulating;
 
       return {
         totalSupply: TOTAL_XRP,

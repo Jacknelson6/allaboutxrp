@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/people", label: "People" },
   { href: "/richlist", label: "Rich List" },
   { href: "/get-started", label: "Get Started" },
+  { href: "/live", label: "Live Globe" },
 ];
 
 export default function Nav() {
