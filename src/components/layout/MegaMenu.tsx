@@ -46,6 +46,7 @@ const menuSections: MenuSection[] = [
   {
     label: "News",
     items: [
+      { label: "Daily Recaps", href: "/news/recaps", description: "AI-generated daily XRP news summaries" },
       { label: "Ripple Corporate News", href: "/news", description: "Official Ripple announcements" },
       { label: "Brad Garlinghouse", href: "https://x.com/bgarlinghouse", description: "CEO updates and commentary", external: true },
       { label: "Events & Sponsorships", href: "/news", description: "Conferences and events" },

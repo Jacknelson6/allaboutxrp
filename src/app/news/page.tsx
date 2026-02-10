@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Rss, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Rss, ExternalLink, Newspaper, ChevronRight } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 
 const breadcrumbSchema = {
@@ -44,8 +45,35 @@ export default function NewsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="mt-8"
+        >
+          <Link
+            href="/news/recaps"
+            className="card-glow group flex items-center justify-between rounded-xl border border-xrp-accent/20 bg-xrp-accent/5 p-5 backdrop-blur-sm"
+          >
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-xrp-accent/10 p-2">
+                <Newspaper className="h-5 w-5 text-xrp-accent" />
+              </div>
+              <div>
+                <h2 className="font-display text-lg font-semibold text-text-primary group-hover:text-xrp-accent transition-colors">
+                  Daily XRP Recaps
+                </h2>
+                <p className="text-sm text-text-secondary">
+                  AI-powered daily summaries of everything XRP
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="h-5 w-5 text-text-secondary group-hover:text-xrp-accent transition-colors" />
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-8 rounded-2xl border border-surface-border bg-surface-card/50 p-8 backdrop-blur-sm"
+          className="mt-4 rounded-2xl border border-surface-border bg-surface-card/50 p-8 backdrop-blur-sm"
         >
           <div className="flex flex-col items-center justify-center py-12 text-center">
             <div className="rounded-2xl bg-xrp-accent/10 p-5 mb-6 animate-pulse-glow">
