@@ -4,7 +4,10 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
-import { LearnHero, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
+import {
+  LearnHero, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, GlowCard,
+} from "@/components/learn/LearnPageShell";
 import timelineData from "@/data/timeline.json";
 
 export const metadata: Metadata = {
@@ -48,13 +51,19 @@ const schemas = [
   ]),
   buildFAQSchema([
     { question: "When was XRP created?", answer: "The XRP Ledger development began in 2011 by David Schwartz, Jed McCaleb, and Arthur Britto. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis." },
-    { question: "What was XRP's all-time high price?", answer: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run, briefly becoming the second-largest cryptocurrency by market cap." },
+    { question: "What was XRP's all-time high price?", answer: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run." },
     { question: "When did the SEC sue Ripple?", answer: "The SEC filed its lawsuit against Ripple on December 22, 2020. Judge Torres ruled in July 2023 that XRP on exchanges is not a security." },
-    { question: "Who created XRP?", answer: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined them to co-found OpenCoin, which became Ripple." },
+    { question: "Who created XRP?", answer: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto." },
   ]),
 ];
 
-// Group events by year
+const faqItems = [
+  { q: "When was XRP created?", a: "Development of the XRP Ledger began in 2011. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis. The company OpenCoin (now Ripple) was founded in September 2012." },
+  { q: "What was XRP's all-time high price?", a: "XRP reached $3.84 on January 4, 2018, during the 2017-2018 crypto bull run. It briefly became the second-largest cryptocurrency by market capitalization." },
+  { q: "Who created XRP?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined to co-found the company." },
+  { q: "When did the SEC sue Ripple?", a: "The SEC filed suit on December 22, 2020. Judge Torres issued the landmark ruling on July 13, 2023, that XRP on exchanges is not a security. Ripple paid a $125M penalty in August 2024." },
+];
+
 const eventsByYear = timelineData.reduce((acc: Record<number, typeof timelineData>, event) => {
   if (!acc[event.year]) acc[event.year] = [];
   acc[event.year].push(event);
@@ -74,297 +83,211 @@ export default function HistoryPage() {
           subtitle="Every major milestone from the creation of the XRP Ledger in 2011 through the SEC lawsuit, court rulings, and XRP's emergence as institutional infrastructure."
           breadcrumbLabel="History &amp; Timeline"
         >
-          <div className="mt-5">
-            <AuthorByline date="2026-02-10" />
-          </div>
+          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
         </LearnHero>
 
         <SectionNav items={[
           { id: "eras", label: "Eras" },
           { id: "timeline", label: "Full Timeline" },
-          { id: "important-moments", label: "Key Moments" },
+          { id: "founding", label: "Founding Story" },
           { id: "sec", label: "SEC Case" },
+          { id: "price", label: "Price History" },
+          { id: "mistakes", label: "Misconceptions" },
           { id: "faq", label: "FAQ" },
         ]} />
 
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-
+        <div className="pointer-events-none absolute inset-0 noise-overlay" />
         <div className="mt-6"><Disclaimer /></div>
 
-        {/* Era Overview */}
-        <section className="mt-10">
-          <h2 className="font-display text-2xl font-bold text-text-primary">The Eras of XRP</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { era: "2011-2013", title: "Genesis", desc: "XRPL creation, OpenCoin founded, early funding" },
-              { era: "2014-2016", title: "Building", desc: "Enterprise focus, SBI partnership, rebranding" },
-              { era: "2017-2018", title: "Bull Run", desc: "All-time high $3.84, escrow, xRapid launch" },
-              { era: "2019-2020", title: "Expansion", desc: "MoneyGram, ODL rollout, SEC lawsuit filed" },
-              { era: "2021-2023", title: "Legal Battle", desc: "SEC case, Torres ruling, exchange relistings" },
-              { era: "2024-2026", title: "Institutional Era", desc: "ETFs, RLUSD, $3.7B in acquisitions" },
-            ].map((item) => (
-              <div key={item.era} className="rounded-xl border border-surface-border bg-surface-card/50 p-4 backdrop-blur-sm">
-                <div className="text-xs font-semibold text-xrp-accent">{item.era}</div>
-                <div className="mt-1 font-display font-bold text-text-primary">{item.title}</div>
-                <div className="mt-1 text-sm text-text-secondary">{item.desc}</div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <div className="cv-auto mt-10 space-y-14">
+          {/* ERA OVERVIEW */}
+          <RevealSection id="eras">
+            <h2 className="font-display text-2xl font-bold text-text-primary">The Eras of XRP</h2>
+            <div className="mt-6">
+              <FeatureGrid columns={3} items={[
+                { title: "Genesis (2011-2013)", desc: "XRPL creation, OpenCoin founded, early funding" },
+                { title: "Building (2014-2016)", desc: "Enterprise focus, SBI partnership, rebranding" },
+                { title: "Bull Run (2017-2018)", desc: "All-time high $3.84, escrow, xRapid launch" },
+                { title: "Expansion (2019-2020)", desc: "MoneyGram, ODL rollout, SEC lawsuit filed" },
+                { title: "Legal Battle (2021-2023)", desc: "SEC case, Torres ruling, exchange relistings" },
+                { title: "Institutional Era (2024-2026)", desc: "ETFs, RLUSD, $3.7B in acquisitions" },
+              ]} />
+            </div>
+          </RevealSection>
 
-        {/* Full Timeline */}
-        <section className="mt-12">
-          <h2 className="font-display text-2xl font-bold text-text-primary">Full Timeline</h2>
-
-          <div className="mt-8 space-y-10">
-            {years.map((year) => (
-              <div key={year}>
-                <h3 className="font-display text-xl font-bold text-xrp-accent">{year}</h3>
-                <div className="mt-4 space-y-4 border-l-2 border-surface-border pl-6">
-                  {eventsByYear[year].map((event, i) => (
-                    <div key={`${event.date}-${i}`} className="relative">
-                      <div className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-surface-border bg-surface-primary" />
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-mono text-text-secondary">
-                          {new Date(event.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric" })}
-                        </span>
-                        <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[event.category] || "bg-surface-elevated text-text-secondary border-surface-border"}`}>
-                          {event.category}
-                        </span>
-                        {event.significance === "high" ? (
-                          <span className="text-[10px] font-semibold text-warning">★ Major</span>
-                        ) : null}
+          {/* FULL TIMELINE */}
+          <RevealSection id="timeline" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Full Timeline</h2>
+            <div className="mt-8 space-y-10">
+              {years.map((year) => (
+                <div key={year}>
+                  <h3 className="font-display text-xl font-bold text-xrp-accent">{year}</h3>
+                  <div className="mt-4 space-y-4 border-l-2 border-surface-border pl-6">
+                    {eventsByYear[year].map((event, i) => (
+                      <div key={`${event.date}-${i}`} className="relative">
+                        <div className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-surface-border bg-surface-primary" />
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-mono text-text-secondary">
+                            {new Date(event.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                          </span>
+                          <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${categoryColors[event.category] || "bg-surface-elevated text-text-secondary border-surface-border"}`}>
+                            {event.category}
+                          </span>
+                          {event.significance === "high" ? (
+                            <span className="text-[10px] font-semibold text-warning">★ Major</span>
+                          ) : null}
+                        </div>
+                        <h4 className="mt-1 font-display font-semibold text-text-primary">{event.title}</h4>
+                        <p className="mt-1 text-sm text-text-secondary leading-relaxed">{event.description}</p>
                       </div>
-                      <h4 className="mt-1 font-display font-semibold text-text-primary">{event.title}</h4>
-                      <p className="mt-1 text-sm text-text-secondary leading-relaxed">{event.description}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </RevealSection>
 
-        {/* Additional Context Sections */}
-        <article className="mt-16 space-y-10">
-          <section>
+          {/* FOUNDING STORY */}
+          <RevealSection id="founding" delay={0.05}>
             <h2 className="font-display text-2xl font-bold text-text-primary">The Founding Story</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The XRP Ledger story began in 2011 when <strong>David Schwartz</strong>, a cryptographer with experience dating to the 1980s, joined forces with <strong>Jed McCaleb</strong> (creator of Mt. Gox and later Stellar) and <strong>Arthur Britto</strong> to build a faster, more energy-efficient alternative to Bitcoin.
+              The XRP Ledger story began in 2011 when <strong className="text-text-primary">David Schwartz</strong>, a cryptographer with experience dating to the 1980s, joined forces with <strong className="text-text-primary">Jed McCaleb</strong> and <strong className="text-text-primary">Arthur Britto</strong> to build a faster, more energy-efficient alternative to Bitcoin.
             </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              Their innovation was the Federated Consensus Protocol — a mechanism that could confirm transactions in seconds without the energy-intensive mining process that Bitcoin required. When the XRPL went live on June 2, 2012, all 100 billion XRP were created at genesis. 80 billion XRP were gifted to the newly formed company, OpenCoin (later <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link>).
-            </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              <strong>Chris Larsen</strong>, a serial fintech entrepreneur who had co-founded E-Loan and Prosper Marketplace, joined as co-founder and first CEO, bringing enterprise credibility and business strategy to the technical vision. Learn more about the team on our <Link href="/learn/leadership" className="text-xrp-accent">Leadership page</Link>.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The SEC Lawsuit: A Turning Point</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              On December 22, 2020, the SEC filed a lawsuit alleging Ripple raised $1.3 billion through unregistered sales of XRP as securities, naming CEO Brad Garlinghouse and co-founder Chris Larsen as co-defendants. What followed was one of the most consequential legal battles in cryptocurrency history.
-            </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              Major U.S. exchanges delisted or suspended XRP trading, dramatically reducing liquidity. But Ripple chose to fight rather than settle — a decision that proved pivotal when <strong>Judge Analisa Torres ruled on July 13, 2023</strong> that XRP sold on public exchanges to retail investors is <strong>not a security</strong>.
-            </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              The ruling was a watershed moment — not just for XRP, but for the entire cryptocurrency industry. Exchanges relisted XRP within days, and the legal clarity paved the way for ETF filings, institutional adoption, and Ripple&apos;s aggressive <Link href="/acquisitions" className="text-xrp-accent">acquisition strategy</Link> in 2025.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The Institutional Era (2024-2026)</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              With regulatory clarity achieved, XRP entered an unprecedented period of institutional adoption:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-text-secondary">
-              <li><strong>XRP ETFs:</strong> Spot ETF applications from Bitwise, 21Shares, Canary Capital, and WisdomTree; futures ETFs launched in May 2025 following CME listing</li>
-              <li><strong>RLUSD:</strong> Ripple&apos;s stablecoin launched December 2024, surpassing $1.26B market cap</li>
-              <li><strong>$3.7B in Acquisitions:</strong> Hidden Road, Rail, GTreasury, and Palisade — building a full-stack financial infrastructure</li>
-              <li><strong>Mastercard Partnership:</strong> RLUSD used for settling fiat card transactions on the XRPL</li>
-              <li><strong>Global Expansion:</strong> Ripple now operates in 40+ countries with ~1,400 employees</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">What Were the Most Important Moments in XRP History?</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              While every event in the timeline above contributed to XRP&apos;s journey, five moments stand out as truly transformative:
-            </p>
-            <ol className="mt-3 list-decimal space-y-3 pl-6 text-text-secondary">
-              <li><strong>XRPL Genesis (June 2012):</strong> The creation of all 100 billion XRP and the launch of a blockchain that would process billions of transactions without a single moment of downtime over 14 years.</li>
-              <li><strong>55 Billion XRP Escrow (December 2017):</strong> Ripple&apos;s decision to lock over half the total supply in <Link href="/escrow" className="text-xrp-accent">cryptographic escrow</Link> created the most transparent supply management mechanism in crypto and addressed the market&apos;s biggest concern about XRP.</li>
-              <li><strong>SEC Lawsuit Filed (December 2020):</strong> The SEC&apos;s lawsuit against <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link> was the single most impactful regulatory event in cryptocurrency history, leading to delistings and years of uncertainty — but also forcing the legal clarity the industry needed.</li>
-              <li><strong>Torres Ruling (July 2023):</strong> Judge Torres&apos;s decision that XRP on exchanges is not a security was a watershed moment for all of crypto. It led to immediate exchange relistings and set legal precedent that other projects now cite.</li>
-              <li><strong>Institutional Infrastructure Era (2025):</strong> Ripple&apos;s $3.7 billion <Link href="/acquisitions" className="text-xrp-accent">acquisition spree</Link> — Hidden Road, Rail, GTreasury, Palisade — transformed the company from a payments startup into a full-stack financial infrastructure provider. Combined with RLUSD, <Link href="/learn/partnerships" className="text-xrp-accent">Mastercard partnership</Link>, and CME futures, this marked XRP&apos;s transition into institutional-grade finance.</li>
-            </ol>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Has XRP&apos;s Price Changed Over Time?</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              XRP&apos;s price history reflects the broader narrative of crypto markets, regulatory events, and Ripple&apos;s growth:
-            </p>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-surface-border text-left">
-                    <th className="pb-3 font-semibold text-text-primary">Period</th>
-                    <th className="pb-3 font-semibold text-text-primary">Price Range</th>
-                    <th className="pb-3 font-semibold text-text-primary">Key Driver</th>
-                  </tr>
-                </thead>
-                <tbody className="text-text-secondary">
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">2012-2016</td>
-                    <td className="py-3">$0.001 - $0.02</td>
-                    <td className="py-3">Early development, minimal liquidity</td>
-                  </tr>
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">2017</td>
-                    <td className="py-3">$0.006 → $2.30</td>
-                    <td className="py-3">Crypto bull run, SBI partnership, escrow announcement</td>
-                  </tr>
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">Jan 2018</td>
-                    <td className="py-3 text-xrp-accent font-medium">ATH: $3.84</td>
-                    <td className="py-3">Peak of 2017-2018 bull run</td>
-                  </tr>
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">2018-2020</td>
-                    <td className="py-3">$0.15 - $0.70</td>
-                    <td className="py-3">Crypto winter, building phase</td>
-                  </tr>
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">Dec 2020 - Jul 2023</td>
-                    <td className="py-3">$0.20 - $0.90</td>
-                    <td className="py-3">SEC lawsuit suppression, exchange delistings</td>
-                  </tr>
-                  <tr className="border-b border-surface-border/30">
-                    <td className="py-3">Jul 2023</td>
-                    <td className="py-3">$0.47 → $0.94</td>
-                    <td className="py-3">Torres ruling — 100% spike in 24 hours</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3">2024-2026</td>
-                    <td className="py-3">$0.50+</td>
-                    <td className="py-3">ETF filings, RLUSD, institutional adoption</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="mt-5">
+              <GlowCard
+                title="June 2, 2012"
+                value="100,000,000,000 XRP"
+                subtitle="Created at genesis — the XRP Ledger goes live with its entire fixed supply"
+              />
             </div>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              Want to get started? Check our <Link href="/learn/get-started" className="text-xrp-accent">beginner&apos;s guide to buying XRP</Link>, or follow prices in real-time on our <Link href="/live" className="text-xrp-accent">live charts page</Link>.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Did the XRP Community Develop?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The XRP community — often called the &quot;XRP Army&quot; — is one of the most dedicated and distinctive communities in cryptocurrency. Forged through years of the SEC lawsuit, exchange delistings, and price suppression, the community developed a unique culture of patience, conviction, and cryptic puzzle-solving.
+              <strong className="text-text-primary">Chris Larsen</strong>, a serial fintech entrepreneur, joined as co-founder and first CEO, bringing enterprise credibility. Together they formed OpenCoin (later <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link>) in September 2012. Learn more on our <Link href="/learn/leadership" className="text-xrp-accent underline decoration-xrp-accent/30">Leadership page</Link>.
             </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              The community&apos;s <Link href="/riddlers" className="text-xrp-accent">Riddler tradition</Link> — involving anonymous figures like BearableGuy123 and Mr. Pool who post cryptic predictions — is unlike anything in other crypto communities. Combined with active on-chain monitoring, legal case analysis, and <Link href="/learn/leadership" className="text-xrp-accent">Ripple executive tracking</Link>, the XRP community represents a fascinating intersection of technology, finance, and digital folklore.
-            </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              See who&apos;s worth following on our <Link href="/people" className="text-xrp-accent">XRP People to Follow</Link> page.
-            </p>
-          </section>
+          </RevealSection>
 
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Why XRP&apos;s History Matters</h2>
+          {/* SEC CASE */}
+          <RevealSection id="sec" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">The SEC Lawsuit: A Turning Point</h2>
+            <div className="mt-4">
+              <HighlightBox title="December 22, 2020" variant="danger">
+                <p>The SEC filed a lawsuit alleging Ripple raised $1.3 billion through unregistered sales of XRP as securities, naming CEO Brad Garlinghouse and co-founder Chris Larsen as co-defendants.</p>
+              </HighlightBox>
+            </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Understanding XRP&apos;s history is essential for evaluating its future. The SEC lawsuit, for example, created years of price suppression and uncertainty — but also resulted in the most important legal precedent in crypto history. Each era of XRP&apos;s development has built on the last, and the institutional infrastructure being assembled in 2025-2026 is the culmination of over a decade of work.
+              Major U.S. exchanges delisted or suspended XRP trading, dramatically reducing liquidity. But Ripple chose to fight rather than settle — a decision that proved pivotal.
             </p>
-          </section>
+            <div className="mt-4">
+              <HighlightBox title="July 13, 2023 — The Torres Ruling" variant="success">
+                <p><strong className="text-text-primary">Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security.</strong> This was a watershed moment — not just for XRP, but for the entire cryptocurrency industry. Exchanges relisted XRP within days, and the legal clarity paved the way for ETF filings and institutional adoption.</p>
+              </HighlightBox>
+            </div>
+          </RevealSection>
 
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Common Misconceptions About XRP History</h2>
-            <div className="mt-4 space-y-3">
+          {/* INSTITUTIONAL ERA */}
+          <RevealSection delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">The Institutional Era (2024-2026)</h2>
+            <div className="mt-5">
+              <FeatureGrid columns={2} items={[
+                { title: "XRP ETFs", desc: "Spot ETF applications from Bitwise, 21Shares, Canary Capital, WisdomTree; futures ETFs launched May 2025" },
+                { title: "RLUSD Stablecoin", desc: "Launched December 2024, surpassing $1.26B market cap" },
+                { title: "$3.7B in Acquisitions", desc: "Hidden Road, Rail, GTreasury, Palisade — full-stack financial infrastructure" },
+                { title: "Mastercard Partnership", desc: "RLUSD settling fiat card transactions on the XRPL" },
+              ]} />
+            </div>
+          </RevealSection>
+
+          {/* PRICE HISTORY */}
+          <RevealSection id="price" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Has XRP&apos;s Price Changed Over Time?</h2>
+            <div className="mt-5">
+              <DataTable
+                headers={["Period", "Price Range", "Key Driver"]}
+                rows={[
+                  ["2012-2016", "$0.001 - $0.02", "Early development, minimal liquidity"],
+                  ["2017", "$0.006 → $2.30", "Crypto bull run, SBI partnership, escrow"],
+                  ["Jan 2018", "ATH: $3.84", "Peak of 2017-2018 bull run"],
+                  ["2018-2020", "$0.15 - $0.70", "Crypto winter, building phase"],
+                  ["Dec 2020 - Jul 2023", "$0.20 - $0.90", "SEC lawsuit suppression"],
+                  ["Jul 2023", "$0.47 → $0.94", "Torres ruling — 100% spike in 24 hours"],
+                  ["2024-2026", "$0.50+", "ETF filings, RLUSD, institutional adoption"],
+                ]}
+                highlightCol={1}
+              />
+            </div>
+          </RevealSection>
+
+          {/* KEY MOMENTS */}
+          <RevealSection delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">The Five Most Important Moments in XRP History</h2>
+            <div className="mt-5 space-y-4">
               {[
-                { mistake: "XRP was created by Ripple", fix: "The XRPL was built before Ripple existed. Schwartz, McCaleb, and Britto created the ledger; they then formed the company." },
-                { mistake: "The SEC lawsuit proved XRP is a security", fix: "The opposite — the Torres ruling established that XRP on exchanges is NOT a security." },
-                { mistake: "XRP is 'dead' because of years of low prices", fix: "Price suppression during the SEC era masked massive infrastructure building. Ripple spent $3.7B on acquisitions in 2025 alone." },
+                { num: "1", title: "XRPL Genesis (June 2012)", desc: "Creation of all 100 billion XRP and launch of a blockchain that would operate 14+ years without downtime." },
+                { num: "2", title: "55 Billion XRP Escrow (Dec 2017)", desc: "Ripple locked over half the total supply in cryptographic escrow — the most transparent supply management in crypto." },
+                { num: "3", title: "SEC Lawsuit Filed (Dec 2020)", desc: "The most consequential regulatory event in cryptocurrency history, leading to years of uncertainty but ultimately forcing legal clarity." },
+                { num: "4", title: "Torres Ruling (July 2023)", desc: "XRP on exchanges ruled not a security — a watershed moment for all of crypto, leading to immediate relistings." },
+                { num: "5", title: "Institutional Infrastructure (2025)", desc: "Ripple's $3.7B acquisition spree transformed it from a payments startup into a full-stack financial infrastructure provider." },
               ].map((item) => (
-                <div key={item.mistake} className="mistake-card rounded-xl border border-danger/20 bg-danger/5 p-4">
-                  <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
-                  <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
+                <div key={item.num} className="flex gap-4 rounded-xl border border-surface-border/60 bg-surface-card/40 p-5 backdrop-blur-sm">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-xrp-accent/10 font-mono text-sm font-bold text-xrp-accent">{item.num}</span>
+                  <div>
+                    <h3 className="font-display font-semibold text-text-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm text-text-secondary">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
-          </section>
+          </RevealSection>
+
+          {/* COMMUNITY */}
+          <RevealSection delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Did the XRP Community Develop?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              The XRP community — the &quot;XRP Army&quot; — is one of the most dedicated in cryptocurrency. Forged through years of the SEC lawsuit and price suppression, the community developed a unique culture of patience, conviction, and cryptic puzzle-solving.
+            </p>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              The <Link href="/riddlers" className="text-xrp-accent underline decoration-xrp-accent/30">Riddler tradition</Link> involving figures like BearableGuy123 and Mr. Pool is unlike anything in other crypto communities. See who&apos;s worth following on our <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">XRP People to Follow</Link> page.
+            </p>
+          </RevealSection>
+
+          {/* MISCONCEPTIONS */}
+          <RevealSection id="mistakes" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Common Misconceptions About XRP History</h2>
+            <div className="mt-5 space-y-3">
+              <MisconceptionCard myth="XRP was created by Ripple" reality="The XRPL was built before Ripple existed. Schwartz, McCaleb, and Britto created the ledger; they then formed the company." />
+              <MisconceptionCard myth="The SEC lawsuit proved XRP is a security" reality="The opposite — the Torres ruling established that XRP on exchanges is NOT a security." />
+              <MisconceptionCard myth="XRP is 'dead' because of years of low prices" reality="Price suppression during the SEC era masked massive infrastructure building. Ripple spent $3.7B on acquisitions in 2025 alone." />
+            </div>
+          </RevealSection>
 
           {/* FAQ */}
-          <section className="learn-faq mt-12 rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
-            <div className="mt-6 space-y-6">
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">When was XRP created?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  Development of the XRP Ledger began in 2011. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis. The company OpenCoin (now <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link>) was founded in September 2012.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">What was XRP&apos;s all-time high price?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  XRP reached $3.84 on January 4, 2018, during the 2017-2018 crypto bull run. It briefly became the second-largest cryptocurrency by market capitalization.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">Who created XRP?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  The XRP Ledger was created by David Schwartz (Ripple&apos;s CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined to co-found the company.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">When did the SEC sue Ripple?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  The SEC filed suit on December 22, 2020. Judge Torres issued the landmark ruling on July 13, 2023, that XRP on exchanges is not a security. Ripple paid a $125M penalty in August 2024.
-                </p>
-              </div>
-            </div>
-          </section>
+          <RevealSection id="faq" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <FAQAccordion items={faqItems} />
+          </RevealSection>
 
-          {/* Internal Links */}
-          <section className="mt-8">
+          {/* CONTINUE LEARNING */}
+          <RevealSection delay={0.05}>
             <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {[
-                { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-                { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-                { href: "/learn/leadership", label: "Leadership Team", desc: "The people behind Ripple" },
-                { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-                { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-                { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your journey" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="card-glow flex flex-col rounded-xl border border-surface-border bg-surface-card/50 p-4 backdrop-blur-sm transition-colors hover:border-xrp-accent/30"
-                >
-                  <span className="font-display font-semibold text-text-primary">{link.label}</span>
-                  <span className="mt-1 text-sm text-text-secondary">{link.desc}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </article>
+            <LearnLinkGrid links={[
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
+              { href: "/learn/leadership", label: "Leadership Team", desc: "The people behind Ripple" },
+              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your journey" },
+            ]} />
+          </RevealSection>
+        </div>
 
-        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
-          <h2 className="font-display text-xl font-bold text-text-primary">The Story Continues</h2>
-          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
-            From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP&apos;s story is still being written. Stay informed and explore more.
-          </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Link href="/learn/what-is-xrp" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
-              What is XRP? →
-            </Link>
-            <Link href="/news/recaps" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
-              Latest News
-            </Link>
-          </div>
-        </section>
+        <LearnCTA
+          title="The Story Continues"
+          description="From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP's story is still being written."
+          primaryHref="/learn/what-is-xrp"
+          primaryLabel="What is XRP? →"
+          secondaryHref="/news/recaps"
+          secondaryLabel="Latest News"
+        />
 
         <p className="mt-8 text-xs text-text-secondary/60">
           <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple official announcements, SEC court filings, CoinMarketCap, CoinDesk, XRPScan.</em>

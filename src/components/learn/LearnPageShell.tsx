@@ -233,3 +233,298 @@ export function LearnLinkGrid({ links }: { links: { href: string; label: string;
     </div>
   );
 }
+
+/* ============================================================
+   HIGHLIGHT BOX — accent-bordered callout for key facts/stats
+   ============================================================ */
+const variantStyles = {
+  accent: "border-xrp-accent/25 bg-xrp-accent/[0.03]",
+  warning: "border-yellow-500/25 bg-yellow-500/[0.03]",
+  danger: "border-red-500/25 bg-red-500/[0.03]",
+  success: "border-emerald-500/25 bg-emerald-500/[0.03]",
+  info: "border-blue-400/25 bg-blue-400/[0.03]",
+} as const;
+
+const variantIcons = {
+  accent: <Zap className="h-5 w-5 text-xrp-accent" />,
+  warning: <AlertTriangle className="h-5 w-5 text-yellow-500" />,
+  danger: <XCircle className="h-5 w-5 text-red-500" />,
+  success: <CheckCircle className="h-5 w-5 text-emerald-500" />,
+  info: <Info className="h-5 w-5 text-blue-400" />,
+};
+
+export function HighlightBox({
+  title,
+  children,
+  variant = "accent",
+  icon,
+  large,
+}: {
+  title?: string;
+  children: ReactNode;
+  variant?: keyof typeof variantStyles;
+  icon?: ReactNode;
+  large?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -12 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className={`rounded-xl border ${variantStyles[variant]} ${large ? "p-6 md:p-8" : "p-5"}`}
+    >
+      {title ? (
+        <div className="flex items-center gap-2.5 mb-3">
+          {icon ? icon : variantIcons[variant]}
+          <span className="font-display font-semibold text-text-primary">{title}</span>
+        </div>
+      ) : null}
+      <div className="text-sm text-text-secondary leading-relaxed">{children}</div>
+    </motion.div>
+  );
+}
+
+/* ============================================================
+   FEATURE GRID — animated card grid with icons
+   ============================================================ */
+export function FeatureGrid({
+  items,
+  columns = 3,
+}: {
+  items: { icon?: ReactNode; title: string; desc: string; mono?: boolean }[];
+  columns?: 2 | 3 | 4;
+}) {
+  const colClass = columns === 2 ? "sm:grid-cols-2" : columns === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3";
+  return (
+    <div className={`grid gap-4 ${colClass}`}>
+      {items.map((item, i) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="group relative overflow-hidden rounded-xl border border-surface-border/60 bg-surface-card/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-xrp-accent/30 hover:shadow-[0_4px_20px_rgba(0,180,255,0.06)]"
+        >
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-xrp-accent/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="relative">
+            {item.icon ? <div className="mb-3">{item.icon}</div> : null}
+            <div className={`font-display text-sm font-semibold text-text-primary ${item.mono ? "font-mono text-xrp-accent" : ""}`}>
+              {item.title}
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-text-secondary">{item.desc}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+/* ============================================================
+   DATA TABLE — styled table matching Escrow page quality
+   ============================================================ */
+export function DataTable({
+  headers,
+  rows,
+  highlightCol,
+}: {
+  headers: string[];
+  rows: (string | ReactNode)[][];
+  highlightCol?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="overflow-x-auto rounded-xl border border-surface-border"
+    >
+      <table className="w-full text-left text-sm">
+        <thead className="border-b border-surface-border bg-surface-card">
+          <tr>
+            {headers.map((h, i) => (
+              <th key={i} className="px-4 py-3 font-medium text-text-secondary text-xs uppercase tracking-wider">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-surface-border/60">
+          {rows.map((row, ri) => (
+            <tr key={ri} className="bg-surface-primary transition-colors hover:bg-surface-card/60">
+              {row.map((cell, ci) => (
+                <td
+                  key={ci}
+                  className={`px-4 py-3 ${
+                    highlightCol === ci
+                      ? "font-medium text-xrp-accent"
+                      : "text-text-secondary"
+                  }`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </motion.div>
+  );
+}
+
+/* ============================================================
+   FAQ ACCORDION — interactive collapsible FAQ
+   ============================================================ */
+export function FAQAccordion({
+  items,
+}: {
+  items: { q: string; a: string }[];
+}) {
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <div className="learn-faq space-y-3 rounded-xl border border-surface-border/60 bg-surface-card/30 p-5 backdrop-blur-sm">
+      {items.map((item, i) => (
+        <div key={i} className="border-b border-surface-border/30 last:border-0">
+          <button
+            onClick={() => setOpen(open === i ? null : i)}
+            className="flex w-full items-center justify-between gap-3 py-3 text-left transition-colors hover:text-xrp-accent"
+          >
+            <span className="font-display text-sm font-semibold text-text-primary">{item.q}</span>
+            <motion.div
+              animate={{ rotate: open === i ? 180 : 0 }}
+              transition={{ duration: 0.25 }}
+              className="shrink-0"
+            >
+              <ChevronDown className="h-4 w-4 text-text-secondary" />
+            </motion.div>
+          </button>
+          <AnimatePresence>
+            {open === i ? (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <p className="pb-4 text-sm leading-relaxed text-text-secondary">{item.a}</p>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ============================================================
+   GLOW CARD — single highlighted card with icon
+   ============================================================ */
+export function GlowCard({
+  icon,
+  title,
+  value,
+  subtitle,
+}: {
+  icon?: ReactNode;
+  title: string;
+  value?: string;
+  subtitle?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative overflow-hidden rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-6"
+    >
+      <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-xrp-accent/[0.06] blur-[40px] transition-all duration-500 group-hover:bg-xrp-accent/[0.1]" />
+      <div className="relative">
+        {icon ? <div className="mb-3">{icon}</div> : null}
+        <div className="flex items-center gap-2">
+          <span className="font-display font-semibold text-xrp-accent">{title}</span>
+        </div>
+        {value ? <p className="mt-2 font-mono text-2xl font-bold text-text-primary">{value}</p> : null}
+        {subtitle ? <p className="mt-1 text-sm text-text-secondary">{subtitle}</p> : null}
+      </div>
+    </motion.div>
+  );
+}
+
+/* ============================================================
+   ICON LIST — list with icons instead of bullets
+   ============================================================ */
+export function IconList({
+  items,
+  icon,
+  variant = "check",
+}: {
+  items: { title: string; desc?: string }[];
+  icon?: ReactNode;
+  variant?: "check" | "x" | "warn" | "zap";
+}) {
+  const defaultIcons = {
+    check: <CheckCircle className="h-5 w-5 shrink-0 text-emerald-500 mt-0.5" />,
+    x: <XCircle className="h-5 w-5 shrink-0 text-red-500 mt-0.5" />,
+    warn: <AlertTriangle className="h-5 w-5 shrink-0 text-yellow-500 mt-0.5" />,
+    zap: <Zap className="h-5 w-5 shrink-0 text-xrp-accent mt-0.5" />,
+  };
+  const usedIcon = icon ? icon : defaultIcons[variant];
+
+  return (
+    <div className="space-y-3">
+      {items.map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, x: -8 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.04, duration: 0.4 }}
+          className="flex gap-3 rounded-lg border border-surface-border/40 bg-surface-card/30 p-3"
+        >
+          {usedIcon}
+          <div>
+            <p className="font-semibold text-text-primary text-sm">{item.title}</p>
+            {item.desc ? <p className="text-xs text-text-secondary mt-0.5">{item.desc}</p> : null}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+/* ============================================================
+   MISCONCEPTION CARD — myth vs reality
+   ============================================================ */
+export function MisconceptionCard({
+  myth,
+  reality,
+}: {
+  myth: string;
+  reality: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mistake-card rounded-xl border border-red-500/15 bg-red-500/[0.02] p-5"
+    >
+      <div className="flex items-start gap-3">
+        <XCircle className="h-5 w-5 shrink-0 text-red-500 mt-0.5" />
+        <div>
+          <p className="font-display text-sm font-semibold text-text-primary">&ldquo;{myth}&rdquo;</p>
+          <div className="mt-2 flex items-start gap-2">
+            <CheckCircle className="h-4 w-4 shrink-0 text-emerald-500 mt-0.5" />
+            <p className="text-xs text-text-secondary leading-relaxed">{reality}</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

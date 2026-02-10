@@ -4,7 +4,10 @@ import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
-import { LearnHero, StatPill, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
+import {
+  LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
+  HighlightBox, FeatureGrid, FAQAccordion, IconList,
+} from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "Ripple Partnerships: Complete XRP Partners List 2026",
@@ -38,10 +41,17 @@ const schemas = [
     { name: "Partnerships" },
   ]),
   buildFAQSchema([
-    { question: "What banks use Ripple and XRP?", answer: "Major banks include SBI Holdings (Japan), Banco Santander (Spain), BBVA (Spain), Standard Chartered, MUFG (Japan), National Australia Bank, RAKBANK (UAE), and many others across 55+ countries." },
-    { question: "How many partners does Ripple have?", answer: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. Over $90 billion in global payments processed." },
-    { question: "Does Mastercard use XRP?", answer: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain." },
+    { question: "What banks use Ripple and XRP?", answer: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, and many others across 55+ countries." },
+    { question: "How many partners does Ripple have?", answer: "Ripple has hundreds of partners across 55+ countries. Over $90 billion in global payments processed." },
+    { question: "Does Mastercard use XRP?", answer: "Yes. Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions." },
   ]),
+];
+
+const faqItems = [
+  { q: "What banks use Ripple and XRP?", a: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, Société Générale, RAKBANK, Al Rajhi Bank, Siam Commercial Bank, and many more across 55+ countries." },
+  { q: "Does Mastercard use XRP?", a: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain." },
+  { q: "How many partners does Ripple have?", a: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. The network has processed over $90 billion in payments." },
+  { q: "Is Ripple working with central banks?", a: "Yes. Ripple is engaged with over 20 central banks on CBDC pilot programs, including Palau, Bhutan, Colombia, and Montenegro." },
 ];
 
 interface Partner {
@@ -52,67 +62,71 @@ interface Partner {
   highlight?: boolean;
 }
 
-const partnersByCategory: { category: string; description: string; partners: Partner[] }[] = [
+const partnersByCategory: { category: string; id: string; description: string; partners: Partner[] }[] = [
   {
     category: "Strategic & Major Partners",
+    id: "strategic",
     description: "Key strategic relationships driving the Ripple ecosystem",
     partners: [
-      { name: "SBI Holdings", type: "Bank/Financial Group", region: "Japan", description: "Japan's largest financial conglomerate. Co-created SBI Ripple Asia in 2016. Operates the SBI VC Trade exchange and drives XRPL adoption across Asia.", highlight: true },
+      { name: "SBI Holdings", type: "Bank/Financial Group", region: "Japan", description: "Japan's largest financial conglomerate. Co-created SBI Ripple Asia in 2016. Operates SBI VC Trade and drives XRPL adoption across Asia.", highlight: true },
       { name: "Mastercard", type: "Payment Network", region: "Global", description: "Partnered in 2025 with WebBank and Gemini to settle fiat card transactions using RLUSD on the XRP Ledger.", highlight: true },
       { name: "BNY Mellon", type: "Custodian Bank", region: "USA", description: "Selected as custodian for RLUSD stablecoin reserves, providing institutional credibility and trust.", highlight: true },
-      { name: "MoneyGram", type: "Remittance", region: "Global", description: "Strategic partnership from 2019-2021 using ODL for cross-border payments. Suspended during SEC lawsuit period but paved the way for institutional adoption.", highlight: false },
+      { name: "MoneyGram", type: "Remittance", region: "Global", description: "Strategic ODL partnership from 2019-2021 for cross-border payments. Paved the way for institutional adoption.", highlight: false },
     ],
   },
   {
     category: "Banks & Financial Institutions",
+    id: "banks",
     description: "Major banks connected to RippleNet and the XRP Ledger ecosystem",
     partners: [
       { name: "Banco Santander", type: "Bank", region: "Spain/Global", description: "One of the world's largest banks. Used RippleNet for its One Pay FX cross-border payment app." },
       { name: "Standard Chartered", type: "Bank", region: "UK/Global", description: "Major international bank using Ripple technology for cross-border payments." },
       { name: "BBVA", type: "Bank", region: "Spain", description: "Uses Ripple Custody (Metaco Harmonize) for digital asset custody and is a Ripple Payments client." },
-      { name: "MUFG (Mitsubishi UFJ)", type: "Bank", region: "Japan", description: "Japan's largest bank and a RippleNet member, exploring XRPL-based settlement." },
-      { name: "RAKBANK", type: "Bank", region: "UAE", description: "Uses Ripple Payments for cross-border remittances from the UAE." },
-      { name: "Al Rajhi Bank", type: "Bank", region: "Saudi Arabia", description: "The world's largest Islamic bank, connected to RippleNet for international payments." },
-      { name: "Siam Commercial Bank", type: "Bank", region: "Thailand", description: "Thailand's oldest bank, one of the earliest RippleNet adopters in Southeast Asia." },
-      { name: "National Australia Bank", type: "Bank", region: "Australia", description: "One of Australia's Big Four banks, exploring Ripple technology for payments." },
-      { name: "Westpac", type: "Bank", region: "Australia", description: "Australia's second-largest bank, connected to RippleNet." },
-      { name: "Akbank", type: "Bank", region: "Turkey", description: "Turkey's leading private bank, using RippleNet for cross-border payments." },
-      { name: "Axis Bank", type: "Bank", region: "India", description: "India's third-largest private bank, part of Ripple's payments network." },
-      { name: "Bank of Indonesia", type: "Central Bank", region: "Indonesia", description: "Engaged with Ripple on payment infrastructure and potential CBDC exploration." },
-      { name: "Mizuho Financial Group", type: "Bank", region: "Japan", description: "One of Japan's three mega-banks, connected to Ripple through SBI partnerships." },
+      { name: "MUFG (Mitsubishi UFJ)", type: "Bank", region: "Japan", description: "Japan's largest bank and a RippleNet member." },
       { name: "Citibank", type: "Bank", region: "USA/Global", description: "Uses Ripple Custody (Metaco Harmonize) for institutional digital asset custody." },
-      { name: "BNP Paribas", type: "Bank", region: "France", description: "Europe's largest bank by assets, uses Ripple Custody (Metaco) for digital asset management." },
-      { name: "Société Générale", type: "Bank", region: "France", description: "Major French bank using both Ripple Custody and Palisade wallet infrastructure." },
-      { name: "DBS", type: "Bank", region: "Singapore", description: "Southeast Asia's largest bank, exploring XRPL and digital asset infrastructure." },
+      { name: "BNP Paribas", type: "Bank", region: "France", description: "Europe's largest bank by assets, uses Ripple Custody (Metaco)." },
+      { name: "Société Générale", type: "Bank", region: "France", description: "Uses both Ripple Custody and Palisade wallet infrastructure." },
+      { name: "RAKBANK", type: "Bank", region: "UAE", description: "Uses Ripple Payments for cross-border remittances from the UAE." },
+      { name: "Al Rajhi Bank", type: "Bank", region: "Saudi Arabia", description: "The world's largest Islamic bank, connected to RippleNet." },
+      { name: "Siam Commercial Bank", type: "Bank", region: "Thailand", description: "Thailand's oldest bank, one of the earliest RippleNet adopters." },
+      { name: "National Australia Bank", type: "Bank", region: "Australia", description: "One of Australia's Big Four banks." },
+      { name: "Westpac", type: "Bank", region: "Australia", description: "Australia's second-largest bank, connected to RippleNet." },
+      { name: "Akbank", type: "Bank", region: "Turkey", description: "Turkey's leading private bank." },
+      { name: "Axis Bank", type: "Bank", region: "India", description: "India's third-largest private bank." },
+      { name: "DBS", type: "Bank", region: "Singapore", description: "Southeast Asia's largest bank." },
       { name: "UBS", type: "Bank", region: "Switzerland", description: "Global banking giant connected to Ripple's enterprise solutions." },
+      { name: "Mizuho Financial Group", type: "Bank", region: "Japan", description: "One of Japan's three mega-banks." },
     ],
   },
   {
     category: "Payment Providers & Fintechs",
+    id: "payments",
     description: "Companies using Ripple Payments and ODL for cross-border transfers",
     partners: [
-      { name: "Tranglo", type: "Payments", region: "Southeast Asia", description: "40% owned by Ripple. Processes ODL-powered payments across 25 corridors in Southeast Asia with $970M+ in volume." },
-      { name: "TransferGo", type: "Remittance", region: "Europe", description: "European remittance provider using Ripple's ODL for instant cross-border transfers." },
+      { name: "Tranglo", type: "Payments", region: "Southeast Asia", description: "40% owned by Ripple. Processes ODL-powered payments across 25 corridors with $970M+ in volume.", highlight: true },
+      { name: "TransferGo", type: "Remittance", region: "Europe", description: "European remittance provider using ODL for instant cross-border transfers." },
       { name: "Currencies Direct", type: "FX/Payments", region: "UK", description: "UK-based foreign exchange and payment provider on RippleNet." },
       { name: "dLocal", type: "Payments", region: "Latin America", description: "Latin American payment platform using Ripple for cross-border settlement." },
-      { name: "AirWallex", type: "Payments", region: "Australia/Global", description: "Global payments platform leveraging Ripple's network for international transfers." },
+      { name: "AirWallex", type: "Payments", region: "Australia/Global", description: "Global payments platform leveraging Ripple's network." },
       { name: "Bexs Banco", type: "Payments", region: "Brazil", description: "Brazilian payment institution using ODL for Brazil corridor payments." },
-      { name: "Cuallix", type: "Payments", region: "Mexico", description: "First financial institution to use xRapid (now ODL) commercially for US-Mexico remittances." },
-      { name: "American Express", type: "Payments", region: "USA/Global", description: "Explored RippleNet for B2B cross-border payments between the US and UK." },
+      { name: "Cuallix", type: "Payments", region: "Mexico", description: "First institution to use xRapid (now ODL) commercially for US-Mexico remittances." },
+      { name: "American Express", type: "Payments", region: "USA/Global", description: "Explored RippleNet for B2B cross-border payments between US and UK." },
     ],
   },
   {
     category: "Tokenization & Digital Assets",
+    id: "tokenization",
     description: "Partners building tokenized asset infrastructure on the XRP Ledger",
     partners: [
-      { name: "Archax", type: "Digital Exchange", region: "UK", description: "FCA-regulated digital securities exchange tokenizing assets including BlackRock's money market fund on the XRPL." },
-      { name: "Meld Gold", type: "Tokenization", region: "Australia", description: "Tokenizing gold and precious metals on the XRP Ledger for instant settlement." },
+      { name: "Archax", type: "Digital Exchange", region: "UK", description: "FCA-regulated exchange tokenizing assets including BlackRock's money market fund on the XRPL." },
+      { name: "Meld Gold", type: "Tokenization", region: "Australia", description: "Tokenizing gold and precious metals on the XRP Ledger." },
       { name: "Zoniqx", type: "Tokenization", region: "USA", description: "Tokenizing treasury bills and real-world assets on the XRPL." },
-      { name: "Dubai Land Department + Ctrl Alt", type: "Real Estate", region: "UAE", description: "Tokenizing real estate on the XRPL for fractional ownership and digital property deeds (July 2025)." },
+      { name: "Dubai Land Dept + Ctrl Alt", type: "Real Estate", region: "UAE", description: "Tokenizing real estate on the XRPL for fractional ownership (July 2025)." },
     ],
   },
   {
     category: "Central Bank Partnerships",
+    id: "cbdc",
     description: "Ripple is working with 20+ central banks on CBDC pilot programs",
     partners: [
       { name: "Republic of Palau", type: "Government", region: "Pacific", description: "National stablecoin (PSC) built on the XRPL, launched as a pilot in 2023." },
@@ -134,9 +148,7 @@ export default function PartnershipsPage() {
           subtitle="From SBI Holdings to Mastercard and BNY Mellon — the complete list of banks, payment providers, and institutions in the Ripple network across 55+ countries."
           breadcrumbLabel="Partnerships"
         >
-          <div className="mt-5">
-            <AuthorByline date="2026-02-10" />
-          </div>
+          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
         </LearnHero>
 
         <SectionNav items={[
@@ -144,11 +156,13 @@ export default function PartnershipsPage() {
           { id: "strategic", label: "Strategic Partners" },
           { id: "banks", label: "Banks" },
           { id: "payments", label: "Payment Providers" },
+          { id: "tokenization", label: "Tokenization" },
+          { id: "cbdc", label: "CBDC Pilots" },
           { id: "faq", label: "FAQ" },
         ]} />
 
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-
+        <div className="pointer-events-none absolute inset-0 noise-overlay" />
         <div className="mt-6"><Disclaimer /></div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -158,35 +172,38 @@ export default function PartnershipsPage() {
           <StatPill label="Acquisition Spend" value="$3.7B+" delay={0.18} />
         </div>
 
-        <article className="prose-editorial cv-auto mt-14 space-y-12">
-          {/* How Ripple Partners Use XRP */}
-          <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Partners Use XRP and Ripple Technology</h2>
+        <div className="cv-auto mt-14 space-y-14">
+          {/* HOW PARTNERS USE XRP */}
+          <RevealSection id="how-partners-use">
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Do Partners Use XRP and Ripple Technology?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Ripple offers several products that partners can adopt, each leveraging the <Link href="/learn/what-is-xrp" className="text-xrp-accent">XRP</Link> ecosystem in different ways:
+              <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> offers several products that partners can adopt, each leveraging the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> ecosystem:
             </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-text-secondary">
-              <li><strong>Ripple Payments (ODL):</strong> Cross-border payments using XRP as a bridge currency — the core product driving XRP transaction volume</li>
-              <li><strong>Ripple Custody (Metaco):</strong> Institutional-grade digital asset custody for banks holding XRP and other assets</li>
-              <li><strong>Ripple Prime (Hidden Road):</strong> Prime brokerage with post-trade settlement migrating to the XRP Ledger</li>
-              <li><strong>RLUSD:</strong> Ripple&apos;s USD stablecoin on the XRPL, used for settlement and as collateral</li>
-              <li><strong>CBDC Platform:</strong> Private XRPL sidechains for central bank digital currency pilots</li>
-            </ul>
-          </section>
+            <div className="mt-5">
+              <FeatureGrid columns={2} items={[
+                { title: "Ripple Payments (ODL)", desc: "Cross-border payments using XRP as bridge currency — the core product driving XRP transaction volume" },
+                { title: "Ripple Custody (Metaco)", desc: "Institutional-grade digital asset custody for banks holding XRP and other assets" },
+                { title: "Ripple Prime (Hidden Road)", desc: "Prime brokerage with post-trade settlement migrating to the XRP Ledger" },
+                { title: "RLUSD Stablecoin", desc: "USD stablecoin on the XRPL, used for settlement and as collateral" },
+                { title: "CBDC Platform", desc: "Private XRPL sidechains for central bank digital currency pilots" },
+                { title: "Tokenization Infrastructure", desc: "Partners building real-world asset tokens on the XRPL" },
+              ]} />
+            </div>
+          </RevealSection>
 
-          {/* Partner Categories */}
-          {partnersByCategory.map((cat) => (
-            <section key={cat.category}>
+          {/* PARTNER CATEGORIES */}
+          {partnersByCategory.map((cat, catIdx) => (
+            <RevealSection key={cat.id} id={cat.id} delay={0.05}>
               <h2 className="font-display text-2xl font-bold text-text-primary">{cat.category}</h2>
               <p className="mt-2 text-text-secondary">{cat.description}</p>
               <div className="mt-6 space-y-3">
                 {cat.partners.map((partner) => (
                   <div
                     key={partner.name}
-                    className={`rounded-xl border p-4 backdrop-blur-sm ${
+                    className={`rounded-xl border p-4 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
                       partner.highlight
                         ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
-                        : "border-surface-border bg-surface-card/50"
+                        : "border-surface-border/60 bg-surface-card/40 hover:border-xrp-accent/20"
                     }`}
                   >
                     <div className="flex flex-wrap items-center gap-2">
@@ -198,93 +215,51 @@ export default function PartnershipsPage() {
                   </div>
                 ))}
               </div>
-            </section>
+            </RevealSection>
           ))}
 
-          {/* Acquisitions as Partnerships */}
-          <section>
+          {/* ACQUISITIONS */}
+          <RevealSection delay={0.05}>
             <h2 className="font-display text-2xl font-bold text-text-primary">Acquisitions Strengthen the Network</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              Beyond traditional partnerships, Ripple has spent $3.7 billion acquiring companies that expand its capabilities — from <strong>Hidden Road</strong> (prime brokerage) to <strong>GTreasury</strong> (enterprise treasury management) to <strong>Palisade</strong> (wallet infrastructure). Each acquisition brings existing client relationships into the Ripple ecosystem and creates new opportunities for XRP adoption.
-            </p>
-            <p className="mt-3 text-text-secondary leading-relaxed">
-              Read the full analysis: <Link href="/acquisitions" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">Ripple&apos;s Acquisition Strategy →</Link>
-            </p>
-          </section>
+            <div className="mt-4">
+              <HighlightBox title="$3.7 Billion in Acquisitions" variant="accent" large>
+                <p>Beyond traditional partnerships, Ripple has spent $3.7 billion acquiring companies that expand its capabilities — from <strong className="text-text-primary">Hidden Road</strong> (prime brokerage) to <strong className="text-text-primary">GTreasury</strong> (enterprise treasury) to <strong className="text-text-primary">Palisade</strong> (wallet infrastructure). Each acquisition brings existing client relationships into the Ripple ecosystem.</p>
+                <p className="mt-2">Read the full analysis: <Link href="/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s Acquisition Strategy →</Link></p>
+              </HighlightBox>
+            </div>
+          </RevealSection>
 
           {/* FAQ */}
-          <section className="learn-faq rounded-2xl border border-surface-border bg-surface-card/30 p-6 md:p-8">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
-            <div className="mt-6 space-y-6">
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">What banks use Ripple and XRP?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, Société Générale, RAKBANK, Al Rajhi Bank, Siam Commercial Bank, and many more across 55+ countries.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">Does Mastercard use XRP?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">How many partners does Ripple have?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. The network has processed over $90 billion in payments.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-text-primary">Is Ripple working with central banks?</h3>
-                <p className="mt-2 text-text-secondary leading-relaxed">
-                  Yes. Ripple is engaged with over 20 central banks on CBDC pilot programs, including Palau, Bhutan, Colombia, and Montenegro. Ripple&apos;s CBDC platform uses private sidechains connected to the XRP Ledger.
-                </p>
-              </div>
-            </div>
-          </section>
+          <RevealSection id="faq" delay={0.05}>
+            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <FAQAccordion items={faqItems} />
+          </RevealSection>
 
-          {/* Internal Links */}
-          <section>
+          {/* CONTINUE LEARNING */}
+          <RevealSection delay={0.05}>
             <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {[
-                { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-                { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-                { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
-                { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-                { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-                { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your journey" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="card-glow flex flex-col rounded-xl border border-surface-border bg-surface-card/50 p-4 backdrop-blur-sm transition-colors hover:border-xrp-accent/30"
-                >
-                  <span className="font-display font-semibold text-text-primary">{link.label}</span>
-                  <span className="mt-1 text-sm text-text-secondary">{link.desc}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </article>
+            <LearnLinkGrid links={[
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
+              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
+              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your journey" },
+            ]} />
+          </RevealSection>
+        </div>
 
-        <section className="mt-12 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm">
-          <h2 className="font-display text-xl font-bold text-text-primary">The Network Effect</h2>
-          <p className="mt-2 text-sm text-text-secondary max-w-2xl mx-auto">
-            Every new partner added to Ripple&apos;s network increases the value for all existing participants. With 55+ countries and $90B+ processed, the network effect is accelerating.
-          </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Link href="/learn/what-is-xrp" className="rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-xrp-accent/90">
-              Understand XRP →
-            </Link>
-            <Link href="/learn/get-started" className="rounded-lg border border-surface-border bg-surface-card px-5 py-2.5 text-sm font-semibold text-text-primary transition-all hover:bg-surface-elevated">
-              How to Buy XRP
-            </Link>
-          </div>
-        </section>
+        <LearnCTA
+          title="The Network Effect"
+          description="Every new partner increases the value for all existing participants. With 55+ countries and $90B+ processed, the network effect is accelerating."
+          primaryHref="/learn/what-is-xrp"
+          primaryLabel="Understand XRP →"
+          secondaryHref="/learn/get-started"
+          secondaryLabel="How to Buy XRP"
+        />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, 21Shares research, company press releases.</em>
+          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, 21Shares research.</em>
         </p>
       </div>
     </>
