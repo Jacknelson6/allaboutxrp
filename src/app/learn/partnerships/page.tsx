@@ -161,8 +161,8 @@ export default function PartnershipsPage() {
           { id: "faq", label: "FAQ" },
         ]} />
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
         <div className="mt-6"><Disclaimer /></div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -175,7 +175,7 @@ export default function PartnershipsPage() {
         <div className="cv-auto mt-14 space-y-14">
           {/* HOW PARTNERS USE XRP */}
           <RevealSection id="how-partners-use">
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Do Partners Use XRP and Ripple Technology?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Do Partners Use XRP and Ripple Technology?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> offers several products that partners can adopt, each leveraging the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> ecosystem:
             </p>
@@ -194,20 +194,20 @@ export default function PartnershipsPage() {
           {/* PARTNER CATEGORIES */}
           {partnersByCategory.map((cat, catIdx) => (
             <RevealSection key={cat.id} id={cat.id} delay={0.05}>
-              <h2 className="font-display text-2xl font-bold text-text-primary">{cat.category}</h2>
+              <h2 className="text-2xl font-bold text-text-primary">{cat.category}</h2>
               <p className="mt-2 text-text-secondary">{cat.description}</p>
               <div className="mt-6 space-y-3">
                 {cat.partners.map((partner) => (
                   <div
                     key={partner.name}
-                    className={`rounded-xl border p-4 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
+                    className={`rounded-xl border p-4  transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
                       partner.highlight
                         ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
-                        : "border-surface-border/60 bg-surface-card/40 hover:border-xrp-accent/20"
+                        : "border-surface-border/60 bg-black hover:border-xrp-accent/20"
                     }`}
                   >
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-display font-semibold text-text-primary">{partner.name}</h3>
+                      <h3 className="font-semibold text-text-primary">{partner.name}</h3>
                       <span className="rounded-full border border-surface-border bg-surface-elevated px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{partner.type}</span>
                       <span className="text-xs text-text-secondary">{partner.region}</span>
                     </div>
@@ -220,7 +220,7 @@ export default function PartnershipsPage() {
 
           {/* ACQUISITIONS */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Acquisitions Strengthen the Network</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Acquisitions Strengthen the Network</h2>
             <div className="mt-4">
               <HighlightBox title="$3.7 Billion in Acquisitions" variant="accent" large>
                 <p>Beyond traditional partnerships, Ripple has spent $3.7 billion acquiring companies that expand its capabilities — from <strong className="text-text-primary">Hidden Road</strong> (prime brokerage) to <strong className="text-text-primary">GTreasury</strong> (enterprise treasury) to <strong className="text-text-primary">Palisade</strong> (wallet infrastructure). Each acquisition brings existing client relationships into the Ripple ecosystem.</p>
@@ -231,13 +231,13 @@ export default function PartnershipsPage() {
 
           {/* FAQ */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
               { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },

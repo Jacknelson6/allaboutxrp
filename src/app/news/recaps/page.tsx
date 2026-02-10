@@ -39,7 +39,7 @@ export default function RecapsIndexPage() {
             <Newspaper className="h-5 w-5 text-xrp-accent" />
           </div>
           <div>
-            <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+            <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
               Daily XRP Recaps
             </h1>
             <p className="mt-1 text-text-secondary">
@@ -49,9 +49,9 @@ export default function RecapsIndexPage() {
         </div>
 
         {recaps.length === 0 ? (
-          <div className="mt-12 rounded-2xl border border-surface-border bg-surface-card/50 p-12 text-center backdrop-blur-sm">
+          <div className="mt-12 rounded-2xl border border-surface-border bg-black p-12 text-center ">
             <Newspaper className="mx-auto h-10 w-10 text-text-secondary mb-4" />
-            <h2 className="font-display text-xl font-bold text-text-primary">No recaps yet</h2>
+            <h2 className="text-xl font-bold text-text-primary">No recaps yet</h2>
             <p className="mt-2 text-sm text-text-secondary">
               Daily recaps will appear here once generated. Check back soon!
             </p>
@@ -62,7 +62,7 @@ export default function RecapsIndexPage() {
               <Link
                 key={recap.date}
                 href={`/news/recaps/${recap.date}`}
-                className="card-glow group block rounded-xl border border-surface-border bg-surface-card/50 p-5 backdrop-blur-sm"
+                className="group block rounded-xl border border-surface-border bg-black p-5 "
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">
@@ -77,7 +77,7 @@ export default function RecapsIndexPage() {
                         })}
                       </time>
                     </div>
-                    <h2 className="font-display text-lg font-semibold text-text-primary group-hover:text-xrp-accent transition-colors">
+                    <h2 className="text-lg font-semibold text-text-primary group-hover:text-xrp-accent transition-colors">
                       {recap.title}
                     </h2>
                     <p className="mt-1 text-sm text-text-secondary line-clamp-2">

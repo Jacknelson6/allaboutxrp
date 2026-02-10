@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
@@ -9,13 +9,6 @@ import SEOSchema from "@/components/shared/SEOSchema";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
-
-const sora = Sora({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -80,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${plusJakarta.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${plusJakarta.variable} ${ibmPlexMono.variable}`}>
       <body className="min-h-screen antialiased">
         {GA_ID && (
           <>

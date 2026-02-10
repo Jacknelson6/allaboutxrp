@@ -44,8 +44,8 @@ export default function GetStartedPage() {
               <Rocket className="h-5 w-5 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-                How to Buy <span className="gradient-text">XRP</span>
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+                How to Buy <span className="text-xrp-accent">XRP</span>
               </h1>
               <p className="mt-1 text-text-secondary">
                 A beginner-friendly guide to purchasing XRP
@@ -58,7 +58,7 @@ export default function GetStartedPage() {
 
         {/* Exchanges */}
         <section className="mt-10" aria-label="Recommended exchanges">
-          <h2 className="font-display text-2xl font-bold text-text-primary">Where to Buy XRP</h2>
+          <h2 className="text-2xl font-bold text-text-primary">Where to Buy XRP</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {exchanges.map((ex, i) => (
               <motion.a
@@ -70,14 +70,14 @@ export default function GetStartedPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className={`card-glow flex flex-col rounded-xl border p-5 backdrop-blur-sm ${
+                className={`flex flex-col rounded-xl border p-5  ${
                   ex.featured
                     ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"
-                    : "border-surface-border bg-surface-card/50"
+                    : "border-surface-border bg-black"
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="font-display text-lg font-bold text-text-primary">{ex.name}</h3>
+                  <h3 className="text-lg font-bold text-text-primary">{ex.name}</h3>
                   {ex.featured && (
                     <span className="inline-flex items-center gap-1 rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-2.5 py-0.5 text-xs font-semibold text-xrp-accent">
                       <Star className="h-3 w-3" /> Recommended
@@ -93,7 +93,7 @@ export default function GetStartedPage() {
 
         {/* Steps */}
         <section className="mt-16" aria-label="Step by step guide">
-          <h2 className="font-display text-2xl font-bold text-text-primary">Step-by-Step Guide</h2>
+          <h2 className="text-2xl font-bold text-text-primary">Step-by-Step Guide</h2>
           <div className="mt-8 space-y-4">
             {steps.map((step, i) => (
               <motion.div
@@ -102,7 +102,7 @@ export default function GetStartedPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="card-glow flex gap-5 rounded-xl border border-surface-border bg-surface-card/50 p-6 backdrop-blur-sm"
+                className="flex gap-5 rounded-xl border border-surface-border bg-black p-6 "
               >
                 <div className="shrink-0">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-xrp-accent/10">
@@ -110,7 +110,7 @@ export default function GetStartedPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-text-primary">{step.title}</h3>
+                  <h3 className="font-semibold text-text-primary">{step.title}</h3>
                   <p className="mt-1 text-sm text-text-secondary leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
@@ -122,9 +122,9 @@ export default function GetStartedPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center backdrop-blur-sm"
+          className="mt-16 rounded-2xl border border-surface-border bg-gradient-to-br from-surface-card/50 to-xrp-accent/[0.02] p-8 text-center "
         >
-          <h2 className="font-display text-xl font-bold text-text-primary">Ready to Learn More?</h2>
+          <h2 className="text-xl font-bold text-text-primary">Ready to Learn More?</h2>
           <p className="mt-2 text-sm text-text-secondary">
             Head back to our{" "}
             <a href="/" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">home page</a>{" "}

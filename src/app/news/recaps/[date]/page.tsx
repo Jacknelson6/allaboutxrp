@@ -91,7 +91,7 @@ export default async function RecapPage({ params }: Props) {
             <Calendar className="h-4 w-4" />
             <time dateTime={date}>{formattedDate}</time>
           </div>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
+          <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
             {recap.title}
           </h1>
           {recap.description && (
@@ -105,7 +105,7 @@ export default async function RecapPage({ params }: Props) {
         {/* Content */}
         <div
           className="prose prose-invert max-w-none
-            prose-headings:font-display prose-headings:text-text-primary prose-headings:font-bold
+            prose-headings:prose-headings:text-text-primary prose-headings:font-bold
             prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-surface-border prose-h2:pb-2
             prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2
             prose-p:text-text-secondary prose-p:leading-relaxed

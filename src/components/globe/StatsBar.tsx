@@ -46,7 +46,7 @@ interface Props {
 
 export default function StatsBar({ stats }: Props) {
   return (
-    <div className="flex items-center gap-6 px-6 py-2.5 bg-[#161B22]/90 backdrop-blur-sm border-b border-[#30363d]">
+    <div className="flex items-center gap-6 px-6 py-2.5 bg-[#161B22]/90  border-b border-[#30363d]">
       <div className="flex items-center gap-2">
         <div className={`w-2 h-2 rounded-full ${stats.connected ? 'bg-[#3FB950] animate-pulse' : 'bg-red-500'}`} />
         <span className="text-[11px] text-[#8b949e] font-mono uppercase tracking-wider">

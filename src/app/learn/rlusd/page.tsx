@@ -90,12 +90,12 @@ export default function RLUSDPage() {
           <StatPill label="Peg" value="1:1 USD" delay={0.18} />
         </div>
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
+        <div className="pointer-events-none absolute inset-0 " />
 
         <article className="prose-editorial cv-auto mt-14 space-y-12">
           {/* ─── Section 1: What is RLUSD? ─── */}
           <section id="what-is-rlusd">
-            <h2 className="font-display text-2xl font-bold text-text-primary">What is RLUSD?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">What is RLUSD?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               <strong>RLUSD</strong> (Ripple USD) is a <strong>stablecoin</strong> pegged 1:1 to the U.S. dollar, issued by Ripple Labs. It launched globally on December 17, 2024, after receiving final approval from the <strong>New York Department of Financial Services (NYDFS)</strong> on December 10, 2024 — making it one of the most rigorously regulated stablecoins in the market. If you&apos;re wondering how RLUSD helps XRP, the answer starts with understanding what makes this stablecoin different.
             </p>
@@ -109,7 +109,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 2: How RLUSD Works on the XRPL ─── */}
           <section id="how-it-works">
-            <h2 className="font-display text-2xl font-bold text-text-primary">How RLUSD Works on the XRP Ledger</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How RLUSD Works on the XRP Ledger</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               On the XRPL, RLUSD is issued as a <strong>trust line token</strong> — the same native token standard that the ledger has supported since 2012. This means RLUSD benefits from every built-in feature of the XRP Ledger: the decentralized exchange (DEX), automated market maker (AMM), escrow, and payment channels — all without requiring smart contracts or layer-2 solutions.
             </p>
@@ -117,7 +117,7 @@ export default function RLUSDPage() {
               When someone sends, trades, or interacts with RLUSD on the XRPL, the transaction is processed by the same <strong>consensus protocol</strong> that handles <Link href="/learn/what-is-xrp" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">XRP transactions</Link> — settling in 3-5 seconds with near-zero fees. Critically, every RLUSD transaction on the XRPL requires a <strong>small XRP fee</strong> that is permanently burned, directly linking RLUSD activity to XRP&apos;s deflationary tokenomics.
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">RLUSD Transaction Flow on XRPL</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">RLUSD Transaction Flow on XRPL</h3>
             <ol className="mt-4 list-decimal space-y-3 pl-6 text-text-secondary leading-relaxed">
               <li><strong>Minting:</strong> Ripple issues RLUSD against verified USD reserves held at regulated custodians</li>
               <li><strong>Distribution:</strong> RLUSD is distributed to exchange partners (Uphold, Bitstamp, MoonPay, Archax, etc.) and institutional clients</li>
@@ -128,27 +128,27 @@ export default function RLUSDPage() {
 
           {/* ─── Section 3: How RLUSD Helps XRP ─── */}
           <section id="xrp-benefits">
-            <h2 className="font-display text-2xl font-bold text-text-primary">How RLUSD Helps XRP: The Core Mechanisms</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How RLUSD Helps XRP: The Core Mechanisms</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The relationship between RLUSD and XRP is <strong>symbiotic by design</strong>. Ripple built RLUSD to complement XRP, not compete with it. Here are the specific mechanisms through which RLUSD directly benefits XRP:
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">1. Transaction Fee Burns (Deflationary Pressure)</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">1. Transaction Fee Burns (Deflationary Pressure)</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Every transaction on the XRP Ledger — whether it&apos;s an XRP transfer, RLUSD payment, DEX trade, or AMM operation — burns a small amount of XRP as a network fee (typically 0.00001 XRP). These fees are <strong>permanently destroyed</strong>, never recycled. As RLUSD transaction volume grows on the XRPL, more XRP gets burned, gradually reducing the total supply and creating deflationary pressure on XRP&apos;s price.
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">2. XRP Reserve Requirements</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">2. XRP Reserve Requirements</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               To hold RLUSD on the XRPL, every account must maintain a <strong>base reserve</strong> of XRP (currently 1 XRP per account) plus an <strong>owner reserve</strong> for each trust line (0.2 XRP per RLUSD trust line). As millions of users and institutions create RLUSD trust lines, a growing amount of XRP is effectively locked in reserve — reducing circulating supply and increasing demand.
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">3. DEX Trading Volume</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">3. DEX Trading Volume</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               The XRPL&apos;s built-in decentralized exchange enables direct trading of RLUSD against XRP and other assets. Every RLUSD/XRP trade on the DEX represents buying or selling pressure for XRP, increasing its trading volume and market depth. More liquidity attracts more traders, creating a virtuous cycle of activity.
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">4. Cross-Border Payment Demand</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">4. Cross-Border Payment Demand</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Ripple&apos;s payment products increasingly integrate RLUSD alongside XRP. In cross-border flows, RLUSD can serve as the USD-denominated settlement layer while XRP functions as the <strong>bridge currency</strong> for non-USD corridors. This dual-asset strategy means RLUSD growth directly translates to more XRP usage in payment routing. Ripple has processed over <strong>$90 billion in payments</strong> through its network, and RLUSD integration accelerates this flywheel.
             </p>
@@ -156,7 +156,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 4: Auto-Bridging ─── */}
           <section id="auto-bridging">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Auto-Bridging: XRP as the Invisible Highway</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Auto-Bridging: XRP as the Invisible Highway</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               One of the XRPL&apos;s most powerful features is <strong>auto-bridging</strong> — an automatic mechanism where the DEX routes trades through XRP when it results in a better exchange rate. For example, if someone wants to trade RLUSD for Japanese Yen (JPY) on the XRPL, the DEX might automatically convert RLUSD → XRP → JPY if that route offers better pricing than a direct RLUSD/JPY order book.
             </p>
@@ -170,7 +170,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 5: AMM & Liquidity ─── */}
           <section id="amm-liquidity">
-            <h2 className="font-display text-2xl font-bold text-text-primary">AMM Liquidity Pools: RLUSD + XRP</h2>
+            <h2 className="text-2xl font-bold text-text-primary">AMM Liquidity Pools: RLUSD + XRP</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The XRPL&apos;s native <strong>Automated Market Maker (AMM)</strong> enables users to create liquidity pools pairing any two assets — and RLUSD/XRP is one of the most natural pairings. These pools allow decentralized trading without traditional order books, and liquidity providers earn fees from every swap.
             </p>
@@ -191,7 +191,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 6: vs Other Stablecoins ─── */}
           <section id="vs-stablecoins">
-            <h2 className="font-display text-2xl font-bold text-text-primary">RLUSD vs. USDT vs. USDC</h2>
+            <h2 className="text-2xl font-bold text-text-primary">RLUSD vs. USDT vs. USDC</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Understanding how RLUSD compares to the dominant stablecoins helps clarify why Ripple built its own — and why it matters for XRP.
             </p>
@@ -258,7 +258,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 7: Adoption & Growth ─── */}
           <section id="adoption">
-            <h2 className="font-display text-2xl font-bold text-text-primary">RLUSD Adoption and Growth</h2>
+            <h2 className="text-2xl font-bold text-text-primary">RLUSD Adoption and Growth</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Since its December 2024 launch, RLUSD has experienced remarkable growth, driven by Ripple&apos;s institutional partnerships and regulatory positioning:
             </p>
@@ -270,7 +270,7 @@ export default function RLUSDPage() {
               <li><strong>Banking Ambitions:</strong> Ripple is actively pursuing additional banking licenses and OCC supervision for RLUSD operations</li>
             </ul>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">The XRPL Migration Thesis</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">The XRPL Migration Thesis</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Currently, a majority of RLUSD supply exists on Ethereum, where XRP plays no direct role. However, Ripple has publicly stated that RLUSD volumes are expected to shift toward the XRPL as institutional DeFi infrastructure matures. This migration would be transformative for XRP because:
             </p>
@@ -285,7 +285,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 8: The Flywheel Effect ─── */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The RLUSD–XRP Flywheel Effect</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The RLUSD–XRP Flywheel Effect</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The most powerful aspect of the RLUSD–XRP relationship is the <strong>flywheel effect</strong> — each component reinforces the others in a self-accelerating cycle:
             </p>
@@ -304,7 +304,7 @@ export default function RLUSDPage() {
 
           {/* ─── Section 9: Risks & Considerations ─── */}
           <section>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Risks and Considerations</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Risks and Considerations</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               While the RLUSD–XRP thesis is compelling, it&apos;s important to consider potential headwinds:
             </p>
@@ -322,7 +322,7 @@ export default function RLUSDPage() {
 
           {/* ─── FAQ ─── */}
           <section id="faq">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
               {[
                 { q: "What is RLUSD?", a: "RLUSD is Ripple's USD-pegged stablecoin, approved by the NYDFS in December 2024. It's backed 1:1 by U.S. dollar deposits, short-term treasuries, and cash equivalents with monthly third-party reserve attestations." },
@@ -334,8 +334,8 @@ export default function RLUSDPage() {
                 { q: "What is RLUSD's market cap?", a: "Approximately $1.5 billion as of February 2026, growing rapidly from its December 2024 launch through institutional partnerships." },
                 { q: "Can I earn yield with RLUSD and XRP?", a: "Yes. The XRPL's native AMM allows RLUSD/XRP liquidity provision, earning trading fees from swaps in the pool." },
               ].map((faq, i) => (
-                <div key={i} className="rounded-xl border border-surface-border/40 bg-surface-card/20 p-5">
-                  <h3 className="font-display text-base font-semibold text-text-primary">{faq.q}</h3>
+                <div key={i} className="rounded-xl border border-surface-border/40 bg-black p-5">
+                  <h3 className="text-base font-semibold text-text-primary">{faq.q}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{faq.a}</p>
                 </div>
               ))}
@@ -355,7 +355,7 @@ export default function RLUSDPage() {
 
         {/* ─── Internal Links ─── */}
         <RevealSection className="mt-10">
-          <h3 className="font-display text-lg font-bold text-text-primary">Keep Learning</h3>
+          <h3 className="text-lg font-bold text-text-primary">Keep Learning</h3>
           <LearnLinkGrid links={[
             { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "The basics of XRP and the XRP Ledger" },
             { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind RLUSD and RippleNet" },

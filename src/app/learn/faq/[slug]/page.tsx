@@ -94,7 +94,7 @@ export default async function FAQBlogPage({ params }: Props) {
           <span className="text-text-primary truncate max-w-[200px]">{faq.question}</span>
         </nav>
 
-        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
+        <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
           {faq.question}
         </h1>
 
@@ -116,13 +116,13 @@ export default async function FAQBlogPage({ params }: Props) {
         {/* Related questions */}
         {related.length > 0 && (
           <section className="mt-16 border-t border-surface-border/50 pt-8">
-            <h2 className="font-display text-xl font-bold text-text-primary mb-4">Related Questions</h2>
+            <h2 className="text-xl font-bold text-text-primary mb-4">Related Questions</h2>
             <div className="grid gap-2">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   href={`/learn/faq/${r.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-surface-border bg-surface-card/50 px-5 py-4 transition-colors hover:border-xrp-accent/30 hover:bg-surface-elevated/50"
+                  className="group flex items-center gap-3 rounded-xl border border-surface-border bg-black px-5 py-4 transition-colors hover:border-xrp-accent/30 hover:bg-surface-elevated"
                 >
                   <span className="text-sm text-text-primary group-hover:text-xrp-accent transition-colors">{r.question}</span>
                   <span className="ml-auto text-text-secondary group-hover:text-xrp-accent transition-colors">→</span>
@@ -134,7 +134,7 @@ export default async function FAQBlogPage({ params }: Props) {
 
         {/* Pillar Page Links */}
         <section className="mt-12 border-t border-surface-border/50 pt-8">
-          <h2 className="font-display text-lg font-bold text-text-primary mb-4">Learn More</h2>
+          <h2 className="text-lg font-bold text-text-primary mb-4">Learn More</h2>
           <div className="grid gap-2 sm:grid-cols-2">
             {[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP cryptocurrency" },
@@ -145,7 +145,7 @@ export default async function FAQBlogPage({ params }: Props) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-start gap-3 rounded-xl border border-surface-border bg-surface-card/50 px-4 py-3 transition-colors hover:border-xrp-accent/30"
+                className="group flex items-start gap-3 rounded-xl border border-surface-border bg-black px-4 py-3 transition-colors hover:border-xrp-accent/30"
               >
                 <div>
                   <span className="text-sm font-medium text-text-primary group-hover:text-xrp-accent transition-colors">{link.label}</span>

@@ -20,14 +20,14 @@ export default function FAQBlogContent({ content }: { content: string }) {
         // Headers
         if (trimmed.startsWith("### ")) {
           return (
-            <h3 key={i} className="font-display text-lg font-bold text-text-primary mt-8 mb-2">
+            <h3 key={i} className="text-lg font-bold text-text-primary mt-8 mb-2">
               {trimmed.replace("### ", "")}
             </h3>
           );
         }
         if (trimmed.startsWith("## ")) {
           return (
-            <h2 key={i} className="font-display text-xl font-bold text-text-primary mt-10 mb-3">
+            <h2 key={i} className="text-xl font-bold text-text-primary mt-10 mb-3">
               {trimmed.replace("## ", "")}
             </h2>
           );
@@ -73,7 +73,7 @@ export default function FAQBlogContent({ content }: { content: string }) {
               <div key={i} className="overflow-x-auto mt-4 mb-4 rounded-xl border border-surface-border">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-surface-border bg-surface-card/50">
+                    <tr className="border-b border-surface-border bg-black">
                       {headers.map((h, hi) => (
                         <th key={hi} className="px-4 py-3 text-left font-semibold text-text-primary">{h}</th>
                       ))}

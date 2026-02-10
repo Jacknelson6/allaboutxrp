@@ -67,7 +67,7 @@ export default function LiveContent() {
         {/* Transaction Feed Sidebar */}
         <div
           className={`
-            w-80 bg-[#161B22]/95 backdrop-blur-sm border-l border-[#30363d]
+            w-80 bg-[#161B22]/95  border-l border-[#30363d]
             transition-transform duration-300
             ${showFeed ? 'translate-x-0' : 'translate-x-full'}
             fixed md:relative right-0 top-0 bottom-0 md:translate-x-0 z-20

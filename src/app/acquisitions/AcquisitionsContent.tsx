@@ -147,9 +147,9 @@ const xrpConnections = [
 export default function AcquisitionsContent() {
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-0 bg-mesh-acquisitions" />
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-25" />
-      <div className="pointer-events-none absolute inset-0 noise-overlay" />
+      <div className="pointer-events-none absolute inset-0 bg-black" />
+      <div className="pointer-events-none absolute inset-0 " />
+      <div className="pointer-events-none absolute inset-0 " />
       <div className="relative mx-auto max-w-5xl px-4 py-16">
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -158,8 +158,8 @@ export default function AcquisitionsContent() {
               <Building2 className="h-6 w-6 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-                Ripple&apos;s <span className="gradient-text">Acquisitions</span>
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+                Ripple&apos;s <span className="text-xrp-accent">Acquisitions</span>
               </h1>
               <p className="mt-1 text-text-secondary">
                 $3.7B+ in strategic deals building the future of financial infrastructure
@@ -170,7 +170,7 @@ export default function AcquisitionsContent() {
 
         <nav className="mt-8 flex flex-wrap gap-2" aria-label="Page sections">
           {sections.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className="rounded-lg border border-surface-border bg-surface-card/50 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
+            <a key={s.id} href={`#${s.id}`} className="rounded-lg border border-surface-border bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
               {s.label}
             </a>
           ))}
@@ -213,7 +213,7 @@ export default function AcquisitionsContent() {
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs text-text-secondary">{a.year}</span>
-                      <h3 className="font-display text-lg font-bold text-text-primary">{a.name}</h3>
+                      <h3 className="text-lg font-bold text-text-primary">{a.name}</h3>
                       {a.price !== "Undisclosed" && (
                         <span className="rounded-full border border-success/20 bg-success/10 px-2.5 py-0.5 font-mono text-xs text-success">
                           {a.price}
@@ -224,11 +224,11 @@ export default function AcquisitionsContent() {
                     <p className="mt-3 text-sm text-text-secondary leading-relaxed">{a.what}</p>
 
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-lg bg-surface-primary/50 p-3">
+                      <div className="rounded-lg bg-black p-3">
                         <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Why Ripple Acquired</p>
                         <p className="mt-1 text-xs text-text-secondary leading-relaxed">{a.why}</p>
                       </div>
-                      <div className="rounded-lg bg-surface-primary/50 p-3">
+                      <div className="rounded-lg bg-black p-3">
                         <p className="text-xs font-semibold uppercase tracking-wider text-xrp-accent">XRP Impact</p>
                         <p className="mt-1 text-xs text-text-secondary leading-relaxed">{a.xrpImpact}</p>
                       </div>
@@ -247,7 +247,7 @@ export default function AcquisitionsContent() {
             >
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-text-secondary">2023</span>
-                <h3 className="font-display font-bold text-text-primary">Fortress Trust</h3>
+                <h3 className="font-bold text-text-primary">Fortress Trust</h3>
                 <span className="rounded-full border border-danger/20 bg-danger/10 px-2.5 py-0.5 text-xs text-danger">Abandoned</span>
               </div>
               <p className="mt-2 text-xs text-text-secondary">
@@ -292,7 +292,7 @@ export default function AcquisitionsContent() {
               { period: "2023–2024", desc: "Payments + custody (Metaco, Standard)" },
               { period: "2025+", desc: "Full financial infrastructure" },
             ].map((e) => (
-              <div key={e.period} className="flex items-center gap-3 rounded-lg bg-surface-card/50 px-4 py-3">
+              <div key={e.period} className="flex items-center gap-3 rounded-lg bg-black px-4 py-3">
                 <span className="font-mono text-xs text-xrp-accent whitespace-nowrap">{e.period}</span>
                 <ArrowRight className="h-3 w-3 text-text-secondary shrink-0" />
                 <span className="text-xs text-text-secondary">{e.desc}</span>
@@ -314,9 +314,9 @@ export default function AcquisitionsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-surface-border bg-surface-card/50 p-4"
+                className="rounded-xl border border-surface-border bg-black p-4"
               >
-                <p className="font-display font-bold text-text-primary text-sm">{l.name}</p>
+                <p className="font-bold text-text-primary text-sm">{l.name}</p>
                 <p className="text-xs text-xrp-accent">{l.role}</p>
                 <p className="mt-2 text-xs text-text-secondary">{l.bg}</p>
               </motion.div>
@@ -385,7 +385,7 @@ export default function AcquisitionsContent() {
           viewport={{ once: true }}
           className="mt-16 rounded-2xl border border-xrp-accent/20 bg-gradient-to-br from-xrp-accent/[0.04] to-transparent p-8"
         >
-          <h2 className="font-display text-xl font-bold text-text-primary">The Bottom Line</h2>
+          <h2 className="text-xl font-bold text-text-primary">The Bottom Line</h2>
           <p className="mt-3 text-sm text-text-secondary leading-relaxed">
             Ripple is assembling the <strong className="text-text-primary">full infrastructure stack</strong> that institutions need to operate in a blockchain-enabled financial system. Every acquisition serves a purpose. Every product connects. And at the center sits the <strong className="text-xrp-accent">XRP Ledger</strong> — the settlement layer that ties everything together.
           </p>
@@ -411,7 +411,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
-      <h2 className="font-display text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
+      <h2 className="text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>
   );

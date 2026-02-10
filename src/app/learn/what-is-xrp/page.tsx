@@ -100,13 +100,13 @@ export default function WhatIsXRPPage() {
           <StatPill label="Total Supply" value="100B (fixed)" delay={0.18} />
         </div>
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
 
         <div className="cv-auto mt-14 space-y-14">
           {/* ===== THE BASICS ===== */}
           <RevealSection id="basics">
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP Explained: The Basics</h2>
+            <h2 className="text-2xl font-bold text-text-primary">XRP Explained: The Basics</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               XRP is a <strong className="text-text-primary">cryptocurrency</strong> — a digital asset that uses cryptography and blockchain technology to enable secure, peer-to-peer transactions without intermediaries. But XRP isn&apos;t just another cryptocurrency. It was specifically engineered to solve one of the biggest problems in global finance: moving money across borders quickly and cheaply.
             </p>
@@ -123,9 +123,9 @@ export default function WhatIsXRPPage() {
 
           {/* ===== HOW IT WORKS ===== */}
           <RevealSection id="how-it-works" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Does XRP Work?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Does XRP Work?</h2>
 
-            <h3 className="mt-6 font-display text-xl font-semibold text-text-primary">The XRP Ledger Consensus Protocol</h3>
+            <h3 className="mt-6 text-xl font-semibold text-text-primary">The XRP Ledger Consensus Protocol</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Unlike Bitcoin, which uses energy-intensive proof-of-work (PoW) mining, the XRP Ledger uses a unique <strong className="text-text-primary">Federated Consensus Protocol</strong>. A network of independent validators agrees on the order and validity of XRP transactions every 3-5 seconds.
             </p>
@@ -139,7 +139,7 @@ export default function WhatIsXRPPage() {
               ]} variant="zap" />
             </div>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">Bridge Currency for Cross-Border Payments</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">Bridge Currency for Cross-Border Payments</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               XRP&apos;s primary use case is as a <strong className="text-text-primary">bridge currency</strong> for international payments. A sender converts their local currency to XRP, the XRP is transferred across the XRPL in seconds, and the recipient&apos;s financial institution converts the XRP to their local currency. This eliminates the need for pre-funded nostro/vostro accounts — freeing up trillions of dollars currently locked in the global banking system.
             </p>
@@ -147,7 +147,7 @@ export default function WhatIsXRPPage() {
               <Link href="/learn/what-is-ripple" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">Ripple&apos;s</Link> On-Demand Liquidity (ODL) product leverages this bridge currency function, enabling financial institutions to send cross-border payments without maintaining accounts in destination currencies.
             </p>
 
-            <h3 className="mt-8 font-display text-xl font-semibold text-text-primary">Native Features of the XRP Ledger</h3>
+            <h3 className="mt-8 text-xl font-semibold text-text-primary">Native Features of the XRP Ledger</h3>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Beyond simple payments, the XRPL includes powerful built-in features:
             </p>
@@ -165,7 +165,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== TOKENOMICS ===== */}
           <RevealSection id="tokenomics" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP Tokenomics: Supply Breakdown</h2>
+            <h2 className="text-2xl font-bold text-text-primary">XRP Tokenomics: Supply Breakdown</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Here&apos;s how the supply breaks down as of February 2026:
             </p>
@@ -192,7 +192,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== COMPARISONS ===== */}
           <RevealSection id="vs-others" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP vs. Bitcoin vs. Ethereum: How Do They Compare?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">XRP vs. Bitcoin vs. Ethereum: How Do They Compare?</h2>
 
             <div className="mt-6">
               <DataTable
@@ -224,7 +224,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== USE CASES ===== */}
           <RevealSection id="use-cases" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">What Are XRP&apos;s Use Cases?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">What Are XRP&apos;s Use Cases?</h2>
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
                 { title: "Cross-Border Payments", desc: "Ripple's partner network spans 55+ countries. Through ODL, XRP serves as the bridge currency — eliminating the need for pre-funded accounts in destination currencies." },
@@ -239,7 +239,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== CREATORS ===== */}
           <RevealSection id="creators" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Who Created XRP and the XRP Ledger?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Who Created XRP and the XRP Ledger?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The XRP Ledger was created by three developers: <strong className="text-text-primary">David Schwartz</strong> (now Ripple&apos;s CTO, known online as &quot;JoelKatz&quot;), <strong className="text-text-primary">Jed McCaleb</strong> (who later co-founded Stellar), and <strong className="text-text-primary">Arthur Britto</strong>. Development began in 2011 as they sought to build a faster, more energy-efficient alternative to Bitcoin.
             </p>
@@ -256,7 +256,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== ESCROW ===== */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Does XRP&apos;s Escrow System Work?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Does XRP&apos;s Escrow System Work?</h2>
 
             <div className="mt-5">
               <GlowCard
@@ -276,7 +276,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== SEC CASE ===== */}
           <RevealSection id="sec-case" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The SEC Case and Regulatory Clarity</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The SEC Case and Regulatory Clarity</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               In December 2020, the SEC sued Ripple Labs, alleging that XRP was an unregistered security. After years of litigation, <strong className="text-text-primary">Judge Analisa Torres ruled in July 2023</strong> that XRP sold on public exchanges to retail investors is <strong className="text-text-primary">not a security</strong>. This was a landmark decision for the entire cryptocurrency industry.
             </p>
@@ -290,7 +290,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== 2026 AND BEYOND ===== */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP in 2026 and Beyond</h2>
+            <h2 className="text-2xl font-bold text-text-primary">XRP in 2026 and Beyond</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               With the SEC case largely resolved, XRP is entering a new chapter. Key developments to watch:
             </p>
@@ -307,7 +307,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== WHY XRP MATTERS ===== */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Why Does XRP Matter?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Why Does XRP Matter?</h2>
             <div className="mt-5">
               <HighlightBox title="$150 Trillion Opportunity" variant="accent" large>
                 <p>The global cross-border payments market moves over <strong className="text-text-primary">$150 trillion annually</strong>, yet the infrastructure behind it is decades old. International wire transfers still take 3-5 business days, cost $25-50 in fees, and require trillions locked in pre-funded accounts. XRP was designed to fix this — offering settlement in seconds for fractions of a cent.</p>
@@ -318,7 +318,7 @@ export default function WhatIsXRPPage() {
 
           {/* ===== COMMON MISTAKES ===== */}
           <RevealSection id="mistakes" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Common Mistakes to Avoid</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Common Mistakes to Avoid</h2>
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="Ripple and XRP are the same thing" reality="Ripple is a company; XRP is a decentralized digital asset. They are related but distinct. XRP would continue to exist even if Ripple ceased operations." />
               <MisconceptionCard myth="XRP has unlimited supply" reality="XRP has a fixed supply of 100 billion. No more can ever be created. It's actually deflationary — transaction fees permanently burn XRP." />
@@ -330,13 +330,13 @@ export default function WhatIsXRPPage() {
 
           {/* ===== FAQ ===== */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* ===== CONTINUE LEARNING ===== */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
               { href: "/learn/history", label: "XRP History & Timeline", desc: "From 2011 to present" },

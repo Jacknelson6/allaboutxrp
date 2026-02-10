@@ -155,26 +155,26 @@ export default function LeadershipPage() {
           { id: "faq", label: "FAQ" },
         ]} />
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
         <div className="mt-6"><Disclaimer /></div>
 
         <div className="cv-auto mt-12 space-y-14">
           {/* EXECUTIVE TEAM */}
           <RevealSection id="executive">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Executive Team</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Executive Team</h2>
             <div className="mt-6 space-y-5">
               {executiveTeam.map((leader, i) => (
                 <div
                   key={leader.name}
-                  className={`rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
+                  className={`rounded-xl border p-6  transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
                     leader.highlight
                       ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
-                      : "border-surface-border/60 bg-surface-card/40 hover:border-xrp-accent/20"
+                      : "border-surface-border/60 bg-black hover:border-xrp-accent/20"
                   }`}
                 >
                   <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-display text-xl font-bold text-text-primary">{leader.name}</h3>
+                    <h3 className="text-xl font-bold text-text-primary">{leader.name}</h3>
                     <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-3 py-0.5 text-xs font-semibold text-xrp-accent">
                       {leader.title}
                     </span>
@@ -193,7 +193,7 @@ export default function LeadershipPage() {
 
           {/* SENIOR LEADERS */}
           <RevealSection id="senior" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Senior Leadership</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Senior Leadership</h2>
             <div className="mt-6">
               <FeatureGrid columns={2} items={seniorLeaders.map((l) => ({ title: l.name, desc: `${l.title} — ${l.desc}` }))} />
             </div>
@@ -201,13 +201,13 @@ export default function LeadershipPage() {
 
           {/* XRPL CREATORS */}
           <RevealSection id="creators" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">XRP Ledger Co-Creators</h2>
+            <h2 className="text-2xl font-bold text-text-primary">XRP Ledger Co-Creators</h2>
             <p className="mt-2 text-text-secondary">The original architects of the XRP Ledger</p>
             <div className="mt-6 space-y-4">
               {founders.map((f) => (
-                <div key={f.name} className="rounded-xl border border-purple-400/20 bg-purple-500/[0.03] p-6 backdrop-blur-sm">
+                <div key={f.name} className="rounded-xl border border-purple-400/20 bg-purple-500/[0.03] p-6 ">
                   <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-display text-lg font-bold text-text-primary">{f.name}</h3>
+                    <h3 className="text-lg font-bold text-text-primary">{f.name}</h3>
                     <span className="rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-0.5 text-xs font-semibold text-purple-400">{f.title}</span>
                   </div>
                   <p className="mt-3 text-text-secondary leading-relaxed">{f.desc}</p>
@@ -219,7 +219,7 @@ export default function LeadershipPage() {
 
           {/* TALENT STRATEGY */}
           <RevealSection id="talent" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">What Does Ripple&apos;s Talent Strategy Signal?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">What Does Ripple&apos;s Talent Strategy Signal?</h2>
             <div className="mt-4">
               <HighlightBox title="Building for Institutional Adoption" variant="accent" large>
                 <p>Ripple&apos;s hiring patterns tell a clear story: <strong className="text-text-primary">deep into regulated financial services.</strong></p>
@@ -236,7 +236,7 @@ export default function LeadershipPage() {
 
           {/* SEC LEADERSHIP */}
           <RevealSection id="sec-crisis" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Leadership Through the SEC Lawsuit</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Leadership Through the SEC Lawsuit</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Ripple&apos;s leadership was tested significantly by the SEC lawsuit (December 2020 – 2025). Rather than settling early, the team chose to fight — a decision that proved consequential when <strong className="text-text-primary">Judge Torres ruled in July 2023</strong> that XRP sold on public exchanges is not a security.
             </p>
@@ -247,13 +247,13 @@ export default function LeadershipPage() {
 
           {/* FAQ */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
               { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },

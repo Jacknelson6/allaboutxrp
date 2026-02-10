@@ -96,14 +96,14 @@ export default function HistoryPage() {
           { id: "faq", label: "FAQ" },
         ]} />
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
         <div className="mt-6"><Disclaimer /></div>
 
         <div className="cv-auto mt-10 space-y-14">
           {/* ERA OVERVIEW */}
           <RevealSection id="eras">
-            <h2 className="font-display text-2xl font-bold text-text-primary">The Eras of XRP</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The Eras of XRP</h2>
             <div className="mt-6">
               <FeatureGrid columns={3} items={[
                 { title: "Genesis (2011-2013)", desc: "XRPL creation, OpenCoin founded, early funding" },
@@ -118,11 +118,11 @@ export default function HistoryPage() {
 
           {/* FULL TIMELINE */}
           <RevealSection id="timeline" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Full Timeline</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Full Timeline</h2>
             <div className="mt-8 space-y-10">
               {years.map((year) => (
                 <div key={year}>
-                  <h3 className="font-display text-xl font-bold text-xrp-accent">{year}</h3>
+                  <h3 className="text-xl font-bold text-xrp-accent">{year}</h3>
                   <div className="mt-4 space-y-4 border-l-2 border-surface-border pl-6">
                     {eventsByYear[year].map((event, i) => (
                       <div key={`${event.date}-${i}`} className="relative">
@@ -138,7 +138,7 @@ export default function HistoryPage() {
                             <span className="text-[10px] font-semibold text-warning">★ Major</span>
                           ) : null}
                         </div>
-                        <h4 className="mt-1 font-display font-semibold text-text-primary">{event.title}</h4>
+                        <h4 className="mt-1 font-semibold text-text-primary">{event.title}</h4>
                         <p className="mt-1 text-sm text-text-secondary leading-relaxed">{event.description}</p>
                       </div>
                     ))}
@@ -150,7 +150,7 @@ export default function HistoryPage() {
 
           {/* FOUNDING STORY */}
           <RevealSection id="founding" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The Founding Story</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The Founding Story</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The XRP Ledger story began in 2011 when <strong className="text-text-primary">David Schwartz</strong>, a cryptographer with experience dating to the 1980s, joined forces with <strong className="text-text-primary">Jed McCaleb</strong> and <strong className="text-text-primary">Arthur Britto</strong> to build a faster, more energy-efficient alternative to Bitcoin.
             </p>
@@ -168,7 +168,7 @@ export default function HistoryPage() {
 
           {/* SEC CASE */}
           <RevealSection id="sec" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The SEC Lawsuit: A Turning Point</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The SEC Lawsuit: A Turning Point</h2>
             <div className="mt-4">
               <HighlightBox title="December 22, 2020" variant="danger">
                 <p>The SEC filed a lawsuit alleging Ripple raised $1.3 billion through unregistered sales of XRP as securities, naming CEO Brad Garlinghouse and co-founder Chris Larsen as co-defendants.</p>
@@ -186,7 +186,7 @@ export default function HistoryPage() {
 
           {/* INSTITUTIONAL ERA */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The Institutional Era (2024-2026)</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The Institutional Era (2024-2026)</h2>
             <div className="mt-5">
               <FeatureGrid columns={2} items={[
                 { title: "XRP ETFs", desc: "Spot ETF applications from Bitwise, 21Shares, Canary Capital, WisdomTree; futures ETFs launched May 2025" },
@@ -199,7 +199,7 @@ export default function HistoryPage() {
 
           {/* PRICE HISTORY */}
           <RevealSection id="price" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Has XRP&apos;s Price Changed Over Time?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Has XRP&apos;s Price Changed Over Time?</h2>
             <div className="mt-5">
               <DataTable
                 headers={["Period", "Price Range", "Key Driver"]}
@@ -219,7 +219,7 @@ export default function HistoryPage() {
 
           {/* KEY MOMENTS */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">The Five Most Important Moments in XRP History</h2>
+            <h2 className="text-2xl font-bold text-text-primary">The Five Most Important Moments in XRP History</h2>
             <div className="mt-5 space-y-4">
               {[
                 { num: "1", title: "XRPL Genesis (June 2012)", desc: "Creation of all 100 billion XRP and launch of a blockchain that would operate 14+ years without downtime." },
@@ -228,10 +228,10 @@ export default function HistoryPage() {
                 { num: "4", title: "Torres Ruling (July 2023)", desc: "XRP on exchanges ruled not a security — a watershed moment for all of crypto, leading to immediate relistings." },
                 { num: "5", title: "Institutional Infrastructure (2025)", desc: "Ripple's $3.7B acquisition spree transformed it from a payments startup into a full-stack financial infrastructure provider." },
               ].map((item) => (
-                <div key={item.num} className="flex gap-4 rounded-xl border border-surface-border/60 bg-surface-card/40 p-5 backdrop-blur-sm">
+                <div key={item.num} className="flex gap-4 rounded-xl border border-surface-border/60 bg-black p-5 ">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-xrp-accent/10 font-mono text-sm font-bold text-xrp-accent">{item.num}</span>
                   <div>
-                    <h3 className="font-display font-semibold text-text-primary">{item.title}</h3>
+                    <h3 className="font-semibold text-text-primary">{item.title}</h3>
                     <p className="mt-1 text-sm text-text-secondary">{item.desc}</p>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export default function HistoryPage() {
 
           {/* COMMUNITY */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Did the XRP Community Develop?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Did the XRP Community Develop?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               The XRP community — the &quot;XRP Army&quot; — is one of the most dedicated in cryptocurrency. Forged through years of the SEC lawsuit and price suppression, the community developed a unique culture of patience, conviction, and cryptic puzzle-solving.
             </p>
@@ -252,7 +252,7 @@ export default function HistoryPage() {
 
           {/* MISCONCEPTIONS */}
           <RevealSection id="mistakes" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Common Misconceptions About XRP History</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Common Misconceptions About XRP History</h2>
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="XRP was created by Ripple" reality="The XRPL was built before Ripple existed. Schwartz, McCaleb, and Britto created the ledger; they then formed the company." />
               <MisconceptionCard myth="The SEC lawsuit proved XRP is a security" reality="The opposite — the Torres ruling established that XRP on exchanges is NOT a security." />
@@ -262,13 +262,13 @@ export default function HistoryPage() {
 
           {/* FAQ */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },

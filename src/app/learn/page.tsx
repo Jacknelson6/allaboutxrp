@@ -11,10 +11,10 @@ import faqData from "@/data/faq.json";
 
 export const metadata: Metadata = {
   title: "What is XRP? Complete Guide to XRP & the XRP Ledger",
-  description: "Learn everything about XRP — what it is, who created it, how it works, its history, and why it matters. Your comprehensive XRP education resource.",
+  description: "Learn everything about XRP — what it is, who created it, how it works, its history, and why it matters.",
   openGraph: {
     title: "What is XRP? Complete Guide | AllAboutXRP",
-    description: "Everything you need to know about XRP — the digital asset built for fast, low-cost global payments.",
+    description: "Everything you need to know about XRP.",
     url: "https://allaboutxrp.com/learn",
   },
 };
@@ -39,23 +39,18 @@ export default async function LearnPage() {
     <>
       <SEOSchema schema={faqSchema} />
       <Hero />
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 bg-mesh-1" />
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-25" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
-        <div className="relative mx-auto max-w-4xl px-4">
-          <Disclaimer />
-          {contents.map((content) => (
-            <ContentSection
-              key={content.slug}
-              id={content.slug}
-              title={content.title}
-              html={content.contentHtml}
-            />
-          ))}
-          <Timeline events={timelineData} />
-          <FAQ items={faqData} />
-        </div>
+      <div className="mx-auto max-w-3xl px-4">
+        <Disclaimer />
+        {contents.map((content) => (
+          <ContentSection
+            key={content.slug}
+            id={content.slug}
+            title={content.title}
+            html={content.contentHtml}
+          />
+        ))}
+        <Timeline events={timelineData} />
+        <FAQ items={faqData} />
       </div>
     </>
   );

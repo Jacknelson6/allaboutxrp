@@ -72,7 +72,7 @@ export default function PeoplePage() {
               <Users className="h-5 w-5 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
                 XRP People to Follow
               </h1>
               <p className="mt-1 text-text-secondary">
@@ -115,7 +115,7 @@ export default function PeoplePage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: i * 0.02, duration: 0.3 }}
-                className="card-glow flex flex-col rounded-xl border border-surface-border bg-surface-card/50 p-5 backdrop-blur-sm"
+                className="flex flex-col rounded-xl border border-surface-border bg-black p-5 "
               >
                 <div className="flex items-start gap-3">
                   <div className="relative">

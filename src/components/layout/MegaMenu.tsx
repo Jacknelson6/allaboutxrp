@@ -3,14 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ChevronRight, Heart } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
 interface MenuItem {
   label: string;
   href: string;
-  description?: string;
   external?: boolean;
 }
 
@@ -23,36 +21,32 @@ const menuSections: MenuSection[] = [
   {
     label: "Track",
     items: [
-      { label: "Live Charts", href: "/live", description: "Real-time XRP price and trading data" },
-      { label: "3D Globe", href: "/live", description: "Visualize live XRPL transactions" },
-      { label: "Rich List", href: "/richlist", description: "Top XRP holders and distribution" },
+      { label: "Live Charts", href: "/live" },
+      { label: "3D Globe", href: "/live" },
+      { label: "Rich List", href: "/richlist" },
     ],
   },
   {
     label: "Analysis",
     items: [
-      { label: "Daily Recaps", href: "/news/recaps", description: "AI-generated daily XRP news summaries" },
-      { label: "Ripple Corporate News", href: "/news", description: "Official Ripple announcements" },
-      { label: "Brad Garlinghouse", href: "https://x.com/bgarlinghouse", description: "CEO updates and commentary", external: true },
-      { label: "Events & Sponsorships", href: "/news", description: "Conferences and events" },
-      { label: "Partnerships & Acquisitions", href: "/acquisitions", description: "Latest deals and partnerships" },
-      { label: "Regulatory / SEC Updates", href: "/news", description: "Legal and regulatory developments" },
+      { label: "Daily Recaps", href: "/news/recaps" },
+      { label: "Ripple News", href: "/news" },
+      { label: "Acquisitions", href: "/acquisitions" },
     ],
   },
   {
     label: "Learn",
     items: [
-      { label: "What is XRP?", href: "/learn/what-is-xrp", description: "The basics of XRP and how it works" },
-      { label: "What is Ripple?", href: "/learn/what-is-ripple", description: "The company behind RippleNet" },
-      { label: "RLUSD & XRP", href: "/learn/rlusd", description: "How Ripple's stablecoin helps XRP" },
-      { label: "History & Timeline", href: "/learn/history", description: "Key milestones from 2011 to now" },
-      { label: "Escrow Explained", href: "/escrow", description: "How Ripple's 55B XRP escrow works" },
-      { label: "Partnerships", href: "/learn/partnerships", description: "Ripple's global partner network" },
-      { label: "Leadership Team", href: "/learn/leadership", description: "Key people behind Ripple & XRPL" },
-      { label: "Acquisitions", href: "/acquisitions", description: "Companies Ripple has acquired" },
-      { label: "Riddlers & Lore", href: "/riddlers", description: "Community riddles and mysteries" },
-      { label: "FAQ", href: "/learn/faq", description: "Frequently asked questions" },
-      { label: "Get Started / How to Buy", href: "/learn/get-started", description: "Start your XRP journey" },
+      { label: "What is XRP?", href: "/learn/what-is-xrp" },
+      { label: "What is Ripple?", href: "/learn/what-is-ripple" },
+      { label: "RLUSD", href: "/learn/rlusd" },
+      { label: "History", href: "/learn/history" },
+      { label: "Escrow", href: "/escrow" },
+      { label: "Partnerships", href: "/learn/partnerships" },
+      { label: "Leadership", href: "/learn/leadership" },
+      { label: "Riddlers", href: "/riddlers" },
+      { label: "FAQ", href: "/learn/faq" },
+      { label: "Get Started", href: "/learn/get-started" },
     ],
   },
 ];
@@ -61,23 +55,15 @@ export default function MegaMenu() {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
     setOpenSection(null);
   }, [pathname]);
 
-  // Click outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
@@ -89,11 +75,7 @@ export default function MegaMenu() {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
@@ -108,24 +90,18 @@ export default function MegaMenu() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-surface-border/40 bg-surface-primary/70 shadow-2xl shadow-black/30 backdrop-blur-2xl"
-          : "border-b border-transparent bg-surface-primary/40 backdrop-blur-lg"
-      }`}
+      className="sticky top-0 z-50 border-b border-surface-border bg-black"
       aria-label="Main navigation"
       ref={menuRef}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-0.5 font-display text-xl font-bold tracking-tight text-text-primary">
-          <span className="gradient-text transition-all duration-300 group-hover:opacity-80">All</span>
-          <span className="text-text-primary/90">About</span>
-          <span className="gradient-text transition-all duration-300 group-hover:opacity-80">XRP</span>
+        <Link href="/" className="text-xl font-bold text-text-primary">
+          All<span className="text-xrp-accent">About</span>XRP
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-0.5 lg:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {menuSections.map((section) => (
             <div
               key={section.label}
@@ -134,85 +110,67 @@ export default function MegaMenu() {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide transition-all duration-300 ${
+                className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   openSection === section.label
-                    ? "text-xrp-accent"
+                    ? "text-text-primary"
                     : "text-text-secondary hover:text-text-primary"
                 }`}
                 onClick={() => setOpenSection(openSection === section.label ? null : section.label)}
                 aria-expanded={openSection === section.label}
               >
                 {section.label}
-                <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${openSection === section.label ? "rotate-180" : ""}`} />
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${openSection === section.label ? "rotate-180" : ""}`} />
               </button>
 
-              <AnimatePresence>
-                {openSection === section.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2"
-                    onMouseEnter={() => handleMouseEnter(section.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="min-w-[340px] rounded-2xl border border-surface-border/60 bg-[#0C1019] p-2.5 shadow-2xl shadow-black/60">
-                      {/* Subtle glow at top */}
-                      <div className="absolute -top-px left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-xrp-accent/40 to-transparent" />
-                      
-                      <div className="mb-2 px-3 pt-1">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-secondary/50">{section.label}</span>
-                      </div>
-                      <div className="grid gap-0.5">
-                        {section.items.map((item) => (
-                          <Link
-                            key={item.href + item.label}
-                            href={item.href}
-                            target={item.external ? "_blank" : undefined}
-                            rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group/item flex items-start gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-xrp-accent/[0.06]"
-                            onClick={() => setOpenSection(null)}
-                          >
-                            <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-surface-elevated/80 text-text-secondary transition-all duration-200 group-hover/item:bg-xrp-accent/15 group-hover/item:text-xrp-accent">
-                              <ChevronRight className="h-3 w-3" />
-                            </div>
-                            <div>
-                              <span className="text-[13px] font-medium text-text-primary transition-colors duration-200 group-hover/item:text-xrp-accent">
-                                {item.label}
-                                {item.external && <span className="ml-1 text-[10px] text-text-secondary/60">↗</span>}
-                              </span>
-                              {item.description && (
-                                <p className="mt-0.5 text-[11px] text-text-secondary/60 leading-relaxed">{item.description}</p>
-                              )}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {openSection === section.label && (
+                <div
+                  className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-surface-border bg-black py-1"
+                  onMouseEnter={() => handleMouseEnter(section.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {section.items.map((item) => (
+                    <Link
+                      key={item.href + item.label}
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="block px-4 py-2 text-sm text-text-secondary hover:bg-white/[0.03] hover:text-text-primary transition-colors"
+                      onClick={() => setOpenSection(null)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
+
+          <Link
+            href="/people"
+            className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              pathname === "/people" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            People
+          </Link>
+
           <Link
             href="/donate"
-            className="btn-primary ml-3 !px-4 !py-2 text-[13px]"
+            className="ml-2 rounded-full bg-xrp-accent px-4 py-1.5 text-sm font-bold text-white hover:bg-xrp-accent-bright transition-colors"
           >
-            <Heart className="h-3.5 w-3.5" />
-            <span>Donate</span>
+            Donate
           </Link>
           <div className="ml-3">
             <PriceWidget />
           </div>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile */}
         <div className="flex items-center gap-3 lg:hidden">
           <PriceWidget compact />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-lg p-2 text-text-secondary transition-colors hover:bg-surface-card hover:text-text-primary"
+            className="p-2 text-text-secondary hover:text-text-primary transition-colors"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
@@ -221,87 +179,57 @@ export default function MegaMenu() {
         </div>
       </div>
 
-      {/* Mobile full-screen menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 top-[57px] z-40 overflow-y-auto bg-surface-primary/98 backdrop-blur-2xl lg:hidden"
-          >
-            {/* Atmospheric gradient */}
-            <div className="pointer-events-none absolute inset-0 bg-mesh-1 opacity-50" />
-            
-            <div className="relative flex flex-col px-5 py-5 gap-1">
-              {menuSections.map((section, sIdx) => (
-                <motion.div
-                  key={section.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: sIdx * 0.08 }}
-                  className="border-b border-surface-border/20"
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="fixed inset-0 top-[53px] z-40 overflow-y-auto bg-black lg:hidden">
+          <div className="flex flex-col px-4 py-4 gap-1">
+            {menuSections.map((section) => (
+              <div key={section.label} className="border-b border-surface-border">
+                <button
+                  onClick={() => setMobileAccordion(mobileAccordion === section.label ? null : section.label)}
+                  className="flex w-full items-center justify-between py-3 text-left"
+                  aria-expanded={mobileAccordion === section.label}
                 >
-                  <button
-                    onClick={() => setMobileAccordion(mobileAccordion === section.label ? null : section.label)}
-                    className="flex w-full items-center justify-between py-4 text-left"
-                    aria-expanded={mobileAccordion === section.label}
-                  >
-                    <span className={`font-display text-lg font-semibold tracking-tight ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-primary"}`}>
-                      {section.label}
-                    </span>
-                    <motion.div animate={{ rotate: mobileAccordion === section.label ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                      <ChevronDown className={`h-5 w-5 ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-secondary"}`} />
-                    </motion.div>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {mobileAccordion === section.label && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
+                  <span className={`text-base font-semibold ${mobileAccordion === section.label ? "text-xrp-accent" : "text-text-primary"}`}>
+                    {section.label}
+                  </span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileAccordion === section.label ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
+                </button>
+                {mobileAccordion === section.label && (
+                  <div className="flex flex-col gap-0.5 pb-3 pl-2">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.href + item.label}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="rounded-lg px-3 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
                       >
-                        <div className="flex flex-col gap-0.5 pb-4 pl-2">
-                          {section.items.map((item) => (
-                            <Link
-                              key={item.href + item.label}
-                              href={item.href}
-                              target={item.external ? "_blank" : undefined}
-                              rel={item.external ? "noopener noreferrer" : undefined}
-                              onClick={() => setMobileOpen(false)}
-                              className="rounded-lg px-3 py-2.5 text-sm text-text-secondary transition-colors hover:bg-surface-card hover:text-text-primary"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-5"
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link
+              href="/people"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 text-base font-semibold text-text-primary border-b border-surface-border"
+            >
+              People
+            </Link>
+            <div className="pt-4">
+              <Link
+                href="/donate"
+                onClick={() => setMobileOpen(false)}
+                className="btn-primary w-full justify-center"
               >
-                <Link
-                  href="/donate"
-                  onClick={() => setMobileOpen(false)}
-                  className="btn-primary w-full justify-center text-base"
-                >
-                  <Heart className="h-4 w-4" />
-                  <span>Donate</span>
-                </Link>
-              </motion.div>
+                Donate
+              </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

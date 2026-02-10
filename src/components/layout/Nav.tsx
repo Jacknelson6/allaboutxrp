@@ -33,16 +33,16 @@ export default function Nav() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-surface-border/50 bg-surface-primary/80 shadow-lg shadow-black/20 backdrop-blur-xl"
+          ? "border-b border-surface-border/50 bg-black  "
           : "border-b border-transparent bg-transparent"
       }`}
       aria-label="Main navigation"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="group flex items-center gap-1 font-display text-xl font-bold text-text-primary">
-          <span className="gradient-text transition-opacity group-hover:opacity-80">All</span>
+        <Link href="/" className="group flex items-center gap-1 text-xl font-bold text-text-primary">
+          <span className="text-xrp-accent transition-opacity group-hover:opacity-80">All</span>
           <span>About</span>
-          <span className="gradient-text transition-opacity group-hover:opacity-80">XRP</span>
+          <span className="text-xrp-accent transition-opacity group-hover:opacity-80">XRP</span>
         </Link>
 
         {/* Desktop nav */}
@@ -96,7 +96,7 @@ export default function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-surface-border/50 bg-surface-primary/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-surface-border/50 bg-black  md:hidden"
           >
             <div className="flex flex-col px-4 py-4 gap-1">
               {navLinks.map((link) => (

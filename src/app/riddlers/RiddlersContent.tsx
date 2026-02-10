@@ -61,9 +61,9 @@ export default function RiddlersContent() {
   return (
     <div className="relative">
       {/* Atmospheric background */}
-      <div className="pointer-events-none absolute inset-0 bg-mesh-riddlers" />
-      <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-      <div className="pointer-events-none absolute inset-0 noise-overlay" />
+      <div className="pointer-events-none absolute inset-0 bg-black" />
+      <div className="pointer-events-none absolute inset-0 " />
+      <div className="pointer-events-none absolute inset-0 " />
 
       <div className="relative mx-auto max-w-5xl px-4 py-16">
         {/* Hero */}
@@ -73,7 +73,7 @@ export default function RiddlersContent() {
               <Eye className="h-6 w-6 text-purple-400" />
             </div>
             <div>
-              <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
                 The XRP <span className="bg-gradient-to-r from-purple-400 to-xrp-accent bg-clip-text text-transparent">Riddlers</span>
               </h1>
               <p className="mt-1 text-text-secondary">
@@ -89,7 +89,7 @@ export default function RiddlersContent() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="rounded-lg border border-surface-border bg-surface-card/50 px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
+              className="rounded-lg border border-surface-border bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
             >
               {s.label}
             </a>
@@ -107,7 +107,7 @@ export default function RiddlersContent() {
 
           {/* Why XRP box */}
           <div className="mt-8 rounded-xl border border-purple-400/20 bg-purple-500/[0.03] p-6">
-            <h3 className="font-display font-semibold text-purple-400 flex items-center gap-2">
+            <h3 className="font-semibold text-purple-400 flex items-center gap-2">
               <Sparkles className="h-4 w-4" /> Why This Only Exists in XRP
             </h3>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -117,7 +117,7 @@ export default function RiddlersContent() {
                 { title: "Institutional Use Case", desc: "Real utility gives Riddler narratives more surface area to work with" },
                 { title: "Company Behind the Coin", desc: "Real executives on social media create opportunities for pattern matching" },
               ].map((item) => (
-                <div key={item.title} className="rounded-lg bg-surface-card/50 p-3">
+                <div key={item.title} className="rounded-lg bg-black p-3">
                   <p className="font-semibold text-text-primary text-sm">{item.title}</p>
                   <p className="text-xs text-text-secondary mt-1">{item.desc}</p>
                 </div>
@@ -140,7 +140,7 @@ export default function RiddlersContent() {
               Active primarily on Twitter and Reddit during 2017–2019, BG123 posted cryptic comic-style images, hand-drawn panels, and coded messages. The community has long speculated BG123 is a <strong className="text-text-primary">Ripple insider</strong> based on the perceived accuracy of certain predictions.
             </p>
 
-            <h4 className="mt-6 font-display font-semibold text-text-primary text-sm">The Famous $589 Prediction</h4>
+            <h4 className="mt-6 font-semibold text-text-primary text-sm">The Famous $589 Prediction</h4>
             <div className="mt-2 rounded-lg border border-warning/20 bg-warning/[0.03] p-4">
               <p className="font-mono text-3xl font-bold text-warning">$589</p>
               <p className="mt-1 text-xs text-text-secondary">
@@ -148,7 +148,7 @@ export default function RiddlersContent() {
               </p>
             </div>
 
-            <h4 className="mt-6 font-display font-semibold text-text-primary text-sm">Recurring Symbols</h4>
+            <h4 className="mt-6 font-semibold text-text-primary text-sm">Recurring Symbols</h4>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               {[
                 "Three colored pillars — XRP, BTC, USD",
@@ -165,7 +165,7 @@ export default function RiddlersContent() {
               ))}
             </div>
 
-            <h4 className="mt-6 font-display font-semibold text-text-primary text-sm flex items-center gap-2">
+            <h4 className="mt-6 font-semibold text-text-primary text-sm flex items-center gap-2">
               <Clock className="h-4 w-4 text-text-secondary" /> Timeline
             </h4>
             <div className="mt-3 space-y-2">
@@ -199,7 +199,7 @@ export default function RiddlersContent() {
               Posts cryptic images, timestamps, symbols, and numerical patterns interpreted as predictions about XRP price, regulatory events, and financial system resets. The account name itself is a riddle — &ldquo;looP&rdquo; reversed is &ldquo;Pool,&rdquo; and 7211 has been decoded in various ways.
             </p>
 
-            <h4 className="mt-6 font-display font-semibold text-text-primary text-sm">The Style</h4>
+            <h4 className="mt-6 font-semibold text-text-primary text-sm">The Style</h4>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               {[
                 "Images with embedded clues (clocks, calendars, symbols)",
@@ -214,7 +214,7 @@ export default function RiddlersContent() {
               ))}
             </div>
 
-            <h4 className="mt-6 font-display font-semibold text-text-primary text-sm">Key Predictions</h4>
+            <h4 className="mt-6 font-semibold text-text-primary text-sm">Key Predictions</h4>
             <p className="mt-2 text-sm text-text-secondary leading-relaxed">
               Community decodings suggest phased price surges: double digits ($10+) → triple digits ($100+) → quadruple digits ($1,000+) → five-digit levels. Smiling faces signal upcoming pumps. Clock times match Ripple executive posts.
             </p>
@@ -251,7 +251,7 @@ export default function RiddlersContent() {
             What began as one community&apos;s interpretation of BG123&apos;s artwork has become the single most iconic number in XRP culture — a phenomenon independent of its origin. For the community, 589 functions as something between a price target, a lucky number, and a statement of faith.
           </p>
 
-          <h3 className="mt-8 font-display text-lg font-semibold text-text-primary">The Coincidences</h3>
+          <h3 className="mt-8 text-lg font-semibold text-text-primary">The Coincidences</h3>
           <div className="mt-4 space-y-2">
             {coincidences589.map((c, i) => (
               <motion.div
@@ -260,7 +260,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.03 }}
-                className="flex gap-4 rounded-xl border border-surface-border bg-surface-card/50 p-4"
+                className="flex gap-4 rounded-xl border border-surface-border bg-black p-4"
               >
                 <Hash className="h-4 w-4 shrink-0 text-warning mt-0.5" />
                 <div>
@@ -271,7 +271,7 @@ export default function RiddlersContent() {
             ))}
           </div>
 
-          <div className="mt-6 rounded-lg border border-surface-border bg-surface-card/50 p-4">
+          <div className="mt-6 rounded-lg border border-surface-border bg-black p-4">
             <p className="text-xs text-text-secondary">
               <strong className="text-text-primary">Note:</strong> A purported <em>Simpsons</em> screenshot showing $589 XRP has been <strong className="text-danger">debunked as a forgery</strong>, though it contributed to the cultural momentum.
             </p>
@@ -318,7 +318,7 @@ export default function RiddlersContent() {
               { quote: "Be fearful when others are greedy and greedy when others are fearful", interpretation: "Buy signal during XRP volatility" },
               { quote: "We're firing on all cylinders. It's happening.", interpretation: "Confirmation of community's timeline expectations" },
             ].map((q) => (
-              <div key={q.quote} className="rounded-xl border border-surface-border bg-surface-card/50 p-4">
+              <div key={q.quote} className="rounded-xl border border-surface-border bg-black p-4">
                 <p className="text-sm text-text-primary italic">&ldquo;{q.quote}&rdquo;</p>
                 <p className="mt-2 text-xs text-text-secondary">→ {q.interpretation}</p>
               </div>
@@ -358,7 +358,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-surface-border bg-surface-card/50 p-4"
+                className="rounded-xl border border-surface-border bg-black p-4"
               >
                 <p className="font-mono text-2xl font-bold text-xrp-accent">{n.num}</p>
                 <p className="mt-1 text-xs text-text-secondary">{n.meaning}</p>
@@ -374,7 +374,7 @@ export default function RiddlersContent() {
           viewport={{ once: true }}
           className="mt-16 rounded-2xl border border-purple-400/20 bg-gradient-to-br from-purple-500/[0.04] to-transparent p-8"
         >
-          <h2 className="font-display text-xl font-bold text-text-primary">A Note on Interpretation</h2>
+          <h2 className="text-xl font-bold text-text-primary">A Note on Interpretation</h2>
           <p className="mt-3 text-sm text-text-secondary leading-relaxed">
             The XRP Riddler tradition is one of the most fascinating cultural phenomena in cryptocurrency. Whether the Riddlers are genuine insiders, clever community members, or something in between — their impact on XRP culture is undeniable.
           </p>
@@ -400,7 +400,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
-      <h2 className="font-display text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
+      <h2 className="text-2xl font-bold tracking-tight text-text-primary md:text-3xl">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>
   );
@@ -411,11 +411,11 @@ function RiddlerCard({ name, alias, icon, tagline, isOpen, onToggle, children }:
   isOpen: boolean; onToggle: () => void; children: React.ReactNode;
 }) {
   return (
-    <div className={`rounded-xl border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-surface-border bg-surface-card/50"}`}>
+    <div className={`rounded-xl border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-surface-border bg-black"}`}>
       <button onClick={onToggle} className="flex w-full items-center gap-4 p-5 text-left">
         <div className="rounded-lg bg-surface-primary p-2">{icon}</div>
         <div className="flex-1">
-          <p className="font-display font-bold text-text-primary">{name}</p>
+          <p className="font-bold text-text-primary">{name}</p>
           <p className="text-xs text-text-secondary">{alias} — {tagline}</p>
         </div>
         <ChevronDown className={`h-5 w-5 text-text-secondary transition-transform ${isOpen ? "rotate-180" : ""}`} />

@@ -24,7 +24,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             className={`overflow-hidden rounded-xl border transition-colors duration-300 ${
               isOpen
                 ? "border-xrp-accent/30 bg-xrp-accent/[0.03]"
-                : "border-surface-border bg-surface-card/50 hover:bg-surface-card"
+                : "border-surface-border bg-black hover:bg-surface-card"
             }`}
           >
             <button

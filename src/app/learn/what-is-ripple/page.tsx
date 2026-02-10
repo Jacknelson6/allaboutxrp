@@ -83,8 +83,8 @@ export default function WhatIsRipplePage() {
 
         <div className="mt-6"><Disclaimer /></div>
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Valuation" value="~$50B" delay={0} />
@@ -96,7 +96,7 @@ export default function WhatIsRipplePage() {
         <div className="cv-auto mt-14 space-y-14">
           {/* RIPPLE VS XRP */}
           <RevealSection id="vs-xrp">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Ripple vs. XRP: The Key Difference</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Ripple vs. XRP: The Key Difference</h2>
             <div className="mt-4">
               <HighlightBox title="Critical Distinction" variant="warning">
                 <p><strong className="text-text-primary">Ripple and XRP are not the same thing.</strong> The XRP Ledger was created <em>before</em> the company. Ripple is the largest contributor to the XRPL ecosystem, but it is one of many participants — not the owner or controller.</p>
@@ -119,7 +119,7 @@ export default function WhatIsRipplePage() {
 
           {/* HISTORY */}
           <RevealSection id="history" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Ripple&apos;s History: A Decade of Evolution</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Ripple&apos;s History: A Decade of Evolution</h2>
             <div className="mt-5">
               <IconList items={[
                 { title: "2012", desc: "Founded as OpenCoin by Chris Larsen, Jed McCaleb, and Arthur Britto" },
@@ -140,7 +140,7 @@ export default function WhatIsRipplePage() {
 
           {/* PRODUCTS */}
           <RevealSection id="products" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Ripple&apos;s Products and Services</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Ripple&apos;s Products and Services</h2>
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
                 { title: "Ripple Payments (ODL)", desc: "Cross-border payments using XRP as a bridge currency. Frees up trillions locked in nostro/vostro accounts globally." },
@@ -153,7 +153,7 @@ export default function WhatIsRipplePage() {
             </div>
 
             <div className="mt-8">
-              <h3 className="font-display text-xl font-semibold text-text-primary">Product Comparison</h3>
+              <h3 className="text-xl font-semibold text-text-primary">Product Comparison</h3>
               <div className="mt-4">
                 <DataTable
                   headers={["Product", "What It Does", "Uses XRP?"]}
@@ -172,7 +172,7 @@ export default function WhatIsRipplePage() {
 
           {/* REVENUE */}
           <RevealSection id="revenue" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Does Ripple Make Money?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Does Ripple Make Money?</h2>
             <div className="mt-5">
               <IconList items={[
                 { title: "Payment processing fees", desc: "Fees for cross-border payment services through Ripple Payments" },
@@ -192,7 +192,7 @@ export default function WhatIsRipplePage() {
 
           {/* VS SWIFT */}
           <RevealSection id="swift" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Does Ripple Compare to SWIFT?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Does Ripple Compare to SWIFT?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               SWIFT connects 11,000+ institutions but only sends <em>messages</em> — it doesn&apos;t move money. Settlement relies on slow, expensive correspondent banking.
             </p>
@@ -216,7 +216,7 @@ export default function WhatIsRipplePage() {
 
           {/* BY THE NUMBERS */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Ripple by the Numbers (2026)</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Ripple by the Numbers (2026)</h2>
             <div className="mt-5">
               <DataTable
                 headers={["Metric", "Value"]}
@@ -237,7 +237,7 @@ export default function WhatIsRipplePage() {
 
           {/* REGULATORY STATUS */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Regulatory License Portfolio</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Regulatory License Portfolio</h2>
             <div className="mt-5">
               <IconList items={[
                 { title: "New York BitLicense" },
@@ -252,7 +252,7 @@ export default function WhatIsRipplePage() {
 
           {/* WHY RIPPLE MATTERS */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Why Does Ripple Matter?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Why Does Ripple Matter?</h2>
             <div className="mt-4">
               <HighlightBox title="The Bridge Between TradFi & Blockchain" variant="accent" large>
                 <p>Ripple matters because it&apos;s building the bridge between traditional finance and blockchain technology. While many crypto companies focus on retail speculation, Ripple is systematically assembling the infrastructure that <strong className="text-text-primary">banks, corporations, and governments</strong> need to operate in a blockchain-enabled world.</p>
@@ -263,7 +263,7 @@ export default function WhatIsRipplePage() {
 
           {/* COMMON MISTAKES */}
           <RevealSection id="mistakes" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Common Mistakes to Avoid</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Common Mistakes to Avoid</h2>
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="I bought Ripple" reality="You buy XRP (the token), not Ripple (the company). Ripple is a private company — you can't buy its stock on exchanges." />
               <MisconceptionCard myth="Ripple controls XRP" reality="Ripple is a major XRPL participant but operates only ~6% of validators. The network is decentralized." />
@@ -274,13 +274,13 @@ export default function WhatIsRipplePage() {
 
           {/* FAQ */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
               { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },

@@ -54,8 +54,8 @@ export default function FAQPage() {
           <span className="text-text-primary">FAQ</span>
         </nav>
 
-        <h1 className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-          Frequently Asked <span className="gradient-text">Questions</span>
+        <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
+          Frequently Asked <span className="text-xrp-accent">Questions</span>
         </h1>
         <p className="mt-3 text-text-secondary">
           Everything you need to know about XRP, the XRP Ledger, and Ripple.

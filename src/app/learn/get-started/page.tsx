@@ -100,14 +100,14 @@ export default function GetStartedPage() {
           { id: "faq", label: "FAQ" },
         ]} />
 
-        <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-        <div className="pointer-events-none absolute inset-0 noise-overlay" />
+        <div className="pointer-events-none absolute inset-0 " />
+        <div className="pointer-events-none absolute inset-0 " />
         <div className="mt-6"><Disclaimer /></div>
 
         <div className="cv-auto mt-14 space-y-14">
           {/* STEP BY STEP */}
           <RevealSection id="steps">
-            <h2 className="font-display text-2xl font-bold text-text-primary">Step-by-Step: How to Buy XRP</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Step-by-Step: How to Buy XRP</h2>
             <div className="mt-6 space-y-4">
               {[
                 { num: "1", title: "Choose an Exchange", desc: "Pick a regulated cryptocurrency exchange that supports XRP. For beginners, we recommend Uphold for simplicity or Coinbase for security." },
@@ -116,12 +116,12 @@ export default function GetStartedPage() {
                 { num: "4", title: "Buy XRP", desc: "Search for 'XRP', enter the amount, and place your order at market price or set a limit order." },
                 { num: "5", title: "Secure Your XRP", desc: "Transfer to a self-custody wallet like Xaman for long-term storage. 'Not your keys, not your crypto.'" },
               ].map((step, i) => (
-                <div key={step.num} className="flex gap-5 rounded-xl border border-surface-border/60 bg-surface-card/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-xrp-accent/20 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)]">
+                <div key={step.num} className="flex gap-5 rounded-xl border border-surface-border/60 bg-black p-6  transition-all duration-300 hover:border-xrp-accent/20 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)]">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xrp-accent/10">
                     <span className="font-mono text-lg font-bold text-xrp-accent">{step.num}</span>
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-text-primary">{step.title}</h3>
+                    <h3 className="font-semibold text-text-primary">{step.title}</h3>
                     <p className="mt-1 text-sm text-text-secondary leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export default function GetStartedPage() {
 
           {/* EXCHANGES */}
           <RevealSection id="exchanges" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Where to Buy XRP: Exchange Comparison</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Where to Buy XRP: Exchange Comparison</h2>
             <p className="mt-3 text-text-secondary leading-relaxed">
               All of these exchanges support XRP and are available to most users.
             </p>
@@ -142,14 +142,14 @@ export default function GetStartedPage() {
                   href={ex.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`card-glow flex flex-col rounded-xl border p-5 backdrop-blur-sm transition-colors ${
+                  className={`flex flex-col rounded-xl border p-5  transition-colors ${
                     ex.recommended
                       ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"
-                      : "border-surface-border/60 bg-surface-card/40"
+                      : "border-surface-border/60 bg-black"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="font-display text-lg font-bold text-text-primary">{ex.name}</h3>
+                    <h3 className="text-lg font-bold text-text-primary">{ex.name}</h3>
                     {ex.recommended ? (
                       <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-2.5 py-0.5 text-xs font-semibold text-xrp-accent">★ Recommended</span>
                     ) : null}
@@ -161,7 +161,7 @@ export default function GetStartedPage() {
             </div>
 
             <div className="mt-8">
-              <h3 className="font-display text-xl font-semibold text-text-primary">Detailed Exchange Comparison</h3>
+              <h3 className="text-xl font-semibold text-text-primary">Detailed Exchange Comparison</h3>
               <div className="mt-4">
                 <DataTable
                   headers={["Exchange", "Best For", "Fees", "U.S. Available"]}
@@ -181,7 +181,7 @@ export default function GetStartedPage() {
 
           {/* WALLETS */}
           <RevealSection id="wallets" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Best XRP Wallets</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Best XRP Wallets</h2>
             <p className="mt-3 text-text-secondary leading-relaxed">
               While exchanges are fine for trading, <strong className="text-text-primary">self-custody wallets</strong> are recommended for long-term XRP storage.
             </p>
@@ -194,9 +194,9 @@ export default function GetStartedPage() {
 
             <div className="mt-6 space-y-3">
               {wallets.map((w) => (
-                <div key={w.name} className="rounded-xl border border-surface-border/60 bg-surface-card/40 p-5 backdrop-blur-sm transition-all duration-300 hover:border-xrp-accent/20">
+                <div key={w.name} className="rounded-xl border border-surface-border/60 bg-black p-5  transition-all duration-300 hover:border-xrp-accent/20">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="font-display font-semibold text-text-primary">{w.name}</h3>
+                    <h3 className="font-semibold text-text-primary">{w.name}</h3>
                     <span className="rounded-full border border-surface-border bg-surface-elevated px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{w.type}</span>
                     <span className="ml-auto text-xs font-medium text-xrp-accent">{w.best}</span>
                   </div>
@@ -208,7 +208,7 @@ export default function GetStartedPage() {
 
           {/* SECURITY */}
           <RevealSection id="security" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Essential Security Tips</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Essential Security Tips</h2>
             <div className="mt-5">
               <IconList items={[
                 { title: "Enable Two-Factor Authentication (2FA)", desc: "Use an authenticator app (Google Authenticator, Authy) — not SMS, which can be SIM-swapped." },
@@ -222,7 +222,7 @@ export default function GetStartedPage() {
 
           {/* HOW TRANSACTIONS WORK */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">How Do XRP Transactions Work After You Buy?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">How Do XRP Transactions Work After You Buy?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               Once you own <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link>, you can send it to anyone with an XRPL address in 3-5 seconds for less than $0.01:
             </p>
@@ -241,7 +241,7 @@ export default function GetStartedPage() {
 
           {/* BEFORE INVESTING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">What Should You Know Before Investing in XRP?</h2>
+            <h2 className="text-2xl font-bold text-text-primary">What Should You Know Before Investing in XRP?</h2>
             <div className="mt-5">
               <IconList items={[
                 { title: "Volatility", desc: "Crypto prices can swing 10-20% in a day. Only invest what you can afford to lose." },
@@ -255,7 +255,7 @@ export default function GetStartedPage() {
 
           {/* COMMON MISTAKES */}
           <RevealSection id="mistakes" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Common Mistakes Beginners Make</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Common Mistakes Beginners Make</h2>
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="Not verifying the correct XRP token" reality="Search specifically for 'XRP' — not 'XRP Classic' or other scam tokens. The real XRP is native to the XRP Ledger." />
               <MisconceptionCard myth="Leaving large holdings on exchanges" reality="Exchanges can be hacked or freeze withdrawals. Transfer to a self-custody wallet like Xaman for long-term holding." />
@@ -268,13 +268,13 @@ export default function GetStartedPage() {
 
           {/* FAQ */}
           <RevealSection id="faq" delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
 
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
-            <h2 className="font-display text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
