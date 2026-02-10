@@ -3,7 +3,7 @@ import SEOSchema from "@/components/shared/SEOSchema";
 import EscrowContent from "./EscrowContent";
 
 export const metadata: Metadata = {
-  title: "XRP Escrow: The Complete Guide to Ripple's 55 Billion XRP Lockup",
+  title: "XRP Escrow: Ripple's 55 Billion XRP Lockup Guide",
   description:
     "Understand Ripple's XRP escrow system — how it works, monthly releases, supply impact, and what it means for XRP price. Updated February 2026.",
   openGraph: {
@@ -11,7 +11,36 @@ export const metadata: Metadata = {
     description:
       "Everything about Ripple's 55 billion XRP escrow — monthly releases, re-escrow patterns, and on-chain tracking tools.",
     url: "https://allaboutxrp.com/escrow",
+    type: "article",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "XRP Escrow: Complete Guide | AllAboutXRP",
+    description: "How Ripple's 55 billion XRP escrow works — monthly releases, re-escrow patterns, and supply impact.",
+  },
+  alternates: { canonical: "https://allaboutxrp.com/escrow" },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "XRP Escrow: Ripple's 55 Billion XRP Lockup Guide",
+  description: "A comprehensive guide to Ripple's XRP escrow system — how it works, monthly releases, and supply impact.",
+  url: "https://allaboutxrp.com/escrow",
+  datePublished: "2026-02-10",
+  dateModified: "2026-02-10",
+  author: { "@type": "Person", name: "AllAboutXRP Editorial Team", url: "https://allaboutxrp.com" },
+  publisher: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": "https://allaboutxrp.com/escrow" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
+    { "@type": "ListItem", position: 2, name: "Escrow", item: "https://allaboutxrp.com/escrow" },
+  ],
 };
 
 const faqSchema = {
