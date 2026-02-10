@@ -2,8 +2,10 @@ import Link from "next/link";
 
 const footerLinks = [
   { href: "/", label: "Home" },
+  { href: "/escrow", label: "Escrow" },
+  { href: "/acquisitions", label: "Acquisitions" },
+  { href: "/riddlers", label: "Riddlers" },
   { href: "/people", label: "People" },
-  { href: "/news", label: "News" },
   { href: "/richlist", label: "Rich List" },
   { href: "/get-started", label: "Get Started" },
   { href: "/donate", label: "Donate" },

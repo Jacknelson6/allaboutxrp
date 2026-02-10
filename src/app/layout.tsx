@@ -3,6 +3,7 @@ import { Instrument_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
 
 const instrumentSans = Instrument_Sans({
@@ -74,6 +75,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SEOSchema schema={websiteSchema} />
+        <AnnouncementBar />
         <Nav />
         <main id="main-content" className="min-h-[80vh]">
           {children}

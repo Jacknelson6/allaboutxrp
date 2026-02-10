@@ -9,11 +9,12 @@ import PriceWidget from "../shared/PriceWidget";
 
 const navLinks = [
   { href: "/", label: "What is XRP?" },
+  { href: "/escrow", label: "Escrow" },
+  { href: "/acquisitions", label: "Acquisitions" },
+  { href: "/riddlers", label: "Riddlers" },
   { href: "/people", label: "People" },
-  { href: "/news", label: "News" },
   { href: "/richlist", label: "Rich List" },
   { href: "/get-started", label: "Get Started" },
-  { href: "/donate", label: "Donate" },
 ];
 
 export default function Nav() {
