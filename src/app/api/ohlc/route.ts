@@ -9,7 +9,9 @@ export async function GET(request: NextRequest) {
     );
     if (!res.ok) throw new Error("CoinGecko OHLC error");
     const data = await res.json() as number[][];
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: { 'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=240' },
+    });
   } catch {
     return NextResponse.json([], { status: 500 });
   }

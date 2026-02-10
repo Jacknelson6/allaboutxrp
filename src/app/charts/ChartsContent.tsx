@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Script from 'next/script';
 
 interface PriceData {
   usd: number;
@@ -20,6 +21,7 @@ declare global {
 export default function ChartsContent() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [price, setPrice] = useState<PriceData | null>(null);
+  const [tvReady, setTvReady] = useState(false);
 
   useEffect(() => {
     fetch('/api/xrp/price')
@@ -29,34 +31,25 @@ export default function ChartsContent() {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/tv.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.TradingView && containerRef.current) {
-        new window.TradingView.widget({
-          container_id: 'tradingview-chart',
-          symbol: 'BINANCE:XRPUSDT',
-          theme: 'dark',
-          style: '1',
-          locale: 'en',
-          toolbar_bg: '#000000',
-          enable_publishing: false,
-          allow_symbol_change: true,
-          hide_side_toolbar: false,
-          withdateranges: true,
-          save_image: false,
-          autosize: true,
-          backgroundColor: '#000000',
-          gridColor: '#111113',
-        });
-      }
-    };
-    document.head.appendChild(script);
-    return () => {
-      try { document.head.removeChild(script); } catch {}
-    };
-  }, []);
+    if (tvReady && window.TradingView && containerRef.current) {
+      new window.TradingView.widget({
+        container_id: 'tradingview-chart',
+        symbol: 'BINANCE:XRPUSDT',
+        theme: 'dark',
+        style: '1',
+        locale: 'en',
+        toolbar_bg: '#000000',
+        enable_publishing: false,
+        allow_symbol_change: true,
+        hide_side_toolbar: false,
+        withdateranges: true,
+        save_image: false,
+        autosize: true,
+        backgroundColor: '#000000',
+        gridColor: '#111113',
+      });
+    }
+  }, [tvReady]);
 
   const formatNum = (n: number) => {
     if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
@@ -66,6 +59,11 @@ export default function ChartsContent() {
 
   return (
     <div className="min-h-screen">
+      <Script
+        src="https://s3.tradingview.com/tv.js"
+        strategy="lazyOnload"
+        onReady={() => setTvReady(true)}
+      />
       <div className="max-w-7xl mx-auto px-5 py-12">
         <div className="mb-8">
           <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">
