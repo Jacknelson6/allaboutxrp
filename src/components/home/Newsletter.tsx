@@ -38,13 +38,8 @@ export default function Newsletter() {
 
   return (
     <section className="mx-auto max-w-5xl px-5 py-16" aria-label="Newsletter signup">
-      <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0A0A0B]">
-        {/* Ambient glow */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,133,255,0.06)_0%,transparent_70%)]" />
-        </div>
-
-        <div className="relative px-6 py-12 sm:px-12 sm:py-14">
+      <div className="rounded-2xl border border-white/[0.06] bg-[#0A0A0B]">
+        <div className="px-6 py-12 sm:px-12 sm:py-14">
           <div className="flex flex-col items-center text-center max-w-lg mx-auto">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-white/[0.06] bg-white/[0.02] text-xrp-accent mb-5">
               <Mail className="h-5 w-5" />

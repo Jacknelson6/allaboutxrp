@@ -17,22 +17,7 @@ export default function CommunityFeed() {
         </p>
       </div>
 
-      {/* Feed wrapped in a product-mockup card */}
-      <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0A0A0B]">
-        {/* Top bar — mock browser chrome */}
-        <div className="flex items-center gap-2 border-b border-white/[0.04] px-4 py-2.5">
-          <div className="flex gap-1.5">
-            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.06]" />
-            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.06]" />
-            <div className="h-2.5 w-2.5 rounded-full bg-white/[0.06]" />
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="rounded-lg bg-white/[0.03] border border-white/[0.04] px-4 py-1 text-[11px] text-white/20 font-mono">
-              allaboutxrp.com/feed
-            </div>
-          </div>
-        </div>
-
+      <div className="rounded-2xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
         <XFeed />
       </div>
 
