@@ -35,6 +35,8 @@ Ripple's On-Demand Liquidity (ODL) product leverages XRP for this exact purpose,
 ## XRP vs. Other Cryptocurrencies
 
 While Bitcoin is often described as "digital gold" — a store of value — XRP positions itself as a utility token designed for moving value efficiently. Its speed, cost, and throughput advantages make it particularly suited for payments and financial infrastructure, rather than as a speculative investment vehicle alone.
+
+**Ready to buy your first XRP? Check out our [Get Started guide](/learn/get-started) for a step-by-step walkthrough.**
 `,
 
   "who-created-xrp": `
@@ -161,6 +163,8 @@ For individual XRP holders and traders, the ruling was overwhelmingly positive. 
 - The regulatory cloud that hung over XRP for years has been largely lifted
 
 This ruling remains one of the most important legal decisions in cryptocurrency history and has shaped how regulators approach digital asset classification globally.
+
+**With regulatory clarity established, now is an accessible time to buy XRP. See our [beginner's guide](/learn/get-started) to get started.**
 `,
 
   "how-fast-are-xrp-transactions": `
@@ -707,10 +711,14 @@ XRP ETFs follow the pattern established by Bitcoin and Ethereum:
 - **XRP spot ETFs**: Launched November 2025
 
 The success of XRP ETFs validates the "waterfall theory" — that regulatory approval of crypto ETFs would cascade from Bitcoin to other major digital assets, with XRP being among the first beneficiaries.
+
+**Prefer to hold XRP directly? Learn how in our [Get Started guide](/learn/get-started).**
 `,
 
   "where-can-i-buy-xrp": `
 XRP is widely available on most major cryptocurrency exchanges worldwide. Following the favorable July 2023 court ruling that determined XRP is not a security when sold on exchanges, XRP was relisted on U.S. platforms that had previously suspended trading, making it easier than ever to purchase.
+
+**For a complete step-by-step walkthrough with exchange comparisons and wallet recommendations, check out our [Get Started guide](/learn/get-started).**
 
 ## Major Exchanges Offering XRP
 
@@ -921,5 +929,7 @@ The XRP Ledger uses trusted validators who agree on transaction ordering through
 Both assets serve important but different roles in the cryptocurrency ecosystem. Bitcoin dominates as the flagship store-of-value asset, while XRP leads in the payment and settlement infrastructure space. They are more complementary than competitive, addressing different needs in the evolving digital asset landscape.
 
 The key takeaway: Bitcoin asks "what if money couldn't be controlled?" while XRP asks "what if money could move as fast as information?"
+
+**Interested in XRP? Learn how to buy it in our [step-by-step beginner guide](/learn/get-started).**
 `,
 };

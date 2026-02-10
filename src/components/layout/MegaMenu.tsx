@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
@@ -24,13 +24,26 @@ export default function MegaMenu() {
   const [learnOpen, setLearnOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLearnOpen, setMobileLearnOpen] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
   const pathname = usePathname();
   const learnRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Measure nav height for mobile overlay positioning
+  useEffect(() => {
+    const measure = () => {
+      if (navRef.current) setNavHeight(navRef.current.offsetHeight);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
     setLearnOpen(false);
+    setMobileLearnOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -48,6 +61,15 @@ export default function MegaMenu() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [mobileOpen]);
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setLearnOpen(true);
@@ -57,11 +79,17 @@ export default function MegaMenu() {
     timeoutRef.current = setTimeout(() => setLearnOpen(false), 150);
   };
 
+  const closeMobile = useCallback(() => {
+    setMobileOpen(false);
+    setMobileLearnOpen(false);
+  }, []);
+
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
   return (
     <nav
+      ref={navRef}
       className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/90 backdrop-blur-xl"
       aria-label="Main navigation"
     >
@@ -165,12 +193,12 @@ export default function MegaMenu() {
           </div>
         </div>
 
-        {/* Mobile */}
+        {/* Mobile hamburger — 44x44 min touch target */}
         <div className="flex items-center gap-3 lg:hidden">
           <PriceWidget compact />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 text-text-secondary hover:text-text-primary transition-colors"
+            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-colors active:bg-white/[0.08]"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
@@ -179,83 +207,107 @@ export default function MegaMenu() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="fixed inset-0 top-[49px] z-40 overflow-y-auto bg-black lg:hidden">
-          <div className="flex flex-col px-5 py-6 gap-0.5">
-            <Link
-              href="/live"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2.5 py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
-            >
-              <Globe className="h-4 w-4 text-text-secondary" />
-              Globe
-            </Link>
+      {/* Mobile menu overlay */}
+      <div
+        className={`fixed inset-x-0 bottom-0 z-50 overflow-y-auto overscroll-contain bg-black transition-all duration-300 ease-out lg:hidden ${
+          mobileOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+        style={{ top: navHeight || 49 }}
+        aria-hidden={!mobileOpen}
+      >
+        <div className="flex flex-col px-5 py-4 gap-0.5">
+          <Link
+            href="/live"
+            onClick={closeMobile}
+            className={`flex items-center gap-2.5 min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/live") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            <Globe className="h-4 w-4 text-text-secondary" />
+            Globe
+          </Link>
 
-            <Link
-              href="/charts"
-              onClick={() => setMobileOpen(false)}
-              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
-            >
-              Charts
-            </Link>
+          <Link
+            href="/charts"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/charts") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            Charts
+          </Link>
 
-            <Link
-              href="/richlist"
-              onClick={() => setMobileOpen(false)}
-              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
-            >
-              Rich List
-            </Link>
+          <Link
+            href="/richlist"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/richlist") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            Rich List
+          </Link>
 
-            <Link
-              href="/news/recaps"
-              onClick={() => setMobileOpen(false)}
-              className="py-3 text-[15px] font-medium text-text-primary border-b border-white/[0.04]"
-            >
-              Analysis
-            </Link>
+          <Link
+            href="/news/recaps"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/news") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            Analysis
+          </Link>
 
-            {/* Learn accordion */}
-            <div className="border-b border-white/[0.04]">
-              <button
-                onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
-                className="flex w-full items-center justify-between py-3 text-left"
-                aria-expanded={mobileLearnOpen}
-              >
-                <span className={`text-[15px] font-medium ${mobileLearnOpen ? "text-xrp-accent" : "text-text-primary"}`}>
-                  Learn
-                </span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
-              </button>
-              {mobileLearnOpen && (
+          {/* Learn accordion */}
+          <div className="border-b border-white/[0.04]">
+            <button
+              onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
+              className="flex w-full items-center justify-between min-h-[48px] px-2 text-left active:bg-white/[0.04] transition-colors"
+              aria-expanded={mobileLearnOpen}
+            >
+              <span className={`text-[15px] font-medium ${mobileLearnOpen || pathname.startsWith("/learn") ? "text-xrp-accent" : "text-text-primary"}`}>
+                Learn
+              </span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
+            </button>
+            <div
+              className={`grid transition-all duration-200 ease-out ${
+                mobileLearnOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
                 <div className="flex flex-col gap-0.5 pb-3 pl-3">
                   {learnItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="rounded-lg px-3 py-2 text-[13px] text-text-secondary hover:text-text-primary transition-colors"
+                      onClick={closeMobile}
+                      className={`flex items-center rounded-lg px-3 min-h-[44px] text-[14px] transition-colors active:bg-white/[0.04] ${
+                        isActive(item.href)
+                          ? "text-xrp-accent"
+                          : "text-text-secondary hover:text-text-primary"
+                      }`}
                     >
                       {item.label}
                     </Link>
                   ))}
                 </div>
-              )}
-            </div>
-
-            <div className="pt-5">
-              <Link
-                href="/donate"
-                onClick={() => setMobileOpen(false)}
-                className="btn-primary w-full"
-              >
-                Donate
-              </Link>
+              </div>
             </div>
           </div>
+
+          <div className="pt-5">
+            <Link
+              href="/donate"
+              onClick={closeMobile}
+              className="btn-primary w-full"
+            >
+              Donate
+            </Link>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

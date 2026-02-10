@@ -106,5 +106,6 @@ export default function FAQBlogContent({ content }: { content: string }) {
 function formatInline(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, '<strong class="text-text-primary font-semibold">$1</strong>')
-    .replace(/`(.+?)`/g, '<code class="rounded bg-[#0A0A0B] px-1.5 py-0.5 text-xs font-mono text-xrp-accent">$1</code>');
+    .replace(/`(.+?)`/g, '<code class="rounded bg-[#0A0A0B] px-1.5 py-0.5 text-xs font-mono text-xrp-accent">$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright transition-colors">$1</a>');
 }
