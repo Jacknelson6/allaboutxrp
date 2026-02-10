@@ -195,6 +195,113 @@ export default function GetStartedPage() {
             </div>
           </section>
 
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Which Exchange Is Best for Buying XRP?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              The best exchange depends on your experience level, location, and what features matter to you. Here&apos;s how they compare:
+            </p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-surface-border text-left">
+                    <th className="pb-3 font-semibold text-text-primary">Exchange</th>
+                    <th className="pb-3 font-semibold text-text-primary">Best For</th>
+                    <th className="pb-3 font-semibold text-text-primary">Fees</th>
+                    <th className="pb-3 font-semibold text-text-primary">U.S. Available</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-secondary">
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Uphold</td>
+                    <td className="py-3">Beginners</td>
+                    <td className="py-3">Spread-based (no trading fee)</td>
+                    <td className="py-3">Yes</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Coinbase</td>
+                    <td className="py-3">Security-conscious</td>
+                    <td className="py-3">0.5-1.5% (varies)</td>
+                    <td className="py-3">Yes</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Kraken</td>
+                    <td className="py-3">Active traders</td>
+                    <td className="py-3">0.16-0.26%</td>
+                    <td className="py-3">Yes</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Bitstamp</td>
+                    <td className="py-3">EU users</td>
+                    <td className="py-3">0.3-0.5%</td>
+                    <td className="py-3">Yes</td>
+                  </tr>
+                  <tr className="border-b border-surface-border/30">
+                    <td className="py-3 font-medium">Binance</td>
+                    <td className="py-3">Low fees, advanced</td>
+                    <td className="py-3">0.1%</td>
+                    <td className="py-3">Partial (Binance.US)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-medium">Crypto.com</td>
+                    <td className="py-3">Mobile users</td>
+                    <td className="py-3">0.075-0.4%</td>
+                    <td className="py-3">Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">Common Mistakes Beginners Make When Buying XRP</h2>
+            <div className="mt-4 space-y-3">
+              {[
+                { mistake: "Not verifying the correct XRP token", fix: "On some exchanges, search specifically for 'XRP' — not 'XRP Classic' or other scam tokens. The real XRP is native to the XRP Ledger." },
+                { mistake: "Leaving large holdings on exchanges", fix: "Exchanges can be hacked or freeze withdrawals. For long-term holding, transfer to a self-custody wallet like Xaman." },
+                { mistake: "Forgetting about the 10 XRP wallet reserve", fix: "XRPL accounts need 10 XRP to activate. Don't be surprised when 10 XRP appears 'locked' in your wallet — it's a protocol feature." },
+                { mistake: "Panic selling during dips", fix: "XRP's price has historically been volatile. Have a plan before you buy. Understand what you own by reading our guide on what XRP is." },
+                { mistake: "Sharing seed phrases or private keys", fix: "No legitimate service, exchange, or support team will ever ask for your seed phrase. If someone asks, it's a scam." },
+                { mistake: "Not enabling 2FA", fix: "SMS 2FA is vulnerable to SIM swapping. Use an authenticator app (Google Authenticator, Authy) for much stronger security." },
+              ].map((item) => (
+                <div key={item.mistake} className="rounded-xl border border-danger/20 bg-danger/5 p-4">
+                  <div className="font-semibold text-text-primary">❌ {item.mistake}</div>
+                  <div className="mt-1 text-sm text-text-secondary">✅ {item.fix}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">How Do XRP Transactions Work After You Buy?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              Once you own <Link href="/learn/what-is-xrp" className="text-xrp-accent">XRP</Link>, you can send it to anyone with an XRPL address in 3-5 seconds for less than $0.01. Here&apos;s what happens under the hood:
+            </p>
+            <ol className="mt-3 list-decimal space-y-2 pl-6 text-text-secondary">
+              <li><strong>You initiate a transaction</strong> — either from an exchange or your wallet (like Xaman)</li>
+              <li><strong>The transaction is broadcast</strong> to the XRP Ledger&apos;s network of 150+ validators</li>
+              <li><strong>Validators reach consensus</strong> on the transaction&apos;s validity in 3-5 seconds</li>
+              <li><strong>The transaction is permanently recorded</strong> on the ledger — visible to anyone via <a href="https://xrpscan.com" target="_blank" rel="noopener noreferrer" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">XRPScan ↗</a></li>
+              <li><strong>A tiny fee is burned</strong> (typically 0.00001 XRP) — making XRP slightly more scarce with every transaction</li>
+            </ol>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              You can also use the XRPL&apos;s built-in decentralized exchange (DEX) to trade tokens, access NFTs, and interact with the growing XRPL ecosystem — all from your wallet. Understand more about the technology: <Link href="/learn/what-is-xrp" className="text-xrp-accent">What is XRP? →</Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-text-primary">What Should You Know Before Investing in XRP?</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              Before putting money into XRP — or any cryptocurrency — consider these key factors:
+            </p>
+            <ul className="mt-3 list-disc space-y-2 pl-6 text-text-secondary">
+              <li><strong>Volatility:</strong> Crypto prices can swing 10-20% in a day. Only invest what you can afford to lose.</li>
+              <li><strong>Research:</strong> Understand <Link href="/learn/what-is-xrp" className="text-xrp-accent">what XRP is</Link>, how <Link href="/learn/what-is-ripple" className="text-xrp-accent">Ripple</Link> uses it, and the role of <Link href="/escrow" className="text-xrp-accent">escrow</Link> in supply management.</li>
+              <li><strong>Tax implications:</strong> Crypto gains are taxable in most jurisdictions. Keep records of your purchases and sales.</li>
+              <li><strong>Time horizon:</strong> If you believe in XRP&apos;s long-term institutional adoption story, short-term price fluctuations matter less. Review <Link href="/learn/history" className="text-xrp-accent">XRP&apos;s history</Link> for perspective.</li>
+              <li><strong>Diversification:</strong> Don&apos;t put all your investment capital into any single asset.</li>
+            </ul>
+          </section>
+
           {/* Understanding XRP */}
           <section>
             <h2 className="font-display text-2xl font-bold text-text-primary">What You&apos;re Buying: XRP Basics</h2>

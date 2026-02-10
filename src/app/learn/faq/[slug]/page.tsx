@@ -73,7 +73,7 @@ export default async function FAQBlogPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/#what-is-xrp" },
+      { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
       { "@type": "ListItem", position: 3, name: "FAQ", item: "https://allaboutxrp.com/learn/faq" },
       { "@type": "ListItem", position: 4, name: faq.question, item: `https://allaboutxrp.com/learn/faq/${slug}` },
     ],
@@ -131,6 +131,30 @@ export default async function FAQBlogPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Pillar Page Links */}
+        <section className="mt-12 border-t border-surface-border/50 pt-8">
+          <h2 className="font-display text-lg font-bold text-text-primary mb-4">Learn More</h2>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {[
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP cryptocurrency" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/history", label: "XRP History", desc: "Full timeline from 2011 to now" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group flex items-start gap-3 rounded-xl border border-surface-border bg-surface-card/50 px-4 py-3 transition-colors hover:border-xrp-accent/30"
+              >
+                <div>
+                  <span className="text-sm font-medium text-text-primary group-hover:text-xrp-accent transition-colors">{link.label}</span>
+                  <p className="text-xs text-text-secondary">{link.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* Back to FAQ */}
         <div className="mt-8 text-center">

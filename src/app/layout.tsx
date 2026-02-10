@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Sora, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
 
-const instrumentSans = Instrument_Sans({
+const sora = Sora({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const dmSans = DM_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -69,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${sora.variable} ${plusJakarta.variable} ${ibmPlexMono.variable}`}>
       <body className="min-h-screen antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to content
