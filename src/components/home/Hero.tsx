@@ -13,7 +13,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-3xl px-5 text-center">
         <h1 className="text-[40px] font-bold tracking-[-0.04em] leading-[1.1] text-text-primary md:text-[56px]">
-          What is <span className="text-xrp-accent">XRP</span>?
+          What is <span className="gradient-text">XRP</span>?
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-text-secondary">

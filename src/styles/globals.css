@@ -258,6 +258,71 @@ h1 { font-weight: 700; }
 }
 
 /* ==========================================
+   GRADIENT TEXT — Firecrawl-style
+   ========================================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, #0085FF 0%, #3DA5FF 50%, #0085FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #F0F0F0 0%, #0085FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================
+   SECTION NUMBER — Firecrawl-style "01 / 07"
+   ========================================== */
+
+.section-number {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.section-number .current {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-xrp-accent);
+}
+
+/* ==========================================
+   SOCIAL PROOF BAR
+   ========================================== */
+
+.proof-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.proof-stat .value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.proof-stat .label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================
    PROSE / ARTICLE TYPOGRAPHY
    ========================================== */
 

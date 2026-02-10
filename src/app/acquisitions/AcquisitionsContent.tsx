@@ -159,7 +159,7 @@ export default function AcquisitionsContent() {
             </div>
             <div>
               <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary md:text-[40px]">
-                Ripple&apos;s <span className="text-xrp-accent">Acquisitions</span>
+                Ripple&apos;s <span className="gradient-text">Acquisitions</span>
               </h1>
               <p className="mt-1 text-text-secondary">
                 $3.7B+ in strategic deals building the future of financial infrastructure
@@ -187,7 +187,7 @@ export default function AcquisitionsContent() {
         </div>
 
         {/* Overview */}
-        <Section id="overview" title="The Big Picture">
+        <Section id="overview" title="The Big Picture" index={1} total={6}>
           <p className="text-text-secondary leading-relaxed">
             Ripple is no longer just a payments company. Through calculated acquisitions totaling over <strong className="text-text-primary">$3.7 billion</strong>, Ripple has transformed into a full-stack financial infrastructure provider — covering custody, prime brokerage, stablecoin payments, treasury management, and wallet infrastructure. Every piece connects back to the <strong className="text-xrp-accent">XRP Ledger</strong>.
           </p>
@@ -197,7 +197,7 @@ export default function AcquisitionsContent() {
         </Section>
 
         {/* Timeline */}
-        <Section id="timeline" title="Acquisition Timeline">
+        <Section id="timeline" title="Acquisition Timeline" index={2} total={6}>
           <div className="space-y-4">
             {acquisitions.map((a, i) => (
               <motion.div
@@ -258,7 +258,7 @@ export default function AcquisitionsContent() {
         </Section>
 
         {/* Full Stack */}
-        <Section id="full-stack" title="The Full Stack">
+        <Section id="full-stack" title="The Full Stack" index={3} total={6}>
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Each acquisition maps to a specific layer of Ripple&apos;s financial infrastructure. <strong className="text-text-primary">No other crypto company has assembled this stack.</strong>
           </p>
@@ -302,7 +302,7 @@ export default function AcquisitionsContent() {
         </Section>
 
         {/* Leadership */}
-        <Section id="leadership" title="Leadership & Talent">
+        <Section id="leadership" title="Leadership & Talent" index={4} total={6}>
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Ripple isn&apos;t hiring crypto bros — they&apos;re hiring <strong className="text-text-primary">Wall Street veterans, regulatory experts, and enterprise finance leaders</strong> from Morgan Stanley, HSBC, American Express, and Goldman Sachs.
           </p>
@@ -325,7 +325,7 @@ export default function AcquisitionsContent() {
         </Section>
 
         {/* XRP Connection */}
-        <Section id="xrp-connection" title="The XRP Connection">
+        <Section id="xrp-connection" title="The XRP Connection" index={5} total={6}>
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Here&apos;s how every major move ties back to XRP:
           </p>
@@ -352,7 +352,7 @@ export default function AcquisitionsContent() {
         </Section>
 
         {/* By the Numbers */}
-        <Section id="numbers" title="Ripple by the Numbers">
+        <Section id="numbers" title="Ripple by the Numbers" index={6} total={6}>
           <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
               <tbody className="divide-y divide-white/[0.04]">
@@ -399,7 +399,7 @@ export default function AcquisitionsContent() {
   );
 }
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({ id, title, children, index, total }: { id: string; title: string; children: React.ReactNode; index?: number; total?: number }) {
   return (
     <motion.section
       id={id}
@@ -411,6 +411,17 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
+      {index !== undefined && total !== undefined && (
+        <div className="flex items-center gap-3 mb-4">
+          <span className="section-number">
+            <span className="current">{String(index).padStart(2, "0")}</span>
+            <span>/</span>
+            <span>{String(total).padStart(2, "0")}</span>
+          </span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">·</span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">{title}</span>
+        </div>
+      )}
       <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>

@@ -97,7 +97,7 @@ export default function RiddlersContent() {
         </nav>
 
         {/* Intro */}
-        <Section id="what-are-riddlers" title="What Are the XRP Riddlers?">
+        <Section id="what-are-riddlers" title="What Are the XRP Riddlers?" index={1} total={8}>
           <p className="text-text-secondary leading-relaxed">
             The XRP Riddlers are anonymous and pseudonymous figures who post cryptic images, riddles, numerical codes, and symbolic artwork — all centered around XRP, Ripple, and the broader financial system. This phenomenon is <strong className="text-text-primary">unique to XRP</strong>. No other digital asset has developed such an elaborate, mythology-driven culture of cryptic puzzle-solving.
           </p>
@@ -127,7 +127,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* BG123 */}
-        <Section id="bg123" title="BearableGuy123 (BG123)">
+        <Section id="bg123" title="BearableGuy123 (BG123)" index={2} total={8}>
           <RiddlerCard
             name="BearableGuy123"
             alias="BG123"
@@ -186,7 +186,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* Mr. Pool */}
-        <Section id="mr-pool" title="Mr. Pool">
+        <Section id="mr-pool" title="Mr. Pool" index={3} total={8}>
           <RiddlerCard
             name="Mr. Pool"
             alias="@looP_rM311_7211"
@@ -232,7 +232,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* 589 */}
-        <Section id="589" title="The Number 589">
+        <Section id="589" title="The Number 589" index={4} total={8}>
           <div className="text-center py-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -279,7 +279,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* Schwartz */}
-        <Section id="schwartz" title="David Schwartz: The Accidental Riddler">
+        <Section id="schwartz" title="David Schwartz: The Accidental Riddler" index={5} total={8}>
           <p className="text-text-secondary leading-relaxed text-sm">
             Ripple&apos;s former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
           </p>
@@ -305,7 +305,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* Garlinghouse */}
-        <Section id="garlinghouse" title="Brad Garlinghouse: The 589 Connection">
+        <Section id="garlinghouse" title="Brad Garlinghouse: The 589 Connection" index={6} total={8}>
           <div className="rounded-xl border border-warning/20 bg-warning/[0.03] p-6 text-center">
             <p className="text-xs uppercase tracking-wider text-text-secondary">Twitter/X Follow Count</p>
             <p className="mt-2 font-mono text-5xl font-bold text-warning">589</p>
@@ -327,7 +327,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* Symbols Reference */}
-        <Section id="symbols" title="Symbol Reference Guide">
+        <Section id="symbols" title="Symbol Reference Guide" index={7} total={8}>
           <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
@@ -349,7 +349,7 @@ export default function RiddlersContent() {
         </Section>
 
         {/* Key Numbers */}
-        <Section id="numbers" title="Key Numbers">
+        <Section id="numbers" title="Key Numbers" index={8} total={8}>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {numbersData.map((n, i) => (
               <motion.div
@@ -388,7 +388,7 @@ export default function RiddlersContent() {
   );
 }
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({ id, title, children, index, total }: { id: string; title: string; children: React.ReactNode; index?: number; total?: number }) {
   return (
     <motion.section
       id={id}
@@ -400,6 +400,17 @@ function Section({ id, title, children }: { id: string; title: string; children:
       aria-label={title}
     >
       <div className="section-divider mb-10" />
+      {index !== undefined && total !== undefined && (
+        <div className="flex items-center gap-3 mb-4">
+          <span className="section-number">
+            <span className="current">{String(index).padStart(2, "0")}</span>
+            <span>/</span>
+            <span>{String(total).padStart(2, "0")}</span>
+          </span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">·</span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">{title}</span>
+        </div>
+      )}
       <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">{title}</h2>
       <div className="mt-7">{children}</div>
     </motion.section>
@@ -420,7 +431,7 @@ function RiddlerCard({ name, alias, icon, tagline, isOpen, onToggle, children }:
         </div>
         <ChevronDown className={`h-5 w-5 text-text-secondary transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
-      {isOpen && <div className="border-t border-white/[0.06]/50 px-5 py-5">{children}</div>}
+      {isOpen && <div className="border-t border-white/[0.04] px-5 py-5">{children}</div>}
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function DonatePage() {
       <div className="mx-auto max-w-2xl px-5 py-20">
         <div className="text-center">
           <h1 className="text-[36px] font-bold tracking-[-0.04em] text-text-primary">
-            Donate <span className="text-xrp-accent">XRP</span>
+            Donate <span className="gradient-text">XRP</span>
           </h1>
           <p className="mt-2 text-[15px] text-text-secondary">
             Support AllAboutXRP and help keep this resource free.

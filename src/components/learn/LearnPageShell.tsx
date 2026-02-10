@@ -72,7 +72,7 @@ export function LearnHero({
       </nav>
 
       <h1 className="text-[36px] font-bold tracking-[-0.04em] leading-[1.1] text-text-primary md:text-[44px]">
-        {title} <span className="text-xrp-accent">{titleAccent}</span>
+        {title} <span className="gradient-text">{titleAccent}</span>
       </h1>
 
       <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">

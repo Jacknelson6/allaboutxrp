@@ -65,7 +65,7 @@ export default function EscrowContent() {
         </div>
         <div>
           <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">
-            XRP <span className="text-xrp-accent">Escrow</span>
+            XRP <span className="gradient-text">Escrow</span>
           </h1>
           <p className="mt-1 text-text-secondary">
             The complete guide to Ripple&apos;s escrow system and XRP supply management
@@ -93,7 +93,7 @@ export default function EscrowContent() {
       </div>
 
       {/* What is Escrow */}
-      <Section id="what-is-escrow" title="What is XRP Escrow?">
+      <Section id="what-is-escrow" title="What is XRP Escrow?" index={1} total={7}>
         <p className="text-text-secondary leading-relaxed">
           Escrow is a <strong className="text-text-primary">native feature of the XRP Ledger</strong> that allows XRP to be locked in a trustless, on-chain smart contract — no third party required.
         </p>
@@ -138,7 +138,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* The 55B Lockup */}
-      <Section id="ripple-55b" title="Ripple's 55 Billion XRP Escrow">
+      <Section id="ripple-55b" title="Ripple's 55 Billion XRP Escrow" index={2} total={7}>
         <div className="rounded-lg border border-xrp-accent/20 p-5">
           <div className="flex items-center gap-2 text-xrp-accent">
             <Lock className="h-5 w-5" />
@@ -168,7 +168,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* Monthly Releases */}
-      <Section id="monthly-releases" title="Monthly Escrow Releases">
+      <Section id="monthly-releases" title="Monthly Escrow Releases" index={3} total={7}>
         <div className="rounded-lg border border-white/[0.06] p-5">
           <div className="flex items-center gap-2">
             <Unlock className="h-5 w-5 text-xrp-accent" />
@@ -214,7 +214,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* Price Impact */}
-      <Section id="price-impact" title="How Escrow Impacts XRP Price">
+      <Section id="price-impact" title="How Escrow Impacts XRP Price" index={4} total={7}>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             { label: "Max monthly release", value: "1B XRP", sub: "Protocol-enforced ceiling" },
@@ -242,7 +242,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* Tracker */}
-      <Section id="tracker" title="Escrow Tracker & Data">
+      <Section id="tracker" title="Escrow Tracker & Data" index={5} total={7}>
         <h3 className="text-lg font-semibold text-text-primary">Key Numbers (February 2026)</h3>
         <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
           <table className="w-full text-left text-sm">
@@ -281,7 +281,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* Misconceptions */}
-      <Section id="misconceptions" title="Common Misconceptions">
+      <Section id="misconceptions" title="Common Misconceptions" index={6} total={7}>
         <div className="space-y-3">
           {misconceptions.map((m, i) => (
             <div key={i} className="rounded-lg border border-white/[0.06] p-4">
@@ -300,7 +300,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* FAQ */}
-      <Section id="faq" title="Frequently Asked Questions">
+      <Section id="faq" title="Frequently Asked Questions" index={7} total={7}>
         <div className="space-y-2">
           {faqItems.map((item, i) => {
             const isOpen = openFaq === i;
@@ -337,10 +337,21 @@ export default function EscrowContent() {
   );
 }
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({ id, title, children, index, total }: { id: string; title: string; children: React.ReactNode; index?: number; total?: number }) {
   return (
-    <section id={id} className="py-10 scroll-mt-20" aria-label={title}>
+    <section id={id} className="py-12 scroll-mt-20" aria-label={title}>
       <div className="section-divider mb-8" />
+      {index !== undefined && total !== undefined && (
+        <div className="flex items-center gap-3 mb-4">
+          <span className="section-number">
+            <span className="current">{String(index).padStart(2, "0")}</span>
+            <span>/</span>
+            <span>{String(total).padStart(2, "0")}</span>
+          </span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">·</span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-white/20">{title}</span>
+        </div>
+      )}
       <h2 className="text-[24px] font-bold tracking-[-0.03em] text-text-primary">{title}</h2>
       <div className="mt-5">{children}</div>
     </section>
