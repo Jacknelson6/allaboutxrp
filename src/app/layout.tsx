@@ -37,11 +37,13 @@ export const metadata: Metadata = {
     siteName: "AllAboutXRP",
     title: "AllAboutXRP — Everything You Need to Know About XRP",
     description: "Your comprehensive resource for XRP — education, live data, community, and more.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "AllAboutXRP" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AllAboutXRP",
     description: "Your comprehensive resource for everything XRP.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

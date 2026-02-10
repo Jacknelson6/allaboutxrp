@@ -161,6 +161,8 @@ export default function RichListPage() {
                 <button
                   key={t}
                   onClick={() => setRange(t)}
+                  aria-label={`Show ${t === "7D" ? "7 day" : t === "30D" ? "30 day" : "90 day"} price history`}
+                  aria-pressed={range === t}
                   className={`rounded-lg px-3 py-1 text-xs font-medium transition-all duration-200 ${
                     range === t ? "bg-xrp-accent text-white" : "text-text-secondary hover:text-text-primary"
                   }`}
@@ -187,7 +189,10 @@ export default function RichListPage() {
                 </AreaChart>
               </ResponsiveContainer>
             ) : (
-              <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading chart data…</div>
+              <div className="flex items-center justify-center h-full gap-2 text-text-secondary text-sm">
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                Loading chart data…
+              </div>
             )}
           </div>
         </section>
@@ -209,7 +214,10 @@ export default function RichListPage() {
               <div className="text-right">% Supply</div>
             </div>
             {loading ? (
-              <div className="px-4 py-8 text-center text-text-secondary text-sm">Loading rich list…</div>
+              <div className="px-4 py-8 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                Loading rich list…
+              </div>
             ) : richList.length === 0 ? (
               <div className="px-4 py-8 text-center text-text-secondary text-sm">Unable to load rich list data</div>
             ) : (

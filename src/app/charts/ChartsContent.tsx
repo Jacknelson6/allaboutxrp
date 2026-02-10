@@ -73,7 +73,15 @@ export default function ChartsContent() {
         </div>
 
         {/* TradingView Chart */}
-        <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B]">
+        <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative">
+          {!tvReady && (
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                <span className="text-sm text-text-secondary">Loading chart…</span>
+              </div>
+            </div>
+          )}
           <div
             id="tradingview-chart"
             ref={containerRef}

@@ -70,10 +70,12 @@ export default function Newsletter() {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); setError(""); }}
                     placeholder="you@email.com"
+                    aria-label="Email address"
                     className="flex-1 rounded-xl border border-white/[0.08] bg-black px-4 py-3 text-[15px] text-text-primary placeholder:text-white/20 outline-none focus:border-xrp-accent/40 transition-colors duration-200"
                   />
                   <button
                     type="submit"
+                    aria-label="Subscribe to newsletter"
                     className="btn-primary shrink-0 px-5 py-3 rounded-xl"
                   >
                     <ArrowRight className="h-4 w-4" />
