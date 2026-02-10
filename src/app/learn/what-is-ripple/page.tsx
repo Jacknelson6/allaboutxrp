@@ -55,6 +55,7 @@ const faqItems = [
   { q: "Who owns Ripple?", a: "Ripple is a privately held company. Co-founder Chris Larsen serves as Executive Chairman. Key investors include Fortress Investment Group, Citadel Securities, Pantera Capital, and Galaxy Digital. Valued at approximately $50 billion." },
   { q: "Is Ripple a bank?", a: "No. Ripple is a technology company that provides payment infrastructure to banks and financial institutions. It holds various regulatory licenses but is not itself a bank." },
   { q: "Did Ripple win the SEC lawsuit?", a: "Largely, yes. In July 2023, Judge Torres ruled that XRP sold on public exchanges is not a security. Ripple paid a $125 million penalty — far less than the SEC's $2 billion demand." },
+  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, and Kraken. Check our step-by-step guide at /learn/get-started for everything you need to know." },
 ];
 
 export default function WhatIsRipplePage() {
@@ -288,17 +289,18 @@ export default function WhatIsRipplePage() {
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
               { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
               { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
             ]} />
           </RevealSection>
         </div>
 
         <LearnCTA
-          title="Dive Deeper Into the Ripple Ecosystem"
-          description="Explore Ripple's partnerships, leadership team, and the $3.7B acquisition strategy reshaping institutional finance."
-          primaryHref="/learn/partnerships"
-          primaryLabel="Explore Partnerships →"
-          secondaryHref="/acquisitions"
-          secondaryLabel="Acquisition Strategy"
+          title="Bullish on Ripple's Vision?"
+          description="Ripple is building the future of finance with $3.7B in acquisitions, 55+ countries, and growing institutional adoption. Ready to start your XRP journey?"
+          primaryHref="/learn/get-started"
+          primaryLabel="How to Buy XRP →"
+          secondaryHref="/learn/partnerships"
+          secondaryLabel="Explore Partnerships"
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">

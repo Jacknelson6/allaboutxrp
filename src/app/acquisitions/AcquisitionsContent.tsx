@@ -412,6 +412,10 @@ export default function AcquisitionsContent() {
               <h3 className="font-semibold text-text-primary">RLUSD & XRP</h3>
               <p className="mt-1 text-xs text-text-secondary">How the stablecoin fits the strategy</p>
             </Link>
+            <Link href="/learn/get-started" className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px] sm:col-span-3">
+              <h3 className="font-semibold text-text-primary">Bullish on Ripple&apos;s Growth? Here&apos;s How to Get XRP →</h3>
+              <p className="mt-1 text-xs text-text-secondary">Step-by-step beginner guide to buying XRP</p>
+            </Link>
           </div>
         </motion.section>
 

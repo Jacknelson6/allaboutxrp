@@ -6,6 +6,7 @@ import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
+import LayoutShell from "@/components/layout/LayoutShell";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -98,11 +99,9 @@ export default function RootLayout({
         </a>
         <SEOSchema schema={websiteSchema} />
         <AnnouncementBar />
-        <MegaMenu />
-        <main id="main-content" className="min-h-[80vh]">
+        <LayoutShell megaMenu={<MegaMenu />} footer={<Footer />}>
           {children}
-        </main>
-        <Footer />
+        </LayoutShell>
       </body>
     </html>
   );

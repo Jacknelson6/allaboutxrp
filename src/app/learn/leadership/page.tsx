@@ -261,17 +261,18 @@ export default function LeadershipPage() {
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
               { href: "/riddlers", label: "Riddlers & Lore", desc: "Community culture" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your XRP journey" },
             ]} />
           </RevealSection>
         </div>
 
         <LearnCTA
-          title="Explore What They're Building"
-          description="This leadership team has assembled $3.7B+ in acquisitions and built partnerships across 55+ countries. See the results."
-          primaryHref="/acquisitions"
-          primaryLabel="Acquisition Strategy →"
-          secondaryHref="/learn/partnerships"
-          secondaryLabel="View Partnerships"
+          title="Convinced by the Team?"
+          description="This leadership team has assembled $3.7B+ in acquisitions and built partnerships across 55+ countries. Ready to start accumulating XRP?"
+          primaryHref="/learn/get-started"
+          primaryLabel="How to Buy XRP →"
+          secondaryHref="/acquisitions"
+          secondaryLabel="Acquisition Strategy"
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">

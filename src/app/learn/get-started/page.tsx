@@ -275,20 +275,27 @@ export default function GetStartedPage() {
           {/* CONTINUE LEARNING */}
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
+            <p className="mt-3 text-text-secondary leading-relaxed">
+              Before you buy, make sure you understand what you&apos;re investing in. These guides cover everything you need to know:
+            </p>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/richlist", label: "XRP Rich List", desc: "Whale wallets & tier calculator" },
-              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Understand XRP before you buy" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company building on XRP" },
+              { href: "/escrow", label: "Escrow Explained", desc: "How XRP supply is managed" },
+              { href: "/learn/rlusd", label: "RLUSD & XRP", desc: "How Ripple's stablecoin helps XRP" },
+              { href: "/learn/history", label: "XRP History & Timeline", desc: "From 2011 to present" },
+              { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions using XRP" },
               { href: "/learn/leadership", label: "Leadership", desc: "Who runs Ripple" },
+              { href: "/acquisitions", label: "Acquisitions", desc: "Ripple's $3.7B strategy" },
+              { href: "/richlist", label: "XRP Rich List", desc: "Whale wallets & tier calculator" },
+              { href: "/learn/faq", label: "FAQ", desc: "Common questions answered" },
             ]} />
           </RevealSection>
         </div>
 
         <LearnCTA
-          title="Ready to Learn More?"
-          description="Now that you know how to buy XRP, deepen your knowledge with our comprehensive guides."
+          title="Deepen Your Knowledge"
+          description="Now that you know how to buy XRP, understand what makes it unique — from the technology to the team to the $150 trillion market opportunity."
           primaryHref="/learn/what-is-xrp"
           primaryLabel="What is XRP? →"
           secondaryHref="/learn/what-is-ripple"

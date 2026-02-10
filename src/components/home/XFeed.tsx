@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3 } from "lucide-react";
+import Link from "next/link";
 import tweetsData from "@/data/demo-tweets.json";
 
 interface Tweet {
@@ -45,7 +46,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   const [retweeted, setRetweeted] = useState(false);
 
   return (
-    <article className="border-b border-white/[0.04] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
+    <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
       <div className="flex gap-3">
         <div className="shrink-0">
           <div className="relative h-10 w-10 overflow-hidden rounded-full bg-[#111113]">
@@ -136,6 +137,38 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   );
 }
 
+function NewsCard() {
+  return (
+    <Link href="/news/recaps/2026-02-10">
+      <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
+        <div className="flex gap-3">
+          <div className="shrink-0">
+            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-xrp-accent/10">
+              <BarChart3 className="h-5 w-5 text-xrp-accent" />
+            </div>
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-xrp-accent/15 text-xrp-accent uppercase tracking-wide">
+                News
+              </span>
+              <span className="text-text-secondary text-[13px]">Daily Recap</span>
+              <span className="text-white/20 text-[13px]">·</span>
+              <span className="text-text-secondary text-[13px]">Feb 10, 2026</span>
+            </div>
+            <p className="mt-1 text-[15px] font-bold text-text-primary leading-tight">
+              XRP Daily Recap — February 10, 2026
+            </p>
+            <p className="mt-1 text-[14px] text-text-secondary leading-snug">
+              Today&apos;s biggest moves, market analysis, and ecosystem updates. Catch up on everything you missed.
+            </p>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
 export default function XFeed() {
   const [activeTab, setActiveTab] = useState<"trending" | "recent">("trending");
   const [visibleCount, setVisibleCount] = useState(8);
@@ -173,9 +206,9 @@ export default function XFeed() {
   }, [activeTab]);
 
   return (
-    <div className="mx-auto max-w-[600px]">
+    <div>
       {/* Header */}
-      <div className="sticky top-[49px] z-10 bg-[#0A0A0B]/90 backdrop-blur-xl border-b border-white/[0.04]">
+      <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-xl border-b border-[#2F3336]">
         <h2 className="px-4 py-3 text-lg font-semibold tracking-tight text-text-primary">XRP Timeline</h2>
         <div className="flex">
           {(["trending", "recent"] as const).map((tab) => (
@@ -197,8 +230,11 @@ export default function XFeed() {
 
       {/* Timeline */}
       <div>
-        {visibleTweets.map((tweet) => (
-          <TweetCard key={`${activeTab}-${tweet.id}`} tweet={tweet} />
+        {visibleTweets.map((tweet, index) => (
+          <div key={`${activeTab}-${tweet.id}`}>
+            <TweetCard tweet={tweet} />
+            {index === 2 && <NewsCard />}
+          </div>
         ))}
       </div>
 

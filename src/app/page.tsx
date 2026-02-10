@@ -1,11 +1,6 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
-import HomeHero from "@/components/home/HomeHero";
-import FeatureGrid from "@/components/home/FeatureGrid";
-import ProductShowcase from "@/components/home/ProductShowcase";
-import CommunityFeed from "@/components/home/CommunityFeed";
-import Newsletter from "@/components/home/Newsletter";
-import HomeFAQ from "@/components/home/HomeFAQ";
+import HomeFeed from "@/components/home/HomeFeed";
 
 export const metadata: Metadata = {
   title: "AllAboutXRP — Everything You Need to Know About XRP",
@@ -49,12 +44,7 @@ export default function HomePage() {
     <>
       <SEOSchema schema={organizationSchema} />
       <SEOSchema schema={faqSchema} />
-      <HomeHero />
-      <FeatureGrid />
-      <ProductShowcase />
-      <CommunityFeed />
-      <Newsletter />
-      <HomeFAQ />
+      <HomeFeed />
     </>
   );
 }

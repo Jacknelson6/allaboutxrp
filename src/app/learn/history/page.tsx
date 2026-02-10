@@ -276,17 +276,18 @@ export default function HistoryPage() {
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
               { href: "/learn/leadership", label: "Leadership Team", desc: "The people behind Ripple" },
               { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your XRP journey" },
             ]} />
           </RevealSection>
         </div>
 
         <LearnCTA
-          title="The Story Continues"
-          description="From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP's story is still being written."
-          primaryHref="/learn/what-is-xrp"
-          primaryLabel="What is XRP? →"
-          secondaryHref="/news/recaps"
-          secondaryLabel="Latest News"
+          title="Ready to Be Part of the Story?"
+          description="From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP's story is still being written. Start your journey today."
+          primaryHref="/learn/get-started"
+          primaryLabel="How to Buy XRP →"
+          secondaryHref="/learn/what-is-xrp"
+          secondaryLabel="What is XRP?"
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
