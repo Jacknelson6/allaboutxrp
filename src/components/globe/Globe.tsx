@@ -6,37 +6,45 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { XRPLTransaction } from '@/lib/globe/xrpl-stream';
 import TransactionArc from './TransactionArc';
+import { continentOutlines, ContinentPolyline } from '@/data/continent-outlines';
 
-function generateContinentPoints(): THREE.Vector3[] {
-  const points: THREE.Vector3[] = [];
-  const R = 1.001;
+function latLngToVec3(lat: number, lng: number, R: number): THREE.Vector3 {
+  const phi = (90 - lat) * (Math.PI / 180);
+  const theta = (lng + 180) * (Math.PI / 180);
+  return new THREE.Vector3(
+    -R * Math.sin(phi) * Math.cos(theta),
+    R * Math.cos(phi),
+    R * Math.sin(phi) * Math.sin(theta)
+  );
+}
 
-  const landCoords: [number, number][] = [
-    [48, -122], [45, -93], [40, -74], [37, -122], [32, -97], [25, -80],
-    [55, -120], [60, -135], [50, -100], [42, -88], [35, -106], [30, -90],
-    [47, -70], [44, -110], [38, -85], [33, -112], [29, -95],
-    [-3, -60], [-12, -77], [-23, -43], [-34, -58], [-15, -48], [4, -74],
-    [-8, -35], [-20, -63], [-33, -71], [-1, -48], [-16, -69],
-    [51, 0], [48, 2], [52, 13], [59, 18], [40, -4], [41, 12], [38, 24],
-    [55, 37], [60, 25], [47, 8], [50, 20], [45, 15], [56, 10],
-    [30, 31], [0, 32], [-26, 28], [5, -4], [34, 9], [-4, 37], [12, 15],
-    [-2, 30], [-18, 25], [15, 33], [7, 4], [-12, 17],
-    [35, 105], [40, 116], [31, 121], [35, 140], [37, 127], [22, 114],
-    [1, 104], [13, 100], [28, 77], [39, 68], [55, 83], [25, 55],
-    [48, 107], [43, 87], [30, 48], [15, 120], [33, 44],
-    [-34, 151], [-27, 153], [-37, 175], [-42, 147], [-23, 134],
-  ];
+function ContinentOutlines() {
+  const lines = useMemo(() => {
+    const R = 1.002;
+    const allPolylines: ContinentPolyline[] = [];
+    for (const polylines of Object.values(continentOutlines)) {
+      allPolylines.push(...polylines);
+    }
+    return allPolylines.map((polyline) => {
+      const points = polyline.map(([lat, lng]) => latLngToVec3(lat, lng, R));
+      const geometry = new THREE.BufferGeometry().setFromPoints(points);
+      const material = new THREE.LineBasicMaterial({
+        color: new THREE.Color('#0085FF'),
+        transparent: true,
+        opacity: 0.4,
+        depthWrite: false,
+      });
+      return { geometry, material };
+    });
+  }, []);
 
-  for (const [lat, lng] of landCoords) {
-    const phi = (90 - lat) * (Math.PI / 180);
-    const theta = (lng + 180) * (Math.PI / 180);
-    points.push(new THREE.Vector3(
-      -R * Math.sin(phi) * Math.cos(theta),
-      R * Math.cos(phi),
-      R * Math.sin(phi) * Math.sin(theta)
-    ));
-  }
-  return points;
+  return (
+    <>
+      {lines.map((line, i) => (
+        <primitive key={i} object={new THREE.Line(line.geometry, line.material)} />
+      ))}
+    </>
+  );
 }
 
 function FresnelMaterial() {
@@ -84,27 +92,20 @@ function EarthSphere({ children }: { children?: React.ReactNode }) {
     }
   });
 
-  const continentPoints = useMemo(() => generateContinentPoints(), []);
-
   return (
     <group ref={meshRef}>
-      {/* Globe surface - brighter so it's visible against black */}
+      {/* Globe surface */}
       <mesh>
         <sphereGeometry args={[0.995, 64, 64]} />
         <meshPhongMaterial color="#0d2847" emissive="#0a1e3a" shininess={8} transparent opacity={0.97} />
       </mesh>
-      {/* Wireframe grid - more visible */}
+      {/* Wireframe grid */}
       <mesh>
         <sphereGeometry args={[1, 36, 18]} />
         <meshBasicMaterial color="#1a5a8a" wireframe transparent opacity={0.28} />
       </mesh>
-      {/* Continent dots - unchanged */}
-      {continentPoints.map((point, i) => (
-        <mesh key={i} position={point}>
-          <sphereGeometry args={[0.016, 8, 8]} />
-          <meshBasicMaterial color="#00BFFF" transparent opacity={0.85} />
-        </mesh>
-      ))}
+      {/* Continent outlines */}
+      <ContinentOutlines />
       {/* Fresnel rim glow */}
       <mesh>
         <sphereGeometry args={[1.001, 64, 64]} />
