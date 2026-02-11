@@ -213,7 +213,7 @@ export default function LiveChartContent() {
         autosize: true,
         backgroundColor: '#000000',
         gridColor: '#111113',
-        hide_volume: false,
+        hide_volume: true,
         studies: [],
         disabled_features: [
           'header_symbol_search',
@@ -280,7 +280,7 @@ export default function LiveChartContent() {
         autosize: true,
         backgroundColor: '#000000',
         gridColor: '#111113',
-        hide_volume: false,
+        hide_volume: true,
         studies: [],
         disabled_features: [
           'header_symbol_search', 'header_compare', 'header_undo_redo',
