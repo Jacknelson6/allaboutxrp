@@ -170,7 +170,7 @@ export default function Globe({ arcs, onArcComplete }: GlobeProps) {
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 0, 2.5], fov: 45 }}
+        camera={{ position: [0, 0, 3.2], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
