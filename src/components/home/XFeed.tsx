@@ -46,8 +46,8 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   const [retweeted, setRetweeted] = useState(false);
 
   return (
-    <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
-      <div className="flex gap-3">
+    <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer overflow-hidden">
+      <div className="flex gap-3 min-w-0">
         <div className="shrink-0">
           <div className="relative h-10 w-10 overflow-hidden rounded-full bg-[#111113]">
             <Image src={tweet.avatarUrl} alt={tweet.displayName} fill className="object-cover" unoptimized />
@@ -68,7 +68,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="ml-auto shrink-0 rounded-lg border border-white/[0.1] px-3 py-1 text-xs font-medium text-text-primary hover:bg-white/[0.04] transition-colors duration-200"
+              className="ml-auto shrink-0 hidden sm:inline-flex rounded-lg border border-white/[0.1] px-3 py-1 text-xs font-medium text-text-primary hover:bg-white/[0.04] transition-colors duration-200"
             >
               Follow
             </a>
