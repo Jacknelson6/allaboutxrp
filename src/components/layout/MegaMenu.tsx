@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
 const learnCategories = [
@@ -24,6 +24,17 @@ const learnCategories = [
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
       // RLUSD & Escrow accessible via Learn hub (/learn)
+    ],
+  },
+  {
+    title: "Ecosystem",
+    icon: Globe,
+    items: [
+      { label: "Acquisitions", href: "/learn/acquisitions", desc: "Strategic acquisitions powering Ripple", icon: Building2 },
+      { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
+      { label: "Key People", href: "/learn/key-people", desc: "Ripple's leadership team", icon: UserCircle },
+      { label: "Trusted Sources", href: "/learn/trusted-sources", desc: "Curated voices from the community", icon: Users },
+      { label: "Riddlers", href: "/learn/riddlers", desc: "The legendary XRP riddle community", icon: Eye },
     ],
   },
   {
@@ -137,15 +148,6 @@ export default function MegaMenu() {
             Live Chart
           </Link>
 
-          <Link
-            href="/people"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/people") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            People
-          </Link>
-
           {/* Learn dropdown */}
           <div
             className="relative"
@@ -168,11 +170,11 @@ export default function MegaMenu() {
 
             {learnOpen && (
               <div
-                className="absolute -left-32 top-full z-50 mt-2 w-[560px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
+                className="absolute -left-32 top-full z-50 mt-2 w-[720px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-4 gap-6">
                   {learnCategories.map((cat) => (
                     <div key={cat.title}>
                       <div className="flex items-center gap-1.5 mb-3">
@@ -278,16 +280,6 @@ export default function MegaMenu() {
             }`}
           >
             Live Chart
-          </Link>
-
-          <Link
-            href="/people"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/people") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            People
           </Link>
 
           {/* Learn accordion */}

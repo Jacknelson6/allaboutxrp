@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import {
   BookOpen, Rocket, Search, ArrowRight, Clock,
   GraduationCap, Layers, HelpCircle, History,
-  Users, Handshake, Coins, Lock, Play,
+  Users, Handshake, Coins, Lock, Play, Building2, UserCircle, Eye, Globe,
 } from "lucide-react";
 import { useState } from "react";
 import SEOSchema from "@/components/shared/SEOSchema";
@@ -27,7 +27,7 @@ type Article = {
   href: string;
   title: string;
   desc: string;
-  category: "Basics" | "Deep Dives";
+  category: "Basics" | "Deep Dives" | "Ecosystem";
   icon: React.ComponentType<{ className?: string }>;
   gradient: string;
   glowColor: string;
@@ -129,9 +129,49 @@ const articles: Article[] = [
     glowColor: "hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]",
     borderHover: "hover:border-[#EC4899]/50",
   },
+  {
+    href: "/learn/acquisitions",
+    title: "Acquisitions",
+    desc: "Strategic acquisitions powering Ripple's growth and ecosystem expansion.",
+    category: "Ecosystem",
+    icon: Building2,
+    gradient: "from-[#06B6D4] to-[#0085FF]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(0,133,255,0.3)]",
+    borderHover: "hover:border-[#0085FF]/50",
+  },
+  {
+    href: "/learn/key-people",
+    title: "Key People",
+    desc: "Ripple's leadership team driving the XRP ecosystem forward.",
+    category: "Ecosystem",
+    icon: UserCircle,
+    gradient: "from-[#6366F1] to-[#8B5CF6]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
+    borderHover: "hover:border-[#8B5CF6]/50",
+  },
+  {
+    href: "/learn/trusted-sources",
+    title: "Trusted Sources",
+    desc: "Curated voices and experts from the XRP community.",
+    category: "Ecosystem",
+    icon: Users,
+    gradient: "from-[#0085FF] to-[#6366F1]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]",
+    borderHover: "hover:border-[#6366F1]/50",
+  },
+  {
+    href: "/learn/riddlers",
+    title: "Riddlers",
+    desc: "The legendary XRP riddle community — decode the mystery.",
+    category: "Ecosystem",
+    icon: Eye,
+    gradient: "from-[#8B5CF6] to-[#EC4899]",
+    glowColor: "hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]",
+    borderHover: "hover:border-[#EC4899]/50",
+  },
 ];
 
-const categories = ["All", "Basics", "Deep Dives"] as const;
+const categories = ["All", "Basics", "Deep Dives", "Ecosystem"] as const;
 
 /* ── Article Card Component ── */
 function ArticleCard({ article, index, large }: { article: Article; index: number; large?: boolean }) {
@@ -281,15 +321,22 @@ export default function LearnPage() {
                 </ul>
               </div>
 
-              {/* Coming Soon */}
-              <div className="rounded-2xl border border-dashed border-white/[0.08] bg-white/[0.01] p-6 flex flex-col items-center justify-center text-center">
-                <div className="rounded-xl bg-white/[0.04] p-3 w-fit">
-                  <Clock className="h-5 w-5 text-[#888]" />
+              {/* Ecosystem */}
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+                <div className="rounded-xl bg-gradient-to-br from-[#06B6D4] to-[#0085FF] p-3 w-fit">
+                  <Globe className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-white/40">Coming Soon</h3>
-                <p className="mt-1 text-sm text-[#666]">
-                  More articles, listicles, and guides are on the way. Stay tuned.
-                </p>
+                <h3 className="mt-4 text-lg font-bold text-white">Ecosystem</h3>
+                <p className="mt-1 text-sm text-[#888]">People, partnerships, and community.</p>
+                <ul className="mt-4 space-y-2">
+                  {articles.filter((a) => a.category === "Ecosystem").map((a) => (
+                    <li key={a.href}>
+                      <Link href={a.href} className="text-sm text-[#06B6D4]/80 hover:text-[#06B6D4] transition-colors flex items-center gap-1.5">
+                        <ArrowRight className="h-3 w-3" /> {a.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </motion.div>

@@ -6,7 +6,7 @@ const footerSections = [
     links: [
       { href: "/", label: "Home" },
       { href: "/live-chart", label: "Live Chart" },
-      { href: "/people", label: "People" },
+      { href: "/learn", label: "Learn" },
       { href: "/how-to-start", label: "How to Start" },
       { href: "/donate", label: "Donate" },
     ],
@@ -14,15 +14,14 @@ const footerSections = [
   {
     title: "Learn",
     links: [
-      { href: "/learn", label: "Overview" },
       { href: "/learn/what-is-xrp", label: "What is XRP?" },
       { href: "/learn/what-is-ripple", label: "What is Ripple?" },
       { href: "/learn/history", label: "History" },
-      { href: "/learn/leadership", label: "Leadership" },
       { href: "/learn/partnerships", label: "Partnerships" },
-      { href: "/learn/rlusd", label: "RLUSD" },
+      { href: "/learn/acquisitions", label: "Acquisitions" },
+      { href: "/learn/key-people", label: "Key People" },
+      { href: "/learn/trusted-sources", label: "Trusted Sources" },
       { href: "/learn/escrow", label: "Escrow" },
-      { href: "/learn/get-started", label: "Get Started" },
       { href: "/learn/faq", label: "FAQ" },
     ],
   },

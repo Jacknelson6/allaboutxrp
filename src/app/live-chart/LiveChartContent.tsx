@@ -23,6 +23,18 @@ import {
 } from 'lucide-react';
 
 import LiveTrades from '@/components/globe/LiveTrades';
+import RichList from '@/components/richlist/RichList';
+import RecentTransactions from '@/components/live-chart/RecentTransactions';
+import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
+
+type MarketTab = 'markets' | 'holders' | 'transactions' | 'escrow';
+
+const marketTabs: { id: MarketTab; label: string }[] = [
+  { id: 'markets', label: 'Markets' },
+  { id: 'holders', label: 'Holders' },
+  { id: 'transactions', label: 'Transactions' },
+  { id: 'escrow', label: 'Escrow' },
+];
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ssr: false,
@@ -141,6 +153,7 @@ export default function LiveChartContent() {
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
+  const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('markets');
   const { data: binancePrice } = useXRPPrice();
   const chartRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<unknown>(null);
@@ -489,62 +502,85 @@ export default function LiveChartContent() {
               </div>
             )}
 
-            {/* Markets Table */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <h2 className="text-lg font-bold mb-4">
-                XRP <span className="text-[#0085FF]">Markets</span>
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="text-left text-[11px] text-white/30 uppercase tracking-widest border-b border-white/[0.06]">
-                      <th className="pb-3 pr-4">#</th>
-                      <th className="pb-3 pr-4">Exchange</th>
-                      <th className="pb-3 pr-4">Pair</th>
-                      <th className="pb-3 pr-4 text-right">Price</th>
-                      <th className="pb-3 pr-4 text-right">Volume (24h)</th>
-                      <th className="pb-3 pr-4 text-right">Vol %</th>
-                      <th className="pb-3 text-center">Trust</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tickers.length === 0 ? (
-                      <tr>
-                        <td colSpan={7} className="py-8 text-center text-white/30">
-                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
-                          Loading markets…
-                        </td>
+            {/* Tab Selector */}
+            <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
+              {marketTabs.map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveMarketTab(tab.id)}
+                  className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                    activeMarketTab === tab.id
+                      ? 'bg-[#0085FF] text-black shadow-sm'
+                      : 'text-white/40 hover:text-white/70 hover:bg-white/[0.04]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Tab Content */}
+            {activeMarketTab === 'markets' && (
+              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+                <h2 className="text-lg font-bold mb-4">
+                  XRP <span className="text-[#0085FF]">Markets</span>
+                </h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="text-left text-[11px] text-white/30 uppercase tracking-widest border-b border-white/[0.06]">
+                        <th className="pb-3 pr-4">#</th>
+                        <th className="pb-3 pr-4">Exchange</th>
+                        <th className="pb-3 pr-4">Pair</th>
+                        <th className="pb-3 pr-4 text-right">Price</th>
+                        <th className="pb-3 pr-4 text-right">Volume (24h)</th>
+                        <th className="pb-3 pr-4 text-right">Vol %</th>
+                        <th className="pb-3 text-center">Trust</th>
                       </tr>
-                    ) : (
-                      tickers.map((t, i) => (
-                        <tr key={`${t.market.identifier}-${t.target}-${i}`} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
-                          <td className="py-3 pr-4 text-white/30 text-xs">{i + 1}</td>
-                          <td className="py-3 pr-4 font-medium">{t.market.name}</td>
-                          <td className="py-3 pr-4">
-                            <a
-                              href={t.trade_url || '#'}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[#0085FF] hover:underline font-mono text-xs"
-                            >
-                              {t.base}/{t.target}
-                            </a>
-                          </td>
-                          <td className="py-3 pr-4 text-right font-mono">{fmtPrice(t.last)}</td>
-                          <td className="py-3 pr-4 text-right font-mono">{fmt(t.converted_volume?.usd ?? 0)}</td>
-                          <td className="py-3 pr-4 text-right text-white/50">
-                            {totalTickerVol > 0 ? `${((t.converted_volume?.usd ?? 0) / totalTickerVol * 100).toFixed(1)}%` : '—'}
-                          </td>
-                          <td className="py-3 text-center">
-                            <TrustBadge score={t.trust_score} />
+                    </thead>
+                    <tbody>
+                      {tickers.length === 0 ? (
+                        <tr>
+                          <td colSpan={7} className="py-8 text-center text-white/30">
+                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
+                            Loading markets…
                           </td>
                         </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+                      ) : (
+                        tickers.map((t, i) => (
+                          <tr key={`${t.market.identifier}-${t.target}-${i}`} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 pr-4 text-white/30 text-xs">{i + 1}</td>
+                            <td className="py-3 pr-4 font-medium">{t.market.name}</td>
+                            <td className="py-3 pr-4">
+                              <a
+                                href={t.trade_url || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#0085FF] hover:underline font-mono text-xs"
+                              >
+                                {t.base}/{t.target}
+                              </a>
+                            </td>
+                            <td className="py-3 pr-4 text-right font-mono">{fmtPrice(t.last)}</td>
+                            <td className="py-3 pr-4 text-right font-mono">{fmt(t.converted_volume?.usd ?? 0)}</td>
+                            <td className="py-3 pr-4 text-right text-white/50">
+                              {totalTickerVol > 0 ? `${((t.converted_volume?.usd ?? 0) / totalTickerVol * 100).toFixed(1)}%` : '—'}
+                            </td>
+                            <td className="py-3 text-center">
+                              <TrustBadge score={t.trust_score} />
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
+            )}
+
+            {activeMarketTab === 'holders' && <RichList />}
+            {activeMarketTab === 'transactions' && <RecentTransactions />}
+            {activeMarketTab === 'escrow' && <EscrowSchedule />}
           </div>
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
