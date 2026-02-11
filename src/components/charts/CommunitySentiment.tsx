@@ -78,14 +78,18 @@ export default function CommunitySentiment() {
         <span className={`text-sm font-semibold ${sentimentColor}`}>{data.label}</span>
       </div>
 
-      {/* Bar */}
-      <div className="flex rounded-full overflow-hidden h-2 mb-2">
-        <div className="bg-green-500/80 transition-all duration-500" style={{ width: `${data.bullish}%` }} />
-        <div className="bg-red-500/80 transition-all duration-500" style={{ width: `${data.bearish}%` }} />
+      {/* Bar with inline labels */}
+      <div className="flex rounded-full overflow-hidden h-6 mb-2">
+        <div className="bg-green-500/80 flex items-center justify-center text-[11px] font-bold text-white transition-all duration-500" style={{ width: `${data.bullish}%` }}>
+          {data.bullish > 15 && `${data.bullish}%`}
+        </div>
+        <div className="bg-red-500/80 flex items-center justify-center text-[11px] font-bold text-white transition-all duration-500" style={{ width: `${data.bearish}%` }}>
+          {data.bearish > 15 && `${data.bearish}%`}
+        </div>
       </div>
-      <div className="flex justify-between text-[10px] text-white/30">
-        <span>{data.bullish}% Bullish</span>
-        <span>{data.bearish}% Bearish</span>
+      <div className="flex justify-between text-[10px] text-white/40">
+        <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-green-500/80" /> Bullish</span>
+        <span className="flex items-center gap-1">Bearish <span className="h-2 w-2 rounded-full bg-red-500/80" /></span>
       </div>
     </div>
   );
