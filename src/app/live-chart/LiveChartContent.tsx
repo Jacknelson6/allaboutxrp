@@ -675,6 +675,32 @@ export default function LiveChartContent() {
             {/* Fear & Greed Index */}
             <FearGreedIndex />
 
+            {/* Community Sentiment */}
+            {coin && (coin as unknown as Record<string, number>).sentiment_votes_up_percentage != null && (
+              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+                <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Community Sentiment</p>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-green-400">
+                    🟢 {((coin as unknown as Record<string, number>).sentiment_votes_up_percentage ?? 0).toFixed(0)}% Bullish
+                  </span>
+                  <span className="text-xs font-medium text-red-400">
+                    🔴 {((coin as unknown as Record<string, number>).sentiment_votes_down_percentage ?? 0).toFixed(0)}% Bearish
+                  </span>
+                </div>
+                <div className="relative h-3 rounded-full overflow-hidden bg-white/[0.06]">
+                  <div
+                    className="absolute top-0 left-0 h-full rounded-full bg-green-500 transition-all duration-1000"
+                    style={{ width: `${(coin as unknown as Record<string, number>).sentiment_votes_up_percentage ?? 50}%` }}
+                  />
+                  <div
+                    className="absolute top-0 right-0 h-full rounded-full bg-red-500 transition-all duration-1000"
+                    style={{ width: `${(coin as unknown as Record<string, number>).sentiment_votes_down_percentage ?? 50}%` }}
+                  />
+                </div>
+                <p className="text-[10px] text-white/20 text-center mt-2">Source: CoinGecko community votes</p>
+              </div>
+            )}
+
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Price Performance</p>
