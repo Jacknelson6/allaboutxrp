@@ -11,22 +11,16 @@ interface LayoutShellProps {
 
 export default function LayoutShell({ megaMenu, footer, children }: LayoutShellProps) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isLive = pathname === "/live";
 
-  if (isHome) {
-    return (
-      <main id="main-content" className="min-h-screen">
-        {children}
-      </main>
-    );
+  if (isLive) {
+    return <main id="main-content" className="min-h-screen">{children}</main>;
   }
 
   return (
     <>
       {megaMenu}
-      <main id="main-content" className="min-h-[80vh]">
-        {children}
-      </main>
+      <main id="main-content" className="min-h-[80vh]">{children}</main>
       {footer}
     </>
   );
