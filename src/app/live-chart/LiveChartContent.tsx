@@ -375,19 +375,6 @@ export default function LiveChartContent() {
               </div>
             </div>
 
-            {/* Market stats */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 space-y-3">
-              <StatRow label="Market Cap" value={md ? fmt(md.market_cap.usd) : '—'} />
-              <StatRow label="24h Volume" value={md ? fmt(md.total_volume.usd) : '—'} />
-              <StatRow label="Circulating Supply" value={md ? `${fmtNum(md.circulating_supply)} XRP` : '—'} />
-              {md?.total_supply && (
-                <StatRow label="Total Supply" value={`${fmtNum(md.total_supply)} XRP`} />
-              )}
-              {md?.max_supply && (
-                <StatRow label="Max Supply" value={`${fmtNum(md.max_supply)} XRP`} />
-              )}
-            </div>
-
             {/* 24h Price Range */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">24h Range</p>
@@ -411,6 +398,19 @@ export default function LiveChartContent() {
                   }}
                 />
               </div>
+            </div>
+
+            {/* Market stats */}
+            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 space-y-3">
+              <StatRow label="Market Cap" value={md ? fmt(md.market_cap.usd) : '—'} />
+              <StatRow label="24h Volume" value={md ? fmt(md.total_volume.usd) : '—'} />
+              <StatRow label="Circulating Supply" value={md ? `${fmtNum(md.circulating_supply)} XRP` : '—'} />
+              {md?.total_supply && (
+                <StatRow label="Total Supply" value={`${fmtNum(md.total_supply)} XRP`} />
+              )}
+              {md?.max_supply && (
+                <StatRow label="Max Supply" value={`${fmtNum(md.max_supply)} XRP`} />
+              )}
             </div>
 
             {/* ATH / ATL */}
