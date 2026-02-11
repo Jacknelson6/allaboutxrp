@@ -136,7 +136,7 @@ function PctBadge({ value }: { value: number }) {
 const timeframes = [
   { label: '15m', interval: '15', range: '1D' },
   { label: '1h', interval: '60', range: '3D' },
-  { label: '4h', interval: '240', range: '2W' },
+  { label: '4h', interval: '4H', range: '2W' },
   { label: '1D', interval: 'D', range: '6M' },
   { label: '1W', interval: 'W', range: '24M' },
   { label: '1M', interval: 'M', range: '60M' },
