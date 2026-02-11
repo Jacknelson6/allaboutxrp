@@ -54,9 +54,9 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
 
   return (
     <>
-      <button
-        onClick={() => setModalOpen(true)}
-        className="w-full rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 text-left hover:bg-[#1D1F23] transition-colors"
+      <a
+        href="/charts"
+        className="block w-full rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 text-left hover:bg-[#1D1F23] transition-colors"
       >
         <div className="flex items-center justify-between mb-2">
           <span className="text-[13px] font-bold text-text-primary">XRP / USDT</span>
@@ -72,12 +72,13 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
           </span>
           <span className="text-[13px] text-text-secondary">24h</span>
         </div>
-        <div className="mt-3 flex justify-between text-[12px] text-text-secondary">
-          <span>H: ${data.high24h.toFixed(4)}</span>
-          <span>L: ${data.low24h.toFixed(4)}</span>
-        </div>
-      </button>
-      <TradeModal isOpen={modalOpen} onClose={() => setModalOpen(false)} priceInfo={data} />
+        {(data.high24h > 0 || data.low24h > 0) && (
+          <div className="mt-3 flex justify-between text-[12px] text-text-secondary">
+            <span>H: ${data.high24h.toFixed(4)}</span>
+            <span>L: ${data.low24h.toFixed(4)}</span>
+          </div>
+        )}
+      </a>
     </>
   );
 }
