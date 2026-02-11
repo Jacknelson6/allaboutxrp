@@ -64,7 +64,7 @@ export default function GetStartedPage() {
                 key={ex.name}
                 href={ex.url}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow sponsored noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

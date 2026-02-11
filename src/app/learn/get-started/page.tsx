@@ -157,7 +157,7 @@ export default function GetStartedPage() {
                   key={ex.name}
                   href={ex.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow sponsored noopener noreferrer"
                   className={`flex flex-col rounded-xl border p-5  transition-colors ${
                     ex.recommended
                       ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"
