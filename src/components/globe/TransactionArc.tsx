@@ -18,7 +18,7 @@ export default function TransactionArc({ transaction, onComplete }: Props) {
   const progressRef = useRef(0);
   const startTime = useRef(Date.now());
   const [completed, setCompleted] = useState(false);
-  const duration = transaction.amount > 1_000_000 ? 12000 : transaction.amount > 10_000 ? 10000 : 8000;
+  const duration = transaction.amount > 1_000_000 ? 6000 : transaction.amount > 10_000 ? 4000 : 3000;
 
   const { points, color, startPoint, endPoint } = useMemo(() => {
     const srcLoc = getLocationForAddress(transaction.account);

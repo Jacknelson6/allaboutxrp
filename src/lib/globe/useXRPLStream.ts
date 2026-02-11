@@ -3,10 +3,10 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
 import { subscribe, XRPLTransaction } from './xrpl-stream';
 
-const MAX_TRANSACTIONS = 50;
-const MAX_ARCS = 60;
+const MAX_TRANSACTIONS = 100;
+const MAX_ARCS = 150;
 const STATS_WINDOW = 5 * 60 * 1000;
-const ARC_DRIP_INTERVAL = 300;
+const ARC_DRIP_INTERVAL = 80;
 
 export interface Stats {
   tps: number;
@@ -33,8 +33,8 @@ export function useXRPLStream() {
 
     setTransactions(prev => [...batch, ...prev].slice(0, MAX_TRANSACTIONS));
 
-    const paymentArcs = batch.filter(tx => tx.type === 'Payment' && tx.amount > 0);
-    arcQueue.current.push(...paymentArcs);
+    // Show all transaction types on the globe, not just payments
+    arcQueue.current.push(...batch);
 
     const now = Date.now();
     recentTxTimes.current.push(...batch.map(() => now));
@@ -60,8 +60,10 @@ export function useXRPLStream() {
 
   const dripArc = useCallback(() => {
     if (arcQueue.current.length === 0) return;
-    const tx = arcQueue.current.shift()!;
-    setArcs(prev => [tx, ...prev].slice(0, MAX_ARCS));
+    // Drip up to 3 arcs at once to keep up with high throughput
+    const count = Math.min(arcQueue.current.length, 3);
+    const batch = arcQueue.current.splice(0, count);
+    setArcs(prev => [...batch, ...prev].slice(0, MAX_ARCS));
   }, []);
 
   useEffect(() => {
