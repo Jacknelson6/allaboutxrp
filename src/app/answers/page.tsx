@@ -17,6 +17,10 @@ export const metadata: Metadata = {
 };
 
 const questions = [
+  { slug: "best-cryptocurrency-2026", title: "Best Cryptocurrency to Buy in 2026", snippet: "XRP, Bitcoin, Ethereum, Solana — which is the best crypto to buy? Full comparison." },
+  { slug: "top-10-cryptocurrencies-2026", title: "Top 10 Cryptocurrencies to Watch in 2026", snippet: "Ranked list of the top 10 cryptos with key stats, verdicts, and analysis." },
+  { slug: "xrp-price-prediction-2026", title: "XRP Price Prediction 2026", snippet: "Real analyst predictions from 21Shares, Changelly, Kraken, and more." },
+  { slug: "best-altcoins-2026", title: "Best Altcoins to Buy in 2026", snippet: "Top altcoin picks beyond Bitcoin — XRP, ETH, SOL, LINK, and more." },
   { slug: "is-xrp-a-good-investment", title: "Is XRP a Good Investment in 2026?", snippet: "XRP offers real utility in cross-border payments, but all crypto carries risk." },
   { slug: "will-xrp-reach-10-dollars", title: "Will XRP Reach $10?", snippet: "What market cap, adoption, and historical trends suggest about XRP's price ceiling." },
   { slug: "is-xrp-a-security", title: "Is XRP a Security?", snippet: "The SEC lawsuit outcome and what it means for XRP's legal classification." },
