@@ -259,10 +259,6 @@ export default function BestXRPWalletsPage() {
             mobile hot wallets. Here are our picks for security, usability, and XRP-specific features.
           </p>
 
-          {/* Affiliate Disclosure */}
-          <div className="rounded-lg border border-yellow-900/50 bg-yellow-950/20 px-4 py-3 text-sm text-yellow-200/80 mb-10">
-            📋 This page may contain affiliate links. We may earn a commission at no extra cost to you.
-          </div>
 
           {/* Quick Picks Table */}
           <section className="mb-16">
@@ -489,6 +485,10 @@ export default function BestXRPWalletsPage() {
               ))}
             </div>
           </section>
+          {/* Affiliate Disclosure */}
+          <div className="mt-16 rounded-lg border border-yellow-900/50 bg-yellow-950/20 px-4 py-3 text-sm text-yellow-200/80">
+            📋 This page may contain affiliate links. We may earn a commission at no extra cost to you.
+          </div>
         </article>
       </main>
     </>
