@@ -5,6 +5,7 @@ import { Suspense, useEffect, useRef, useState, useCallback } from 'react';
 import Script from 'next/script';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 import StatsBar from '@/components/globe/StatsBar';
+import NewsSentiment from '@/components/charts/NewsSentiment';
 import {
   TrendingUp,
   TrendingDown,
@@ -16,7 +17,6 @@ import {
   ShieldCheck,
   ShieldAlert,
   CandlestickChart,
-  BarChart3,
   LineChart,
   Globe as GlobeIcon,
 } from 'lucide-react';
@@ -70,11 +70,10 @@ interface Ticker {
   trade_url: string;
 }
 
-type ChartView = 'candles' | 'bars' | 'line' | 'globe';
+type ChartView = 'candles' | 'line' | 'globe';
 
 const chartViews: { id: ChartView; label: string; icon: typeof CandlestickChart; tvStyle?: string }[] = [
   { id: 'candles', label: 'Candlesticks', icon: CandlestickChart, tvStyle: '1' },
-  { id: 'bars', label: 'Bar Chart', icon: BarChart3, tvStyle: '0' },
   { id: 'line', label: 'Line', icon: LineChart, tvStyle: '3' },
   { id: 'globe', label: 'Globe', icon: GlobeIcon },
 ];
@@ -496,40 +495,8 @@ export default function LiveChartContent() {
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
           <div className="space-y-4 order-3">
-            {/* Community Sentiment */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Community Sentiment</p>
-              <p className="text-sm text-white/50 mb-4">How do you feel about XRP today?</p>
-
-              <div className="flex rounded-full overflow-hidden h-6 mb-3">
-                <div className="flex items-center justify-center text-[10px] font-bold text-white bg-green-500/80" style={{ width: '87%' }}>
-                  87%
-                </div>
-                <div className="flex items-center justify-center text-[10px] font-bold text-white bg-red-500/80" style={{ width: '13%' }}>
-                  13%
-                </div>
-              </div>
-
-              <div className="flex justify-between text-xs text-white/40 mb-4">
-                <span className="flex items-center gap-1">
-                  <TrendingUp className="h-3 w-3 text-green-400" /> Bullish
-                </span>
-                <span className="flex items-center gap-1">
-                  Bearish <TrendingDown className="h-3 w-3 text-red-400" />
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-semibold hover:bg-green-500/20 transition-colors">
-                  <TrendingUp className="h-4 w-4" />
-                  Bullish
-                </button>
-                <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-semibold hover:bg-red-500/20 transition-colors">
-                  <TrendingDown className="h-4 w-4" />
-                  Bearish
-                </button>
-              </div>
-            </div>
+            {/* News Sentiment */}
+            <NewsSentiment />
 
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
