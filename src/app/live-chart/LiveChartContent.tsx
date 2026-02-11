@@ -176,12 +176,15 @@ export default function LiveChartContent() {
       return null;
     };
     try {
+      // Stagger calls to avoid CoinGecko 429 rate limits (free tier: ~10-30 req/min)
       const priceData = await fetchJSON('https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true');
       if (priceData?.ripple) setPrice(priceData.ripple);
 
+      await new Promise(r => setTimeout(r, 1500));
       const coinData = await fetchJSON('https://api.coingecko.com/api/v3/coins/ripple?localization=false&tickers=false&community_data=false&developer_data=false');
       if (coinData?.market_data) setCoin(coinData);
 
+      await new Promise(r => setTimeout(r, 1500));
       const tickerData = await fetchJSON('https://api.coingecko.com/api/v3/coins/ripple/tickers?order=volume_desc');
       if (tickerData?.tickers) setTickers(tickerData.tickers.slice(0, 20));
     } catch (e) {
@@ -191,7 +194,7 @@ export default function LiveChartContent() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 60000);
+    const interval = setInterval(fetchData, 120000);
     return () => clearInterval(interval);
   }, [fetchData]);
 
