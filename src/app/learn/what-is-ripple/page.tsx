@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
-import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
@@ -82,7 +81,6 @@ export default function WhatIsRipplePage() {
           { id: "faq", label: "FAQ" },
         ]} />
 
-        <div className="mt-6"><Disclaimer /></div>
 
         <div className="pointer-events-none absolute inset-0 " />
         <div className="pointer-events-none absolute inset-0 " />

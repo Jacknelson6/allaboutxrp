@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ExternalLink, Shield, CreditCard, Wallet, ArrowRight, Rocket, Star } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
-import Disclaimer from "@/components/shared/Disclaimer";
 
 const howToSchema = {
   "@context": "https://schema.org",
@@ -54,7 +54,6 @@ export default function GetStartedPage() {
           </div>
         </motion.div>
 
-        <div className="mt-6"><Disclaimer /></div>
 
         {/* Exchanges */}
         <section className="mt-10" aria-label="Recommended exchanges">
@@ -126,12 +125,12 @@ export default function GetStartedPage() {
         >
           <h2 className="text-xl font-bold text-text-primary">Ready to Learn More?</h2>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <a href="/learn/what-is-xrp" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is XRP?</a>
-            <a href="/learn/what-is-ripple" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is Ripple?</a>
-            <a href="/learn/history" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">History</a>
-            <a href="/learn/rlusd" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">RLUSD</a>
-            <a href="/learn/partnerships" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">Partnerships</a>
-            <a href="/learn" className="rounded-lg bg-[#0085FF]/10 border border-[#0085FF]/20 px-4 py-2 text-sm font-semibold text-[#0085FF] hover:bg-[#0085FF]/20 transition-colors">Browse All →</a>
+            <Link href="/learn/what-is-xrp" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is XRP?</Link>
+            <Link href="/learn/what-is-ripple" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is Ripple?</Link>
+            <Link href="/learn/history" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">History</Link>
+            <Link href="/learn/rlusd" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">RLUSD</Link>
+            <Link href="/learn/partnerships" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">Partnerships</Link>
+            <Link href="/learn" className="rounded-lg bg-[#0085FF]/10 border border-[#0085FF]/20 px-4 py-2 text-sm font-semibold text-[#0085FF] hover:bg-[#0085FF]/20 transition-colors">Browse All →</Link>
           </div>
         </motion.div>
       </div>

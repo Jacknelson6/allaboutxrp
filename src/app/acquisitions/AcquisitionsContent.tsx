@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Building2, DollarSign, Globe, Users, ArrowRight, TrendingUp, Shield, Layers, Landmark, Wallet } from "lucide-react";
 import StatCard from "@/components/shared/StatCard";
-import Disclaimer from "@/components/shared/Disclaimer";
 
 const sections = [
   { id: "overview", label: "Overview" },
@@ -186,7 +185,6 @@ export default function AcquisitionsContent() {
           ))}
         </nav>
 
-        <div className="mt-6"><Disclaimer /></div>
 
         {/* Stats */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

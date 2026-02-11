@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
-import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
@@ -163,7 +162,6 @@ export default function PartnershipsPage() {
 
         <div className="pointer-events-none absolute inset-0 " />
         <div className="pointer-events-none absolute inset-0 " />
-        <div className="mt-6"><Disclaimer /></div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Countries" value="55+" delay={0} />

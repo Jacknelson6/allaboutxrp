@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
-import Disclaimer from "@/components/shared/Disclaimer";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
 import { buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
@@ -102,7 +101,6 @@ export default function GetStartedPage() {
 
         <div className="pointer-events-none absolute inset-0 " />
         <div className="pointer-events-none absolute inset-0 " />
-        <div className="mt-6"><Disclaimer /></div>
 
         <div className="cv-auto mt-14 space-y-14">
           {/* STEP BY STEP */}
@@ -303,7 +301,6 @@ export default function GetStartedPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. This is educational content, not financial advice. Always do your own research.</em>
         </p>
       </div>
     </>

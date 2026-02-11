@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Lock, Unlock, ArrowRight, TrendingUp, Eye, ChevronDown, ExternalLink, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import StatCard from "@/components/shared/StatCard";
-import Disclaimer from "@/components/shared/Disclaimer";
 
 const sections = [
   { id: "what-is-escrow", label: "What is Escrow?" },
@@ -92,7 +91,6 @@ export default function EscrowContent() {
         ))}
       </nav>
 
-      <div className="mt-6"><Disclaimer /></div>
 
       {/* Stats */}
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
