@@ -21,6 +21,7 @@ interface SentimentData {
 export default function NewsSentiment() {
   const [data, setData] = useState<SentimentData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showSources, setShowSources] = useState(false);
 
   useEffect(() => {
     async function fetchSentiment() {
@@ -95,30 +96,38 @@ export default function NewsSentiment() {
         <span>{bearishPct}% Bearish</span>
       </div>
 
-      {/* Recent headlines */}
+      {/* Sources toggle */}
       <p className="text-[10px] text-white/30 uppercase tracking-widest mb-2">Based on {data.articles.length} recent articles</p>
-      <div className="space-y-1.5 max-h-[240px] overflow-y-auto">
-        {data.articles.map((article, i) => {
-          const dotColor = article.sentiment === 'bullish' ? 'bg-green-400' : article.sentiment === 'bearish' ? 'bg-red-400' : 'bg-yellow-400';
-          return (
-            <a
-              key={i}
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-2 py-1.5 px-1 rounded hover:bg-white/[0.03] transition-colors group"
-            >
-              <div className={`h-1.5 w-1.5 rounded-full ${dotColor} mt-1.5 shrink-0`} />
-              <div className="min-w-0">
-                <p className="text-xs text-white/70 leading-snug line-clamp-2 group-hover:text-white/90 transition-colors">
-                  {article.title}
-                </p>
-                <p className="text-[10px] text-white/20 mt-0.5">{article.source} · {article.date}</p>
-              </div>
-            </a>
-          );
-        })}
-      </div>
+      <button
+        onClick={() => setShowSources(!showSources)}
+        className="text-xs text-[#0085FF] hover:text-[#0085FF]/80 transition-colors font-medium"
+      >
+        {showSources ? 'Hide sources' : 'Sources →'}
+      </button>
+      {showSources && (
+        <div className="mt-2 space-y-1.5 max-h-[240px] overflow-y-auto">
+          {data.articles.map((article, i) => {
+            const dotColor = article.sentiment === 'bullish' ? 'bg-green-400' : article.sentiment === 'bearish' ? 'bg-red-400' : 'bg-yellow-400';
+            return (
+              <a
+                key={i}
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 py-1.5 px-1 rounded hover:bg-white/[0.03] transition-colors group"
+              >
+                <div className={`h-1.5 w-1.5 rounded-full ${dotColor} mt-1.5 shrink-0`} />
+                <div className="min-w-0">
+                  <p className="text-xs text-white/70 leading-snug line-clamp-2 group-hover:text-white/90 transition-colors">
+                    {article.title}
+                  </p>
+                  <p className="text-[10px] text-white/20 mt-0.5">{article.source} · {article.date}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

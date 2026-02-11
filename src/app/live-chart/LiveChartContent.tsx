@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 import StatsBar from '@/components/globe/StatsBar';
 import NewsSentiment from '@/components/charts/NewsSentiment';
+import CommunitySentiment from '@/components/charts/CommunitySentiment';
 import { useXRPPrice } from '@/hooks/useXRPPrice';
 import {
   TrendingUp,
@@ -543,6 +544,7 @@ export default function LiveChartContent() {
           <div className="space-y-4 order-3">
             {/* News Sentiment */}
             <NewsSentiment />
+            <CommunitySentiment />
 
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
