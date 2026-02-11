@@ -259,8 +259,8 @@ export default function MegaMenu() {
       {mobileOpen && (
       <div
         className="fixed inset-x-0 bottom-0 z-[60] overflow-y-auto overscroll-contain bg-black lg:hidden"
-        style={{ top: navHeight || 49 }}
-        aria-hidden={!mobileOpen}
+        style={{ top: navHeight || 56 }}
+        aria-hidden={false}
       >
         <div className="flex flex-col px-5 py-4 gap-0.5">
           <Link
