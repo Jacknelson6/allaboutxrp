@@ -12,14 +12,14 @@ export default function HomeFeed() {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative mx-auto max-w-[1200px] px-4">
+      <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 px-4">
         {/* Center feed */}
-        <div className="mx-auto max-w-[650px]">
+        <div className="min-w-0 max-w-[650px] mx-auto lg:mx-0 lg:justify-self-center">
           <XFeed />
         </div>
 
-        {/* Right sidebar - desktop only, pinned to right */}
-        <div className="hidden lg:block w-[300px] absolute right-4 top-0">
+        {/* Right sidebar - desktop only */}
+        <div className="hidden lg:block">
           <div className="sticky top-20">
             <RightSidebar />
           </div>
