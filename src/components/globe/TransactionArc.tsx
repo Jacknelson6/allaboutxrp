@@ -13,8 +13,7 @@ interface Props {
 }
 
 export default function TransactionArc({ transaction, onComplete }: Props) {
-  const lineRef = useRef<THREE.Line>(null);
-  const glowLineRef = useRef<THREE.Line>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const progressRef = useRef(0);
   const startTime = useRef(Date.now());
   const [completed, setCompleted] = useState(false);
@@ -35,19 +34,18 @@ export default function TransactionArc({ transaction, onComplete }: Props) {
   }, [transaction]);
 
   const endpointSize = transaction.amount > 1_000_000 ? 0.022 : transaction.amount > 10_000 ? 0.017 : 0.013;
+  const tubeRadius = transaction.amount > 1_000_000 ? 0.004 : transaction.amount > 10_000 ? 0.003 : 0.002;
 
-  // Create line objects
-  const { line, glowLine } = useMemo(() => {
-    const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 1 });
-    const geom = new THREE.BufferGeometry().setFromPoints(points.slice(0, 2));
-    const l = new THREE.Line(geom, mat);
+  // Create tube geometry for thick arcs
+  const { tubeGeom, glowTubeGeom } = useMemo(() => {
+    const curve = new THREE.CatmullRomCurve3(points);
+    const tube = new THREE.TubeGeometry(curve, 32, tubeRadius, 6, false);
+    const glowTube = new THREE.TubeGeometry(curve, 32, tubeRadius * 2.5, 6, false);
+    return { tubeGeom: tube, glowTubeGeom: glowTube };
+  }, [points, tubeRadius]);
 
-    const glowMat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.4 });
-    const glowGeom = new THREE.BufferGeometry().setFromPoints(points.slice(0, 2));
-    const gl = new THREE.Line(glowGeom, glowMat);
-
-    return { line: l, glowLine: gl };
-  }, [color, points]);
+  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+  const glowMatRef = useRef<THREE.MeshBasicMaterial>(null);
 
   useFrame(() => {
     if (completed) return;
@@ -55,31 +53,10 @@ export default function TransactionArc({ transaction, onComplete }: Props) {
     const progress = Math.min(elapsed / duration, 1);
     progressRef.current = progress;
 
-    let drawPoints: THREE.Vector3[];
-    if (progress < 0.5) {
-      const growProgress = progress / 0.5;
-      const visibleCount = Math.max(Math.floor(growProgress * points.length), 2);
-      drawPoints = points.slice(0, visibleCount);
-    } else if (progress < 0.75) {
-      drawPoints = points;
-    } else {
-      const fadeProgress = (progress - 0.75) / 0.25;
-      const startIdx = Math.floor(fadeProgress * points.length);
-      drawPoints = points.slice(startIdx);
-      if (drawPoints.length < 2) drawPoints = points.slice(-2);
-    }
-
-    if (lineRef.current) {
-      lineRef.current.geometry.dispose();
-      lineRef.current.geometry = new THREE.BufferGeometry().setFromPoints(drawPoints);
-      (lineRef.current.material as THREE.LineBasicMaterial).opacity = progress > 0.75 ? 1 - (progress - 0.75) / 0.25 : 1;
-    }
-
-    if (glowLineRef.current) {
-      glowLineRef.current.geometry.dispose();
-      glowLineRef.current.geometry = new THREE.BufferGeometry().setFromPoints(drawPoints);
-      (glowLineRef.current.material as THREE.LineBasicMaterial).opacity = (progress > 0.75 ? 1 - (progress - 0.75) / 0.25 : 1) * 0.4;
-    }
+    // Fade out in last 25%
+    const opacity = progress > 0.75 ? 1 - (progress - 0.75) / 0.25 : 1;
+    if (matRef.current) matRef.current.opacity = opacity;
+    if (glowMatRef.current) glowMatRef.current.opacity = opacity * 0.25;
 
     if (progress >= 1) {
       setCompleted(true);
@@ -88,9 +65,15 @@ export default function TransactionArc({ transaction, onComplete }: Props) {
   });
 
   return (
-    <group>
-      <primitive ref={glowLineRef} object={glowLine} />
-      <primitive ref={lineRef} object={line} />
+    <group ref={groupRef}>
+      {/* Glow tube (wider, translucent) */}
+      <mesh geometry={glowTubeGeom}>
+        <meshBasicMaterial ref={glowMatRef} color={color} transparent opacity={0.25} depthWrite={false} />
+      </mesh>
+      {/* Core tube */}
+      <mesh geometry={tubeGeom}>
+        <meshBasicMaterial ref={matRef} color={color} transparent opacity={1} />
+      </mesh>
       {/* Start endpoint */}
       <mesh position={startPoint}>
         <sphereGeometry args={[endpointSize, 10, 10]} />
