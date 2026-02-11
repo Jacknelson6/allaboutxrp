@@ -5,6 +5,11 @@ import { TrendingUp, TrendingDown, ArrowRight, Mail } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
 
+function fmtPrice(n: number): string {
+  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
+}
+
 const trendingTopics = [
   { category: "XRP Ecosystem", title: "RLUSD hits $1.5B market cap", posts: "12.4K posts" },
   { category: "Legal", title: "SEC case officially dismissed", posts: "45.2K posts" },
@@ -41,7 +46,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
       <button onClick={() => setModalOpen(true)} className="flex items-center gap-3 text-sm">
         <span className="text-text-secondary text-[13px]">XRP</span>
         <span className={`font-mono font-bold text-[15px] transition-colors duration-300 ${flashColor}`}>
-          ${data.price.toFixed(4)}
+          ${fmtPrice(data.price)}
         </span>
         <span className={`flex items-center gap-1 text-xs font-medium ${positive ? "text-success" : "text-danger"}`}>
           <Icon className="h-3 w-3" />
@@ -63,7 +68,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
           <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
         </div>
         <div className={`font-mono text-[28px] font-bold transition-colors duration-300 ${flashColor}`}>
-          ${data.price.toFixed(4)}
+          ${fmtPrice(data.price)}
         </div>
         <div className="mt-1 flex items-center gap-2">
           <span className={`flex items-center gap-1 text-[13px] font-medium ${positive ? "text-success" : "text-danger"}`}>
@@ -74,8 +79,8 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
         </div>
         {(data.high24h > 0 || data.low24h > 0) && (
           <div className="mt-3 flex justify-between text-[12px] text-text-secondary">
-            <span>H: ${data.high24h.toFixed(4)}</span>
-            <span>L: ${data.low24h.toFixed(4)}</span>
+            <span>H: ${fmtPrice(data.high24h)}</span>
+            <span>L: ${fmtPrice(data.low24h)}</span>
           </div>
         )}
       </a>

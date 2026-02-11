@@ -4,6 +4,12 @@ import Link from "next/link";
 import { TrendingUp, TrendingDown } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 
+/** Show 4-6 meaningful decimals, no trailing zeros */
+function fmtPrice(n: number): string {
+  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
+}
+
 interface PriceWidgetProps {
   compact?: boolean;
 }
@@ -30,7 +36,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
         className="flex items-center gap-1.5 text-sm"
       >
         <span className={`font-mono font-semibold transition-colors duration-300 ${flashColor}`}>
-          ${data.price.toFixed(2)}
+          ${fmtPrice(data.price)}
         </span>
         <Icon className={`h-3 w-3 ${positive ? "text-success" : "text-danger"}`} />
       </Link>
@@ -47,7 +53,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
         <span className="font-medium text-text-secondary text-[13px]">XRP</span>
       </div>
       <span className={`font-mono text-base font-semibold transition-colors duration-300 ${flash ? "stat-refresh" : ""} ${flashColor}`}>
-        ${data.price.toFixed(4)}
+        ${fmtPrice(data.price)}
       </span>
       <span className={`flex items-center gap-1 text-xs font-medium ${positive ? "text-success" : "text-danger"}`}>
         <Icon className="h-3 w-3" />

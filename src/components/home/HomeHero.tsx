@@ -3,6 +3,11 @@
 import Link from "next/link";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 
+function fmtPrice(n: number): string {
+  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
+}
+
 function formatMarketCap(price: number): string {
   const mcap = price * 57_600_000_000;
   if (mcap >= 1e12) return `$${(mcap / 1e12).toFixed(1)}T`;
@@ -19,7 +24,7 @@ export default function HomeHero() {
         {/* Stat pills row */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
           <StatPill
-            value={data ? `$${data.price.toFixed(4)}` : "$—"}
+            value={data ? `$${fmtPrice(data.price)}` : "$—"}
             label="XRP Price"
             flash={flash}
           />

@@ -4,6 +4,11 @@ import Link from "next/link";
 import { ArrowRight, Lock, Globe } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 
+function fmtPrice(n: number): string {
+  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
+}
+
 function formatCompact(n: number): string {
   if (n >= 1e12) return `$${(n / 1e12).toFixed(1)}T`;
   if (n >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
@@ -42,7 +47,7 @@ export default function ProductShowcase() {
 
           <div className="flex items-end gap-3">
             <span className="font-mono text-[42px] font-bold tracking-tight text-text-primary leading-none">
-              ${price.toFixed(4)}
+              ${fmtPrice(price)}
             </span>
             <span className={`font-mono text-[16px] font-semibold mb-1 ${positive ? "text-success" : "text-danger"}`}>
               {positive ? "+" : ""}{change.toFixed(2)}%
