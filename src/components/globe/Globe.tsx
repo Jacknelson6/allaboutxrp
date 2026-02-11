@@ -94,15 +94,15 @@ function EarthSphere({ children }: { children?: React.ReactNode }) {
 
   return (
     <group ref={meshRef}>
-      {/* Globe surface - light gray */}
+      {/* Globe surface - dark navy */}
       <mesh>
         <sphereGeometry args={[0.995, 64, 64]} />
-        <meshPhongMaterial color="#c8cdd3" emissive="#2a2d32" shininess={15} transparent opacity={0.95} />
+        <meshPhongMaterial color="#1a2332" emissive="#0d1520" shininess={8} transparent opacity={0.97} />
       </mesh>
-      {/* Wireframe grid - subtle on light surface */}
+      {/* Wireframe grid */}
       <mesh>
         <sphereGeometry args={[1, 36, 18]} />
-        <meshBasicMaterial color="#9aa0a8" wireframe transparent opacity={0.12} />
+        <meshBasicMaterial color="#2a4a6a" wireframe transparent opacity={0.18} />
       </mesh>
       {/* Continent outlines */}
       <ContinentOutlines />
