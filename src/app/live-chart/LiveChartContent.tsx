@@ -134,12 +134,14 @@ function PctBadge({ value }: { value: number }) {
 
 // ── Timeframes ─────────────────────────────────────────────────────────────
 const timeframes = [
-  { label: '15m', interval: '15', range: '1D' },
-  { label: '1h', interval: '60', range: '3D' },
-  { label: '2h', interval: '120', range: '2W' },
-  { label: '1D', interval: 'D', range: '6M' },
-  { label: '1W', interval: 'W', range: '24M' },
-  { label: '1M', interval: 'M', range: '60M' },
+  { label: 'Live', interval: '1', range: '1D' },
+  { label: '1H', interval: '60', range: '2D' },
+  { label: '1D', interval: 'D', range: '3M' },
+  { label: '7D', interval: 'D', range: '6M' },
+  { label: '1M', interval: 'W', range: '12M' },
+  { label: '1YR', interval: 'W', range: '12M' },
+  { label: '5YR', interval: 'M', range: '60M' },
+  { label: 'All Time', interval: 'M', range: 'ALL' },
 ];
 
 // ── Main Component ─────────────────────────────────────────────────────────
