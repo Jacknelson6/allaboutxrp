@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
 const learnCategories = [
@@ -24,6 +24,8 @@ const learnCategories = [
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
       { label: "RLUSD", href: "/learn/rlusd", desc: "Ripple's USD stablecoin", icon: ScrollText },
+      { label: "Escrow", href: "/learn/escrow", desc: "Ripple's XRP escrow system", icon: Lock },
+      { label: "Escrow", href: "/learn/escrow", desc: "Ripple's XRP escrow system", icon: Lock },
     ],
   },
   {

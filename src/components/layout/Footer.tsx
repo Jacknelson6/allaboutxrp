@@ -21,6 +21,7 @@ const footerSections = [
       { href: "/learn/leadership", label: "Leadership" },
       { href: "/learn/partnerships", label: "Partnerships" },
       { href: "/learn/rlusd", label: "RLUSD" },
+      { href: "/learn/escrow", label: "Escrow" },
       { href: "/learn/get-started", label: "Get Started" },
       { href: "/learn/faq", label: "FAQ" },
     ],

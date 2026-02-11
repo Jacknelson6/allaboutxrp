@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   TrendingUp, Users, UserCircle, Handshake,
-  Building2, Lock, Eye, ArrowRight,
+  Building2, Eye, ArrowRight,
 } from "lucide-react";
 
 const sections = [
@@ -13,7 +13,6 @@ const sections = [
   { href: "/people/key-people", label: "Key People", desc: "Ripple's leadership team driving the ecosystem", icon: <UserCircle className="h-6 w-6" /> },
   { href: "/people/partnerships", label: "Partnerships", desc: "Banks, payment providers, and institutions across 55+ countries", icon: <Handshake className="h-6 w-6" /> },
   { href: "/people/acquisitions", label: "Acquisitions", desc: "Strategic acquisitions powering Ripple's growth", icon: <Building2 className="h-6 w-6" /> },
-  { href: "/people/escrow", label: "Escrow", desc: "Ripple's XRP escrow schedule and monthly releases", icon: <Lock className="h-6 w-6" /> },
   { href: "/people/riddlers", label: "Riddlers", desc: "The legendary XRP riddle community", icon: <Eye className="h-6 w-6" /> },
 ];
 
@@ -26,7 +25,7 @@ export default function PeoplePage() {
             XRP <span className="bg-gradient-to-r from-[#0085FF] to-blue-400 bg-clip-text text-transparent">People &amp; Ecosystem</span>
           </h1>
           <p className="mt-2 text-text-secondary max-w-2xl">
-            Holders, trusted voices, leadership, partnerships, acquisitions, escrow, and the legendary riddlers — everything about who&apos;s behind XRP.
+            Holders, trusted voices, leadership, partnerships, acquisitions, and the legendary riddlers — everything about who&apos;s behind XRP.
           </p>
         </motion.div>
       </div>

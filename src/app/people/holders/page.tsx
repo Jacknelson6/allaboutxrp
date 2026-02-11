@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, TrendingUp } from "lucide-react";
+import RichList from "@/components/richlist/RichList";
 import TierChart from "@/components/richlist/TierChart";
 import TierCalculator from "@/components/richlist/TierCalculator";
 import TierFAQ from "@/components/richlist/TierFAQ";
@@ -24,7 +25,10 @@ export default function HoldersPage() {
           </div>
         </motion.div>
         <div className="mt-8">
-          <TierChart />
+          <RichList />
+          <div className="mt-10">
+            <TierChart />
+          </div>
           <TierCalculator />
           <TierFAQ />
         </div>
