@@ -18,12 +18,12 @@ interface Tweet {
   retweets: number;
   replies: number;
   views: number;
-  media: string | null;
-  quoteTweet: null;
-  trending: boolean;
+  media?: string | null;
+  quoteTweet?: null;
+  trending?: boolean;
 }
 
-const allTweets = tweetsData as Tweet[];
+const fallbackTweets = tweetsData as Tweet[];
 
 function formatCount(n: number): string {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
@@ -169,10 +169,40 @@ function NewsCard() {
   );
 }
 
+function useLiveTweets() {
+  const [tweets, setTweets] = useState<Tweet[]>(fallbackTweets);
+  const [isLive, setIsLive] = useState(false);
+
+  const fetchTweets = useCallback(async () => {
+    try {
+      const res = await fetch("/api/x-feed", { cache: "no-store" });
+      if (!res.ok) throw new Error(`API ${res.status}`);
+      const data = await res.json();
+      if (data.tweets && data.tweets.length > 0) {
+        setTweets(data.tweets);
+        setIsLive(true);
+      }
+      // If API returns empty tweets (no creators configured), keep fallback
+    } catch {
+      // Keep fallback/current tweets on error
+      console.warn("X feed API unavailable, using fallback data");
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchTweets();
+    const interval = setInterval(fetchTweets, 300_000);
+    return () => clearInterval(interval);
+  }, [fetchTweets]);
+
+  return { tweets, isLive };
+}
+
 export default function XFeed() {
   const [activeTab, setActiveTab] = useState<"trending" | "recent">("trending");
   const [visibleCount, setVisibleCount] = useState(8);
   const loaderRef = useRef<HTMLDivElement>(null);
+  const { tweets: allTweets } = useLiveTweets();
 
   const sortedTweets =
     activeTab === "trending"
@@ -186,7 +216,7 @@ export default function XFeed() {
 
   const loadMore = useCallback(() => {
     setVisibleCount((c) => Math.min(c + 6, allTweets.length));
-  }, []);
+  }, [allTweets.length]);
 
   useEffect(() => {
     const el = loaderRef.current;
