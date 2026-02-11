@@ -172,7 +172,7 @@ export default function MegaMenu() {
 
             {learnOpen && (
               <div
-                className="absolute -left-32 top-full z-50 mt-2 w-[800px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
+                className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2 w-[800px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
