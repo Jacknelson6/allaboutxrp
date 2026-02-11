@@ -62,17 +62,21 @@ function EarthSphere() {
       </mesh>
       {continentPoints.map((point, i) => (
         <mesh key={i} position={point}>
-          <sphereGeometry args={[0.012, 6, 6]} />
-          <meshBasicMaterial color="#0085FF" transparent opacity={0.6} />
+          <sphereGeometry args={[0.016, 8, 8]} />
+          <meshBasicMaterial color="#00BFFF" transparent opacity={0.85} />
         </mesh>
       ))}
       <mesh>
-        <sphereGeometry args={[1.05, 64, 64]} />
-        <meshBasicMaterial color="#0085FF" transparent opacity={0.04} side={THREE.BackSide} />
+        <sphereGeometry args={[1.04, 64, 64]} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.08} side={THREE.BackSide} />
       </mesh>
       <mesh>
-        <sphereGeometry args={[1.1, 64, 64]} />
-        <meshBasicMaterial color="#0085FF" transparent opacity={0.02} side={THREE.BackSide} />
+        <sphereGeometry args={[1.08, 64, 64]} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.05} side={THREE.BackSide} />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[1.15, 64, 64]} />
+        <meshBasicMaterial color="#0060CC" transparent opacity={0.03} side={THREE.BackSide} />
       </mesh>
     </group>
   );
@@ -86,9 +90,10 @@ interface GlobeSceneProps {
 function GlobeScene({ arcs, onArcComplete }: GlobeSceneProps) {
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} />
-      <pointLight position={[-10, -10, -10]} intensity={0.2} color="#0085FF" />
+      <ambientLight intensity={0.6} />
+      <pointLight position={[10, 10, 10]} intensity={0.8} />
+      <pointLight position={[-10, -10, -10]} intensity={0.4} color="#0085FF" />
+      <directionalLight position={[5, 3, 5]} intensity={0.5} color="#ffffff" />
       <Stars radius={50} depth={50} count={3000} factor={3} saturation={0} fade speed={0.5} />
       <EarthSphere />
       {arcs.map(tx => (
