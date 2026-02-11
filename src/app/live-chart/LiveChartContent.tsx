@@ -135,13 +135,13 @@ function PctBadge({ value }: { value: number }) {
 // ── Timeframes ─────────────────────────────────────────────────────────────
 const timeframes = [
   { label: 'Live', interval: '1', range: '1D' },
-  { label: '1H', interval: '60', range: '2D' },
-  { label: '1D', interval: 'D', range: '3M' },
-  { label: '7D', interval: 'D', range: '6M' },
-  { label: '1M', interval: 'W', range: '12M' },
-  { label: '1YR', interval: 'W', range: '12M' },
-  { label: '5YR', interval: 'M', range: '60M' },
-  { label: 'All Time', interval: 'M', range: 'ALL' },
+  { label: '1H', interval: '5', range: '1D' },
+  { label: '1D', interval: '15', range: '1D' },
+  { label: '7D', interval: '60', range: '7D' },
+  { label: '1M', interval: 'D', range: '1M' },
+  { label: '1YR', interval: 'D', range: '12M' },
+  { label: '5YR', interval: 'W', range: '60M' },
+  { label: 'All Time', interval: 'M', range: '60M' },
 ];
 
 // ── Main Component ─────────────────────────────────────────────────────────
@@ -150,7 +150,7 @@ export default function LiveChartContent() {
   const [coin, setCoin] = useState<CoinDetail | null>(null);
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
-  const [activeTimeframe, setActiveTimeframe] = useState(3); // 1D default
+  const [activeTimeframe, setActiveTimeframe] = useState(2); // 1D default
   const [chartView, setChartView] = useState<ChartView>('candles');
   const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
