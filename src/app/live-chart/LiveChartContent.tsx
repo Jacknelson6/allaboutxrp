@@ -386,17 +386,20 @@ export default function LiveChartContent() {
                 <span>{low24h ? fmtPrice(low24h) : '—'}</span>
                 <span>{high24h ? fmtPrice(high24h) : '—'}</span>
               </div>
-              <div className="relative h-2 rounded-full bg-white/[0.06] overflow-hidden">
+              <div className="relative h-3 rounded-full overflow-hidden bg-white/[0.06]">
                 <div
-                  className="absolute inset-y-0 left-0 rounded-full"
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: 'linear-gradient(to right, #ea3943, #f5d100, #16c784)',
+                    opacity: 0.2,
+                  }}
+                />
+                <div
+                  className="absolute top-0 left-0 h-full rounded-full transition-all duration-1000 ease-out"
                   style={{
                     width: `${priceBarPos}%`,
                     background: 'linear-gradient(90deg, #ea3943, #f5d100, #16c784)',
                   }}
-                />
-                <div
-                  className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-[#0085FF] shadow-lg"
-                  style={{ left: `${Math.min(Math.max(priceBarPos, 2), 98)}%`, transform: 'translate(-50%, -50%)' }}
                 />
               </div>
             </div>
