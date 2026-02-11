@@ -163,28 +163,13 @@ export default function LiveChartContent() {
 
   // Fetch data (staggered to avoid CoinGecko rate limits)
   const fetchData = useCallback(async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const fetchJSON = async (url: string, retries = 2): Promise<any> => {
-      for (let i = 0; i <= retries; i++) {
-        try {
-          const res = await fetch(url);
-          if (res.status === 429 && i < retries) { await new Promise(r => setTimeout(r, 2000 * (i + 1))); continue; }
-          if (!res.ok) return null;
-          return await res.json();
-        } catch { if (i === retries) return null; }
-      }
-      return null;
-    };
     try {
-      // Fetch all data in parallel for speed
-      const [priceData, coinData, tickerData] = await Promise.all([
-        fetchJSON('https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true'),
-        fetchJSON('https://api.coingecko.com/api/v3/coins/ripple?localization=false&tickers=false&community_data=false&developer_data=false'),
-        fetchJSON('https://api.coingecko.com/api/v3/coins/ripple/tickers?order=volume_desc'),
-      ]);
-      if (priceData?.ripple) setPrice(priceData.ripple);
-      if (coinData?.market_data) setCoin(coinData);
-      if (tickerData?.tickers) setTickers(tickerData.tickers.slice(0, 20));
+      const res = await fetch('/api/market-data');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data.price) setPrice(data.price);
+      if (data.coin) setCoin(data.coin);
+      if (data.tickers?.length) setTickers(data.tickers);
     } catch (e) {
       console.error('Failed to fetch data:', e);
     }
