@@ -18,12 +18,6 @@ const trendingTopics = [
   { category: "Market", title: "$XRP breaks $2.50 resistance", posts: "23.8K posts" },
 ];
 
-const recommendedAccounts = [
-  { name: "Ripple", handle: "Ripple", avatar: "https://unavatar.io/twitter/Ripple" },
-  { name: "Brad Garlinghouse", handle: "bgarlinghouse", avatar: "https://unavatar.io/twitter/bgarlinghouse" },
-  { name: "David Schwartz", handle: "JoelKatz", avatar: "https://unavatar.io/twitter/JoelKatz" },
-  { name: "Wietse Wind", handle: "WietseWind", avatar: "https://unavatar.io/twitter/WietseWind" },
-];
 
 function LivePriceWidget({ compact = false }: { compact?: boolean }) {
   const { data, flash } = useXRPPrice();
@@ -114,32 +108,30 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
         ))}
       </div>
 
-      {/* Who to follow */}
-      <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
-        <h3 className="px-4 py-3 text-[19px] font-extrabold text-text-primary">Who to follow</h3>
-        {recommendedAccounts.map((account) => (
-          <div
-            key={account.handle}
-            className="flex items-center gap-3 px-4 py-3 hover:bg-white/[0.03] transition-colors border-t border-[#2F3336]/50"
-          >
-            <div className="h-10 w-10 rounded-full bg-[#333] overflow-hidden shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={account.avatar} alt={account.name} className="h-full w-full object-cover" />
+      {/* Premium Analysis */}
+      <div className="mt-4 rounded-2xl border border-transparent bg-[#16181C] overflow-hidden relative"
+        style={{
+          backgroundClip: 'padding-box',
+        }}
+      >
+        {/* Gradient border effect */}
+        <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#0085FF]/60 via-[#0085FF]/20 to-[#0085FF]/60 -z-10" />
+        <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#0085FF]/20 via-transparent to-[#0085FF]/20 blur-sm -z-20" />
+        <div className="relative bg-[#16181C] rounded-2xl p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="h-8 w-8 rounded-lg bg-[#0085FF]/10 flex items-center justify-center">
+              <TrendingUp className="h-4 w-4 text-[#0085FF]" />
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-[15px] font-bold text-text-primary truncate">{account.name}</p>
-              <p className="text-[13px] text-text-secondary truncate">@{account.handle}</p>
-            </div>
-            <a
-              href={`https://x.com/${account.handle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 rounded-full bg-text-primary text-black px-4 py-1.5 text-[13px] font-bold hover:bg-white/90 transition-colors"
-            >
-              Follow
-            </a>
+            <h3 className="text-[17px] font-extrabold text-text-primary">Our Analysis</h3>
           </div>
-        ))}
+          <p className="text-[14px] text-text-secondary leading-relaxed mb-4">
+            Deep-dive market analysis, technical breakdowns, and trade setups — delivered straight to you.
+          </p>
+          <p className="text-[12px] text-[#0085FF]/70 font-medium mb-4 uppercase tracking-wide">Coming Soon</p>
+          <button className="w-full rounded-full bg-[#0085FF] text-white px-4 py-2.5 text-[14px] font-bold hover:bg-[#0085FF]/90 transition-all hover:shadow-[0_0_20px_rgba(0,133,255,0.3)]">
+            Get Early Access
+          </button>
+        </div>
       </div>
 
       {/* Footer links */}
