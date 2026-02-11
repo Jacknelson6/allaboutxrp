@@ -207,15 +207,14 @@ export default function MegaMenu() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-5 pt-4 border-t border-white/[0.06]">
+                <div className="mt-4 pt-3 border-t border-white/[0.06] text-center">
                   <Link
                     href="/learn"
                     onClick={() => setLearnOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full rounded-lg bg-[#0085FF] hover:bg-[#0085FF]/90 text-white text-[14px] font-semibold py-3 px-4 transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,133,255,0.3)]"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
                   >
-                    <BookOpen className="h-4 w-4" />
                     Explore All Learn Pages
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>
