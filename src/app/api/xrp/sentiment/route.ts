@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const [fngRes, klinesRes] = await Promise.all([
       fetch('https://api.alternative.me/fng/?limit=1', { next: { revalidate: 300 } }),
-      fetch('https://api.binance.com/api/v3/klines?symbol=XRPUSDT&interval=1d&limit=1', { next: { revalidate: 300 } }),
+      fetch('https://api.binance.us/api/v3/klines?symbol=XRPUSD&interval=1d&limit=1', { next: { revalidate: 300 } }),
     ]);
 
     const fngData = await fngRes.json();
