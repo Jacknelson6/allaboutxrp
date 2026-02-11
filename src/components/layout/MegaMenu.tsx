@@ -23,8 +23,7 @@ const learnCategories = [
       { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
-      { label: "RLUSD", href: "/learn/rlusd", desc: "Ripple's USD stablecoin", icon: ScrollText },
-      { label: "Escrow", href: "/learn/escrow", desc: "Ripple's XRP escrow system", icon: Lock },
+      // RLUSD & Escrow accessible via Learn hub (/learn)
     ],
   },
   {
