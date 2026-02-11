@@ -14,7 +14,6 @@ const learnCategories = [
       { label: "FAQ", href: "/learn/faq", desc: "Answers to common XRP questions", icon: FileQuestion },
       { label: "What is XRP?", href: "/learn/what-is-xrp", desc: "The digital asset powering global payments", icon: Coins },
       { label: "What is Ripple?", href: "/learn/what-is-ripple", desc: "The company behind XRP technology", icon: Building2 },
-      { label: "How to Start", href: "/learn/get-started", desc: "Buy your first XRP step by step", icon: Rocket },
     ],
   },
   {
@@ -24,6 +23,7 @@ const learnCategories = [
       { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
+      { label: "Escrow", href: "/learn/escrow", desc: "How Ripple's monthly unlocks work", icon: Lock },
     ],
   },
   {
