@@ -18,9 +18,6 @@ import {
   Shield,
   ShieldCheck,
   ShieldAlert,
-  CandlestickChart,
-  LineChart,
-  Globe as GlobeIcon,
 } from 'lucide-react';
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
@@ -71,14 +68,6 @@ interface Ticker {
   trust_score: string;
   trade_url: string;
 }
-
-type ChartView = 'candles' | 'line' | 'globe';
-
-const chartViews: { id: ChartView; label: string; icon: typeof CandlestickChart; tvStyle?: string }[] = [
-  { id: 'candles', label: 'Candlesticks', icon: CandlestickChart, tvStyle: '1' },
-  { id: 'line', label: 'Line', icon: LineChart, tvStyle: '3' },
-  { id: 'globe', label: 'Globe', icon: GlobeIcon },
-];
 
 declare global {
   interface Window {
@@ -136,7 +125,6 @@ export default function LiveChartContent() {
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(3); // 1D default
-  const [chartView, setChartView] = useState<ChartView>('candles');
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
@@ -170,9 +158,7 @@ export default function LiveChartContent() {
   }, [fetchData]);
 
   // TradingView widget
-  const tvStyleForView = chartViews.find(v => v.id === chartView)?.tvStyle;
   useEffect(() => {
-    if (chartView === 'globe') return;
     if (tvReady && window.TradingView && chartRef.current) {
       const tf = timeframes[activeTimeframe];
       const container = document.getElementById('lc-tv-chart');
@@ -181,7 +167,7 @@ export default function LiveChartContent() {
         container_id: 'lc-tv-chart',
         symbol: 'BINANCE:XRPUSDT',
         theme: 'dark',
-        style: tvStyleForView || '1',
+        style: '1',
         locale: 'en',
         interval: tf.interval,
         range: tf.range,
@@ -236,7 +222,7 @@ export default function LiveChartContent() {
         },
       });
     }
-  }, [tvReady, activeTimeframe, chartView, tvStyleForView]);
+  }, [tvReady, activeTimeframe]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -410,57 +396,39 @@ export default function LiveChartContent() {
 
           {/* ─── CENTER: CHART + MARKETS ───────────────────────────────── */}
           <div className="space-y-4 order-1 lg:order-2">
-            {/* View switcher + Timeframe selectors */}
-            <div className="flex items-center justify-between gap-3 flex-wrap">
-              {/* View switcher pills */}
-              <div className="flex items-center rounded-lg bg-white/[0.03] border border-white/[0.06] p-0.5">
-                {chartViews.map(v => {
-                  const Icon = v.icon;
-                  const active = chartView === v.id;
-                  return (
-                    <button
-                      key={v.id}
-                      onClick={() => setChartView(v.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                        active
-                          ? 'bg-[#0085FF] text-black shadow-sm'
-                          : 'text-white/40 hover:text-white/70'
-                      }`}
-                    >
-                      <Icon className="h-3.5 w-3.5" />
-                      <span className="hidden sm:inline">{v.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Timeframe selectors (hidden for globe) */}
-              {chartView !== 'globe' && (
-                <div className="flex items-center gap-1">
-                  {timeframes.map((tf, i) => (
-                    <button
-                      key={tf.label}
-                      onClick={() => setActiveTimeframe(i)}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                        activeTimeframe === i
-                          ? 'bg-[#0085FF] text-black'
-                          : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
-                      }`}
-                    >
-                      {tf.label}
-                    </button>
-                  ))}
-                </div>
-              )}
+            {/* Timeframe selectors */}
+            <div className="flex items-center gap-1">
+              {timeframes.map((tf, i) => (
+                <button
+                  key={tf.label}
+                  onClick={() => setActiveTimeframe(i)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                    activeTimeframe === i
+                      ? 'bg-[#0085FF] text-black'
+                      : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
+                  }`}
+                >
+                  {tf.label}
+                </button>
+              ))}
             </div>
 
-            {/* Chart / Globe */}
-            <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative" style={{ height: '55vh', minHeight: 400 }}>
-              {/* Globe view */}
-              {chartView === 'globe' && (
-                <div className="h-full w-full absolute inset-0 z-20 flex flex-col bg-black">
-                  <StatsBar stats={stats} />
-                  <div className="flex-1 relative">
+            {/* Chart + Globe side by side */}
+            <div className="flex flex-col md:flex-row gap-3" style={{ height: '55vh', minHeight: 400 }}>
+              {/* TradingView chart */}
+              <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-[7] min-h-[300px]">
+                {!tvReady && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                  </div>
+                )}
+                <div id="lc-tv-chart" ref={chartRef} className="h-full" />
+              </div>
+              {/* Globe */}
+              <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[3] min-h-[250px] flex flex-col">
+                <StatsBar stats={stats} />
+                <div className="flex-1 relative">
+                  <div className="absolute inset-0">
                     <Suspense fallback={
                       <div className="flex items-center justify-center h-full">
                         <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
@@ -470,15 +438,6 @@ export default function LiveChartContent() {
                     </Suspense>
                   </div>
                 </div>
-              )}
-              {/* TradingView chart */}
-              <div className={chartView === 'globe' ? 'hidden' : 'h-full'}>
-                {!tvReady && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
-                  </div>
-                )}
-                <div id="lc-tv-chart" ref={chartRef} className="h-full" />
               </div>
             </div>
 
