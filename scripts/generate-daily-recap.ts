@@ -86,23 +86,24 @@ async function gatherNews(): Promise<string> {
 async function generateArticle(research: string): Promise<string> {
   console.log("✍️  Generating article...");
 
-  const systemPrompt = `You are a professional crypto journalist writing for AllAboutXRP.com. Write engaging, informative daily recap articles about XRP and Ripple. Be factual, balanced, and avoid hype. Use a conversational but authoritative tone.`;
+  const systemPrompt = `You are a crypto journalist writing TLDR-style daily recaps for AllAboutXRP.com. Be extremely concise. Bullet points over paragraphs. No fluff, no hype, just facts.`;
 
-  const userPrompt = `Based on the following research gathered for ${targetDate}, write a comprehensive daily XRP news recap article in markdown.
+  const userPrompt = `Based on the following research gathered for ${targetDate}, write a TLDR-style XRP daily recap in markdown. Keep it SHORT and scannable.
 
 RESEARCH:
 ${research}
 
 FORMAT REQUIREMENTS:
-- Start with a compelling 1-2 sentence intro paragraph (no heading for it)
-- Use these exact H2 sections: ## 🔥 Top Stories, ## 📊 Price Action, ## ⛓️ On-Chain & Development, ## 💬 Community Buzz, ## 👀 What to Watch
-- Each section should have 2-4 bullet points or short paragraphs
-- Be specific with numbers, names, and facts from the research
-- If information for a section is thin, still include it with what's available
-- End with a brief sign-off line
-- Do NOT include a top-level H1 heading (that comes from frontmatter)
-- Total length: 600-1000 words
-- If there's genuinely no news for a section, write "Quiet day on this front — nothing major to report." rather than making things up`;
+- Use these H2 sections: ## Top Stories, ## Price, ## On-Chain, ## What to Watch
+- Top Stories: 2-4 bullet points, one line each. Bold the key name/event, then a dash and one sentence.
+- Price: 1-2 sentences max. Current price, range, key levels, trend direction.
+- On-Chain: 2-4 bullet points with key metrics. Just the numbers.
+- What to Watch: 2-4 bullet points of upcoming catalysts.
+- NO intro paragraph, NO sign-off, NO emojis in headings
+- Do NOT include a top-level H1 heading (comes from frontmatter)
+- Total length: 150-300 words MAX
+- Skip sections with no news rather than padding
+- If there's no real news, say so in one line`;
 
   if (ANTHROPIC_API_KEY) {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
