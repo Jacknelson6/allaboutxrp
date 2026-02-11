@@ -456,9 +456,9 @@ export default function LiveChartContent() {
             {/* Chart / Globe */}
             <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative" style={{ height: '55vh', minHeight: 400 }}>
               {chartView === 'globe' ? (
-                <div className="h-full relative">
+                <div className="h-full w-full absolute inset-0 flex flex-col">
                   <StatsBar stats={stats} />
-                  <div className="h-[calc(100%-48px)]">
+                  <div className="flex-1 relative">
                     <Suspense fallback={
                       <div className="flex items-center justify-center h-full">
                         <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
