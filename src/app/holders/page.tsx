@@ -241,16 +241,15 @@ export default function HoldersPage() {
                 </span>
               </div>
 
+              <div className="overflow-x-auto max-h-[560px] overflow-y-auto">
               {/* Header */}
-              <div className="grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336] min-w-[580px]">
+              <div className="sticky top-0 z-10 bg-[#16181C] grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336] min-w-[580px]">
                 <div>#</div>
                 <div>Wallet</div>
                 <div className="text-right">Amount (XRP)</div>
                 <div className="text-right">Value (USD)</div>
                 <div className="text-right">%</div>
               </div>
-
-              <div className="overflow-x-auto max-h-[520px] overflow-y-auto">
                 {loading ? (
                   <div className="px-5 py-12 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
                     <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
