@@ -289,12 +289,14 @@ export default function HistoryPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/riddlers", label: "XRP Riddlers", desc: "BG123, Mr. Pool & community lore" },
-              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/learn/riddlers", label: "XRP Riddlers", desc: "BG123, Mr. Pool & community lore" },
+              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
               { href: "/learn/leadership", label: "Leadership Team", desc: "The people behind Ripple" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
               { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your XRP journey" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Major price milestones" },
+              { href: "/answers/is-xrp-a-security", label: "Is XRP a Security?", desc: "The SEC case explained" },
             ]} />
           </RevealSection>
         </div>

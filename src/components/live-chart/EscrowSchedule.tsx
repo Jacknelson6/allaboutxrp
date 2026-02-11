@@ -1,26 +1,17 @@
 'use client';
 
+import Link from 'next/link';
 import { Lock, Unlock } from 'lucide-react';
+
+// Show past unlocks + next 2 upcoming months
+const pastUnlocks = [
+  { date: 'Jan 1, 2026', amount: 800, status: 'released' as const },
+  { date: 'Feb 1, 2026', amount: 800, status: 'released' as const },
+];
 
 const escrowSchedule = [
   { date: 'Mar 1, 2026', amount: 800, status: 'upcoming' as const },
   { date: 'Apr 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'May 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Jun 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Jul 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Aug 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Sep 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Oct 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Nov 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Dec 1, 2026', amount: 800, status: 'upcoming' as const },
-  { date: 'Jan 1, 2027', amount: 800, status: 'upcoming' as const },
-  { date: 'Feb 1, 2027', amount: 800, status: 'upcoming' as const },
-];
-
-// Past unlocks for context
-const pastUnlocks = [
-  { date: 'Jan 1, 2026', amount: 800, status: 'released' as const },
-  { date: 'Feb 1, 2026', amount: 800, status: 'released' as const },
 ];
 
 const allUnlocks = [...pastUnlocks, ...escrowSchedule];
@@ -80,11 +71,17 @@ export default function EscrowSchedule() {
         })}
       </div>
 
-      <div className="mt-4 pt-4 border-t border-white/[0.06]">
+      <div className="mt-4 pt-4 border-t border-white/[0.06] space-y-3">
         <p className="text-xs text-white/30">
           Ripple typically sells or re-escrows the majority of each monthly unlock.
           On average, ~200-300M XRP enters circulation per month.
         </p>
+        <Link
+          href="/learn/escrow"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
+        >
+          Learn more about what escrow is →
+        </Link>
       </div>
     </div>
   );

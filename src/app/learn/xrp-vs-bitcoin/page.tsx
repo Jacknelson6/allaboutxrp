@@ -342,7 +342,9 @@ export default function XRPvsBitcoinPage() {
               { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply, escrow, and burns" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Store your XRP safely" },
-              { href: "/learn/history", label: "XRP History", desc: "Complete timeline" },
+              { href: "/answers/xrp-vs-solana", label: "XRP vs Solana", desc: "Another crypto comparison" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP" },
+              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
             ]} />
           </RevealSection>
         </div>

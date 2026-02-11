@@ -333,7 +333,9 @@ export default function HowToBuyXRPPage() {
               { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply and distribution" },
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Compare the two assets" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Earn yield on your XRP" },
-              { href: "/learn/get-started", label: "Get Started Guide", desc: "Complete beginner's overview" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Top exchanges compared" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Top wallet picks for 2026" },
+              { href: "/answers/is-it-too-late-to-buy-xrp", label: "Is It Too Late to Buy?", desc: "Timing your XRP purchase" },
             ]} />
           </RevealSection>
         </div>

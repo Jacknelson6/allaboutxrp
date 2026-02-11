@@ -68,6 +68,27 @@ export default function FAQPage() {
         </p>
 
         <FAQAccordion items={items} />
+
+        <div className="mt-16 pt-8 border-t border-white/[0.06]">
+          <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
+              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
+              { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Choose the right wallet" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
+              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
+                <div className="flex-1">
+                  <span className="text-sm font-medium text-white group-hover:text-[#0085FF] transition-colors">{link.label}</span>
+                  <p className="text-xs text-[#888] mt-0.5">{link.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

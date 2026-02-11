@@ -356,6 +356,8 @@ export default function XRPUseCasesPage() {
             { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "300+ financial institutions using RippleNet." },
             { href: "/learn/rlusd", label: "RLUSD Stablecoin", desc: "Ripple's USD stablecoin on XRPL." },
             { href: "/learn/escrow", label: "XRP Escrow", desc: "How Ripple's escrow system works." },
+            { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption list." },
+            { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely." },
           ]} />
         </RevealSection>
 

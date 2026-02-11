@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Users, ExternalLink } from "lucide-react";
+import { ArrowLeft, Users, ExternalLink, ArrowRight } from "lucide-react";
 import rawData from "@/data/xrp-accounts.json";
 
 interface Account {
@@ -148,6 +148,28 @@ export default function TrustedSourcesPage() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        <div className="mt-16 pt-8 border-t border-white/[0.06]">
+          <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/learn/riddlers", label: "XRP Riddlers", desc: "The legendary riddle community" },
+              { href: "/learn/key-people", label: "Key People", desc: "XRP ecosystem leaders" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
+              { href: "/learn/history", label: "XRP History", desc: "Timeline from 2012 to today" },
+              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Top wallet picks" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
+                <div className="flex-1">
+                  <span className="text-sm font-medium text-white group-hover:text-[#0085FF] transition-colors">{link.label}</span>
+                  <p className="text-xs text-[#888] mt-0.5">{link.desc}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-white/20 group-hover:text-[#0085FF] transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

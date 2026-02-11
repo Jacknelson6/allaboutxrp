@@ -297,13 +297,13 @@ export default function GetStartedPage() {
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Understand XRP before you buy" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company building on XRP" },
-              { href: "/escrow", label: "Escrow Explained", desc: "How XRP supply is managed" },
+              { href: "/learn/escrow", label: "Escrow Explained", desc: "How XRP supply is managed" },
               { href: "/learn/rlusd", label: "RLUSD & XRP", desc: "How Ripple's stablecoin helps XRP" },
               { href: "/learn/history", label: "XRP History & Timeline", desc: "From 2011 to present" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions using XRP" },
-              { href: "/learn/leadership", label: "Leadership", desc: "Who runs Ripple" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "Ripple's $3.7B strategy" },
-              { href: "/holders", label: "XRP Holders", desc: "Whale wallets & tier calculator" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Top wallet picks for 2026" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
+              { href: "/answers/is-it-too-late-to-buy-xrp", label: "Is It Too Late to Buy XRP?", desc: "Timing considerations" },
               { href: "/learn/faq", label: "FAQ", desc: "Common questions answered" },
             ]} />
           </RevealSection>

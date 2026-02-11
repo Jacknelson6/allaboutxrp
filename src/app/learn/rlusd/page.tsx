@@ -371,10 +371,12 @@ export default function RLUSDPage() {
         <RevealSection className="mt-10">
           <h3 className="text-lg font-bold text-text-primary">Keep Learning</h3>
           <LearnLinkGrid links={[
-            { href: "/escrow", label: "XRP Escrow", desc: "How escrow and RLUSD work together" },
+            { href: "/learn/escrow", label: "XRP Escrow", desc: "How escrow and RLUSD work together" },
             { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "The basics of XRP and the XRP Ledger" },
             { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Global partners driving XRPL adoption" },
             { href: "/learn/get-started", label: "Get Started", desc: "How to buy and hold XRP" },
+            { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP and RLUSD" },
+            { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional RLUSD adoption" },
           ]} />
         </RevealSection>
       </div>

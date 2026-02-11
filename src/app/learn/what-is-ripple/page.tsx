@@ -303,11 +303,13 @@ export default function WhatIsRipplePage() {
             <LearnLinkGrid links={[
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
               { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
               { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
-              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
               { href: "/learn/get-started", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
+              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption tracker" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
             ]} />
           </RevealSection>
         </div>

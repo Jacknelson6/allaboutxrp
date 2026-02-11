@@ -223,6 +223,9 @@ export default function XRPPriceHistoryPage() {
             { href: "/learn/what-is-xrp", label: "What Is XRP?", desc: "Complete guide to XRP cryptocurrency." },
             { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "How XRP is used in the real world." },
             { href: "/learn/history", label: "Ripple History", desc: "The full story of Ripple Labs." },
+            { href: "/answers/will-xrp-reach-10-dollars", label: "Will XRP Reach $10?", desc: "Price potential breakdown." },
+            { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations." },
+            { href: "/tools/xrp-profit-calculator", label: "Profit Calculator", desc: "Calculate potential XRP gains." },
           ]} />
         </RevealSection>
 

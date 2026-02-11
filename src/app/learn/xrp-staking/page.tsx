@@ -287,8 +287,9 @@ export default function XRPStakingPage() {
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Safely store your XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply and economics" },
-              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Compare the two assets" },
+              { href: "/best/xrp-staking-platforms", label: "Best Staking Platforms", desc: "Top platforms compared" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Wallet recommendations" },
+              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Investment analysis" },
             ]} />
           </RevealSection>
         </div>

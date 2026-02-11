@@ -281,8 +281,9 @@ export default function XRPWalletsPage() {
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
               { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "How the ledger works" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Earning yield on XRP" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply and distribution" },
-              { href: "/learn/escrow", label: "Escrow Explained", desc: "Ripple's XRP escrow system" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Our top wallet picks" },
+              { href: "/best/hardware-wallets-for-xrp", label: "Best Hardware Wallets", desc: "Cold storage options" },
+              { href: "/answers/how-fast-is-xrp", label: "How Fast is XRP?", desc: "Transaction speed explained" },
             ]} />
           </RevealSection>
         </div>

@@ -133,6 +133,28 @@ export default function AnswerPageLayout({
               ))}
             </ul>
           </section>
+
+          <section className="pt-8 border-t border-white/[0.06]">
+            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">Keep Learning</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link href="/learn/what-is-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+                <span className="text-sm font-medium text-white">What is XRP?</span>
+                <p className="text-xs text-gray-400 mt-0.5">Complete beginner&apos;s guide</p>
+              </Link>
+              <Link href="/learn/how-to-buy-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+                <span className="text-sm font-medium text-white">How to Buy XRP</span>
+                <p className="text-xs text-gray-400 mt-0.5">Step-by-step buying guide</p>
+              </Link>
+              <Link href="/best/xrp-exchanges" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+                <span className="text-sm font-medium text-white">Best XRP Exchanges</span>
+                <p className="text-xs text-gray-400 mt-0.5">Where to buy XRP safely</p>
+              </Link>
+              <Link href="/best/xrp-wallets" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+                <span className="text-sm font-medium text-white">Best XRP Wallets</span>
+                <p className="text-xs text-gray-400 mt-0.5">Top wallet picks for 2026</p>
+              </Link>
+            </div>
+          </section>
         </article>
       </main>
     </>

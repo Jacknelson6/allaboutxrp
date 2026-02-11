@@ -437,11 +437,12 @@ export default function BestHardwareWalletsPage() {
             <h2 className="text-lg font-semibold text-white mb-4">Continue Learning</h2>
             <div className="flex flex-wrap gap-3">
               {[
-                ["/learn/what-is-xrp", "What is XRP?"],
-                ["/learn/get-started", "How to Get Started"],
+                ["/learn/xrp-wallets", "XRP Wallets Guide"],
+                ["/learn/how-to-buy-xrp", "How to Buy XRP"],
                 ["/best/xrp-wallets", "All XRP Wallets"],
                 ["/best/xrp-exchanges", "Best XRP Exchanges"],
-                ["/learn/escrow", "XRP Escrow"],
+                ["/learn/xrp-staking", "XRP Staking"],
+                ["/answers/how-fast-is-xrp", "How Fast is XRP?"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}

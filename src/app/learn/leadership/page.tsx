@@ -274,11 +274,12 @@ export default function LeadershipPage() {
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
               { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/riddlers", label: "Riddlers & Lore", desc: "Community culture" },
-              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your XRP journey" },
+              { href: "/learn/riddlers", label: "Riddlers & Lore", desc: "Community culture" },
+              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional partners" },
+              { href: "/best/xrp-exchanges", label: "Best Exchanges", desc: "Where to buy XRP" },
             ]} />
           </RevealSection>
         </div>

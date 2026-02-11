@@ -472,10 +472,12 @@ export default function BestXRPWalletsPage() {
             <div className="flex flex-wrap gap-3">
               {[
                 ["/learn/what-is-xrp", "What is XRP?"],
-                ["/learn/get-started", "How to Get Started"],
+                ["/learn/xrp-wallets", "XRP Wallets Guide"],
+                ["/learn/how-to-buy-xrp", "How to Buy XRP"],
                 ["/best/xrp-exchanges", "Best XRP Exchanges"],
                 ["/best/hardware-wallets-for-xrp", "Best Hardware Wallets"],
-                ["/learn/escrow", "XRP Escrow Explained"],
+                ["/answers/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
+                ["/answers/how-fast-is-xrp", "How Fast is XRP?"],
               ].map(([href, label]) => (
                 <Link
                   key={href}

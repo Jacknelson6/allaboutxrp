@@ -479,10 +479,12 @@ export default function BestXRPExchangesPage() {
             <div className="flex flex-wrap gap-3">
               {[
                 ["/learn/what-is-xrp", "What is XRP?"],
-                ["/learn/get-started", "How to Get Started"],
+                ["/learn/how-to-buy-xrp", "How to Buy XRP"],
                 ["/best/xrp-wallets", "Best XRP Wallets"],
                 ["/best/hardware-wallets-for-xrp", "Best Hardware Wallets"],
-                ["/learn/history", "XRP History"],
+                ["/learn/xrp-staking", "XRP Staking Guide"],
+                ["/answers/is-it-too-late-to-buy-xrp", "Is It Too Late to Buy XRP?"],
+                ["/answers/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}

@@ -350,8 +350,9 @@ export default function XRPTokenomicsPage() {
               { href: "/learn/escrow", label: "Escrow Deep Dive", desc: "Detailed escrow mechanics" },
               { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "How the ledger works" },
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Supply and economics compared" },
-              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
-              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/answers/how-many-xrp-are-there", label: "How Many XRP Exist?", desc: "Total supply breakdown" },
+              { href: "/answers/will-xrp-reach-10-dollars", label: "Will XRP Reach $10?", desc: "Price potential analysis" },
+              { href: "/tools/xrp-profit-calculator", label: "XRP Profit Calculator", desc: "Calculate potential gains" },
             ]} />
           </RevealSection>
         </div>

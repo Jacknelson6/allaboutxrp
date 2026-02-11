@@ -356,10 +356,13 @@ export default function WhatIsXRPPage() {
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
               { href: "/learn/history", label: "XRP History & Timeline", desc: "From 2011 to present" },
-              { href: "/escrow", label: "Escrow Explained", desc: "Ripple's 55B XRP escrow" },
+              { href: "/learn/escrow", label: "Escrow Explained", desc: "Ripple's 55B XRP escrow" },
               { href: "/learn/get-started", label: "How to Buy XRP", desc: "Beginner's guide" },
               { href: "/learn/rlusd", label: "RLUSD & XRP", desc: "How the stablecoin helps XRP" },
               { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
+              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Top wallet picks for 2026" },
+              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
+              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
             ]} />
           </RevealSection>
         </div>

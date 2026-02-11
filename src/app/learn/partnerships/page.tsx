@@ -256,11 +256,12 @@ export default function PartnershipsPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
+              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
               { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your journey" },
+              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
+              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption" },
+              { href: "/best/xrp-exchanges", label: "Best Exchanges", desc: "Where to buy XRP" },
             ]} />
           </RevealSection>
         </div>

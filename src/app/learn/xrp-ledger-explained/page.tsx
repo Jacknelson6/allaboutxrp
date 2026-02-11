@@ -378,7 +378,9 @@ export default function XRPLedgerExplainedPage() {
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP products" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Store your XRP safely" },
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "How they compare technically" },
-              { href: "/learn/history", label: "XRP History", desc: "Complete timeline since 2011" },
+              { href: "/answers/can-xrp-be-mined", label: "Can XRP Be Mined?", desc: "Mining vs consensus" },
+              { href: "/answers/how-fast-is-xrp", label: "How Fast is XRP?", desc: "Speed benchmarks" },
+              { href: "/tools/xrp-fee-calculator", label: "XRP Fee Calculator", desc: "Estimate transaction costs" },
             ]} />
           </RevealSection>
         </div>
