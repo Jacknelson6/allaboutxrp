@@ -3,15 +3,15 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  BookOpen, Rocket, Search, ArrowRight, Clock,
-  GraduationCap, Layers, HelpCircle, History,
-  Users, Handshake, Coins, Lock, Play, Building2, UserCircle, Eye, Globe,
+  BookOpen, Rocket, ArrowRight,
+  GraduationCap, HelpCircle, History,
+  Users, Handshake, Coins, Lock, Building2, UserCircle, Eye, Globe,
+  Layers, Play, Search, ScrollText, Shield, Wallet, BarChart3,
+  TrendingUp, Zap, Scale, Calculator, MessageCircle, Award,
 } from "lucide-react";
-import { useState } from "react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import faqData from "@/data/faq.json";
 
-/* ── FAQ Schema (preserved for SEO) ── */
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -22,195 +22,126 @@ const faqSchema = {
   })),
 };
 
-/* ── Article Data ── */
-type Article = {
+type Card = {
   href: string;
   title: string;
   desc: string;
-  category: "Basics" | "Deep Dives" | "Ecosystem";
+  emoji: string;
   icon: React.ComponentType<{ className?: string }>;
   gradient: string;
-  glowColor: string;
-  borderHover: string;
   featured?: boolean;
 };
 
-const articles: Article[] = [
-  {
-    href: "/learn/what-is-xrp",
-    title: "What is XRP?",
-    desc: "The complete guide to XRP — what it is, how it works, and why it matters for global payments.",
-    category: "Basics",
-    icon: Coins,
-    gradient: "from-[#0085FF] to-[#00C2FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(0,133,255,0.3)]",
-    borderHover: "hover:border-[#0085FF]/50",
-    featured: true,
-  },
-  {
-    href: "/learn/what-is-ripple",
-    title: "What is Ripple?",
-    desc: "Understand Ripple Labs — the company behind RippleNet, On-Demand Liquidity, and the XRP ecosystem.",
-    category: "Basics",
-    icon: Layers,
-    gradient: "from-[#0085FF] to-[#6366F1]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]",
-    borderHover: "hover:border-[#6366F1]/50",
-    featured: true,
-  },
-  {
-    href: "/learn/get-started",
-    title: "How to Get Started",
-    desc: "Step-by-step guide to buying, storing, and using XRP for the first time.",
-    category: "Basics",
-    icon: Play,
-    gradient: "from-[#06B6D4] to-[#0085FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]",
-    borderHover: "hover:border-[#06B6D4]/50",
-    featured: true,
-  },
-  {
-    href: "/learn/faq",
-    title: "Frequently Asked Questions",
-    desc: "Quick answers to the most common questions about XRP, Ripple, and the XRP Ledger.",
-    category: "Basics",
-    icon: HelpCircle,
-    gradient: "from-[#8B5CF6] to-[#6366F1]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
-    borderHover: "hover:border-[#8B5CF6]/50",
-  },
-  {
-    href: "/learn/history",
-    title: "History of XRP",
-    desc: "From OpenCoin to Ripple Labs — the full timeline of XRP's evolution since 2011.",
-    category: "Deep Dives",
-    icon: History,
-    gradient: "from-[#0085FF] to-[#06B6D4]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(0,133,255,0.3)]",
-    borderHover: "hover:border-[#0085FF]/50",
-  },
-  {
-    href: "/learn/leadership",
-    title: "Ripple Leadership",
-    desc: "Meet the executives and key figures driving Ripple's vision forward.",
-    category: "Deep Dives",
-    icon: Users,
-    gradient: "from-[#6366F1] to-[#8B5CF6]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]",
-    borderHover: "hover:border-[#6366F1]/50",
-  },
-  {
-    href: "/learn/partnerships",
-    title: "Partnerships",
-    desc: "Banks, payment providers, and institutions using RippleNet and XRP worldwide.",
-    category: "Deep Dives",
-    icon: Handshake,
-    gradient: "from-[#06B6D4] to-[#0085FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]",
-    borderHover: "hover:border-[#06B6D4]/50",
-  },
-  {
-    href: "/learn/rlusd",
-    title: "RLUSD Stablecoin",
-    desc: "Ripple's USD-backed stablecoin — what it is, how it works, and its role in the ecosystem.",
-    category: "Deep Dives",
-    icon: Coins,
-    gradient: "from-[#0085FF] to-[#00C2FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(0,133,255,0.3)]",
-    borderHover: "hover:border-[#0085FF]/50",
-  },
-  {
-    href: "/learn/escrow",
-    title: "XRP Escrow",
-    desc: "How Ripple's 55-billion XRP escrow system works and its impact on supply.",
-    category: "Deep Dives",
-    icon: Lock,
-    gradient: "from-[#8B5CF6] to-[#EC4899]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]",
-    borderHover: "hover:border-[#EC4899]/50",
-  },
-  {
-    href: "/learn/acquisitions",
-    title: "Acquisitions",
-    desc: "Strategic acquisitions powering Ripple's growth and ecosystem expansion.",
-    category: "Ecosystem",
-    icon: Building2,
-    gradient: "from-[#06B6D4] to-[#0085FF]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(0,133,255,0.3)]",
-    borderHover: "hover:border-[#0085FF]/50",
-  },
-  {
-    href: "/learn/key-people",
-    title: "Key People",
-    desc: "Ripple's leadership team driving the XRP ecosystem forward.",
-    category: "Ecosystem",
-    icon: UserCircle,
-    gradient: "from-[#6366F1] to-[#8B5CF6]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
-    borderHover: "hover:border-[#8B5CF6]/50",
-  },
-  {
-    href: "/learn/trusted-sources",
-    title: "Trusted Sources",
-    desc: "Curated voices and experts from the XRP community.",
-    category: "Ecosystem",
-    icon: Users,
-    gradient: "from-[#0085FF] to-[#6366F1]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]",
-    borderHover: "hover:border-[#6366F1]/50",
-  },
-  {
-    href: "/learn/riddlers",
-    title: "Riddlers",
-    desc: "The legendary XRP riddle community — decode the mystery.",
-    category: "Ecosystem",
-    icon: Eye,
-    gradient: "from-[#8B5CF6] to-[#EC4899]",
-    glowColor: "hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]",
-    borderHover: "hover:border-[#EC4899]/50",
-  },
+const basics: Card[] = [
+  { href: "/learn/what-is-xrp", title: "What is XRP?", desc: "The digital asset powering global payments", emoji: "💎", icon: Coins, gradient: "from-[#0085FF] to-[#00C2FF]", featured: true },
+  { href: "/learn/what-is-ripple", title: "What is Ripple?", desc: "The company behind XRP technology", emoji: "🏢", icon: Layers, gradient: "from-[#0085FF] to-[#6366F1]", featured: true },
+  { href: "/learn/get-started", title: "How to Get Started", desc: "Buy your first XRP step by step", emoji: "🚀", icon: Play, gradient: "from-[#06B6D4] to-[#0085FF]", featured: true },
+  { href: "/learn/how-to-buy-xrp", title: "How to Buy XRP", desc: "Complete buying guide for beginners", emoji: "💰", icon: Wallet, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/faq", title: "FAQ", desc: "Answers to common XRP questions", emoji: "❓", icon: HelpCircle, gradient: "from-[#8B5CF6] to-[#6366F1]" },
+  { href: "/learn/xrp-vs-bitcoin", title: "XRP vs Bitcoin", desc: "How they compare side by side", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
 ];
 
-const categories = ["All", "Basics", "Deep Dives", "Ecosystem"] as const;
+const deepDives: Card[] = [
+  { href: "/learn/history", title: "History of XRP", desc: "From 2012 to today — the full story", emoji: "📜", icon: History, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/learn/xrp-ledger-explained", title: "XRP Ledger Explained", desc: "How the XRPL consensus works", emoji: "🔗", icon: Globe, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrp-tokenomics", title: "XRP Tokenomics", desc: "Supply, distribution & escrow mechanics", emoji: "📊", icon: BarChart3, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/escrow", title: "XRP Escrow", desc: "Ripple's 55B XRP escrow system", emoji: "🔒", icon: Lock, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/rlusd", title: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin", emoji: "💵", icon: Coins, gradient: "from-[#0085FF] to-[#00C2FF]" },
+  { href: "/learn/xrp-staking", title: "XRP Staking", desc: "Earn yield on your XRP holdings", emoji: "🌱", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-use-cases", title: "XRP Use Cases", desc: "Real-world applications beyond payments", emoji: "🌐", icon: Globe, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-price-history", title: "XRP Price History", desc: "Major price milestones over the years", emoji: "📈", icon: TrendingUp, gradient: "from-[#0085FF] to-[#6366F1]" },
+  { href: "/learn/xrp-wallets", title: "XRP Wallets Guide", desc: "Choosing the right wallet for you", emoji: "👛", icon: Wallet, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
 
-/* ── Article Card Component ── */
-function ArticleCard({ article, index, large }: { article: Article; index: number; large?: boolean }) {
-  const Icon = article.icon;
+const ecosystem: Card[] = [
+  { href: "/learn/leadership", title: "Ripple Leadership", desc: "Key executives driving Ripple forward", emoji: "👔", icon: Users, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/partnerships", title: "Partnerships", desc: "Banks & institutions using XRP", emoji: "🤝", icon: Handshake, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/acquisitions", title: "Acquisitions", desc: "Strategic acquisitions by Ripple", emoji: "🏗️", icon: Building2, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/key-people", title: "Key People", desc: "Leaders of the XRP ecosystem", emoji: "👥", icon: UserCircle, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/trusted-sources", title: "Trusted Sources", desc: "Curated XRP community voices", emoji: "✅", icon: Shield, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/riddlers", title: "Riddlers", desc: "The legendary XRP riddle community", emoji: "🧩", icon: Eye, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const bestPicks: Card[] = [
+  { href: "/best/xrp-wallets", title: "Best XRP Wallets", desc: "Top wallet picks for 2026", emoji: "👛", icon: Wallet, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/best/xrp-exchanges", title: "Best XRP Exchanges", desc: "Where to buy XRP safely", emoji: "🏦", icon: Building2, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/best/hardware-wallets-for-xrp", title: "Best Hardware Wallets", desc: "Cold storage for maximum security", emoji: "🔐", icon: Lock, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/best/xrp-staking-platforms", title: "Best Staking Platforms", desc: "Earn yield on your XRP", emoji: "🌱", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
+];
+
+const answers: Card[] = [
+  { href: "/answers/is-xrp-a-good-investment", title: "Is XRP a Good Investment?", desc: "Analysis and considerations", emoji: "🤔", icon: Scale, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/answers/will-xrp-reach-10-dollars", title: "Will XRP Reach $10?", desc: "Price potential breakdown", emoji: "🎯", icon: TrendingUp, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/answers/xrp-price-prediction-2026", title: "XRP Price Prediction 2026", desc: "Expert forecasts for this year", emoji: "🔮", icon: Search, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/answers/is-xrp-a-security", title: "Is XRP a Security?", desc: "The SEC case explained", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/answers/what-banks-use-xrp", title: "What Banks Use XRP?", desc: "Institutional adoption tracker", emoji: "🏛️", icon: Building2, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/answers/how-fast-is-xrp", title: "How Fast is XRP?", desc: "Speed comparison with other cryptos", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
+];
+
+const tools: Card[] = [
+  { href: "/tools/xrp-profit-calculator", title: "Profit Calculator", desc: "Calculate potential XRP gains", emoji: "🧮", icon: Calculator, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/tools/xrp-fee-calculator", title: "Fee Calculator", desc: "Estimate XRP transaction fees", emoji: "💸", icon: Calculator, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+];
+
+function CardGrid({ cards, sectionId }: { cards: Card[]; sectionId: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 + index * 0.06, duration: 0.5, ease: "easeOut" }}
-    >
-      <Link
-        href={article.href}
-        className={`group relative flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-300 h-full ${article.borderHover} ${article.glowColor} hover:scale-[1.02] hover:bg-white/[0.04] ${large ? "p-8" : "p-6"}`}
-      >
-        <div className="flex items-start justify-between">
-          <div className={`rounded-xl bg-gradient-to-br ${article.gradient} ${large ? "p-4" : "p-3"} w-fit`}>
-            <Icon className={`${large ? "h-7 w-7" : "h-5 w-5"} text-white`} />
-          </div>
-          <span className="text-[10px] uppercase tracking-widest text-[#0085FF]/60 font-medium bg-[#0085FF]/[0.08] px-2 py-1 rounded-full">
-            {article.category}
-          </span>
-        </div>
-        <h3 className={`${large ? "mt-5 text-xl" : "mt-4 text-lg"} font-bold text-white`}>{article.title}</h3>
-        <p className={`mt-2 text-sm text-[#888] leading-relaxed flex-1`}>{article.desc}</p>
-        <div className={`${large ? "mt-6" : "mt-4"} inline-flex items-center gap-1.5 text-sm font-semibold text-white/60 group-hover:text-white group-hover:gap-2.5 transition-all duration-300`}>
-          Read article <ArrowRight className="h-4 w-4" />
-        </div>
-      </Link>
-    </motion.div>
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {cards.map((card, i) => {
+        const Icon = card.icon;
+        const isFeatured = card.featured;
+        return (
+          <motion.div
+            key={card.href}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 * i, duration: 0.4 }}
+            className={isFeatured ? "sm:col-span-1" : ""}
+          >
+            <Link
+              href={card.href}
+              className={`group relative flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-300 hover:border-[#0085FF]/30 hover:shadow-[0_0_30px_rgba(0,133,255,0.15)] hover:scale-[1.02] hover:bg-white/[0.04] ${isFeatured ? "p-7" : "p-5"} h-full`}
+            >
+              <div className="flex items-start justify-between">
+                <div className={`flex items-center gap-3`}>
+                  <span className={`${isFeatured ? "text-2xl" : "text-xl"}`}>{card.emoji}</span>
+                  <div className={`rounded-lg bg-gradient-to-br ${card.gradient} p-2 w-fit`}>
+                    <Icon className={`${isFeatured ? "h-5 w-5" : "h-4 w-4"} text-white`} />
+                  </div>
+                </div>
+              </div>
+              <h3 className={`${isFeatured ? "mt-4 text-lg" : "mt-3 text-base"} font-bold text-white`}>{card.title}</h3>
+              <p className="mt-1 text-sm text-[#888] line-clamp-1 flex-1">{card.desc}</p>
+              <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white/40 group-hover:text-[#0085FF] group-hover:gap-2 transition-all duration-300">
+                Read more <ArrowRight className="h-3 w-3" />
+              </div>
+            </Link>
+          </motion.div>
+        );
+      })}
+    </div>
   );
 }
 
-/* ── Page ── */
+function SectionHeader({ icon: Icon, title, colorClass = "text-[#0085FF]", bgClass = "bg-[#0085FF]/10", viewAllHref }: { icon: React.ComponentType<{ className?: string }>; title: string; colorClass?: string; bgClass?: string; viewAllHref?: string }) {
+  return (
+    <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center gap-3">
+        <div className={`rounded-lg p-2 ${bgClass}`}>
+          <Icon className={`h-5 w-5 ${colorClass}`} />
+        </div>
+        <h2 className="text-xl font-bold text-white">{title}</h2>
+        <div className="hidden sm:block h-px flex-1 bg-gradient-to-r from-white/10 to-transparent ml-4 min-w-[60px]" />
+      </div>
+      {viewAllHref && (
+        <Link href={viewAllHref} className="text-sm font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors flex items-center gap-1">
+          View all <ArrowRight className="h-3 w-3" />
+        </Link>
+      )}
+    </div>
+  );
+}
+
 export default function LearnPage() {
-  const [filter, setFilter] = useState<string>("All");
-
-  const featured = articles.filter((a) => a.featured);
-  const filtered = filter === "All" ? articles : articles.filter((a) => a.category === filter);
-
   return (
     <>
       <SEOSchema schema={faqSchema} />
@@ -228,151 +159,59 @@ export default function LearnPage() {
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px]">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,133,255,0.15)_0%,_transparent_70%)]" />
           <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-[radial-gradient(circle,_rgba(99,102,241,0.1)_0%,_transparent_70%)]" />
-          <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-[radial-gradient(circle,_rgba(6,182,212,0.08)_0%,_transparent_70%)]" />
         </div>
 
-        {/* ── Hero ── */}
+        {/* Hero */}
         <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 mb-6 rounded-full border border-[#0085FF]/20 bg-[#0085FF]/[0.06] px-4 py-1.5">
               <GraduationCap className="h-4 w-4 text-[#0085FF]" />
               <span className="text-xs font-medium text-[#0085FF]">Knowledge Base</span>
             </div>
             <h1 className="text-[40px] font-bold tracking-[-0.04em] text-white md:text-[56px] leading-tight">
               Learn Everything About{" "}
-              <span className="bg-gradient-to-r from-[#0085FF] via-[#06B6D4] to-[#6366F1] bg-clip-text text-transparent">
-                XRP
-              </span>
+              <span className="bg-gradient-to-r from-[#0085FF] via-[#06B6D4] to-[#6366F1] bg-clip-text text-transparent">XRP</span>
             </h1>
-            <p className="mt-4 text-[#888] max-w-2xl text-lg leading-relaxed">
-              Your comprehensive resource for understanding XRP, Ripple, and the XRP Ledger.
-              From beginner guides to deep dives — everything in one place.
+            <p className="mt-4 text-[#888] max-w-2xl text-lg">
+              Guides, deep dives, tools, and answers — your complete XRP resource library.
             </p>
           </motion.div>
         </div>
 
-        {/* ── Featured Articles ── */}
+        {/* Basics */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex items-center gap-2 mb-6"
-          >
-            <Rocket className="h-5 w-5 text-[#0085FF]" />
-            <h2 className="text-lg font-bold text-white">Start Here</h2>
-          </motion.div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((article, i) => (
-              <ArticleCard key={article.href} article={article} index={i} large />
-            ))}
-          </div>
+          <SectionHeader icon={Rocket} title="Start Here" />
+          <CardGrid cards={basics} sectionId="basics" />
         </div>
 
-        {/* ── Categories ── */}
+        {/* Deep Dives */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            <div className="flex items-center gap-2 mb-6">
-              <BookOpen className="h-5 w-5 text-[#0085FF]" />
-              <h2 className="text-lg font-bold text-white">Browse by Category</h2>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Basics */}
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
-                <div className="rounded-xl bg-gradient-to-br from-[#0085FF] to-[#06B6D4] p-3 w-fit">
-                  <GraduationCap className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-white">Basics</h3>
-                <p className="mt-1 text-sm text-[#888]">Essential guides for getting started with XRP.</p>
-                <ul className="mt-4 space-y-2">
-                  {articles.filter((a) => a.category === "Basics").map((a) => (
-                    <li key={a.href}>
-                      <Link href={a.href} className="text-sm text-[#0085FF]/80 hover:text-[#0085FF] transition-colors flex items-center gap-1.5">
-                        <ArrowRight className="h-3 w-3" /> {a.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Deep Dives */}
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
-                <div className="rounded-xl bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] p-3 w-fit">
-                  <Search className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-white">Deep Dives</h3>
-                <p className="mt-1 text-sm text-[#888]">In-depth analysis and detailed breakdowns.</p>
-                <ul className="mt-4 space-y-2">
-                  {articles.filter((a) => a.category === "Deep Dives").map((a) => (
-                    <li key={a.href}>
-                      <Link href={a.href} className="text-sm text-[#6366F1]/80 hover:text-[#6366F1] transition-colors flex items-center gap-1.5">
-                        <ArrowRight className="h-3 w-3" /> {a.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Ecosystem */}
-              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
-                <div className="rounded-xl bg-gradient-to-br from-[#06B6D4] to-[#0085FF] p-3 w-fit">
-                  <Globe className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-white">Ecosystem</h3>
-                <p className="mt-1 text-sm text-[#888]">People, partnerships, and community.</p>
-                <ul className="mt-4 space-y-2">
-                  {articles.filter((a) => a.category === "Ecosystem").map((a) => (
-                    <li key={a.href}>
-                      <Link href={a.href} className="text-sm text-[#06B6D4]/80 hover:text-[#06B6D4] transition-colors flex items-center gap-1.5">
-                        <ArrowRight className="h-3 w-3" /> {a.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
+          <SectionHeader icon={Search} title="Deep Dives" colorClass="text-[#6366F1]" bgClass="bg-[#6366F1]/10" />
+          <CardGrid cards={deepDives} sectionId="deep-dives" />
         </div>
 
-        {/* ── All Articles ── */}
+        {/* Ecosystem */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={Globe} title="Ecosystem" colorClass="text-[#06B6D4]" bgClass="bg-[#06B6D4]/10" />
+          <CardGrid cards={ecosystem} sectionId="ecosystem" />
+        </div>
+
+        {/* Best Picks */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={Award} title="Best Picks" colorClass="text-[#EC4899]" bgClass="bg-[#EC4899]/10" viewAllHref="/best" />
+          <CardGrid cards={bestPicks} sectionId="best" />
+        </div>
+
+        {/* Answers */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={MessageCircle} title="Quick Answers" colorClass="text-[#F59E0B]" bgClass="bg-[#F59E0B]/10" viewAllHref="/answers" />
+          <CardGrid cards={answers} sectionId="answers" />
+        </div>
+
+        {/* Tools */}
         <div className="relative mx-auto max-w-7xl px-4 pb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-              <h2 className="text-lg font-bold text-white">All Articles</h2>
-              <div className="flex gap-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setFilter(cat)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                      filter === cat
-                        ? "bg-[#0085FF] text-white"
-                        : "bg-white/[0.04] text-[#888] hover:text-white hover:bg-white/[0.08]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((article, i) => (
-                <ArticleCard key={article.href} article={article} index={i} />
-              ))}
-            </div>
-          </motion.div>
+          <SectionHeader icon={Calculator} title="Tools" colorClass="text-[#10B981]" bgClass="bg-[#10B981]/10" viewAllHref="/tools" />
+          <CardGrid cards={tools} sectionId="tools" />
         </div>
       </div>
     </>

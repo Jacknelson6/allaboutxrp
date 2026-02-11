@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
 const learnCategories = [
@@ -11,6 +11,7 @@ const learnCategories = [
     title: "Basics",
     icon: BookOpen,
     items: [
+      { label: "FAQ", href: "/learn/faq", desc: "Answers to common XRP questions", icon: FileQuestion },
       { label: "What is XRP?", href: "/learn/what-is-xrp", desc: "The digital asset powering global payments", icon: Coins },
       { label: "What is Ripple?", href: "/learn/what-is-ripple", desc: "The company behind XRP technology", icon: Building2 },
       { label: "How to Start", href: "/learn/get-started", desc: "Buy your first XRP step by step", icon: Rocket },
@@ -23,7 +24,6 @@ const learnCategories = [
       { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
-      // RLUSD & Escrow accessible via Learn hub (/learn)
     ],
   },
   {
@@ -31,17 +31,19 @@ const learnCategories = [
     icon: Globe,
     items: [
       { label: "Acquisitions", href: "/learn/acquisitions", desc: "Strategic acquisitions powering Ripple", icon: Building2 },
-      { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
       { label: "Key People", href: "/learn/key-people", desc: "Ripple's leadership team", icon: UserCircle },
       { label: "Trusted Sources", href: "/learn/trusted-sources", desc: "Curated voices from the community", icon: Users },
       { label: "Riddlers", href: "/learn/riddlers", desc: "The legendary XRP riddle community", icon: Eye },
     ],
   },
   {
-    title: "More",
+    title: "Resources",
     icon: HelpCircle,
     items: [
-      { label: "FAQ", href: "/learn/faq", desc: "Answers to 17 common questions", icon: FileQuestion },
+      { label: "Best Wallets", href: "/best/xrp-wallets", desc: "Top XRP wallet picks", icon: Lock },
+      { label: "Best Exchanges", href: "/best/xrp-exchanges", desc: "Where to buy XRP", icon: Building2 },
+      { label: "Tools", href: "/tools", desc: "Calculators & utilities", icon: ScrollText },
+      { label: "Answers", href: "/answers", desc: "Quick answers to top questions", icon: HelpCircle },
     ],
   },
 ];
@@ -170,7 +172,7 @@ export default function MegaMenu() {
 
             {learnOpen && (
               <div
-                className="absolute -left-32 top-full z-50 mt-2 w-[720px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
+                className="absolute -left-32 top-full z-50 mt-2 w-[800px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
@@ -206,14 +208,15 @@ export default function MegaMenu() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 pt-3 border-t border-white/[0.06]">
+                <div className="mt-5 pt-4 border-t border-white/[0.06]">
                   <Link
                     href="/learn"
                     onClick={() => setLearnOpen(false)}
-                    className="flex items-center gap-1.5 text-[12px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
+                    className="flex items-center justify-center gap-2 w-full rounded-lg bg-[#0085FF] hover:bg-[#0085FF]/90 text-white text-[14px] font-semibold py-3 px-4 transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,133,255,0.3)]"
                   >
-                    <BookOpen className="h-3 w-3" />
-                    More →
+                    <BookOpen className="h-4 w-4" />
+                    Explore All Learn Pages
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
