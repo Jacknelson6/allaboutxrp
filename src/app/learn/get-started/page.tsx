@@ -64,7 +64,7 @@ const faqItems = [
 
 const exchanges = [
   { name: "Uphold", desc: "Buy XRP directly with USD, EUR, GBP. No trading fees on spreads. Best for beginners.", url: "https://uphold.com", recommended: true },
-  { name: "Coinbase", desc: "Largest U.S. exchange with strong security and insurance. Easy interface and mobile app.", url: "https://coinbase.com", recommended: false },
+  { name: "Coinbase", desc: "Largest U.S. exchange with strong security and insurance. Easy interface and mobile app.", url: "https://coinbase.com/join/MAYGHUG?src=referral-link", recommended: false },
   { name: "Kraken", desc: "Established exchange with advanced trading features, low fees, and strong security.", url: "https://kraken.com", recommended: false },
   { name: "Bitstamp", desc: "One of the oldest exchanges (2011). EU-regulated with excellent XRP liquidity.", url: "https://bitstamp.net", recommended: false },
   { name: "Binance", desc: "World's largest exchange by volume. Lowest fees. Not available in all U.S. states.", url: "https://binance.com", recommended: false },

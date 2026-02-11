@@ -21,7 +21,7 @@ const howToSchema = {
 
 const exchanges = [
   { name: "Uphold", description: "Buy XRP directly with USD, EUR, GBP. No trading fees on spreads. Great for beginners.", url: "https://uphold.com", featured: true },
-  { name: "Coinbase", description: "Largest U.S. exchange. Easy-to-use interface with strong security.", url: "https://coinbase.com", featured: false },
+  { name: "Coinbase", description: "Largest U.S. exchange. Easy-to-use interface with strong security.", url: "https://coinbase.com/join/MAYGHUG?src=referral-link", featured: false },
   { name: "Kraken", description: "Established exchange with advanced trading features and low fees.", url: "https://kraken.com", featured: false },
   { name: "Bitstamp", description: "One of the oldest exchanges. EU-regulated with good XRP liquidity.", url: "https://bitstamp.net", featured: false },
 ];

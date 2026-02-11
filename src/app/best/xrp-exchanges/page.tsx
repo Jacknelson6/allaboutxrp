@@ -31,7 +31,7 @@ const exchanges = [
     xrpWithdrawal: "Yes (XRP Ledger native)",
     countries: "100+",
     kyc: "Required",
-    url: "https://www.coinbase.com",
+    url: "https://coinbase.com/join/MAYGHUG?src=referral-link",
     verdict: "The safest on-ramp for US-based XRP buyers — publicly traded, insured, and beginner-friendly.",
     pros: ["Publicly traded (NASDAQ: COIN)", "FDIC-insured USD balances", "Extremely intuitive interface", "Strong regulatory compliance"],
     cons: ["Higher fees on simple trades", "Advanced features require Coinbase Advanced", "Occasional XRP withdrawal delays"],
