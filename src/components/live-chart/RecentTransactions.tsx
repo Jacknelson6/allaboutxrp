@@ -63,9 +63,9 @@ export default function RecentTransactions() {
           const data = JSON.parse(evt.data);
           if (data.type === 'transaction' && data.validated && data.transaction) {
             const t = data.transaction;
-            if (t.TransactionType === 'Payment' && typeof t.Amount === 'string') {
+            if (t.TransactionType === 'Payment' && typeof t.Amount === 'string' && t.Account !== t.Destination) {
               const amountXRP = parseInt(t.Amount, 10) / 1_000_000;
-              if (amountXRP >= 1) {
+              if (amountXRP >= 100 && amountXRP < 100_000_000) {
                 addTxn({
                   hash: t.hash,
                   from: t.Account,
