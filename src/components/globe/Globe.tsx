@@ -75,7 +75,7 @@ function FresnelMaterial() {
   return <primitive object={material} attach="material" />;
 }
 
-function EarthSphere() {
+function EarthSphere({ children }: { children?: React.ReactNode }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
@@ -123,6 +123,7 @@ function EarthSphere() {
         <sphereGeometry args={[1.15, 64, 64]} />
         <meshBasicMaterial color="#0060CC" transparent opacity={0.05} side={THREE.BackSide} />
       </mesh>
+      {children}
     </group>
   );
 }
@@ -140,10 +141,11 @@ function GlobeScene({ arcs, onArcComplete }: GlobeSceneProps) {
       <pointLight position={[-10, -10, -10]} intensity={0.4} color="#0085FF" />
       <directionalLight position={[5, 3, 5]} intensity={0.5} color="#ffffff" />
       <Stars radius={50} depth={50} count={3000} factor={3} saturation={0} fade speed={0.5} />
-      <EarthSphere />
-      {arcs.map(tx => (
-        <TransactionArc key={tx.id} transaction={tx} onComplete={onArcComplete} />
-      ))}
+      <EarthSphere>
+        {arcs.map(tx => (
+          <TransactionArc key={tx.id} transaction={tx} onComplete={onArcComplete} />
+        ))}
+      </EarthSphere>
       <OrbitControls
         enablePan={false}
         minDistance={1.5}
