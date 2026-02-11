@@ -134,7 +134,6 @@ function PctBadge({ value }: { value: number }) {
 
 // ── Timeframes ─────────────────────────────────────────────────────────────
 const timeframes = [
-  { label: 'Live', interval: '1', range: '1D' },
   { label: '1H', interval: '5', range: '1D' },
   { label: '1D', interval: '15', range: '1D' },
   { label: '7D', interval: '60', range: '7D' },
@@ -150,7 +149,7 @@ export default function LiveChartContent() {
   const [coin, setCoin] = useState<CoinDetail | null>(null);
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
-  const [activeTimeframe, setActiveTimeframe] = useState(2); // 1D default
+  const [activeTimeframe, setActiveTimeframe] = useState(1); // 1D default
   const [chartView, setChartView] = useState<ChartView>('candles');
   const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
