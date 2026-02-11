@@ -1,306 +1,354 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts";
-import StatCard from "@/components/shared/StatCard";
-import Disclaimer from "@/components/shared/Disclaimer";
-import SEOSchema from "@/components/shared/SEOSchema";
+import { useState, useEffect } from "react";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import TierChart from "@/components/richlist/TierChart";
 import TierCalculator from "@/components/richlist/TierCalculator";
 import TierFAQ from "@/components/richlist/TierFAQ";
-import { formatCurrency, formatCompact, formatNumber, formatPercent, shortenAddress } from "@/lib/utils/format";
-import { DollarSign, TrendingUp, BarChart3, Users } from "lucide-react";
+import SEOSchema from "@/components/shared/SEOSchema";
+import { formatNumber, formatCompact, shortenAddress } from "@/lib/utils/format";
+import { Copy, Check, TrendingUp, TrendingDown, Activity, Users, DollarSign } from "lucide-react";
 
-interface PricePoint { date: string; price: number; }
-interface RichEntry { rank: number; address: string; label: string | null; balance: number; percentage: number; isKnown: boolean; }
-interface Distribution { range: string; accounts: number; totalXrp: number; }
-interface PriceData { usd: number; usdChange24h: number; usdVolume24h: number; usdMarketCap: number; }
-interface SupplyInfo { totalSupply: number; circulatingSupply: number; escrowedSupply: number; burnedSupply: number; percentCirculating: number; percentEscrowed: number; }
-interface NetworkStats { totalAccounts: number; }
+// ── Types ──────────────────────────────────────────────────────────────────
+interface Sentiment {
+  fearGreed: { value: number; label: string };
+  buyVolume: number;
+  sellVolume: number;
+  totalVolume: number;
+  buyPercent: number;
+}
 
-const SUPPLY_COLORS = ["#0085FF", "#00BA7C", "#F7B928", "rgba(255,255,255,0.08)"];
-const timeRanges = ["7D", "30D", "90D"] as const;
-const DAYS_MAP: Record<string, number> = { "7D": 7, "30D": 30, "90D": 90 };
+interface Holder {
+  rank: number;
+  address: string;
+  label: string | null;
+  balance: number;
+  valueUsd: number;
+  percentage: number;
+}
+
+interface HoldersData {
+  topHolders: Holder[];
+  distribution: { top10: number; others: number };
+  totalAccounts: number;
+  marketCap: number;
+  xrpPrice: number;
+}
+
+// ── Constants ──────────────────────────────────────────────────────────────
+const DONUT_COLORS = ["#0085FF", "#2F3336"];
 
 const datasetSchema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  name: "XRP Rich List & Market Data",
-  description: "Real-time XRP rich list, price data, supply metrics, and distribution analysis.",
+  name: "XRP Holders & Market Pulse",
+  description: "Real-time XRP holder distribution, trading sentiment, and market data.",
   url: "https://allaboutxrp.com/richlist",
   creator: { "@type": "Organization", name: "AllAboutXRP" },
 };
 
-const tooltipStyle = {
-  background: "#0A0A0B",
-  border: "1px solid rgba(255,255,255,0.08)",
-  borderRadius: 10,
-  color: "#F0F0F0",
-  fontSize: 12,
-  padding: "8px 12px",
-};
+// ── Gauge helper ───────────────────────────────────────────────────────────
+function FearGreedGauge({ value, label }: { value: number; label: string }) {
+  const angle = (value / 100) * 180;
+  const rad = (angle * Math.PI) / 180;
+  const needleX = 100 - 70 * Math.cos(rad);
+  const needleY = 100 - 70 * Math.sin(rad);
 
-export default function RichListPage() {
-  const [range, setRange] = useState<typeof timeRanges[number]>("30D");
-  const [price, setPrice] = useState<PriceData | null>(null);
-  const [supply, setSupply] = useState<SupplyInfo | null>(null);
-  const [network, setNetwork] = useState<NetworkStats | null>(null);
-  const [richList, setRichList] = useState<RichEntry[]>([]);
-  const [distribution, setDistribution] = useState<Distribution[]>([]);
-  const [priceHistory, setPriceHistory] = useState<PricePoint[]>([]);
+  const getColor = (v: number) => {
+    if (v <= 25) return "#ea3943";
+    if (v <= 45) return "#ea8c00";
+    if (v <= 55) return "#f5d100";
+    if (v <= 75) return "#93d900";
+    return "#16c784";
+  };
+
+  return (
+    <div className="flex flex-col items-center">
+      <svg viewBox="0 110 200 100" className="w-48 h-24">
+        <defs>
+          <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#ea3943" />
+            <stop offset="25%" stopColor="#ea8c00" />
+            <stop offset="50%" stopColor="#f5d100" />
+            <stop offset="75%" stopColor="#93d900" />
+            <stop offset="100%" stopColor="#16c784" />
+          </linearGradient>
+        </defs>
+        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGrad)" strokeWidth="12" strokeLinecap="round" />
+        <line x1="100" y1="100" x2={needleX} y2={needleY} stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="100" cy="100" r="4" fill="white" />
+      </svg>
+      <span className="text-3xl font-bold mt-1" style={{ color: getColor(value) }}>{value}</span>
+      <span className="text-sm text-text-secondary mt-0.5">{label}</span>
+    </div>
+  );
+}
+
+// ── Copy button ────────────────────────────────────────────────────────────
+function CopyAddress({ address }: { address: string }) {
+  const [copied, setCopied] = useState(false);
+  const copy = () => {
+    navigator.clipboard.writeText(address);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+  return (
+    <button onClick={copy} className="ml-1.5 text-text-secondary hover:text-xrp-accent transition-colors" aria-label="Copy address">
+      {copied ? <Check className="h-3 w-3 text-green-400" /> : <Copy className="h-3 w-3" />}
+    </button>
+  );
+}
+
+// ── Main Page ──────────────────────────────────────────────────────────────
+export default function HoldersPage() {
+  const [sentiment, setSentiment] = useState<Sentiment | null>(null);
+  const [holders, setHolders] = useState<HoldersData | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch price data
   useEffect(() => {
-    fetch("/api/xrp/price")
-      .then((r) => r.json())
-      .then((d) => { if (d.data) setPrice(d.data); })
-      .catch(() => {});
+    Promise.all([
+      fetch("/api/xrp/sentiment").then(r => r.json()).catch(() => null),
+      fetch("/api/xrp/holders").then(r => r.json()).catch(() => null),
+    ]).then(([s, h]) => {
+      if (s) setSentiment(s);
+      if (h) setHolders(h);
+      setLoading(false);
+    });
   }, []);
 
-  // Fetch stats (supply + network)
-  useEffect(() => {
-    fetch("/api/xrp/stats")
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.data) {
-          setSupply(d.data.supply);
-          setNetwork(d.data.network);
-        }
-      })
-      .catch(() => {});
-  }, []);
+  const maxBalance = holders?.topHolders?.[0]?.balance ?? 1;
 
-  // Fetch rich list
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/xrp/richlist?limit=20")
-      .then((r) => r.json())
-      .then((d) => { if (d.data) setRichList(d.data); })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
-
-  // Fetch distribution
-  useEffect(() => {
-    fetch("/api/xrp/distribution")
-      .then((r) => r.json())
-      .then((d) => { if (d.data) setDistribution(d.data); })
-      .catch(() => {});
-  }, []);
-
-  // Fetch price history based on selected range
-  const fetchPriceHistory = useCallback((days: number) => {
-    fetch(`/api/xrp/price-history?days=${days}`)
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.data && Array.isArray(d.data)) {
-          const formatted = d.data.map((p: { timestamp: number; price: number }) => ({
-            date: new Date(p.timestamp).toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-            price: p.price,
-          }));
-          setPriceHistory(formatted);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    fetchPriceHistory(DAYS_MAP[range]);
-  }, [range, fetchPriceHistory]);
-
-  const currentPrice = price?.usd ?? 0;
-  const change = price?.usdChange24h ?? 0;
-  const volume = price?.usdVolume24h ?? 0;
-  const marketCap = price?.usdMarketCap ?? 0;
-
-  const circulatingB = supply ? supply.circulatingSupply / 1e9 : 0;
-  const escrowedB = supply ? supply.escrowedSupply / 1e9 : 0;
-  const burnedB = supply ? supply.burnedSupply / 1e6 : 0; // millions
-  const otherB = supply ? Math.max(0, (supply.totalSupply - supply.circulatingSupply - supply.escrowedSupply - supply.burnedSupply) / 1e9) : 0;
-
-  const supplyData = [
-    { name: "Circulating", value: Number(circulatingB.toFixed(1)) },
-    { name: "Escrowed", value: Number(escrowedB.toFixed(1)) },
-    { name: "Burned", value: Number((burnedB / 1000).toFixed(1)) || 0.01 },
-    { name: "Other", value: Number(otherB.toFixed(1)) || 0 },
-  ].filter(d => d.value > 0);
-
-  const totalAccounts = network?.totalAccounts
-    ? (network.totalAccounts >= 1e6 ? `${(network.totalAccounts / 1e6).toFixed(1)}M` : formatNumber(network.totalAccounts))
-    : "—";
+  const donutData = holders ? [
+    { name: "Top 10", value: holders.distribution.top10 },
+    { name: "Others", value: holders.distribution.others },
+  ] : [];
 
   return (
     <>
       <SEOSchema schema={datasetSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
+        {/* Header */}
         <div>
-          <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">XRP Rich List & Market Data</h1>
-          <p className="mt-1.5 text-[14px] text-text-secondary">Live XRP metrics, whale wallets, and supply distribution</p>
+          <h1 className="text-[32px] font-bold tracking-[-0.04em] text-text-primary">XRP Holders</h1>
+          <p className="mt-1.5 text-[14px] text-text-secondary">Market sentiment, holder distribution, and whale tracking</p>
         </div>
 
-        <div className="mt-6"><Disclaimer /></div>
-
-        {/* Stats */}
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard label="XRP Price" value={currentPrice ? formatCurrency(currentPrice, 4) : "—"} change={price ? formatPercent(change) : undefined} positive={change >= 0} icon={<DollarSign className="h-4 w-4" />} />
-          <StatCard label="Market Cap" value={marketCap ? formatCompact(marketCap) : "—"} icon={<TrendingUp className="h-4 w-4" />} />
-          <StatCard label="24h Volume" value={volume ? formatCompact(volume) : "—"} icon={<BarChart3 className="h-4 w-4" />} />
-          <StatCard label="Total Accounts" value={totalAccounts} icon={<Users className="h-4 w-4" />} />
-        </div>
-
-        {/* Price Chart */}
-        <section className="mt-6 rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5" aria-label="Price chart">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-bold text-text-primary">Price Chart</h2>
-              <p className="text-xs text-text-secondary">XRP/USD</p>
+        {/* ── Section 1: Market Pulse ────────────────────────────────────── */}
+        <section className="mt-8" aria-label="Market pulse">
+          <h2 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
+            <Activity className="h-5 w-5 text-xrp-accent" />
+            XRP Market Pulse
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Fear & Greed */}
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-6">
+              <h3 className="text-sm font-medium text-text-secondary mb-4">Fear & Greed Index</h3>
+              {sentiment ? (
+                <FearGreedGauge value={sentiment.fearGreed.value} label={sentiment.fearGreed.label} />
+              ) : (
+                <div className="flex items-center justify-center h-32 text-text-secondary text-sm">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
+                  Loading…
+                </div>
+              )}
             </div>
-            <div className="flex gap-1">
-              {timeRanges.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setRange(t)}
-                  aria-label={`Show ${t === "7D" ? "7 day" : t === "30D" ? "30 day" : "90 day"} price history`}
-                  aria-pressed={range === t}
-                  className={`rounded-lg px-3 py-1 text-xs font-medium transition-all duration-200 ${
-                    range === t ? "bg-xrp-accent text-white" : "text-text-secondary hover:text-text-primary"
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mt-4 h-64">
-            {priceHistory.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={priceHistory} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0085FF" stopOpacity={0.2} />
-                      <stop offset="100%" stopColor="#0085FF" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <XAxis dataKey="date" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} tickFormatter={(v: number) => `$${v.toFixed(2)}`} />
-                  <Tooltip contentStyle={tooltipStyle} />
-                  <Area type="monotone" dataKey="price" stroke="#0085FF" strokeWidth={2} fill="url(#priceGrad)" dot={false} activeDot={{ r: 4, fill: "#0085FF", stroke: "#000", strokeWidth: 2 }} />
-                </AreaChart>
-              </ResponsiveContainer>
-            ) : (
-              <div className="flex items-center justify-center h-full gap-2 text-text-secondary text-sm">
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
-                Loading chart data…
-              </div>
-            )}
-          </div>
-        </section>
 
-        {/* Rich List Table */}
-        <section className="mt-6" aria-label="Rich list">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-text-primary">Top XRP Holders</h2>
-            <span className="text-xs text-text-secondary font-mono">
-              <span className="inline-flex h-2 w-2 rounded-full bg-success mr-1" />LIVE
-            </span>
-          </div>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
-            <div className="grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-secondary min-w-[600px]">
-              <div>Rank</div>
-              <div>Address</div>
-              <div>Label</div>
-              <div className="text-right">Balance (XRP)</div>
-              <div className="text-right">% Supply</div>
-            </div>
-            {loading ? (
-              <div className="px-4 py-8 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
-                Loading rich list…
-              </div>
-            ) : richList.length === 0 ? (
-              <div className="px-4 py-8 text-center text-text-secondary text-sm">Unable to load rich list data</div>
-            ) : (
-              richList.map((entry) => (
-                <div key={entry.rank} className="terminal-row grid grid-cols-[60px_1fr_140px_140px_80px] gap-2 border-b border-white/[0.06] px-4 py-3 min-w-[600px]">
-                  <div className="font-mono text-sm text-text-secondary">#{entry.rank}</div>
-                  <div className="font-mono text-xs text-xrp-accent truncate">{shortenAddress(entry.address)}</div>
-                  <div>
-                    {entry.label ? (
-                      <span className="rounded-full border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
-                        {entry.label}
-                      </span>
-                    ) : (
-                      <span className="text-xs text-text-secondary/50">Unknown</span>
-                    )}
+            {/* Buy vs Sell Volume */}
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-6">
+              <h3 className="text-sm font-medium text-text-secondary mb-4">Buy vs Sell Volume (24h)</h3>
+              {sentiment ? (
+                <div className="flex flex-col justify-center h-32">
+                  {/* Bar */}
+                  <div className="flex rounded-full overflow-hidden h-8">
+                    <div
+                      className="flex items-center justify-center text-xs font-semibold text-white transition-all duration-500"
+                      style={{ width: `${sentiment.buyPercent}%`, background: "linear-gradient(90deg, #16c784, #00ba7c)" }}
+                    >
+                      {sentiment.buyPercent.toFixed(1)}%
+                    </div>
+                    <div
+                      className="flex items-center justify-center text-xs font-semibold text-white transition-all duration-500"
+                      style={{ width: `${100 - sentiment.buyPercent}%`, background: "linear-gradient(90deg, #ea3943, #c0392b)" }}
+                    >
+                      {(100 - sentiment.buyPercent).toFixed(1)}%
+                    </div>
                   </div>
-                  <div className="text-right font-mono text-sm text-text-primary">{formatNumber(entry.balance)}</div>
-                  <div className="text-right font-mono text-xs text-text-secondary">{entry.percentage}%</div>
+                  {/* Labels */}
+                  <div className="flex justify-between mt-3 text-xs">
+                    <div className="flex items-center gap-1.5">
+                      <TrendingUp className="h-3.5 w-3.5 text-green-400" />
+                      <span className="text-text-secondary">Buy</span>
+                      <span className="font-mono text-text-primary">{formatCompact(sentiment.buyVolume)} XRP</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <TrendingDown className="h-3.5 w-3.5 text-red-400" />
+                      <span className="text-text-secondary">Sell</span>
+                      <span className="font-mono text-text-primary">{formatCompact(sentiment.sellVolume)} XRP</span>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-center text-[11px] text-text-secondary">
+                    Total: {formatCompact(sentiment.totalVolume)} XRP
+                  </div>
                 </div>
-              ))
-            )}
+              ) : (
+                <div className="flex items-center justify-center h-32 text-text-secondary text-sm">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
+                  Loading…
+                </div>
+              )}
+            </div>
           </div>
         </section>
 
-        {/* Distribution & Supply Charts */}
-        <div className="mt-6 grid gap-4 lg:grid-cols-2">
-          <section className="rounded-xl border border-white/[0.06] p-5" aria-label="Distribution chart">
-            <h2 className="text-lg font-bold text-text-primary">Holder Distribution</h2>
-            <p className="text-xs text-text-secondary mb-4">Accounts by XRP balance range</p>
-            <div className="h-56">
-              {distribution.length > 0 ? (
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={distribution} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                    <XAxis dataKey="range" tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 10, fill: "#71767B" }} axisLine={false} tickLine={false} tickFormatter={(v: number) => v >= 1000000 ? `${(v/1000000).toFixed(0)}M` : v >= 1000 ? `${(v/1000).toFixed(0)}K` : String(v)} />
-                    <Tooltip contentStyle={tooltipStyle} />
-                    <Bar dataKey="accounts" fill="#0085FF" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+        {/* ── Section 2: Holders Overview ────────────────────────────────── */}
+        <section className="mt-10" aria-label="Holders overview">
+          {/* Stats Cards */}
+          <div className="grid gap-3 sm:grid-cols-3 mb-6">
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+              <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
+                <Users className="h-4 w-4" /> Total Holders
+              </div>
+              <div className="text-2xl font-bold text-text-primary">
+                {holders?.totalAccounts ? formatNumber(holders.totalAccounts) : "—"}
+              </div>
+            </div>
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+              <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
+                <DollarSign className="h-4 w-4" /> Market Cap
+              </div>
+              <div className="text-2xl font-bold text-text-primary">
+                {holders?.marketCap ? formatCompact(holders.marketCap) : "—"}
+              </div>
+            </div>
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+              <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
+                <DollarSign className="h-4 w-4" /> XRP Price
+              </div>
+              <div className="text-2xl font-bold text-text-primary">
+                {holders?.xrpPrice ? `$${holders.xrpPrice.toFixed(4)}` : "—"}
+              </div>
+            </div>
+          </div>
+
+          {/* Table + Donut */}
+          <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
+            {/* Top Holders Table */}
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
+              <div className="px-5 py-4 border-b border-[#2F3336] flex items-center justify-between">
+                <h2 className="text-lg font-bold text-text-primary">Top Holders</h2>
+                <span className="text-xs text-text-secondary font-mono flex items-center gap-1">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-green-400" />LIVE
+                </span>
+              </div>
+
+              {/* Header */}
+              <div className="grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336] min-w-[580px]">
+                <div>#</div>
+                <div>Wallet</div>
+                <div className="text-right">Amount (XRP)</div>
+                <div className="text-right">Value (USD)</div>
+                <div className="text-right">%</div>
+              </div>
+
+              <div className="overflow-x-auto max-h-[520px] overflow-y-auto">
+                {loading ? (
+                  <div className="px-5 py-12 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                    Loading holders…
+                  </div>
+                ) : (holders?.topHolders ?? []).length === 0 ? (
+                  <div className="px-5 py-12 text-center text-text-secondary text-sm">Unable to load holder data</div>
+                ) : (
+                  holders!.topHolders.slice(0, 25).map((h) => (
+                    <div key={h.rank} className="grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-3 border-b border-[#2F3336]/50 hover:bg-white/[0.02] transition-colors min-w-[580px] group">
+                      <div className="font-mono text-sm text-text-secondary">{h.rank}</div>
+                      <div className="flex items-center">
+                        <span className="font-mono text-xs text-xrp-accent">{shortenAddress(h.address)}</span>
+                        <CopyAddress address={h.address} />
+                        {h.label && (
+                          <span className="ml-2 rounded-full border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
+                            {h.label}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-right font-mono text-sm text-text-primary">{formatCompact(h.balance)}</div>
+                      <div className="text-right font-mono text-xs text-text-secondary">${formatCompact(h.valueUsd)}</div>
+                      <div className="text-right flex items-center justify-end gap-2">
+                        <div className="w-16 h-1.5 rounded-full bg-[#2F3336] overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-xrp-accent transition-all duration-300"
+                            style={{ width: `${Math.min((h.balance / maxBalance) * 100, 100)}%` }}
+                          />
+                        </div>
+                        <span className="font-mono text-[11px] text-text-secondary w-12 text-right">{h.percentage}%</span>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+
+            {/* Donut Chart */}
+            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+              <h3 className="text-sm font-bold text-text-primary mb-4">Holders Distribution</h3>
+              {holders ? (
+                <>
+                  <div className="h-52 relative">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={donutData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={65}
+                          outerRadius={90}
+                          paddingAngle={3}
+                          dataKey="value"
+                          strokeWidth={0}
+                        >
+                          {donutData.map((_, i) => (
+                            <Cell key={i} fill={DONUT_COLORS[i]} />
+                          ))}
+                        </Pie>
+                      </PieChart>
+                    </ResponsiveContainer>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="text-2xl font-bold text-text-primary">{holders.distribution.top10.toFixed(1)}%</span>
+                      <span className="text-[10px] text-text-secondary">Top 10</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 space-y-2">
+                    <div className="flex items-center justify-between rounded-lg border border-[#2F3336] px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2.5 w-2.5 rounded-full bg-xrp-accent" />
+                        <span className="text-xs text-text-secondary">Top 10 Holders</span>
+                      </div>
+                      <span className="font-mono text-xs font-semibold text-text-primary">{holders.distribution.top10.toFixed(1)}%</span>
+                    </div>
+                    <div className="flex items-center justify-between rounded-lg border border-[#2F3336] px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2.5 w-2.5 rounded-full bg-[#2F3336]" />
+                        <span className="text-xs text-text-secondary">Others</span>
+                      </div>
+                      <span className="font-mono text-xs font-semibold text-text-primary">{holders.distribution.others.toFixed(1)}%</span>
+                    </div>
+                  </div>
+                </>
               ) : (
-                <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading…</div>
+                <div className="flex items-center justify-center h-52 text-text-secondary text-sm">Loading…</div>
               )}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="rounded-xl border border-white/[0.06] p-5" aria-label="Supply breakdown">
-            <h2 className="text-lg font-bold text-text-primary">Supply Breakdown</h2>
-            <p className="text-xs text-text-secondary mb-4">100 billion total XRP</p>
-            <div className="h-48">
-              {supplyData.length > 0 ? (
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={supplyData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={3} dataKey="value" strokeWidth={0}>
-                      {supplyData.map((_, i) => (
-                        <Cell key={i} fill={SUPPLY_COLORS[i % SUPPLY_COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip contentStyle={tooltipStyle} />
-                  </PieChart>
-                </ResponsiveContainer>
-              ) : (
-                <div className="flex items-center justify-center h-full text-text-secondary text-sm">Loading…</div>
-              )}
-            </div>
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              {supplyData.map((item, i) => (
-                <div key={item.name} className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
-                  <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: SUPPLY_COLORS[i] }} />
-                  <span className="text-xs text-text-secondary">{item.name}</span>
-                  <span className="ml-auto font-mono text-xs font-semibold text-text-primary">{item.value}B</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-
+        {/* ── Section 3: Tier Calculator ─────────────────────────────────── */}
         <TierChart />
         <TierCalculator />
 
-        {/* Get Started CTA */}
+        {/* CTA */}
         <div className="mt-8 rounded-xl border border-xrp-accent/20 bg-gradient-to-r from-xrp-accent/[0.04] to-transparent p-6 text-center">
           <h3 className="text-lg font-bold text-text-primary">Want to Level Up Your Rank?</h3>
-          <p className="mt-2 text-sm text-text-secondary">See where you stand on the XRP Rich List tiers — and learn how to start accumulating.</p>
+          <p className="mt-2 text-sm text-text-secondary">See where you stand among XRP holders — and learn how to start accumulating.</p>
           <a href="/learn/get-started" className="mt-4 inline-block rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-xrp-accent-bright transition-colors">
             Get Started Buying XRP →
           </a>
