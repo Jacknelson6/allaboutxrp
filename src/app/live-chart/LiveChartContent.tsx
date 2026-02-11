@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 import StatsBar from '@/components/globe/StatsBar';
 import NewsSentiment from '@/components/charts/NewsSentiment';
+import { useXRPPrice } from '@/hooks/useXRPPrice';
 import {
   TrendingUp,
   TrendingDown,
@@ -138,6 +139,7 @@ export default function LiveChartContent() {
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
+  const { data: binancePrice } = useXRPPrice();
   const chartRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<unknown>(null);
 
@@ -236,7 +238,10 @@ export default function LiveChartContent() {
   }, [tvReady, activeTimeframe, chartView, tvStyleForView]);
 
   const md = coin?.market_data;
-  const currentPrice = price?.usd ?? md?.current_price?.usd ?? 0;
+  const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
+  const change24h = binancePrice?.change24h ?? price?.usd_24h_change ?? md?.price_change_percentage_24h ?? 0;
+  const high24hBinance = binancePrice?.high24h;
+  const low24hBinance = binancePrice?.low24h;
 
   // Converter calculation
   const converterResult = converterDir === 'xrp-usd'
@@ -244,8 +249,8 @@ export default function LiveChartContent() {
     : currentPrice > 0 ? (parseFloat(converterXrp) || 0) / currentPrice : 0;
 
   // 24h price bar position
-  const low24h = md?.low_24h?.usd ?? 0;
-  const high24h = md?.high_24h?.usd ?? 0;
+  const low24h = (low24hBinance && low24hBinance > 0) ? low24hBinance : (md?.low_24h?.usd ?? 0);
+  const high24h = (high24hBinance && high24hBinance > 0) ? high24hBinance : (md?.high_24h?.usd ?? 0);
   const priceBarPos = high24h > low24h ? ((currentPrice - low24h) / (high24h - low24h)) * 100 : 50;
 
   // Total ticker volume for % calc
@@ -289,7 +294,7 @@ export default function LiveChartContent() {
                 <span className="text-3xl font-bold font-mono tracking-tight">
                   {currentPrice ? fmtPrice(currentPrice) : '—'}
                 </span>
-                {price && <PctBadge value={price.usd_24h_change} />}
+                {change24h !== 0 && <PctBadge value={change24h} />}
               </div>
             </div>
 
@@ -543,7 +548,7 @@ export default function LiveChartContent() {
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Price Performance</p>
               <div className="space-y-2">
                 {[
-                  { label: '24h', value: price?.usd_24h_change },
+                  { label: '24h', value: change24h || price?.usd_24h_change },
                   { label: '7d', value: md ? (md as unknown as Record<string, Record<string, number>>)?.price_change_percentage_7d_in_currency?.usd : undefined },
                   { label: '30d', value: md ? (md as unknown as Record<string, Record<string, number>>)?.price_change_percentage_30d_in_currency?.usd : undefined },
                 ].map(item => (
