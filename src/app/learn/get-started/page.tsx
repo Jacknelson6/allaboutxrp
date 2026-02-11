@@ -287,7 +287,7 @@ export default function GetStartedPage() {
               { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions using XRP" },
               { href: "/learn/leadership", label: "Leadership", desc: "Who runs Ripple" },
               { href: "/acquisitions", label: "Acquisitions", desc: "Ripple's $3.7B strategy" },
-              { href: "/richlist", label: "XRP Rich List", desc: "Whale wallets & tier calculator" },
+              { href: "/holders", label: "XRP Holders", desc: "Whale wallets & tier calculator" },
               { href: "/learn/faq", label: "FAQ", desc: "Common questions answered" },
             ]} />
           </RevealSection>

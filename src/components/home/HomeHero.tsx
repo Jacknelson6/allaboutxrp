@@ -52,7 +52,7 @@ export default function HomeHero() {
             <Link href="/learn/what-is-xrp" className="btn-primary px-6 py-3 text-[15px]">
               Start Learning
             </Link>
-            <Link href="/richlist" className="btn-secondary px-6 py-3 text-[15px]">
+            <Link href="/holders" className="btn-secondary px-6 py-3 text-[15px]">
               Explore Holders
             </Link>
           </div>

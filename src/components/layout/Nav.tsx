@@ -10,7 +10,7 @@ import PriceWidget from "../shared/PriceWidget";
 const mainLinks = [
   { href: "/live", label: "Globe" },
   { href: "/charts", label: "Charts" },
-  { href: "/richlist", label: "Holders" },
+  { href: "/holders", label: "Holders" },
   { href: "/news/recaps", label: "Analysis" },
   { href: "/acquisitions", label: "Acquisitions" },
 ];

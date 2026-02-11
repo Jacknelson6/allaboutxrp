@@ -4,7 +4,7 @@ import HomeFeed from "@/components/home/HomeFeed";
 
 export const metadata: Metadata = {
   title: "AllAboutXRP — Everything You Need to Know About XRP",
-  description: "Your XRP community hub — curated X/Twitter feed, live price data, rich list analytics, comprehensive XRP education, and more. Stay connected with the XRP ecosystem.",
+  description: "Your XRP community hub — curated X/Twitter feed, live price data, holder analytics, comprehensive XRP education, and more. Stay connected with the XRP ecosystem.",
   openGraph: {
     title: "AllAboutXRP — XRP Community Feed & Resources",
     description: "Curated XRP community feed, education, and live data.",

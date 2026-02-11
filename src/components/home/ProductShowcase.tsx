@@ -104,7 +104,7 @@ export default function ProductShowcase() {
               Escrow Deep Dive
             </Link>
             <Link
-              href="/richlist"
+              href="/holders"
               className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 text-[13px] font-medium text-text-primary hover:bg-white/[0.04] hover:border-white/[0.1] transition-all"
             >
               <Globe className="h-3.5 w-3.5 text-xrp-accent" />

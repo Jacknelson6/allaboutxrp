@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "AllAboutXRP — Everything You Need to Know About XRP",
     template: "%s | AllAboutXRP",
   },
-  description: "Your comprehensive resource for XRP — what it is, who created it, live prices, rich list data, community voices, and how to get started.",
+  description: "Your comprehensive resource for XRP — what it is, who created it, live prices, holder data, community voices, and how to get started.",
   metadataBase: new URL("https://allaboutxrp.com"),
   openGraph: {
     type: "website",

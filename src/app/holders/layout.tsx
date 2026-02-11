@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     title: "XRP Holders & Market Pulse",
     description:
       "XRP holder distribution, trading sentiment, and interactive tier calculator.",
-    url: "https://allaboutxrp.com/richlist",
+    url: "https://allaboutxrp.com/holders",
   },
   twitter: {
     card: "summary_large_image",
     title: "XRP Holders & Market Pulse | AllAboutXRP",
     description: "XRP holder distribution, trading sentiment, fear & greed index, and tier calculator.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/richlist" },
+  alternates: { canonical: "https://allaboutxrp.com/holders" },
 };
 
 export default function HoldersLayout({ children }: { children: React.ReactNode }) {

@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: '/richlist', destination: '/holders', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

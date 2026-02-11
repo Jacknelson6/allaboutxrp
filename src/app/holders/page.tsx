@@ -43,7 +43,7 @@ const datasetSchema = {
   "@type": "Dataset",
   name: "XRP Holders & Market Pulse",
   description: "Real-time XRP holder distribution, trading sentiment, and market data.",
-  url: "https://allaboutxrp.com/richlist",
+  url: "https://allaboutxrp.com/holders",
   creator: { "@type": "Organization", name: "AllAboutXRP" },
 };
 

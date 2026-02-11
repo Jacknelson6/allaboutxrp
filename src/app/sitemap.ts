@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/riddlers", changeFrequency: "monthly", priority: 0.8 },
     { path: "/people", changeFrequency: "monthly", priority: 0.7 },
     { path: "/news", changeFrequency: "hourly", priority: 0.9 },
-    { path: "/richlist", changeFrequency: "hourly", priority: 0.8 },
+    { path: "/holders", changeFrequency: "hourly", priority: 0.8 },
     { path: "/live", changeFrequency: "hourly", priority: 0.8 },
     { path: "/get-started", changeFrequency: "weekly", priority: 0.85 },
     { path: "/donate", changeFrequency: "monthly", priority: 0.4 },
