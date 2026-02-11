@@ -39,6 +39,42 @@ function generateContinentPoints(): THREE.Vector3[] {
   return points;
 }
 
+function FresnelMaterial() {
+  const material = useMemo(() => {
+    return new THREE.ShaderMaterial({
+      uniforms: {
+        color: { value: new THREE.Color('#0085FF') },
+        intensity: { value: 1.2 },
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 color;
+        uniform float intensity;
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        void main() {
+          vec3 viewDir = normalize(-vPosition);
+          float fresnel = 1.0 - dot(viewDir, vNormal);
+          fresnel = pow(fresnel, 3.0) * intensity;
+          gl_FragColor = vec4(color, fresnel * 0.6);
+        }
+      `,
+      transparent: true,
+      side: THREE.FrontSide,
+      depthWrite: false,
+    });
+  }, []);
+  return <primitive object={material} attach="material" />;
+}
+
 function EarthSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
 
@@ -52,31 +88,40 @@ function EarthSphere() {
 
   return (
     <group ref={meshRef}>
+      {/* Globe surface - brighter so it's visible against black */}
       <mesh>
         <sphereGeometry args={[0.995, 64, 64]} />
-        <meshPhongMaterial color="#0a1628" emissive="#050d1a" shininess={5} transparent opacity={0.95} />
+        <meshPhongMaterial color="#0d2847" emissive="#0a1e3a" shininess={8} transparent opacity={0.97} />
       </mesh>
+      {/* Wireframe grid - more visible */}
       <mesh>
         <sphereGeometry args={[1, 36, 18]} />
-        <meshBasicMaterial color="#0e2a4a" wireframe transparent opacity={0.15} />
+        <meshBasicMaterial color="#1a5a8a" wireframe transparent opacity={0.28} />
       </mesh>
+      {/* Continent dots - unchanged */}
       {continentPoints.map((point, i) => (
         <mesh key={i} position={point}>
           <sphereGeometry args={[0.016, 8, 8]} />
           <meshBasicMaterial color="#00BFFF" transparent opacity={0.85} />
         </mesh>
       ))}
+      {/* Fresnel rim glow */}
+      <mesh>
+        <sphereGeometry args={[1.001, 64, 64]} />
+        <FresnelMaterial />
+      </mesh>
+      {/* Atmosphere glow layers - stronger */}
       <mesh>
         <sphereGeometry args={[1.04, 64, 64]} />
-        <meshBasicMaterial color="#0085FF" transparent opacity={0.08} side={THREE.BackSide} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.12} side={THREE.BackSide} />
       </mesh>
       <mesh>
         <sphereGeometry args={[1.08, 64, 64]} />
-        <meshBasicMaterial color="#0085FF" transparent opacity={0.05} side={THREE.BackSide} />
+        <meshBasicMaterial color="#0085FF" transparent opacity={0.08} side={THREE.BackSide} />
       </mesh>
       <mesh>
         <sphereGeometry args={[1.15, 64, 64]} />
-        <meshBasicMaterial color="#0060CC" transparent opacity={0.03} side={THREE.BackSide} />
+        <meshBasicMaterial color="#0060CC" transparent opacity={0.05} side={THREE.BackSide} />
       </mesh>
     </group>
   );
