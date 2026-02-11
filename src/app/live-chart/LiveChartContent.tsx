@@ -150,13 +150,16 @@ export default function LiveChartContent() {
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(3); // 1D default
   const [chartView, setChartView] = useState<ChartView>('candles');
+  const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
   const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('markets');
   const { data: binancePrice } = useXRPPrice();
   const chartRef = useRef<HTMLDivElement>(null);
+  const globeChartRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<unknown>(null);
+  const globeWidgetRef = useRef<unknown>(null);
 
   // Fetch data
   const fetchData = useCallback(async () => {
@@ -251,6 +254,56 @@ export default function LiveChartContent() {
       });
     }
   }, [tvReady, activeTimeframe, chartView, tvStyleForView]);
+
+  // Globe's TradingView widget (smaller, beside globe)
+  useEffect(() => {
+    if (chartView !== 'globe') return;
+    if (tvReady && window.TradingView) {
+      const container = document.getElementById('lc-tv-globe-chart');
+      if (container) container.innerHTML = '';
+      globeWidgetRef.current = new window.TradingView.widget({
+        container_id: 'lc-tv-globe-chart',
+        symbol: 'BINANCE:XRPUSDT',
+        theme: 'dark',
+        style: globeChartType,
+        locale: 'en',
+        interval: '60',
+        range: '5D',
+        toolbar_bg: '#000000',
+        enable_publishing: false,
+        allow_symbol_change: false,
+        hide_side_toolbar: true,
+        hide_top_toolbar: false,
+        hide_legend: false,
+        withdateranges: false,
+        save_image: false,
+        autosize: true,
+        backgroundColor: '#000000',
+        gridColor: '#111113',
+        hide_volume: false,
+        studies: [],
+        disabled_features: [
+          'header_symbol_search', 'header_compare', 'header_undo_redo',
+          'header_screenshot', 'header_saveload', 'header_settings',
+          'header_fullscreen_button', 'header_indicators', 'header_chart_type',
+          'left_toolbar', 'context_menus', 'control_bar', 'timeframes_toolbar',
+          'volume_force_overlay', 'go_to_date', 'symbol_info',
+          'edit_buttons_in_legend', 'property_pages', 'show_chart_property_page',
+          'source_selection_markers', 'main_series_scale_menu',
+          'display_market_status', 'border_around_the_chart',
+        ],
+        enabled_features: ['hide_left_toolbar_by_default'],
+        overrides: {
+          'paneProperties.background': '#000000',
+          'paneProperties.backgroundType': 'solid',
+          'paneProperties.vertGridProperties.color': '#111113',
+          'paneProperties.horzGridProperties.color': '#111113',
+          'scalesProperties.lineColor': '#222',
+          'scalesProperties.textColor': '#666',
+        },
+      });
+    }
+  }, [tvReady, chartView, globeChartType]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -472,7 +525,7 @@ export default function LiveChartContent() {
             {chartView === 'globe' ? (
               <div className="flex flex-col md:flex-row gap-3" style={{ height: '55vh', minHeight: 400 }}>
                 {/* Globe */}
-                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[6] min-h-[300px] flex flex-col">
+                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] min-h-[300px] flex flex-col">
                   <StatsBar stats={stats} />
                   <div className="flex-1 relative">
                     <div className="absolute inset-0">
@@ -486,9 +539,29 @@ export default function LiveChartContent() {
                     </div>
                   </div>
                 </div>
-                {/* Live Trades */}
-                <div className="flex-[4] min-h-[250px]">
-                  <LiveTrades />
+                {/* TradingView chart with candle/line toggle */}
+                <div className="flex-[5] min-h-[300px] flex flex-col gap-2">
+                  <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
+                    <button
+                      onClick={() => setGlobeChartType('1')}
+                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all flex items-center gap-1.5 ${
+                        globeChartType === '1' ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white/70'
+                      }`}
+                    >
+                      <CandlestickChart className="h-3.5 w-3.5" /> Candles
+                    </button>
+                    <button
+                      onClick={() => setGlobeChartType('3')}
+                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all flex items-center gap-1.5 ${
+                        globeChartType === '3' ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white/70'
+                      }`}
+                    >
+                      <LineChart className="h-3.5 w-3.5" /> Line
+                    </button>
+                  </div>
+                  <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
+                    <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
+                  </div>
                 </div>
               </div>
             ) : (
