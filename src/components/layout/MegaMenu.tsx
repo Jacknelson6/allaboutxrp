@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Lock, Rocket, FileQuestion, ScrollText } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
 const learnCategories = [
@@ -120,12 +120,20 @@ export default function MegaMenu() {
         {/* Desktop nav */}
         <div className="hidden items-center gap-0.5 lg:flex">
           <Link
+            href="/"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              pathname === "/" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            Home
+          </Link>
+
+          <Link
             href="/live-chart"
-            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
               isActive("/live-chart") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            <Globe className="h-3.5 w-3.5" />
             Live Chart
           </Link>
 
@@ -136,24 +144,6 @@ export default function MegaMenu() {
             }`}
           >
             People
-          </Link>
-
-          <Link
-            href="/how-to-start"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            How to Start
-          </Link>
-
-          <Link
-            href="/news/recaps"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/news") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            Analysis
           </Link>
 
           {/* Learn dropdown */}
@@ -229,6 +219,15 @@ export default function MegaMenu() {
           </div>
 
           <Link
+            href="/how-to-start"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            How to Start
+          </Link>
+
+          <Link
             href="/donate"
             className="ml-3 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-[13px] font-medium text-text-primary transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.12]"
           >
@@ -262,13 +261,22 @@ export default function MegaMenu() {
       >
         <div className="flex flex-col px-5 py-4 gap-0.5">
           <Link
+            href="/"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              pathname === "/" ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            Home
+          </Link>
+
+          <Link
             href="/live-chart"
             onClick={closeMobile}
-            className={`flex items-center gap-2.5 min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
               isActive("/live-chart") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
-            <Globe className="h-4 w-4 text-text-secondary" />
             Live Chart
           </Link>
 
@@ -280,26 +288,6 @@ export default function MegaMenu() {
             }`}
           >
             People
-          </Link>
-
-          <Link
-            href="/how-to-start"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            How to Start
-          </Link>
-
-          <Link
-            href="/news/recaps"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/news") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            Analysis
           </Link>
 
           {/* Learn accordion */}
@@ -339,6 +327,16 @@ export default function MegaMenu() {
               </div>
             </div>
           </div>
+
+          <Link
+            href="/how-to-start"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            How to Start
+          </Link>
 
           <div className="pt-5">
             <Link
