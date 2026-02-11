@@ -26,7 +26,7 @@ export default function Hero() {
             Get Started with XRP
           </Link>
           <Link href="/richlist" className="btn-secondary">
-            View Rich List
+            View Holders
           </Link>
         </div>
 

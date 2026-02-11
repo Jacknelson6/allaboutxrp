@@ -53,7 +53,7 @@ export default function HomeHero() {
               Start Learning
             </Link>
             <Link href="/richlist" className="btn-secondary px-6 py-3 text-[15px]">
-              Explore Rich List
+              Explore Holders
             </Link>
           </div>
         </div>

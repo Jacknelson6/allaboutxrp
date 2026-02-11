@@ -31,7 +31,7 @@ function ContinentOutlines() {
       const material = new THREE.LineBasicMaterial({
         color: new THREE.Color('#0085FF'),
         transparent: true,
-        opacity: 0.4,
+        opacity: 0.75,
         depthWrite: false,
       });
       return { geometry, material };
@@ -94,15 +94,15 @@ function EarthSphere({ children }: { children?: React.ReactNode }) {
 
   return (
     <group ref={meshRef}>
-      {/* Globe surface */}
+      {/* Globe surface - light gray */}
       <mesh>
         <sphereGeometry args={[0.995, 64, 64]} />
-        <meshPhongMaterial color="#0d2847" emissive="#0a1e3a" shininess={8} transparent opacity={0.97} />
+        <meshPhongMaterial color="#c8cdd3" emissive="#2a2d32" shininess={15} transparent opacity={0.95} />
       </mesh>
-      {/* Wireframe grid */}
+      {/* Wireframe grid - subtle on light surface */}
       <mesh>
         <sphereGeometry args={[1, 36, 18]} />
-        <meshBasicMaterial color="#1a5a8a" wireframe transparent opacity={0.28} />
+        <meshBasicMaterial color="#9aa0a8" wireframe transparent opacity={0.12} />
       </mesh>
       {/* Continent outlines */}
       <ContinentOutlines />

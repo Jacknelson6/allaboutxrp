@@ -28,7 +28,7 @@ const footerSections = [
     links: [
       { href: "/charts", label: "Charts" },
       { href: "/live", label: "3D Globe" },
-      { href: "/richlist", label: "Rich List" },
+      { href: "/richlist", label: "Holders" },
     ],
   },
   {

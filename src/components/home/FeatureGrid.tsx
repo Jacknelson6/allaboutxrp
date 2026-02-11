@@ -18,7 +18,7 @@ const features = [
   },
   {
     icon: <Trophy className="h-5 w-5" />,
-    title: "Rich List",
+    title: "Holders",
     desc: "Track whale wallets, supply distribution, and the top XRP holders with live data.",
     href: "/richlist",
   },

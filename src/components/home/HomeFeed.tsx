@@ -22,7 +22,7 @@ const navItems = [
   { icon: Home, label: "Home", href: "/" },
   { icon: Globe, label: "Globe", href: "/live" },
   { icon: BarChart3, label: "Charts", href: "/charts" },
-  { icon: List, label: "Rich List", href: "/richlist" },
+  { icon: List, label: "Holders", href: "/richlist" },
   { icon: TrendingUp, label: "Analysis", href: "/news/recaps" },
   { icon: Building2, label: "Acquisitions", href: "/acquisitions" },
   { icon: GraduationCap, label: "Learn", href: "/learn" },

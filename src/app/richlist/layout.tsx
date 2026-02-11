@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "XRP Rich List & Holder Tiers | AllAboutXRP",
+  title: "XRP Holders & Market Pulse | AllAboutXRP",
   description:
-    "Explore the XRP rich list, holder distribution, and find your XRP holder tier. Interactive calculator from Shrimp to Humpback Whale.",
+    "Explore XRP holder distribution, trading sentiment, fear & greed index, and holder tiers. Real-time data from the XRP Ledger.",
   openGraph: {
-    title: "XRP Rich List & Holder Tiers",
+    title: "XRP Holders & Market Pulse",
     description:
-      "Discover where you rank among XRP holders. Interactive tier calculator, whale tracking, and distribution data.",
+      "XRP holder distribution, trading sentiment, and interactive tier calculator.",
     url: "https://allaboutxrp.com/richlist",
   },
   twitter: {
     card: "summary_large_image",
-    title: "XRP Rich List & Holder Tiers | AllAboutXRP",
-    description: "XRP rich list, whale tracking, holder distribution, and interactive tier calculator.",
+    title: "XRP Holders & Market Pulse | AllAboutXRP",
+    description: "XRP holder distribution, trading sentiment, fear & greed index, and tier calculator.",
   },
   alternates: { canonical: "https://allaboutxrp.com/richlist" },
 };
 
-export default function RichListLayout({ children }: { children: React.ReactNode }) {
+export default function HoldersLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
