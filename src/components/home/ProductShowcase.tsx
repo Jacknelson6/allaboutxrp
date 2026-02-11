@@ -70,7 +70,7 @@ export default function ProductShowcase() {
           </div>
 
           <Link
-            href="/charts"
+            href="/live-chart"
             className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
           >
             View full charts <ArrowRight className="h-3.5 w-3.5" />
@@ -97,14 +97,14 @@ export default function ProductShowcase() {
 
           <div className="grid grid-cols-2 gap-3">
             <Link
-              href="/escrow"
+              href="/people"
               className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 text-[13px] font-medium text-text-primary hover:bg-white/[0.04] hover:border-white/[0.1] transition-all"
             >
               <Lock className="h-3.5 w-3.5 text-xrp-accent" />
               Escrow Deep Dive
             </Link>
             <Link
-              href="/holders"
+              href="/people"
               className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 text-[13px] font-medium text-text-primary hover:bg-white/[0.04] hover:border-white/[0.1] transition-all"
             >
               <Globe className="h-3.5 w-3.5 text-xrp-accent" />

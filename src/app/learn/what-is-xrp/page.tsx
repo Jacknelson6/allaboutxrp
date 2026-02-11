@@ -167,7 +167,7 @@ export default function WhatIsXRPPage() {
           <RevealSection id="tokenomics" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRP Tokenomics: Supply Breakdown</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Approximately 33.9 billion XRP remains in <Link href="/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow system</Link>. Here&apos;s how the supply breaks down as of February 2026:
+              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Approximately 33.9 billion XRP remains in <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow system</Link>. Here&apos;s how the supply breaks down as of February 2026:
             </p>
 
             <div className="mt-6">
@@ -270,7 +270,7 @@ export default function WhatIsXRPPage() {
               Every month, up to 1 billion XRP unlocks automatically (enforced by the protocol), but Ripple typically re-escrows 60-80% immediately. Only 200-300 million XRP enters potential circulation each month. As of February 2026, approximately <strong className="text-text-primary">33.9 billion XRP</strong> remains in escrow.
             </p>
             <p className="mt-3 text-text-secondary leading-relaxed">
-              Read our comprehensive deep dive: <Link href="/escrow" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP Escrow: The Complete Guide →</Link>
+              Read our comprehensive deep dive: <Link href="/people" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP Escrow: The Complete Guide →</Link>
             </p>
           </RevealSection>
 

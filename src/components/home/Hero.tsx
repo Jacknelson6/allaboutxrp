@@ -22,11 +22,11 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link href="/get-started" className="btn-primary">
-            Get Started with XRP
+          <Link href="/how-to-start" className="btn-primary">
+            How to Start with XRP
           </Link>
-          <Link href="/holders" className="btn-secondary">
-            View Holders
+          <Link href="/people" className="btn-secondary">
+            View People
           </Link>
         </div>
 

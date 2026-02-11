@@ -257,7 +257,7 @@ export default function WhatIsRipplePage() {
             <div className="mt-4">
               <HighlightBox title="The Bridge Between TradFi & Blockchain" variant="accent" large>
                 <p>Ripple matters because it&apos;s building the bridge between traditional finance and blockchain technology. While many crypto companies focus on retail speculation, Ripple is systematically assembling the infrastructure that <strong className="text-text-primary">banks, corporations, and governments</strong> need to operate in a blockchain-enabled world.</p>
-                <p className="mt-3">No other crypto company has this combination of regulatory licenses, institutional partnerships, and full-stack financial infrastructure. Explore the <Link href="/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">$3.7B acquisition strategy</Link>.</p>
+                <p className="mt-3">No other crypto company has this combination of regulatory licenses, institutional partnerships, and full-stack financial infrastructure. Explore the <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">$3.7B acquisition strategy</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>

@@ -55,7 +55,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
   return (
     <>
       <a
-        href="/charts"
+        href="/live-chart"
         className="block w-full rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 text-left hover:bg-[#1D1F23] transition-colors"
       >
         <div className="flex items-center justify-between mb-2">

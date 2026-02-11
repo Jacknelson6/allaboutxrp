@@ -224,7 +224,7 @@ export default function PartnershipsPage() {
             <div className="mt-4">
               <HighlightBox title="$3.7 Billion in Acquisitions" variant="accent" large>
                 <p>Beyond traditional partnerships, Ripple has spent $3.7 billion acquiring companies that expand its capabilities — from <strong className="text-text-primary">Hidden Road</strong> (prime brokerage) to <strong className="text-text-primary">GTreasury</strong> (enterprise treasury) to <strong className="text-text-primary">Palisade</strong> (wallet infrastructure). Each acquisition brings existing client relationships into the Ripple ecosystem.</p>
-                <p className="mt-2">Read the full analysis: <Link href="/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s Acquisition Strategy →</Link></p>
+                <p className="mt-2">Read the full analysis: <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s Acquisition Strategy →</Link></p>
               </HighlightBox>
             </div>
           </RevealSection>

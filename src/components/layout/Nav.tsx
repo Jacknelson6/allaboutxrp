@@ -8,11 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import PriceWidget from "../shared/PriceWidget";
 
 const mainLinks = [
-  { href: "/live", label: "Globe" },
-  { href: "/charts", label: "Charts" },
-  { href: "/holders", label: "Holders" },
-  { href: "/news/recaps", label: "Analysis" },
-  { href: "/acquisitions", label: "Acquisitions" },
+  { href: "/", label: "Home" },
+  { href: "/live-chart", label: "Live Chart" },
+  { href: "/people", label: "People" },
 ];
 
 const learnLinks = [
@@ -23,7 +21,7 @@ const learnLinks = [
   { href: "/learn/history", label: "History" },
   { href: "/learn/leadership", label: "Leadership" },
   { href: "/learn/partnerships", label: "Partnerships" },
-  { href: "/learn/get-started", label: "Get Started" },
+  { href: "/learn/get-started", label: "How to Start" },
   { href: "/learn/faq", label: "FAQ" },
 ];
 
@@ -72,7 +70,7 @@ export default function Nav() {
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex">
           {mainLinks.map((link) => {
-            const active = pathname === link.href;
+            const active = link.href === "/" ? pathname === "/" : pathname === link.href;
             return (
               <Link
                 key={link.href}
@@ -142,6 +140,25 @@ export default function Nav() {
               )}
             </AnimatePresence>
           </div>
+
+          {/* How to Start */}
+          <Link
+            href="/how-to-start"
+            className={`relative rounded-lg px-3 py-2 text-sm transition-colors ${
+              pathname === "/how-to-start"
+                ? "text-text-primary"
+                : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            How to Start
+            {pathname === "/how-to-start" && (
+              <motion.div
+                layoutId="nav-indicator"
+                className="absolute inset-x-1 -bottom-[13px] h-[2px] bg-gradient-to-r from-transparent via-xrp-accent to-transparent"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+              />
+            )}
+          </Link>
 
           {/* Donate button */}
           <Link
@@ -232,6 +249,18 @@ export default function Nav() {
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              <Link
+                href="/how-to-start"
+                onClick={() => setOpen(false)}
+                className={`rounded-lg px-3 py-3 min-h-[44px] flex items-center text-sm transition-colors ${
+                  pathname === "/how-to-start"
+                    ? "bg-xrp-accent/10 text-xrp-accent"
+                    : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
+                }`}
+              >
+                How to Start
+              </Link>
 
               <Link
                 href="/donate"

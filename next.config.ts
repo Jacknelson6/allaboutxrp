@@ -23,7 +23,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: '/richlist', destination: '/holders', permanent: true },
+      { source: '/richlist', destination: '/people', permanent: true },
+      { source: '/get-started', destination: '/how-to-start', permanent: true },
+      { source: '/live', destination: '/live-chart', permanent: true },
+      { source: '/charts', destination: '/live-chart', permanent: true },
+      { source: '/holders', destination: '/people', permanent: true },
+      { source: '/acquisitions', destination: '/people', permanent: true },
+      { source: '/escrow', destination: '/people', permanent: true },
+      { source: '/riddlers', destination: '/people', permanent: true },
     ];
   },
 };

@@ -247,7 +247,7 @@ export default function HistoryPage() {
               The XRP community — the &quot;XRP Army&quot; — is one of the most dedicated in cryptocurrency. Forged through years of the SEC lawsuit and price suppression, the community developed a unique culture of patience, conviction, and cryptic puzzle-solving.
             </p>
             <p className="mt-3 text-text-secondary leading-relaxed">
-              The <Link href="/riddlers" className="text-xrp-accent underline decoration-xrp-accent/30">Riddler tradition</Link> involving figures like BearableGuy123 and Mr. Pool is unlike anything in other crypto communities. See who&apos;s worth following on our <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">XRP People to Follow</Link> page.
+              The <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">Riddler tradition</Link> involving figures like BearableGuy123 and Mr. Pool is unlike anything in other crypto communities. See who&apos;s worth following on our <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">XRP People to Follow</Link> page.
             </p>
           </RevealSection>
 

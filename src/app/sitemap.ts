@@ -16,15 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/learn/rlusd", changeFrequency: "weekly", priority: 0.9 },
     { path: "/learn", changeFrequency: "weekly", priority: 0.85 },
     { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
-    { path: "/escrow", changeFrequency: "weekly", priority: 0.85 },
-    { path: "/acquisitions", changeFrequency: "weekly", priority: 0.85 },
-    { path: "/charts", changeFrequency: "hourly", priority: 0.8 },
-    { path: "/riddlers", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/people", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/people", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/live-chart", changeFrequency: "hourly", priority: 0.8 },
     { path: "/news", changeFrequency: "hourly", priority: 0.9 },
-    { path: "/holders", changeFrequency: "hourly", priority: 0.8 },
-    { path: "/live", changeFrequency: "hourly", priority: 0.8 },
-    { path: "/get-started", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/how-to-start", changeFrequency: "weekly", priority: 0.85 },
     { path: "/donate", changeFrequency: "monthly", priority: 0.4 },
   ];
 

@@ -3,22 +3,40 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Lock, Rocket, FileQuestion, ScrollText } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 
-const learnItems = [
-  { label: "What is XRP?", href: "/learn/what-is-xrp" },
-  { label: "What is Ripple?", href: "/learn/what-is-ripple" },
-  { label: "History", href: "/learn/history" },
-  { label: "Partnerships", href: "/learn/partnerships" },
-  { label: "Leadership", href: "/learn/leadership" },
-  { label: "Get Started", href: "/learn/get-started" },
-  { label: "Escrow", href: "/escrow" },
-  { label: "RLUSD", href: "/learn/rlusd" },
-  { label: "Riddlers", href: "/riddlers" },
-  { label: "Acquisitions", href: "/acquisitions" },
-  { label: "FAQ", href: "/learn/faq" },
+const learnCategories = [
+  {
+    title: "Basics",
+    icon: BookOpen,
+    items: [
+      { label: "What is XRP?", href: "/learn/what-is-xrp", desc: "The digital asset powering global payments", icon: Coins },
+      { label: "What is Ripple?", href: "/learn/what-is-ripple", desc: "The company behind XRP technology", icon: Building2 },
+      { label: "How to Start", href: "/learn/get-started", desc: "Buy your first XRP step by step", icon: Rocket },
+    ],
+  },
+  {
+    title: "Deep Dives",
+    icon: Lightbulb,
+    items: [
+      { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
+      { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
+      { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
+      { label: "RLUSD", href: "/learn/rlusd", desc: "Ripple's USD stablecoin", icon: ScrollText },
+    ],
+  },
+  {
+    title: "More",
+    icon: HelpCircle,
+    items: [
+      { label: "FAQ", href: "/learn/faq", desc: "Answers to 17 common questions", icon: FileQuestion },
+    ],
+  },
 ];
+
+// Flat list for mobile
+const learnItems = learnCategories.flatMap((cat) => cat.items.map((item) => ({ label: item.label, href: item.href })));
 
 export default function MegaMenu() {
   const [learnOpen, setLearnOpen] = useState(false);
@@ -102,31 +120,31 @@ export default function MegaMenu() {
         {/* Desktop nav */}
         <div className="hidden items-center gap-0.5 lg:flex">
           <Link
-            href="/live"
+            href="/live-chart"
             className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/live") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+              isActive("/live-chart") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
             <Globe className="h-3.5 w-3.5" />
-            Globe
+            Live Chart
           </Link>
 
           <Link
-            href="/charts"
+            href="/people"
             className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/charts") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+              isActive("/people") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            Charts
+            People
           </Link>
 
           <Link
-            href="/holders"
+            href="/how-to-start"
             className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/holders") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+              isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            Holders
+            How to Start
           </Link>
 
           <Link
@@ -147,7 +165,7 @@ export default function MegaMenu() {
           >
             <button
               className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-                learnOpen || pathname.startsWith("/learn") || isActive("/escrow") || isActive("/riddlers") || isActive("/acquisitions")
+                learnOpen || pathname.startsWith("/learn")
                   ? "text-text-primary"
                   : "text-text-secondary hover:text-text-primary"
               }`}
@@ -160,24 +178,52 @@ export default function MegaMenu() {
 
             {learnOpen && (
               <div
-                className="absolute left-0 top-full z-50 mt-2 min-w-[200px] rounded-lg border border-white/[0.08] bg-[#0A0A0B] py-1.5 shadow-2xl"
+                className="absolute -left-32 top-full z-50 mt-2 w-[560px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                {learnItems.map((item) => (
+                <div className="grid grid-cols-3 gap-6">
+                  {learnCategories.map((cat) => (
+                    <div key={cat.title}>
+                      <div className="flex items-center gap-1.5 mb-3">
+                        <cat.icon className="h-3.5 w-3.5 text-xrp-accent" />
+                        <span className="text-[11px] font-semibold uppercase tracking-widest text-white/40">{cat.title}</span>
+                      </div>
+                      <div className="space-y-1">
+                        {cat.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`group block rounded-lg px-2.5 py-2 transition-colors duration-150 ${
+                              isActive(item.href)
+                                ? "bg-xrp-accent/10"
+                                : "hover:bg-white/[0.04]"
+                            }`}
+                            onClick={() => setLearnOpen(false)}
+                          >
+                            <div className="flex items-center gap-2">
+                              <item.icon className={`h-3.5 w-3.5 ${isActive(item.href) ? "text-xrp-accent" : "text-white/30 group-hover:text-white/50"}`} />
+                              <span className={`text-[13px] font-medium ${isActive(item.href) ? "text-xrp-accent" : "text-text-primary"}`}>
+                                {item.label}
+                              </span>
+                            </div>
+                            <p className="mt-0.5 pl-[22px] text-[11px] text-white/30 leading-relaxed">{item.desc}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 pt-3 border-t border-white/[0.06]">
                   <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`block px-4 py-2 text-[13px] transition-colors duration-150 ${
-                      isActive(item.href)
-                        ? "text-xrp-accent bg-xrp-accent/5"
-                        : "text-text-secondary hover:text-text-primary hover:bg-white/[0.03]"
-                    }`}
+                    href="/learn"
                     onClick={() => setLearnOpen(false)}
+                    className="flex items-center gap-1.5 text-[12px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
                   >
-                    {item.label}
+                    <BookOpen className="h-3 w-3" />
+                    Browse all learning resources →
                   </Link>
-                ))}
+                </div>
               </div>
             )}
           </div>
@@ -208,45 +254,42 @@ export default function MegaMenu() {
       </div>
 
       {/* Mobile menu overlay */}
+      {mobileOpen && (
       <div
-        className={`fixed inset-x-0 bottom-0 z-50 overflow-y-auto overscroll-contain bg-black transition-all duration-300 ease-out lg:hidden ${
-          mobileOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
-        }`}
+        className="fixed inset-x-0 bottom-0 z-[60] overflow-y-auto overscroll-contain bg-black lg:hidden"
         style={{ top: navHeight || 49 }}
         aria-hidden={!mobileOpen}
       >
         <div className="flex flex-col px-5 py-4 gap-0.5">
           <Link
-            href="/live"
+            href="/live-chart"
             onClick={closeMobile}
             className={`flex items-center gap-2.5 min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/live") ? "text-xrp-accent" : "text-text-primary"
+              isActive("/live-chart") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
             <Globe className="h-4 w-4 text-text-secondary" />
-            Globe
+            Live Chart
           </Link>
 
           <Link
-            href="/charts"
+            href="/people"
             onClick={closeMobile}
             className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/charts") ? "text-xrp-accent" : "text-text-primary"
+              isActive("/people") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
-            Charts
+            People
           </Link>
 
           <Link
-            href="/holders"
+            href="/how-to-start"
             onClick={closeMobile}
             className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/holders") ? "text-xrp-accent" : "text-text-primary"
+              isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
-            Holders
+            How to Start
           </Link>
 
           <Link
@@ -308,6 +351,7 @@ export default function MegaMenu() {
           </div>
         </div>
       </div>
+      )}
     </nav>
   );
 }
