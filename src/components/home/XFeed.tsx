@@ -218,7 +218,7 @@ export default function XFeed() {
               className="flex-1 relative py-3 text-[13px] font-medium text-center hover:bg-white/[0.02] transition-colors duration-200"
             >
               <span className={activeTab === tab ? "text-text-primary" : "text-text-secondary"}>
-                {tab === "trending" ? "Trending" : "Recent"}
+                {tab === "trending" ? "Trending" : "Analysis"}
               </span>
               {activeTab === tab && (
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-12 rounded-full bg-xrp-accent" />
