@@ -2,41 +2,27 @@ import Link from "next/link";
 
 const footerSections = [
   {
+    title: "Navigate",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/live-chart", label: "Live Chart" },
+      { href: "/people", label: "People" },
+      { href: "/how-to-start", label: "How to Start" },
+      { href: "/donate", label: "Donate" },
+    ],
+  },
+  {
     title: "Learn",
     links: [
+      { href: "/learn", label: "Overview" },
       { href: "/learn/what-is-xrp", label: "What is XRP?" },
       { href: "/learn/what-is-ripple", label: "What is Ripple?" },
-      { href: "/learn/history", label: "History & Timeline" },
-      { href: "/learn/get-started", label: "Get Started" },
-      { href: "/learn/rlusd", label: "RLUSD & XRP" },
-      { href: "/learn/faq", label: "FAQ" },
-    ],
-  },
-  {
-    title: "Ecosystem",
-    links: [
-      { href: "/learn/partnerships", label: "Partnerships" },
+      { href: "/learn/history", label: "History" },
       { href: "/learn/leadership", label: "Leadership" },
-      { href: "/acquisitions", label: "Acquisitions" },
-      { href: "/escrow", label: "Escrow" },
-      { href: "/riddlers", label: "Riddlers" },
-      { href: "/people", label: "People to Follow" },
-    ],
-  },
-  {
-    title: "Track",
-    links: [
-      { href: "/charts", label: "Charts" },
-      { href: "/live", label: "3D Globe" },
-      { href: "/holders", label: "Holders" },
-    ],
-  },
-  {
-    title: "Analysis",
-    links: [
-      { href: "/news/recaps", label: "Daily Recaps" },
-      { href: "/news", label: "All Analysis" },
-      { href: "/donate", label: "Donate" },
+      { href: "/learn/partnerships", label: "Partnerships" },
+      { href: "/learn/rlusd", label: "RLUSD" },
+      { href: "/learn/get-started", label: "Get Started" },
+      { href: "/learn/faq", label: "FAQ" },
     ],
   },
 ];
