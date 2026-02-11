@@ -203,6 +203,7 @@ export default function LiveChartContent() {
   useEffect(() => {
     if (chartView === 'globe') return;
     if (tvReady && window.TradingView && chartRef.current) {
+      try {
       const tf = timeframes[activeTimeframe];
       const container = document.getElementById('lc-tv-chart');
       if (container) container.innerHTML = '';
@@ -265,6 +266,7 @@ export default function LiveChartContent() {
           'scalesProperties.textColor': '#666',
         },
       });
+      } catch (e) { console.error('TradingView widget error:', e); }
     }
   }, [tvReady, activeTimeframe, chartView, tvStyleForView]);
 
