@@ -31,7 +31,7 @@ const wallets = [
     xrpNative: "Via Ledger Live",
     platforms: "Windows, macOS, Linux, iOS, Android",
     coins: "5,500+",
-    url: "https://www.ledger.com",
+    url: "https://shop.ledger.com/?r=ec8ed55b0503&tracker=MY_TRACKER",
     verdict: "The gold standard for XRP cold storage — unmatched security with Bluetooth convenience.",
     pros: ["Military-grade Secure Element chip", "Bluetooth for mobile use", "Supports 5,500+ assets", "Excellent track record"],
     cons: ["Premium price at $149", "Learning curve for beginners", "Bluetooth adds minor attack surface"],
