@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, GlowCard,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 import timelineData from "@/data/timeline.json";
 
@@ -41,13 +42,14 @@ const schemas = [
     description: "The complete history of XRP and Ripple from 2011 to 2026, covering every major milestone.",
     url: "https://allaboutxrp.com/learn/history",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "History & Timeline" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/history" }),
   buildFAQSchema([
     { question: "When was XRP created?", answer: "The XRP Ledger development began in 2011 by David Schwartz, Jed McCaleb, and Arthur Britto. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis." },
     { question: "What was XRP's all-time high price?", answer: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run." },
@@ -83,8 +85,25 @@ export default function HistoryPage() {
           subtitle="Every major milestone from the creation of the XRP Ledger in 2011 through the SEC lawsuit, court rulings, and XRP's emergence as institutional infrastructure."
           breadcrumbLabel="History &amp; Timeline"
         >
-          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
+          <div className="mt-5">
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
+          </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p>The <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> launched June 2, 2012, created by David Schwartz, Jed McCaleb, and Arthur Britto. <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> (originally OpenCoin) was founded months later. Key milestones: $3.84 ATH in Jan 2018, SEC lawsuit in Dec 2020, landmark &quot;not a security&quot; ruling in July 2023, and $3.7B+ in acquisitions through 2025.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "XRPL Launch", value: "June 2, 2012" },
+          { label: "Company Founded", value: "September 2012" },
+          { label: "All-Time High", value: "$3.84 (January 4, 2018)" },
+          { label: "SEC Lawsuit Filed", value: "December 22, 2020" },
+          { label: "Torres Ruling", value: "July 13, 2023" },
+          { label: "SEC Penalty", value: "$125M (August 2024)" },
+          { label: "55B XRP Escrowed", value: "December 16, 2017" },
+        ]} />
 
         <SectionNav items={[
           { id: "eras", label: "Eras" },
@@ -290,7 +309,7 @@ export default function HistoryPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple official announcements, SEC court filings, CoinMarketCap, CoinDesk, XRPScan.</em>
+          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple official announcements, SEC court filings, CoinMarketCap, CoinDesk, XRPScan.</em>
         </p>
       </div>
     </>

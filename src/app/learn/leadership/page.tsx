@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, FAQAccordion, IconList,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
@@ -32,13 +33,14 @@ const schemas = [
     description: "Complete profiles of Ripple's executive leadership team and XRP Ledger co-creators.",
     url: "https://allaboutxrp.com/learn/leadership",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Leadership" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/leadership" }),
   buildFAQSchema([
     { question: "Who is the CEO of Ripple?", answer: "Brad Garlinghouse has served as CEO since January 2017. He led Ripple through the SEC lawsuit and the company's expansion to a $50 billion valuation." },
     { question: "Who created the XRP Ledger?", answer: "The XRP Ledger was created by David Schwartz, Jed McCaleb, and Arthur Britto. Development began in 2011." },
@@ -142,8 +144,25 @@ export default function LeadershipPage() {
           subtitle="Fintech veterans, cryptography experts, Wall Street alumni — the team that guided Ripple through the SEC lawsuit and built a $50 billion financial infrastructure provider."
           breadcrumbLabel="Leadership"
         >
-          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
+          <div className="mt-5">
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
+          </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p><Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> is led by CEO Brad Garlinghouse, CTO David Schwartz (co-creator of the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> Ledger), President Monica Long, and CLO Stuart Alderoty. The executive team combines fintech veterans, Wall Street alumni, and cryptography experts across ~1,400 employees in 40+ countries.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "CEO", value: "Brad Garlinghouse (since Jan 2017)" },
+          { label: "CTO", value: "David Schwartz (XRPL co-creator)" },
+          { label: "President", value: "Monica Long" },
+          { label: "CLO", value: "Stuart Alderoty" },
+          { label: "CFO", value: "Jon Bilich" },
+          { label: "Executive Chairman", value: "Chris Larsen (co-founder)" },
+          { label: "Employees", value: "~1,400 across 40+ countries" },
+        ]} />
 
         <SectionNav items={[
           { id: "executive", label: "Executive Team" },
@@ -274,7 +293,7 @@ export default function LeadershipPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com/leadership, LinkedIn, SEC court filings, company announcements.</em>
+          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com/leadership, LinkedIn, SEC court filings, company announcements.</em>
         </p>
       </div>
     </>

@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
@@ -33,13 +34,14 @@ const schemas = [
     description: "A comprehensive guide to Ripple Labs, its products, and the distinction between Ripple and XRP.",
     url: "https://allaboutxrp.com/learn/what-is-ripple",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "What is Ripple?" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/what-is-ripple" }),
   buildFAQSchema([
     { question: "What is the difference between Ripple and XRP?", answer: "Ripple is a private technology company headquartered in San Francisco. XRP is a decentralized digital asset on the XRP Ledger. Ripple uses XRP in its products but does not own or control the XRP Ledger." },
     { question: "What does Ripple actually do?", answer: "Ripple provides enterprise solutions for cross-border payments, digital asset custody, prime brokerage, treasury management, and stablecoins." },
@@ -68,8 +70,26 @@ export default function WhatIsRipplePage() {
           subtitle="Ripple is a San Francisco-based technology company building enterprise solutions for cross-border payments, digital asset custody, prime brokerage, and stablecoin infrastructure — valued at approximately $50 billion."
           breadcrumbLabel="What is Ripple?"
         >
-          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
+          <div className="mt-5">
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
+          </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p><strong className="text-text-primary">Ripple</strong> is a $50B technology company building enterprise payment infrastructure — it is <em>not</em> the same as <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link>. Ripple uses XRP as a bridge currency for cross-border payments via ODL, and has acquired $3.7B+ in companies including <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">Hidden Road</Link>, Metaco, and GTreasury. It operates in 55+ countries with ~1,400 employees.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "Founded", value: "September 2012 (as OpenCoin)" },
+          { label: "Headquarters", value: "San Francisco, CA" },
+          { label: "CEO", value: "Brad Garlinghouse (since 2017)" },
+          { label: "Valuation", value: "~$50 billion" },
+          { label: "Employees", value: "~1,400" },
+          { label: "Countries", value: "55+" },
+          { label: "Total Acquisitions", value: "$3.7B+" },
+          { label: "Payments Processed", value: "$90B+" },
+        ]} />
 
         <SectionNav items={[
           { id: "vs-xrp", label: "Ripple vs XRP" },
@@ -302,7 +322,7 @@ export default function WhatIsRipplePage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com, SEC court filings, CoinMarketCap, BusinessWire, Financial Times, Ripple Quarterly Reports.</em>
+          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com, SEC court filings, CoinMarketCap, BusinessWire, Financial Times, Ripple Quarterly Reports.</em>
         </p>
       </div>
     </>

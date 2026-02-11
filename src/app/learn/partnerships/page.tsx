@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, FAQAccordion, IconList,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
@@ -32,13 +33,14 @@ const schemas = [
     description: "A comprehensive list of Ripple's partnerships with banks, payment providers, and financial institutions worldwide.",
     url: "https://allaboutxrp.com/learn/partnerships",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Partnerships" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/partnerships" }),
   buildFAQSchema([
     { question: "What banks use Ripple and XRP?", answer: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, and many others across 55+ countries." },
     { question: "How many partners does Ripple have?", answer: "Ripple has hundreds of partners across 55+ countries. Over $90 billion in global payments processed." },
@@ -147,8 +149,24 @@ export default function PartnershipsPage() {
           subtitle="From SBI Holdings to Mastercard and BNY Mellon — the complete list of banks, payment providers, and institutions in the Ripple network across 55+ countries."
           breadcrumbLabel="Partnerships"
         >
-          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
+          <div className="mt-5">
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
+          </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p><Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> has hundreds of partners across 55+ countries, including SBI Holdings, Mastercard, BNY Mellon, Banco Santander, and Standard Chartered. Partners use <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> as a bridge currency via ODL, Ripple Custody for digital asset management, and RLUSD for stablecoin settlements. Ripple is also working with 20+ central banks on CBDC pilots.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "Total Countries", value: "55+" },
+          { label: "Payments Processed", value: "$90B+" },
+          { label: "Key Strategic Partner", value: "SBI Holdings (Japan)" },
+          { label: "Payment Network Partner", value: "Mastercard" },
+          { label: "RLUSD Custodian", value: "BNY Mellon" },
+          { label: "CBDC Pilots", value: "20+ central banks" },
+        ]} />
 
         <SectionNav items={[
           { id: "how-partners-use", label: "How Partners Use XRP" },
@@ -257,7 +275,7 @@ export default function PartnershipsPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, 21Shares research.</em>
+          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, BusinessWire, CoinDesk, Financial Times, 21Shares research.</em>
         </p>
       </div>
     </>

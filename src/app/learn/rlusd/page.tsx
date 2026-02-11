@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
-import { LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid } from "@/components/learn/LearnPageShell";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
+import { LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid, TLDRBox, KeyFactsTable, LastUpdated } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
   title: "How Does RLUSD Help XRP? | Ripple Stablecoin",
@@ -33,13 +33,14 @@ const schemas = [
     description: "A comprehensive guide explaining what RLUSD is, how it works on the XRP Ledger, and the specific mechanisms through which it benefits XRP holders and the XRPL ecosystem.",
     url: "https://allaboutxrp.com/learn/rlusd",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "RLUSD & XRP" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/rlusd" }),
   buildFAQSchema([
     { question: "What is RLUSD?", answer: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services (NYDFS) in December 2024. It's backed 1:1 by U.S. dollar deposits, short-term U.S. government treasuries, and cash equivalents, with monthly third-party reserve attestations." },
     { question: "How does RLUSD help XRP?", answer: "RLUSD helps XRP through multiple mechanisms: every RLUSD transaction on the XRPL burns a small amount of XRP as a fee (reducing supply), RLUSD/XRP AMM liquidity pools increase XRP trading volume, auto-bridging routes trades through XRP for optimal pricing, and growing RLUSD adoption drives overall XRPL network activity." },
@@ -64,9 +65,24 @@ export default function RLUSDPage() {
           breadcrumbLabel="RLUSD & XRP"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-10" />
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p><strong className="text-text-primary">RLUSD</strong> is <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> NYDFS-approved USD stablecoin on the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. It helps XRP through fee burns (every transaction destroys XRP), AMM liquidity pools, auto-bridging through XRP on the DEX, and increased network activity. Market cap: ~$1.5B with BNY Mellon as custodian.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "Launch Date", value: "December 10, 2024" },
+          { label: "Regulator", value: "NYDFS (New York)" },
+          { label: "Market Cap", value: "~$1.5 billion" },
+          { label: "Peg", value: "1:1 USD" },
+          { label: "Custodian", value: "BNY Mellon" },
+          { label: "Blockchains", value: "XRPL + Ethereum" },
+          { label: "Key Partners", value: "Mastercard, Franklin Templeton, DBS" },
+        ]} />
 
         <SectionNav items={[
           { id: "what-is-rlusd", label: "What is RLUSD?" },

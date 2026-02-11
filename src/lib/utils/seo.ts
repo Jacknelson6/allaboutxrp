@@ -82,6 +82,21 @@ export function buildBreadcrumbSchema(items: { name: string; url?: string }[]) {
   };
 }
 
+export function buildSpeakableSchema(opts: {
+  url: string;
+  cssSelectors?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url: opts.url,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: opts.cssSelectors || [".summary", "h1", "h2"],
+    },
+  };
+}
+
 export function buildFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
+import { buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Get Started" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/get-started" }),
   buildFAQSchema([
     { question: "What is the best exchange to buy XRP?", answer: "For beginners, Uphold is recommended for simplicity. Coinbase is the largest U.S. exchange. Kraken offers advanced features with low fees." },
     { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. XRP wallets require a 10 XRP reserve to activate." },
@@ -87,8 +89,24 @@ export default function GetStartedPage() {
           subtitle="The complete beginner's guide — from choosing an exchange to securing your tokens in a wallet. Whether you're new to crypto or just new to XRP, you'll be set up in minutes."
           breadcrumbLabel="Get Started"
         >
-          <div className="mt-5"><AuthorByline date="2026-02-10" /></div>
+          <div className="mt-5">
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
+          </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p>Buy <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> in 5 steps: choose an exchange (Uphold, Coinbase, or Kraken), create an account, deposit funds, buy XRP, then secure it in a self-custody wallet like Xaman. XRP wallets require a 10 XRP reserve. For long-term holding, use a hardware wallet (Ledger/Trezor). Learn about <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">the company behind XRP</Link> first.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "Best Beginner Exchange", value: "Uphold" },
+          { label: "Largest U.S. Exchange", value: "Coinbase" },
+          { label: "Best Wallet", value: "Xaman (XUMM)" },
+          { label: "Wallet Reserve", value: "10 XRP required" },
+          { label: "Min Purchase", value: "~$1-10 on most exchanges" },
+          { label: "Best Security", value: "Ledger hardware wallet" },
+        ]} />
 
         <SectionNav items={[
           { id: "steps", label: "Step by Step" },

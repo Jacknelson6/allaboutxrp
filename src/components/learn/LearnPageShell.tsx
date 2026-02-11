@@ -5,6 +5,57 @@ import Link from "next/link";
 import { ChevronDown, CheckCircle, XCircle, AlertTriangle, Info, Zap } from "lucide-react";
 
 /**
+ * TL;DR Summary box — styled callout at the top of learn pages.
+ */
+export function TLDRBox({ children }: { children: ReactNode }) {
+  return (
+    <div className="summary mt-8 rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5">
+      <div className="flex items-center gap-2 mb-3">
+        <Zap className="h-5 w-5 text-xrp-accent" />
+        <span className="font-bold text-text-primary text-[15px] uppercase tracking-wide">TL;DR</span>
+      </div>
+      <div className="text-[14px] text-text-secondary leading-relaxed space-y-2">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * Key Facts table — compact facts display near the top of learn pages.
+ */
+export function KeyFactsTable({ facts }: { facts: { label: string; value: string }[] }) {
+  return (
+    <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+      <table className="w-full min-w-[300px] text-left text-sm">
+        <thead className="border-b border-white/[0.06]">
+          <tr>
+            <th colSpan={2} className="px-4 py-3 text-[11px] font-medium uppercase tracking-widest text-white/30">Key Facts</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-white/[0.04]">
+          {facts.map((fact, i) => (
+            <tr key={i} className="hover:bg-white/[0.015] transition-colors duration-150">
+              <td className="px-4 py-2.5 text-[13px] font-medium text-text-secondary w-[40%]">{fact.label}</td>
+              <td className="px-4 py-2.5 text-[13px] font-medium text-xrp-accent">{fact.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * Last Updated timestamp display.
+ */
+export function LastUpdated({ date }: { date: string }) {
+  return (
+    <div className="mt-4 text-[13px] text-text-secondary/70">
+      <span className="font-medium">Last Updated:</span> {date}
+    </div>
+  );
+}
+
+/**
  * Section wrapper — simple reveal.
  */
 export function RevealSection({

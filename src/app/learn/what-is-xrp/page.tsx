@@ -2,10 +2,11 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
+  TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const metadata: Metadata = {
@@ -36,13 +37,14 @@ const schemas = [
     description: "A comprehensive guide explaining what XRP is, how it works, its tokenomics, use cases, and role in the future of global payments.",
     url: "https://allaboutxrp.com/learn/what-is-xrp",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-10",
+    dateModified: "2026-02-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "What is XRP?" },
   ]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/what-is-xrp" }),
   buildFAQSchema([
     { question: "What is XRP in simple terms?", answer: "XRP is a digital currency designed for fast, low-cost global payments. It settles transactions in 3-5 seconds with near-zero fees on the XRP Ledger, a decentralized blockchain." },
     { question: "Is XRP the same as Ripple?", answer: "No. XRP is a decentralized digital asset on the XRP Ledger. Ripple is a private company that uses XRP in its products. XRP would continue to exist even if Ripple ceased operations." },
@@ -73,9 +75,25 @@ export default function WhatIsXRPPage() {
           breadcrumbLabel="What is XRP?"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-10" />
+            <AuthorByline date="2026-02-11" />
+            <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <TLDRBox>
+          <p><strong className="text-text-primary">XRP</strong> is a cryptocurrency built for fast, low-cost global payments on the <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. It settles in 3-5 seconds, costs less than $0.01 per transaction, and handles 1,500+ TPS. All 100 billion XRP were created at launch — no more can ever be minted. <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> uses XRP as a bridge currency for cross-border payments across 55+ countries.</p>
+        </TLDRBox>
+
+        <KeyFactsTable facts={[
+          { label: "Created", value: "June 2, 2012" },
+          { label: "Total Supply", value: "100 billion (fixed)" },
+          { label: "Settlement Time", value: "3-5 seconds" },
+          { label: "Transaction Fee", value: "< $0.01" },
+          { label: "Consensus", value: "Federated Consensus Protocol" },
+          { label: "Throughput", value: "1,500+ TPS" },
+          { label: "Creators", value: "David Schwartz, Jed McCaleb, Arthur Britto" },
+          { label: "Legal Status", value: "Not a security (Torres ruling, 2023)" },
+        ]} />
 
         <SectionNav items={[
           { id: "basics", label: "The Basics" },
@@ -357,7 +375,7 @@ export default function WhatIsXRPPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 10, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple official announcements, CoinMarketCap, SEC court filings, XRPScan on-chain data.</em>
+          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple official announcements, CoinMarketCap, SEC court filings, XRPScan on-chain data.</em>
         </p>
       </div>
     </>
