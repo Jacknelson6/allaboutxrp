@@ -25,7 +25,6 @@ const learnCategories = [
       { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
       { label: "RLUSD", href: "/learn/rlusd", desc: "Ripple's USD stablecoin", icon: ScrollText },
       { label: "Escrow", href: "/learn/escrow", desc: "Ripple's XRP escrow system", icon: Lock },
-      { label: "Escrow", href: "/learn/escrow", desc: "Ripple's XRP escrow system", icon: Lock },
     ],
   },
   {
