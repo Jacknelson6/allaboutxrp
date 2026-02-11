@@ -3,9 +3,13 @@
 import { useEffect, useState } from 'react';
 
 interface RichListEntry {
-  account: string;
+  address: string;
   balance: number;
   label?: string;
+  rank?: number;
+  escrow?: number;
+  percentage?: number;
+  isKnown?: boolean;
 }
 
 export default function RichList() {
@@ -57,16 +61,16 @@ export default function RichList() {
           </thead>
           <tbody>
             {entries.map((entry, i) => (
-              <tr key={entry.account} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
-                <td className="py-3 pr-4 text-white/30 font-mono text-xs">{i + 1}</td>
+              <tr key={entry.address} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
+                <td className="py-3 pr-4 text-white/30 font-mono text-xs">{entry.rank ?? i + 1}</td>
                 <td className="py-3 pr-4">
                   <a
-                    href={`https://livenet.xrpl.org/accounts/${entry.account}`}
+                    href={`https://livenet.xrpl.org/accounts/${entry.address}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-xs text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
                   >
-                    {entry.account.slice(0, 8)}...{entry.account.slice(-6)}
+                    {entry.address.slice(0, 8)}...{entry.address.slice(-6)}
                   </a>
                   {entry.label && (
                     <span className="ml-2 text-[10px] text-white/30 bg-white/[0.04] px-1.5 py-0.5 rounded">
