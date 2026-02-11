@@ -86,7 +86,7 @@ async function gatherNews(): Promise<string> {
 async function generateArticle(research: string): Promise<string> {
   console.log("✍️  Generating article...");
 
-  const systemPrompt = `You are a crypto journalist writing TLDR-style daily recaps for AllAboutXRP.com. Be extremely concise. Bullet points over paragraphs. No fluff, no hype, just facts.`;
+  const systemPrompt = `You write ultra-short TLDR daily recaps for AllAboutXRP.com. Every bullet is ONE line max. No paragraphs. No filler. Just facts and numbers. Think news ticker, not article.`;
 
   const userPrompt = `Based on the following research gathered for ${targetDate}, write a TLDR-style XRP daily recap in markdown. Keep it SHORT and scannable.
 
@@ -95,15 +95,14 @@ ${research}
 
 FORMAT REQUIREMENTS:
 - Use these H2 sections: ## Top Stories, ## Price, ## On-Chain, ## What to Watch
-- Top Stories: 2-4 bullet points, one line each. Bold the key name/event, then a dash and one sentence.
-- Price: 1-2 sentences max. Current price, range, key levels, trend direction.
-- On-Chain: 2-4 bullet points with key metrics. Just the numbers.
-- What to Watch: 2-4 bullet points of upcoming catalysts.
-- NO intro paragraph, NO sign-off, NO emojis in headings
-- Do NOT include a top-level H1 heading (comes from frontmatter)
-- Total length: 150-300 words MAX
-- Skip sections with no news rather than padding
-- If there's no real news, say so in one line`;
+- Use these H2 sections ONLY: ## Top Stories, ## Price, ## On-Chain, ## Watch
+- Top Stories: 2-4 bullets. Format: **Name** — one short sentence. MAX 15 words per bullet.
+- Price: ONE line. Price, range, direction. That's it.
+- On-Chain: 2-4 bullets. Just metric name + number. No explanation.
+- Watch: 2-4 bullets. Date + event. Nothing else.
+- NO intro, NO sign-off, NO emojis, NO H1 heading
+- Total: 100-200 words MAX. Shorter is better.
+- Skip empty sections. If no news, one line: "Quiet day."`;
 
   if (ANTHROPIC_API_KEY) {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
