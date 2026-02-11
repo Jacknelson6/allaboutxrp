@@ -213,7 +213,7 @@ export default function MegaMenu() {
                     className="flex items-center gap-1.5 text-[12px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
                   >
                     <BookOpen className="h-3 w-3" />
-                    Browse all learning resources →
+                    More →
                   </Link>
                 </div>
               </div>

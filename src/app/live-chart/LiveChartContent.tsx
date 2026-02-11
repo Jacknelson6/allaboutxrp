@@ -455,8 +455,9 @@ export default function LiveChartContent() {
 
             {/* Chart / Globe */}
             <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative" style={{ height: '55vh', minHeight: 400 }}>
-              {chartView === 'globe' ? (
-                <div className="h-full w-full absolute inset-0 flex flex-col">
+              {/* Globe view */}
+              {chartView === 'globe' && (
+                <div className="h-full w-full absolute inset-0 z-20 flex flex-col bg-black">
                   <StatsBar stats={stats} />
                   <div className="flex-1 relative">
                     <Suspense fallback={
@@ -468,16 +469,16 @@ export default function LiveChartContent() {
                     </Suspense>
                   </div>
                 </div>
-              ) : (
-                <>
-                  {!tvReady && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
-                    </div>
-                  )}
-                  <div id="lc-tv-chart" ref={chartRef} className="h-full" />
-                </>
               )}
+              {/* TradingView chart */}
+              <div className={chartView === 'globe' ? 'hidden' : 'h-full'}>
+                {!tvReady && (
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                  </div>
+                )}
+                <div id="lc-tv-chart" ref={chartRef} className="h-full" />
+              </div>
             </div>
 
             {/* Markets Table */}

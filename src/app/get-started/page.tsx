@@ -125,11 +125,14 @@ export default function GetStartedPage() {
           className="mt-16 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-[#0A0A0B]/50 to-xrp-accent/[0.02] p-8 text-center "
         >
           <h2 className="text-xl font-bold text-text-primary">Ready to Learn More?</h2>
-          <p className="mt-2 text-sm text-text-secondary">
-            Head back to our{" "}
-            <a href="/" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">home page</a>{" "}
-            for a complete guide on what XRP is and how it works.
-          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <a href="/learn/what-is-xrp" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is XRP?</a>
+            <a href="/learn/what-is-ripple" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is Ripple?</a>
+            <a href="/learn/history" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">History</a>
+            <a href="/learn/rlusd" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">RLUSD</a>
+            <a href="/learn/partnerships" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">Partnerships</a>
+            <a href="/learn" className="rounded-lg bg-[#0085FF]/10 border border-[#0085FF]/20 px-4 py-2 text-sm font-semibold text-[#0085FF] hover:bg-[#0085FF]/20 transition-colors">Browse All →</a>
+          </div>
         </motion.div>
       </div>
     </>
