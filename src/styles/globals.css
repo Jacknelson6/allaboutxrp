@@ -356,6 +356,14 @@ h1 { font-weight: 700; }
   border-radius: 2px;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Content visibility for performance */
 .cv-auto {
   content-visibility: auto;

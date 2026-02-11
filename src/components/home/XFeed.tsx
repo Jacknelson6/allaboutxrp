@@ -198,9 +198,23 @@ function useLiveTweets() {
   return { tweets, isLive };
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    setMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return mobile;
+}
+
 export default function XFeed() {
   const [activeTab, setActiveTab] = useState<"trending" | "recent">("trending");
+  const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(8);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
   const loaderRef = useRef<HTMLDivElement>(null);
   const { tweets: allTweets } = useLiveTweets();
 
@@ -212,7 +226,9 @@ export default function XFeed() {
         })
       : [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
-  const visibleTweets = sortedTweets.slice(0, visibleCount);
+  const mobileLimit = mobileExpanded ? visibleCount : 3;
+  const effectiveCount = isMobile ? mobileLimit : visibleCount;
+  const visibleTweets = sortedTweets.slice(0, effectiveCount);
 
   const loadMore = useCallback(() => {
     setVisibleCount((c) => Math.min(c + 6, allTweets.length));
@@ -233,6 +249,7 @@ export default function XFeed() {
 
   useEffect(() => {
     setVisibleCount(8);
+    setMobileExpanded(false);
   }, [activeTab]);
 
   return (
@@ -268,14 +285,24 @@ export default function XFeed() {
         ))}
       </div>
 
-      {visibleCount < allTweets.length && (
-        <div ref={loaderRef} className="flex justify-center py-8">
+      {/* Mobile: Show more button */}
+      {isMobile && !mobileExpanded && sortedTweets.length > 3 && (
+        <button
+          onClick={() => setMobileExpanded(true)}
+          className="w-full py-3 text-center text-[14px] font-medium text-xrp-accent hover:bg-white/[0.02] border-b border-[#2F3336] transition-colors"
+        >
+          Show more tweets
+        </button>
+      )}
+
+      {(!isMobile || mobileExpanded) && visibleCount < allTweets.length && (
+        <div ref={loaderRef} className="flex justify-center py-6">
           <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-xrp-accent" />
         </div>
       )}
 
-      {visibleCount >= allTweets.length && (
-        <div className="py-8 text-center text-text-secondary text-[13px]">
+      {(!isMobile || mobileExpanded) && visibleCount >= allTweets.length && (
+        <div className="py-6 text-center text-text-secondary text-[13px]">
           You&apos;re all caught up.
         </div>
       )}

@@ -17,15 +17,10 @@ const quickLinks = [
 export default function HomeFeed() {
   return (
     <div className="min-h-screen bg-black">
-      {/* Mobile price widget */}
-      <div className="lg:hidden px-4 py-2 border-b border-[#2F3336]">
-        <RightSidebar mobilePrice />
-      </div>
-
       {/* Quick links bar */}
       <div className="border-b border-[#2F3336] bg-black/50">
-        <div className="mx-auto max-w-[1100px] px-4 py-3">
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide">
+        <div className="mx-auto max-w-[1100px] px-3 py-2 lg:px-4 lg:py-3">
+          <div className="flex items-center gap-2 overflow-x-auto flex-nowrap scrollbar-hide">
             {quickLinks.map((link) => (
               <Link
                 key={link.href}
@@ -47,7 +42,7 @@ export default function HomeFeed() {
       </div>
 
       {/* Two-column layout */}
-      <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 px-4">
+      <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-0 lg:gap-6 px-0 lg:px-4">
         {/* Center feed */}
         <div className="min-w-0 max-w-[650px] mx-auto lg:mx-0 lg:justify-self-center">
           <XFeed />
