@@ -204,6 +204,11 @@ export default function LiveChartContent() {
     if (chartView === 'globe') return;
     if (tvReady && window.TradingView && chartRef.current) {
       try {
+      // Destroy previous widget instance
+      if (widgetRef.current && typeof (widgetRef.current as { remove?: () => void }).remove === 'function') {
+        (widgetRef.current as { remove: () => void }).remove();
+      }
+      widgetRef.current = null;
       const tf = timeframes[activeTimeframe];
       const container = document.getElementById('lc-tv-chart');
       if (container) container.innerHTML = '';
