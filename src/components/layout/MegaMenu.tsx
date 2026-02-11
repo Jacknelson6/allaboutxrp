@@ -201,7 +201,6 @@ export default function MegaMenu() {
                                 {item.label}
                               </span>
                             </div>
-                            <p className="mt-0.5 pl-[22px] text-[11px] text-white/30 leading-relaxed">{item.desc}</p>
                           </Link>
                         ))}
                       </div>
