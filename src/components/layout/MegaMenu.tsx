@@ -223,6 +223,15 @@ export default function MegaMenu() {
           </div>
 
           <Link
+            href="/etf"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/etf") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            ETF Tracker
+          </Link>
+
+          <Link
             href="/how-to-start"
             className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
               isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
@@ -282,6 +291,16 @@ export default function MegaMenu() {
             }`}
           >
             Live Chart
+          </Link>
+
+          <Link
+            href="/etf"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/etf") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            ETF Tracker
           </Link>
 
           {/* Learn accordion */}

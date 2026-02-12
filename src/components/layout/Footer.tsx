@@ -6,6 +6,7 @@ const footerSections = [
     links: [
       { href: "/", label: "Home" },
       { href: "/live-chart", label: "Live Chart" },
+      { href: "/etf", label: "ETF Tracker" },
       { href: "/learn", label: "Learn" },
       { href: "/how-to-start", label: "How to Invest in XRP" },
       { href: "/donate", label: "Donate" },
@@ -61,6 +62,11 @@ export default function Footer() {
         
         <div className="section-divider mt-12 mb-6" />
         
+        <div className="flex gap-4 mb-4">
+          <Link href="/privacy-policy" className="text-[11px] text-white/20 hover:text-white/40 transition-colors">
+            Privacy Policy
+          </Link>
+        </div>
         <p className="text-[11px] text-white/20 leading-relaxed">
           © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice.
           Cryptocurrency investments carry significant risk. Always do your own research. XRP, the XRP Ledger, and Ripple are trademarks of their respective owners.
