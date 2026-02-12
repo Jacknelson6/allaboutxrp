@@ -17,42 +17,12 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
 
 export default function MiniPreviewCard() {
   const { arcs, removeArc } = useXRPLStream();
-  const chartRef = useRef<HTMLDivElement>(null);
-  const tickerRef = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef<HTMLDivElement>(null);
 
-  // TradingView Single Ticker widget (price + change)
+  // TradingView Mini Symbol Overview: price + change + mini chart in one widget
   useEffect(() => {
-    if (!tickerRef.current) return;
-    tickerRef.current.innerHTML = '';
-
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    script.innerHTML = JSON.stringify({
-      symbol: 'BINANCE:XRPUSDT',
-      width: '100%',
-      isTransparent: true,
-      colorTheme: 'dark',
-      locale: 'en',
-    });
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'tradingview-widget-container';
-    wrapper.style.width = '100%';
-
-    const innerDiv = document.createElement('div');
-    innerDiv.className = 'tradingview-widget-container__widget';
-
-    wrapper.appendChild(innerDiv);
-    wrapper.appendChild(script);
-    tickerRef.current.appendChild(wrapper);
-  }, []);
-
-  // TradingView Mini Chart widget
-  useEffect(() => {
-    if (!chartRef.current) return;
-    chartRef.current.innerHTML = '';
+    if (!widgetRef.current) return;
+    widgetRef.current.innerHTML = '';
 
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
@@ -69,7 +39,7 @@ export default function MiniPreviewCard() {
       autosize: true,
       largeChartUrl: '',
       noTimeScale: false,
-      chartOnly: true,
+      chartOnly: false,
       trendLineColor: '#0085FF',
       underLineColor: 'rgba(0, 133, 255, 0.12)',
       underLineBottomColor: 'rgba(0, 133, 255, 0)',
@@ -87,7 +57,7 @@ export default function MiniPreviewCard() {
 
     wrapper.appendChild(innerDiv);
     wrapper.appendChild(script);
-    chartRef.current.appendChild(wrapper);
+    widgetRef.current.appendChild(wrapper);
   }, []);
 
   return (
@@ -95,15 +65,15 @@ export default function MiniPreviewCard() {
       {/* Gradient background glow on hover */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-      {/* ── Price Ticker (TradingView) ── */}
-      <div className="relative z-10 px-3 pt-3 pb-1" ref={tickerRef}>
-        <div className="flex items-center justify-center h-[80px]">
+      {/* ── TradingView: Price + Chart ── */}
+      <div className="relative z-10 h-[220px] w-full overflow-hidden" ref={widgetRef}>
+        <div className="flex items-center justify-center h-full">
           <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
         </div>
       </div>
       <div className="relative z-10 px-5 pb-2">
         <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
-          View Live Price <ArrowRight className="h-3 w-3" />
+          View Charts <ArrowRight className="h-3 w-3" />
         </Link>
       </div>
 
@@ -124,20 +94,9 @@ export default function MiniPreviewCard() {
           </div>
         </div>
       </Link>
-      <div className="relative z-10 px-5 pb-3 pt-1">
+      <div className="relative z-10 px-5 pb-4 pt-1">
         <Link href="/live" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
           Explore Live <ArrowRight className="h-3 w-3" />
-        </Link>
-      </div>
-
-      {/* Divider */}
-      <div className="mx-5 border-t border-[#2F3336]" />
-
-      {/* ── Chart ── */}
-      <div className="relative h-[180px] w-full overflow-hidden mt-1" ref={chartRef} />
-      <div className="relative z-10 px-5 pb-4 pt-1">
-        <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
-          View Charts <ArrowRight className="h-3 w-3" />
         </Link>
       </div>
 
