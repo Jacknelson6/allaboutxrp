@@ -8,6 +8,8 @@ import {
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Staking Explained: Can You Stake XRP? (2026)",
   description:

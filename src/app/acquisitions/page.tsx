@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AcquisitionsContent from "./AcquisitionsContent";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Ripple's $3.7B Acquisition Strategy for XRP",
   description:

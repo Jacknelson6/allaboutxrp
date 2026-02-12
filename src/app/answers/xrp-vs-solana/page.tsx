@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP vs Solana: Which Is Better?",
   description: "XRP vs Solana: XRP excels in cross-border payments with 3-5 second settlement, while Solana targets DeFi and NFTs with sub-second speeds. They serve fundamentally different purposes.",

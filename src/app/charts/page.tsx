@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import ChartsContent from './ChartsContent';
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: 'XRP Charts — Live Price & Trading Data',
   description: 'Live XRP/USD charts powered by TradingView. Track price action, volume, market cap, and circulating supply in real-time.',

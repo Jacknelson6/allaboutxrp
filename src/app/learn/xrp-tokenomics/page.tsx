@@ -8,6 +8,8 @@ import {
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Tokenomics: Supply, Escrow & Burns (2026)",
   description:

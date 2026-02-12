@@ -9,6 +9,8 @@ import {
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "What is RippleNet? Complete Guide to Ripple's Payment Network",
   description:

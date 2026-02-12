@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Where Can You Buy XRP? Best Exchanges Ranked (2026)",
   description: "Where to buy XRP in 2026 — exchanges ranked by trust, fees, and features. Uphold, Coinbase, Kraken, Bitstamp, and more. Regional availability and buying methods explained.",

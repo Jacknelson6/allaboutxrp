@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "What Banks Use XRP?",
   description: "What banks use XRP? Over 300 financial institutions use RippleNet, with many leveraging XRP through On-Demand Liquidity for instant cross-border settlement.",

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Is It Too Late to Buy XRP?",
   description: "Is it too late to buy XRP? Many analysts believe XRP's utility in cross-border payments and growing adoption suggest significant room for growth, though timing any market is inherently difficult.",

@@ -4,6 +4,8 @@ import { Newspaper, Calendar, ChevronRight } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getAllRecaps } from "@/lib/utils/news";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Daily XRP News Recaps — AllAboutXRP",
   description:

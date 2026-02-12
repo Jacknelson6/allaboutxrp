@@ -5,6 +5,8 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import { LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid, TLDRBox, KeyFactsTable, LastUpdated } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How Does RLUSD Help XRP? | Ripple Stablecoin",
   description:

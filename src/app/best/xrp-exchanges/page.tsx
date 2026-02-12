@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "8 Best Exchanges to Buy XRP in 2026 — Fees & Features Compared",
   description:

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Can XRP Be Mined?",
   description: "Can XRP be mined? No — all 100 billion XRP tokens were created at the XRP Ledger's genesis. XRP uses a consensus protocol, not proof-of-work mining.",

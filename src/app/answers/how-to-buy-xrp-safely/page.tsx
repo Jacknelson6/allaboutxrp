@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How to Buy XRP Safely: Security Best Practices & Scam Prevention",
   description: "How to buy XRP safely — security best practices, scam avoidance, hardware wallets, 2FA, and self-custody. Protect your XRP investment with this complete safety guide.",

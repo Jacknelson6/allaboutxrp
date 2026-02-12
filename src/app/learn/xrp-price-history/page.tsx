@@ -8,6 +8,8 @@ import {
   FAQAccordion, HighlightBox, LearnCTA, LearnLinkGrid, GlowCard,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Price History — A Complete Timeline (2012-2026)",
   description:

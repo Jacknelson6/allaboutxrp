@@ -8,6 +8,8 @@ import {
   FAQAccordion, HighlightBox, LearnCTA, LearnLinkGrid, FeatureGrid,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Best Altcoins to Buy in 2026 — Top Picks Beyond Bitcoin",
   description:

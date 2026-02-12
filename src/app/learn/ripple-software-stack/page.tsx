@@ -9,6 +9,8 @@ import {
   TLDRBox, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Ripple Software Stack: Complete Guide to Ripple's Products",
   description:

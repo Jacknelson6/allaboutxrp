@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "5 Best Hardware Wallets for XRP in 2026 — Cold Storage Compared",
   description:

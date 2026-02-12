@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Is XRP a Security?",
   description: "Is XRP a security? A federal court ruled in 2023 that programmatic sales of XRP on exchanges do not constitute securities transactions, providing significant regulatory clarity.",

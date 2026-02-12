@@ -8,6 +8,8 @@ import {
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Wallets: Best Options Explained (2026)",
   description:

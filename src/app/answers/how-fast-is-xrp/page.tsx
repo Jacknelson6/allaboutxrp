@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How Fast Is XRP?",
   description: "How fast is XRP? XRP, the native token of the XRP Ledger, settles transactions in 3–5 seconds with fees under $0.01 — making it one of the fastest blockchain networks in the world.",

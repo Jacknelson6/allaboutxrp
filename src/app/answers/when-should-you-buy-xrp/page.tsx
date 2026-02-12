@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "When Should You Buy XRP? DCA, Timing & Market Cycles",
   description: "When is the best time to buy XRP? Learn about dollar-cost averaging, market cycles, historical patterns, and timing strategies. Not financial advice.",

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Best Ways to Earn Yield on XRP in 2026 — Honest Guide",
   description:

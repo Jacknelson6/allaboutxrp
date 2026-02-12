@@ -9,6 +9,8 @@ import {
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How to Buy XRP: Beginner's Guide 2026",
   description:

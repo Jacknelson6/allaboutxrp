@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Why Is XRP Dropping?",
   description: "Why is XRP dropping? XRP price declines are typically driven by broader crypto market sentiment, Bitcoin correlation, macroeconomic factors, and profit-taking after rallies.",

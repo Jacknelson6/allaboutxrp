@@ -1,8 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import AcquisitionsContent from "@/app/acquisitions/AcquisitionsContent";
+
+export const dynamic = "force-static";
 
 const relatedLinks = [
   { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },

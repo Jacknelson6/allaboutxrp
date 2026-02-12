@@ -4,6 +4,8 @@ import FAQAccordion from "./FAQAccordion";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getAllFAQItems } from "@/lib/utils/faq";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP FAQ — Frequently Asked Questions About XRP",
   description:

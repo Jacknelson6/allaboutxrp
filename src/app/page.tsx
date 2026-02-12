@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import HomeFeed from "@/components/home/HomeFeed";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "AllAboutXRP — Everything You Need to Know About XRP",
   description: "Your XRP community hub — curated X/Twitter feed, live price data, holder analytics, comprehensive XRP education, and more. Stay connected with the XRP ecosystem.",

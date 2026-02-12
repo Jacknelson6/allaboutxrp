@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Why Should You Buy XRP? Investment Thesis & Utility Explained",
   description: "Why should you buy XRP? Explore the investment thesis — real utility in cross-border payments, institutional adoption, fixed supply, and growing ecosystem. Not financial advice.",

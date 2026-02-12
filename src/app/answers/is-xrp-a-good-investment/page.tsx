@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Is XRP a Good Investment in 2026?",
   description: "Is XRP a good investment? XRP, the native token of the XRP Ledger, offers real utility in cross-border payments and growing institutional adoption — but all crypto investments carry risk.",

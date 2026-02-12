@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import LiveContent from './LiveContent';
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: 'Live XRPL Globe — Real-Time XRP Transactions',
   description: 'Watch XRP Ledger transactions in real-time on an interactive 3D globe. See live payment flows, transaction volumes, and network activity as they happen.',

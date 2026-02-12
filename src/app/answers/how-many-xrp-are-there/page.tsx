@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How Many XRP Are There?",
   description: "How many XRP are there? 100 billion XRP were created at genesis — no more can ever be minted. Approximately 57 billion are in circulation, with the rest in Ripple's escrow.",

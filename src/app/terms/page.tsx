@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 export default function TermsOfServicePage() {
   return (
     <main id="main-content" className="min-h-screen bg-black">

@@ -3,6 +3,8 @@ import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { buildBreadcrumbSchema } from "@/lib/utils/seo";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Answers — Your Top Questions About XRP, Answered",
   description:

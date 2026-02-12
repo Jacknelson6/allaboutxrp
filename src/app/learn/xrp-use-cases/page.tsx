@@ -8,6 +8,8 @@ import {
   FAQAccordion, HighlightBox, LearnCTA, LearnLinkGrid, FeatureGrid, IconList, GlowCard,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Use Cases — How XRP Is Used in the Real World",
   description:

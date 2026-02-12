@@ -5,6 +5,8 @@ import EscrowContent from "@/app/escrow/EscrowContent";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { buildArticleSchema, buildBreadcrumbSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Escrow — How Ripple's Escrow System Works",
   description: "Learn how Ripple's XRP escrow system works, its monthly release schedule, and its impact on XRP supply.",

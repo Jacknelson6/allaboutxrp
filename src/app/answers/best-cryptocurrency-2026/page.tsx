@@ -8,6 +8,8 @@ import {
   FAQAccordion, HighlightBox, LearnCTA, LearnLinkGrid, FeatureGrid,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Best Cryptocurrency to Buy in 2026 — Top Picks Ranked",
   description:

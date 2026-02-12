@@ -9,6 +9,8 @@ import {
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Ripple Leadership: Who Runs Ripple in 2026",
   description:

@@ -1,8 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import RiddlersContent from "@/app/riddlers/RiddlersContent";
+
+export const dynamic = "force-static";
 
 const relatedLinks = [
   { href: "/learn/history", label: "XRP History", desc: "The full timeline from 2012" },

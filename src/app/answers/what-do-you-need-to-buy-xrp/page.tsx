@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "What Do You Need to Buy XRP? Requirements & Step-by-Step Guide",
   description: "Everything you need to buy XRP — exchange account, KYC verification, funding method, and optional wallet. Complete step-by-step guide for beginners.",

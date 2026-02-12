@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import LiveChartContent from "./LiveChartContent";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Live Chart — XRP Price, Globe & Market Data | AllAboutXRP",
   description:

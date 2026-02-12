@@ -10,6 +10,8 @@ import {
 } from "@/components/learn/LearnPageShell";
 import timelineData from "@/data/timeline.json";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP History: Complete Ripple Timeline 2011-2026",
   description:

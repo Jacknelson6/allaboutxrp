@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import EscrowContent from "./EscrowContent";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Escrow: Ripple's 55 Billion XRP Lockup Guide",
   description:

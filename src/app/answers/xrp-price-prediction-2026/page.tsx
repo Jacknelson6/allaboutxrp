@@ -8,6 +8,8 @@ import {
   FAQAccordion, HighlightBox, LearnCTA, LearnLinkGrid, FeatureGrid, GlowCard,
 } from "@/components/learn/LearnPageShell";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Price Prediction 2026 — What Analysts Are Saying",
   description:

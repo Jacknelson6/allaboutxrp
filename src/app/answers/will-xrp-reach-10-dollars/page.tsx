@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import AnswerPageLayout from "../AnswerPageLayout";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Will XRP Reach $10?",
   description: "Will XRP reach $10? At $10, XRP's market cap would be roughly $570 billion — ambitious but not impossible given growing adoption and the $150T cross-border payments market.",

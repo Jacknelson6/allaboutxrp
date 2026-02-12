@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import RiddlersContent from "./RiddlersContent";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "XRP Riddlers: BG123, Mr. Pool & Cryptic Predictions",
   description:
