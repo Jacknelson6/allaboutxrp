@@ -451,7 +451,7 @@ export default function LiveChartContent() {
             {(() => {
               const visibleCount = [showGlobe, showCandles, showLine].filter(Boolean).length;
               return (
-                <div className="flex flex-col md:flex-row gap-3" style={{ height: 'min(600px, 50vh)' }}>
+                <div className="flex flex-col md:flex-row gap-3" style={{ height: 'min(700px, 60vh)' }}>
                   {/* Globe - always mounted, hidden via CSS */}
                   <div
                     className={`rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex flex-col ${showGlobe ? '' : 'hidden'}`}
