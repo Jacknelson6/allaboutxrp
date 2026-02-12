@@ -289,23 +289,6 @@ export default function LiveChartContent() {
       />
 
       <div className="mx-auto max-w-[1400px] px-4 py-6">
-        {/* Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-8 w-8 rounded-full bg-[#0085FF]/20 flex items-center justify-center">
-            <span className="text-[#0085FF] font-bold text-sm">X</span>
-          </div>
-          <div>
-            <h1 className="text-xl font-bold flex items-center gap-2">
-              XRP <span className="text-white/40 text-sm font-normal">XRP</span>
-              {md && (
-                <span className="text-xs bg-white/[0.06] text-white/50 px-2 py-0.5 rounded-full">
-                  Rank #{md.market_cap_rank}
-                </span>
-              )}
-            </h1>
-          </div>
-        </div>
-
         {/* 3-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_260px] gap-6">
 
