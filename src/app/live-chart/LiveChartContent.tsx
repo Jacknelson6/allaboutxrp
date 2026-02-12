@@ -142,9 +142,9 @@ export default function LiveChartContent() {
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(0); // 1D default
-  const [globeTimeframe, setGlobeTimeframe] = useState(0); // 1D default for globe chart
   const [showGlobe, setShowGlobe] = useState(true);
-  const [chartStyle, setChartStyle] = useState<ChartStyle>('3'); // 1=candles, 3=line
+  const [showCandles, setShowCandles] = useState(false);
+  const [showLine, setShowLine] = useState(true);
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
@@ -153,10 +153,8 @@ export default function LiveChartContent() {
   const [marketPage, setMarketPage] = useState(1);
   const ROWS_PER_PAGE = 10;
   const { data: binancePrice } = useXRPPrice();
-  const chartRef = useRef<HTMLDivElement>(null);
-  const globeChartRef = useRef<HTMLDivElement>(null);
-  const widgetRef = useRef<unknown>(null);
-  const globeWidgetRef = useRef<unknown>(null);
+  const candlesWidgetRef = useRef<unknown>(null);
+  const lineWidgetRef = useRef<unknown>(null);
 
   // Fetch data (staggered to avoid CoinGecko rate limits)
   const fetchData = useCallback(async () => {
@@ -178,25 +176,47 @@ export default function LiveChartContent() {
     return () => clearInterval(interval);
   }, [fetchData]);
 
-  // TradingView widget
-  // Main chart (non-globe view)
-  useEffect(() => {
-    if (showGlobe) return;
-    if (tvReady && window.TradingView && chartRef.current) {
-      try {
-      // Destroy previous widget instance
-      if (widgetRef.current && typeof (widgetRef.current as { remove?: () => void }).remove === 'function') {
-        (widgetRef.current as { remove: () => void }).remove();
-      }
-      widgetRef.current = null;
-      const tf = timeframes[activeTimeframe];
-      const container = document.getElementById('lc-tv-chart');
-      if (container) container.innerHTML = '';
-      widgetRef.current = new window.TradingView.widget({
-        container_id: 'lc-tv-chart',
+  // Disabled features shared by ALL TradingView widgets
+  const tvDisabledBase = [
+    'header_symbol_search', 'header_compare', 'header_undo_redo',
+    'header_screenshot', 'header_saveload', 'header_settings',
+    'header_fullscreen_button', 'header_chart_type',
+    'header_resolutions',
+    'left_toolbar', 'context_menus', 'control_bar', 'timeframes_toolbar',
+    'volume_force_overlay', 'go_to_date', 'symbol_info',
+    'edit_buttons_in_legend', 'property_pages', 'show_chart_property_page',
+    'source_selection_markers', 'main_series_scale_menu',
+    'display_market_status', 'border_around_the_chart',
+  ];
+
+  // Globe-only: also disable indicators + legend
+  const tvDisabledGlobe = [...tvDisabledBase, 'header_indicators', 'legend_widget'];
+
+  // Standalone panels: keep indicators enabled, only disable legend
+  const tvDisabledStandalone = [...tvDisabledBase, 'legend_widget'];
+
+  const tvOverrides = {
+    'paneProperties.background': '#000000',
+    'paneProperties.backgroundType': 'solid',
+    'paneProperties.vertGridProperties.color': '#111113',
+    'paneProperties.horzGridProperties.color': '#111113',
+    'scalesProperties.lineColor': '#222',
+    'scalesProperties.textColor': '#666',
+  };
+
+  // Helper to create a TradingView widget
+  // compact=true → globe-style (no toolbar, no indicators); false → standalone (toolbar + indicators)
+  const createTvWidget = useCallback((containerId: string, style: ChartStyle, compact = false) => {
+    if (!tvReady || !window.TradingView) return null;
+    const container = document.getElementById(containerId);
+    if (container) container.innerHTML = '';
+    const tf = timeframes[activeTimeframe];
+    try {
+      return new window.TradingView.widget({
+        container_id: containerId,
         symbol: 'BINANCE:XRPUSDT',
         theme: 'dark',
-        style: chartStyle,
+        style,
         locale: 'en',
         interval: tf.interval,
         range: tf.range,
@@ -204,82 +224,7 @@ export default function LiveChartContent() {
         enable_publishing: false,
         allow_symbol_change: false,
         hide_side_toolbar: true,
-        hide_top_toolbar: false,
-        hide_legend: false,
-        withdateranges: false,
-        save_image: false,
-        autosize: true,
-        backgroundColor: '#000000',
-        gridColor: '#111113',
-        hide_volume: true,
-        studies: [],
-        disabled_features: [
-          'header_symbol_search',
-          'header_compare',
-          'header_undo_redo',
-          'header_screenshot',
-          'header_saveload',
-          'header_settings',
-          'header_fullscreen_button',
-          'header_indicators',
-          'header_chart_type',
-          'header_resolutions',
-          'left_toolbar',
-          'context_menus',
-          'control_bar',
-          'timeframes_toolbar',
-          'volume_force_overlay',
-          'go_to_date',
-          'symbol_info',
-          'edit_buttons_in_legend',
-          'property_pages',
-          'show_chart_property_page',
-          'source_selection_markers',
-          'main_series_scale_menu',
-          'display_market_status',
-          'border_around_the_chart',
-        ],
-        enabled_features: [
-          'hide_left_toolbar_by_default',
-        ],
-        overrides: {
-          'paneProperties.background': '#000000',
-          'paneProperties.backgroundType': 'solid',
-          'paneProperties.vertGridProperties.color': '#111113',
-          'paneProperties.horzGridProperties.color': '#111113',
-          'scalesProperties.lineColor': '#222',
-          'scalesProperties.textColor': '#666',
-        },
-      });
-      } catch (e) { console.error('TradingView widget error:', e); }
-    }
-  }, [tvReady, activeTimeframe, showGlobe, chartStyle]);
-
-  // Globe's TradingView widget (smaller, beside globe)
-  useEffect(() => {
-    if (!showGlobe) return;
-    if (tvReady && window.TradingView) {
-      // Destroy previous widget
-      if (globeWidgetRef.current && typeof (globeWidgetRef.current as { remove?: () => void }).remove === 'function') {
-        (globeWidgetRef.current as { remove: () => void }).remove();
-      }
-      globeWidgetRef.current = null;
-      const container = document.getElementById('lc-tv-globe-chart');
-      if (container) container.innerHTML = '';
-      const gtf = timeframes[globeTimeframe];
-      globeWidgetRef.current = new window.TradingView.widget({
-        container_id: 'lc-tv-globe-chart',
-        symbol: 'BINANCE:XRPUSDT',
-        theme: 'dark',
-        style: chartStyle,
-        locale: 'en',
-        interval: gtf.interval,
-        range: gtf.range,
-        toolbar_bg: '#000000',
-        enable_publishing: false,
-        allow_symbol_change: false,
-        hide_side_toolbar: true,
-        hide_top_toolbar: true,
+        hide_top_toolbar: compact,
         hide_legend: true,
         withdateranges: false,
         save_image: false,
@@ -288,29 +233,33 @@ export default function LiveChartContent() {
         gridColor: '#111113',
         hide_volume: true,
         studies: [],
-        disabled_features: [
-          'header_symbol_search', 'header_compare', 'header_undo_redo',
-          'header_screenshot', 'header_saveload', 'header_settings',
-          'header_fullscreen_button', 'header_indicators', 'header_chart_type',
-          'header_resolutions', 'legend_widget',
-          'left_toolbar', 'context_menus', 'control_bar', 'timeframes_toolbar',
-          'volume_force_overlay', 'go_to_date', 'symbol_info',
-          'edit_buttons_in_legend', 'property_pages', 'show_chart_property_page',
-          'source_selection_markers', 'main_series_scale_menu',
-          'display_market_status', 'border_around_the_chart',
-        ],
+        disabled_features: compact ? tvDisabledGlobe : tvDisabledStandalone,
         enabled_features: ['hide_left_toolbar_by_default'],
-        overrides: {
-          'paneProperties.background': '#000000',
-          'paneProperties.backgroundType': 'solid',
-          'paneProperties.vertGridProperties.color': '#111113',
-          'paneProperties.horzGridProperties.color': '#111113',
-          'scalesProperties.lineColor': '#222',
-          'scalesProperties.textColor': '#666',
-        },
+        overrides: tvOverrides,
       });
+    } catch (e) {
+      console.error('TradingView widget error:', e);
+      return null;
     }
-  }, [tvReady, showGlobe, chartStyle, globeTimeframe]);
+  }, [tvReady, activeTimeframe]);
+
+  // Candles chart widget
+  useEffect(() => {
+    if (!showCandles) return;
+    if (candlesWidgetRef.current && typeof (candlesWidgetRef.current as { remove?: () => void }).remove === 'function') {
+      (candlesWidgetRef.current as { remove: () => void }).remove();
+    }
+    candlesWidgetRef.current = createTvWidget('lc-tv-candles', '1');
+  }, [showCandles, createTvWidget]);
+
+  // Line chart widget
+  useEffect(() => {
+    if (!showLine) return;
+    if (lineWidgetRef.current && typeof (lineWidgetRef.current as { remove?: () => void }).remove === 'function') {
+      (lineWidgetRef.current as { remove: () => void }).remove();
+    }
+    lineWidgetRef.current = createTvWidget('lc-tv-line', '3');
+  }, [showLine, createTvWidget]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -494,114 +443,100 @@ export default function LiveChartContent() {
           <div className="space-y-4 order-1 lg:order-2">
             {/* View switcher + Timeframe selectors */}
             <div className="flex items-center justify-between gap-3 flex-wrap">
-              {/* View switcher pills */}
-              {/* Toggle buttons with checkboxes */}
+              {/* Toggle buttons - all checkboxes */}
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setShowGlobe(g => !g)}
-                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
-                    showGlobe
-                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
-                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
-                  }`}
-                >
-                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded border transition-all ${
-                    showGlobe ? 'bg-[#0085FF] border-[#0085FF]' : 'border-white/30 bg-transparent'
-                  }`}>
-                    {showGlobe && <span className="text-[9px] text-white font-bold">✓</span>}
-                  </span>
-                  <GlobeIcon className="h-3.5 w-3.5" />
-                  Globe
-                </button>
-                <button
-                  onClick={() => setChartStyle('1')}
-                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
-                    chartStyle === '1'
-                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
-                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
-                  }`}
-                >
-                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded-full border transition-all ${
-                    chartStyle === '1' ? 'border-[#0085FF]' : 'border-white/30'
-                  }`}>
-                    {chartStyle === '1' && <span className="h-2 w-2 rounded-full bg-[#0085FF]" />}
-                  </span>
-                  <CandlestickChart className="h-3.5 w-3.5" />
-                  Candles
-                </button>
-                <button
-                  onClick={() => setChartStyle('3')}
-                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
-                    chartStyle === '3'
-                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
-                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
-                  }`}
-                >
-                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded-full border transition-all ${
-                    chartStyle === '3' ? 'border-[#0085FF]' : 'border-white/30'
-                  }`}>
-                    {chartStyle === '3' && <span className="h-2 w-2 rounded-full bg-[#0085FF]" />}
-                  </span>
-                  <LineChart className="h-3.5 w-3.5" />
-                  Line
-                </button>
+                {([
+                  { key: 'globe', label: 'Globe', icon: <GlobeIcon className="h-3.5 w-3.5" />, active: showGlobe, toggle: () => setShowGlobe(g => !g) },
+                  { key: 'candles', label: 'Candles', icon: <CandlestickChart className="h-3.5 w-3.5" />, active: showCandles, toggle: () => setShowCandles(c => !c) },
+                  { key: 'line', label: 'Line', icon: <LineChart className="h-3.5 w-3.5" />, active: showLine, toggle: () => setShowLine(l => !l) },
+                ] as const).map(btn => (
+                  <button
+                    key={btn.key}
+                    onClick={btn.toggle}
+                    className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+                      btn.active
+                        ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
+                        : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
+                    }`}
+                  >
+                    <span className={`flex items-center justify-center h-3.5 w-3.5 rounded border transition-all ${
+                      btn.active ? 'bg-[#0085FF] border-[#0085FF]' : 'border-white/30 bg-transparent'
+                    }`}>
+                      {btn.active && <span className="text-[9px] text-white font-bold">✓</span>}
+                    </span>
+                    {btn.icon}
+                    {btn.label}
+                  </button>
+                ))}
               </div>
 
               {/* Timeframe selectors */}
               <div className="flex items-center gap-1">
-                {timeframes.map((tf, i) => {
-                  const active = showGlobe ? globeTimeframe === i : activeTimeframe === i;
-                  return (
-                    <button
-                      key={tf.label}
-                      onClick={() => showGlobe ? setGlobeTimeframe(i) : setActiveTimeframe(i)}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                        active
-                          ? 'bg-[#0085FF] text-black'
-                          : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
-                      }`}
-                    >
-                      {tf.label}
-                    </button>
-                  );
-                })}
+                {timeframes.map((tf, i) => (
+                  <button
+                    key={tf.label}
+                    onClick={() => setActiveTimeframe(i)}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                      activeTimeframe === i
+                        ? 'bg-[#0085FF] text-black'
+                        : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
+                    }`}
+                  >
+                    {tf.label}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Chart / Globe - Globe always mounted, hidden via CSS to prevent Three.js crash */}
-            <div className={`flex flex-col md:flex-row gap-3 ${showGlobe ? '' : 'hidden'}`}>
-              {/* Globe */}
-              <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
-                <StatsBar stats={stats} />
-                <div className="flex-1 relative">
-                  <div className="absolute inset-0">
-                    <Suspense fallback={
-                      <div className="flex items-center justify-center h-full">
-                        <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+            {/* Multi-panel chart area */}
+            {(() => {
+              const visibleCount = [showGlobe, showCandles, showLine].filter(Boolean).length;
+              return (
+                <div className="flex flex-col md:flex-row gap-3" style={{ height: 'min(600px, 50vh)' }}>
+                  {/* Globe - always mounted, hidden via CSS */}
+                  <div
+                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex flex-col ${showGlobe ? '' : 'hidden'}`}
+                    style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
+                  >
+                    <StatsBar stats={stats} />
+                    <div className="flex-1 relative">
+                      <div className="absolute inset-0">
+                        <Suspense fallback={
+                          <div className="flex items-center justify-center h-full">
+                            <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                          </div>
+                        }>
+                          <Globe arcs={arcs} onArcComplete={removeArc} />
+                        </Suspense>
                       </div>
-                    }>
-                      <Globe arcs={arcs} onArcComplete={removeArc} />
-                    </Suspense>
+                    </div>
                   </div>
-                </div>
-              </div>
-              {/* TradingView chart beside globe */}
-              <div className="flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
-                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
-                  <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
-                </div>
-              </div>
-            </div>
-            <div className={`${showGlobe ? 'hidden' : ''}`}>
-              <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative" style={{ height: '55vh', minHeight: 400 }}>
-                {!tvReady && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+
+                  {/* Candles chart */}
+                  <div
+                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative ${showCandles ? '' : 'hidden'}`}
+                    style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
+                  >
+                    <div id="lc-tv-candles" className="h-full" />
                   </div>
-                )}
-                <div id="lc-tv-chart" ref={chartRef} className="h-full" />
-              </div>
-            </div>
+
+                  {/* Line chart */}
+                  <div
+                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative ${showLine ? '' : 'hidden'}`}
+                    style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
+                  >
+                    <div id="lc-tv-line" className="h-full" />
+                  </div>
+
+                  {/* Empty state */}
+                  {visibleCount === 0 && (
+                    <div className="flex-1 rounded-xl border border-white/[0.06] bg-[#0A0A0B] flex items-center justify-center">
+                      <p className="text-white/30 text-sm">Enable a panel above to view charts</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
 
             {/* Market Data */}
                 {/* Tab Selector */}
