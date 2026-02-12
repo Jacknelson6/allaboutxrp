@@ -529,9 +529,9 @@ export default function LiveChartContent() {
 
             {/* Chart / Globe */}
             {chartView === 'globe' ? (
-              <div className="flex flex-col md:flex-row gap-3" style={{ minHeight: 400 }}>
+              <div className="flex flex-col md:flex-row gap-3">
                 {/* Globe */}
-                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: '600px' }}>
+                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
                   <StatsBar stats={stats} />
                   <div className="flex-1 relative">
                     <div className="absolute inset-0">
@@ -546,7 +546,7 @@ export default function LiveChartContent() {
                   </div>
                 </div>
                 {/* TradingView chart with candle/line toggle */}
-                <div className="flex-[5] flex flex-col gap-2" style={{ maxHeight: '600px' }}>
+                <div className="flex-[5] flex flex-col gap-2" style={{ height: 'min(600px, 50vh)' }}>
                   <div className="flex items-center gap-2 flex-wrap">
                   <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
                     <button
