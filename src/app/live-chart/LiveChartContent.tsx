@@ -88,9 +88,9 @@ interface Ticker {
 type ChartView = 'candles' | 'line' | 'globe';
 
 const chartViews: { id: ChartView; label: string; icon: typeof CandlestickChart; tvStyle?: string }[] = [
+  { id: 'globe', label: 'Globe', icon: GlobeIcon },
   { id: 'candles', label: 'Candlesticks', icon: CandlestickChart, tvStyle: '1' },
   { id: 'line', label: 'Line', icon: LineChart, tvStyle: '3' },
-  { id: 'globe', label: 'Globe', icon: GlobeIcon },
 ];
 
 declare global {
@@ -149,6 +149,7 @@ export default function LiveChartContent() {
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(0); // 1D default
+  const [globeTimeframe, setGlobeTimeframe] = useState(0); // 1D default for globe chart
   const [chartView, setChartView] = useState<ChartView>('globe');
   const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
@@ -265,14 +266,15 @@ export default function LiveChartContent() {
     if (tvReady && window.TradingView) {
       const container = document.getElementById('lc-tv-globe-chart');
       if (container) container.innerHTML = '';
+      const gtf = timeframes[globeTimeframe];
       globeWidgetRef.current = new window.TradingView.widget({
         container_id: 'lc-tv-globe-chart',
         symbol: 'BINANCE:XRPUSDT',
         theme: 'dark',
         style: globeChartType,
         locale: 'en',
-        interval: '60',
-        range: '5D',
+        interval: gtf.interval,
+        range: gtf.range,
         toolbar_bg: '#000000',
         enable_publishing: false,
         allow_symbol_change: false,
@@ -308,7 +310,7 @@ export default function LiveChartContent() {
         },
       });
     }
-  }, [tvReady, chartView, globeChartType]);
+  }, [tvReady, chartView, globeChartType, globeTimeframe]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -549,6 +551,7 @@ export default function LiveChartContent() {
                 </div>
                 {/* TradingView chart with candle/line toggle */}
                 <div className="flex-[5] min-h-[300px] flex flex-col gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                   <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
                     <button
                       onClick={() => setGlobeChartType('1')}
@@ -566,6 +569,22 @@ export default function LiveChartContent() {
                     >
                       <LineChart className="h-3.5 w-3.5" /> Line
                     </button>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {timeframes.map((tf, i) => (
+                      <button
+                        key={tf.label}
+                        onClick={() => setGlobeTimeframe(i)}
+                        className={`px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                          globeTimeframe === i
+                            ? 'bg-[#0085FF] text-black'
+                            : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
+                        }`}
+                      >
+                        {tf.label}
+                      </button>
+                    ))}
+                  </div>
                   </div>
                   <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
                     <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
