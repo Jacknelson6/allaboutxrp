@@ -21,19 +21,26 @@ import {
   CandlestickChart,
   LineChart,
   Globe as GlobeIcon,
+  Landmark,
+  Lock,
+  Layers,
+  BarChart3,
+  Info,
 } from 'lucide-react';
 
 import LiveTrades from '@/components/globe/LiveTrades';
 import RichList from '@/components/richlist/RichList';
 import RecentTransactions from '@/components/live-chart/RecentTransactions';
 import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
+import etfData from '@/data/xrp-etf-data.json';
 
-type MarketTab = 'markets' | 'holders' | 'transactions';
+type MarketTab = 'markets' | 'holders' | 'transactions' | 'etf';
 
 const marketTabs: { id: MarketTab; label: string }[] = [
   { id: 'transactions', label: 'Transactions' },
   { id: 'holders', label: 'Holders' },
   { id: 'markets', label: 'Markets' },
+  { id: 'etf', label: 'ETF Flows' },
 ];
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
@@ -154,6 +161,8 @@ export default function LiveChartContent() {
   const [marketsOpen, setMarketsOpen] = useState(false);
   const [marketPage, setMarketPage] = useState(1);
   const ROWS_PER_PAGE = 10;
+  const [etfSortKey, setEtfSortKey] = useState<'aum' | 'xrpLocked' | 'dailyVolume' | 'priceChange24h'>('aum');
+  const [etfSortDir, setEtfSortDir] = useState<'asc' | 'desc'>('desc');
   const { data: binancePrice } = useXRPPrice();
   const candlesWidgetRef = useRef<unknown>(null);
   const lineWidgetRef = useRef<unknown>(null);
@@ -598,6 +607,10 @@ export default function LiveChartContent() {
 
                 {activeMarketTab === 'holders' && <RichList />}
                 {activeMarketTab === 'transactions' && <RecentTransactions />}
+                {activeMarketTab === 'etf' && <ETFFlowsTab sortKey={etfSortKey} sortDir={etfSortDir} onSort={(key) => {
+                  if (etfSortKey === key) setEtfSortDir(d => d === 'desc' ? 'asc' : 'desc');
+                  else { setEtfSortKey(key); setEtfSortDir('desc'); }
+                }} />}
           </div>
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
@@ -769,6 +782,164 @@ function TradingViewTicker() {
     <div ref={ref} className="px-3 py-3" style={{ minHeight: 80 }}>
       <div className="flex items-center justify-center h-[60px]">
         <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+      </div>
+    </div>
+  );
+}
+
+// ── ETF helpers ────────────────────────────────────────────────────────────
+function fmtETF(n: number, style: 'currency' | 'compact' | 'percent' = 'compact') {
+  if (style === 'percent') return `${n >= 0 ? '+' : ''}${n.toFixed(2)}%`;
+  if (style === 'currency')
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(n);
+  if (Math.abs(n) >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
+  if (Math.abs(n) >= 1e6) return `$${(n / 1e6).toFixed(1)}M`;
+  if (Math.abs(n) >= 1e3) return `$${(n / 1e3).toFixed(1)}K`;
+  return `$${n.toFixed(0)}`;
+}
+function fmtXRPVal(n: number) {
+  if (n >= 1e9) return `${(n / 1e9).toFixed(2)}B`;
+  if (n >= 1e6) return `${(n / 1e6).toFixed(1)}M`;
+  return new Intl.NumberFormat('en-US').format(n);
+}
+
+type EtfSortKey = 'aum' | 'xrpLocked' | 'dailyVolume' | 'priceChange24h';
+
+function ETFFlowsTab({ sortKey, sortDir, onSort }: { sortKey: EtfSortKey; sortDir: 'asc' | 'desc'; onSort: (key: EtfSortKey) => void }) {
+  const { totals, etfs, dailyFlows } = etfData;
+  const pctOfSupply = ((totals.totalXRPLocked / totals.xrpCirculatingSupply) * 100).toFixed(2);
+  const progressPct = Math.min((totals.totalXRPLocked / 1e9) * 100, 100);
+  const maxFlow = Math.max(...dailyFlows.map(f => Math.abs(f.netFlow)));
+  const todayFlow = dailyFlows[0]?.netFlow ?? 0;
+
+  const sorted = [...etfs].sort((a, b) => {
+    const mul = sortDir === 'desc' ? -1 : 1;
+    return mul * (a[sortKey] - b[sortKey]);
+  });
+
+  return (
+    <div className="space-y-4">
+      {/* Stats row */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {[
+          { label: 'Total AUM', value: fmtETF(totals.totalAUM), icon: Landmark, sub: `across ${totals.numberOfETFs} ETFs` },
+          { label: 'XRP Locked', value: `${fmtXRPVal(totals.totalXRPLocked)} XRP`, icon: Lock, sub: `${pctOfSupply}% of circulating` },
+          { label: 'Daily Volume', value: fmtETF(totals.totalDailyVolume), icon: Layers, sub: 'combined 24h' },
+          { label: "Today's Flow", value: fmtETF(Math.abs(todayFlow)), icon: todayFlow >= 0 ? TrendingUp : TrendingDown, sub: todayFlow >= 0 ? 'inflow' : 'outflow', positive: todayFlow >= 0 },
+        ].map(s => (
+          <div key={s.label} className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+            <div className="flex items-center gap-2 mb-1.5">
+              <s.icon className={`h-3.5 w-3.5 ${(s as Record<string, unknown>).positive === false ? 'text-red-400' : 'text-[#0085FF]'}`} />
+              <span className="text-[10px] font-medium uppercase tracking-wider text-white/40">{s.label}</span>
+            </div>
+            <p className={`text-lg font-bold tracking-tight ${(s as Record<string, unknown>).positive === false ? 'text-red-400' : 'text-white'}`}>{s.value}</p>
+            <p className="text-[10px] text-white/30 mt-0.5">{s.sub}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Daily Net Flow bar chart */}
+      <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+        <h3 className="text-sm font-semibold text-white mb-1">Daily Net Flows</h3>
+        <p className="text-[11px] text-white/30 mb-4">Last 30 trading days</p>
+        <div className="flex items-end gap-[3px] md:gap-1.5 h-28 md:h-36">
+          {[...dailyFlows].reverse().map(f => {
+            const h = (Math.abs(f.netFlow) / maxFlow) * 100;
+            const isPos = f.netFlow >= 0;
+            return (
+              <div key={f.date} className="group relative flex-1 flex flex-col justify-end" style={{ height: '100%' }}>
+                <div
+                  className={`rounded-t-sm transition-colors ${isPos ? 'bg-emerald-500/70 hover:bg-emerald-400' : 'bg-red-500/70 hover:bg-red-400'}`}
+                  style={{ height: `${Math.max(h, 3)}%` }}
+                />
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block z-10 whitespace-nowrap rounded-lg bg-[#1a1a1b] border border-white/10 px-3 py-2 text-[11px] text-white shadow-xl">
+                  <p className="font-medium">{f.date}</p>
+                  <p className={isPos ? 'text-emerald-400' : 'text-red-400'}>{isPos ? '+' : ''}{fmtETF(f.netFlow)}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex justify-between mt-2 text-[10px] text-white/20">
+          <span>{dailyFlows[dailyFlows.length - 1]?.date}</span>
+          <span>{dailyFlows[0]?.date}</span>
+        </div>
+      </div>
+
+      {/* XRP Locked progress */}
+      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
+        <div className="flex items-center justify-between mb-2">
+          <div>
+            <h3 className="text-sm font-semibold text-white">XRP Locked in ETF Vaults</h3>
+            <p className="text-[11px] text-white/30">Progress toward 1 Billion XRP</p>
+          </div>
+          <span className="text-xl font-bold text-[#0085FF]">{progressPct.toFixed(1)}%</span>
+        </div>
+        <div className="w-full h-3 rounded-full bg-white/[0.06] overflow-hidden">
+          <div className="h-full rounded-full bg-gradient-to-r from-[#0085FF] to-[#00D4FF] transition-all duration-1000" style={{ width: `${progressPct}%` }} />
+        </div>
+        <div className="flex justify-between mt-1.5 text-[10px] text-white/30">
+          <span>{fmtXRPVal(totals.totalXRPLocked)} XRP locked</span>
+          <span>1,000,000,000 XRP goal</span>
+        </div>
+      </div>
+
+      {/* ETF Comparison Table */}
+      <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+        <h3 className="text-sm font-semibold text-white mb-4">ETF Comparison</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[650px]">
+            <thead>
+              <tr className="border-b border-white/[0.08] text-[10px] uppercase tracking-wider text-white/30">
+                <th className="text-left py-2.5 pr-3 font-medium">ETF</th>
+                <th className="text-left py-2.5 pr-3 font-medium">Issuer</th>
+                <th className="text-right py-2.5 pr-3 font-medium cursor-pointer select-none" onClick={() => onSort('aum')}>
+                  <span className="inline-flex items-center gap-1">AUM <ArrowUpDown className="h-2.5 w-2.5" /></span>
+                </th>
+                <th className="text-right py-2.5 pr-3 font-medium cursor-pointer select-none" onClick={() => onSort('xrpLocked')}>
+                  <span className="inline-flex items-center gap-1">XRP Held <ArrowUpDown className="h-2.5 w-2.5" /></span>
+                </th>
+                <th className="text-right py-2.5 pr-3 font-medium cursor-pointer select-none" onClick={() => onSort('dailyVolume')}>
+                  <span className="inline-flex items-center gap-1">Volume <ArrowUpDown className="h-2.5 w-2.5" /></span>
+                </th>
+                <th className="text-right py-2.5 pr-3 font-medium">Price</th>
+                <th className="text-right py-2.5 font-medium cursor-pointer select-none" onClick={() => onSort('priceChange24h')}>
+                  <span className="inline-flex items-center gap-1">24h <ArrowUpDown className="h-2.5 w-2.5" /></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map(etf => (
+                <tr key={etf.ticker} className="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors">
+                  <td className="py-3 pr-3">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center h-7 w-7 rounded-lg bg-[#0085FF]/10 text-[#0085FF] text-[10px] font-bold">{etf.ticker.slice(0, 2)}</span>
+                      <div>
+                        <p className="text-[12px] font-semibold text-white">{etf.ticker}</p>
+                        <p className="text-[10px] text-white/30">{etf.name}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-3 pr-3 text-[12px] text-white/60">{etf.issuer}</td>
+                  <td className="py-3 pr-3 text-right text-[12px] font-medium text-white">{fmtETF(etf.aum)}</td>
+                  <td className="py-3 pr-3 text-right text-[12px] text-white/70">{fmtXRPVal(etf.xrpLocked)}</td>
+                  <td className="py-3 pr-3 text-right text-[12px] text-white/60">{fmtETF(etf.dailyVolume)}</td>
+                  <td className="py-3 pr-3 text-right text-[12px] font-medium text-white">{fmtETF(etf.price, 'currency')}</td>
+                  <td className={`py-3 text-right text-[12px] font-medium ${etf.priceChange24h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{fmtETF(etf.priceChange24h, 'percent')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div className="flex items-start gap-2.5 rounded-xl border border-white/[0.06] bg-white/[0.01] p-3.5">
+        <Info className="h-3.5 w-3.5 text-white/20 mt-0.5 flex-shrink-0" />
+        <p className="text-[11px] text-white/30 leading-relaxed">
+          ETF data is manually updated and may not reflect real-time values. Last update: {new Date(etfData.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}.
+          This is for informational purposes only.
+        </p>
       </div>
     </div>
   );
