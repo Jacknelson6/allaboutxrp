@@ -65,6 +65,9 @@ export default function Footer() {
           <Link href="/privacy-policy" className="text-[11px] text-white/20 hover:text-white/40 transition-colors">
             Privacy Policy
           </Link>
+          <Link href="/terms" className="text-[11px] text-white/20 hover:text-white/40 transition-colors">
+            Terms of Service
+          </Link>
         </div>
         <p className="text-[11px] text-white/20 leading-relaxed">
           © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice.
