@@ -1,136 +1,241 @@
 {
   "lastUpdated": "2026-02-12T00:00:00Z",
-  "totals": {
-    "totalAUM": 1130000000,
-    "totalXRPLocked": 795940000,
-    "totalDailyVolume": 287500000,
-    "numberOfETFs": 7,
-    "xrpTotalSupply": 100000000000,
-    "xrpCirculatingSupply": 57526734794
+  "issuers": ["Canary", "21Shares", "Bitwise", "Grayscale", "Franklin", "REX-Osprey", "BITW Index"],
+  "issuerColors": {
+    "Canary": "#888888",
+    "21Shares": "#F59E0B",
+    "Bitwise": "#10B981",
+    "Grayscale": "#A855F7",
+    "Franklin": "#3B82F6",
+    "REX-Osprey": "#EF4444",
+    "BITW Index": "#059669"
   },
-  "etfs": [
+  "weeks": [
     {
-      "ticker": "GXRP",
-      "name": "Grayscale XRP Trust",
-      "issuer": "Grayscale",
-      "aum": 412000000,
-      "xrpLocked": 290000000,
-      "dailyVolume": 98000000,
-      "price": 42.15,
-      "priceChange24h": 2.34,
-      "launchDate": "2025-06-17",
-      "website": "https://grayscale.com",
-      "description": "The largest XRP ETF by AUM, managed by the industry leader in crypto trusts."
+      "weekNumber": 7,
+      "year": 2026,
+      "label": "Week 7 (2026) (Feb 9 - Feb 13)",
+      "startDate": "2026-02-09",
+      "endDate": "2026-02-13",
+      "previousClose": {
+        "date": "2026-02-06",
+        "dateLabel": "Fri, Feb 6 Holdings:",
+        "total": 789800000,
+        "byIssuer": {
+          "Canary": 190000000,
+          "Bitwise": 181500000,
+          "Franklin": 160700000,
+          "21Shares": 123000000,
+          "REX-Osprey": 45900000,
+          "Grayscale": 59600000,
+          "BITW Index": 29100000
+        }
+      },
+      "newTotal": {
+        "total": 795940000,
+        "byIssuer": {
+          "Canary": 1100000,
+          "21Shares": null,
+          "Bitwise": 783000,
+          "Grayscale": 2100000,
+          "Franklin": 2200000,
+          "REX-Osprey": null,
+          "BITW Index": null
+        }
+      },
+      "totalInflows": 6150000,
+      "totalOutflows": -5200,
+      "netTotal": 6144800,
+      "dailyFlows": [
+        {
+          "date": "2026-02-09",
+          "dayLabel": "Mon Feb 9",
+          "net": 2200000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 400000,
+            "21Shares": 0,
+            "Bitwise": 300000,
+            "Grayscale": 800000,
+            "Franklin": 700000,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-10",
+          "dayLabel": "Tue Feb 10",
+          "net": 1400000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 200000,
+            "21Shares": 0,
+            "Bitwise": 183000,
+            "Grayscale": 500000,
+            "Franklin": 517000,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-11",
+          "dayLabel": "Wed Feb 11",
+          "net": 2600000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 500000,
+            "21Shares": 0,
+            "Bitwise": 300000,
+            "Grayscale": 800000,
+            "Franklin": 983000,
+            "REX-Osprey": -5200,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-12",
+          "dayLabel": "Thu Feb 12",
+          "net": 0,
+          "tbd": true,
+          "byIssuer": {
+            "Canary": 0,
+            "21Shares": 0,
+            "Bitwise": 0,
+            "Grayscale": 0,
+            "Franklin": 0,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-13",
+          "dayLabel": "Fri Feb 13",
+          "net": 0,
+          "tbd": true,
+          "byIssuer": {
+            "Canary": 0,
+            "21Shares": 0,
+            "Bitwise": 0,
+            "Grayscale": 0,
+            "Franklin": 0,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        }
+      ]
     },
     {
-      "ticker": "BITW",
-      "name": "Bitwise XRP ETF",
-      "issuer": "Bitwise",
-      "aum": 245000000,
-      "xrpLocked": 172500000,
-      "dailyVolume": 67000000,
-      "price": 28.73,
-      "priceChange24h": 1.87,
-      "launchDate": "2025-06-17",
-      "website": "https://bitwiseinvestments.com",
-      "description": "Bitwise's dedicated XRP fund offering institutional-grade exposure."
-    },
-    {
-      "ticker": "XRPC",
-      "name": "Canary Capital XRP ETF",
-      "issuer": "Canary Capital",
-      "aum": 156000000,
-      "xrpLocked": 109800000,
-      "dailyVolume": 42000000,
-      "price": 19.45,
-      "priceChange24h": -0.52,
-      "launchDate": "2025-07-01",
-      "website": "https://canary.capital",
-      "description": "Canary Capital's XRP-focused ETF targeting retail and institutional investors."
-    },
-    {
-      "ticker": "XRPZ",
-      "name": "Franklin Templeton XRP Fund",
-      "issuer": "Franklin Templeton",
-      "aum": 134000000,
-      "xrpLocked": 94300000,
-      "dailyVolume": 38000000,
-      "price": 16.82,
-      "priceChange24h": 1.12,
-      "launchDate": "2025-07-15",
-      "website": "https://franklintempleton.com",
-      "description": "Traditional finance giant Franklin Templeton's entry into XRP ETFs."
-    },
-    {
-      "ticker": "XRPR",
-      "name": "REX-Osprey XRP ETF",
-      "issuer": "REX-Osprey",
-      "aum": 89000000,
-      "xrpLocked": 62640000,
-      "dailyVolume": 21000000,
-      "price": 11.24,
-      "priceChange24h": -0.28,
-      "launchDate": "2025-08-01",
-      "website": "https://rexshares.com",
-      "description": "Joint venture between REX Shares and Osprey Funds for XRP exposure."
-    },
-    {
-      "ticker": "TOXR",
-      "name": "21Shares XRP ETP",
-      "issuer": "21Shares",
-      "aum": 62000000,
-      "xrpLocked": 43700000,
-      "dailyVolume": 14500000,
-      "price": 8.56,
-      "priceChange24h": 0.95,
-      "launchDate": "2025-08-15",
-      "website": "https://21shares.com",
-      "description": "21Shares' XRP exchange-traded product with global availability."
-    },
-    {
-      "ticker": "XRP",
-      "name": "Bitwise Index XRP Fund",
-      "issuer": "Bitwise Index",
-      "aum": 32000000,
-      "xrpLocked": 23000000,
-      "dailyVolume": 7000000,
-      "price": 5.12,
-      "priceChange24h": 0.44,
-      "launchDate": "2025-09-01",
-      "website": "https://bitwiseinvestments.com",
-      "description": "Bitwise's index-weighted XRP fund for diversified crypto portfolios."
+      "weekNumber": 6,
+      "year": 2026,
+      "label": "Week 6 (2026) (Feb 2 - Feb 6)",
+      "startDate": "2026-02-02",
+      "endDate": "2026-02-06",
+      "previousClose": {
+        "date": "2026-01-31",
+        "dateLabel": "Fri, Jan 31 Holdings:",
+        "total": 752300000,
+        "byIssuer": {
+          "Canary": 178000000,
+          "Bitwise": 170200000,
+          "Franklin": 148500000,
+          "21Shares": 118000000,
+          "REX-Osprey": 43200000,
+          "Grayscale": 55400000,
+          "BITW Index": 39000000
+        }
+      },
+      "newTotal": {
+        "total": 789800000,
+        "byIssuer": {
+          "Canary": 12000000,
+          "21Shares": 5000000,
+          "Bitwise": 11300000,
+          "Grayscale": 4200000,
+          "Franklin": 12200000,
+          "REX-Osprey": 2700000,
+          "BITW Index": -9900000
+        }
+      },
+      "totalInflows": 47400000,
+      "totalOutflows": -9900000,
+      "netTotal": 37500000,
+      "dailyFlows": [
+        {
+          "date": "2026-02-02",
+          "dayLabel": "Mon Feb 2",
+          "net": 8500000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 2000000,
+            "21Shares": 1000000,
+            "Bitwise": 2300000,
+            "Grayscale": 1200000,
+            "Franklin": 2000000,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-03",
+          "dayLabel": "Tue Feb 3",
+          "net": 6200000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 3000000,
+            "21Shares": 0,
+            "Bitwise": 1500000,
+            "Grayscale": 800000,
+            "Franklin": 900000,
+            "REX-Osprey": 0,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-04",
+          "dayLabel": "Wed Feb 4",
+          "net": 12100000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 4000000,
+            "21Shares": 2000000,
+            "Bitwise": 3500000,
+            "Grayscale": 1200000,
+            "Franklin": 4100000,
+            "REX-Osprey": -2700000,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-05",
+          "dayLabel": "Thu Feb 5",
+          "net": 5500000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 1500000,
+            "21Shares": 1000000,
+            "Bitwise": 2000000,
+            "Grayscale": 500000,
+            "Franklin": 2500000,
+            "REX-Osprey": -2000000,
+            "BITW Index": 0
+          }
+        },
+        {
+          "date": "2026-02-06",
+          "dayLabel": "Fri Feb 6",
+          "net": 5200000,
+          "tbd": false,
+          "byIssuer": {
+            "Canary": 1500000,
+            "21Shares": 1000000,
+            "Bitwise": 2000000,
+            "Grayscale": 500000,
+            "Franklin": 2700000,
+            "REX-Osprey": -2500000,
+            "BITW Index": 0
+          }
+        }
+      ]
     }
-  ],
-  "dailyFlows": [
-    { "date": "2026-02-12", "netFlow": 18500000 },
-    { "date": "2026-02-11", "netFlow": -12300000 },
-    { "date": "2026-02-10", "netFlow": 24700000 },
-    { "date": "2026-02-07", "netFlow": 31200000 },
-    { "date": "2026-02-06", "netFlow": -8900000 },
-    { "date": "2026-02-05", "netFlow": 15600000 },
-    { "date": "2026-02-04", "netFlow": 42100000 },
-    { "date": "2026-02-03", "netFlow": -5200000 },
-    { "date": "2026-01-31", "netFlow": 28400000 },
-    { "date": "2026-01-30", "netFlow": 19800000 },
-    { "date": "2026-01-29", "netFlow": -16700000 },
-    { "date": "2026-01-28", "netFlow": 33500000 },
-    { "date": "2026-01-27", "netFlow": 11200000 },
-    { "date": "2026-01-24", "netFlow": -22100000 },
-    { "date": "2026-01-23", "netFlow": 45600000 },
-    { "date": "2026-01-22", "netFlow": 8900000 },
-    { "date": "2026-01-21", "netFlow": -3400000 },
-    { "date": "2026-01-17", "netFlow": 27800000 },
-    { "date": "2026-01-16", "netFlow": 14200000 },
-    { "date": "2026-01-15", "netFlow": -19500000 },
-    { "date": "2026-01-14", "netFlow": 36700000 },
-    { "date": "2026-01-13", "netFlow": 21300000 },
-    { "date": "2026-01-10", "netFlow": -7600000 },
-    { "date": "2026-01-09", "netFlow": 18900000 },
-    { "date": "2026-01-08", "netFlow": 29400000 },
-    { "date": "2026-01-07", "netFlow": -11800000 },
-    { "date": "2026-01-06", "netFlow": 23500000 },
-    { "date": "2026-01-03", "netFlow": 16100000 },
-    { "date": "2026-01-02", "netFlow": -4300000 },
-    { "date": "2025-12-31", "netFlow": 38200000 }
   ]
 }
