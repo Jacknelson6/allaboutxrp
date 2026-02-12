@@ -5,6 +5,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 import { useXRPPrice } from '@/hooks/useXRPPrice';
+import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ssr: false,
@@ -15,10 +16,9 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ),
 });
 
-const noop = () => {};
-
 export default function MiniPreviewCard() {
   const { data } = useXRPPrice();
+  const { arcs, removeArc } = useXRPLStream();
   const positive = (data?.change24h ?? 0) >= 0;
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +76,7 @@ export default function MiniPreviewCard() {
                 <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
               </div>
             }>
-              <Globe arcs={[]} onArcComplete={noop} />
+              <Globe arcs={arcs} onArcComplete={removeArc} />
             </Suspense>
           </div>
         </div>
