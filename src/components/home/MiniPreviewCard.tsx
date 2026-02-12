@@ -1,10 +1,9 @@
 'use client';
 
-import { ArrowRight, TrendingUp, TrendingDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
-import { useXRPPrice } from '@/hooks/useXRPPrice';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
@@ -16,22 +15,44 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ),
 });
 
-function fmtPrice(n: number): string {
-  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
-  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
-}
-
 export default function MiniPreviewCard() {
-  const { data, flash } = useXRPPrice();
   const { arcs, removeArc } = useXRPLStream();
-  const positive = (data?.change24h ?? 0) >= 0;
-  const Icon = positive ? TrendingUp : TrendingDown;
-  const flashColor = flash === 'up' ? 'text-success' : flash === 'down' ? 'text-danger' : 'text-text-primary';
-  const containerRef = useRef<HTMLDivElement>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const tickerRef = useRef<HTMLDivElement>(null);
 
+  // TradingView Single Ticker widget (price + change)
   useEffect(() => {
-    if (!containerRef.current) return;
-    containerRef.current.innerHTML = '';
+    if (!tickerRef.current) return;
+    tickerRef.current.innerHTML = '';
+
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+    script.async = true;
+    script.type = 'text/javascript';
+    script.innerHTML = JSON.stringify({
+      symbol: 'BINANCE:XRPUSDT',
+      width: '100%',
+      isTransparent: true,
+      colorTheme: 'dark',
+      locale: 'en',
+    });
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'tradingview-widget-container';
+    wrapper.style.width = '100%';
+
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'tradingview-widget-container__widget';
+
+    wrapper.appendChild(innerDiv);
+    wrapper.appendChild(script);
+    tickerRef.current.appendChild(wrapper);
+  }, []);
+
+  // TradingView Mini Chart widget
+  useEffect(() => {
+    if (!chartRef.current) return;
+    chartRef.current.innerHTML = '';
 
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
@@ -66,7 +87,7 @@ export default function MiniPreviewCard() {
 
     wrapper.appendChild(innerDiv);
     wrapper.appendChild(script);
-    containerRef.current.appendChild(wrapper);
+    chartRef.current.appendChild(wrapper);
   }, []);
 
   return (
@@ -74,35 +95,14 @@ export default function MiniPreviewCard() {
       {/* Gradient background glow on hover */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-      {/* ── Price Ticker ── */}
-      <div className="relative z-10 px-5 pt-4 pb-3">
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[13px] font-bold text-text-primary">XRP / USDT</span>
-          <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
+      {/* ── Price Ticker (TradingView) ── */}
+      <div className="relative z-10 px-3 pt-3 pb-1" ref={tickerRef}>
+        <div className="flex items-center justify-center h-[80px]">
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
         </div>
-        {data ? (
-          <>
-            <div className={`font-mono text-[26px] font-bold transition-colors duration-300 ${flashColor}`}>
-              ${fmtPrice(data.price)}
-            </div>
-            <div className="mt-1 flex items-center gap-2">
-              <span className={`flex items-center gap-1 text-[13px] font-medium ${positive ? 'text-success' : 'text-danger'}`}>
-                <Icon className="h-3.5 w-3.5" />
-                {positive ? '+' : ''}{data.change24h.toFixed(2)}%
-              </span>
-              <span className="text-[13px] text-text-secondary">24h</span>
-            </div>
-            {(data.high24h > 0 || data.low24h > 0) && (
-              <div className="mt-2 flex justify-between text-[12px] text-text-secondary">
-                <span>H: ${fmtPrice(data.high24h)}</span>
-                <span>L: ${fmtPrice(data.low24h)}</span>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="font-mono text-[26px] font-bold text-text-secondary">$--.--</div>
-        )}
-        <Link href="/live-chart" className="mt-2 flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+      </div>
+      <div className="relative z-10 px-5 pb-2">
+        <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
           View Live Price <ArrowRight className="h-3 w-3" />
         </Link>
       </div>
@@ -134,7 +134,7 @@ export default function MiniPreviewCard() {
       <div className="mx-5 border-t border-[#2F3336]" />
 
       {/* ── Chart ── */}
-      <div className="relative h-[180px] w-full overflow-hidden mt-1" ref={containerRef} />
+      <div className="relative h-[180px] w-full overflow-hidden mt-1" ref={chartRef} />
       <div className="relative z-10 px-5 pb-4 pt-1">
         <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
           View Charts <ArrowRight className="h-3 w-3" />
