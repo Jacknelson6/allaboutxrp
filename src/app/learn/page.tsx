@@ -46,11 +46,18 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-ledger-explained", title: "XRP Ledger Explained", desc: "How the XRPL consensus works", emoji: "🔗", icon: Globe, gradient: "from-[#6366F1] to-[#8B5CF6]" },
   { href: "/learn/xrp-tokenomics", title: "XRP Tokenomics", desc: "Supply, distribution & escrow mechanics", emoji: "📊", icon: BarChart3, gradient: "from-[#06B6D4] to-[#0085FF]" },
   { href: "/learn/escrow", title: "XRP Escrow", desc: "Ripple's 55B XRP escrow system", emoji: "🔒", icon: Lock, gradient: "from-[#8B5CF6] to-[#EC4899]" },
-  { href: "/learn/rlusd", title: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin", emoji: "💵", icon: Coins, gradient: "from-[#0085FF] to-[#00C2FF]" },
   { href: "/learn/xrp-staking", title: "XRP Staking", desc: "Earn yield on your XRP holdings", emoji: "🌱", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
   { href: "/learn/xrp-use-cases", title: "XRP Use Cases", desc: "Real-world applications beyond payments", emoji: "🌐", icon: Globe, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-price-history", title: "XRP Price History", desc: "Major price milestones over the years", emoji: "📈", icon: TrendingUp, gradient: "from-[#0085FF] to-[#6366F1]" },
   { href: "/learn/xrp-wallets", title: "XRP Wallets Guide", desc: "Choosing the right wallet for you", emoji: "👛", icon: Wallet, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const rippleSoftware: Card[] = [
+  { href: "/learn/ripple-software-stack", title: "Ripple Software Stack", desc: "Complete product suite overview", emoji: "🏗️", icon: Layers, gradient: "from-[#0085FF] to-[#6366F1]", featured: true },
+  { href: "/learn/ripplenet", title: "RippleNet", desc: "Global payment network for banks", emoji: "🌐", icon: Globe, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/on-demand-liquidity", title: "On-Demand Liquidity", desc: "XRP as a bridge currency", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/ripple-prime", title: "Ripple Prime", desc: "Institutional prime brokerage", emoji: "🏦", icon: Building2, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/rlusd", title: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin", emoji: "💵", icon: Coins, gradient: "from-[#10B981] to-[#06B6D4]" },
 ];
 
 const ecosystem: Card[] = [
@@ -188,6 +195,12 @@ export default function LearnPage() {
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
           <SectionHeader icon={Search} title="Deep Dives" colorClass="text-[#6366F1]" bgClass="bg-[#6366F1]/10" />
           <CardGrid cards={deepDives} sectionId="deep-dives" />
+        </div>
+
+        {/* Ripple Software */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={Layers} title="Ripple Software" colorClass="text-[#EC4899]" bgClass="bg-[#EC4899]/10" />
+          <CardGrid cards={rippleSoftware} sectionId="ripple-software" />
         </div>
 
         {/* Ecosystem */}
