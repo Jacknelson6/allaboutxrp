@@ -149,7 +149,7 @@ export default function LiveChartContent() {
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(0); // 1D default
-  const [chartView, setChartView] = useState<ChartView>('candles');
+  const [chartView, setChartView] = useState<ChartView>('globe');
   const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();

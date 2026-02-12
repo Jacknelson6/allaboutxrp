@@ -21,7 +21,7 @@ const learnLinks = [
   { href: "/learn/history", label: "History" },
   { href: "/learn/leadership", label: "Leadership" },
   { href: "/learn/partnerships", label: "Partnerships" },
-  { href: "/learn/get-started", label: "How to Start" },
+  { href: "/learn/get-started", label: "How to Invest in XRP" },
   { href: "/learn/faq", label: "FAQ" },
 ];
 
@@ -61,10 +61,9 @@ export default function Nav() {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="group flex items-center gap-1 text-xl font-bold text-text-primary">
-          <span className="text-xrp-accent transition-opacity group-hover:opacity-80">All</span>
-          <span>About</span>
-          <span className="text-xrp-accent transition-opacity group-hover:opacity-80">XRP</span>
+        <Link href="/" className="group flex items-center gap-1 text-xl font-bold text-text-primary" style={{ fontFamily: 'var(--font-display)' }}>
+          <span className="text-[#0085FF] transition-opacity group-hover:opacity-80">All About</span>
+          <span className="text-[#0085FF]">XRP</span>
         </Link>
 
         {/* Desktop nav */}

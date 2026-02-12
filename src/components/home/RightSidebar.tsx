@@ -89,7 +89,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
   }
 
   return (
-    <div className="sticky top-0 h-screen overflow-y-auto py-3 px-5">
+    <div className="py-3 px-5">
       {/* Live Price */}
       <LivePriceWidget />
 

@@ -8,8 +8,8 @@ import SEOSchema from "@/components/shared/SEOSchema";
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to Buy XRP",
-  description: "A step-by-step guide to purchasing XRP cryptocurrency.",
+  name: "How to Invest in XRP",
+  description: "A step-by-step guide to investing in XRP cryptocurrency.",
   step: [
     { "@type": "HowToStep", position: 1, name: "Choose an Exchange", text: "Select a reputable cryptocurrency exchange that supports XRP trading." },
     { "@type": "HowToStep", position: 2, name: "Create & Verify Account", text: "Sign up and complete identity verification (KYC) as required." },
@@ -44,11 +44,11 @@ export default function GetStartedPage() {
               <Rocket className="h-5 w-5 text-xrp-accent" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-                How to Buy <span className="text-xrp-accent">XRP</span>
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl" style={{ fontFamily: 'var(--font-display)' }}>
+                How to Invest in <span className="text-xrp-accent">XRP</span>
               </h1>
               <p className="mt-1 text-text-secondary">
-                A beginner-friendly guide to purchasing XRP
+                A beginner-friendly guide to investing in XRP
               </p>
             </div>
           </div>

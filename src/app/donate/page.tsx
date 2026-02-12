@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import CopyButton from "@/components/shared/CopyButton";
 import SEOSchema from "@/components/shared/SEOSchema";
-import { Globe, Server, BookOpen, Heart } from "lucide-react";
+import { Globe, Server, BookOpen, Heart, Copy, Check } from "lucide-react";
 
 const XRP_ADDRESS = "rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
@@ -24,6 +24,14 @@ const supports = [
 ];
 
 export default function DonatePage() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(XRP_ADDRESS);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <>
       <SEOSchema schema={breadcrumbSchema} />
@@ -37,16 +45,22 @@ export default function DonatePage() {
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col items-center rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-8">
+        <div className="mt-10 flex flex-col items-center rounded-xl border border-[#0085FF]/30 bg-gradient-to-br from-[#0085FF]/5 to-transparent p-8">
           <div className="rounded-xl bg-white p-4">
             <QRCodeSVG value={`xrp:${XRP_ADDRESS}`} size={180} level="M" />
           </div>
           <p className="mt-5 text-[11px] font-medium uppercase tracking-widest text-white/30">XRP Address</p>
-          <code className="mt-2 break-all rounded-lg border border-white/[0.06] px-4 py-2 font-mono text-sm text-xrp-accent">
+          <code className="mt-2 break-all rounded-lg border border-[#0085FF]/20 bg-[#0085FF]/5 px-4 py-2 font-mono text-sm text-[#0085FF]">
             {XRP_ADDRESS}
           </code>
-          <div className="mt-3">
-            <CopyButton text={XRP_ADDRESS} label="Copy Address" />
+          <div className="mt-4">
+            <button
+              onClick={handleCopy}
+              className="inline-flex items-center gap-2 rounded-full bg-[#0085FF] px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0085FF]/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0085FF] shadow-lg shadow-[#0085FF]/20"
+            >
+              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? "Copied!" : "Copy Address"}
+            </button>
           </div>
         </div>
 

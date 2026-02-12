@@ -31,7 +31,7 @@ export default function LiveContent() {
 
           {/* Logo overlay */}
           <div className="absolute top-4 left-4 z-10">
-            <h1 className="text-2xl font-bold tracking-tight font-display">
+            <h1 className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
               <span className="text-[#F0F0F0]">All About </span>
               <span className="text-[#0085FF]">XRP</span>
             </h1>

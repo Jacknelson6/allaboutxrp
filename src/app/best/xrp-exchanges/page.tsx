@@ -22,6 +22,26 @@ export const metadata: Metadata = {
 
 const exchanges = [
   {
+    name: "Uphold",
+    bestFor: "Direct XRP Purchases",
+    keyFeature: "Buy XRP directly with fiat — no conversion steps",
+    rating: 8.5,
+    tradingFees: "Spread: 0.8%–1.2%",
+    depositMethods: "Bank, Card, Crypto",
+    xrpWithdrawal: "Yes (XRP Ledger native)",
+    countries: "150+",
+    kyc: "Required",
+    url: "https://uphold.com",
+    verdict: "The simplest way to buy XRP directly — one step from fiat to XRP with no intermediate conversion.",
+    pros: ["Buy XRP directly with USD/EUR/GBP", "Very simple interface", "Auto-recurring purchases", "Multi-asset platform (crypto, metals, fiat)"],
+    cons: ["Higher spread-based fees", "Less transparent fee structure", "Limited advanced trading features"],
+    analysis: [
+      "Uphold has long been a favorite in the XRP community because of its straightforward approach to buying XRP. Unlike many exchanges where you first buy USDT and then trade for XRP, Uphold lets you go directly from fiat currency to XRP in a single transaction.",
+      "The trade-off is cost. Uphold uses a spread-based fee model (typically 0.8%–1.2% for XRP) rather than explicit trading fees. This makes the actual cost less transparent than Kraken or Coinbase Advanced, but the convenience factor is high — especially for recurring DCA (dollar-cost averaging) purchases.",
+      "Uphold supports XRP Ledger native withdrawals and is one of the few platforms that also supports trading other XRPL-issued tokens. The platform also offers auto-recurring purchases, making it ideal for a set-and-forget XRP accumulation strategy.",
+    ],
+  },
+  {
     name: "Coinbase",
     bestFor: "US Beginners",
     keyFeature: "Most trusted US exchange",
@@ -79,26 +99,6 @@ const exchanges = [
       "Binance is the world's largest cryptocurrency exchange by trading volume, and XRP/USDT is consistently one of its most traded pairs. For international traders, Binance offers unmatched liquidity, meaning you can execute large XRP orders with minimal slippage.",
       "Fees start at just 0.10% and drop further with BNB payment discounts and volume tiers. Binance also offers XRP in its Earn products, including flexible savings and locked staking alternatives. The P2P marketplace provides additional buying options in countries with limited banking access.",
       "The major caveat: Binance is not available to US residents (Binance.US is a separate, more limited entity). International users benefit from the full Binance experience. The interface can be overwhelming for newcomers, but the Binance Lite mode simplifies the experience.",
-    ],
-  },
-  {
-    name: "Uphold",
-    bestFor: "Direct XRP Purchases",
-    keyFeature: "Buy XRP directly with fiat — no conversion steps",
-    rating: 8.5,
-    tradingFees: "Spread: 0.8%–1.2%",
-    depositMethods: "Bank, Card, Crypto",
-    xrpWithdrawal: "Yes (XRP Ledger native)",
-    countries: "150+",
-    kyc: "Required",
-    url: "https://uphold.com",
-    verdict: "The simplest way to buy XRP directly — one step from fiat to XRP with no intermediate conversion.",
-    pros: ["Buy XRP directly with USD/EUR/GBP", "Very simple interface", "Auto-recurring purchases", "Multi-asset platform (crypto, metals, fiat)"],
-    cons: ["Higher spread-based fees", "Less transparent fee structure", "Limited advanced trading features"],
-    analysis: [
-      "Uphold has long been a favorite in the XRP community because of its straightforward approach to buying XRP. Unlike many exchanges where you first buy USDT and then trade for XRP, Uphold lets you go directly from fiat currency to XRP in a single transaction.",
-      "The trade-off is cost. Uphold uses a spread-based fee model (typically 0.8%–1.2% for XRP) rather than explicit trading fees. This makes the actual cost less transparent than Kraken or Coinbase Advanced, but the convenience factor is high — especially for recurring DCA (dollar-cost averaging) purchases.",
-      "Uphold supports XRP Ledger native withdrawals and is one of the few platforms that also supports trading other XRPL-issued tokens. The platform also offers auto-recurring purchases, making it ideal for a set-and-forget XRP accumulation strategy.",
     ],
   },
   {

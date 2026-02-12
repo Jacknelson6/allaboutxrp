@@ -256,16 +256,21 @@ export default function XFeed() {
     <div>
       {/* Header */}
       <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-xl border-b border-[#2F3336]">
-        <h2 className="px-4 py-3 text-lg font-semibold tracking-tight text-text-primary">XRP Timeline</h2>
+        <div className="flex items-center justify-between px-4 py-3">
+          <h2 className="text-lg font-semibold tracking-tight text-text-primary">Today's XRP Newsfeed</h2>
+          <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-danger text-white text-[11px] font-bold">
+            3
+          </span>
+        </div>
         <div className="flex">
-          {(["trending", "recent"] as const).map((tab) => (
+          {(["trending"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className="flex-1 relative py-3 text-[13px] font-medium text-center hover:bg-white/[0.02] transition-colors duration-200"
             >
               <span className={activeTab === tab ? "text-text-primary" : "text-text-secondary"}>
-                {tab === "trending" ? "Trending" : "Analysis"}
+                Latest
               </span>
               {activeTab === tab && (
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-12 rounded-full bg-xrp-accent" />
