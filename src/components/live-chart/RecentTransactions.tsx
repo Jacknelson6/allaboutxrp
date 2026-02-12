@@ -125,44 +125,55 @@ export default function RecentTransactions() {
               <th className="pb-3 text-right">Time</th>
             </tr>
           </thead>
-          <tbody>
-            {txns.length === 0 ? (
-              <tr>
-                <td colSpan={5} className="py-8 text-center text-white/30">
-                  {connected ? (
-                    <>
-                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
-                      Waiting for transactions…
-                    </>
-                  ) : (
-                    'Connecting to XRPL…'
-                  )}
-                </td>
-              </tr>
-            ) : (
-              txns.map((tx) => (
-                <tr key={tx.hash} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
-                  <td className="py-3 pr-4">
-                    <a
-                      href={`https://livenet.xrpl.org/transactions/${tx.hash}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-xs text-[#0085FF] hover:underline"
-                    >
-                      {truncate(tx.hash, 6, 4)}
-                    </a>
-                  </td>
-                  <td className="py-3 pr-4 font-mono text-xs text-white/50">{truncate(tx.from)}</td>
-                  <td className="py-3 pr-4 font-mono text-xs text-white/50">{truncate(tx.to)}</td>
-                  <td className={`py-3 pr-4 text-right font-mono text-xs font-semibold ${amountColor(tx.amount)}`}>
-                    {tx.amount.toLocaleString('en-US', { maximumFractionDigits: 0 })} XRP
-                  </td>
-                  <td className="py-3 text-right text-xs text-white/30">{timeAgo(tx.time)}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
         </table>
+        {/* Scrollable body capped at ~10 rows with fade */}
+        <div className="relative" style={{ maxHeight: '420px', overflow: 'hidden' }}>
+          <div className="overflow-y-auto" style={{ maxHeight: '420px' }}>
+            <table className="w-full text-sm">
+              <tbody>
+                {txns.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="py-8 text-center text-white/30">
+                      {connected ? (
+                        <>
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
+                          Waiting for transactions…
+                        </>
+                      ) : (
+                        'Connecting to XRPL…'
+                      )}
+                    </td>
+                  </tr>
+                ) : (
+                  txns.map((tx) => (
+                    <tr key={tx.hash} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
+                      <td className="py-3 pr-4">
+                        <a
+                          href={`https://livenet.xrpl.org/transactions/${tx.hash}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-[#0085FF] hover:underline"
+                        >
+                          {truncate(tx.hash, 6, 4)}
+                        </a>
+                      </td>
+                      <td className="py-3 pr-4 font-mono text-xs text-white/50">{truncate(tx.from)}</td>
+                      <td className="py-3 pr-4 font-mono text-xs text-white/50">{truncate(tx.to)}</td>
+                      <td className={`py-3 pr-4 text-right font-mono text-xs font-semibold ${amountColor(tx.amount)}`}>
+                        {tx.amount.toLocaleString('en-US', { maximumFractionDigits: 0 })} XRP
+                      </td>
+                      <td className="py-3 text-right text-xs text-white/30">{timeAgo(tx.time)}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+          {/* Fade effect at bottom */}
+          {txns.length > 10 && (
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0A0A0B] to-transparent pointer-events-none" />
+          )}
+        </div>
       </div>
     </div>
   );
