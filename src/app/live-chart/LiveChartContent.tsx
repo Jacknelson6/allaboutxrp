@@ -30,9 +30,9 @@ import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
 type MarketTab = 'markets' | 'holders' | 'transactions' | 'escrow';
 
 const marketTabs: { id: MarketTab; label: string }[] = [
-  { id: 'markets', label: 'Markets' },
-  { id: 'holders', label: 'Holders' },
   { id: 'transactions', label: 'Transactions' },
+  { id: 'holders', label: 'Holders' },
+  { id: 'markets', label: 'Markets' },
   { id: 'escrow', label: 'Escrow' },
 ];
 
@@ -155,7 +155,7 @@ export default function LiveChartContent() {
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
-  const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('markets');
+  const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('transactions');
   const [marketsOpen, setMarketsOpen] = useState(false);
   const [marketPage, setMarketPage] = useState(1);
   const ROWS_PER_PAGE = 10;
