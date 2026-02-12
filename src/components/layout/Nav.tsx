@@ -61,9 +61,9 @@ export default function Nav() {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="group flex items-center gap-2 transition-opacity hover:opacity-80">
-          <span className="text-lg font-medium text-white/60 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>All About</span>
-          <img src="/xrp-wordmark.svg" alt="XRP" className="h-4 inline-block" />
+        <Link href="/" className="group flex items-center gap-1.5 transition-opacity hover:opacity-80">
+          <span className="text-[19px] font-light text-white/50 uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-display)' }}>All About</span>
+          <img src="/xrp-wordmark.svg" alt="XRP" className="h-[18px] inline-block" />
         </Link>
 
         {/* Desktop nav */}
