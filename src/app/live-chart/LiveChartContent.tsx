@@ -363,9 +363,20 @@ export default function LiveChartContent() {
 
           {/* ─── LEFT SIDEBAR ──────────────────────────────────────────── */}
           <div className="space-y-4 order-2 lg:order-1">
-            {/* Price (TradingView) */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
-              <TradingViewTicker />
+            {/* Live Price */}
+            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Live Price</p>
+              <div className="flex items-baseline gap-3">
+                <span className="text-3xl font-bold font-mono tracking-tight">
+                  {currentPrice ? fmtPrice(currentPrice) : '—'}
+                </span>
+                {change24h !== 0 && (
+                  <span className={`inline-flex items-center gap-0.5 text-sm font-semibold ${change24h >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    {change24h >= 0 ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
+                    {change24h >= 0 ? '+' : ''}{change24h.toFixed(2)}%
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* 24h Price Range */}
