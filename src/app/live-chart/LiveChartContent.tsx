@@ -157,6 +157,8 @@ export default function LiveChartContent() {
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
   const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('markets');
   const [marketsOpen, setMarketsOpen] = useState(false);
+  const [marketPage, setMarketPage] = useState(1);
+  const ROWS_PER_PAGE = 10;
   const { data: binancePrice } = useXRPPrice();
   const chartRef = useRef<HTMLDivElement>(null);
   const globeChartRef = useRef<HTMLDivElement>(null);
@@ -652,9 +654,11 @@ export default function LiveChartContent() {
                           </td>
                         </tr>
                       ) : (
-                        tickers.map((t, i) => (
-                          <tr key={`${t.market.identifier}-${t.target}-${i}`} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
-                            <td className="py-3 pr-4 text-white/30 text-xs">{i + 1}</td>
+                        tickers.slice((marketPage - 1) * ROWS_PER_PAGE, marketPage * ROWS_PER_PAGE).map((t, i) => {
+                          const idx = (marketPage - 1) * ROWS_PER_PAGE + i;
+                          return (
+                          <tr key={`${t.market.identifier}-${t.target}-${idx}`} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 pr-4 text-white/30 text-xs">{idx + 1}</td>
                             <td className="py-3 pr-4 font-medium">{t.market.name}</td>
                             <td className="py-3 pr-4">
                               <a
@@ -675,11 +679,22 @@ export default function LiveChartContent() {
                               <TrustBadge score={t.trust_score} />
                             </td>
                           </tr>
-                        ))
+                          );
+                        })
                       )}
                     </tbody>
                   </table>
                 </div>
+                {/* Pagination */}
+                {tickers.length > ROWS_PER_PAGE && (
+                  <Pagination
+                    currentPage={marketPage}
+                    totalPages={Math.ceil(tickers.length / ROWS_PER_PAGE)}
+                    totalItems={tickers.length}
+                    perPage={ROWS_PER_PAGE}
+                    onPageChange={setMarketPage}
+                  />
+                )}
               </div>
             )}
 
@@ -761,6 +776,68 @@ function StatRow({ label, value }: { label: string; value: string }) {
     <div className="flex justify-between items-center">
       <span className="text-xs text-white/40">{label}</span>
       <span className="text-sm font-semibold font-mono text-white/80">{value}</span>
+    </div>
+  );
+}
+
+function Pagination({ currentPage, totalPages, totalItems, perPage, onPageChange }: {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  perPage: number;
+  onPageChange: (page: number) => void;
+}) {
+  const start = (currentPage - 1) * perPage + 1;
+  const end = Math.min(currentPage * perPage, totalItems);
+
+  // Build page numbers: 1 ... current-1 current current+1 ... last
+  const pages: (number | '...')[] = [];
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+      pages.push(i);
+    } else if (pages[pages.length - 1] !== '...') {
+      pages.push('...');
+    }
+  }
+
+  return (
+    <div className="flex items-center justify-between px-2 pt-4 pb-2 border-t border-white/[0.06]">
+      <span className="text-xs text-white/30">
+        Showing {start} - {end} of {totalItems}
+      </span>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+          className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+        >
+          ‹
+        </button>
+        {pages.map((p, i) =>
+          p === '...' ? (
+            <span key={`dots-${i}`} className="px-1 text-xs text-white/30">…</span>
+          ) : (
+            <button
+              key={p}
+              onClick={() => onPageChange(p)}
+              className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${
+                p === currentPage
+                  ? 'bg-[#0085FF] text-black'
+                  : 'text-white/50 hover:text-white hover:bg-white/[0.06]'
+              }`}
+            >
+              {p}
+            </button>
+          )
+        )}
+        <button
+          onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+          disabled={currentPage === totalPages}
+          className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+        >
+          ›
+        </button>
+      </div>
     </div>
   );
 }
