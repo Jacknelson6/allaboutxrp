@@ -141,7 +141,8 @@ export default function LiveChartContent() {
   const [coin, setCoin] = useState<CoinDetail | null>(null);
   const [tickers, setTickers] = useState<Ticker[]>([]);
   const [tvReady, setTvReady] = useState(false);
-  const [activeTimeframe, setActiveTimeframe] = useState(0); // 1D default
+  const [candlesTimeframe, setCandlesTimeframe] = useState(0);
+  const [lineTimeframe, setLineTimeframe] = useState(0);
   const [showGlobe, setShowGlobe] = useState(true);
   const [showCandles, setShowCandles] = useState(false);
   const [showLine, setShowLine] = useState(true);
@@ -206,11 +207,11 @@ export default function LiveChartContent() {
 
   // Helper to create a TradingView widget
   // compact=true → globe-style (no toolbar, no indicators); false → standalone (toolbar + indicators)
-  const createTvWidget = useCallback((containerId: string, style: ChartStyle, compact = false) => {
+  const createTvWidget = useCallback((containerId: string, style: ChartStyle, tfIndex: number, compact = false) => {
     if (!tvReady || !window.TradingView) return null;
     const container = document.getElementById(containerId);
     if (container) container.innerHTML = '';
-    const tf = timeframes[activeTimeframe];
+    const tf = timeframes[tfIndex];
     try {
       return new window.TradingView.widget({
         container_id: containerId,
@@ -241,7 +242,8 @@ export default function LiveChartContent() {
       console.error('TradingView widget error:', e);
       return null;
     }
-  }, [tvReady, activeTimeframe]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tvReady]);
 
   // Candles chart widget
   useEffect(() => {
@@ -249,8 +251,8 @@ export default function LiveChartContent() {
     if (candlesWidgetRef.current && typeof (candlesWidgetRef.current as { remove?: () => void }).remove === 'function') {
       (candlesWidgetRef.current as { remove: () => void }).remove();
     }
-    candlesWidgetRef.current = createTvWidget('lc-tv-candles', '1');
-  }, [showCandles, createTvWidget]);
+    candlesWidgetRef.current = createTvWidget('lc-tv-candles', '1', candlesTimeframe);
+  }, [showCandles, candlesTimeframe, createTvWidget]);
 
   // Line chart widget
   useEffect(() => {
@@ -258,8 +260,8 @@ export default function LiveChartContent() {
     if (lineWidgetRef.current && typeof (lineWidgetRef.current as { remove?: () => void }).remove === 'function') {
       (lineWidgetRef.current as { remove: () => void }).remove();
     }
-    lineWidgetRef.current = createTvWidget('lc-tv-line', '3');
-  }, [showLine, createTvWidget]);
+    lineWidgetRef.current = createTvWidget('lc-tv-line', '3', lineTimeframe);
+  }, [showLine, lineTimeframe, createTvWidget]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -453,22 +455,7 @@ export default function LiveChartContent() {
                 ))}
               </div>
 
-              {/* Timeframe selectors */}
-              <div className="flex items-center gap-1">
-                {timeframes.map((tf, i) => (
-                  <button
-                    key={tf.label}
-                    onClick={() => setActiveTimeframe(i)}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                      activeTimeframe === i
-                        ? 'bg-[#0085FF] text-black'
-                        : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
-                    }`}
-                  >
-                    {tf.label}
-                  </button>
-                ))}
-              </div>
+              {/* Timeframe selectors moved to individual panels */}
             </div>
 
             {/* Multi-panel chart area */}
@@ -497,18 +484,30 @@ export default function LiveChartContent() {
 
                   {/* Candles chart */}
                   <div
-                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative ${showCandles ? '' : 'hidden'}`}
+                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex flex-col ${showCandles ? '' : 'hidden'}`}
                     style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
                   >
-                    <div id="lc-tv-candles" className="h-full" />
+                    <div className="flex items-center gap-1 px-2 py-1.5 border-b border-white/[0.06] bg-black/50">
+                      <span className="text-[10px] text-white/30 mr-1">TF</span>
+                      {timeframes.map((tf, i) => (
+                        <button key={tf.label} onClick={() => setCandlesTimeframe(i)} className={`px-2 py-0.5 text-[10px] font-medium rounded transition-colors ${candlesTimeframe === i ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white'}`}>{tf.label}</button>
+                      ))}
+                    </div>
+                    <div id="lc-tv-candles" className="flex-1" />
                   </div>
 
                   {/* Line chart */}
                   <div
-                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative ${showLine ? '' : 'hidden'}`}
+                    className={`rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex flex-col ${showLine ? '' : 'hidden'}`}
                     style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
                   >
-                    <div id="lc-tv-line" className="h-full" />
+                    <div className="flex items-center gap-1 px-2 py-1.5 border-b border-white/[0.06] bg-black/50">
+                      <span className="text-[10px] text-white/30 mr-1">TF</span>
+                      {timeframes.map((tf, i) => (
+                        <button key={tf.label} onClick={() => setLineTimeframe(i)} className={`px-2 py-0.5 text-[10px] font-medium rounded transition-colors ${lineTimeframe === i ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white'}`}>{tf.label}</button>
+                      ))}
+                    </div>
+                    <div id="lc-tv-line" className="flex-1" />
                   </div>
 
                   {/* Empty state */}
