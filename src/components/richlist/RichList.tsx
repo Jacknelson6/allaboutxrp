@@ -12,9 +12,47 @@ interface RichListEntry {
   isKnown?: boolean;
 }
 
+const ROWS_PER_PAGE = 10;
+
+function Pagination({ currentPage, totalPages, totalItems, perPage, onPageChange }: {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  perPage: number;
+  onPageChange: (page: number) => void;
+}) {
+  const start = (currentPage - 1) * perPage + 1;
+  const end = Math.min(currentPage * perPage, totalItems);
+  const pages: (number | '...')[] = [];
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+      pages.push(i);
+    } else if (pages[pages.length - 1] !== '...') {
+      pages.push('...');
+    }
+  }
+  return (
+    <div className="flex items-center justify-between px-2 pt-4 pb-2 border-t border-white/[0.06]">
+      <span className="text-xs text-white/30">Showing {start} - {end} of {totalItems}</span>
+      <div className="flex items-center gap-1">
+        <button onClick={() => onPageChange(Math.max(1, currentPage - 1))} disabled={currentPage === 1} className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">‹</button>
+        {pages.map((p, i) =>
+          p === '...' ? (
+            <span key={`dots-${i}`} className="px-1 text-xs text-white/30">…</span>
+          ) : (
+            <button key={p} onClick={() => onPageChange(p)} className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${p === currentPage ? 'bg-[#0085FF] text-black' : 'text-white/50 hover:text-white hover:bg-white/[0.06]'}`}>{p}</button>
+          )
+        )}
+        <button onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages} className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">›</button>
+      </div>
+    </div>
+  );
+}
+
 export default function RichList() {
   const [entries, setEntries] = useState<RichListEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function fetchRichList() {
@@ -45,6 +83,9 @@ export default function RichList() {
     );
   }
 
+  const totalPages = Math.ceil(entries.length / ROWS_PER_PAGE);
+  const paged = entries.slice((page - 1) * ROWS_PER_PAGE, page * ROWS_PER_PAGE);
+
   return (
     <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
       <h2 className="text-lg font-bold text-text-primary mb-1">XRP Rich List</h2>
@@ -60,9 +101,11 @@ export default function RichList() {
             </tr>
           </thead>
           <tbody>
-            {entries.map((entry, i) => (
+            {paged.map((entry, i) => {
+              const idx = (page - 1) * ROWS_PER_PAGE + i;
+              return (
               <tr key={entry.address} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
-                <td className="py-3 pr-4 text-white/30 font-mono text-xs">{entry.rank ?? i + 1}</td>
+                <td className="py-3 pr-4 text-white/30 font-mono text-xs">{entry.rank ?? idx + 1}</td>
                 <td className="py-3 pr-4">
                   <a
                     href={`https://livenet.xrpl.org/accounts/${entry.address}`}
@@ -82,10 +125,15 @@ export default function RichList() {
                   {entry.balance.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                 </td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
+
+      {entries.length > ROWS_PER_PAGE && (
+        <Pagination currentPage={page} totalPages={totalPages} totalItems={entries.length} perPage={ROWS_PER_PAGE} onPageChange={setPage} />
+      )}
 
       {entries.length === 0 && !loading && (
         <p className="text-center text-white/30 text-sm py-8">Unable to load rich list data</p>
