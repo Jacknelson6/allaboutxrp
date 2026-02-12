@@ -162,7 +162,7 @@ export default function Nav() {
           {/* Donate button */}
           <Link
             href="/donate"
-            className="ml-2 rounded-lg bg-xrp-accent/10 px-4 py-2 text-sm font-semibold text-xrp-accent border border-xrp-accent/20 hover:bg-xrp-accent/20 transition-colors"
+            className="ml-2 rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
           >
             Donate
           </Link>

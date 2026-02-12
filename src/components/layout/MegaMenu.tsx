@@ -232,7 +232,7 @@ export default function MegaMenu() {
 
           <Link
             href="/donate"
-            className="ml-3 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-[13px] font-medium text-text-primary transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.12]"
+            className="ml-3 rounded-lg bg-[#0085FF] px-3.5 py-1.5 text-[13px] font-medium text-white transition-all duration-200 hover:bg-[#0070DD]"
           >
             Donate
           </Link>
