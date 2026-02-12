@@ -227,7 +227,7 @@ export default function MegaMenu() {
               isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            How to Start
+            How to Invest in XRP
           </Link>
 
           <Link
@@ -328,7 +328,7 @@ export default function MegaMenu() {
               isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
-            How to Start
+            How to Invest in XRP
           </Link>
 
           <div className="pt-5">

@@ -7,7 +7,7 @@ const footerSections = [
       { href: "/", label: "Home" },
       { href: "/live-chart", label: "Live Chart" },
       { href: "/learn", label: "Learn" },
-      { href: "/how-to-start", label: "How to Start" },
+      { href: "/how-to-start", label: "How to Invest in XRP" },
       { href: "/donate", label: "Donate" },
     ],
   },

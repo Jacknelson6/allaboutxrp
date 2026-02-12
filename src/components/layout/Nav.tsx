@@ -140,7 +140,7 @@ export default function Nav() {
             </AnimatePresence>
           </div>
 
-          {/* How to Start */}
+          {/* How to Invest in XRP */}
           <Link
             href="/how-to-start"
             className={`relative rounded-lg px-3 py-2 text-sm transition-colors ${
@@ -149,7 +149,7 @@ export default function Nav() {
                 : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            How to Start
+            How to Invest in XRP
             {pathname === "/how-to-start" && (
               <motion.div
                 layoutId="nav-indicator"
@@ -258,7 +258,7 @@ export default function Nav() {
                     : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
                 }`}
               >
-                How to Start
+                How to Invest in XRP
               </Link>
 
               <Link
