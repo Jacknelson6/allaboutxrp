@@ -284,16 +284,6 @@ export default function MegaMenu() {
             Live Chart
           </Link>
 
-          <Link
-            href="/etf"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/etf") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            ETF Tracker
-          </Link>
-
           {/* Learn accordion */}
           <div className="border-b border-white/[0.04]">
             <button

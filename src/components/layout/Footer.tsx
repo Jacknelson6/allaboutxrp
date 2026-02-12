@@ -6,7 +6,6 @@ const footerSections = [
     links: [
       { href: "/", label: "Home" },
       { href: "/live-chart", label: "Live Chart" },
-      { href: "/etf", label: "ETF Tracker" },
       { href: "/learn", label: "Learn" },
       { href: "/how-to-start", label: "How to Invest in XRP" },
       { href: "/donate", label: "Donate" },

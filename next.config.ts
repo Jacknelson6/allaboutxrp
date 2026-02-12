@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       { source: '/get-started', destination: '/how-to-start', permanent: true },
       { source: '/live', destination: '/live-chart', permanent: true },
       { source: '/charts', destination: '/live-chart', permanent: true },
+      { source: '/etf', destination: '/live-chart', permanent: true },
       { source: '/holders', destination: '/people', permanent: true },
       { source: '/acquisitions', destination: '/people', permanent: true },
       { source: '/escrow', destination: '/people', permanent: true },
