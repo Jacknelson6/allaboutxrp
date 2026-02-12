@@ -84,13 +84,7 @@ interface Ticker {
   trade_url: string;
 }
 
-type ChartView = 'candles' | 'line' | 'globe';
-
-const chartViews: { id: ChartView; label: string; icon: typeof CandlestickChart; tvStyle?: string }[] = [
-  { id: 'globe', label: 'Globe', icon: GlobeIcon },
-  { id: 'candles', label: 'Candlesticks', icon: CandlestickChart, tvStyle: '1' },
-  { id: 'line', label: 'Line', icon: LineChart, tvStyle: '3' },
-];
+type ChartStyle = '1' | '3'; // 1=candles, 3=line
 
 declare global {
   interface Window {
@@ -149,8 +143,8 @@ export default function LiveChartContent() {
   const [tvReady, setTvReady] = useState(false);
   const [activeTimeframe, setActiveTimeframe] = useState(0); // 1D default
   const [globeTimeframe, setGlobeTimeframe] = useState(0); // 1D default for globe chart
-  const [chartView, setChartView] = useState<ChartView>('globe');
-  const [globeChartType, setGlobeChartType] = useState<'1' | '3'>('3'); // 1=candles, 3=line
+  const [showGlobe, setShowGlobe] = useState(true);
+  const [chartStyle, setChartStyle] = useState<ChartStyle>('3'); // 1=candles, 3=line
   const [converterXrp, setConverterXrp] = useState('1');
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
@@ -185,9 +179,9 @@ export default function LiveChartContent() {
   }, [fetchData]);
 
   // TradingView widget
-  const tvStyleForView = chartViews.find(v => v.id === chartView)?.tvStyle;
+  // Main chart (non-globe view)
   useEffect(() => {
-    if (chartView === 'globe') return;
+    if (showGlobe) return;
     if (tvReady && window.TradingView && chartRef.current) {
       try {
       // Destroy previous widget instance
@@ -202,7 +196,7 @@ export default function LiveChartContent() {
         container_id: 'lc-tv-chart',
         symbol: 'BINANCE:XRPUSDT',
         theme: 'dark',
-        style: tvStyleForView || '1',
+        style: chartStyle,
         locale: 'en',
         interval: tf.interval,
         range: tf.range,
@@ -259,11 +253,11 @@ export default function LiveChartContent() {
       });
       } catch (e) { console.error('TradingView widget error:', e); }
     }
-  }, [tvReady, activeTimeframe, chartView, tvStyleForView]);
+  }, [tvReady, activeTimeframe, showGlobe, chartStyle]);
 
   // Globe's TradingView widget (smaller, beside globe)
   useEffect(() => {
-    if (chartView !== 'globe') return;
+    if (!showGlobe) return;
     if (tvReady && window.TradingView) {
       const container = document.getElementById('lc-tv-globe-chart');
       if (container) container.innerHTML = '';
@@ -272,7 +266,7 @@ export default function LiveChartContent() {
         container_id: 'lc-tv-globe-chart',
         symbol: 'BINANCE:XRPUSDT',
         theme: 'dark',
-        style: globeChartType,
+        style: chartStyle,
         locale: 'en',
         interval: gtf.interval,
         range: gtf.range,
@@ -311,7 +305,7 @@ export default function LiveChartContent() {
         },
       });
     }
-  }, [tvReady, chartView, globeChartType, globeTimeframe]);
+  }, [tvReady, showGlobe, chartStyle, globeTimeframe]);
 
   const md = coin?.market_data;
   const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
@@ -496,49 +490,64 @@ export default function LiveChartContent() {
             {/* View switcher + Timeframe selectors */}
             <div className="flex items-center justify-between gap-3 flex-wrap">
               {/* View switcher pills */}
+              {/* Globe toggle */}
+              <button
+                onClick={() => setShowGlobe(g => !g)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+                  showGlobe
+                    ? 'bg-[#0085FF] text-black border-[#0085FF] shadow-sm'
+                    : 'bg-white/[0.03] text-white/40 border-white/[0.06] hover:text-white/70'
+                }`}
+              >
+                <GlobeIcon className="h-3.5 w-3.5" />
+                Globe
+              </button>
+
+              {/* Candles / Line toggle */}
               <div className="flex items-center rounded-lg bg-white/[0.03] border border-white/[0.06] p-0.5">
-                {chartViews.map(v => {
-                  const Icon = v.icon;
-                  const active = chartView === v.id;
-                  return (
-                    <button
-                      key={v.id}
-                      onClick={() => setChartView(v.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                        active
-                          ? 'bg-[#0085FF] text-black shadow-sm'
-                          : 'text-white/40 hover:text-white/70'
-                      }`}
-                    >
-                      <Icon className="h-3.5 w-3.5" />
-                      <span className="hidden sm:inline">{v.label}</span>
-                    </button>
-                  );
-                })}
+                <button
+                  onClick={() => setChartStyle('1')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                    chartStyle === '1' ? 'bg-[#0085FF] text-black shadow-sm' : 'text-white/40 hover:text-white/70'
+                  }`}
+                >
+                  <CandlestickChart className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Candles</span>
+                </button>
+                <button
+                  onClick={() => setChartStyle('3')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                    chartStyle === '3' ? 'bg-[#0085FF] text-black shadow-sm' : 'text-white/40 hover:text-white/70'
+                  }`}
+                >
+                  <LineChart className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Line</span>
+                </button>
               </div>
 
-              {/* Timeframe selectors (hidden for globe) */}
-              {chartView !== 'globe' && (
-                <div className="flex items-center gap-1">
-                  {timeframes.map((tf, i) => (
+              {/* Timeframe selectors */}
+              <div className="flex items-center gap-1">
+                {timeframes.map((tf, i) => {
+                  const active = showGlobe ? globeTimeframe === i : activeTimeframe === i;
+                  return (
                     <button
                       key={tf.label}
-                      onClick={() => setActiveTimeframe(i)}
+                      onClick={() => showGlobe ? setGlobeTimeframe(i) : setActiveTimeframe(i)}
                       className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                        activeTimeframe === i
+                        active
                           ? 'bg-[#0085FF] text-black'
                           : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
                       }`}
                     >
                       {tf.label}
                     </button>
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </div>
 
             {/* Chart / Globe */}
-            {chartView === 'globe' ? (
+            {showGlobe ? (
               <div className="flex flex-col md:flex-row gap-3">
                 {/* Globe */}
                 <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
@@ -555,43 +564,8 @@ export default function LiveChartContent() {
                     </div>
                   </div>
                 </div>
-                {/* TradingView chart with candle/line toggle */}
-                <div className="flex-[5] flex flex-col gap-2" style={{ height: 'min(600px, 50vh)' }}>
-                  <div className="flex items-center gap-2 flex-wrap">
-                  <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
-                    <button
-                      onClick={() => setGlobeChartType('1')}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all flex items-center gap-1.5 ${
-                        globeChartType === '1' ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white/70'
-                      }`}
-                    >
-                      <CandlestickChart className="h-3.5 w-3.5" /> Candles
-                    </button>
-                    <button
-                      onClick={() => setGlobeChartType('3')}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all flex items-center gap-1.5 ${
-                        globeChartType === '3' ? 'bg-[#0085FF] text-black' : 'text-white/40 hover:text-white/70'
-                      }`}
-                    >
-                      <LineChart className="h-3.5 w-3.5" /> Line
-                    </button>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {timeframes.map((tf, i) => (
-                      <button
-                        key={tf.label}
-                        onClick={() => setGlobeTimeframe(i)}
-                        className={`px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                          globeTimeframe === i
-                            ? 'bg-[#0085FF] text-black'
-                            : 'bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08]'
-                        }`}
-                      >
-                        {tf.label}
-                      </button>
-                    ))}
-                  </div>
-                  </div>
+                {/* TradingView chart beside globe */}
+                <div className="flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
                   <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
                     <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
                   </div>
