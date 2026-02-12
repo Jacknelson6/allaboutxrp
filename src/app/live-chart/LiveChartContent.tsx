@@ -259,6 +259,11 @@ export default function LiveChartContent() {
   useEffect(() => {
     if (!showGlobe) return;
     if (tvReady && window.TradingView) {
+      // Destroy previous widget
+      if (globeWidgetRef.current && typeof (globeWidgetRef.current as { remove?: () => void }).remove === 'function') {
+        (globeWidgetRef.current as { remove: () => void }).remove();
+      }
+      globeWidgetRef.current = null;
       const container = document.getElementById('lc-tv-globe-chart');
       if (container) container.innerHTML = '';
       const gtf = timeframes[globeTimeframe];
@@ -287,7 +292,7 @@ export default function LiveChartContent() {
           'header_symbol_search', 'header_compare', 'header_undo_redo',
           'header_screenshot', 'header_saveload', 'header_settings',
           'header_fullscreen_button', 'header_indicators', 'header_chart_type',
-          'header_resolutions',
+          'header_resolutions', 'legend_widget',
           'left_toolbar', 'context_menus', 'control_bar', 'timeframes_toolbar',
           'volume_force_overlay', 'go_to_date', 'symbol_info',
           'edit_buttons_in_legend', 'property_pages', 'show_chart_property_page',
