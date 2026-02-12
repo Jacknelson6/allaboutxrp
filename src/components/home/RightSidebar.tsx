@@ -95,13 +95,8 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
 
   return (
     <div className="py-3 px-5">
-      {/* 1. Live Price */}
-      <LivePriceWidget />
-
-      {/* 2. Globe + Chart Preview */}
-      <div className="mt-4">
-        <MiniPreviewCard />
-      </div>
+      {/* 1. Combined: Price + Globe + Chart */}
+      <MiniPreviewCard />
 
       {/* 4. What's happening - moved down */}
       <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">

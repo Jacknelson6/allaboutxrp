@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, TrendingDown } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
@@ -16,10 +16,17 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ),
 });
 
+function fmtPrice(n: number): string {
+  if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+  return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
+}
+
 export default function MiniPreviewCard() {
-  const { data } = useXRPPrice();
+  const { data, flash } = useXRPPrice();
   const { arcs, removeArc } = useXRPLStream();
   const positive = (data?.change24h ?? 0) >= 0;
+  const Icon = positive ? TrendingUp : TrendingDown;
+  const flashColor = flash === 'up' ? 'text-success' : flash === 'down' ? 'text-danger' : 'text-text-primary';
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,7 +74,43 @@ export default function MiniPreviewCard() {
       {/* Gradient background glow on hover */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-      {/* Globe section */}
+      {/* ── Price Ticker ── */}
+      <div className="relative z-10 px-5 pt-4 pb-3">
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[13px] font-bold text-text-primary">XRP / USDT</span>
+          <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
+        </div>
+        {data ? (
+          <>
+            <div className={`font-mono text-[26px] font-bold transition-colors duration-300 ${flashColor}`}>
+              ${fmtPrice(data.price)}
+            </div>
+            <div className="mt-1 flex items-center gap-2">
+              <span className={`flex items-center gap-1 text-[13px] font-medium ${positive ? 'text-success' : 'text-danger'}`}>
+                <Icon className="h-3.5 w-3.5" />
+                {positive ? '+' : ''}{data.change24h.toFixed(2)}%
+              </span>
+              <span className="text-[13px] text-text-secondary">24h</span>
+            </div>
+            {(data.high24h > 0 || data.low24h > 0) && (
+              <div className="mt-2 flex justify-between text-[12px] text-text-secondary">
+                <span>H: ${fmtPrice(data.high24h)}</span>
+                <span>L: ${fmtPrice(data.low24h)}</span>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="font-mono text-[26px] font-bold text-text-secondary">$--.--</div>
+        )}
+        <Link href="/live-chart" className="mt-2 flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+          View Live Price <ArrowRight className="h-3 w-3" />
+        </Link>
+      </div>
+
+      {/* Divider */}
+      <div className="mx-5 border-t border-[#2F3336]" />
+
+      {/* ── Globe ── */}
       <Link href="/live">
         <div className="relative h-[180px] w-full pointer-events-none">
           <div className="absolute inset-0">
@@ -81,35 +124,20 @@ export default function MiniPreviewCard() {
           </div>
         </div>
       </Link>
-      <div className="relative z-10 px-5 pb-4 pt-2">
-        <h3 className="text-[14px] font-bold text-text-primary mb-1">
-          Real-Time XRPL <span className="text-[#0085FF]">Globe</span>
-        </h3>
-        <Link href="/live" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
-          Explore Live
-          <ArrowRight className="h-3.5 w-3.5" />
+      <div className="relative z-10 px-5 pb-3 pt-1">
+        <Link href="/live" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+          Explore Live <ArrowRight className="h-3 w-3" />
         </Link>
       </div>
 
       {/* Divider */}
       <div className="mx-5 border-t border-[#2F3336]" />
 
-      {/* Chart section */}
+      {/* ── Chart ── */}
       <div className="relative h-[180px] w-full overflow-hidden mt-1" ref={containerRef} />
-      <div className="relative z-10 px-5 pb-5 pt-2">
-        <h3 className="text-[14px] font-bold text-text-primary mb-1">
-          Advanced <span className="text-[#0085FF]">Charts</span>
-        </h3>
-        <div className="mb-2">
-          <p className="text-[13px] text-text-secondary">
-            24h Change: <span className={`font-bold ${positive ? 'text-success' : 'text-danger'}`}>
-              {positive ? '+' : ''}{data?.change24h?.toFixed(2) ?? '—'}%
-            </span>
-          </p>
-        </div>
-        <Link href="/live-chart" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
-          View Charts
-          <ArrowRight className="h-3.5 w-3.5" />
+      <div className="relative z-10 px-5 pb-4 pt-1">
+        <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+          View Charts <ArrowRight className="h-3 w-3" />
         </Link>
       </div>
 
