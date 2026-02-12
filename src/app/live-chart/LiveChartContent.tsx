@@ -499,7 +499,7 @@ export default function LiveChartContent() {
                     style={{ flex: visibleCount > 0 ? `1 1 ${100 / visibleCount}%` : undefined }}
                   >
                     <StatsBar stats={stats} />
-                    <div className="flex-1 relative">
+                    <div className="flex-1 relative cursor-grab active:cursor-grabbing">
                       <div className="absolute inset-0">
                         <Suspense fallback={
                           <div className="flex items-center justify-center h-full">
