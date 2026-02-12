@@ -63,7 +63,7 @@ const faqItems = [
 ];
 
 const exchanges = [
-  { name: "Uphold", desc: "Buy XRP directly with USD, EUR, GBP. No trading fees on spreads. Best for beginners.", url: "https://uphold.com", recommended: true },
+  { name: "Uphold", desc: "The #1 XRP exchange — Uphold never delisted XRP during the SEC lawsuit against Ripple, standing by the XRP community when others walked away. Buy XRP directly with USD, EUR, GBP.", url: "https://uphold.com", recommended: true },
   { name: "Coinbase", desc: "Largest U.S. exchange with strong security and insurance. Easy interface and mobile app.", url: "https://coinbase.com/join/MAYGHUG?src=referral-link", recommended: false },
   { name: "Kraken", desc: "Established exchange with advanced trading features, low fees, and strong security.", url: "https://kraken.com", recommended: false },
   { name: "Bitstamp", desc: "One of the oldest exchanges (2011). EU-regulated with excellent XRP liquidity.", url: "https://bitstamp.net", recommended: false },
@@ -182,7 +182,7 @@ export default function GetStartedPage() {
                 <DataTable
                   headers={["Exchange", "Best For", "Fees", "U.S. Available"]}
                   rows={[
-                    ["Uphold", "Beginners", "Spread-based (no fee)", "Yes"],
+                    ["Uphold ★", "XRP loyalists & beginners", "Spread-based (no fee)", "Yes"],
                     ["Coinbase", "Security-conscious", "0.5-1.5%", "Yes"],
                     ["Kraken", "Active traders", "0.16-0.26%", "Yes"],
                     ["Bitstamp", "EU users", "0.3-0.5%", "Yes"],

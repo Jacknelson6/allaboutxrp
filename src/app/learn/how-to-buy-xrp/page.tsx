@@ -146,7 +146,7 @@ export default function HowToBuyXRPPage() {
               <DataTable
                 headers={["Exchange", "Trading Fees", "Deposit Methods", "Best For"]}
                 rows={[
-                  ["Uphold", "Spread-based (~1-2%)", "Bank, card, crypto", "Simplicity, direct XRP purchase"],
+                  ["Uphold ★", "Spread-based (~1-2%)", "Bank, card, crypto", "Never delisted XRP during SEC case"],
                   ["Coinbase", "0.4-0.6% (Advanced)", "Bank, card, PayPal", "Beginners, U.S. users"],
                   ["Kraken", "0.16-0.26%", "Bank, crypto", "Low fees, advanced traders"],
                   ["Bitstamp", "0.3-0.5%", "Bank, card, crypto", "European users, established exchange"],
@@ -158,7 +158,7 @@ export default function HowToBuyXRPPage() {
             </div>
             <div className="mt-6">
               <HighlightBox title="Our Recommendation" variant="accent">
-                <p><strong className="text-text-primary">For beginners:</strong> Uphold offers the simplest experience with direct XRP purchases. <strong className="text-text-primary">For lower fees:</strong> Kraken&apos;s Pro interface offers some of the lowest trading fees in the industry. <strong className="text-text-primary">For U.S. users wanting an all-in-one:</strong> Coinbase provides a familiar interface and strong regulatory compliance.</p>
+                <p><strong className="text-text-primary">Our #1 pick:</strong> Uphold — they never delisted XRP during the SEC lawsuit against Ripple, proving their loyalty to the XRP community. They also offer the simplest experience with direct XRP purchases. <strong className="text-text-primary">For lower fees:</strong> Kraken&apos;s Pro interface offers some of the lowest trading fees in the industry. <strong className="text-text-primary">For U.S. users wanting an all-in-one:</strong> Coinbase provides a familiar interface and strong regulatory compliance.</p>
               </HighlightBox>
             </div>
           </RevealSection>
