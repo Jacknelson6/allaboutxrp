@@ -598,17 +598,7 @@ export default function LiveChartContent() {
               </div>
             )}
 
-            {/* Market Data Accordion */}
-            <button
-              onClick={() => setMarketsOpen(prev => !prev)}
-              className="flex items-center justify-between w-full rounded-xl border border-white/[0.06] bg-[#0A0A0B] px-5 py-4 hover:bg-white/[0.02] transition-colors"
-            >
-              <span className="text-sm font-bold">Market Data</span>
-              {marketsOpen ? <ChevronUp className="h-4 w-4 text-white/40" /> : <ChevronDown className="h-4 w-4 text-white/40" />}
-            </button>
-
-            {marketsOpen && (
-              <>
+            {/* Market Data */}
                 {/* Tab Selector */}
                 <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
                   {marketTabs.map(tab => (
@@ -701,8 +691,6 @@ export default function LiveChartContent() {
                 {activeMarketTab === 'holders' && <RichList />}
                 {activeMarketTab === 'transactions' && <RecentTransactions />}
                 {activeMarketTab === 'escrow' && <EscrowSchedule />}
-              </>
-            )}
           </div>
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
