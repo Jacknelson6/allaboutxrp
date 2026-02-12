@@ -62,8 +62,8 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link href="/" className="group flex items-center gap-1.5 transition-opacity hover:opacity-80">
-          <span className="text-[19px] font-light text-white/50 uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-display)' }}>All About</span>
-          <img src="/xrp-wordmark.svg" alt="XRP" className="h-[18px] inline-block" />
+          <span className="text-[13px] font-medium text-white/50 uppercase tracking-[0.2em] leading-none" style={{ fontFamily: 'var(--font-display)' }}>All About</span>
+          <img src="/xrp-wordmark.svg" alt="XRP" className="h-[14px] inline-block" />
         </Link>
 
         {/* Desktop nav */}
