@@ -21,7 +21,7 @@ export default function MiniGlobePreview() {
     <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden group">
       {/* Globe preview - non-interactive */}
       <Link href="/live">
-        <div className="relative h-[200px] w-full pointer-events-none">
+        <div className="relative h-[280px] w-full pointer-events-none">
           <div className="absolute inset-0">
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
