@@ -490,38 +490,55 @@ export default function LiveChartContent() {
             {/* View switcher + Timeframe selectors */}
             <div className="flex items-center justify-between gap-3 flex-wrap">
               {/* View switcher pills */}
-              {/* Globe toggle */}
-              <button
-                onClick={() => setShowGlobe(g => !g)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
-                  showGlobe
-                    ? 'bg-[#0085FF] text-black border-[#0085FF] shadow-sm'
-                    : 'bg-white/[0.03] text-white/40 border-white/[0.06] hover:text-white/70'
-                }`}
-              >
-                <GlobeIcon className="h-3.5 w-3.5" />
-                Globe
-              </button>
-
-              {/* Candles / Line toggle */}
-              <div className="flex items-center rounded-lg bg-white/[0.03] border border-white/[0.06] p-0.5">
+              {/* Toggle buttons with checkboxes */}
+              <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setChartStyle('1')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                    chartStyle === '1' ? 'bg-[#0085FF] text-black shadow-sm' : 'text-white/40 hover:text-white/70'
+                  onClick={() => setShowGlobe(g => !g)}
+                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+                    showGlobe
+                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
+                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
                   }`}
                 >
+                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded border transition-all ${
+                    showGlobe ? 'bg-[#0085FF] border-[#0085FF]' : 'border-white/30 bg-transparent'
+                  }`}>
+                    {showGlobe && <span className="text-[9px] text-white font-bold">✓</span>}
+                  </span>
+                  <GlobeIcon className="h-3.5 w-3.5" />
+                  Globe
+                </button>
+                <button
+                  onClick={() => setChartStyle('1')}
+                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+                    chartStyle === '1'
+                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
+                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
+                  }`}
+                >
+                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded-full border transition-all ${
+                    chartStyle === '1' ? 'border-[#0085FF]' : 'border-white/30'
+                  }`}>
+                    {chartStyle === '1' && <span className="h-2 w-2 rounded-full bg-[#0085FF]" />}
+                  </span>
                   <CandlestickChart className="h-3.5 w-3.5" />
-                  <span className="hidden sm:inline">Candles</span>
+                  Candles
                 </button>
                 <button
                   onClick={() => setChartStyle('3')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                    chartStyle === '3' ? 'bg-[#0085FF] text-black shadow-sm' : 'text-white/40 hover:text-white/70'
+                  className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
+                    chartStyle === '3'
+                      ? 'border-[#0085FF]/50 bg-[#0085FF]/10 text-white'
+                      : 'border-white/[0.06] bg-white/[0.03] text-white/40 hover:text-white/70'
                   }`}
                 >
+                  <span className={`flex items-center justify-center h-3.5 w-3.5 rounded-full border transition-all ${
+                    chartStyle === '3' ? 'border-[#0085FF]' : 'border-white/30'
+                  }`}>
+                    {chartStyle === '3' && <span className="h-2 w-2 rounded-full bg-[#0085FF]" />}
+                  </span>
                   <LineChart className="h-3.5 w-3.5" />
-                  <span className="hidden sm:inline">Line</span>
+                  Line
                 </button>
               </div>
 
