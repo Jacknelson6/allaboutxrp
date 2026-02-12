@@ -395,7 +395,7 @@ export default function LiveChartContent() {
 
             {/* Get Started CTA */}
             <Link
-              href="/learn/get-started"
+              href="/how-to-start"
               className="group block rounded-xl border border-[#0085FF]/30 bg-gradient-to-br from-[#0085FF]/10 to-[#0085FF]/[0.03] p-5 hover:border-[#0085FF]/50 hover:from-[#0085FF]/15 hover:to-[#0085FF]/[0.06] transition-all"
             >
               <div className="flex items-center justify-between">
