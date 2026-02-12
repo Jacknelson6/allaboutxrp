@@ -35,8 +35,6 @@ export function createArcPoints(
 }
 
 export function getArcColor(amount: number): string {
-  if (amount > 1_000_000) return '#FFD700';
-  if (amount > 10_000) return '#50FF6E';
-  if (amount >= 100) return '#00CFFF';
-  return '#5BA3D9';
+  if (amount >= 250_000) return '#50FF6E'; // green for large txns
+  return '#0085FF'; // blue for everything else
 }
