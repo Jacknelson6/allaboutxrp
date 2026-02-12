@@ -22,12 +22,7 @@ export default function EscrowSchedule() {
       <h2 className="text-lg font-bold mb-1">
         XRP <span className="text-[#0085FF]">Escrow</span> Schedule
       </h2>
-      <p className="text-sm text-white/40 mb-4">
-        Ripple locked 55 billion XRP in escrow. 800M XRP unlocks on the 1st of each month.
-        Unused portions are re-escrowed.
-      </p>
-
-      <div className="space-y-2">
+      <div className="mt-3 space-y-2">
         {allUnlocks.map((unlock, i) => {
           const isReleased = unlock.status === 'released';
           return (

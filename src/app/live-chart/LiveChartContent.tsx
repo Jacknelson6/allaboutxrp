@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Suspense, useEffect, useRef, useState, useCallback } from 'react';
 import Script from 'next/script';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
@@ -296,20 +297,9 @@ export default function LiveChartContent() {
 
           {/* ─── LEFT SIDEBAR ──────────────────────────────────────────── */}
           <div className="space-y-4 order-2 lg:order-1">
-            {/* Live Price */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Live Price</p>
-              <div className="flex items-baseline gap-3">
-                <span className="text-3xl font-bold font-mono tracking-tight">
-                  {currentPrice ? fmtPrice(currentPrice) : '—'}
-                </span>
-                {change24h !== 0 && (
-                  <span className={`inline-flex items-center gap-0.5 text-sm font-semibold ${change24h >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                    {change24h >= 0 ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
-                    {change24h >= 0 ? '+' : ''}{change24h.toFixed(2)}%
-                  </span>
-                )}
-              </div>
+            {/* Live Price - TradingView Ticker */}
+            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
+              <TradingViewTicker />
             </div>
 
             {/* 24h Price Range */}
@@ -403,25 +393,21 @@ export default function LiveChartContent() {
               </div>
             </div>
 
-            {/* Explorer & Tags */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 space-y-3">
-              <a
-                href="https://livenet.xrpl.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-[#0085FF] hover:underline"
-              >
-                <ExternalLink className="h-3.5 w-3.5" />
-                XRPL Explorer
-              </a>
-              <div className="flex flex-wrap gap-1.5">
-                {['Utility Token', 'Payments'].map(tag => (
-                  <span key={tag} className="text-[10px] font-medium uppercase tracking-wider bg-white/[0.04] text-white/50 px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+            {/* Get Started CTA */}
+            <Link
+              href="/learn/get-started"
+              className="group block rounded-xl border border-[#0085FF]/30 bg-gradient-to-br from-[#0085FF]/10 to-[#0085FF]/[0.03] p-5 hover:border-[#0085FF]/50 hover:from-[#0085FF]/15 hover:to-[#0085FF]/[0.06] transition-all"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-white mb-1">How to Get Started with XRP</p>
+                  <p className="text-xs text-white/40">Learn the basics and start your journey</p>
+                </div>
+                <span className="flex items-center justify-center h-8 w-8 rounded-full bg-[#0085FF]/20 text-[#0085FF] group-hover:bg-[#0085FF]/30 group-hover:translate-x-0.5 transition-all">
+                  →
+                </span>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* ─── CENTER: CHART + MARKETS ───────────────────────────────── */}
