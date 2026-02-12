@@ -62,7 +62,7 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link href="/" className="group flex items-center gap-2 transition-opacity hover:opacity-80">
-          <span className="text-lg font-medium text-white/60 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>AllAbout</span>
+          <span className="text-lg font-medium text-white/60 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>All About</span>
           <img src="/xrp-wordmark.svg" alt="XRP" className="h-4 inline-block" />
         </Link>
 
