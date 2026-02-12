@@ -126,8 +126,9 @@ export default function MegaMenu() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         {/* Logo */}
-        <Link href="/" className="text-[17px] font-semibold tracking-tight">
-          <span className="text-white/70">AllAbout</span><span className="text-[#00A5DF] font-bold">XRP</span>
+        <Link href="/" className="group flex items-center gap-2 transition-opacity hover:opacity-80">
+          <span className="text-[15px] font-medium text-white/60 tracking-tight">AllAbout</span>
+          <img src="/xrp-wordmark.svg" alt="XRP" className="h-3.5 inline-block" />
         </Link>
 
         {/* Desktop nav */}

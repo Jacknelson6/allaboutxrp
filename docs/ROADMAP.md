@@ -56,6 +56,7 @@
 - [ ] Ad spend testing ($100-200/mo per channel)
 - [ ] Evaluate Poly Market opportunities
 - [ ] Creator partnership program
+- [ ] Chrome extension (XRP price tracker / live alerts / portfolio widget) — evaluate feasibility
 
 ---
 
