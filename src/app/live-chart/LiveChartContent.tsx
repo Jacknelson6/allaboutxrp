@@ -362,15 +362,9 @@ export default function LiveChartContent() {
 
           {/* ─── LEFT SIDEBAR ──────────────────────────────────────────── */}
           <div className="space-y-4 order-2 lg:order-1">
-            {/* Price */}
-            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">XRP Price</p>
-              <div className="flex items-baseline gap-3">
-                <span className="text-3xl font-bold font-mono tracking-tight">
-                  {currentPrice ? fmtPrice(currentPrice) : '—'}
-                </span>
-                {change24h !== 0 && <PctBadge value={change24h} />}
-              </div>
+            {/* Price (TradingView) */}
+            <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
+              <TradingViewTicker />
             </div>
 
             {/* 24h Price Range */}
@@ -767,6 +761,40 @@ function StatRow({ label, value }: { label: string; value: string }) {
     <div className="flex justify-between items-center">
       <span className="text-xs text-white/40">{label}</span>
       <span className="text-sm font-semibold font-mono text-white/80">{value}</span>
+    </div>
+  );
+}
+
+function TradingViewTicker() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    ref.current.innerHTML = '';
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+    script.async = true;
+    script.type = 'text/javascript';
+    script.innerHTML = JSON.stringify({
+      symbol: 'BINANCE:XRPUSDT',
+      width: '100%',
+      isTransparent: true,
+      colorTheme: 'dark',
+      locale: 'en',
+    });
+    const wrapper = document.createElement('div');
+    wrapper.className = 'tradingview-widget-container';
+    wrapper.style.width = '100%';
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'tradingview-widget-container__widget';
+    wrapper.appendChild(innerDiv);
+    wrapper.appendChild(script);
+    ref.current.appendChild(wrapper);
+  }, []);
+  return (
+    <div ref={ref} className="px-3 py-3" style={{ minHeight: 80 }}>
+      <div className="flex items-center justify-center h-[60px]">
+        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+      </div>
     </div>
   );
 }
