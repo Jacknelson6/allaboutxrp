@@ -19,7 +19,6 @@ export default function MiniPreviewCard() {
   const { arcs, removeArc } = useXRPLStream();
   const widgetRef = useRef<HTMLDivElement>(null);
 
-  // TradingView Mini Symbol Overview: price + change + mini chart in one widget
   useEffect(() => {
     if (!widgetRef.current) return;
     widgetRef.current.innerHTML = '';
@@ -61,47 +60,45 @@ export default function MiniPreviewCard() {
   }, []);
 
   return (
-    <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden hover:bg-[#1D1F23] transition-colors group">
-      {/* Gradient background glow on hover */}
-      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
+    <div className="flex flex-col gap-3">
       {/* ── TradingView: Price + Chart ── */}
-      <div className="relative z-10 h-[220px] w-full overflow-hidden" ref={widgetRef}>
-        <div className="flex items-center justify-center h-full">
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
-        </div>
-      </div>
-      <div className="relative z-10 px-5 pb-2">
-        <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
-          View Charts <ArrowRight className="h-3 w-3" />
-        </Link>
-      </div>
-
-      {/* Divider */}
-      <div className="mx-5 border-t border-[#2F3336]" />
-
-      {/* ── Globe ── */}
-      <Link href="/live">
-        <div className="relative h-[180px] w-full pointer-events-none">
-          <div className="absolute inset-0">
-            <Suspense fallback={
-              <div className="flex items-center justify-center h-full">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
-              </div>
-            }>
-              <Globe arcs={arcs} onArcComplete={removeArc} />
-            </Suspense>
+      <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden hover:bg-[#1D1F23] transition-colors group">
+        <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="relative z-10 h-[220px] w-full overflow-hidden" ref={widgetRef}>
+          <div className="flex items-center justify-center h-full">
+            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
           </div>
         </div>
-      </Link>
-      <div className="relative z-10 px-5 pb-4 pt-1">
-        <Link href="/live" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
-          Explore Live <ArrowRight className="h-3 w-3" />
-        </Link>
+        <div className="relative z-10 px-5 pb-3">
+          <Link href="/live-chart" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+            View Charts <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
       </div>
 
-      {/* Blue glow effect */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10 rounded-full blur-3xl -z-0" />
+      {/* ── Globe ── */}
+      <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden hover:bg-[#1D1F23] transition-colors group">
+        <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link href="/live">
+          <div className="relative h-[180px] w-full pointer-events-none">
+            <div className="absolute inset-0">
+              <Suspense fallback={
+                <div className="flex items-center justify-center h-full">
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                </div>
+              }>
+                <Globe arcs={arcs} onArcComplete={removeArc} />
+              </Suspense>
+            </div>
+          </div>
+        </Link>
+        <div className="relative z-10 px-5 pb-3 pt-1">
+          <Link href="/live" className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 hover:text-[#0085FF] hover:gap-2.5 transition-all">
+            Explore Live <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+        <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10 rounded-full blur-3xl -z-0" />
+      </div>
     </div>
   );
 }
