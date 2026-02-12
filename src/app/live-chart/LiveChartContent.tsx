@@ -568,32 +568,31 @@ export default function LiveChartContent() {
               </div>
             </div>
 
-            {/* Chart / Globe */}
-            {showGlobe ? (
-              <div className="flex flex-col md:flex-row gap-3">
-                {/* Globe */}
-                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
-                  <StatsBar stats={stats} />
-                  <div className="flex-1 relative">
-                    <div className="absolute inset-0">
-                      <Suspense fallback={
-                        <div className="flex items-center justify-center h-full">
-                          <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
-                        </div>
-                      }>
-                        <Globe arcs={arcs} onArcComplete={removeArc} />
-                      </Suspense>
-                    </div>
-                  </div>
-                </div>
-                {/* TradingView chart beside globe */}
-                <div className="flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
-                  <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
-                    <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
+            {/* Chart / Globe - Globe always mounted, hidden via CSS to prevent Three.js crash */}
+            <div className={`flex flex-col md:flex-row gap-3 ${showGlobe ? '' : 'hidden'}`}>
+              {/* Globe */}
+              <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-black relative flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
+                <StatsBar stats={stats} />
+                <div className="flex-1 relative">
+                  <div className="absolute inset-0">
+                    <Suspense fallback={
+                      <div className="flex items-center justify-center h-full">
+                        <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                      </div>
+                    }>
+                      <Globe arcs={arcs} onArcComplete={removeArc} />
+                    </Suspense>
                   </div>
                 </div>
               </div>
-            ) : (
+              {/* TradingView chart beside globe */}
+              <div className="flex-[5] flex flex-col" style={{ height: 'min(600px, 50vh)' }}>
+                <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative flex-1">
+                  <div id="lc-tv-globe-chart" ref={globeChartRef} className="h-full" />
+                </div>
+              </div>
+            </div>
+            <div className={`${showGlobe ? 'hidden' : ''}`}>
               <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative" style={{ height: '55vh', minHeight: 400 }}>
                 {!tvReady && (
                   <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -602,7 +601,7 @@ export default function LiveChartContent() {
                 )}
                 <div id="lc-tv-chart" ref={chartRef} className="h-full" />
               </div>
-            )}
+            </div>
 
             {/* Market Data */}
                 {/* Tab Selector */}
