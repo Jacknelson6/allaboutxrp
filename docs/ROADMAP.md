@@ -17,17 +17,17 @@
 - [x] SEO: JSON-LD schema, meta tags, FAQ blog pages, sitemap
 - [x] UI overhaul: Sora + Plus Jakarta Sans, atmospheric design
 - [x] Google Sheet for costs & logins tracking
-- [ ] New Vercel account (All About Cryptocurrency)
-- [ ] New GitHub org
-- [ ] New Supabase project
-- [ ] Google Analytics setup (all sites)
-- [ ] Google Search Console setup
-- [ ] Update announcement bar → "All About Cryptocurrency Network"
+- [x] New Vercel account (All About Cryptocurrency)
+- [x] New GitHub org
+- [x] New Supabase project
+- [x] Google Analytics setup (all sites)
+- [x] Google Search Console setup
+- [x] Update announcement bar → "All About Cryptocurrency Network"
+- [x] Wire up X API for live tweet feed (waiting on account names)
 - [ ] Differentiate holder tier names from xrp-richlist.com
 - [ ] Newsletter signup + homepage preview for non-members
 - [ ] Wyoming LLC formation ($1K, split)
-- [ ] Wire up X API for live tweet feed
-- [ ] Affiliate link signups (Uphold, Ledger, Coinbase, Kraken, Gemini, Crypto.com)
+- [ ] Affiliate link signups (Uphold, Ledger, Coinbase, Kraken, Gemini, Crypto.com) — IN PROGRESS
 
 ## Phase 2: Monetization & Content Engine (Week 3-4)
 - [ ] Daily news recap cron (automated blog posts)

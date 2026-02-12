@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowRight } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
-import MiniGlobePreview from "./MiniGlobePreview";
-import MiniChartPreview from "./MiniChartPreview";
+import MiniPreviewCard from "./MiniPreviewCard";
 
 function fmtPrice(n: number): string {
   if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
@@ -79,6 +78,10 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
             <span>L: ${fmtPrice(data.low24h)}</span>
           </div>
         )}
+        <div className="mt-3 flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
+          View Live Price
+          <ArrowRight className="h-3.5 w-3.5" />
+        </div>
       </a>
     </>
   );
@@ -95,14 +98,9 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       {/* 1. Live Price */}
       <LivePriceWidget />
 
-      {/* 2. Mini Globe Preview */}
+      {/* 2. Globe + Chart Preview */}
       <div className="mt-4">
-        <MiniGlobePreview />
-      </div>
-
-      {/* 3. Mini Chart Preview */}
-      <div className="mt-4">
-        <MiniChartPreview />
+        <MiniPreviewCard />
       </div>
 
       {/* 4. What's happening - moved down */}

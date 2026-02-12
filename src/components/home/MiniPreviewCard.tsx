@@ -2,17 +2,28 @@
 
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import { Suspense, useEffect, useRef } from 'react';
 import { useXRPPrice } from '@/hooks/useXRPPrice';
 
-export default function MiniChartPreview() {
+const Globe = dynamic(() => import('@/components/globe/Globe'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-full">
+      <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+    </div>
+  ),
+});
+
+const noop = () => {};
+
+export default function MiniPreviewCard() {
   const { data } = useXRPPrice();
   const positive = (data?.change24h ?? 0) >= 0;
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
-    // Clear previous widget
     containerRef.current.innerHTML = '';
 
     const script = document.createElement('script');
@@ -52,16 +63,44 @@ export default function MiniChartPreview() {
   }, []);
 
   return (
-    <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden group">
-      {/* TradingView Mini Chart */}
-      <div className="relative h-[200px] w-full overflow-hidden" ref={containerRef} />
+    <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden hover:bg-[#1D1F23] transition-colors group">
+      {/* Gradient background glow on hover */}
+      <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-      {/* Content below chart */}
-      <div className="relative z-10 px-5 pb-5 pt-3">
-        <h3 className="text-[15px] font-bold text-text-primary mb-1">
+      {/* Globe section */}
+      <Link href="/live">
+        <div className="relative h-[180px] w-full pointer-events-none">
+          <div className="absolute inset-0">
+            <Suspense fallback={
+              <div className="flex items-center justify-center h-full">
+                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+              </div>
+            }>
+              <Globe arcs={[]} onArcComplete={noop} />
+            </Suspense>
+          </div>
+        </div>
+      </Link>
+      <div className="relative z-10 px-5 pb-4 pt-2">
+        <h3 className="text-[14px] font-bold text-text-primary mb-1">
+          Real-Time XRPL <span className="text-[#0085FF]">Globe</span>
+        </h3>
+        <Link href="/live" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
+          Explore Live
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+
+      {/* Divider */}
+      <div className="mx-5 border-t border-[#2F3336]" />
+
+      {/* Chart section */}
+      <div className="relative h-[180px] w-full overflow-hidden mt-1" ref={containerRef} />
+      <div className="relative z-10 px-5 pb-5 pt-2">
+        <h3 className="text-[14px] font-bold text-text-primary mb-1">
           Advanced <span className="text-[#0085FF]">Charts</span>
         </h3>
-        <div className="mb-3">
+        <div className="mb-2">
           <p className="text-[13px] text-text-secondary">
             24h Change: <span className={`font-bold ${positive ? 'text-success' : 'text-danger'}`}>
               {positive ? '+' : ''}{data?.change24h?.toFixed(2) ?? '—'}%
@@ -70,7 +109,7 @@ export default function MiniChartPreview() {
         </div>
         <Link href="/live-chart" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
           View Charts
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 
