@@ -27,13 +27,12 @@ import RichList from '@/components/richlist/RichList';
 import RecentTransactions from '@/components/live-chart/RecentTransactions';
 import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
 
-type MarketTab = 'markets' | 'holders' | 'transactions' | 'escrow';
+type MarketTab = 'markets' | 'holders' | 'transactions';
 
 const marketTabs: { id: MarketTab; label: string }[] = [
   { id: 'transactions', label: 'Transactions' },
   { id: 'holders', label: 'Holders' },
   { id: 'markets', label: 'Markets' },
-  { id: 'escrow', label: 'Escrow' },
 ];
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
@@ -690,7 +689,6 @@ export default function LiveChartContent() {
 
                 {activeMarketTab === 'holders' && <RichList />}
                 {activeMarketTab === 'transactions' && <RecentTransactions />}
-                {activeMarketTab === 'escrow' && <EscrowSchedule />}
           </div>
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
@@ -750,6 +748,9 @@ export default function LiveChartContent() {
                 and is used by financial institutions worldwide through RippleNet.
               </p>
             </div>
+
+            {/* Escrow Schedule */}
+            <EscrowSchedule />
           </div>
         </div>
       </div>
