@@ -155,6 +155,7 @@ export default function LiveChartContent() {
   const { arcs, stats, removeArc } = useXRPLStream();
   const [converterDir, setConverterDir] = useState<'xrp-usd' | 'usd-xrp'>('xrp-usd');
   const [activeMarketTab, setActiveMarketTab] = useState<MarketTab>('markets');
+  const [marketsOpen, setMarketsOpen] = useState(false);
   const { data: binancePrice } = useXRPPrice();
   const chartRef = useRef<HTMLDivElement>(null);
   const globeChartRef = useRef<HTMLDivElement>(null);
@@ -582,25 +583,36 @@ export default function LiveChartContent() {
               </div>
             )}
 
-            {/* Tab Selector */}
-            <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
-              {marketTabs.map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveMarketTab(tab.id)}
-                  className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                    activeMarketTab === tab.id
-                      ? 'bg-[#0085FF] text-black shadow-sm'
-                      : 'text-white/40 hover:text-white/70 hover:bg-white/[0.04]'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+            {/* Market Data Accordion */}
+            <button
+              onClick={() => setMarketsOpen(prev => !prev)}
+              className="flex items-center justify-between w-full rounded-xl border border-white/[0.06] bg-[#0A0A0B] px-5 py-4 hover:bg-white/[0.02] transition-colors"
+            >
+              <span className="text-sm font-bold">Market Data</span>
+              {marketsOpen ? <ChevronUp className="h-4 w-4 text-white/40" /> : <ChevronDown className="h-4 w-4 text-white/40" />}
+            </button>
 
-            {/* Tab Content */}
-            {activeMarketTab === 'markets' && (
+            {marketsOpen && (
+              <>
+                {/* Tab Selector */}
+                <div className="flex items-center gap-1 rounded-lg bg-white/[0.03] border border-white/[0.06] p-1 w-fit">
+                  {marketTabs.map(tab => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveMarketTab(tab.id)}
+                      className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                        activeMarketTab === tab.id
+                          ? 'bg-[#0085FF] text-black shadow-sm'
+                          : 'text-white/40 hover:text-white/70 hover:bg-white/[0.04]'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Tab Content */}
+                {activeMarketTab === 'markets' && (
               <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
                 <h2 className="text-lg font-bold mb-4">
                   XRP <span className="text-[#0085FF]">Markets</span>
@@ -658,9 +670,11 @@ export default function LiveChartContent() {
               </div>
             )}
 
-            {activeMarketTab === 'holders' && <RichList />}
-            {activeMarketTab === 'transactions' && <RecentTransactions />}
-            {activeMarketTab === 'escrow' && <EscrowSchedule />}
+                {activeMarketTab === 'holders' && <RichList />}
+                {activeMarketTab === 'transactions' && <RecentTransactions />}
+                {activeMarketTab === 'escrow' && <EscrowSchedule />}
+              </>
+            )}
           </div>
 
           {/* ─── RIGHT SIDEBAR ─────────────────────────────────────────── */}
