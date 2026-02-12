@@ -648,6 +648,9 @@ export default function LiveChartContent() {
               </div>
             </div>
 
+            {/* Escrow Schedule */}
+            <EscrowSchedule />
+
             {/* Info Box */}
             <div className="rounded-xl border border-[#0085FF]/20 bg-[#0085FF]/[0.04] p-5">
               <p className="text-sm font-semibold text-[#0085FF] mb-2">About XRP</p>
@@ -657,9 +660,6 @@ export default function LiveChartContent() {
                 and is used by financial institutions worldwide through RippleNet.
               </p>
             </div>
-
-            {/* Escrow Schedule */}
-            <EscrowSchedule />
           </div>
         </div>
       </div>

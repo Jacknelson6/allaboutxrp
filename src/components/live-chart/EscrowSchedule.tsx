@@ -66,18 +66,12 @@ export default function EscrowSchedule() {
         })}
       </div>
 
-      <div className="mt-4 pt-4 border-t border-white/[0.06] space-y-3">
-        <p className="text-xs text-white/30">
-          Ripple typically sells or re-escrows the majority of each monthly unlock.
-          On average, ~200-300M XRP enters circulation per month.
-        </p>
-        <Link
-          href="/learn/escrow"
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
-        >
-          Learn more about what escrow is →
-        </Link>
-      </div>
+      <Link
+        href="/learn/escrow"
+        className="inline-flex items-center gap-2 text-sm font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors mt-4 whitespace-nowrap"
+      >
+        What is escrow? →
+      </Link>
     </div>
   );
 }
