@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { TrendingUp, TrendingDown, ArrowRight } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
+import MiniGlobePreview from "./MiniGlobePreview";
+import MiniChartPreview from "./MiniChartPreview";
 
 function fmtPrice(n: number): string {
   if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
@@ -90,10 +92,20 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
 
   return (
     <div className="py-3 px-5">
-      {/* Live Price */}
+      {/* 1. Live Price */}
       <LivePriceWidget />
 
-      {/* What's happening */}
+      {/* 2. Mini Globe Preview */}
+      <div className="mt-4">
+        <MiniGlobePreview />
+      </div>
+
+      {/* 3. Mini Chart Preview */}
+      <div className="mt-4">
+        <MiniChartPreview />
+      </div>
+
+      {/* 4. What's happening - moved down */}
       <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
         <h3 className="px-4 py-3 text-[19px] font-extrabold text-text-primary">What&apos;s happening</h3>
         {trendingTopics.map((topic, i) => (
@@ -108,7 +120,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
         ))}
       </div>
 
-      {/* Premium Analysis */}
+      {/* 5. Premium Analysis */}
       <div className="mt-4 rounded-2xl border border-transparent bg-[#16181C] overflow-hidden relative"
         style={{
           backgroundClip: 'padding-box',
@@ -134,7 +146,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
         </div>
       </div>
 
-      {/* Footer links */}
+      {/* 6. Footer links */}
       <div className="mt-4 px-4 pb-4 text-[12px] text-text-secondary/50 leading-relaxed">
         <a href="/learn/faq" className="hover:underline">FAQ</a> · <a href="/donate" className="hover:underline">Donate</a> · <a href="/learn" className="hover:underline">Learn</a>
         <br />© 2026 AllAboutXRP
