@@ -332,13 +332,13 @@ export default function LiveChartContent() {
 
             {/* Market stats */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 space-y-3">
-              <StatRow label="Market Cap" value={md ? fmt(md.market_cap.usd) : '—'} />
-              <StatRow label="24h Volume" value={md ? fmt(md.total_volume.usd) : '—'} />
-              <StatRow label="Circulating Supply" value={md ? `${fmtNum(md.circulating_supply)} XRP` : '—'} />
-              {md?.total_supply && (
+              <StatRow label="Market Cap" value={md?.market_cap?.usd != null ? fmt(md.market_cap.usd) : '—'} />
+              <StatRow label="24h Volume" value={md?.total_volume?.usd != null ? fmt(md.total_volume.usd) : '—'} />
+              <StatRow label="Circulating Supply" value={md?.circulating_supply != null ? `${fmtNum(md.circulating_supply)} XRP` : '—'} />
+              {md?.total_supply != null && (
                 <StatRow label="Total Supply" value={`${fmtNum(md.total_supply)} XRP`} />
               )}
-              {md?.max_supply && (
+              {md?.max_supply != null && (
                 <StatRow label="Max Supply" value={`${fmtNum(md.max_supply)} XRP`} />
               )}
             </div>
@@ -348,7 +348,7 @@ export default function LiveChartContent() {
               <div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-white/40">All-Time High</span>
-                  <span className="text-xs text-red-400">{md ? `${md.ath_change_percentage.usd.toFixed(1)}%` : ''}</span>
+                  <span className="text-xs text-red-400">{md?.ath_change_percentage?.usd != null ? `${md.ath_change_percentage.usd.toFixed(1)}%` : ''}</span>
                 </div>
                 <div className="flex justify-between items-baseline mt-0.5">
                   <span className="text-sm font-semibold font-mono">$3.84</span>
@@ -359,7 +359,7 @@ export default function LiveChartContent() {
               <div>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-white/40">All-Time Low</span>
-                  <span className="text-xs text-green-400">{md ? `+${md.atl_change_percentage.usd.toFixed(0)}%` : ''}</span>
+                  <span className="text-xs text-green-400">{md?.atl_change_percentage?.usd != null ? `+${md.atl_change_percentage.usd.toFixed(0)}%` : ''}</span>
                 </div>
                 <div className="flex justify-between items-baseline mt-0.5">
                   <span className="text-sm font-semibold font-mono">$0.002802</span>
