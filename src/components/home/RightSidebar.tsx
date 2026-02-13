@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, ArrowRight, Chrome } from "lucide-react";
+import { TrendingUp, TrendingDown, ArrowRight, Chrome, BookOpen, Wrench } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
 import MiniPreviewCard from "./MiniPreviewCard";
@@ -143,19 +143,22 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       {/* Price Performance */}
       <PricePerformance />
 
-      {/* 4. What's happening - moved down */}
-      <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
-        <h3 className="px-4 py-3 text-[19px] font-extrabold text-text-primary">What&apos;s happening</h3>
-        {trendingTopics.map((topic, i) => (
-          <div
-            key={i}
-            className="px-4 py-3 hover:bg-white/[0.03] transition-colors cursor-pointer border-t border-[#2F3336]/50"
-          >
-            <span className="text-[13px] text-text-secondary">{topic.category}</span>
-            <p className="text-[15px] font-bold text-text-primary leading-tight mt-0.5">{topic.title}</p>
-            <span className="text-[13px] text-text-secondary">{topic.posts}</span>
+      {/* 4. Explore: Learn & Tools */}
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <Link href="/learn" className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/40 hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center gap-2">
+          <div className="h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+            <BookOpen className="h-5 w-5 text-[#0085FF]" />
           </div>
-        ))}
+          <h3 className="text-[15px] font-bold text-text-primary">Learn</h3>
+          <p className="text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
+        </Link>
+        <Link href="/tools" className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/40 hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center gap-2">
+          <div className="h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+            <Wrench className="h-5 w-5 text-[#0085FF]" />
+          </div>
+          <h3 className="text-[15px] font-bold text-text-primary">Tools</h3>
+          <p className="text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
+        </Link>
       </div>
 
       {/* 5. Premium Analysis */}
