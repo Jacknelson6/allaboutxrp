@@ -58,6 +58,10 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-supply-explained", title: "XRP Supply Explained", desc: "Supply, inflation & burn mechanics", emoji: "🔥", icon: BarChart3, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-myths", title: "XRP Myths Debunked", desc: "Common misconceptions fact-checked", emoji: "🛡️", icon: Shield, gradient: "from-[#EF4444] to-[#F59E0B]" },
   { href: "/learn/xrp-glossary", title: "XRP Glossary", desc: "A-Z of XRP & XRPL terms", emoji: "📖", icon: ScrollText, gradient: "from-[#6366F1] to-[#06B6D4]" },
+  { href: "/learn/xrp-etf", title: "XRP ETF Explained", desc: "ETF filings, approval status & price impact", emoji: "📋", icon: ScrollText, gradient: "from-[#0085FF] to-[#10B981]" },
+  { href: "/learn/xrp-tax-guide", title: "XRP Tax Guide 2026", desc: "Capital gains, reporting & cost basis", emoji: "🧾", icon: Calculator, gradient: "from-[#F59E0B] to-[#06B6D4]" },
+  { href: "/learn/sec-vs-ripple", title: "SEC vs Ripple", desc: "Complete lawsuit timeline & rulings", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#EC4899]" },
+  { href: "/learn/xrpl-defi", title: "XRPL DeFi & AMM", desc: "Decentralized finance on the XRP Ledger", emoji: "🔄", icon: Layers, gradient: "from-[#06B6D4] to-[#8B5CF6]" },
 ];
 
 const rippleSoftware: Card[] = [
