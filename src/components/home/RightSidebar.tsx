@@ -145,19 +145,23 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
 
       {/* 4. Explore: Learn & Tools */}
       <div className="mt-4 grid grid-cols-2 gap-3">
-        <Link href="/learn" className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/40 hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center gap-2">
-          <div className="h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+        <Link href="/learn" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/learn flex flex-col items-center text-center gap-2 overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
+          <div className="relative z-10 h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
             <BookOpen className="h-5 w-5 text-[#0085FF]" />
           </div>
-          <h3 className="text-[15px] font-bold text-text-primary">Learn</h3>
-          <p className="text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
+          <h3 className="relative z-10 text-[15px] font-bold text-text-primary">Learn</h3>
+          <p className="relative z-10 text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
         </Link>
-        <Link href="/tools" className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/40 hover:bg-white/[0.03] transition-all group flex flex-col items-center text-center gap-2">
-          <div className="h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+        <Link href="/tools" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/tools flex flex-col items-center text-center gap-2 overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
+          <div className="relative z-10 h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
             <Wrench className="h-5 w-5 text-[#0085FF]" />
           </div>
-          <h3 className="text-[15px] font-bold text-text-primary">Tools</h3>
-          <p className="text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
+          <h3 className="relative z-10 text-[15px] font-bold text-text-primary">Tools</h3>
+          <p className="relative z-10 text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
         </Link>
       </div>
 
