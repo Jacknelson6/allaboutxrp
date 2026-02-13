@@ -26,10 +26,10 @@ export default function NotFound() {
           Learn about XRP
         </Link>
         <Link
-          href="/people"
+          href="/live-chart"
           className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-5 py-2.5 text-[13px] font-medium text-text-primary transition-all hover:bg-white/[0.06]"
         >
-          Holders
+          Live Charts
         </Link>
       </div>
     </div>
