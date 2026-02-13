@@ -23,15 +23,23 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: '/richlist', destination: '/people', permanent: true },
+      // Legacy → canonical
+      { source: '/richlist', destination: '/holders', permanent: true },
       { source: '/get-started', destination: '/how-to-start', permanent: true },
       { source: '/live', destination: '/live-chart', permanent: true },
       { source: '/charts', destination: '/live-chart', permanent: true },
       { source: '/etf', destination: '/live-chart', permanent: true },
-      { source: '/holders', destination: '/people', permanent: true },
-      { source: '/acquisitions', destination: '/people', permanent: true },
-      { source: '/escrow', destination: '/people', permanent: true },
-      { source: '/riddlers', destination: '/people', permanent: true },
+      { source: '/escrow', destination: '/learn/escrow', permanent: true },
+      { source: '/riddlers', destination: '/learn/riddlers', permanent: true },
+      { source: '/acquisitions', destination: '/learn/acquisitions', permanent: true },
+      // /people/* → /learn/*
+      { source: '/people', destination: '/learn', permanent: true },
+      { source: '/people/holders', destination: '/holders', permanent: true },
+      { source: '/people/riddlers', destination: '/learn/riddlers', permanent: true },
+      { source: '/people/acquisitions', destination: '/learn/acquisitions', permanent: true },
+      { source: '/people/key-people', destination: '/learn/key-people', permanent: true },
+      { source: '/people/partnerships', destination: '/learn/partnerships', permanent: true },
+      { source: '/people/trusted-sources', destination: '/learn/trusted-sources', permanent: true },
     ];
   },
 };

@@ -83,5 +83,20 @@
     "question": "What makes XRP different from Bitcoin?",
     "answer": "XRP settles in 3–5 seconds (vs. Bitcoin's ~10 minutes), costs fractions of a cent (vs. Bitcoin's variable fees), handles ~1,500 TPS (vs. Bitcoin's ~7), and uses no mining. XRP was designed for payments; Bitcoin was designed as a store of value.",
     "page": "home"
+  },
+  {
+    "question": "Can I Stake My XRP?",
+    "answer": "XRP doesn't support traditional proof-of-stake staking because the XRP Ledger uses a unique consensus protocol, not PoS. However, you can earn yield on your XRP through XRPL's built-in AMM liquidity pools, lending platforms, and emerging DeFi options.",
+    "page": "home"
+  },
+  {
+    "question": "Best Ways to Stake XRP",
+    "answer": "While XRP can't be staked in the traditional sense, you can earn yield through XRPL AMM liquidity provision, lending platforms like Nexo and Crypto.com, sidechain opportunities, and upcoming DeFi developments on the XRP Ledger ecosystem.",
+    "page": "home"
+  },
+  {
+    "question": "When Should I Sell My XRP?",
+    "answer": "This is not financial advice, but many long-term XRP holders believe in holding through market cycles due to growing utility, regulatory clarity, yield-earning opportunities, and increasing institutional adoption. If you need to take profits, dollar-cost averaging out is a common strategy.",
+    "page": "home"
   }
 ]

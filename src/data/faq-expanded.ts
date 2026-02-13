@@ -932,4 +932,259 @@ The key takeaway: Bitcoin asks "what if money couldn't be controlled?" while XRP
 
 **Interested in XRP? Learn how to buy it in our [step-by-step beginner guide](/learn/get-started).**
 `,
+
+  "can-i-stake-my-xrp": `
+If you're coming from the world of Ethereum, Solana, or Cardano, you might be wondering: can I stake my XRP and earn passive income? The short answer is that XRP doesn't support traditional proof-of-stake (PoS) staking — but that doesn't mean you can't earn yield on your XRP holdings. Let's break it down.
+
+## Why XRP Doesn't Have Traditional Staking
+
+The XRP Ledger uses a fundamentally different consensus mechanism than PoS blockchains. Instead of requiring validators to "stake" tokens as collateral to secure the network, the XRPL relies on the **XRP Ledger Consensus Protocol** — a system where a network of independent, trusted validators agree on transaction validity in 3–5 seconds.
+
+This means:
+- **No staking rewards** are built into the XRP Ledger protocol
+- **No token lockup** is required to help secure the network
+- **Validators don't earn XRP** for processing transactions
+
+This design choice was intentional. The XRPL was built for speed and efficiency in payments, not as a staking rewards machine. The tradeoff is a network that settles in seconds with near-zero fees — something PoS chains still struggle to match at scale.
+
+## So How Can You Earn Yield on XRP?
+
+Even though you can't stake XRP in the traditional sense, the ecosystem has evolved to offer several ways to put your XRP to work.
+
+### 1. XRPL Automated Market Maker (AMM)
+
+The XRP Ledger launched **native AMM functionality** directly on the Layer 1 blockchain. This is a game-changer. You can provide liquidity to trading pairs on the XRPL's built-in decentralized exchange and earn a share of trading fees.
+
+Key advantages of the XRPL AMM:
+- **Native to the blockchain** — no smart contract risk from third-party code
+- **Low fees** for adding/removing liquidity
+- **Continuous auction mechanism** that helps reduce impermanent loss
+- **Pairs with RLUSD**, Ripple's stablecoin, for lower-volatility options
+
+This is the closest thing to "staking" that exists natively on the XRP Ledger, and it's fully live and operational today.
+
+### 2. Lending Platforms
+
+Several centralized platforms allow you to deposit XRP and earn interest, similar to a savings account:
+- **Nexo** — offers yield on XRP deposits
+- **Crypto.com** — XRP earn programs with flexible and fixed terms
+- **Various DeFi protocols** — emerging options on XRPL sidechains
+
+**Important caveat**: centralized lending platforms carry counterparty risk. Always research the platform's track record, insurance, and regulatory compliance before depositing your XRP. We saw what happened with platforms like Celsius and BlockFi — not your keys, not your coins applies here.
+
+### 3. Upcoming Staking-Like Features
+
+The XRP Ledger ecosystem is actively developing new yield opportunities:
+- **XRPL sidechains** are exploring PoS mechanisms that could involve XRP
+- **Hooks and smart contract capabilities** are being developed for the XRPL
+- **DeFi protocols** building on the XRPL are creating new yield farming opportunities
+
+The ecosystem is rapidly expanding, and more options are coming online regularly.
+
+## The Bottom Line
+
+Can you stake XRP? Not in the way you'd stake ETH or SOL. But can you earn yield on your XRP? Absolutely — and the options are growing. The XRPL AMM is the standout native option, offering decentralized yield directly on the ledger without third-party risk.
+
+For a deeper dive into all available yield strategies, check out our comprehensive [XRP Staking Guide](/learn/xrp-staking) and explore the [XRP Profit Calculator](/tools/xrp-profit-calculator) to model potential returns.
+
+**Want to learn more about XRP fundamentals first? Start with our guide on [What is XRP?](/learn/what-is-xrp)**
+`,
+
+  "best-ways-to-stake-xrp": `
+**Disclaimer: This article is for informational purposes only and does not constitute financial advice. Always do your own research (DYOR) before making any investment decisions. Yield-earning strategies carry risk, including potential loss of principal.**
+
+Looking for the best ways to earn yield on your XRP? While XRP doesn't offer traditional proof-of-stake staking, the ecosystem provides several legitimate options for putting your XRP to work. Here's a practical, actionable guide to every major option available today.
+
+## 1. XRPL AMM Liquidity Provision (Recommended)
+
+The **XRPL's native Automated Market Maker** is the most notable way to earn yield on XRP directly on the ledger. Launched as a protocol-level feature, the AMM lets you provide liquidity to trading pairs and earn fees from every swap.
+
+### How It Works
+- You deposit two assets into a liquidity pool (e.g., XRP/RLUSD)
+- Traders who swap between those assets pay a fee
+- You earn a proportional share of those fees based on your pool contribution
+
+### How to Get Started
+1. Use an XRPL-compatible wallet that supports AMM (like Xaman/XUMM)
+2. Choose a trading pair — XRP/RLUSD is a popular, lower-volatility option
+3. Deposit equal value of both assets into the pool
+4. Earn fees automatically as trades occur
+
+### Pros
+- Native to the XRPL — no third-party smart contract risk
+- Low transaction fees for adding/removing liquidity
+- Built-in continuous auction mechanism reduces impermanent loss
+- Fully decentralized and non-custodial
+
+### Cons
+- Impermanent loss risk (though mitigated by the auction mechanism)
+- Returns depend on trading volume — low volume means low fees
+- You need two assets, not just XRP
+
+## 2. Centralized Lending Platforms
+
+Several major platforms offer yield on XRP deposits, functioning like a crypto savings account.
+
+### Top Platforms
+
+| Platform | Type | Notes |
+| Nexo | CeFi lending | Tiered rates, flexible withdrawals |
+| Crypto.com | CeFi earn | Fixed and flexible terms available |
+| Uphold | CeFi staking | Simple interface, integrated exchange |
+
+### Pros
+- Simple — just deposit and earn
+- No need to manage liquidity pairs
+- Predictable returns with fixed-term options
+
+### Cons
+- **Counterparty risk** — your XRP is held by a third party
+- Rates can change without notice
+- Platform insolvency risk (remember Celsius, BlockFi, Voyager)
+- KYC/AML requirements
+
+### Risk Mitigation
+- Never put all your XRP on one platform
+- Choose platforms with strong regulatory compliance
+- Prefer platforms with proof of reserves
+- Keep the majority of your XRP in self-custody
+
+## 3. XRPL Sidechain and Layer 2 Options
+
+The XRP Ledger ecosystem is expanding with sidechains that offer additional yield opportunities.
+
+### Root Network
+The Root Network (now part of the Futureverse ecosystem) is an XRPL-connected chain that supports DeFi applications and could offer XRP-based yield opportunities.
+
+### EVM Sidechain
+Ripple has been developing an **EVM-compatible sidechain** for the XRPL, which would bring Ethereum-style DeFi (including staking, lending, and farming) to the XRP ecosystem.
+
+### Pros
+- Access to broader DeFi strategies
+- Potential for higher yields
+- Growing ecosystem
+
+### Cons
+- Newer, less battle-tested
+- Bridge risk when moving assets between chains
+- More technical knowledge required
+
+## 4. Upcoming Developments to Watch
+
+The XRP ecosystem is evolving rapidly. Keep an eye on these developments:
+
+- **XRPL Hooks**: Programmable logic on the XRPL that could enable more complex yield strategies
+- **Expanded AMM pairs**: More liquidity pools launching regularly
+- **Institutional DeFi**: Ripple's push for institutional-grade DeFi on the XRPL
+- **RLUSD integration**: New yield opportunities pairing XRP with Ripple's stablecoin
+
+## Comparing Your Options
+
+| Method | Risk Level | Complexity | Custody |
+| XRPL AMM | Medium | Medium | Self-custody |
+| CeFi Lending | Medium-High | Low | Third-party |
+| Sidechains | Higher | High | Varies |
+
+## Our Recommendation
+
+For most XRP holders, the **XRPL AMM** offers the best balance of yield, decentralization, and security. You maintain self-custody of your assets, benefit from the XRPL's speed and low fees, and earn passive income from trading activity.
+
+If simplicity is your priority and you're comfortable with counterparty risk, a regulated lending platform with a strong track record is a reasonable option — just don't put all your eggs in one basket.
+
+For the full breakdown of XRP yield strategies, visit our [XRP Staking Guide](/learn/xrp-staking). And use our [XRP Profit Calculator](/tools/xrp-profit-calculator) to model potential returns on your holdings.
+`,
+
+  "when-should-i-sell-my-xrp": `
+**⚠️ Important Disclaimer: This article is NOT financial advice. It represents opinions and analysis for educational purposes only. Every investor's situation is unique. Consult a licensed financial advisor before making any investment decisions. Past performance does not indicate future results. You could lose some or all of your investment.**
+
+"When should I sell my XRP?" is one of the most-asked questions in the XRP community. And while we can't tell you what to do with your money, we can share the perspective that many long-term XRP holders have adopted — and why.
+
+## The Case for Holding (Potentially Forever)
+
+Here's the honest truth about how we see it at AllAboutXRP: **there's a strong case for never selling your XRP** — or at least, not all of it. Here's why.
+
+### 1. Regulatory Clarity Is Here
+
+The SEC lawsuit that hung over XRP for years is resolved. Judge Torres ruled that XRP sold on exchanges to retail investors is **not a security**. This was the single biggest risk factor for XRP holders, and it's gone. With regulatory clarity achieved:
+- U.S. exchanges have relisted XRP
+- Spot XRP ETFs have launched
+- Institutional investors can now allocate to XRP with confidence
+
+The regulatory cloud that suppressed XRP's price for years has lifted. Why sell right after the biggest overhang is removed?
+
+### 2. Yield-Earning Options Are Growing
+
+This is a paradigm shift. XRP is evolving from a "hold and hope" asset to a **yield-generating asset**:
+- **XRPL AMM** lets you earn fees by providing liquidity
+- **Lending platforms** pay interest on XRP deposits
+- **DeFi on XRPL** is expanding with new protocols and sidechains
+- **RLUSD pairing** creates stable yield opportunities
+
+If you can earn passive income on your XRP, selling becomes a much harder decision. Why sell the goose when it's starting to lay golden eggs?
+
+For details on all yield options, see our [XRP Staking Guide](/learn/xrp-staking) and [Can I Stake My XRP?](/learn/faq/can-i-stake-my-xrp).
+
+### 3. Utility Is Accelerating
+
+XRP's real-world utility is growing faster than ever:
+- **Ripple's ODL** (On-Demand Liquidity) is processing billions in cross-border payments
+- **RLUSD** stablecoin adds another use case to the ecosystem
+- **XRP ETFs** bring institutional capital and mainstream visibility
+- **Central bank digital currency (CBDC)** pilots have used the XRPL
+- **NFTs, DeFi, and tokenization** are expanding on the ledger
+
+The more utility XRP has, the more fundamental demand there is for the token. Selling before utility fully matures means potentially leaving the biggest gains on the table.
+
+### 4. The Macro Environment Favors Crypto
+
+Broader trends are aligning in crypto's favor:
+- Regulatory frameworks are crystallizing globally
+- Institutional adoption is accelerating
+- Bitcoin ETFs opened the floodgates — XRP ETFs followed
+- The narrative has shifted from "crypto is a scam" to "crypto is infrastructure"
+
+## When Selling Might Make Sense
+
+All that said, here are legitimate reasons to sell some XRP — because blind conviction isn't a strategy either:
+
+### You Need the Money
+If you need funds for a home, education, emergency, or life event — that's a perfectly valid reason. No asset is worth financial hardship. Take care of yourself first.
+
+### Your Portfolio Is Too Concentrated
+If XRP is 80%+ of your net worth, that's a risk management problem regardless of how bullish you are. Diversification isn't a lack of conviction — it's responsible investing.
+
+### You're Taking Profits Strategically
+Dollar-cost averaging (DCA) out is the mirror image of DCA buying in. Instead of selling everything at once:
+- Set price targets (e.g., sell 10% at $X, another 10% at $Y)
+- Take profits in stages as the price rises
+- Keep a core position that you never sell ("the forever bag")
+
+### The Fundamentals Change
+If something fundamentally shifts — a major security vulnerability, Ripple company failure, a competing technology that makes XRP obsolete — reassess. But distinguish between short-term noise and actual fundamental changes.
+
+## The "Forever Bag" Strategy
+
+Many experienced XRP holders use this approach:
+1. **Define your "forever bag"** — a core position you plan to hold indefinitely
+2. **Earn yield on it** via AMM or lending to generate passive income
+3. **Take partial profits** on your trading stack during price spikes
+4. **Reinvest yield** to compound your position over time
+
+This way, you benefit from price appreciation AND passive income, without ever fully exiting your position.
+
+## What We'd Say (As an Opinion, Not Advice)
+
+At AllAboutXRP, we believe XRP's best days are ahead. The combination of:
+- ✅ Regulatory clarity
+- ✅ Growing yield opportunities
+- ✅ Expanding utility
+- ✅ Institutional adoption
+- ✅ ETF accessibility
+
+...makes a compelling case for long-term holding. But YOUR decision should be based on YOUR financial situation, risk tolerance, and goals.
+
+Use our [XRP Profit Calculator](/tools/xrp-profit-calculator) to model different price scenarios and figure out what makes sense for you.
+
+**New to XRP? Start with [What is XRP?](/learn/what-is-xrp) to understand the fundamentals before making any decisions.**
+`,
 };

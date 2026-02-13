@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/tools" },
 };
 
-const tools = [
+const tools: { href: string; title: string; description: string; badge: string; linkText?: string }[] = [
   {
     href: "/tools/xrp-profit-calculator",
     title: "XRP Profit Calculator",
@@ -34,6 +34,20 @@ const tools = [
     title: "XRP Transaction Fee Calculator",
     description: "See how much XRP transactions really cost. Compare fees across hundreds or thousands of transactions.",
     badge: "Calculator",
+  },
+  {
+    href: "/holders",
+    title: "XRP Rich List",
+    description: "See the top XRP holders and wallet distribution. Track whale movements and concentration across the network.",
+    badge: "Data",
+    linkText: "View rich list →",
+  },
+  {
+    href: "/learn",
+    title: "XRP Learn Hub",
+    description: "Everything you need to understand XRP — from basics to advanced topics. Tokenomics, escrow, partnerships, and more.",
+    badge: "Education",
+    linkText: "Start learning →",
   },
 ];
 
@@ -80,7 +94,7 @@ export default function ToolsHubPage() {
                 </h2>
                 <p className="text-sm text-zinc-400 leading-relaxed">{tool.description}</p>
                 <span className="mt-4 inline-flex items-center text-sm font-medium text-[#0085FF]">
-                  Open tool →
+                  {tool.linkText ?? "Open tool →"}
                 </span>
               </Link>
             ))}
