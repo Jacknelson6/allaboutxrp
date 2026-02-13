@@ -60,6 +60,8 @@ interface CoinDetail {
   market_data: {
     current_price: { usd: number };
     price_change_percentage_24h: number;
+    price_change_percentage_7d: number;
+    price_change_percentage_30d: number;
     market_cap: { usd: number };
     total_volume: { usd: number };
     circulating_supply: number;
@@ -641,8 +643,8 @@ export default function LiveChartContent() {
               <div className="space-y-2">
                 {[
                   { label: '24h', value: change24h || price?.usd_24h_change },
-                  { label: '7d', value: md ? (md as unknown as Record<string, Record<string, number>>)?.price_change_percentage_7d_in_currency?.usd : undefined },
-                  { label: '30d', value: md ? (md as unknown as Record<string, Record<string, number>>)?.price_change_percentage_30d_in_currency?.usd : undefined },
+                  { label: '7d', value: md?.price_change_percentage_7d ?? undefined },
+                  { label: '30d', value: md?.price_change_percentage_30d ?? undefined },
                 ].map(item => (
                   <div key={item.label} className="flex justify-between items-center">
                     <span className="text-xs text-white/40">{item.label}</span>
