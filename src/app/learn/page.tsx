@@ -39,6 +39,8 @@ const basics: Card[] = [
   { href: "/learn/how-to-buy-xrp", title: "How to Buy XRP", desc: "Complete buying guide for beginners", emoji: "💰", icon: Wallet, gradient: "from-[#10B981] to-[#06B6D4]" },
   { href: "/learn/faq", title: "FAQ", desc: "Answers to common XRP questions", emoji: "❓", icon: HelpCircle, gradient: "from-[#8B5CF6] to-[#6366F1]" },
   { href: "/learn/xrp-vs-bitcoin", title: "XRP vs Bitcoin", desc: "How they compare side by side", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-vs-solana", title: "XRP vs Solana", desc: "Speed, fees, and use cases compared", emoji: "⚡", icon: Zap, gradient: "from-[#9333EA] to-[#06B6D4]" },
+  { href: "/learn/xrp-vs-ethereum", title: "XRP vs Ethereum", desc: "Payments vs smart contracts", emoji: "🔷", icon: Layers, gradient: "from-[#6366F1] to-[#8B5CF6]" },
 ];
 
 const deepDives: Card[] = [
@@ -49,7 +51,13 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-staking", title: "XRP Staking", desc: "Earn yield on your XRP holdings", emoji: "🌱", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
   { href: "/learn/xrp-use-cases", title: "XRP Use Cases", desc: "Real-world applications beyond payments", emoji: "🌐", icon: Globe, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-price-history", title: "XRP Price History", desc: "Major price milestones over the years", emoji: "📈", icon: TrendingUp, gradient: "from-[#0085FF] to-[#6366F1]" },
+  { href: "/learn/xrp-price-prediction", title: "XRP Price Prediction", desc: "What analysts are saying", emoji: "🔮", icon: Search, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/how-banks-use-xrp", title: "How Banks Use XRP", desc: "Cross-border payments explained", emoji: "🏦", icon: Building2, gradient: "from-[#06B6D4] to-[#0085FF]" },
   { href: "/learn/xrp-wallets", title: "XRP Wallets Guide", desc: "Choosing the right wallet for you", emoji: "👛", icon: Wallet, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/cross-border-payments", title: "Cross-Border Payments", desc: "Why XRP changes everything", emoji: "🌍", icon: Globe, gradient: "from-[#10B981] to-[#0085FF]" },
+  { href: "/learn/xrp-supply-explained", title: "XRP Supply Explained", desc: "Supply, inflation & burn mechanics", emoji: "🔥", icon: BarChart3, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-myths", title: "XRP Myths Debunked", desc: "Common misconceptions fact-checked", emoji: "🛡️", icon: Shield, gradient: "from-[#EF4444] to-[#F59E0B]" },
+  { href: "/learn/xrp-glossary", title: "XRP Glossary", desc: "A-Z of XRP & XRPL terms", emoji: "📖", icon: ScrollText, gradient: "from-[#6366F1] to-[#06B6D4]" },
 ];
 
 const rippleSoftware: Card[] = [
