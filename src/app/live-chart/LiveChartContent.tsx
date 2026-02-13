@@ -30,11 +30,10 @@ import RecentTransactions from '@/components/live-chart/RecentTransactions';
 import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
 import etfData from '@/data/xrp-etf-data.json';
 
-type MarketTab = 'markets' | 'holders' | 'transactions' | 'etf';
+type MarketTab = 'markets' | 'transactions' | 'etf';
 
 const marketTabs: { id: MarketTab; label: string }[] = [
   { id: 'transactions', label: 'Transactions' },
-  { id: 'holders', label: 'Holders' },
   { id: 'markets', label: 'Markets' },
   { id: 'etf', label: 'ETF Flows' },
 ];
@@ -601,7 +600,7 @@ export default function LiveChartContent() {
               </div>
             )}
 
-                {activeMarketTab === 'holders' && <RichList />}
+{/* Rich List removed - available as standalone tool */}
                 {activeMarketTab === 'transactions' && <RecentTransactions />}
                 {activeMarketTab === 'etf' && <ETFFlowsTab />}
           </div>
