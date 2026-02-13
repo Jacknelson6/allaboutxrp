@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NewsletterSignup from "@/components/shared/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "What is XRP? Complete Guide to XRP & the XRP Ledger",
@@ -20,5 +21,12 @@ export const metadata: Metadata = {
 };
 
 export default function LearnLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <div className="mx-auto max-w-3xl px-4 py-8">
+        <NewsletterSignup variant="full" />
+      </div>
+    </>
+  );
 }
