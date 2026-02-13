@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
 import LayoutShell from "@/components/layout/LayoutShell";
+import { XRPPriceProvider } from "@/contexts/XRPPriceContext";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -108,10 +109,12 @@ export default function RootLayout({
           Skip to content
         </a>
         <SEOSchema schema={websiteSchema} />
+        <XRPPriceProvider>
         <AnnouncementBar />
         <LayoutShell megaMenu={<MegaMenu />} footer={<Footer />}>
           {children}
         </LayoutShell>
+        </XRPPriceProvider>
       </body>
     </html>
   );

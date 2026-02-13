@@ -7,7 +7,7 @@ import TierCalculator from "@/components/richlist/TierCalculator";
 import TierFAQ from "@/components/richlist/TierFAQ";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { formatNumber, formatCompact, shortenAddress } from "@/lib/utils/format";
-import { Copy, Check, TrendingUp, TrendingDown, Activity, Users, DollarSign } from "lucide-react";
+import { Copy, Check, TrendingUp, TrendingDown, Activity, Users, DollarSign, Waves } from "lucide-react";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Sentiment {
@@ -16,6 +16,24 @@ interface Sentiment {
   sellVolume: number;
   totalVolume: number;
   buyPercent: number;
+}
+
+interface WhaleTx {
+  hash: string;
+  amount: number;
+  from: string;
+  to: string;
+  time: string;
+  fromLabel?: string;
+  toLabel?: string;
+}
+
+interface WhaleData {
+  transactions: WhaleTx[];
+  totalMoved: number;
+  count: number;
+  largest: number;
+  hourlyVolume: { hour: number; volume: number }[];
 }
 
 interface Holder {
@@ -47,39 +65,76 @@ const datasetSchema = {
   creator: { "@type": "Organization", name: "AllAboutXRP" },
 };
 
-// ── Gauge helper ───────────────────────────────────────────────────────────
-function FearGreedGauge({ value, label }: { value: number; label: string }) {
-  const angle = (value / 100) * 180;
-  const rad = (angle * Math.PI) / 180;
-  const needleX = 100 - 70 * Math.cos(rad);
-  const needleY = 100 - 70 * Math.sin(rad);
+// ── Whale Activity Card ────────────────────────────────────────────────────
+function WhaleActivityCard({ data }: { data: WhaleData | null }) {
+  if (!data) {
+    return (
+      <div className="flex items-center justify-center h-full text-text-secondary text-sm">
+        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
+        Loading…
+      </div>
+    );
+  }
 
-  const getColor = (v: number) => {
-    if (v <= 25) return "#ea3943";
-    if (v <= 45) return "#ea8c00";
-    if (v <= 55) return "#f5d100";
-    if (v <= 75) return "#93d900";
-    return "#16c784";
-  };
+  const maxVol = Math.max(...data.hourlyVolume.map(h => h.volume), 1);
 
   return (
-    <div className="flex flex-col items-center">
-      <svg viewBox="0 110 200 100" className="w-48 h-24">
-        <defs>
-          <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#ea3943" />
-            <stop offset="25%" stopColor="#ea8c00" />
-            <stop offset="50%" stopColor="#f5d100" />
-            <stop offset="75%" stopColor="#93d900" />
-            <stop offset="100%" stopColor="#16c784" />
-          </linearGradient>
-        </defs>
-        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGrad)" strokeWidth="12" strokeLinecap="round" />
-        <line x1="100" y1="100" x2={needleX} y2={needleY} stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-        <circle cx="100" cy="100" r="4" fill="white" />
-      </svg>
-      <span className="text-3xl font-bold mt-1" style={{ color: getColor(value) }}>{value}</span>
-      <span className="text-sm text-text-secondary mt-0.5">{label}</span>
+    <div className="flex flex-col h-full">
+      {/* Stats row */}
+      <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className="text-center">
+          <div className="text-2xl font-bold text-text-primary font-mono">{data.count}</div>
+          <div className="text-[10px] text-text-secondary mt-0.5">Transactions</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-xrp-accent font-mono">{formatCompact(data.totalMoved)}</div>
+          <div className="text-[10px] text-text-secondary mt-0.5">XRP Moved</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-text-primary font-mono">{formatCompact(data.largest)}</div>
+          <div className="text-[10px] text-text-secondary mt-0.5">Largest TX</div>
+        </div>
+      </div>
+
+      {/* Mini bar chart - hourly volume */}
+      <div className="flex-1 min-h-0">
+        <div className="text-[10px] text-text-secondary mb-1.5">Volume by Hour (24h)</div>
+        <div className="flex items-end gap-[2px] h-16">
+          {data.hourlyVolume.map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-t-sm bg-xrp-accent/80 hover:bg-xrp-accent transition-colors cursor-default"
+              style={{ height: `${Math.max((h.volume / maxVol) * 100, 2)}%` }}
+              title={`${h.hour}h ago: ${formatCompact(h.volume)} XRP`}
+            />
+          ))}
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="text-[9px] text-text-secondary">24h ago</span>
+          <span className="text-[9px] text-text-secondary">Now</span>
+        </div>
+      </div>
+
+      {/* Recent whale txs feed */}
+      <div className="mt-3 space-y-1.5 max-h-[120px] overflow-y-auto">
+        {data.transactions.slice(0, 5).map((tx, i) => {
+          const ago = Math.round((Date.now() - new Date(tx.time).getTime()) / 3600000);
+          return (
+            <div key={i} className="flex items-center justify-between text-[11px] py-1 border-b border-[#2F3336]/50 last:border-0">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <Waves className="h-3 w-3 text-xrp-accent flex-shrink-0" />
+                <span className="text-text-secondary truncate">
+                  {tx.fromLabel || shortenAddress(tx.from)} → {tx.toLabel || shortenAddress(tx.to)}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                <span className="font-mono font-semibold text-text-primary">{formatCompact(tx.amount)}</span>
+                <span className="text-text-secondary text-[9px]">{ago}h</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -103,15 +158,18 @@ function CopyAddress({ address }: { address: string }) {
 export default function HoldersPage() {
   const [sentiment, setSentiment] = useState<Sentiment | null>(null);
   const [holders, setHolders] = useState<HoldersData | null>(null);
+  const [whaleData, setWhaleData] = useState<WhaleData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/xrp/sentiment").then(r => r.json()).catch(() => null),
       fetch("/api/xrp/holders").then(r => r.json()).catch(() => null),
-    ]).then(([s, h]) => {
+      fetch("/api/xrp/whale-activity").then(r => r.json()).catch(() => null),
+    ]).then(([s, h, w]) => {
       if (s) setSentiment(s);
       if (h) setHolders(h);
+      if (w) setWhaleData(w);
       setLoading(false);
     });
   }, []);
@@ -140,17 +198,13 @@ export default function HoldersPage() {
             XRP Market Pulse
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
-            {/* Fear & Greed */}
+            {/* Whale Activity */}
             <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-6">
-              <h3 className="text-sm font-medium text-text-secondary mb-4">Fear & Greed Index</h3>
-              {sentiment ? (
-                <FearGreedGauge value={sentiment.fearGreed.value} label={sentiment.fearGreed.label} />
-              ) : (
-                <div className="flex items-center justify-center h-32 text-text-secondary text-sm">
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
-                  Loading…
-                </div>
-              )}
+              <h3 className="text-sm font-medium text-text-secondary mb-4 flex items-center gap-2">
+                <Waves className="h-4 w-4 text-xrp-accent" />
+                Whale Activity (24h)
+              </h3>
+              <WhaleActivityCard data={whaleData} />
             </div>
 
             {/* Buy vs Sell Volume */}

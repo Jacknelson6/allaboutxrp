@@ -175,8 +175,9 @@ export async function getNetworkStats(): Promise<NetworkStats> {
       const ledger = data.ledgers?.[0];
 
       // XRPL doesn't expose account count via a simple API.
-      // Use a reasonable estimate (~5.7M as of early 2026). Updated periodically.
-      const totalAccounts = 5_700_000;
+      // TODO: Automate this — no free public API currently returns total XRPL account count.
+      // Check XRPScan /balances page periodically and update. (~7.6M as of Feb 2026)
+      const totalAccounts = 7_600_000;
 
       return {
         ledgerIndex: ledger?.ledger_index ?? 0,

@@ -13,7 +13,7 @@ async function fetchTradingViewScan() {
       columns: [
         "close", "change", "high", "low", "volume",
         "Perf.W", "Perf.1M", "market_cap_basic",
-        "24h_vol_change", "total_value_traded",
+        "total_value_traded",
       ],
     }),
   });
@@ -48,27 +48,35 @@ export async function GET() {
   const row = scanData?.data?.[0]?.d ?? [];
   const cgMd = cgData?.market_data;
 
+  // TradingView columns: [0]=close, [1]=change, [2]=high, [3]=low, [4]=volume, [5]=Perf.W, [6]=Perf.1M, [7]=market_cap_basic (often null), [8]=total_value_traded
+  // Use CoinGecko for market cap and 24h volume since TradingView returns null/incomplete for these
+  const tvMarketCap = row[7];
+  const cgMarketCap = cgMd?.market_cap?.usd;
+  const marketCap = tvMarketCap ?? cgMarketCap ?? 0;
+
+  const tvVolume = row[4];
+  const cgVolume = cgMd?.total_volume?.usd;
+  const volume24h = (tvVolume && tvVolume > 0) ? tvVolume : (cgVolume ?? 0);
+
   const result = {
     price: {
       usd: row[0] ?? 0,
       usd_24h_change: row[1] ?? 0,
-      usd_market_cap: row[7] ?? 0,
-      usd_24h_vol: row[4] ?? 0,
+      usd_market_cap: marketCap,
+      usd_24h_vol: volume24h,
     },
     coin: {
-      // Top-level sentiment fields from CoinGecko
       sentiment_votes_up_percentage: cgData?.sentiment_votes_up_percentage ?? null,
       sentiment_votes_down_percentage: cgData?.sentiment_votes_down_percentage ?? null,
       market_data: {
-        // Price data from TradingView (primary)
         current_price: { usd: row[0] ?? 0 },
         price_change_percentage_24h: row[1] ?? 0,
         price_change_percentage_7d: row[5] ?? 0,
         price_change_percentage_30d: row[6] ?? 0,
         high_24h: { usd: row[2] ?? 0 },
         low_24h: { usd: row[3] ?? 0 },
-        total_volume: { usd: row[4] ?? 0 },
-        market_cap: { usd: row[7] ?? 0 },
+        total_volume: { usd: volume24h },
+        market_cap: { usd: marketCap },
         // Supply data from CoinGecko
         circulating_supply: cgMd?.circulating_supply ?? 57_132_693_938,
         total_supply: cgMd?.total_supply ?? 99_987_338_498,
