@@ -62,6 +62,10 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-tax-guide", title: "XRP Tax Guide 2026", desc: "Capital gains, reporting & cost basis", emoji: "🧾", icon: Calculator, gradient: "from-[#F59E0B] to-[#06B6D4]" },
   { href: "/learn/sec-vs-ripple", title: "SEC vs Ripple", desc: "Complete lawsuit timeline & rulings", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#EC4899]" },
   { href: "/learn/xrpl-defi", title: "XRPL DeFi & AMM", desc: "Decentralized finance on the XRP Ledger", emoji: "🔄", icon: Layers, gradient: "from-[#06B6D4] to-[#8B5CF6]" },
+  { href: "/learn/xrp-stablecoin-ecosystem", title: "Stablecoin Ecosystem", desc: "RLUSD and stablecoins on XRPL", emoji: "💵", icon: Coins, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-addresses-and-keys", title: "Addresses & Keys", desc: "How XRP accounts and keys work", emoji: "🔑", icon: Lock, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-transaction-types", title: "Transaction Types", desc: "Every XRPL transaction explained", emoji: "📋", icon: ScrollText, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/xrpl-validators", title: "Validators & Consensus", desc: "How XRPL reaches agreement", emoji: "🛡️", icon: Shield, gradient: "from-[#6366F1] to-[#8B5CF6]" },
 ];
 
 const rippleSoftware: Card[] = [
