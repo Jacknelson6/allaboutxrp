@@ -20,7 +20,7 @@ export default function MiniChartPreview() {
     script.async = true;
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
-      symbol: 'BINANCE:XRPUSDT',
+      symbol: 'BITSTAMP:XRPUSD',
       width: '100%',
       height: '100%',
       locale: 'en',

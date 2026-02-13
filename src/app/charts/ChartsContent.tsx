@@ -34,7 +34,7 @@ export default function ChartsContent() {
     if (tvReady && window.TradingView && containerRef.current) {
       new window.TradingView.widget({
         container_id: 'tradingview-chart',
-        symbol: 'BINANCE:XRPUSDT',
+        symbol: 'BITSTAMP:XRPUSD',
         theme: 'dark',
         style: '1',
         locale: 'en',

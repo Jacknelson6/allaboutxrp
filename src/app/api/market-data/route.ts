@@ -2,16 +2,23 @@ import { NextResponse } from 'next/server';
 
 // In-memory cache
 let cache: { data: Record<string, unknown>; ts: number } | null = null;
-const CACHE_TTL = 60_000; // 60 seconds
+const CACHE_TTL = 5 * 60_000; // 5 minutes
 
-async function fetchJSON(url: string) {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    return null;
-  }
+async function fetchTradingViewScan() {
+  const res = await fetch("https://scanner.tradingview.com/crypto/scan", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      symbols: { tickers: ["BITSTAMP:XRPUSD"] },
+      columns: [
+        "close", "change", "high", "low", "volume",
+        "Perf.W", "Perf.1M", "market_cap_basic",
+        "24h_vol_change", "total_value_traded",
+      ],
+    }),
+  });
+  if (!res.ok) return null;
+  return await res.json();
 }
 
 export async function GET() {
@@ -20,18 +27,33 @@ export async function GET() {
     return NextResponse.json(cache.data);
   }
 
-  const [priceData, coinData, tickerData] = await Promise.all([
-    fetchJSON('https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true'),
-    fetchJSON('https://api.coingecko.com/api/v3/coins/ripple?localization=false&tickers=false&community_data=false&developer_data=false'),
-    fetchJSON('https://api.coingecko.com/api/v3/coins/ripple/tickers?order=volume_desc'),
-  ]);
+  const scanData = await fetchTradingViewScan();
+  const row = scanData?.data?.[0]?.d ?? [];
 
   const result = {
-    price: priceData?.ripple ?? null,
-    coin: coinData ?? null,
-    tickers: tickerData?.tickers?.slice(0, 20) ?? [],
+    price: {
+      usd: row[0] ?? 0,
+      usd_24h_change: row[1] ?? 0,
+      usd_market_cap: row[7] ?? 0,
+      usd_24h_vol: row[4] ?? 0,
+    },
+    coin: {
+      market_data: {
+        current_price: { usd: row[0] ?? 0 },
+        price_change_percentage_24h: row[1] ?? 0,
+        price_change_percentage_7d: row[5] ?? 0,
+        price_change_percentage_30d: row[6] ?? 0,
+        high_24h: { usd: row[2] ?? 0 },
+        low_24h: { usd: row[3] ?? 0 },
+        total_volume: { usd: row[4] ?? 0 },
+        market_cap: { usd: row[7] ?? 0 },
+      },
+    },
+    tickers: [],
   };
 
   cache = { data: result, ts: now };
-  return NextResponse.json(result);
+  return NextResponse.json(result, {
+    headers: { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' },
+  });
 }

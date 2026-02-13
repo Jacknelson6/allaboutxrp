@@ -21,6 +21,47 @@ const trendingTopics = [
 ];
 
 
+function PricePerformance() {
+  const { data } = useXRPPrice();
+
+  const periods = [
+    { label: "24h", value: data?.change24h },
+    { label: "7d", value: data?.change7d },
+    { label: "30d", value: data?.change30d },
+  ];
+
+  return (
+    <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] p-4">
+      <h3 className="text-[15px] font-bold text-text-primary mb-3">Price Performance</h3>
+      <div className="space-y-2.5">
+        {periods.map(({ label, value }) => {
+          const positive = (value ?? 0) >= 0;
+          const Icon = positive ? TrendingUp : TrendingDown;
+          return (
+            <div key={label} className="flex items-center justify-between">
+              <span className="text-[13px] text-text-secondary">{label}</span>
+              {value != null ? (
+                <span className={`flex items-center gap-1 text-[13px] font-medium ${positive ? "text-success" : "text-danger"}`}>
+                  <Icon className="h-3 w-3" />
+                  {positive ? "+" : ""}{value.toFixed(2)}%
+                </span>
+              ) : (
+                <span className="text-[13px] text-text-secondary">--</span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      {data && (data.high24h > 0 || data.low24h > 0) && (
+        <div className="mt-3 pt-3 border-t border-[#2F3336] flex justify-between text-[12px] text-text-secondary">
+          <span>24h High: ${fmtPrice(data.high24h)}</span>
+          <span>24h Low: ${fmtPrice(data.low24h)}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function LivePriceWidget({ compact = false }: { compact?: boolean }) {
   const { data, flash } = useXRPPrice();
   const [modalOpen, setModalOpen] = useState(false);
@@ -98,6 +139,9 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
     <div className="py-3 px-5">
       {/* 1. Combined: Price + Globe + Chart */}
       <MiniPreviewCard />
+
+      {/* Price Performance */}
+      <PricePerformance />
 
       {/* 4. What's happening - moved down */}
       <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">

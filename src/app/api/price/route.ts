@@ -1,25 +1,16 @@
 import { NextResponse } from "next/server";
 
-interface CoinGeckoResponse {
-  ripple: {
-    usd: number;
-    usd_24h_change: number;
-  };
-}
-
-export async function GET() {
+// Proxy to the main xrp-price endpoint for backwards compatibility
+export async function GET(request: Request) {
+  const origin = new URL(request.url).origin;
   try {
-    const res = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd&include_24hr_change=true",
-      { next: { revalidate: 60 } }
-    );
-    if (!res.ok) throw new Error("CoinGecko API error");
-    const data = (await res.json()) as CoinGeckoResponse;
+    const res = await fetch(`${origin}/api/xrp-price`);
+    const data = await res.json();
     return NextResponse.json({
-      price: data.ripple.usd,
-      change24h: data.ripple.usd_24h_change,
+      price: data.price,
+      change24h: data.change24h,
     }, {
-      headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120' },
+      headers: { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' },
     });
   } catch {
     return NextResponse.json({ price: 0, change24h: 0 }, { status: 500 });

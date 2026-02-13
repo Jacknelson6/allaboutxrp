@@ -11,28 +11,86 @@ interface Trade {
   isBuy: boolean;
 }
 
+/**
+ * Live XRP trades sourced from the XRP Ledger directly.
+ * Subscribes to XRPL transaction stream and filters for Payment/OfferCreate.
+ */
 export default function LiveTrades() {
   const [trades, setTrades] = useState<Trade[]>([]);
   const wsRef = useRef<WebSocket | null>(null);
+  const idRef = useRef(0);
 
   useEffect(() => {
     const connect = () => {
-      const ws = new WebSocket('wss://stream.binance.com:9443/ws/xrpusdt@trade');
+      const ws = new WebSocket('wss://xrplcluster.com');
       wsRef.current = ws;
+
+      ws.onopen = () => {
+        ws.send(JSON.stringify({
+          command: 'subscribe',
+          streams: ['transactions'],
+        }));
+      };
 
       ws.onmessage = (event) => {
         try {
-          const data = JSON.parse(event.data);
-          const trade: Trade = {
-            id: String(data.t),
-            price: parseFloat(data.p),
-            qty: parseFloat(data.q),
-            time: data.T,
-            isBuy: !data.m, // m=true means market sell
-          };
-          setTrades((prev) => [trade, ...prev].slice(0, 20));
+          const msg = JSON.parse(event.data);
+          const tx = msg?.transaction;
+          if (!tx) return;
+
+          // Filter for XRP payments with USD destination (DEX trades)
+          if (tx.TransactionType === 'Payment' && tx.Amount && typeof tx.Amount === 'string') {
+            const xrpAmount = parseInt(tx.Amount) / 1_000_000;
+            if (xrpAmount < 10) return; // skip dust
+            
+            const trade: Trade = {
+              id: String(++idRef.current),
+              price: 0, // raw XRP transfer, no price
+              qty: xrpAmount,
+              time: Date.now(),
+              isBuy: true,
+            };
+            setTrades((prev) => [trade, ...prev].slice(0, 20));
+          }
+
+          // OfferCreate on the DEX
+          if (tx.TransactionType === 'OfferCreate') {
+            const gets = tx.TakerGets;
+            const pays = tx.TakerPays;
+            
+            let xrpAmount = 0;
+            let usdAmount = 0;
+            let isBuy = false;
+
+            // XRP for USD (selling XRP)
+            if (typeof gets === 'string' && typeof pays === 'object' && pays?.currency === 'USD') {
+              xrpAmount = parseInt(gets) / 1_000_000;
+              usdAmount = parseFloat(pays.value);
+              isBuy = false;
+            }
+            // USD for XRP (buying XRP)
+            else if (typeof pays === 'string' && typeof gets === 'object' && gets?.currency === 'USD') {
+              xrpAmount = parseInt(pays) / 1_000_000;
+              usdAmount = parseFloat(gets.value);
+              isBuy = true;
+            }
+
+            if (xrpAmount > 10 && usdAmount > 0) {
+              const price = usdAmount / xrpAmount;
+              if (price > 0.01 && price < 1000) {
+                const trade: Trade = {
+                  id: String(++idRef.current),
+                  price,
+                  qty: xrpAmount,
+                  time: Date.now(),
+                  isBuy,
+                };
+                setTrades((prev) => [trade, ...prev].slice(0, 20));
+              }
+            }
+          }
         } catch {
-          // ignore parse errors
+          // ignore
         }
       };
 
@@ -76,7 +134,7 @@ export default function LiveTrades() {
                 className="grid grid-cols-[1fr_1fr_auto_auto] gap-x-3 px-3 py-1 text-[11px] font-mono hover:bg-white/[0.02] transition-colors"
               >
                 <span className={trade.isBuy ? 'text-green-400' : 'text-red-400'}>
-                  ${trade.price.toFixed(4)}
+                  {trade.price > 0 ? `$${trade.price.toFixed(4)}` : '—'}
                 </span>
                 <span className="text-right text-white/60">
                   {trade.qty.toFixed(1)}

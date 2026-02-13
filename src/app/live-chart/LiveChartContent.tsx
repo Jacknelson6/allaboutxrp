@@ -157,7 +157,7 @@ export default function LiveChartContent() {
   const [marketsOpen, setMarketsOpen] = useState(false);
   const [marketPage, setMarketPage] = useState(1);
   const ROWS_PER_PAGE = 10;
-  const { data: binancePrice } = useXRPPrice();
+  const { data: tvPrice } = useXRPPrice();
   const candlesWidgetRef = useRef<unknown>(null);
   const lineWidgetRef = useRef<unknown>(null);
 
@@ -219,7 +219,7 @@ export default function LiveChartContent() {
     try {
       return new window.TradingView.widget({
         container_id: containerId,
-        symbol: 'BINANCE:XRPUSDT',
+        symbol: 'BITSTAMP:XRPUSD',
         theme: 'dark',
         style,
         locale: 'en',
@@ -268,10 +268,10 @@ export default function LiveChartContent() {
   }, [showLine, lineTimeframe, createTvWidget]);
 
   const md = coin?.market_data;
-  const currentPrice = binancePrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
-  const change24h = binancePrice?.change24h ?? price?.usd_24h_change ?? md?.price_change_percentage_24h ?? 0;
-  const high24hBinance = binancePrice?.high24h;
-  const low24hBinance = binancePrice?.low24h;
+  const currentPrice = tvPrice?.price ?? price?.usd ?? md?.current_price?.usd ?? 0;
+  const change24h = tvPrice?.change24h ?? price?.usd_24h_change ?? md?.price_change_percentage_24h ?? 0;
+  const high24hTV = tvPrice?.high24h;
+  const low24hTV = tvPrice?.low24h;
 
   // Converter calculation
   const converterResult = converterDir === 'xrp-usd'
@@ -279,8 +279,8 @@ export default function LiveChartContent() {
     : currentPrice > 0 ? (parseFloat(converterXrp) || 0) / currentPrice : 0;
 
   // 24h price bar position
-  const low24h = (low24hBinance && low24hBinance > 0) ? low24hBinance : (md?.low_24h?.usd ?? 0);
-  const high24h = (high24hBinance && high24hBinance > 0) ? high24hBinance : (md?.high_24h?.usd ?? 0);
+  const low24h = (low24hTV && low24hTV > 0) ? low24hTV : (md?.low_24h?.usd ?? 0);
+  const high24h = (high24hTV && high24hTV > 0) ? high24hTV : (md?.high_24h?.usd ?? 0);
   const priceBarPos = high24h > low24h ? ((currentPrice - low24h) / (high24h - low24h)) * 100 : 50;
 
   // Total ticker volume for % calc
@@ -754,7 +754,7 @@ function TradingViewTicker() {
     script.async = true;
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
-      symbol: 'BINANCE:XRPUSDT',
+      symbol: 'BITSTAMP:XRPUSD',
       width: '100%',
       isTransparent: true,
       colorTheme: 'dark',

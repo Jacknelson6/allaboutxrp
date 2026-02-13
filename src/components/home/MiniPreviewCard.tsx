@@ -5,6 +5,8 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Suspense, useEffect, useRef } from 'react';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
+import { useXRPPrice } from '@/hooks/useXRPPrice';
+import { TrendingUp, TrendingDown } from 'lucide-react';
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ssr: false,
@@ -17,6 +19,7 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
 
 export default function MiniPreviewCard() {
   const { arcs, removeArc } = useXRPLStream();
+  const { data: priceData } = useXRPPrice();
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export default function MiniPreviewCard() {
     script.async = true;
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
-      symbol: 'BINANCE:XRPUSDT',
+      symbol: 'BITSTAMP:XRPUSD',
       width: '100%',
       height: '100%',
       locale: 'en',
@@ -71,6 +74,23 @@ export default function MiniPreviewCard() {
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
           </div>
         </div>
+        {priceData && (
+          <div className="relative z-10 px-5 pb-1.5">
+            <span
+              className={`inline-flex items-center gap-1 text-xs font-medium ${
+                priceData.change24h >= 0 ? 'text-emerald-400' : 'text-red-400'
+              }`}
+            >
+              {priceData.change24h >= 0 ? (
+                <TrendingUp className="h-3.5 w-3.5" />
+              ) : (
+                <TrendingDown className="h-3.5 w-3.5" />
+              )}
+              {priceData.change24h >= 0 ? '+' : ''}
+              {priceData.change24h.toFixed(2)}% (24h)
+            </span>
+          </div>
+        )}
         <div className="relative z-10 px-5 pb-3">
           <span className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 group-hover/chart:text-[#0085FF] group-hover/chart:gap-2.5 transition-all">
             View Charts <ArrowRight className="h-3 w-3" />
