@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import ContinueLearning from "@/components/shared/ContinueLearning";
 
 function formatUSD(n: number): string {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -219,6 +220,13 @@ export default function XRPProfitCalculator() {
               </Link>
             ))}
           </div>
+
+          <ContinueLearning links={[
+            { href: "/learn/what-is-xrp", title: "What is XRP?", description: "Understand the fundamentals of XRP and why it was created for fast, low-cost payments." },
+            { href: "/learn/how-to-buy-xrp", title: "How to Buy XRP", description: "Step-by-step guide to purchasing XRP on the top exchanges available today." },
+            { href: "/learn/xrp-price-history", title: "XRP Price History", description: "Explore XRP's price journey from launch to today, including key milestones and market cycles." },
+            { href: "/learn/xrp-tokenomics", title: "XRP Tokenomics", description: "Learn about XRP's total supply, circulating supply, escrow schedule, and deflationary mechanics." },
+          ]} />
         </div>
       </main>
     </>

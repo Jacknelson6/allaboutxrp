@@ -6,6 +6,7 @@ import TierChart from "@/components/richlist/TierChart";
 import TierCalculator from "@/components/richlist/TierCalculator";
 import TierFAQ from "@/components/richlist/TierFAQ";
 import SEOSchema from "@/components/shared/SEOSchema";
+import ContinueLearning from "@/components/shared/ContinueLearning";
 import { formatNumber, formatCompact, shortenAddress } from "@/lib/utils/format";
 import { Copy, Check, TrendingUp, TrendingDown, Activity, Users, DollarSign, Waves } from "lucide-react";
 
@@ -408,6 +409,13 @@ export default function HoldersPage() {
         </div>
 
         <TierFAQ />
+
+        <ContinueLearning links={[
+          { href: "/learn/xrp-tokenomics", title: "XRP Tokenomics", description: "Learn about XRP's total supply, circulating supply, escrow schedule, and deflationary mechanics." },
+          { href: "/learn/escrow", title: "Ripple's XRP Escrow", description: "Understand how Ripple's monthly escrow releases work and their impact on XRP supply." },
+          { href: "/learn/what-is-ripple", title: "What is Ripple?", description: "Explore the company behind XRP, its history, products, and role in the crypto ecosystem." },
+          { href: "/learn/xrp-wallets", title: "XRP Wallets", description: "Find the best wallets for storing your XRP securely, from hardware to software options." },
+        ]} />
       </div>
     </>
   );

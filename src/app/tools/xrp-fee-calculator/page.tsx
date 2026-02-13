@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import ContinueLearning from "@/components/shared/ContinueLearning";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 
 const XRP_FEE_PER_TX = 0.00001; // 10 drops
@@ -273,6 +274,13 @@ export default function XRPFeeCalculator() {
               </Link>
             ))}
           </div>
+
+          <ContinueLearning links={[
+            { href: "/learn/xrp-ledger-explained", title: "XRP Ledger Explained", description: "Dive into how the XRP Ledger works, its consensus mechanism, and what makes it unique." },
+            { href: "/learn/what-is-xrp", title: "What is XRP?", description: "Understand the fundamentals of XRP and why it was created for fast, low-cost payments." },
+            { href: "/learn/xrp-use-cases", title: "XRP Use Cases", description: "Discover real-world applications of XRP from cross-border payments to DeFi and beyond." },
+            { href: "/learn/on-demand-liquidity", title: "On-Demand Liquidity", description: "Learn how Ripple's ODL service uses XRP to enable instant global money transfers." },
+          ]} />
         </div>
       </main>
     </>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3 } from "lucide-react";
+import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3, ArrowUp } from "lucide-react";
 import Link from "next/link";
 import tweetsData from "@/data/demo-tweets.json";
 
@@ -288,8 +288,15 @@ export default function XFeed() {
       )}
 
       {(!isMobile || mobileExpanded) && visibleCount >= allTweets.length && (
-        <div className="py-6 text-center text-text-secondary text-[13px]">
-          You&apos;re all caught up.
+        <div className="py-6 flex flex-col items-center gap-3">
+          <span className="text-text-secondary text-[13px]">You&apos;re all caught up.</span>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-1.5 text-[13px] font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
+          >
+            <ArrowUp className="h-3.5 w-3.5" />
+            Back to top
+          </button>
         </div>
       )}
     </div>
