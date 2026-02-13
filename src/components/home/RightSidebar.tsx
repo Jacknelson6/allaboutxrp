@@ -191,21 +191,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
         </div>
       </div>
 
-      {/* 6. Chrome Extension CTA */}
-      <Link href="/extension" className="mt-4 block rounded-2xl border border-[#0085FF]/20 bg-[#16181C] p-4 hover:border-[#0085FF]/40 transition-all group">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="h-8 w-8 rounded-lg bg-[#0085FF]/10 flex items-center justify-center">
-            <Chrome className="h-4 w-4 text-[#0085FF]" />
-          </div>
-          <h3 className="text-[15px] font-bold text-text-primary">Chrome Extension</h3>
-        </div>
-        <p className="text-[13px] text-text-secondary leading-relaxed mb-3">
-          Live XRP price, charts, and XRPL transactions right in your browser.
-        </p>
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#0085FF] group-hover:gap-2.5 transition-all">
-          Learn More <ArrowRight className="h-3.5 w-3.5" />
-        </span>
-      </Link>
+      {/* Chrome Extension CTA removed */}
 
       {/* 7. Footer links */}
       <div className="mt-4 px-4 pb-4 text-[12px] text-text-secondary/50 leading-relaxed">
