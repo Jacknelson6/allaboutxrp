@@ -7,7 +7,8 @@ const footerSections = [
       { href: "/", label: "Home" },
       { href: "/live-chart", label: "Live Chart" },
       { href: "/learn", label: "Learn" },
-      { href: "/how-to-start", label: "How to Invest in XRP" },
+      { href: "/tools", label: "Tools" },
+      { href: "/learn/get-started", label: "How to Invest in XRP" },
       { href: "/donate", label: "Donate" },
     ],
   },
@@ -16,13 +17,20 @@ const footerSections = [
     links: [
       { href: "/learn/what-is-xrp", label: "What is XRP?" },
       { href: "/learn/what-is-ripple", label: "What is Ripple?" },
+      { href: "/learn/rlusd", label: "RLUSD" },
       { href: "/learn/history", label: "History" },
+      { href: "/learn/leadership", label: "Leadership" },
       { href: "/learn/partnerships", label: "Partnerships" },
-      { href: "/learn/acquisitions", label: "Acquisitions" },
-      { href: "/learn/key-people", label: "Key People" },
-      { href: "/learn/trusted-sources", label: "Trusted Sources" },
       { href: "/learn/escrow", label: "Escrow" },
       { href: "/learn/faq", label: "FAQ" },
+    ],
+  },
+  {
+    title: "Tools",
+    links: [
+      { href: "/tools/xrp-profit-calculator", label: "Profit Calculator" },
+      { href: "/tools/xrp-fee-calculator", label: "Fee Calculator" },
+      { href: "/holders", label: "Rich List" },
     ],
   },
 ];
