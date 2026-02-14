@@ -41,6 +41,35 @@ function timeAgo(ts: string): string {
   return `${days}d`;
 }
 
+function TweetMedia({ src }: { src: string }) {
+  const [ratio, setRatio] = useState<number | null>(null);
+
+  return (
+    <div className="mt-3 overflow-hidden rounded-xl border border-white/[0.06]">
+      <div
+        className="relative w-full"
+        style={ratio ? { aspectRatio: `${ratio}` } : { aspectRatio: "16/9" }}
+      >
+        <Image
+          src={src}
+          alt="Tweet media"
+          fill
+          className="object-cover"
+          unoptimized
+          onLoad={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.naturalWidth && img.naturalHeight) {
+              const r = img.naturalWidth / img.naturalHeight;
+              // Clamp to reasonable bounds: no wider than 2:1, no taller than 3:4
+              setRatio(Math.max(0.75, Math.min(2, r)));
+            }
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function TweetCard({ tweet }: { tweet: Tweet }) {
   const [liked, setLiked] = useState(false);
   const [retweeted, setRetweeted] = useState(false);
@@ -88,11 +117,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           </div>
 
           {tweet.media && (
-            <div className="mt-3 overflow-hidden rounded-xl border border-white/[0.06]">
-              <div className="relative aspect-video">
-                <Image src={tweet.media} alt="Tweet media" fill className="object-cover" unoptimized />
-              </div>
-            </div>
+            <TweetMedia src={tweet.media} />
           )}
 
           <div className="mt-2 flex items-center justify-between max-w-[425px]">
