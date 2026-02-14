@@ -132,13 +132,30 @@ Deno.serve(async (_req) => {
       return false;
     };
 
+    // XRP relevance check - must mention XRP/Ripple/XRPL/RLUSD/crypto-related terms
+    const isXRPRelevant = (text: string): boolean => {
+      const lower = text.toLowerCase();
+      const terms = ["xrp", "ripple", "xrpl", "rlusd", "crypto", "blockchain", "token", "coin", "defi", "stablecoin", "sec", "etf", "exchange", "trading", "market", "price", "ledger", "wallet", "regulation"];
+      return terms.some(t => lower.includes(t));
+    };
+
     const filtered = tweets.filter(t => {
       if (t.text.startsWith("RT @")) return false;
       if (isEngagementBait(t.text)) return false;
+      if (!isXRPRelevant(t.text)) return false;
       return true;
     });
 
-    const rows = filtered.map((tweet) => {
+    // Deduplicate by similar content (normalize text, check first 60 chars)
+    const seen = new Set<string>();
+    const deduped = filtered.filter(t => {
+      const normalized = t.text.replace(/https?:\/\/\S+/g, "").replace(/[^a-zA-Z0-9\s]/g, "").toLowerCase().trim().substring(0, 60);
+      if (seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+
+    const rows = deduped.map((tweet) => {
       const author = userMap.get(tweet.author_id);
       const mediaKeys = tweet.attachments?.media_keys || [];
       let mediaUrl: string | null = null;
@@ -180,7 +197,7 @@ Deno.serve(async (_req) => {
       JSON.stringify({
         message: "Tweets fetched and stored",
         upserted: rows.length,
-        filtered: tweets.length - filtered.length,
+        filtered: tweets.length - deduped.length,
         authors: [...new Set(rows.map((r) => r.author_username))],
       }),
       { headers: { "Content-Type": "application/json" } }

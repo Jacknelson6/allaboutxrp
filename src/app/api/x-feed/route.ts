@@ -48,8 +48,17 @@ export async function GET() {
       return true;
     });
 
+    // Deduplicate by similar content
+    const seen = new Set<string>();
+    const deduped = filtered.filter((t) => {
+      const normalized = t.text.replace(/https?:\/\/\S+/g, "").replace(/[^a-zA-Z0-9\s]/g, "").toLowerCase().trim().substring(0, 60);
+      if (seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+
     // Transform to match the XFeed component's expected format
-    const formatted = filtered.map((t) => ({
+    const formatted = deduped.map((t) => ({
       id: t.id,
       displayName: t.author_name,
       handle: t.author_username,
