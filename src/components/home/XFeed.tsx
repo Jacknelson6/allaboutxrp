@@ -298,11 +298,35 @@ export default function XFeed() {
   const { tweets: allTweets, loading } = useLiveTweets();
   const newsItems = useNews();
 
-  // Merge tweets and news into one chronological timeline
-  const timeline: TimelineItem[] = [
+  // Merge tweets and news into one chronological timeline, then reorder
+  // so no more than 2 of the same type appear consecutively
+  const rawTimeline: TimelineItem[] = [
     ...allTweets.map((t) => ({ type: "tweet" as const, data: t, sortDate: new Date(t.timestamp).getTime() })),
     ...newsItems.map((n) => ({ type: "news" as const, data: n, sortDate: new Date(n.published_at).getTime() })),
   ].sort((a, b) => b.sortDate - a.sortDate);
+
+  // Reorder: max 2 consecutive of same type, pull the next different-type item forward
+  const timeline: TimelineItem[] = [];
+  const remaining = [...rawTimeline];
+  while (remaining.length > 0) {
+    // Count consecutive same-type at end of timeline
+    let streak = 0;
+    if (timeline.length > 0) {
+      const lastType = timeline[timeline.length - 1].type;
+      for (let i = timeline.length - 1; i >= 0 && timeline[i].type === lastType; i--) streak++;
+    }
+
+    if (streak >= 2 && timeline.length > 0) {
+      const lastType = timeline[timeline.length - 1].type;
+      const diffIdx = remaining.findIndex((r) => r.type !== lastType);
+      if (diffIdx !== -1) {
+        timeline.push(remaining.splice(diffIdx, 1)[0]);
+        continue;
+      }
+    }
+    // Default: take the next chronological item
+    timeline.push(remaining.shift()!);
+  }
 
   const mobileLimit = mobileExpanded ? visibleCount : 5;
   const effectiveCount = isMobile ? mobileLimit : visibleCount;

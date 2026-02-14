@@ -5,6 +5,51 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const OPENROUTER_API_KEY = Deno.env.get("OPENROUTER_API_KEY") || "";
 
+// Returns true only for major, material news — filters out op-eds, price speculation, clickbait
+async function isSignificantNews(title: string, source: string): Promise<boolean> {
+  if (!OPENROUTER_API_KEY) return true; // If no key, let everything through as fallback
+
+  try {
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://allaboutxrp.com",
+        "X-Title": "AllAboutXRP News Filter",
+      },
+      body: JSON.stringify({
+        model: "minimax/minimax-m2.5",
+        max_tokens: 10,
+        temperature: 0,
+        messages: [
+          {
+            role: "system",
+            content: `You are a news editor for a professional XRP investor site. Reply ONLY "yes" or "no".
+
+Accept ONLY: regulatory rulings, SEC/legal developments, major partnerships (Fortune 500, banks, payment networks), exchange listings/delistings, XRPL protocol upgrades, ETF decisions, central bank or government actions involving XRP/Ripple, major acquisitions.
+
+Reject: price predictions, technical analysis, "could XRP reach $X?", op-eds, speculation, clickbait, listicles, "signals hold the key", "setting up for breakout", daily price roundups, YouTuber/analyst opinions, "what you need to know" style aggregation.
+
+When in doubt, reject.`,
+          },
+          {
+            role: "user",
+            content: `"${title}" — ${source}`,
+          },
+        ],
+      }),
+    });
+
+    if (!res.ok) return true; // On error, let it through
+    const data = await res.json();
+    const answer = (data.choices?.[0]?.message?.content || "").trim().toLowerCase();
+    return answer.startsWith("yes");
+  } catch {
+    return true;
+  }
+}
+
 async function generateTakeaway(title: string, source: string): Promise<string> {
   if (!OPENROUTER_API_KEY) return "";
 
@@ -105,8 +150,22 @@ Deno.serve(async (_req) => {
         })
     );
 
-    // Generate takeaways only for new articles (batch up to 10 at a time to stay fast)
-    const needsSummary = parsed.filter((p) => !existingIds.has(p.id)).slice(0, 10);
+    // Filter: only keep significant news (skip articles already in DB)
+    const newArticles = parsed.filter((p) => !existingIds.has(p.id));
+    const significanceResults = await Promise.all(
+      newArticles.map(async (item) => ({
+        id: item.id,
+        significant: await isSignificantNews(item.title, item.source),
+      }))
+    );
+    const rejectedIds = new Set(
+      significanceResults.filter((r) => !r.significant).map((r) => r.id)
+    );
+    const accepted = parsed.filter((p) => existingIds.has(p.id) || !rejectedIds.has(p.id));
+    console.log(`Filtered: ${rejectedIds.size} rejected, ${accepted.length} kept`);
+
+    // Generate takeaways only for new accepted articles
+    const needsSummary = accepted.filter((p) => !existingIds.has(p.id)).slice(0, 10);
     const summaryMap = new Map<string, string>();
 
     // Run takeaway generation in parallel (max 5 concurrent)
@@ -126,8 +185,8 @@ Deno.serve(async (_req) => {
       }
     }
 
-    // Build rows with summaries
-    const rows = parsed.map((item) => ({
+    // Build rows with summaries (only accepted articles)
+    const rows = accepted.map((item) => ({
       ...item,
       summary: summaryMap.get(item.id) || null,
     }));
@@ -153,6 +212,7 @@ Deno.serve(async (_req) => {
       JSON.stringify({
         message: "News fetched and stored",
         upserted: rows.length,
+        filtered: rejectedIds.size,
         summariesGenerated: summaryMap.size,
         sources: [...new Set(rows.map((r) => r.source))],
       }),
