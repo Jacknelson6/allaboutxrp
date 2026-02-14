@@ -28,6 +28,7 @@ interface TwitterTweet {
   created_at: string;
   author_id: string;
   attachments?: { media_keys?: string[] };
+  note_tweet?: { text: string };
   public_metrics?: {
     like_count: number;
     retweet_count: number;
@@ -47,7 +48,7 @@ Deno.serve(async (_req) => {
     const searchUrl = new URL("https://api.twitter.com/2/tweets/search/recent");
     searchUrl.searchParams.set("query", TWITTER_SEARCH_QUERY);
     searchUrl.searchParams.set("max_results", "20");
-    searchUrl.searchParams.set("tweet.fields", "created_at,public_metrics,author_id,attachments");
+    searchUrl.searchParams.set("tweet.fields", "created_at,public_metrics,author_id,attachments,note_tweet");
     searchUrl.searchParams.set("user.fields", "name,username,profile_image_url");
     searchUrl.searchParams.set("media.fields", "url,preview_image_url,type");
     searchUrl.searchParams.set("expansions", "author_id,attachments.media_keys");
@@ -144,8 +145,9 @@ Deno.serve(async (_req) => {
     };
 
     const filtered = tweets.filter(t => {
-      if (t.text.startsWith("RT @")) return false;
-      if (isEngagementBait(t.text)) return false;
+      const fullText = t.note_tweet?.text || t.text;
+      if (fullText.startsWith("RT @")) return false;
+      if (isEngagementBait(fullText)) return false;
       if (!isXRPRelevant(t.text)) return false;
       return true;
     });
@@ -175,7 +177,7 @@ Deno.serve(async (_req) => {
         author_username: author?.username || "unknown",
         author_name: author?.name || "Unknown",
         author_avatar: author?.profile_image_url?.replace("_normal", "_bigger") || "",
-        text: tweet.text,
+        text: tweet.note_tweet?.text || tweet.text,
         created_at: tweet.created_at,
         likes: tweet.public_metrics?.like_count || 0,
         retweets: tweet.public_metrics?.retweet_count || 0,
