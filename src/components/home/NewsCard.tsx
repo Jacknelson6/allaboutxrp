@@ -45,10 +45,13 @@ export default function NewsCardComponent({ item }: { item: NewsItem }) {
             <p className="mt-1 text-[15px] font-semibold text-text-primary leading-snug">
               {item.title}
             </p>
-            {item.summary && item.summary !== item.title && (
-              <p className="mt-1 text-[13px] text-text-secondary leading-snug line-clamp-2">
-                {item.summary}
-              </p>
+            {item.summary && (
+              <div className="mt-2">
+                <span className="text-[11px] font-bold uppercase tracking-wide text-xrp-accent/70">What you need to know</span>
+                <p className="mt-0.5 text-[13px] text-text-secondary leading-snug">
+                  {item.summary}
+                </p>
+              </div>
             )}
             <div className="mt-1.5 flex items-center gap-3">
               <span className="text-text-secondary text-[12px]">Read full article</span>
