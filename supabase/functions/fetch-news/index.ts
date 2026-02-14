@@ -18,13 +18,13 @@ async function generateTakeaway(title: string, source: string): Promise<string> 
         "X-Title": "AllAboutXRP News",
       },
       body: JSON.stringify({
-        model: "minimax/minimax-m1",
-        max_tokens: 120,
+        model: "minimax/minimax-m2.5",
+        max_tokens: 150,
         messages: [
           {
             role: "system",
             content:
-              "You write ultra-concise XRP investment takeaways. Given a news headline, write 1-2 sentences about what XRP holders/investors need to know and how it could impact XRP price or adoption. Be direct, no fluff. No disclaimers. No emoji. Write like a sharp analyst briefing a trader.",
+              "Write exactly 1-2 short sentences about how this news impacts XRP investors. Focus on price action, adoption, or regulatory implications. No fluff, no disclaimers, no emoji, no preamble. Write like a Bloomberg terminal alert.",
           },
           {
             role: "user",
