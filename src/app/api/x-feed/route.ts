@@ -32,11 +32,19 @@ export async function GET() {
       );
     }
 
-    // Filter out retweets and tweets that are just links
+    // Filter out retweets, link-only tweets, and engagement bait
     const filtered = tweets.filter((t) => {
       if (t.text.startsWith("RT @")) return false;
       const stripped = t.text.replace(/https?:\/\/\S+/g, "").trim();
-      if (stripped.length < 10) return false; // skip tweets that are basically just a link/emoji
+      if (stripped.length < 30) return false;
+      // Engagement bait
+      if (/^(who|what do you|do you|are you|will|would|should).{0,30}\?$/i.test(stripped)) return false;
+      if (/who('s| is) (still )?(holding|buying|bullish|ready)/i.test(stripped)) return false;
+      if (/(like if|rt if|retweet if|drop a .{0,10} if|comment .{0,10} below|tag (a |your ))/i.test(stripped)) return false;
+      if (/^(gm|gn|lfg|wagmi|ngmi|iykyk)[\s!.]*$/i.test(stripped)) return false;
+      if (/(to the moon|wen (moon|lambo)|last chance to|don'?t sleep on|you('re| are) not ready|imagine not)/i.test(stripped)) return false;
+      // Short questions
+      if (/\?\s*$/.test(stripped) && stripped.length < 80 && stripped.split(/[.!?]/).filter((s: string) => s.trim().length > 0).length <= 1) return false;
       return true;
     });
 

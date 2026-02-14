@@ -81,7 +81,64 @@ Deno.serve(async (_req) => {
     const mediaMap = new Map<string, TwitterMedia>();
     for (const m of media) mediaMap.set(m.media_key, m);
 
-    const rows = tweets.map((tweet) => {
+    // Filter out engagement bait and shitposts
+    const isEngagementBait = (text: string): boolean => {
+      const clean = text.replace(/https?:\/\/\S+/g, "").trim();
+      
+      // Too short to be real news
+      if (clean.length < 30) return true;
+      
+      // Engagement bait patterns
+      const baitPatterns = [
+        /^(who|what do you|do you|are you|will|would|should|can|how many).{0,30}\?$/i,  // Simple questions
+        /who('s| is) (still |)?(holding|buying|bullish|ready)/i,
+        /like if you/i,
+        /rt if/i,
+        /retweet if/i,
+        /drop a .{0,10} if/i,
+        /comment .{0,10} below/i,
+        /tag (a |your )/i,
+        /who else/i,
+        /am i the only/i,
+        /unpopular opinion/i,
+        /hot take/i,
+        /let that sink in/i,
+        /this is (huge|massive|insane|wild|crazy)\.?$/i,
+        /^(gm|gn|lfg|wagmi|ngmi|iykyk)[\s!.]*$/i,
+        /not financial advice/i,
+        /to the moon/i,
+        /wen (moon|lambo|pump)/i,
+        /trust me/i,
+        /you('re| are) not ready/i,
+        /imagine not (buying|holding|owning)/i,
+        /still early/i,
+        /last chance to/i,
+        /don'?t sleep on/i,
+      ];
+      if (baitPatterns.some(p => p.test(clean))) return true;
+      
+      // Excessive emojis (more than 30% of content is emoji)
+      const emojiCount = (clean.match(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu) || []).length;
+      if (emojiCount > 5 && emojiCount / clean.length > 0.15) return true;
+
+      // ALL CAPS hype (more than 60% uppercase, excluding tickers)
+      const noTickers = clean.replace(/\$[A-Z]+/g, "").replace(/#[A-Z]+/g, "");
+      const letters = noTickers.replace(/[^a-zA-Z]/g, "");
+      if (letters.length > 20 && letters.replace(/[^A-Z]/g, "").length / letters.length > 0.6) return true;
+      
+      // Ends with just a question and nothing substantial before it
+      if (/\?\s*$/.test(clean) && clean.split(/[.!?]/).filter(s => s.trim().length > 0).length <= 1 && clean.length < 80) return true;
+
+      return false;
+    };
+
+    const filtered = tweets.filter(t => {
+      if (t.text.startsWith("RT @")) return false;
+      if (isEngagementBait(t.text)) return false;
+      return true;
+    });
+
+    const rows = filtered.map((tweet) => {
       const author = userMap.get(tweet.author_id);
       const mediaKeys = tweet.attachments?.media_keys || [];
       let mediaUrl: string | null = null;
@@ -123,6 +180,7 @@ Deno.serve(async (_req) => {
       JSON.stringify({
         message: "Tweets fetched and stored",
         upserted: rows.length,
+        filtered: tweets.length - filtered.length,
         authors: [...new Set(rows.map((r) => r.author_username))],
       }),
       { headers: { "Content-Type": "application/json" } }
