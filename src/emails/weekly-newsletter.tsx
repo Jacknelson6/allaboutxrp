@@ -73,7 +73,7 @@ export default function WeeklyNewsletter({
     <Html>
       <Head />
       <Preview>{subtitle || title}</Preview>
-      <Body style={{ backgroundColor: bgColor, fontFamily: fontStack, margin: "0", padding: "0", WebkitTextSizeAdjust: "100%", msTextSizeAdjust: "100%" }}>
+      <Body style={{ backgroundColor: bgColor, fontFamily: fontStack, margin: "0", padding: "0", WebkitTextSizeAdjust: "100%", textSizeAdjust: "100%" }}>
         {/* Outer wrapper table for full-width bg */}
         <table role="presentation" width="100%" cellPadding="0" cellSpacing="0" style={{ backgroundColor: bgColor }}>
           <tr>
