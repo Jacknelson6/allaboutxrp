@@ -44,7 +44,10 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   const [liked, setLiked] = useState(false);
   const [retweeted, setRetweeted] = useState(false);
 
+  const tweetUrl = tweet.url || `https://x.com/${tweet.handle}/status/${tweet.id}`;
+
   return (
+    <a href={tweetUrl} target="_blank" rel="noopener noreferrer" className="block">
     <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer overflow-hidden">
       <div className="flex gap-3 min-w-0">
         <div className="shrink-0">
@@ -74,7 +77,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           </div>
 
           <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
-            {tweet.text.split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
+            {tweet.text.replace(/https?:\/\/t\.co\/\S+/g, "").trim().split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
               /^[\$#@]/.test(part) ? (
                 <span key={i} className="text-xrp-accent">{part}</span>
               ) : (
@@ -133,6 +136,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
         </div>
       </div>
     </article>
+    </a>
   );
 }
 
