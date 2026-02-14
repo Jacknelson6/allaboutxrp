@@ -107,13 +107,47 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           </div>
 
           <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
-            {tweet.text.replace(/https?:\/\/\S+/g, "").trim().split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
-              /^[\$#@]/.test(part) ? (
-                <span key={i} className="text-xrp-accent">{part}</span>
-              ) : (
-                part
-              )
-            )}
+            {tweet.text.split(/(https?:\/\/\S+)/g).map((segment, si) => {
+              // If it's a URL, render as clickable link
+              if (/^https?:\/\//.test(segment)) {
+                // Skip t.co links that are just the tweet's own link
+                if (segment.includes("t.co/")) {
+                  const display = segment.replace(/^https?:\/\//, "").substring(0, 30);
+                  return (
+                    <a
+                      key={si}
+                      href={segment}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xrp-accent hover:underline"
+                    >
+                      {display}
+                    </a>
+                  );
+                }
+                return (
+                  <a
+                    key={si}
+                    href={segment}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-xrp-accent hover:underline"
+                  >
+                    {segment.replace(/^https?:\/\//, "").substring(0, 40)}
+                  </a>
+                );
+              }
+              // Text segment: highlight tickers, hashtags, mentions
+              return segment.split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, pi) =>
+                /^[\$#@]/.test(part) ? (
+                  <span key={`${si}-${pi}`} className="text-xrp-accent">{part}</span>
+                ) : (
+                  <span key={`${si}-${pi}`}>{part}</span>
+                )
+              );
+            })}
           </div>
 
           {tweet.media && (
