@@ -4,8 +4,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3, ArrowUp } from "lucide-react";
 import Link from "next/link";
-import tweetsData from "@/data/demo-tweets.json";
-
 interface Tweet {
   id: string;
   displayName: string;
@@ -21,9 +19,10 @@ interface Tweet {
   media?: string | null;
   quoteTweet?: null;
   trending?: boolean;
+  url?: string;
 }
 
-const fallbackTweets = tweetsData as Tweet[];
+const fallbackTweets: Tweet[] = [];
 
 function formatCount(n: number): string {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
