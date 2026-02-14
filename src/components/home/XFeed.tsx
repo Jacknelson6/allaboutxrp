@@ -77,7 +77,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
           </div>
 
           <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
-            {tweet.text.replace(/https?:\/\/t\.co\/\S+/g, "").trim().split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
+            {tweet.text.replace(/https?:\/\/\S+/g, "").trim().split(/(\$XRP|\$[A-Z]+|#\w+|@\w+)/g).map((part, i) =>
               /^[\$#@]/.test(part) ? (
                 <span key={i} className="text-xrp-accent">{part}</span>
               ) : (

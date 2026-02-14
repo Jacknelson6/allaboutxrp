@@ -31,8 +31,16 @@ export async function GET() {
       );
     }
 
+    // Filter out retweets and tweets that are just links
+    const filtered = tweets.filter((t) => {
+      if (t.text.startsWith("RT @")) return false;
+      const stripped = t.text.replace(/https?:\/\/\S+/g, "").trim();
+      if (stripped.length < 10) return false; // skip tweets that are basically just a link/emoji
+      return true;
+    });
+
     // Transform to match the XFeed component's expected format
-    const formatted = tweets.map((t) => ({
+    const formatted = filtered.map((t) => ({
       id: t.id,
       displayName: t.author_name,
       handle: t.author_username,
