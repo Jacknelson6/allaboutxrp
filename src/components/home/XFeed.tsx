@@ -176,30 +176,51 @@ function NewsCard() {
 function useLiveTweets() {
   const [tweets, setTweets] = useState<Tweet[]>(fallbackTweets);
   const [isLive, setIsLive] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchTweets = useCallback(async () => {
     try {
-      const res = await fetch("/api/x-feed", { cache: "no-store" });
+      const res = await fetch("/api/x-feed");
       if (!res.ok) throw new Error(`API ${res.status}`);
       const data = await res.json();
       if (data.tweets && data.tweets.length > 0) {
         setTweets(data.tweets);
         setIsLive(true);
+        // Cache in localStorage for instant loads
+        try {
+          localStorage.setItem("xrp-tweets-cache", JSON.stringify(data.tweets));
+          localStorage.setItem("xrp-tweets-cache-ts", String(Date.now()));
+        } catch {}
       }
-      // If API returns empty tweets (no creators configured), keep fallback
     } catch {
-      // Keep fallback/current tweets on error
-      console.warn("X feed API unavailable, using fallback data");
+      console.warn("X feed API unavailable, using cached data");
+    } finally {
+      setLoading(false);
     }
   }, []);
 
   useEffect(() => {
+    // Load from cache immediately
+    try {
+      const cached = localStorage.getItem("xrp-tweets-cache");
+      const cacheTs = localStorage.getItem("xrp-tweets-cache-ts");
+      if (cached && cacheTs) {
+        const age = Date.now() - Number(cacheTs);
+        // Use cache if less than 1 hour old
+        if (age < 3600_000) {
+          setTweets(JSON.parse(cached));
+          setIsLive(true);
+          setLoading(false);
+        }
+      }
+    } catch {}
+    // Then fetch fresh data
     fetchTweets();
     const interval = setInterval(fetchTweets, 300_000);
     return () => clearInterval(interval);
   }, [fetchTweets]);
 
-  return { tweets, isLive };
+  return { tweets, isLive, loading };
 }
 
 function useNews() {
@@ -242,7 +263,7 @@ export default function XFeed() {
   const [mobileExpanded, setMobileExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<"tweets" | "news">("tweets");
   const loaderRef = useRef<HTMLDivElement>(null);
-  const { tweets: allTweets } = useLiveTweets();
+  const { tweets: allTweets, loading } = useLiveTweets();
   const newsItems = useNews();
 
   const sortedTweets = [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
@@ -308,6 +329,20 @@ export default function XFeed() {
 
       {/* Timeline */}
       <div>
+        {loading && allTweets.length === 0 && activeTab === "tweets" && (
+          Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="border-b border-[#2F3336] px-4 py-3.5 animate-pulse">
+              <div className="flex gap-3">
+                <div className="h-10 w-10 rounded-full bg-white/[0.06]" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-4 w-32 rounded bg-white/[0.06]" />
+                  <div className="h-4 w-full rounded bg-white/[0.06]" />
+                  <div className="h-4 w-3/4 rounded bg-white/[0.06]" />
+                </div>
+              </div>
+            </div>
+          ))
+        )}
         {activeTab === "tweets" && visibleTweets.map((tweet, index) => (
           <div key={tweet.id}>
             <TweetCard tweet={tweet} />
