@@ -210,20 +210,13 @@ function useIsMobile() {
 }
 
 export default function XFeed() {
-  const [activeTab, setActiveTab] = useState<"trending" | "recent">("trending");
   const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(8);
   const [mobileExpanded, setMobileExpanded] = useState(false);
   const loaderRef = useRef<HTMLDivElement>(null);
   const { tweets: allTweets } = useLiveTweets();
 
-  const sortedTweets =
-    activeTab === "trending"
-      ? [...allTweets].sort((a, b) => {
-          if (a.trending !== b.trending) return a.trending ? -1 : 1;
-          return b.likes + b.retweets - (a.likes + a.retweets);
-        })
-      : [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+  const sortedTweets = [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
   const mobileLimit = mobileExpanded ? visibleCount : 3;
   const effectiveCount = isMobile ? mobileLimit : visibleCount;
@@ -246,11 +239,6 @@ export default function XFeed() {
     return () => obs.disconnect();
   }, [loadMore]);
 
-  useEffect(() => {
-    setVisibleCount(8);
-    setMobileExpanded(false);
-  }, [activeTab]);
-
   return (
     <div>
       {/* Header */}
@@ -263,7 +251,7 @@ export default function XFeed() {
       {/* Timeline */}
       <div>
         {visibleTweets.map((tweet, index) => (
-          <div key={`${activeTab}-${tweet.id}`}>
+          <div key={tweet.id}>
             <TweetCard tweet={tweet} />
             {index === 2 && <NewsCard />}
           </div>
