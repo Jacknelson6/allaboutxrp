@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3, ArrowUp } from "lucide-react";
-import Link from "next/link";
+// Link removed — no longer needed
 import NewsCardComponent, { type NewsItem } from "./NewsCard";
 interface Tweet {
   id: string;
@@ -166,37 +166,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   );
 }
 
-function NewsCard() {
-  return (
-    <Link href="/news/recaps/2026-02-10">
-      <article className="border-b border-[#2F3336] px-4 py-3.5 hover:bg-white/[0.015] transition-colors duration-200 cursor-pointer">
-        <div className="flex gap-3">
-          <div className="shrink-0">
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-xrp-accent/10">
-              <BarChart3 className="h-5 w-5 text-xrp-accent" />
-            </div>
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-xrp-accent/15 text-xrp-accent uppercase tracking-wide">
-                News
-              </span>
-              <span className="text-text-secondary text-[13px]">Daily Recap</span>
-              <span className="text-white/20 text-[13px]">·</span>
-              <span className="text-text-secondary text-[13px]">Feb 10, 2026</span>
-            </div>
-            <p className="mt-1 text-[15px] font-bold text-text-primary leading-tight">
-              XRP Daily Recap — February 10, 2026
-            </p>
-            <p className="mt-1 text-[14px] text-text-secondary leading-snug">
-              Today&apos;s biggest moves, market analysis, and ecosystem updates. Catch up on everything you missed.
-            </p>
-          </div>
-        </div>
-      </article>
-    </Link>
-  );
-}
+// Static NewsCard removed — news now rendered inline via NewsCardComponent
 
 function useLiveTweets() {
   const [tweets, setTweets] = useState<Tweet[]>(fallbackTweets);
@@ -282,24 +252,31 @@ function useIsMobile() {
   return mobile;
 }
 
+type TimelineItem = 
+  | { type: "tweet"; data: Tweet; sortDate: number }
+  | { type: "news"; data: NewsItem; sortDate: number };
+
 export default function XFeed() {
   const isMobile = useIsMobile();
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(12);
   const [mobileExpanded, setMobileExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState<"tweets" | "news">("tweets");
   const loaderRef = useRef<HTMLDivElement>(null);
   const { tweets: allTweets, loading } = useLiveTweets();
   const newsItems = useNews();
 
-  const sortedTweets = [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+  // Merge tweets and news into one chronological timeline
+  const timeline: TimelineItem[] = [
+    ...allTweets.map((t) => ({ type: "tweet" as const, data: t, sortDate: new Date(t.timestamp).getTime() })),
+    ...newsItems.map((n) => ({ type: "news" as const, data: n, sortDate: new Date(n.published_at).getTime() })),
+  ].sort((a, b) => b.sortDate - a.sortDate);
 
-  const mobileLimit = mobileExpanded ? visibleCount : 3;
+  const mobileLimit = mobileExpanded ? visibleCount : 5;
   const effectiveCount = isMobile ? mobileLimit : visibleCount;
-  const visibleTweets = sortedTweets.slice(0, effectiveCount);
+  const visibleItems = timeline.slice(0, effectiveCount);
 
   const loadMore = useCallback(() => {
-    setVisibleCount((c) => Math.min(c + 6, allTweets.length));
-  }, [allTweets.length]);
+    setVisibleCount((c) => Math.min(c + 8, timeline.length));
+  }, [timeline.length]);
 
   useEffect(() => {
     const el = loaderRef.current;
@@ -316,45 +293,16 @@ export default function XFeed() {
 
   return (
     <div>
-      {/* Header with tabs */}
+      {/* Header */}
       <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-xl border-b border-[#2F3336]">
         <div className="flex items-center px-4 py-3">
           <h2 className="text-lg font-semibold tracking-tight text-text-primary">Today&apos;s XRP Newsfeed</h2>
         </div>
-        <div className="flex">
-          <button
-            onClick={() => setActiveTab("tweets")}
-            className={`flex-1 py-2.5 text-[14px] font-medium text-center transition-colors relative ${
-              activeTab === "tweets" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            Tweets
-            {activeTab === "tweets" && (
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] rounded-full bg-xrp-accent" />
-            )}
-          </button>
-          <button
-            onClick={() => setActiveTab("news")}
-            className={`flex-1 py-2.5 text-[14px] font-medium text-center transition-colors relative ${
-              activeTab === "news" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            News
-            {newsItems.length > 0 && (
-              <span className="ml-1.5 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-xrp-accent/20 text-xrp-accent">
-                {newsItems.length}
-              </span>
-            )}
-            {activeTab === "news" && (
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] rounded-full bg-xrp-accent" />
-            )}
-          </button>
-        </div>
       </div>
 
-      {/* Timeline */}
+      {/* Unified Timeline */}
       <div>
-        {loading && allTweets.length === 0 && activeTab === "tweets" && (
+        {loading && allTweets.length === 0 && (
           Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="border-b border-[#2F3336] px-4 py-3.5 animate-pulse">
               <div className="flex gap-3">
@@ -368,39 +316,32 @@ export default function XFeed() {
             </div>
           ))
         )}
-        {activeTab === "tweets" && visibleTweets.map((tweet, index) => (
-          <div key={tweet.id}>
-            <TweetCard tweet={tweet} />
-            {index === 2 && <NewsCard />}
-          </div>
-        ))}
-        {activeTab === "news" && newsItems.length === 0 && (
-          <div className="py-12 text-center text-text-secondary text-[14px]">
-            No news yet. Check back soon.
-          </div>
+        {visibleItems.map((item) =>
+          item.type === "tweet" ? (
+            <TweetCard key={`t-${item.data.id}`} tweet={item.data} />
+          ) : (
+            <NewsCardComponent key={`n-${item.data.id}`} item={item.data} />
+          )
         )}
-        {activeTab === "news" && newsItems.map((item) => (
-          <NewsCardComponent key={item.id} item={item} />
-        ))}
       </div>
 
       {/* Mobile: Show more button */}
-      {isMobile && !mobileExpanded && sortedTweets.length > 3 && (
+      {isMobile && !mobileExpanded && timeline.length > 5 && (
         <button
           onClick={() => setMobileExpanded(true)}
           className="w-full py-3 text-center text-[14px] font-medium text-xrp-accent hover:bg-white/[0.02] border-b border-[#2F3336] transition-colors"
         >
-          Show more tweets
+          Show more
         </button>
       )}
 
-      {(!isMobile || mobileExpanded) && visibleCount < allTweets.length && (
+      {(!isMobile || mobileExpanded) && visibleCount < timeline.length && (
         <div ref={loaderRef} className="flex justify-center py-6">
           <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-xrp-accent" />
         </div>
       )}
 
-      {(!isMobile || mobileExpanded) && visibleCount >= allTweets.length && (
+      {(!isMobile || mobileExpanded) && visibleCount >= timeline.length && timeline.length > 0 && (
         <div className="py-6 flex flex-col items-center gap-3">
           <span className="text-text-secondary text-[13px]">You&apos;re all caught up.</span>
           <button

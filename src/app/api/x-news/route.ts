@@ -12,7 +12,7 @@ export async function GET() {
     const supabase = createServiceClient();
     const { data: news, error } = await supabase
       .from("news")
-      .select("*")
+      .select("id, title, summary, url, source, published_at, domain, votes")
       .order("published_at", { ascending: false })
       .limit(30);
 

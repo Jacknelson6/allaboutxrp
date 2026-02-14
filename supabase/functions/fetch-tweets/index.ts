@@ -89,6 +89,9 @@ Deno.serve(async (_req) => {
       // Too short to be real news
       if (clean.length < 30) return true;
       
+      // Generic crypto roundups that aren't XRP-specific articles
+      if (/daily crypto prices update/i.test(clean)) return true;
+      
       // Engagement bait patterns
       const baitPatterns = [
         /^(who|what do you|do you|are you|will|would|should|can|how many).{0,30}\?$/i,  // Simple questions
