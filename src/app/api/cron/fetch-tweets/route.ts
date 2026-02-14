@@ -14,11 +14,19 @@ interface TwitterUser {
   profile_image_url?: string;
 }
 
+interface TwitterMedia {
+  media_key: string;
+  type: string;
+  url?: string;
+  preview_image_url?: string;
+}
+
 interface TwitterTweet {
   id: string;
   text: string;
   created_at: string;
   author_id: string;
+  attachments?: { media_keys?: string[] };
   public_metrics?: {
     like_count: number;
     retweet_count: number;
@@ -45,9 +53,10 @@ export async function GET(request: NextRequest) {
     const searchUrl = new URL("https://api.twitter.com/2/tweets/search/recent");
     searchUrl.searchParams.set("query", TWITTER_SEARCH_QUERY);
     searchUrl.searchParams.set("max_results", "20");
-    searchUrl.searchParams.set("tweet.fields", "created_at,public_metrics,author_id");
+    searchUrl.searchParams.set("tweet.fields", "created_at,public_metrics,author_id,attachments");
     searchUrl.searchParams.set("user.fields", "name,username,profile_image_url");
-    searchUrl.searchParams.set("expansions", "author_id");
+    searchUrl.searchParams.set("media.fields", "url,preview_image_url,type");
+    searchUrl.searchParams.set("expansions", "author_id,attachments.media_keys");
 
     const res = await fetch(searchUrl.toString(), {
       headers: { Authorization: `Bearer ${bearerToken}` },
@@ -65,6 +74,7 @@ export async function GET(request: NextRequest) {
     const data = await res.json();
     const tweets: TwitterTweet[] = data.data || [];
     const users: TwitterUser[] = data.includes?.users || [];
+    const media: TwitterMedia[] = data.includes?.media || [];
 
     if (tweets.length === 0) {
       return NextResponse.json({ message: "No tweets found", upserted: 0 });
@@ -76,9 +86,25 @@ export async function GET(request: NextRequest) {
       userMap.set(user.id, user);
     }
 
+    // Build media lookup
+    const mediaMap = new Map<string, TwitterMedia>();
+    for (const m of media) {
+      mediaMap.set(m.media_key, m);
+    }
+
     // Transform to our schema
     const rows = tweets.map((tweet) => {
       const author = userMap.get(tweet.author_id);
+      // Get first image/video preview from attachments
+      const mediaKeys = tweet.attachments?.media_keys || [];
+      let mediaUrl: string | null = null;
+      for (const key of mediaKeys) {
+        const m = mediaMap.get(key);
+        if (m) {
+          mediaUrl = m.url || m.preview_image_url || null;
+          break;
+        }
+      }
       return {
         id: tweet.id,
         author_username: author?.username || "unknown",
@@ -90,6 +116,7 @@ export async function GET(request: NextRequest) {
         retweets: tweet.public_metrics?.retweet_count || 0,
         replies: tweet.public_metrics?.reply_count || 0,
         url: `https://x.com/${author?.username || "i"}/status/${tweet.id}`,
+        media_url: mediaUrl,
         fetched_at: new Date().toISOString(),
       };
     });

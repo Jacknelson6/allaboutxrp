@@ -52,7 +52,7 @@ export async function GET() {
       retweets: t.retweets || 0,
       replies: t.replies || 0,
       views: Math.round((t.likes || 0) * 15 + (t.retweets || 0) * 25),
-      media: null,
+      media: t.media_url || null,
       quoteTweet: null,
       trending: (t.likes || 0) + (t.retweets || 0) > 100,
       url: t.url,
