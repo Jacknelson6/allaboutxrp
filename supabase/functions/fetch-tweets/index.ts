@@ -1,7 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const TWITTER_SEARCH_QUERY =
-  "(from:TheCryptoBasic OR from:jungleincxrp OR from:XRPLLabs OR from:FlareNetworks OR from:s_alderoty OR from:BullrunnersHQ) -is:reply -is:retweet";
+  "(from:TheCryptoBasic OR from:jungleincxrp OR from:XRPLLabs OR from:s_alderoty OR from:BullrunnersHQ) -is:reply -is:retweet";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;

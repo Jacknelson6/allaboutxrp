@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
 const TWITTER_SEARCH_QUERY =
-  "(from:TheCryptoBasic OR from:jungleincxrp OR from:XRPLLabs OR from:FlareNetworks OR from:s_alderoty OR from:BullrunnersHQ) -is:reply -is:retweet";
+  "(from:TheCryptoBasic OR from:jungleincxrp OR from:XRPLLabs OR from:s_alderoty OR from:BullrunnersHQ) -is:reply -is:retweet";
 
 interface TwitterUser {
   id: string;
