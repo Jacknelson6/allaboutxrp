@@ -19,19 +19,19 @@ async function isSignificantNews(title: string, source: string): Promise<boolean
         "X-Title": "AllAboutXRP News Filter",
       },
       body: JSON.stringify({
-        model: "minimax/minimax-m2.5",
-        max_tokens: 10,
+        model: "google/gemini-2.0-flash-001",
+        max_tokens: 5,
         temperature: 0,
         messages: [
           {
             role: "system",
             content: `You are a news editor for a professional XRP investor site. Reply ONLY "yes" or "no".
 
-Accept ONLY: regulatory rulings, SEC/legal developments, major partnerships (Fortune 500, banks, payment networks), exchange listings/delistings, XRPL protocol upgrades, ETF decisions, central bank or government actions involving XRP/Ripple, major acquisitions.
+Accept: partnerships, fund tokenization, institutional adoption, regulatory rulings, SEC/legal developments, exchange listings/delistings, XRPL protocol upgrades (XLS proposals, amendments), ETF decisions, government actions involving XRP/Ripple, acquisitions, new product launches, DeFi developments on XRPL, major company integrations.
 
-Reject: price predictions, technical analysis, "could XRP reach $X?", op-eds, speculation, clickbait, listicles, "signals hold the key", "setting up for breakout", daily price roundups, YouTuber/analyst opinions, "what you need to know" style aggregation.
+Reject: price predictions ("could XRP reach $X?"), technical analysis, op-eds, speculation, clickbait, listicles ("signals hold the key", "setting up for breakout", "bull trap"), daily price roundups, YouTuber/analyst opinions, vague "momentum" or "growth chapter" fluff pieces.
 
-When in doubt, reject.`,
+When in doubt, accept.`,
           },
           {
             role: "user",
