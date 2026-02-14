@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Repeat2, MessageCircle, Share, BadgeCheck, BarChart3, ArrowUp } from "lucide-react";
 import Link from "next/link";
+import NewsCardComponent, { type NewsItem } from "./NewsCard";
 interface Tweet {
   id: string;
   displayName: string;
@@ -201,6 +202,28 @@ function useLiveTweets() {
   return { tweets, isLive };
 }
 
+function useNews() {
+  const [news, setNews] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const res = await fetch("/api/x-news", { cache: "no-store" });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.news) setNews(data.news);
+      } catch {
+        // silently fail
+      }
+    }
+    fetchNews();
+    const interval = setInterval(fetchNews, 600_000); // 10 min
+    return () => clearInterval(interval);
+  }, []);
+
+  return news;
+}
+
 function useIsMobile() {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
@@ -217,8 +240,10 @@ export default function XFeed() {
   const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(8);
   const [mobileExpanded, setMobileExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState<"tweets" | "news">("tweets");
   const loaderRef = useRef<HTMLDivElement>(null);
   const { tweets: allTweets } = useLiveTweets();
+  const newsItems = useNews();
 
   const sortedTweets = [...allTweets].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
@@ -245,20 +270,57 @@ export default function XFeed() {
 
   return (
     <div>
-      {/* Header */}
+      {/* Header with tabs */}
       <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-xl border-b border-[#2F3336]">
         <div className="flex items-center px-4 py-3">
           <h2 className="text-lg font-semibold tracking-tight text-text-primary">Today&apos;s XRP Newsfeed</h2>
+        </div>
+        <div className="flex">
+          <button
+            onClick={() => setActiveTab("tweets")}
+            className={`flex-1 py-2.5 text-[14px] font-medium text-center transition-colors relative ${
+              activeTab === "tweets" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            Tweets
+            {activeTab === "tweets" && (
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] rounded-full bg-xrp-accent" />
+            )}
+          </button>
+          <button
+            onClick={() => setActiveTab("news")}
+            className={`flex-1 py-2.5 text-[14px] font-medium text-center transition-colors relative ${
+              activeTab === "news" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            News
+            {newsItems.length > 0 && (
+              <span className="ml-1.5 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-xrp-accent/20 text-xrp-accent">
+                {newsItems.length}
+              </span>
+            )}
+            {activeTab === "news" && (
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] rounded-full bg-xrp-accent" />
+            )}
+          </button>
         </div>
       </div>
 
       {/* Timeline */}
       <div>
-        {visibleTweets.map((tweet, index) => (
+        {activeTab === "tweets" && visibleTweets.map((tweet, index) => (
           <div key={tweet.id}>
             <TweetCard tweet={tweet} />
             {index === 2 && <NewsCard />}
           </div>
+        ))}
+        {activeTab === "news" && newsItems.length === 0 && (
+          <div className="py-12 text-center text-text-secondary text-[14px]">
+            No news yet. Check back soon.
+          </div>
+        )}
+        {activeTab === "news" && newsItems.map((item) => (
+          <NewsCardComponent key={item.id} item={item} />
         ))}
       </div>
 
