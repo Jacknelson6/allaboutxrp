@@ -1,60 +1,57 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { DOMParser } from "https://esm.sh/linkedom@0.16.11";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-const CRYPTOPANIC_API_KEY = Deno.env.get("CRYPTOPANIC_API_KEY") || "";
-
-interface CryptoPanicPost {
-  id: number;
-  title: string;
-  url: string;
-  source: { title: string; domain: string };
-  published_at: string;
-  votes: { positive: number; negative: number; important: number; liked: number; lol: number };
-}
 
 Deno.serve(async (_req) => {
   try {
-    if (!CRYPTOPANIC_API_KEY) {
-      return new Response(JSON.stringify({ error: "CRYPTOPANIC_API_KEY not configured" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    const apiUrl = `https://cryptopanic.com/api/free/v1/posts/?auth_token=${CRYPTOPANIC_API_KEY}&currencies=XRP&filter=important&public=true`;
-    const res = await fetch(apiUrl, {
+    // Fetch XRP news from Google News RSS
+    const rssUrl = "https://news.google.com/rss/search?q=XRP+ripple+XRPL&hl=en-US&gl=US&ceid=US:en";
+    const res = await fetch(rssUrl, {
       headers: { "User-Agent": "AllAboutXRP/1.0" },
     });
 
     if (!res.ok) {
-      const errorText = await res.text();
-      console.error("CryptoPanic API error:", res.status, errorText);
-      return new Response(JSON.stringify({ error: "CryptoPanic API error", status: res.status }), {
+      return new Response(JSON.stringify({ error: "Google News RSS error", status: res.status }), {
         status: 502,
         headers: { "Content-Type": "application/json" },
       });
     }
 
-    const data = await res.json();
-    const posts: CryptoPanicPost[] = data.results || [];
+    const xml = await res.text();
+    const doc = new DOMParser().parseFromString(xml, "text/xml");
+    const items = doc.querySelectorAll("item");
 
-    if (posts.length === 0) {
+    if (!items || items.length === 0) {
       return new Response(JSON.stringify({ message: "No news found", upserted: 0 }), {
         headers: { "Content-Type": "application/json" },
       });
     }
 
-    const rows = posts.map((post) => ({
-      id: String(post.id),
-      title: post.title,
-      url: post.url,
-      source: post.source?.title || "Unknown",
-      published_at: post.published_at,
-      domain: post.source?.domain || "",
-      votes: post.votes || {},
-      fetched_at: new Date().toISOString(),
-    }));
+    const rows = await Promise.all(
+      Array.from(items).slice(0, 30).map(async (item: any) => {
+        const title = item.querySelector("title")?.textContent || "";
+        const link = item.querySelector("link")?.textContent || "";
+        const pubDate = item.querySelector("pubDate")?.textContent || "";
+        const source = item.querySelector("source")?.textContent || "";
+        const domain = source.toLowerCase().replace(/\s+/g, "");
+
+        const hashBuffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(link));
+        const id = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, "0")).join("");
+
+        return {
+          id,
+          title: title.trim(),
+          url: link.trim(),
+          source: source.trim(),
+          published_at: pubDate ? new Date(pubDate).toISOString() : new Date().toISOString(),
+          domain,
+          votes: {},
+          fetched_at: new Date().toISOString(),
+        };
+      })
+    );
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
     const { error } = await supabase.from("news").upsert(rows, { onConflict: "id" });
@@ -72,7 +69,11 @@ Deno.serve(async (_req) => {
     await supabase.from("news").delete().lt("published_at", sevenDaysAgo);
 
     return new Response(
-      JSON.stringify({ message: "News fetched and stored", upserted: rows.length }),
+      JSON.stringify({
+        message: "News fetched and stored",
+        upserted: rows.length,
+        sources: [...new Set(rows.map((r) => r.source))],
+      }),
       { headers: { "Content-Type": "application/json" } }
     );
   } catch (err) {
