@@ -26,7 +26,7 @@ export async function GET() {
 
     if (!tweets || tweets.length === 0) {
       return NextResponse.json(
-        { tweets: [], lastUpdated: new Date().toISOString(), source: "empty" },
+        { tweets: [], lastUpdated: new Date().toISOString(), source: "empty", debug: { hasUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL, hasKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY } },
         { status: 200, headers: CACHE_HEADERS }
       );
     }
