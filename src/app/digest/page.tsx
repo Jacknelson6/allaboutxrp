@@ -28,7 +28,7 @@ export default function DigestPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("digest_email");
+    const stored = localStorage.getItem("xrp_subscriber_email");
     if (stored) {
       setEmail(stored);
     }
@@ -56,7 +56,7 @@ export default function DigestPage() {
         body: JSON.stringify({ email: inputEmail }),
       });
       if (!res.ok) throw new Error();
-      localStorage.setItem("digest_email", inputEmail);
+      localStorage.setItem("xrp_subscriber_email", inputEmail);
       setEmail(inputEmail);
     } catch {
       setError("Something went wrong. Try again.");
