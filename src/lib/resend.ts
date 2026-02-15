@@ -1,6 +1,15 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let _resend: Resend | null = null;
+function getResend(): Resend {
+  if (!_resend) {
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("RESEND_API_KEY is not set");
+    }
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend;
+}
 
 interface DigestContent {
   key_news?: string;
@@ -100,7 +109,7 @@ function buildEmailHtml(digest: DigestData): string {
 }
 
 export async function sendDigestEmail(email: string, digest: DigestData) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: "All About XRP <analysis@allaboutxrp.com>",
     to: email,
     subject: digest.title,
@@ -118,7 +127,7 @@ export async function sendDigestBatch(emails: string[], digest: DigestData) {
 
   let totalSent = 0;
   for (const batch of batches) {
-    const { error } = await resend.batch.send(
+    const { error } = await getResend().batch.send(
       batch.map((to) => ({
         from: "All About XRP <analysis@allaboutxrp.com>",
         to,
