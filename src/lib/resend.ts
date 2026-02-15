@@ -101,7 +101,7 @@ function buildEmailHtml(digest: DigestData): string {
 
 export async function sendDigestEmail(email: string, digest: DigestData) {
   return resend.emails.send({
-    from: "All About XRP <digest@allaboutxrp.com>",
+    from: "All About XRP <analysis@allaboutxrp.com>",
     to: email,
     subject: digest.title,
     html: buildEmailHtml(digest),
@@ -120,7 +120,7 @@ export async function sendDigestBatch(emails: string[], digest: DigestData) {
   for (const batch of batches) {
     const { error } = await resend.batch.send(
       batch.map((to) => ({
-        from: "All About XRP <digest@allaboutxrp.com>",
+        from: "All About XRP <analysis@allaboutxrp.com>",
         to,
         subject: digest.title,
         html,
