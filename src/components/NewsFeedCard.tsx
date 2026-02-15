@@ -68,7 +68,7 @@ export default function NewsFeedCard({ item }: { item: NewsFeedItem }) {
         {/* Summary */}
         {item.summary && (
           <div className="text-[13px] leading-relaxed text-text-secondary/80 line-clamp-3">
-            <span className="font-medium text-text-secondary">What you need to know: </span>
+            <span className="font-medium text-text-secondary">Why it matters: </span>
             {item.summary}
           </div>
         )}
