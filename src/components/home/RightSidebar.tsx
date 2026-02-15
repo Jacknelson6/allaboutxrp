@@ -153,7 +153,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       <PricePerformance />
 
       {/* 4. What to Watch */}
-      <div className="mt-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
+      <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] p-4">
         <div className="flex items-center gap-2 mb-1">
           <Eye className="h-4 w-4 text-[#0085FF]" />
           <h3 className="text-[15px] font-bold text-text-primary">What to Watch</h3>
@@ -164,12 +164,14 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
             <Link
               key={item.href}
               href={item.href}
-              className="block rounded-lg px-2 py-2 -mx-2 hover:bg-[#0085FF]/[0.06] transition-colors group"
+              className="relative block rounded-lg px-2 py-2 -mx-2 transition-all group overflow-hidden"
             >
-              <span className="text-[13px] font-semibold text-text-primary group-hover:text-[#0085FF] transition-colors leading-snug block">
+              <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none" />
+              <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none z-0" />
+              <span className="relative z-10 text-[13px] font-semibold text-text-primary group-hover:text-[#0085FF] transition-colors leading-snug block">
                 {item.title}
               </span>
-              <span className="text-[11px] text-text-secondary leading-snug block mt-0.5">
+              <span className="relative z-10 text-[11px] text-text-secondary leading-snug block mt-0.5">
                 {item.teaser}
               </span>
             </Link>
