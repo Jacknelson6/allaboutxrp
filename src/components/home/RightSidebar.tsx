@@ -152,29 +152,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       {/* Price Performance */}
       <PricePerformance />
 
-      {/* 4. Explore: Learn & Tools */}
-      <div className="mt-4 grid grid-cols-2 gap-3">
-        <Link href="/learn" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/learn flex flex-col items-center text-center gap-2 overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
-          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
-          <div className="relative z-10 h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
-            <BookOpen className="h-5 w-5 text-[#0085FF]" />
-          </div>
-          <h3 className="relative z-10 text-[15px] font-bold text-text-primary">Learn</h3>
-          <p className="relative z-10 text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
-        </Link>
-        <Link href="/tools" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/tools flex flex-col items-center text-center gap-2 overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
-          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
-          <div className="relative z-10 h-10 w-10 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
-            <Wrench className="h-5 w-5 text-[#0085FF]" />
-          </div>
-          <h3 className="relative z-10 text-[15px] font-bold text-text-primary">Tools</h3>
-          <p className="relative z-10 text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
-        </Link>
-      </div>
-
-      {/* 5. What to Watch */}
+      {/* 4. What to Watch */}
       <div className="mt-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
         <div className="flex items-center gap-2 mb-1">
           <Eye className="h-4 w-4 text-[#0085FF]" />
@@ -197,6 +175,32 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
             </Link>
           ))}
         </div>
+      </div>
+
+      {/* 5. Explore: Learn & Tools — horizontal stacked */}
+      <div className="mt-4 space-y-3">
+        <Link href="/learn" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/learn flex items-center gap-4 overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
+          <div className="relative z-10 h-10 w-10 shrink-0 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+            <BookOpen className="h-5 w-5 text-[#0085FF]" />
+          </div>
+          <div className="relative z-10">
+            <h3 className="text-[15px] font-bold text-text-primary">Learn</h3>
+            <p className="text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
+          </div>
+        </Link>
+        <Link href="/tools" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/tools flex items-center gap-4 overflow-hidden">
+          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
+          <div className="relative z-10 h-10 w-10 shrink-0 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
+            <Wrench className="h-5 w-5 text-[#0085FF]" />
+          </div>
+          <div className="relative z-10">
+            <h3 className="text-[15px] font-bold text-text-primary">Tools</h3>
+            <p className="text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
