@@ -40,6 +40,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/learn/acquisitions", changeFrequency: "weekly", priority: 0.8, lastmod: now },
     { path: "/learn/riddlers", changeFrequency: "monthly", priority: 0.7, lastmod: now },
     { path: "/learn/trusted-sources", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/cross-border-payments", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/how-banks-use-xrp", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/sec-vs-ripple", changeFrequency: "weekly", priority: 0.85, lastmod: now },
+    { path: "/learn/xrp-addresses-and-keys", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-etf", changeFrequency: "weekly", priority: 0.85, lastmod: now },
+    { path: "/learn/xrp-glossary", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-myths", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-price-prediction", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/xrp-stablecoin-ecosystem", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-supply-explained", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-tax-guide", changeFrequency: "monthly", priority: 0.75, lastmod: now },
+    { path: "/learn/xrp-transaction-types", changeFrequency: "monthly", priority: 0.7, lastmod: now },
+    { path: "/learn/xrp-vs-ethereum", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/xrp-vs-solana", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/xrpl-defi", changeFrequency: "weekly", priority: 0.8, lastmod: now },
+    { path: "/learn/xrpl-validators", changeFrequency: "monthly", priority: 0.7, lastmod: now },
     { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
 
     // Best / recommendations
@@ -49,8 +65,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/best/hardware-wallets-for-xrp", changeFrequency: "monthly", priority: 0.75 },
     { path: "/best/xrp-staking-platforms", changeFrequency: "weekly", priority: 0.75 },
 
-    // Answers
+    // Answers hub + individual answer pages
     { path: "/answers", changeFrequency: "weekly", priority: 0.8 },
+    { path: "/answers/best-altcoins-2026", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/best-cryptocurrency-2026", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/can-xrp-be-mined", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/how-fast-is-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/how-many-xrp-are-there", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/how-to-buy-xrp-safely", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/is-it-too-late-to-buy-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/is-xrp-a-good-investment", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/is-xrp-a-security", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/top-10-cryptocurrencies-2026", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/what-banks-use-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/what-do-you-need-to-buy-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/when-should-you-buy-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/where-can-you-buy-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/why-is-xrp-dropping", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/why-should-you-buy-xrp", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/will-xrp-reach-10-dollars", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/xrp-price-prediction-2026", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/answers/xrp-vs-solana", changeFrequency: "monthly", priority: 0.7 },
 
     // Tools
     { path: "/tools", changeFrequency: "weekly", priority: 0.75 },
@@ -59,6 +94,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Extension
     { path: "/extension", changeFrequency: "monthly", priority: 0.7 },
+
+    // Root-level aliases / standalone pages
+    { path: "/acquisitions", changeFrequency: "weekly", priority: 0.6 },
+    { path: "/charts", changeFrequency: "hourly", priority: 0.7 },
+    { path: "/escrow", changeFrequency: "weekly", priority: 0.6 },
+    { path: "/etf", changeFrequency: "weekly", priority: 0.7 },
+    { path: "/get-started", changeFrequency: "weekly", priority: 0.7 },
+    { path: "/live", changeFrequency: "hourly", priority: 0.7 },
+    { path: "/riddlers", changeFrequency: "monthly", priority: 0.5 },
 
     // Other
     { path: "/donate", changeFrequency: "monthly", priority: 0.4 },
