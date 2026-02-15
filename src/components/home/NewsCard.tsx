@@ -47,7 +47,7 @@ export default function NewsCardComponent({ item }: { item: NewsItem }) {
             </p>
             {item.summary && (
               <div className="mt-2">
-                <span className="text-[11px] font-bold uppercase tracking-wide text-xrp-accent/70">What you need to know</span>
+                <span className="text-[11px] font-bold uppercase tracking-wide text-xrp-accent/70">Why it matters</span>
                 <p className="mt-0.5 text-[13px] text-text-secondary leading-snug">
                   {item.summary}
                 </p>

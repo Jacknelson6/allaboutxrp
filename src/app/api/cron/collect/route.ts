@@ -128,7 +128,14 @@ async function fetchFeed(feed: { name: string; url: string }): Promise<RawArticl
 
 // ── AI Importance Scoring ──────────────────────────────────────────────
 // Uses OpenRouter API (supports many models, pay-per-use)
-const SCORING_PROMPT = `You are a crypto news editor for an XRP-focused site. Score each article 1-10 on importance to XRP/Ripple/crypto holders. Only articles scoring 7+ should be published. For each article scoring 7+, write a 1-2 sentence summary explaining why this matters for XRP holders specifically. Return JSON array: [{index, score, summary}]`;
+const SCORING_PROMPT = `You are a crypto news editor for an XRP-focused site. For each article below:
+1. Score it 1-10 on importance to XRP/Ripple/crypto holders
+2. For articles scoring 7+, write a 1-2 sentence "Why it matters" summary explaining the specific implications for XRP holders. This summary is REQUIRED and must not be empty.
+
+Return a JSON array. Each element must have all three fields:
+[{"index": 0, "score": 8, "summary": "This matters because..."}]
+
+The summary field must contain a substantive explanation. Never return an empty string for summary on 7+ articles.`;
 
 interface ScoredArticle {
   index: number;
