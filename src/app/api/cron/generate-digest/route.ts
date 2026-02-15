@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 // Load the digest prompt at build time
 const DIGEST_PROMPT_TEMPLATE = `# AllAboutXRP — Weekly Digest System Prompt
@@ -555,7 +555,7 @@ export async function GET(request: NextRequest) {
       "X-Title": "AllAboutXRP Digest Generator",
     },
     body: JSON.stringify({
-      model: "openai/gpt-4o-mini",
+      model: "moonshotai/kimi-k2.5",
       messages: [
         { role: "system", content: prompt },
         {
