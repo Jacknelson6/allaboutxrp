@@ -2,10 +2,23 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, ArrowRight, Chrome, BookOpen, Wrench } from "lucide-react";
+import { TrendingUp, TrendingDown, ArrowRight, Chrome, BookOpen, Wrench, Eye } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
 import NewsletterSignup from "@/components/shared/NewsletterSignup";
+
+const watchItems = [
+  { title: "Why SWIFT Is Dying and XRP Could Replace It", teaser: "The $150T system Ripple is disrupting", href: "/learn/xrp-vs-swift" },
+  { title: "The SEC Case That Changed Crypto Forever", teaser: "How Ripple won and what it means", href: "/learn/sec-vs-ripple-explained" },
+  { title: "Can XRP Hit $100? The Real Math", teaser: "Market cap math, not hopium", href: "/learn/xrp-price-potential" },
+  { title: "How Banks Are Secretly Testing XRP", teaser: "300+ institutions and counting", href: "/learn/banks-using-xrp" },
+  { title: "XRP ETF: When It's Coming and What It Means", teaser: "Timeline, odds, and price impact", href: "/learn/xrp-etf" },
+  { title: "RLUSD: Ripple's Stablecoin That Could Flip USDC", teaser: "NY DFS approved and growing fast", href: "/learn/rlusd-explained" },
+  { title: "The 1 Billion XRP Escrow: Why It Matters Every Month", teaser: "Predictable supply, transparent schedule", href: "/learn/xrp-escrow-explained" },
+  { title: "XRPL vs Ethereum: The Speed and Cost Comparison", teaser: "3 seconds vs 15 seconds, <$0.01 vs $50+", href: "/learn/xrp-vs-ethereum" },
+  { title: "CBDCs and XRP: The Bridge Currency Thesis", teaser: "Connecting central bank digital currencies", href: "/learn/cbdcs-and-xrp" },
+  { title: "Ripple IPO: What Happens to XRP Price?", teaser: "The $11B company going public", href: "/learn/ripple-ipo" },
+];
 import MiniPreviewCard from "./MiniPreviewCard";
 
 function fmtPrice(n: number): string {
@@ -166,17 +179,29 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
         </Link>
       </div>
 
-      {/* 5. Newsletter Signup */}
-      <div className="mt-4">
-        <NewsletterSignup variant="compact" />
-      </div>
-
-      {/* Chrome Extension CTA removed */}
-
-      {/* 7. Footer links */}
-      <div className="mt-4 px-4 pb-4 text-[12px] text-text-secondary/50 leading-relaxed">
-        <a href="/learn/faq" className="hover:underline">FAQ</a> · <a href="/donate" className="hover:underline">Donate</a> · <a href="/learn" className="hover:underline">Learn</a>
-        <br />© 2026 AllAboutXRP
+      {/* 5. What to Watch */}
+      <div className="mt-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4">
+        <div className="flex items-center gap-2 mb-1">
+          <Eye className="h-4 w-4 text-[#0085FF]" />
+          <h3 className="text-[15px] font-bold text-text-primary">What to Watch</h3>
+        </div>
+        <p className="text-[12px] text-text-secondary mb-3">Key catalysts for XRP adoption</p>
+        <div className="space-y-0.5">
+          {watchItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block rounded-lg px-2 py-2 -mx-2 hover:bg-[#0085FF]/[0.06] transition-colors group"
+            >
+              <span className="text-[13px] font-semibold text-text-primary group-hover:text-[#0085FF] transition-colors leading-snug block">
+                {item.title}
+              </span>
+              <span className="text-[11px] text-text-secondary leading-snug block mt-0.5">
+                {item.teaser}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
