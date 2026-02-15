@@ -81,7 +81,7 @@ function buildEmailHtml(digest: DigestData): string {
           <tr>
             <td style="padding:16px 0;text-align:center;font-size:12px;color:#666;">
               <p style="margin:0 0 8px 0;">
-                <a href="https://allaboutxrp.beehiiv.com/subscribe" style="color:#0085FF;text-decoration:none;">Subscribe on Beehiiv</a>
+                <a href="https://allaboutxrp.com/digest" style="color:#0085FF;text-decoration:none;">View All Digests</a>
               </p>
               <p style="margin:0 0 8px 0;">
                 <a href="${siteUrl}" style="color:#888;text-decoration:none;">allaboutxrp.com</a>

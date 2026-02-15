@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createServiceClient } from "@/lib/supabase/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,32 +9,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
     }
 
-    const apiKey = process.env.BEEHIIV_API_KEY;
-    if (!apiKey) {
-      console.error("BEEHIIV_API_KEY not set");
-      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
-    }
+    const normalizedEmail = email.toLowerCase().trim();
+    const supabase = createServiceClient();
 
-    const res = await fetch(
-      "https://api.beehiiv.com/v2/publications/pub_e0b3b05a-b169-4159-8606-3fa011fd6fa5/subscriptions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          email,
-          reactivate_existing: true,
-          send_welcome_email: true,
-        }),
-      }
-    );
+    const { error } = await supabase
+      .from("subscribers")
+      .upsert(
+        { email: normalizedEmail, active: true, unsubscribed_at: null },
+        { onConflict: "email" }
+      );
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("Beehiiv error:", res.status, text);
-      return NextResponse.json({ error: "Subscription failed. Please try again." }, { status: 502 });
+    if (error) {
+      console.error("Subscribe error:", error);
+      return NextResponse.json({ error: "Failed to subscribe" }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });

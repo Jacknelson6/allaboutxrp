@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createServiceClient } from "@/lib/supabase/server";
 import { Resend } from "resend";
 import { render } from "@react-email/components";
 import WeeklyNewsletter, { WeeklyNewsletterProps } from "@/emails/weekly-newsletter";
@@ -7,42 +8,20 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
 const SEND_SECRET = process.env.NEWSLETTER_SEND_SECRET;
-const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY;
-const PUB_ID = "pub_e0b3b05a-b169-4159-8606-3fa011fd6fa5";
-
-interface Subscriber {
-  email: string;
-  status: string;
-}
 
 async function getActiveSubscribers(): Promise<string[]> {
-  const emails: string[] = [];
-  let page = 1;
-  let hasMore = true;
+  const supabase = createServiceClient();
+  const { data, error } = await supabase
+    .from("subscribers")
+    .select("email")
+    .eq("active", true);
 
-  while (hasMore) {
-    const res = await fetch(
-      `https://api.beehiiv.com/v2/publications/${PUB_ID}/subscriptions?status=active&limit=100&page=${page}`,
-      { headers: { Authorization: `Bearer ${BEEHIIV_API_KEY}` } }
-    );
-
-    if (!res.ok) {
-      console.error("Beehiiv fetch error:", res.status, await res.text());
-      break;
-    }
-
-    const data = await res.json();
-    const subs: Subscriber[] = data.data || [];
-    emails.push(...subs.filter((s) => s.status === "active").map((s) => s.email));
-
-    if (subs.length < 100 || !data.next_page) {
-      hasMore = false;
-    } else {
-      page++;
-    }
+  if (error) {
+    console.error("Fetch subscribers error:", error);
+    return [];
   }
 
-  return emails;
+  return (data || []).map((s) => s.email);
 }
 
 export async function POST(req: NextRequest) {
