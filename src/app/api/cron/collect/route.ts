@@ -165,7 +165,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
         "X-Title": "AllAboutXRP News Curator",
       },
       body: JSON.stringify({
-        model: "openai/gpt-4o-mini",
+        model: "moonshotai/kimi-k2.5",
         messages,
         temperature: 0.3,
         max_tokens: 2000,
@@ -262,6 +262,6 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     new_articles: articlesToInsert.length,
     total_fetched: newRawArticles.length,
-    ai_provider: "openrouter/gpt-4o-mini",
+    ai_provider: "openrouter/kimi-k2.5",
   });
 }
