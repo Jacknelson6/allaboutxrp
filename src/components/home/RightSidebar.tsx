@@ -10,13 +10,8 @@ import NewsletterSignup from "@/components/shared/NewsletterSignup";
 const watchItems = [
   { title: "Why SWIFT Is Dying and XRP Could Replace It", teaser: "The $150T system Ripple is disrupting", href: "/learn/xrp-vs-swift" },
   { title: "The SEC Case That Changed Crypto Forever", teaser: "How Ripple won and what it means", href: "/learn/sec-vs-ripple-explained" },
-  { title: "Can XRP Hit $100? The Real Math", teaser: "Market cap math, not hopium", href: "/learn/xrp-price-potential" },
-  { title: "How Banks Are Secretly Testing XRP", teaser: "300+ institutions and counting", href: "/learn/banks-using-xrp" },
   { title: "XRP ETF: When It's Coming and What It Means", teaser: "Timeline, odds, and price impact", href: "/learn/xrp-etf" },
-  { title: "RLUSD: Ripple's Stablecoin That Could Flip USDC", teaser: "NY DFS approved and growing fast", href: "/learn/rlusd-explained" },
-  { title: "The 1 Billion XRP Escrow: Why It Matters Every Month", teaser: "Predictable supply, transparent schedule", href: "/learn/xrp-escrow-explained" },
-  { title: "XRPL vs Ethereum: The Speed and Cost Comparison", teaser: "3 seconds vs 15 seconds, <$0.01 vs $50+", href: "/learn/xrp-vs-ethereum" },
-  { title: "CBDCs and XRP: The Bridge Currency Thesis", teaser: "Connecting central bank digital currencies", href: "/learn/cbdcs-and-xrp" },
+  { title: "Can XRP Hit $100? The Real Math", teaser: "Market cap math, not hopium", href: "/learn/xrp-price-potential" },
   { title: "Ripple IPO: What Happens to XRP Price?", teaser: "The $11B company going public", href: "/learn/ripple-ipo" },
 ];
 import MiniPreviewCard from "./MiniPreviewCard";
