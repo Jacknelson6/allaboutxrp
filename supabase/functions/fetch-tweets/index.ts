@@ -1,8 +1,8 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// 4 quality crypto news sources, filtered to XRP-only content downstream
+// Mix of Ripple insiders, XRP community leaders, crypto news, and legal commentators
 const TWITTER_SEARCH_QUERY =
-  "(from:TheCryptoBasic OR from:WatcherGuru OR from:CoinDesk OR from:Cointelegraph) (XRP OR Ripple OR XRPL OR RLUSD) -is:reply -is:retweet";
+  "(from:Ripple OR from:bgarlinghouse OR from:JoelKatz OR from:s_alderoty OR from:MonicaLongSF OR from:RippleXDev OR from:CryptoLawUS OR from:EleanorTerrett OR from:JohnEDeaton1 OR from:WietseWind OR from:XRPLLabs OR from:DigPerspectives OR from:TheCryptoBasic OR from:WatcherGuru OR from:CoinDesk OR from:Cointelegraph) (XRP OR Ripple OR XRPL OR RLUSD) -is:reply -is:retweet";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
