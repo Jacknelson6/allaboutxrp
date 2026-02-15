@@ -258,10 +258,30 @@ function useNews() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch("/api/x-news", { cache: "no-store" });
+        const res = await fetch("/api/news", { cache: "no-store" });
         if (!res.ok) return;
-        const data = await res.json();
-        if (data.news) setNews(data.news);
+        const data: Array<{
+          title: string;
+          source: string;
+          url: string;
+          imageUrl: string | null;
+          summary: string;
+          publishedAt: string;
+        }> = await res.json();
+        if (Array.isArray(data)) {
+          setNews(
+            data.map((a, i) => ({
+              id: `news-${i}-${a.url}`,
+              title: a.title,
+              summary: a.summary || undefined,
+              url: a.url,
+              source: a.source,
+              published_at: a.publishedAt,
+              domain: a.source,
+              votes: {},
+            }))
+          );
+        }
       } catch {
         // silently fail
       }

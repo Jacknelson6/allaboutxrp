@@ -151,6 +151,15 @@ export default function MegaMenu() {
             Live Chart
           </Link>
 
+          <Link
+            href="/digest"
+            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              isActive("/digest") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+            }`}
+          >
+            Weekly Digest
+          </Link>
+
           {/* Learn dropdown */}
           <div
             className="relative"
@@ -282,6 +291,16 @@ export default function MegaMenu() {
             }`}
           >
             Live Chart
+          </Link>
+
+          <Link
+            href="/digest"
+            onClick={closeMobile}
+            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
+              isActive("/digest") ? "text-xrp-accent" : "text-text-primary"
+            }`}
+          >
+            Weekly Digest
           </Link>
 
           {/* Learn accordion */}
