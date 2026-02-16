@@ -41,11 +41,11 @@ export default function NewsCardComponent({ item }: { item: NewsItem }) {
             <span className="text-white/20 text-[13px]">·</span>
             <span className="text-text-secondary text-[13px]">{timeAgo(item.published_at)}</span>
           </div>
-          <p className="mt-1 text-[15px] text-text-primary leading-snug">
+          <p className="mt-1 text-[15px] font-bold text-text-primary leading-snug">
             {item.title}
           </p>
           {item.summary && (
-            <p className="mt-1.5 text-[15px] text-text-secondary leading-snug">
+            <p className="mt-1.5 text-[15px] text-text-primary leading-[1.4]">
               {item.summary}
             </p>
           )}
@@ -54,10 +54,10 @@ export default function NewsCardComponent({ item }: { item: NewsItem }) {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] px-3.5 py-1.5 text-[13px] font-medium text-xrp-accent hover:bg-xrp-accent/10 transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-xrp-accent/15 px-4 py-2 text-[13px] font-semibold text-xrp-accent hover:bg-xrp-accent/25 transition-colors duration-200"
             >
               Read full article
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>

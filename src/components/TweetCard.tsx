@@ -33,8 +33,14 @@ function formatCount(n: number): string {
   return n.toString();
 }
 
+// Strip t.co media links (Twitter's automatically appended media URLs)
+function stripTCoLinks(text: string): string {
+  return text.replace(/(?:https?:\/\/)?t\.co\/\w+/gi, "").trim();
+}
+
 export default function TweetCard({ tweet }: { tweet: TweetData }) {
   const [liked, setLiked] = useState(false);
+  const cleanText = stripTCoLinks(tweet.text);
 
   return (
     <a href={tweet.tweetUrl} target="_blank" rel="noopener noreferrer" className="block">
