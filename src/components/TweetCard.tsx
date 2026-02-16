@@ -72,15 +72,7 @@ export default function TweetCard({ tweet }: { tweet: TweetData }) {
               <span className="text-text-secondary text-[15px] shrink-0">
                 {timeAgo(tweet.createdAt)}
               </span>
-              <a
-                href={`https://x.com/${tweet.username}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="ml-auto shrink-0 hidden sm:inline-flex rounded-lg border border-white/[0.1] px-3 py-1 text-xs font-medium text-text-primary hover:bg-white/[0.04] transition-colors duration-200"
-              >
-                Follow
-              </a>
+{/* Follow button removed */}
             </div>
 
             {/* Tweet text */}

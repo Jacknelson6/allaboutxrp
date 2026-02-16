@@ -95,15 +95,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
             <span className="text-text-secondary text-[15px] truncate">@{tweet.handle}</span>
             <span className="text-white/20 text-[15px] shrink-0">·</span>
             <span className="text-text-secondary text-[15px] shrink-0 hover:underline">{timeAgo(tweet.timestamp)}</span>
-            <a
-              href={`https://x.com/${tweet.handle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="ml-auto shrink-0 hidden sm:inline-flex rounded-lg border border-white/[0.1] px-3 py-1 text-xs font-medium text-text-primary hover:bg-white/[0.04] transition-colors duration-200"
-            >
-              Follow
-            </a>
+{/* Follow button removed */}
           </div>
 
           <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
