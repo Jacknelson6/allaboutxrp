@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, BookOpen, Wallet, MessageCircle, Wrench } from "lucide-react";
-import NewsFeed from "./NewsFeed";
 import RightSidebar from "./RightSidebar";
 import DailyDigest from "./DailyDigest";
 
@@ -100,7 +99,6 @@ export default function HomeFeed() {
         {/* Center feed */}
         <div className="min-w-0 overflow-hidden max-w-full lg:max-w-[650px] mx-auto lg:mx-0 lg:justify-self-center">
           <DailyDigest />
-          <NewsFeed />
         </div>
 
         {/* Right sidebar - desktop only */}
