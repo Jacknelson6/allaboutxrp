@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -152,17 +151,6 @@ export default function LeadershipPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/leadership-hero.jpg"
-            alt="Ripple's executive leadership team"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> is led by CEO Brad Garlinghouse, CTO David Schwartz (co-creator of the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> Ledger), President Monica Long, and CLO Stuart Alderoty. The executive team combines fintech veterans, Wall Street alumni, and cryptography experts across ~1,400 employees in 40+ countries.</p>

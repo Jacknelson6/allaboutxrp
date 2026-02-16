@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,17 +76,6 @@ export default function BanksUsingXRPPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/banks-using-xrp-hero.jpg"
-            alt="Banks and financial institutions embracing digital technology"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>There&apos;s an important distinction between <strong className="text-text-primary">&quot;using RippleNet&quot;</strong> (Ripple&apos;s payment messaging network) and <strong className="text-text-primary">&quot;using XRP directly&quot;</strong> (On-Demand Liquidity). Over 300 institutions use RippleNet; a growing subset use ODL with XRP as the bridge currency. Key names include <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">SBI Holdings</Link>, Santander, Standard Chartered, Tranglo, and the National Bank of Egypt. Many more are testing quietly.</p>

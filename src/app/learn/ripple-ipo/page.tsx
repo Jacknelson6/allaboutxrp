@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,17 +76,6 @@ export default function RippleIPOPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/ripple-ipo-hero.jpg"
-            alt="Ripple IPO and stock market"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">Ripple</strong> is valued at ~$11 billion privately and could command $15-50B+ in a public listing. The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC case resolution</Link> removed the biggest obstacle. An IPO would bring massive attention to XRP, validate Ripple&apos;s business model, and likely create a &quot;Coinbase effect&quot; — where the listing drives crypto buying. However, Ripple stock and XRP are <strong className="text-text-primary">separate investments</strong> with an indirect relationship.</p>

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,17 +76,6 @@ export default function XRPEscrowExplainedPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-escrow-explained-hero.jpg"
-            alt="XRP escrow mechanism explained"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>In December 2017, Ripple locked <strong className="text-text-primary">55 billion XRP</strong> (55% of total supply) into cryptographic escrow on the XRP Ledger. Each month, <strong className="text-text-primary">1 billion XRP</strong> automatically unlocks. Ripple typically uses 10-20% for institutional sales, partnerships, and operational costs — then <strong className="text-text-primary">re-locks the remaining 80-90%</strong> into new escrow contracts. The schedule is enforced by the XRPL protocol and cannot be modified by Ripple.</p>

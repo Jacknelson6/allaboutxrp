@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -82,17 +81,6 @@ export default function XRPvsSolanaPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-vs-solana-hero.jpg"
-            alt="XRP versus Solana comparison"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">XRP</strong> and <strong className="text-text-primary">Solana</strong> are both fast, low-cost blockchains — but they target different markets. XRP is purpose-built for <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">institutional cross-border payments</Link> with 13+ years of zero downtime. Solana targets DeFi and consumer apps with higher throughput but has experienced multiple outages. XRP has deeper <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>; Solana has a larger developer ecosystem.</p>

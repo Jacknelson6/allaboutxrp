@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,17 +76,6 @@ export default function XRPPricePotentialPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-price-potential-hero.jpg"
-            alt="XRP price growth potential"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>XRP at <strong className="text-text-primary">$10</strong> = ~$580B market cap (achievable in a strong bull market with ETF approval). XRP at <strong className="text-text-primary">$50</strong> = ~$2.9T (would require capturing significant cross-border payment volume). XRP at <strong className="text-text-primary">$100</strong> = ~$5.8T (larger than Apple — extremely ambitious but not physically impossible long-term). The realistic near-term range depends on <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF approval</Link>, <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>, and overall market conditions.</p>

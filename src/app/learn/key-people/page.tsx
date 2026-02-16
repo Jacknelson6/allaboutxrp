@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -36,16 +35,6 @@ export default function KeyPeoplePage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
-        <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/key-people-hero.jpg"
-            alt="Key people behind XRP and Ripple"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
         <Link href="/learn" className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-[#0085FF] transition-colors mb-8">
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Learn
         </Link>

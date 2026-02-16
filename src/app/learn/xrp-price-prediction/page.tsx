@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -82,17 +81,6 @@ export default function XRPPricePredictionPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-price-prediction-hero.jpg"
-            alt="XRP price prediction and forecast"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         {/* TOP DISCLAIMER */}
         <div className="mt-8 rounded-xl border-2 border-red-500/40 bg-red-500/10 p-6">

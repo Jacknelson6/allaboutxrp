@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -74,17 +73,6 @@ export default function RippleSoftwareStackPage() {
             <LastUpdated date="February 12, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/ripple-software-stack-hero.jpg"
-            alt="Ripple's technology and software architecture"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>Ripple has evolved from a single payment protocol into a <strong className="text-text-primary">full-stack financial infrastructure company</strong>. Its products span payments (<Link href="/learn/ripplenet" className="text-xrp-accent underline decoration-xrp-accent/30">RippleNet</Link>), liquidity (<Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL</Link>), brokerage (<Link href="/learn/ripple-prime" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple Prime</Link>), stablecoins (<Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link>), custody, treasury, and CBDCs. Every piece connects back to the XRP Ledger.</p>

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -72,17 +71,6 @@ export default function RLUSDPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/rlusd-hero.jpg"
-            alt="RLUSD stablecoin digital dollar"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">RLUSD</strong> is <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> NYDFS-approved USD stablecoin on the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. It helps XRP through fee burns (every transaction destroys XRP), AMM liquidity pools, auto-bridging through XRP on the DEX, and increased network activity. Market cap: ~$1.5B with BNY Mellon as custodian.</p>

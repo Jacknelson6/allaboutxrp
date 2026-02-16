@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -76,17 +75,6 @@ export default function OnDemandLiquidityPage() {
             <LastUpdated date="February 12, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/on-demand-liquidity-hero.jpg"
-            alt="On-demand liquidity and real-time payments"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">On-Demand Liquidity (ODL)</strong> — formerly xRapid — is the product that gives XRP its core utility. It converts fiat → XRP → fiat in seconds, replacing the $27 trillion locked in nostro/vostro accounts worldwide. Every ODL transaction creates real demand for XRP. Active in 20+ corridors with growing volume through <Link href="/learn/ripplenet" className="text-xrp-accent underline decoration-xrp-accent/30">RippleNet</Link>.</p>

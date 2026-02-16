@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import RiddlersContent from "@/app/riddlers/RiddlersContent";
@@ -18,16 +17,6 @@ export default function RiddlersPage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 pt-10">
-        <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/riddlers-hero.jpg"
-            alt="The mysterious XRP Riddler community"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
         <Link href="/learn" className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-[#0085FF] transition-colors mb-8">
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Learn
         </Link>

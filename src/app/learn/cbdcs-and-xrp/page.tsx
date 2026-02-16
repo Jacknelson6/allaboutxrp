@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,17 +76,6 @@ export default function CBDCsAndXRPPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/cbdcs-and-xrp-hero.jpg"
-            alt="Central bank digital currencies and blockchain innovation"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">CBDCs</strong> are digital versions of national currencies issued by central banks. Over 130 countries are exploring them, but they face a critical problem: <strong className="text-text-primary">interoperability</strong>. How does China&apos;s digital yuan talk to Brazil&apos;s digital real? Ripple&apos;s thesis: <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">XRP serves as a neutral bridge</Link>, connecting any CBDC to any other CBDC in seconds. Ripple already has CBDC partnerships with Bhutan, Palau, Montenegro, Colombia, and others.</p>

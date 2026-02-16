@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -93,17 +92,6 @@ export default function HistoryPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/history-hero.jpg"
-            alt="The history and evolution of XRP and Ripple"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>The <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> launched June 2, 2012, created by David Schwartz, Jed McCaleb, and Arthur Britto. <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> (originally OpenCoin) was founded months later. Key milestones: $3.84 ATH in Jan 2018, SEC lawsuit in Dec 2020, landmark &quot;not a security&quot; ruling in July 2023, and $3.7B+ in acquisitions through 2025.</p>

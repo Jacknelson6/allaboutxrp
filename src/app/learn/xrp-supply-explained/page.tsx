@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -82,17 +81,6 @@ export default function XRPSupplyExplainedPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-supply-explained-hero.jpg"
-            alt="XRP supply and distribution explained"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">100 billion XRP</strong> were created at launch — no more can ever be minted. ~60B circulates, ~33.9B is in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow</Link>, and 14M+ have been permanently burned via transaction fees. XRP is <strong className="text-text-primary">deflationary by design</strong>. Estimated reading time: <strong className="text-text-primary">8 minutes</strong>.</p>

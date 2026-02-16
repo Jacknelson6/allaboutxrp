@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -82,17 +81,6 @@ export default function XRPTransactionTypesPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/xrp-transaction-types-hero.jpg"
-            alt="XRP transaction types on the ledger"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL</Link> has 25+ transaction types. The most common are <strong className="text-text-primary">Payment</strong> (send XRP/tokens), <strong className="text-text-primary">OfferCreate</strong> (DEX trading), <strong className="text-text-primary">TrustSet</strong> (enable token holding), and <strong className="text-text-primary">EscrowCreate</strong> (time-locked funds). All transactions cost ~0.00001 <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> and settle in 3-5 seconds. Fees are permanently burned.</p>

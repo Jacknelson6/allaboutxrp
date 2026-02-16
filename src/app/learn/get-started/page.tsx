@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -97,17 +96,6 @@ export default function GetStartedPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
-
-        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
-          <Image
-            src="/images/learn/get-started-hero.jpg"
-            alt="Getting started with cryptocurrency"
-            width={1200}
-            height={400}
-            className="h-[300px] w-full object-cover"
-            loading="lazy"
-          />
-        </div>
 
         <TLDRBox>
           <p>Buy <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> in 5 steps: choose an exchange (Uphold, Coinbase, or Kraken), create an account, deposit funds, buy XRP, then secure it in a self-custody wallet like Xaman. XRP wallets require a 10 XRP reserve. For long-term holding, use a hardware wallet (Ledger/Trezor). Learn about <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">the company behind XRP</Link> first.</p>
