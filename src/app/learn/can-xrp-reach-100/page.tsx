@@ -251,12 +251,14 @@ export default function CanXRPReach100Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Near-term price forecasts" },
-              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Long-term value analysis" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply, demand, and economics" },
-              { href: "/learn/xrp-supply-explained", label: "XRP Supply Explained", desc: "Circulating vs total supply" },
-              { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding crypto valuations" },
-              { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "Real-world utility driving value" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
+              { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
+              { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
+              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
+              { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
             ]} />
           </RevealSection>
         </div>

@@ -290,15 +290,14 @@ export default function HistoryPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/riddlers", label: "XRP Riddlers", desc: "BG123, Mr. Pool & community lore" },
-              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/learn/leadership", label: "Leadership Team", desc: "The people behind Ripple" },
-              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Start your XRP journey" },
-              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Major price milestones" },
-              { href: "/answers/is-xrp-a-security", label: "Is XRP a Security?", desc: "The SEC case explained" },
+              { href: "/learn/leadership", label: "Ripple Leadership", desc: "Ripple executives" },
+              { href: "/learn/key-people", label: "Key People", desc: "Ecosystem leaders" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/acquisitions", label: "Ripple Acquisitions", desc: "Strategic acquisitions" },
+              { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
         </div>

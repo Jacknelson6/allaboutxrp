@@ -59,7 +59,11 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-use-cases", title: "XRP Use Cases", desc: "Real-world applications beyond payments", emoji: "🌐", icon: Globe, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-price-history", title: "XRP Price History", desc: "Major price milestones over the years", emoji: "📈", icon: TrendingUp, gradient: "from-[#0085FF] to-[#6366F1]" },
   { href: "/learn/xrp-price-prediction", title: "XRP Price Prediction", desc: "What analysts are saying", emoji: "🔮", icon: Search, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/xrp-price-potential", title: "XRP Price Potential", desc: "Can XRP hit $100? The real math", emoji: "💎", icon: TrendingUp, gradient: "from-[#F59E0B] to-[#10B981]" },
+  { href: "/learn/xrp-vs-swift", title: "XRP vs SWIFT", desc: "Legacy payments vs crypto speed", emoji: "⚡", icon: Zap, gradient: "from-[#EF4444] to-[#0085FF]" },
   { href: "/learn/how-banks-use-xrp", title: "How Banks Use XRP", desc: "Cross-border payments explained", emoji: "🏦", icon: Building2, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/banks-using-xrp", title: "Banks Using XRP", desc: "Complete list of partner institutions", emoji: "🏛️", icon: Building2, gradient: "from-[#0085FF] to-[#10B981]" },
+  { href: "/learn/xrp-escrow-explained", title: "Escrow Deep Dive", desc: "The 1 billion XRP monthly unlock", emoji: "🔓", icon: Lock, gradient: "from-[#F59E0B] to-[#8B5CF6]" },
   { href: "/learn/xrp-wallets", title: "XRP Wallets Guide", desc: "Choosing the right wallet for you", emoji: "👛", icon: Wallet, gradient: "from-[#8B5CF6] to-[#EC4899]" },
   { href: "/learn/cross-border-payments", title: "Cross-Border Payments", desc: "Why XRP changes everything", emoji: "🌍", icon: Globe, gradient: "from-[#10B981] to-[#0085FF]" },
   { href: "/learn/xrp-supply-explained", title: "XRP Supply Explained", desc: "Supply, inflation & burn mechanics", emoji: "🔥", icon: BarChart3, gradient: "from-[#F59E0B] to-[#EF4444]" },
@@ -68,6 +72,8 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-etf", title: "XRP ETF Explained", desc: "ETF filings, approval status & price impact", emoji: "📋", icon: ScrollText, gradient: "from-[#0085FF] to-[#10B981]" },
   { href: "/learn/xrp-tax-guide", title: "XRP Tax Guide 2026", desc: "Capital gains, reporting & cost basis", emoji: "🧾", icon: Calculator, gradient: "from-[#F59E0B] to-[#06B6D4]" },
   { href: "/learn/sec-vs-ripple", title: "SEC vs Ripple", desc: "Complete lawsuit timeline & rulings", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#EC4899]" },
+  { href: "/learn/sec-vs-ripple-explained", title: "SEC Case Explained", desc: "The case that changed crypto forever", emoji: "📜", icon: Scale, gradient: "from-[#EC4899] to-[#6366F1]" },
+  { href: "/learn/ripple-ipo", title: "Ripple IPO", desc: "What happens when Ripple goes public", emoji: "📈", icon: TrendingUp, gradient: "from-[#10B981] to-[#0085FF]" },
   { href: "/learn/xrpl-defi", title: "XRPL DeFi & AMM", desc: "Decentralized finance on the XRP Ledger", emoji: "🔄", icon: Layers, gradient: "from-[#06B6D4] to-[#8B5CF6]" },
   { href: "/learn/xrp-stablecoin-ecosystem", title: "Stablecoin Ecosystem", desc: "RLUSD and stablecoins on XRPL", emoji: "💵", icon: Coins, gradient: "from-[#10B981] to-[#06B6D4]" },
   { href: "/learn/xrp-addresses-and-keys", title: "Addresses & Keys", desc: "How XRP accounts and keys work", emoji: "🔑", icon: Lock, gradient: "from-[#F59E0B] to-[#EF4444]" },
@@ -93,6 +99,8 @@ const rippleSoftware: Card[] = [
   { href: "/learn/on-demand-liquidity", title: "On-Demand Liquidity", desc: "XRP as a bridge currency", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/ripple-prime", title: "Ripple Prime", desc: "Institutional prime brokerage", emoji: "🏦", icon: Building2, gradient: "from-[#8B5CF6] to-[#EC4899]" },
   { href: "/learn/rlusd", title: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin", emoji: "💵", icon: Coins, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/rlusd-explained", title: "RLUSD Explained", desc: "Could it flip USDC?", emoji: "💰", icon: Coins, gradient: "from-[#06B6D4] to-[#10B981]" },
+  { href: "/learn/cbdcs-and-xrp", title: "CBDCs & XRP", desc: "Bridge currency for central banks", emoji: "🏛️", icon: Building2, gradient: "from-[#6366F1] to-[#06B6D4]" },
 ];
 
 const ecosystem: Card[] = [

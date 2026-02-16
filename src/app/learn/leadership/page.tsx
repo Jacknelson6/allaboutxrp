@@ -274,14 +274,14 @@ export default function LeadershipPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
-              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-              { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/riddlers", label: "Riddlers & Lore", desc: "Community culture" },
-              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional partners" },
-              { href: "/best/xrp-exchanges", label: "Best Exchanges", desc: "Where to buy XRP" },
+              { href: "/learn/key-people", label: "Key People", desc: "Ecosystem leaders" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/acquisitions", label: "Ripple Acquisitions", desc: "Strategic acquisitions" },
+              { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
+              { href: "/learn/riddlers", label: "XRP Riddlers", desc: "XRP riddle community" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
         </div>

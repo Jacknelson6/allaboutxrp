@@ -154,12 +154,14 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-whale-tracking", label: "Whale Tracking", desc: "Follow smart money" },
-              { href: "/learn/xrp-technical-analysis-guide", label: "Technical Analysis", desc: "Chart reading" },
-              { href: "/learn/xrp-altseason-guide", label: "Altseason Guide", desc: "Cycle timing" },
-              { href: "/learn/xrp-accumulation-zones", label: "Accumulation Zones", desc: "Entry strategy" },
-              { href: "/learn/xrp-2026-outlook", label: "2026 Outlook", desc: "Year ahead" },
-              { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Long-term forecast" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
+              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
+              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
+              { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
             ]} />
           </RevealSection>
         </div>

@@ -139,12 +139,14 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-            { href: "/learn/xrpl-consensus-mechanism", label: "Consensus", desc: "How it works" },
-            { href: "/learn/xrpl-validators", label: "Validators", desc: "Who runs them" },
-            { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "Technology" },
-            { href: "/learn/xrp-myths", label: "XRP Myths", desc: "Common misconceptions" },
-            { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "The distinction" },
-            { href: "/learn/xrp-energy-consumption", label: "Energy", desc: "Environmental impact" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
+              { href: "/learn/xrpl-consensus-mechanism", label: "XRPL Consensus", desc: "Byzantine agreement" },
+              { href: "/learn/xrpl-validators", label: "XRPL Validators", desc: "Network consensus nodes" },
+              { href: "/learn/xrpl-sidechains", label: "XRPL Sidechains", desc: "EVM sidechain & scaling" },
+              { href: "/learn/xrpl-payment-channels", label: "Payment Channels", desc: "Off-ledger micropayments" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
             ]} />
           </RevealSection>
         </div>

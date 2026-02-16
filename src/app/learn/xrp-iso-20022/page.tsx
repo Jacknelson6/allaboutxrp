@@ -254,12 +254,14 @@ export default function XRPIso20022Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "How XRP compares to traditional banking" },
-              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption deep dive" },
-              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "XRP's primary use case" },
-              { href: "/learn/cbdcs-and-xrp", label: "CBDCs and XRP", desc: "Central bank digital currency bridge" },
-              { href: "/learn/ripplenet", label: "RippleNet Explained", desc: "The institutional payment network" },
-              { href: "/learn/xrp-vs-stellar", label: "XRP vs Stellar", desc: "Comparing ISO 20022 payment cryptos" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
+              { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
+              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
             ]} />
           </RevealSection>
         </div>

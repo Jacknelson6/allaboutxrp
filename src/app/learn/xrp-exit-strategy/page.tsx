@@ -140,12 +140,14 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-            { href: "/learn/xrp-tax-guide", label: "Tax Guide", desc: "Tax implications" },
-            { href: "/learn/xrp-accumulation-zones", label: "Accumulation", desc: "Entry strategy" },
-            { href: "/learn/xrp-dollar-cost-averaging", label: "DCA", desc: "Building positions" },
-            { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading", desc: "Active trading" },
-            { href: "/learn/xrp-price-prediction", label: "Prediction", desc: "Outlook" },
-            { href: "/learn/xrp-common-mistakes", label: "Mistakes", desc: "Avoid errors" },
+              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
+              { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
+              { href: "/learn/xrp-technical-analysis-guide", label: "Technical Analysis", desc: "Advanced TA for XRP" },
+              { href: "/learn/xrp-whale-tracking", label: "Whale Tracking", desc: "Follow the big money" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
             ]} />
           </RevealSection>
         </div>

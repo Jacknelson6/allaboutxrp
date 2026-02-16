@@ -297,12 +297,14 @@ export default function XRPPricePredictionPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Full historical timeline" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply and distribution" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
-              { href: "/learn/escrow", label: "Escrow Explained", desc: "Ripple's escrow system" },
-              { href: "/answers/will-xrp-reach-10-dollars", label: "Will XRP Reach $10?", desc: "Price potential analysis" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
+              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
+              { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
+              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
+              { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
             ]} />
           </RevealSection>
         </div>

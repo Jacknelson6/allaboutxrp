@@ -138,12 +138,14 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-            { href: "/learn/xrp-japan-sbi", label: "Japan & SBI", desc: "Key partner" },
-            { href: "/learn/on-demand-liquidity", label: "ODL", desc: "How it works" },
-            { href: "/learn/cross-border-payments", label: "Payments", desc: "Global payments" },
-            { href: "/learn/partnerships", label: "Partnerships", desc: "All partners" },
-            { href: "/learn/xrp-middle-east-adoption", label: "Middle East", desc: "Gulf adoption" },
-            { href: "/learn/xrp-africa-remittances", label: "Africa", desc: "African adoption" },
+              { href: "/learn/xrp-japan-sbi", label: "XRP in Japan (SBI)", desc: "Japan's XRP champion" },
+              { href: "/learn/xrp-middle-east-adoption", label: "Middle East Adoption", desc: "Gulf region adoption" },
+              { href: "/learn/xrp-africa-remittances", label: "Africa Remittances", desc: "African payment revolution" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
             ]} />
           </RevealSection>
         </div>

@@ -285,13 +285,14 @@ export default function XRPStakingPage() {
           <RevealSection>
             <h2 className="text-2xl font-bold text-text-primary">Related Resources</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "How the consensus works" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
-              { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Safely store your XRP" },
-              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
-              { href: "/best/xrp-staking-platforms", label: "Best Staking Platforms", desc: "Top platforms compared" },
-              { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Wallet recommendations" },
-              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Investment analysis" },
+              { href: "/learn/xrpl-defi", label: "XRPL DeFi", desc: "DeFi on the XRPL" },
+              { href: "/learn/xrp-amm", label: "XRP AMM", desc: "Automated market maker" },
+              { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX Guide", desc: "Decentralized trading" },
+              { href: "/learn/how-to-stake-xrp", label: "How to Stake XRP", desc: "Earn yield on XRP" },
+              { href: "/learn/xrp-nfts", label: "XRP NFTs", desc: "NFTs on the XRPL" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
+              { href: "/learn/xrpl-consensus-mechanism", label: "XRPL Consensus", desc: "Byzantine agreement" },
+              { href: "/learn/xrpl-validators", label: "XRPL Validators", desc: "Network consensus nodes" },
             ]} />
           </RevealSection>
         </div>

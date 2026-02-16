@@ -297,12 +297,14 @@ export default function XRPvsSolanaPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-vs-ethereum", label: "XRP vs Ethereum", desc: "Another major comparison" },
-              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "The original comparison" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/partnerships", label: "Partnerships", desc: "Ripple's global network" },
-              { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "How the consensus works" },
-              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Cross-border payments" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
+              { href: "/learn/xrp-vs-ethereum", label: "XRP vs Ethereum", desc: "Payments vs smart contracts" },
+              { href: "/learn/xrp-vs-stellar", label: "XRP vs Stellar", desc: "Cross-border rivals" },
+              { href: "/learn/xrp-vs-cardano", label: "XRP vs Cardano", desc: "Full comparison" },
+              { href: "/learn/xrp-vs-hedera", label: "XRP vs Hedera", desc: "Enterprise crypto showdown" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
             ]} />
           </RevealSection>
         </div>

@@ -339,14 +339,14 @@ export default function XRPvsBitcoinPage() {
           <RevealSection>
             <h2 className="text-2xl font-bold text-text-primary">Related Resources</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
-              { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "How the XRP Ledger works" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply, escrow, and burns" },
-              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
-              { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Store your XRP safely" },
-              { href: "/answers/xrp-vs-solana", label: "XRP vs Solana", desc: "Another crypto comparison" },
-              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP" },
-              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
+              { href: "/learn/xrp-vs-ethereum", label: "XRP vs Ethereum", desc: "Payments vs smart contracts" },
+              { href: "/learn/xrp-vs-solana", label: "XRP vs Solana", desc: "Speed & fees compared" },
+              { href: "/learn/xrp-vs-stellar", label: "XRP vs Stellar", desc: "Cross-border rivals" },
+              { href: "/learn/xrp-vs-cardano", label: "XRP vs Cardano", desc: "Full comparison" },
+              { href: "/learn/xrp-vs-hedera", label: "XRP vs Hedera", desc: "Enterprise crypto showdown" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
             ]} />
           </RevealSection>
         </div>

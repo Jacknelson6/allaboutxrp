@@ -182,7 +182,16 @@ export default function Page() {
 
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <LearnLinkGrid links={[{"href":"/learn/xrp-wallets","label":"XRP Wallets","desc":"Complete wallet guide"},{"href":"/learn/how-to-buy-xrp","label":"How to Buy XRP","desc":"Purchase guide"},{"href":"/learn/xrp-addresses-and-keys","label":"Addresses & Keys","desc":"Key management"},{"href":"/learn/xrp-common-mistakes","label":"Common Mistakes","desc":"Avoid costly errors"},{"href":"/learn/xrp-tax-guide","label":"XRP Tax Guide","desc":"Tax obligations"},{"href":"/learn/what-is-xrp","label":"What Is XRP?","desc":"XRP fundamentals"}]} />
+            <LearnLinkGrid links={[
+              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
+              { href: "/learn/how-to-send-xrp", label: "How to Send XRP", desc: "Transfer XRP quickly" },
+              { href: "/learn/crypto-wallets-for-xrp", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
+              { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Top wallet picks" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
+            ]} />
           </RevealSection>
         </div>
 

@@ -221,14 +221,15 @@ export default function XRPPriceHistoryPage() {
         <RevealSection className="mt-10">
           <h3 className="text-lg font-bold text-text-primary mb-3">Continue Learning</h3>
           <LearnLinkGrid links={[
-            { href: "/answers/xrp-price-prediction-2026", label: "XRP Price Prediction 2026", desc: "What analysts forecast for this year." },
-            { href: "/learn/what-is-xrp", label: "What Is XRP?", desc: "Complete guide to XRP cryptocurrency." },
-            { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "How XRP is used in the real world." },
-            { href: "/learn/history", label: "Ripple History", desc: "The full story of Ripple Labs." },
-            { href: "/answers/will-xrp-reach-10-dollars", label: "Will XRP Reach $10?", desc: "Price potential breakdown." },
-            { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations." },
-            { href: "/tools/xrp-profit-calculator", label: "Profit Calculator", desc: "Calculate potential XRP gains." },
-          ]} />
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
+              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
+              { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
+              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
+              { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
+            ]} />
         </RevealSection>
 
         {/* FAQ */}

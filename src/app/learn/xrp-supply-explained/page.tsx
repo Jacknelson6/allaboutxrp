@@ -280,12 +280,14 @@ export default function XRPSupplyExplainedPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/escrow", label: "XRP Escrow", desc: "Deep dive into Ripple's escrow" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Full tokenomics breakdown" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
-              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
-              { href: "/learn/xrp-myths", label: "XRP Myths Debunked", desc: "Common misconceptions" },
-              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "XRP's primary use case" },
+              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply & distribution" },
+              { href: "/learn/xrp-burn-rate", label: "XRP Burn Rate", desc: "Deflationary fee mechanism" },
+              { href: "/learn/escrow", label: "XRP Escrow", desc: "Ripple's escrow system" },
+              { href: "/learn/xrp-escrow-explained", label: "Escrow Explained", desc: "1B XRP monthly unlock" },
+              { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
+              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
+              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
             ]} />
           </RevealSection>
         </div>

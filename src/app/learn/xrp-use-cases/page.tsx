@@ -354,13 +354,15 @@ export default function XRPUseCasesPage() {
         <RevealSection className="mt-10">
           <h3 className="text-lg font-bold text-text-primary mb-3">Continue Learning</h3>
           <LearnLinkGrid links={[
-            { href: "/learn/what-is-xrp", label: "What Is XRP?", desc: "Complete guide to XRP cryptocurrency." },
-            { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "300+ financial institutions using RippleNet." },
-            { href: "/learn/rlusd", label: "RLUSD Stablecoin", desc: "Ripple's USD stablecoin on XRPL." },
-            { href: "/learn/escrow", label: "XRP Escrow", desc: "How Ripple's escrow system works." },
-            { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption list." },
-            { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely." },
-          ]} />
+              { href: "/learn/leadership", label: "Ripple Leadership", desc: "Ripple executives" },
+              { href: "/learn/key-people", label: "Key People", desc: "Ecosystem leaders" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/acquisitions", label: "Ripple Acquisitions", desc: "Strategic acquisitions" },
+              { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
+            ]} />
         </RevealSection>
 
         {/* FAQ */}

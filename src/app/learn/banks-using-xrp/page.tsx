@@ -234,12 +234,14 @@ export default function BanksUsingXRPPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Technical deep dive" },
-              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Full partnership list" },
-              { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "Why banks are switching" },
-              { href: "/learn/ripplenet", label: "RippleNet Explained", desc: "The network architecture" },
-              { href: "/learn/rlusd-explained", label: "RLUSD Explained", desc: "Ripple's stablecoin" },
-              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "How it all works" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
+              { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
+              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
+              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
+              { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
+              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
             ]} />
           </RevealSection>
         </div>

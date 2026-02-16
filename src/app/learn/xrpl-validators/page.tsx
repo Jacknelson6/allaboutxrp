@@ -313,12 +313,14 @@ export default function XRPLValidatorsPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-ledger-explained", label: "XRPL Explained", desc: "Full technical deep dive" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
-              { href: "/learn/xrp-transaction-types", label: "Transaction Types", desc: "How XRPL transactions work" },
-              { href: "/learn/xrp-addresses-and-keys", label: "Addresses & Keys", desc: "XRPL account security" },
-              { href: "/learn/history", label: "XRP History", desc: "From 2012 to today" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply, escrow & burns" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
+              { href: "/learn/xrpl-consensus-mechanism", label: "XRPL Consensus", desc: "Byzantine agreement" },
+              { href: "/learn/xrpl-decentralization", label: "XRPL Decentralization", desc: "Centralization debate" },
+              { href: "/learn/xrpl-sidechains", label: "XRPL Sidechains", desc: "EVM sidechain & scaling" },
+              { href: "/learn/xrpl-payment-channels", label: "Payment Channels", desc: "Off-ledger micropayments" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
             ]} />
           </RevealSection>
         </div>

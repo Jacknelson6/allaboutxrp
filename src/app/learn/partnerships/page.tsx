@@ -257,13 +257,14 @@ export default function PartnershipsPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company explained" },
-              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-              { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption" },
-              { href: "/best/xrp-exchanges", label: "Best Exchanges", desc: "Where to buy XRP" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
+              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
+              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
+              { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
+              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
             ]} />
           </RevealSection>
         </div>

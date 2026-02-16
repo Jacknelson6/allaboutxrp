@@ -303,15 +303,14 @@ export default function WhatIsRipplePage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
-              { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
-              { href: "/learn/acquisitions", label: "Acquisitions", desc: "$3.7B strategy deep dive" },
-              { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions" },
-              { href: "/learn/history", label: "History & Timeline", desc: "2011 to present" },
-              { href: "/learn/escrow", label: "Escrow Explained", desc: "55B XRP lockup system" },
-              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
-              { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption tracker" },
-              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
+              { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
+              { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
+              { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
+              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
+              { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />
           </RevealSection>
         </div>

@@ -252,12 +252,14 @@ export default function HowDoesXRPWorkPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp", label: "What Is XRP?", desc: "Complete XRP overview" },
-              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "Deep dive into the XRPL" },
-              { href: "/learn/xrpl-validators", label: "XRPL Validators", desc: "Who secures the network" },
-              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Technical comparison" },
-              { href: "/learn/xrp-transaction-types", label: "Transaction Types", desc: "All XRPL transaction types" },
-              { href: "/learn/xrp-energy-consumption", label: "XRP Energy Usage", desc: "How green is XRP?" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
+              { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
+              { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
+              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
+              { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />
           </RevealSection>
         </div>

@@ -258,12 +258,14 @@ export default function XRPvsSWIFTPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "How XRP moves money globally" },
-              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption deep dive" },
-              { href: "/learn/ripplenet", label: "RippleNet Explained", desc: "The network behind ODL" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
-              { href: "/learn/xrp-etf", label: "XRP ETF", desc: "What it means for adoption" },
-              { href: "/learn/cbdcs-and-xrp", label: "CBDCs and XRP", desc: "The bridge currency thesis" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
+              { href: "/learn/xrp-vs-ethereum", label: "XRP vs Ethereum", desc: "Payments vs smart contracts" },
+              { href: "/learn/xrp-vs-solana", label: "XRP vs Solana", desc: "Speed & fees compared" },
+              { href: "/learn/xrp-vs-stellar", label: "XRP vs Stellar", desc: "Cross-border rivals" },
+              { href: "/learn/xrp-vs-cardano", label: "XRP vs Cardano", desc: "Full comparison" },
+              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
+              { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
+              { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
             ]} />
           </RevealSection>
         </div>

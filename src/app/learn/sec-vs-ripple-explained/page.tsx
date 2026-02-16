@@ -224,12 +224,14 @@ export default function SECvsRipplePage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple (Quick)", desc: "Condensed case overview" },
-              { href: "/learn/xrp-etf", label: "XRP ETF", desc: "How the ruling enabled ETFs" },
-              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "What it means for price" },
-              { href: "/learn/history", label: "XRP History", desc: "The full XRP story" },
-              { href: "/learn/ripple-ipo", label: "Ripple IPO", desc: "What's next for Ripple" },
-              { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply and distribution" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "Lawsuit timeline" },
+              { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "SEC ruling explained" },
+              { href: "/learn/crypto-regulation-xrp-impact", label: "Crypto Regulation Impact", desc: "Laws shaping XRP" },
+              { href: "/learn/xrp-european-regulation", label: "European Regulation", desc: "MiCA & EU framework" },
+              { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
         </div>

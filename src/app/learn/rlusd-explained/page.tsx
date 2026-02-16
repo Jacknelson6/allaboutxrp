@@ -224,12 +224,14 @@ export default function RLUSDExplainedPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-stablecoin-ecosystem", label: "XRP Stablecoin Ecosystem", desc: "The bigger picture" },
-              { href: "/learn/xrpl-defi", label: "XRPL DeFi", desc: "DeFi on the XRP Ledger" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Institutional adoption" },
-              { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "Cross-border payments" },
-              { href: "/learn/xrp-escrow-explained", label: "XRP Escrow", desc: "Understanding supply" },
-              { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Impact on price" },
+              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
+              { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
+              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
+              { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Enterprise brokerage" },
+              { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
+              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
+              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
         </div>
