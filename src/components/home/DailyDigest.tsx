@@ -82,7 +82,7 @@ export default function DailyDigest() {
   if (digest) {
     return (
       <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-6" aria-label="Weekly Digest">
-        <div className="rounded-2xl border border-[#0085FF]/20 bg-[#0A0A0B] relative overflow-hidden">
+        <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden">
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
           <div className="relative px-5 py-8 sm:px-8 sm:py-10">
             {/* Badge */}
@@ -126,7 +126,7 @@ export default function DailyDigest() {
   // No digest yet — show email capture card
   return (
     <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-6" aria-label="Weekly Digest">
-      <div className="rounded-2xl border border-[#0085FF]/20 bg-[#0A0A0B] relative overflow-hidden">
+      <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden">
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
         <div className="relative px-5 py-8 sm:px-8 sm:py-10">
           {/* Badge */}
