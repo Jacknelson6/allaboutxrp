@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function CrossBorderPaymentsPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/cross-border-payments-hero.jpg"
+            alt="International cross-border payment networks"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>International payments via SWIFT take 1-5 business days and cost $25-50+ per transaction. <strong className="text-text-primary">XRP settles in 3-5 seconds for under $0.01.</strong> <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s On-Demand Liquidity (ODL)</Link> uses XRP as a bridge currency across 55+ countries, eliminating trillions locked in <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">nostro/vostro accounts</Link>. Estimated reading time: <strong className="text-text-primary">10 minutes</strong>.</p>

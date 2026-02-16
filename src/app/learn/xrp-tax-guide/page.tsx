@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPTaxGuidePage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-tax-guide-hero.jpg"
+            alt="XRP cryptocurrency tax guide"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>The IRS treats <strong className="text-text-primary">XRP as property</strong>. Selling, trading, or spending XRP triggers <strong className="text-text-primary">capital gains tax</strong>. <Link href="/learn/xrp-staking" className="text-xrp-accent underline decoration-xrp-accent/30">Staking rewards</Link> and airdrops are taxed as <strong className="text-text-primary">ordinary income</strong> when received. Use cost basis methods (FIFO, LIFO, HIFO) to calculate gains. Keep detailed records and consider crypto tax software. This is a U.S.-focused guide — consult a tax professional for your jurisdiction. See our <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP overview</Link> for fundamentals.</p>

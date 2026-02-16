@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function WhatIsXRPPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/what-is-xrp-hero.jpg"
+            alt="What is XRP cryptocurrency digital asset"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">XRP</strong> is a cryptocurrency built for fast, low-cost global payments on the <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. It settles in 3-5 seconds, costs less than $0.01 per transaction, and handles 1,500+ TPS. All 100 billion XRP were created at launch — no more can ever be minted. <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> uses XRP as a bridge currency for cross-border payments across 55+ countries.</p>

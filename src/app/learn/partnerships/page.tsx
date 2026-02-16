@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -156,6 +157,17 @@ export default function PartnershipsPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/partnerships-hero.jpg"
+            alt="Strategic business partnerships"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> has hundreds of partners across 55+ countries, including SBI Holdings, Mastercard, BNY Mellon, Banco Santander, and Standard Chartered. Partners use <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> as a bridge currency via ODL, Ripple Custody for digital asset management, and RLUSD for stablecoin settlements. Ripple is also working with 20+ central banks on CBDC pilots.</p>

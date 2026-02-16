@@ -146,45 +146,7 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
             <TweetMedia src={tweet.media} />
           )}
 
-          <div className="mt-2 flex items-center justify-between max-w-[425px]">
-            <button className="group flex items-center gap-1 text-text-secondary hover:text-xrp-accent transition-colors duration-200">
-              <div className="rounded-full p-1.5 group-hover:bg-xrp-accent/10 transition-colors duration-200">
-                <MessageCircle className="h-4 w-4" />
-              </div>
-              <span className="text-xs">{formatCount(tweet.replies)}</span>
-            </button>
-
-            <button
-              onClick={(e) => { e.stopPropagation(); setRetweeted(!retweeted); }}
-              className={`group flex items-center gap-1 transition-colors duration-200 ${retweeted ? "text-success" : "text-text-secondary hover:text-success"}`}
-            >
-              <div className="rounded-full p-1.5 group-hover:bg-success/10 transition-colors duration-200">
-                <Repeat2 className="h-4 w-4" />
-              </div>
-              <span className="text-xs">{formatCount(tweet.retweets + (retweeted ? 1 : 0))}</span>
-            </button>
-
-            <button
-              onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
-              className={`group flex items-center gap-1 transition-colors duration-200 ${liked ? "text-danger" : "text-text-secondary hover:text-danger"}`}
-            >
-              <div className="rounded-full p-1.5 group-hover:bg-danger/10 transition-colors duration-200">
-                <Heart className={`h-4 w-4 ${liked ? "fill-current" : ""}`} />
-              </div>
-              <span className="text-xs">{formatCount(tweet.likes + (liked ? 1 : 0))}</span>
-            </button>
-
-            <div className="flex items-center gap-1 text-text-secondary">
-              <BarChart3 className="h-4 w-4" />
-              <span className="text-xs">{formatCount(tweet.views)}</span>
-            </div>
-
-            <button className="text-text-secondary hover:text-xrp-accent transition-colors duration-200">
-              <div className="rounded-full p-1.5 hover:bg-xrp-accent/10 transition-colors duration-200">
-                <Share className="h-4 w-4" />
-              </div>
-            </button>
-          </div>
+{/* Engagement metrics removed */}
         </div>
       </div>
     </article>

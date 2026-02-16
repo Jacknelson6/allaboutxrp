@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPvsEthereumPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-vs-ethereum-hero.jpg"
+            alt="XRP versus Ethereum comparison"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">XRP</strong> is built for fast, low-cost <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">cross-border payments</Link> — settling in 3-5 seconds for under $0.01. <strong className="text-text-primary">Ethereum</strong> is a smart contract platform powering DeFi, NFTs, and dApps. XRP has deeper <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> for payments; Ethereum dominates in developer ecosystem and DeFi TVL. Different tools for different jobs.</p>

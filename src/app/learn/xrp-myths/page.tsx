@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPMythsPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-myths-hero.jpg"
+            alt="Common XRP myths debunked"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>XRP is <strong className="text-text-primary">not centralized</strong> (150+ validators, Ripple runs ~6%), <strong className="text-text-primary">not a security</strong> (Torres ruling, 2023), and Ripple <strong className="text-text-primary">cannot create new XRP</strong> (cryptographically impossible). Banks <em>do</em> use XRP via <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL</Link> in 55+ countries. Estimated reading time: <strong className="text-text-primary">9 minutes</strong>.</p>

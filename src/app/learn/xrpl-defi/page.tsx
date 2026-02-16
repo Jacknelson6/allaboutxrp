@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPLDeFiPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrpl-defi-hero.jpg"
+            alt="XRPL decentralized finance"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> has a <strong className="text-text-primary">built-in DEX</strong> (since 2012), a <strong className="text-text-primary">native AMM</strong> (since 2024), and a growing DeFi ecosystem. Unlike Ethereum, XRPL DeFi features are protocol-native — not smart contracts — meaning lower fees, faster execution, and higher security. With <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> as a stablecoin anchor, XRPL DeFi is poised for significant growth. Learn about <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> and its <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">expanding use cases</Link>.</p>

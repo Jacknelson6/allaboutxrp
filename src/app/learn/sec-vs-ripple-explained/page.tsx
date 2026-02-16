@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -76,6 +77,17 @@ export default function SECvsRipplePage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/sec-vs-ripple-explained-hero.jpg"
+            alt="SEC vs Ripple legal case explained"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>The SEC sued Ripple in December 2020, alleging XRP was an unregistered security. In July 2023, Judge Torres ruled that <strong className="text-text-primary">programmatic sales of XRP on exchanges are NOT securities</strong> — a landmark decision. Institutional direct sales were found to be securities offerings. After appeals and negotiations, Ripple reached a settlement with reduced penalties. The ruling set precedent that secondary market crypto trading generally doesn&apos;t constitute securities transactions, providing clarity the industry desperately needed.</p>

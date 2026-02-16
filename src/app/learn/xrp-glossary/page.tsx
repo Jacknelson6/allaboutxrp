@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -121,6 +122,17 @@ export default function XRPGlossaryPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-glossary-hero.jpg"
+            alt="XRP and blockchain glossary of terms"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>A comprehensive glossary of <strong className="text-text-primary">{glossaryTerms.length}+ terms</strong> covering everything in the <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> and <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL</Link> ecosystem. Use the letter navigation to jump to any section. Estimated reading time: <strong className="text-text-primary">15 minutes</strong> (reference — browse as needed).</p>

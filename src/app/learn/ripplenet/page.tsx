@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,6 +78,17 @@ export default function RippleNetPage() {
             <LastUpdated date="February 12, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/ripplenet-hero.jpg"
+            alt="RippleNet global payment network"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">RippleNet</strong> is Ripple&apos;s enterprise payment network that replaced the legacy SWIFT-era correspondent banking model. It evolved from three separate products (xCurrent, xRapid, xVia) into a unified platform. Its killer feature is <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity (ODL)</Link>, which uses XRP as a bridge currency to eliminate pre-funded accounts and settle payments in seconds.</p>

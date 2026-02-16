@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import FAQAccordion from "./FAQAccordion";
 import SEOSchema from "@/components/shared/SEOSchema";

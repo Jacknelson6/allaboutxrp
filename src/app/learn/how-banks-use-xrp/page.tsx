@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function HowBanksUseXRPPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/how-banks-use-xrp-hero.jpg"
+            alt="How banks leverage XRP technology"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>Banks use <strong className="text-text-primary">XRP</strong> through <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity (ODL)</Link> product as a bridge currency for cross-border payments. Instead of pre-funding accounts in every destination currency, banks convert to XRP, transfer in 3-5 seconds, and convert to local currency — saving 40-60% vs traditional methods. Over <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">300 institutions</Link> across 55+ countries are connected through RippleNet.</p>

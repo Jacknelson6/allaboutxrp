@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -74,6 +75,17 @@ export default function RipplePrimePage() {
             <LastUpdated date="February 12, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/ripple-prime-hero.jpg"
+            alt="Ripple Prime enterprise solution"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">Ripple Prime</strong> is Ripple&apos;s institutional brokerage arm, born from the <Link href="/learn/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">$1.25B Hidden Road acquisition</Link>. It provides clearing, custody, lending, and post-trade services to 300+ institutional clients. The big story: post-trade settlement is moving to the XRP Ledger, making XRPL the backbone of a $3T+ annual clearing operation.</p>

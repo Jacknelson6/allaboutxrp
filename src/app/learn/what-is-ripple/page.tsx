@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -77,6 +78,17 @@ export default function WhatIsRipplePage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/what-is-ripple-hero.jpg"
+            alt="What is Ripple fintech company"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">Ripple</strong> is a $50B technology company building enterprise payment infrastructure — it is <em>not</em> the same as <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link>. Ripple uses XRP as a bridge currency for cross-border payments via ODL, and has acquired $3.7B+ in companies including <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">Hidden Road</Link>, Metaco, and GTreasury. It operates in 55+ countries with ~1,400 employees.</p>

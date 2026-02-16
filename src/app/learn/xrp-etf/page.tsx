@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPETFPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-etf-hero.jpg"
+            alt="XRP ETF exchange traded fund"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>An <strong className="text-text-primary">XRP ETF</strong> lets investors buy XRP exposure through traditional stock exchanges. XRP futures ETFs are already trading, and multiple firms — including Bitwise, 21Shares, and WisdomTree — have filed for <strong className="text-text-primary">spot XRP ETFs</strong> with the SEC. Bitcoin&apos;s spot ETF saw over $30 billion in inflows in its first year. A spot XRP ETF could bring similar institutional capital to XRP. Learn about <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP fundamentals</Link> and the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> that made this possible.</p>

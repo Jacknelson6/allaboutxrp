@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPAddressesAndKeysPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-addresses-and-keys-hero.jpg"
+            alt="XRP addresses and cryptographic keys"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>XRP addresses start with <strong className="text-text-primary">&quot;r&quot;</strong> (classic) or <strong className="text-text-primary">&quot;X&quot;</strong> (X-address format). Your secret key controls your account — lose it and your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> is gone forever. The XRPL supports <strong className="text-text-primary">regular keys</strong> (changeable signing keys) and <strong className="text-text-primary">multi-signing</strong> (multiple parties approve transactions). Every account needs a 10 XRP base reserve, plus 2 XRP per object (trust lines, offers).</p>

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
@@ -79,6 +80,17 @@ export default function XRPUseCasesPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-use-cases-hero.jpg"
+            alt="XRP real-world use cases"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">XRP</strong> is used for <strong className="text-text-primary">cross-border payments</strong> via <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s On-Demand Liquidity</Link> across 55+ countries, <strong className="text-text-primary">DeFi</strong> on the XRPL&apos;s native DEX and AMMs, the <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD stablecoin</Link> ecosystem, <strong className="text-text-primary">NFTs</strong> via the XLS-20 standard, and <strong className="text-text-primary">micropayments</strong> with sub-cent fees. Over 300 financial institutions in 55+ countries use RippleNet, making XRP one of the most practically adopted cryptocurrencies.</p>

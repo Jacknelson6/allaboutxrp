@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -81,6 +82,17 @@ export default function XRPLValidatorsPage() {
             <LastUpdated date="February 13, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrpl-validators-hero.jpg"
+            alt="XRPL validator nodes and network"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p>The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL</Link> uses the <strong className="text-text-primary">Ripple Protocol Consensus Algorithm (RPCA)</strong> — not mining or staking. Over <strong className="text-text-primary">150 validators</strong> globally propose and agree on transactions every 3-5 seconds. Each node maintains a <strong className="text-text-primary">Unique Node List (UNL)</strong> of trusted validators. <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> operates only ~6% of default UNL validators. No rewards, no mining — just pure consensus.</p>

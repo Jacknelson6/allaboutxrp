@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -78,6 +79,17 @@ export default function XRPvsSWIFTPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-vs-swift-hero.jpg"
+            alt="XRP versus SWIFT banking comparison"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">SWIFT</strong> is a 50-year-old messaging network connecting 11,000+ banks. It doesn&apos;t actually move money — it sends instructions through chains of correspondent banks, taking 1-5 days and costing $25-50 per transfer. <strong className="text-text-primary">XRP</strong> settles cross-border payments in <Link href="/learn/cross-border-payments" className="text-xrp-accent underline decoration-xrp-accent/30">3-5 seconds for under $0.01</Link>, using Ripple&apos;s On-Demand Liquidity to eliminate the need for pre-funded nostro accounts.</p>

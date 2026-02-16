@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
@@ -76,6 +77,17 @@ export default function RLUSDExplainedPage() {
             <LastUpdated date="February 15, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/rlusd-explained-hero.jpg"
+            alt="RLUSD stablecoin explained"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">RLUSD</strong> is Ripple&apos;s USD stablecoin — fully backed by USD and US Treasuries, approved by the <strong className="text-text-primary">NY Department of Financial Services</strong>, and running on both XRPL and Ethereum. It&apos;s designed for institutional use within Ripple&apos;s payment network but also available for DeFi. RLUSD hit $1.5B+ market cap faster than any previous stablecoin, and it complements (not competes with) <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s role</Link> as a bridge currency.</p>

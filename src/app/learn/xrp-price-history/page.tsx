@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
@@ -95,6 +96,17 @@ export default function XRPPriceHistoryPage() {
             <LastUpdated date="February 11, 2026" />
           </div>
         </LearnHero>
+
+        <div className="mt-8 mb-12 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/xrp-price-history-hero.jpg"
+            alt="XRP price history and chart"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
         <TLDRBox>
           <p><strong className="text-text-primary">XRP</strong> was created in 2012 and first traded around $0.003 in 2013. It surged to an all-time high of <strong className="text-text-primary">$3.84 in January 2018</strong>, crashed 93%, survived the <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">SEC lawsuit</Link> (2020-2023), and rallied 580% in late 2024 to reach ~$3.40. As of February 2026, XRP trades around <strong className="text-text-primary">$2.00</strong> with analyst targets of <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">$2.45 (base case)</Link> for the year.</p>
