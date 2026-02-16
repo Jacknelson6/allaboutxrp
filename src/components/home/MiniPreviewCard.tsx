@@ -42,7 +42,6 @@ export default function MiniPreviewCard() {
       largeChartUrl: '',
       noTimeScale: false,
       chartOnly: false,
-      scalePosition: 'no',
       trendLineColor: '#0085FF',
       underLineColor: 'rgba(0, 133, 255, 0.12)',
       underLineBottomColor: 'rgba(0, 133, 255, 0)',
