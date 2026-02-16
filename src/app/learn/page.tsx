@@ -8,6 +8,7 @@ import {
   Users, Handshake, Coins, Lock, Building2, UserCircle, Eye, Globe,
   Layers, Play, Search, ScrollText, Shield, Wallet, BarChart3,
   TrendingUp, Zap, Scale, Calculator, MessageCircle, Award,
+  MapPin, LineChart, Target, BookMarked, Lightbulb,
 } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import faqData from "@/data/faq.json";
@@ -101,6 +102,59 @@ const ecosystem: Card[] = [
   { href: "/learn/key-people", title: "Key People", desc: "Leaders of the XRP ecosystem", emoji: "👥", icon: UserCircle, gradient: "from-[#6366F1] to-[#8B5CF6]" },
   { href: "/learn/trusted-sources", title: "Trusted Sources", desc: "Curated XRP community voices", emoji: "✅", icon: Shield, gradient: "from-[#10B981] to-[#06B6D4]" },
   { href: "/learn/riddlers", title: "Riddlers", desc: "The legendary XRP riddle community", emoji: "🧩", icon: Eye, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const howTo: Card[] = [
+  { href: "/learn/how-to-store-xrp-safely", title: "Store XRP Safely", desc: "Hardware wallets & security best practices", emoji: "🔐", icon: Lock, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/how-to-send-xrp", title: "Send XRP", desc: "Fast transfers in 3-5 seconds", emoji: "📤", icon: Zap, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/learn/how-to-stake-xrp", title: "Stake XRP", desc: "Earn yield on your holdings", emoji: "🌱", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/how-to-use-xrpl-dex", title: "Use the XRPL DEX", desc: "Decentralized trading guide", emoji: "🔄", icon: Layers, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/how-to-create-xrpl-token", title: "Create an XRPL Token", desc: "Token issuance in minutes", emoji: "🪙", icon: Coins, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/how-to-read-xrp-charts", title: "Read XRP Charts", desc: "Technical analysis basics", emoji: "📊", icon: BarChart3, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const trading: Card[] = [
+  { href: "/learn/xrp-dollar-cost-averaging", title: "Dollar Cost Averaging", desc: "The simplest investment strategy", emoji: "📅", icon: Target, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-swing-trading-guide", title: "Swing Trading Guide", desc: "Capture medium-term price swings", emoji: "📈", icon: TrendingUp, gradient: "from-[#0085FF] to-[#6366F1]" },
+  { href: "/learn/xrp-technical-analysis-guide", title: "Technical Analysis Guide", desc: "Advanced TA for XRP", emoji: "📉", icon: LineChart, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/best-xrp-trading-pairs", title: "Best Trading Pairs", desc: "Optimize your trades", emoji: "🔀", icon: Layers, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/xrp-whale-tracking", title: "Whale Tracking", desc: "Follow the big money", emoji: "🐋", icon: Search, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/xrp-accumulation-zones", title: "Accumulation Zones", desc: "Strategic buy levels", emoji: "🎯", icon: Target, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-exit-strategy", title: "Exit Strategy", desc: "Know when to take profits", emoji: "🚪", icon: Scale, gradient: "from-[#EF4444] to-[#F59E0B]" },
+];
+
+const globalAdoption: Card[] = [
+  { href: "/learn/xrp-japan-sbi", title: "Japan & SBI Holdings", desc: "Japan's XRP champion", emoji: "🇯🇵", icon: Globe, gradient: "from-[#EF4444] to-[#F59E0B]" },
+  { href: "/learn/xrp-middle-east-adoption", title: "Middle East Adoption", desc: "UAE, Saudi & Gulf expansion", emoji: "🕌", icon: MapPin, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrp-africa-remittances", title: "Africa Remittances", desc: "Transforming African payments", emoji: "🌍", icon: Globe, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-southeast-asia", title: "Southeast Asia", desc: "ASEAN adoption & corridors", emoji: "🌏", icon: MapPin, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/xrp-european-regulation", title: "European Regulation", desc: "MiCA & EU framework", emoji: "🇪🇺", icon: Scale, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrp-institutional-custody", title: "Institutional Custody", desc: "Enterprise-grade storage", emoji: "🏦", icon: Building2, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const technology: Card[] = [
+  { href: "/learn/xrpl-consensus-mechanism", title: "Consensus Mechanism", desc: "How XRP achieves agreement", emoji: "🔗", icon: Globe, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/learn/xrpl-sidechains", title: "XRPL Sidechains", desc: "EVM sidechain & scaling", emoji: "🔀", icon: Layers, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrpl-payment-channels", title: "Payment Channels", desc: "Off-ledger micropayments", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/xrpl-trust-lines-explained", title: "Trust Lines Explained", desc: "How token holding works", emoji: "🤝", icon: Handshake, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrpl-decentralization", title: "Decentralization", desc: "Centralization debate answered", emoji: "🌐", icon: Globe, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/xrp-interledger-protocol", title: "Interledger Protocol", desc: "Connecting all payment networks", emoji: "🔗", icon: Layers, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+];
+
+const marketAnalysis: Card[] = [
+  { href: "/learn/xrp-2026-outlook", title: "XRP 2026 Outlook", desc: "Price, adoption & catalysts", emoji: "🔮", icon: Search, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/xrp-bull-run-indicators", title: "Bull Run Indicators", desc: "Spot the next rally", emoji: "🐂", icon: TrendingUp, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-altseason-guide", title: "Altseason Guide", desc: "When altcoins outperform Bitcoin", emoji: "🌊", icon: BarChart3, gradient: "from-[#0085FF] to-[#6366F1]" },
+  { href: "/learn/crypto-regulation-xrp-impact", title: "Regulation Impact", desc: "How laws shape XRP's future", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrp-spot-etf-vs-futures-etf", title: "Spot ETF vs Futures ETF", desc: "Understanding the difference", emoji: "📋", icon: ScrollText, gradient: "from-[#F59E0B] to-[#EF4444]" },
+];
+
+const beginnerGuides: Card[] = [
+  { href: "/learn/xrp-for-beginners", title: "XRP for Beginners", desc: "Complete starter guide", emoji: "🎓", icon: BookMarked, gradient: "from-[#0085FF] to-[#06B6D4]", featured: true },
+  { href: "/learn/xrp-common-mistakes", title: "Common Mistakes", desc: "Avoid costly errors", emoji: "⚠️", icon: Shield, gradient: "from-[#EF4444] to-[#F59E0B]" },
+  { href: "/learn/xrp-vs-stocks", title: "XRP vs Stocks", desc: "Comparing asset classes", emoji: "📊", icon: BarChart3, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrp-portfolio-allocation", title: "Portfolio Allocation", desc: "How much XRP should you own?", emoji: "🥧", icon: Target, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/crypto-wallets-for-xrp", title: "Wallets for XRP", desc: "Complete wallet comparison", emoji: "👛", icon: Wallet, gradient: "from-[#8B5CF6] to-[#EC4899]" },
 ];
 
 const bestPicks: Card[] = [
@@ -225,10 +279,46 @@ export default function LearnPage() {
           <CardGrid cards={basics} sectionId="basics" />
         </div>
 
+        {/* Beginner Guides */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={BookMarked} title="Beginner Guides" colorClass="text-[#10B981]" bgClass="bg-[#10B981]/10" />
+          <CardGrid cards={beginnerGuides} sectionId="beginner" />
+        </div>
+
+        {/* How-To Guides */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={Lightbulb} title="How-To Guides" colorClass="text-[#F59E0B]" bgClass="bg-[#F59E0B]/10" />
+          <CardGrid cards={howTo} sectionId="how-to" />
+        </div>
+
+        {/* Trading & Investment */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={LineChart} title="Trading & Investment" colorClass="text-[#EF4444]" bgClass="bg-[#EF4444]/10" />
+          <CardGrid cards={trading} sectionId="trading" />
+        </div>
+
+        {/* Market Analysis */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={TrendingUp} title="Market Analysis & Trends" colorClass="text-[#8B5CF6]" bgClass="bg-[#8B5CF6]/10" />
+          <CardGrid cards={marketAnalysis} sectionId="market" />
+        </div>
+
         {/* Deep Dives */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
           <SectionHeader icon={Search} title="Deep Dives" colorClass="text-[#6366F1]" bgClass="bg-[#6366F1]/10" />
           <CardGrid cards={deepDives} sectionId="deep-dives" />
+        </div>
+
+        {/* Technology */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={Globe} title="Technology Deep Dives" colorClass="text-[#06B6D4]" bgClass="bg-[#06B6D4]/10" />
+          <CardGrid cards={technology} sectionId="technology" />
+        </div>
+
+        {/* Global Adoption */}
+        <div className="relative mx-auto max-w-7xl px-4 pb-16">
+          <SectionHeader icon={MapPin} title="Global Adoption" colorClass="text-[#F59E0B]" bgClass="bg-[#F59E0B]/10" />
+          <CardGrid cards={globalAdoption} sectionId="global" />
         </div>
 
         {/* Ripple Software */}
@@ -239,7 +329,7 @@ export default function LearnPage() {
 
         {/* Ecosystem */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16">
-          <SectionHeader icon={Globe} title="Ecosystem" colorClass="text-[#06B6D4]" bgClass="bg-[#06B6D4]/10" />
+          <SectionHeader icon={Users} title="Community & Ecosystem" colorClass="text-[#06B6D4]" bgClass="bg-[#06B6D4]/10" />
           <CardGrid cards={ecosystem} sectionId="ecosystem" />
         </div>
 
