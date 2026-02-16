@@ -12,6 +12,13 @@ const FEEDS = [
   { name: "The Block", url: "https://www.theblock.co/rss.xml" },
   { name: "Decrypt", url: "https://decrypt.co/feed" },
   { name: "Reuters", url: "https://www.reutersagency.com/feed/?taxonomy=best-sectors&post_type=best" },
+  { name: "CoinTelegraph", url: "https://cointelegraph.com/rss" },
+  { name: "CryptoNews", url: "https://cryptonews.com/news/feed/" },
+  { name: "U.Today", url: "https://u.today/rss" },
+  { name: "BeInCrypto", url: "https://beincrypto.com/feed/" },
+  { name: "NewsBTC", url: "https://www.newsbtc.com/feed/" },
+  { name: "Bitcoinist", url: "https://bitcoinist.com/feed/" },
+  { name: "Crypto Briefing", url: "https://cryptobriefing.com/feed/" },
 ];
 
 const XRP_KEYWORDS = /\bxrp\b|\bripple\b|\brlusd\b|\bxrpl\b|\bsec\b.*\bripple\b|\bripple\b.*\bsec\b/i;
@@ -128,14 +135,29 @@ async function fetchFeed(feed: { name: string; url: string }): Promise<RawArticl
 
 // ── AI Importance Scoring ──────────────────────────────────────────────
 // Uses OpenRouter API (supports many models, pay-per-use)
-const SCORING_PROMPT = `You are a crypto news editor for an XRP-focused site. For each article below:
+const SCORING_PROMPT = `You are a strict crypto news editor for an XRP-focused site. For each article below:
 1. Score it 1-10 on importance to XRP/Ripple/crypto holders
-2. For articles scoring 7+, write a 1-2 sentence "Why it matters" summary explaining the specific implications for XRP holders. This summary is REQUIRED and must not be empty.
+2. For articles scoring 7+, write a 2-3 sentence "Why it matters" summary that clearly explains what the article is about, what happened, and why it matters to XRP holders. Be specific — include names, numbers, and concrete details.
+
+SCORING CRITERIA — prefer articles about:
+- Partnerships, integrations, and business deals involving Ripple or XRPL
+- Regulatory updates, court rulings, SEC actions, and legal clarity
+- Technical developments on the XRP Ledger (amendments, protocol upgrades)
+- Institutional adoption, ETF filings, and custody solutions
+- Verifiable events with named sources and concrete facts
+
+AUTOMATICALLY SCORE 4 OR BELOW (reject):
+- Op-eds and opinion pieces with no news hook
+- Price prediction clickbait ("XRP will reach $1000!")
+- Pure speculation without verifiable facts
+- Low-quality aggregator rehashes of other articles
+- Anything that reads like shilling, FUD, or promotional content
+- Vague "could", "might", "may" speculation articles
 
 Return a JSON array. Each element must have all three fields:
-[{"index": 0, "score": 8, "summary": "This matters because..."}]
+[{"index": 0, "score": 8, "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to..."}]
 
-The summary field must contain a substantive explanation. Never return an empty string for summary on 7+ articles.`;
+The summary field must contain a substantive, multi-sentence explanation. Never return an empty string for summary on 7+ articles.`;
 
 interface ScoredArticle {
   index: number;

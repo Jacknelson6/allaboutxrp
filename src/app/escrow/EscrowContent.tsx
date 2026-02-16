@@ -33,7 +33,7 @@ const historicalData = [
 const trackerTools = [
   { tool: "XRPScan Balances", shows: "Current escrow totals, circulating supply, burned XRP", url: "https://xrpscan.com/balances" },
   { tool: "XRPScan Metrics", shows: "Network statistics, account data", url: "https://xrpscan.com/metrics" },
-  { tool: "Whale Alert", shows: "Real-time large transaction notifications", url: "https://twitter.com/whale_alert" },
+  { tool: "Whale Alert", shows: "Real-time large transaction notifications", url: "https://whale-alert.io" },
   { tool: "Ripple Quarterly Reports", shows: "Official sales data, escrow updates", url: "https://ripple.com/insights" },
 ];
 

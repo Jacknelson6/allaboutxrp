@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import XFeed from "./XFeed";
+import NewsFeed from "./NewsFeed";
 
 export default function CommunityFeed() {
   return (
@@ -18,7 +18,7 @@ export default function CommunityFeed() {
       </div>
 
       <div className="rounded-2xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
-        <XFeed />
+        <NewsFeed />
       </div>
 
       <div className="mt-6 text-center">

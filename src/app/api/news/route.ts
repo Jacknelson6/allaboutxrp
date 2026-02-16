@@ -47,8 +47,10 @@ export async function GET() {
     const { data, error } = await supabase
       .from("news_articles")
       .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
+      .gte("importance_score", 7)
       .order("published_at", { ascending: false })
-      .limit(30);
+      .order("importance_score", { ascending: false })
+      .limit(50);
 
     if (error) {
       console.error("News query error:", error);

@@ -62,7 +62,7 @@ function useIsMobile() {
   return mobile;
 }
 
-export default function XFeed() {
+export default function NewsFeed() {
   const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(12);
   const [mobileExpanded, setMobileExpanded] = useState(false);
