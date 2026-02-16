@@ -145,7 +145,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
   }
 
   return (
-    <div className="py-3 px-5">
+    <div className="pt-1 pb-3 px-5">
       {/* 1. Combined: Price + Globe + Chart */}
       <MiniPreviewCard />
 
