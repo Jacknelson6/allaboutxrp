@@ -83,7 +83,7 @@ export default function TweetCard({ tweet }: { tweet: TweetData }) {
 
             {/* Tweet text */}
             <div className="mt-0.5 text-[15px] text-text-primary leading-[1.4] whitespace-pre-wrap break-words">
-              {tweet.text.split(/(https?:\/\/\S+)/g).map((segment, si) =>
+              {cleanText.split(/(https?:\/\/\S+)/g).map((segment, si) =>
                 /^https?:\/\//.test(segment) ? (
                   <a
                     key={si}
