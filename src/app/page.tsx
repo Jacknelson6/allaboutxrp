@@ -6,16 +6,16 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "AllAboutXRP — Everything You Need to Know About XRP",
-  description: "Your XRP community hub — curated X/Twitter feed, live price data, holder analytics, comprehensive XRP education, and more. Stay connected with the XRP ecosystem.",
+  description: "Your XRP community hub — latest XRP news with sentiment analysis, live price data, holder analytics, comprehensive education, and more. Stay connected with the XRP ecosystem.",
   openGraph: {
-    title: "AllAboutXRP — XRP Community Feed & Resources",
-    description: "Curated XRP community feed, education, and live data.",
+    title: "AllAboutXRP — XRP News, Analysis & Resources",
+    description: "Latest XRP news with sentiment analysis, education, and live data.",
     url: "https://allaboutxrp.com",
   },
   twitter: {
     card: "summary_large_image",
     title: "AllAboutXRP — XRP Community Hub",
-    description: "Curated XRP community feed, education, live data, and comprehensive resources.",
+    description: "Latest XRP news with sentiment analysis, education, live data, and comprehensive resources.",
   },
   alternates: { canonical: "https://allaboutxrp.com" },
 };
@@ -25,7 +25,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
-  description: "Comprehensive XRP community hub with curated feeds, education, and live data.",
+  description: "Comprehensive XRP community hub with news, sentiment analysis, education, and live data.",
 };
 
 const faqSchema = {

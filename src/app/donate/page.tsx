@@ -5,7 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { Globe, Server, BookOpen, Heart, Copy, Check } from "lucide-react";
 
-const XRP_ADDRESS = "rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+const XRP_ADDRESS = "rsSGRasGTBHPChWy7HBn6KhUR2L56UR1eo";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",

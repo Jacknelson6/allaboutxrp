@@ -6,14 +6,14 @@ import XFeed from "./XFeed";
 
 export default function CommunityFeed() {
   return (
-    <section id="community-feed" className="mx-auto max-w-5xl px-5 py-16" aria-label="Community feed">
+    <section id="news-feed" className="mx-auto max-w-5xl px-5 py-16" aria-label="XRP News feed">
       <div className="text-center mb-12">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-xrp-accent/70 mb-3">Community</p>
+        <p className="text-[11px] font-medium uppercase tracking-widest text-xrp-accent/70 mb-3">News</p>
         <h2 className="text-[32px] font-bold tracking-[-0.03em] text-text-primary md:text-[38px]">
-          Curated XRP voices
+          Latest XRP News
         </h2>
         <p className="mt-3 text-[15px] text-text-secondary max-w-lg mx-auto">
-          The most trusted accounts in the XRP ecosystem — trending posts and real-time updates.
+          Real-time XRP and Ripple news with sentiment analysis — stay informed on what matters.
         </p>
       </div>
 
