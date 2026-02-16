@@ -41,6 +41,12 @@ const basics: Card[] = [
   { href: "/learn/xrp-vs-bitcoin", title: "XRP vs Bitcoin", desc: "How they compare side by side", emoji: "⚡", icon: Zap, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-vs-solana", title: "XRP vs Solana", desc: "Speed, fees, and use cases compared", emoji: "⚡", icon: Zap, gradient: "from-[#9333EA] to-[#06B6D4]" },
   { href: "/learn/xrp-vs-ethereum", title: "XRP vs Ethereum", desc: "Payments vs smart contracts", emoji: "🔷", icon: Layers, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/xrp-vs-stellar", title: "XRP vs Stellar", desc: "Cross-border payment rivals", emoji: "⭐", icon: Zap, gradient: "from-[#06B6D4] to-[#10B981]" },
+  { href: "/learn/xrp-vs-cardano", title: "XRP vs Cardano", desc: "Payments vs smart contracts", emoji: "🔵", icon: Layers, gradient: "from-[#0085FF] to-[#8B5CF6]" },
+  { href: "/learn/xrp-vs-hedera", title: "XRP vs Hedera", desc: "Enterprise crypto comparison", emoji: "♯", icon: Zap, gradient: "from-[#6366F1] to-[#06B6D4]" },
+  { href: "/learn/ripple-vs-xrp", title: "Ripple vs XRP", desc: "The key difference explained", emoji: "🔀", icon: Layers, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/how-does-xrp-work", title: "How Does XRP Work?", desc: "Technology explained simply", emoji: "⚙️", icon: Globe, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/can-xrp-be-mined", title: "Can XRP Be Mined?", desc: "Why XRP uses consensus", emoji: "⛏️", icon: HelpCircle, gradient: "from-[#F59E0B] to-[#EF4444]" },
 ];
 
 const deepDives: Card[] = [
@@ -66,6 +72,18 @@ const deepDives: Card[] = [
   { href: "/learn/xrp-addresses-and-keys", title: "Addresses & Keys", desc: "How XRP accounts and keys work", emoji: "🔑", icon: Lock, gradient: "from-[#F59E0B] to-[#EF4444]" },
   { href: "/learn/xrp-transaction-types", title: "Transaction Types", desc: "Every XRPL transaction explained", emoji: "📋", icon: ScrollText, gradient: "from-[#06B6D4] to-[#0085FF]" },
   { href: "/learn/xrpl-validators", title: "Validators & Consensus", desc: "How XRPL reaches agreement", emoji: "🛡️", icon: Shield, gradient: "from-[#6366F1] to-[#8B5CF6]" },
+  { href: "/learn/is-xrp-a-security", title: "Is XRP a Security?", desc: "The SEC ruling explained", emoji: "⚖️", icon: Scale, gradient: "from-[#6366F1] to-[#EC4899]" },
+  { href: "/learn/xrp-iso-20022", title: "XRP & ISO 20022", desc: "The global payments standard", emoji: "📋", icon: ScrollText, gradient: "from-[#0085FF] to-[#06B6D4]" },
+  { href: "/learn/can-xrp-reach-100", title: "Can XRP Reach $100?", desc: "Realistic price analysis", emoji: "💯", icon: TrendingUp, gradient: "from-[#F59E0B] to-[#EF4444]" },
+  { href: "/learn/why-is-xrp-so-cheap", title: "Why Is XRP So Cheap?", desc: "Price vs value explained", emoji: "🤔", icon: HelpCircle, gradient: "from-[#8B5CF6] to-[#6366F1]" },
+  { href: "/learn/xrp-market-cap-explained", title: "Market Cap Explained", desc: "Understanding crypto valuations", emoji: "📊", icon: BarChart3, gradient: "from-[#06B6D4] to-[#0085FF]" },
+  { href: "/learn/xrp-energy-consumption", title: "XRP Energy Usage", desc: "250,000x greener than Bitcoin", emoji: "🌱", icon: Globe, gradient: "from-[#10B981] to-[#06B6D4]" },
+  { href: "/learn/xrp-burn-rate", title: "XRP Burn Rate", desc: "Deflationary fee mechanism", emoji: "🔥", icon: Zap, gradient: "from-[#EF4444] to-[#F59E0B]" },
+  { href: "/learn/xrp-nfts", title: "XRP NFTs", desc: "Native NFTs on the XRPL", emoji: "🖼️", icon: Layers, gradient: "from-[#8B5CF6] to-[#EC4899]" },
+  { href: "/learn/xrp-smart-contracts", title: "Smart Contracts", desc: "Hooks & EVM sidechain", emoji: "📝", icon: ScrollText, gradient: "from-[#6366F1] to-[#0085FF]" },
+  { href: "/learn/xrp-amm", title: "XRP AMM", desc: "Native automated market maker", emoji: "🔄", icon: Layers, gradient: "from-[#06B6D4] to-[#8B5CF6]" },
+  { href: "/learn/xrp-real-world-assets", title: "Real-World Assets", desc: "Tokenization on the XRPL", emoji: "🏠", icon: Building2, gradient: "from-[#10B981] to-[#0085FF]" },
+  { href: "/learn/xrp-airdrops", title: "XRP Airdrops", desc: "How to get free XRPL tokens", emoji: "🎁", icon: Coins, gradient: "from-[#EC4899] to-[#8B5CF6]" },
 ];
 
 const rippleSoftware: Card[] = [
