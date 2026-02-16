@@ -54,6 +54,16 @@ export default function FAQPage() {
     <>
       <SEOSchema schema={[faqSchema, breadcrumbSchema]} />
       <div className="mx-auto max-w-4xl px-4 py-16">
+        <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/faq-hero.jpg"
+            alt="Frequently asked questions about XRP"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
         {/* Breadcrumb */}
         <nav className="mb-8 flex items-center gap-2 text-xs text-text-secondary" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-xrp-accent transition-colors">Home</Link>

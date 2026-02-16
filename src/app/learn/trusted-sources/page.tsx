@@ -52,6 +52,16 @@ export default function TrustedSourcesPage() {
   return (
     <div className="min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
+        <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/trusted-sources-hero.jpg"
+            alt="Trusted XRP research and data sources"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
         <Link href="/learn" className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-[#0085FF] transition-colors mb-8">
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Learn
         </Link>

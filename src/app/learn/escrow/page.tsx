@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -43,6 +44,16 @@ export default function EscrowLearnPage() {
     <div className="min-h-screen bg-black">
       <SEOSchema schema={schemas} />
       <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
+        <div className="mb-8 overflow-hidden rounded-xl border border-white/10">
+          <Image
+            src="/images/learn/escrow-hero.jpg"
+            alt="Digital escrow and secure vault technology"
+            width={1200}
+            height={400}
+            className="h-[300px] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
         <EscrowContent />
         <div className="mt-16 pt-8 border-t border-white/[0.06]">
           <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
