@@ -219,7 +219,7 @@ gen('xrp-insurance-use-cases', {
 
           <RevealSection id="parametric" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Parametric Insurance</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Auto-pays when a trigger is met (earthquake >6.0, flight delayed >2 hours). No claims process — instant payout via XRP.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Auto-pays when a trigger is met (earthquake &gt;6.0, flight delayed &gt;2 hours). No claims process — instant payout via XRP.</p>
           </RevealSection>
 
           <RevealSection id="reinsurance" delay={0.05}>
@@ -274,7 +274,7 @@ gen('xrp-tax-loss-harvesting', {
               {title:"3. Offset Gains",desc:"Apply losses against capital gains. Excess offsets up to $3,000 income."},
               {title:"4. Rebuy (Optional)",desc:"Currently no wash sale rule for crypto. Can rebuy immediately."},
               {title:"5. Record Everything",desc:"Document all transactions for tax filing."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>
 
           <RevealSection id="wash" delay={0.05}>
@@ -398,7 +398,7 @@ gen('xrp-airdrop-taxes', {
               {title:"Record Fair Market Value",desc:"Price of the token on the date of receipt (use CoinGecko/CMC)."},
               {title:"Report as Income",desc:"Include on Schedule 1 (Other Income) of your tax return."},
               {title:"Track Cost Basis",desc:"FMV at receipt = your cost basis for when you sell later."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>
 
           <RevealSection id="selling" delay={0.05}>
@@ -456,7 +456,7 @@ gen('xrp-all-time-high', {
               {title:"Coinbase Rumors",desc:"Persistent rumors of Coinbase listing drove retail buying."},
               {title:"Retail FOMO",desc:"XRP's low unit price ($0.25 → $3) attracted new investors who thought it was 'cheap'."},
               {title:"Partnership Hype",desc:"Ripple bank partnerships were front-page crypto news."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>
 
           <RevealSection id="crash" delay={0.05}>
@@ -659,7 +659,7 @@ gen('ripple-founding-story', {
               {title:"2017-18",desc:"XRP reaches $3.84 ATH during crypto mania."},
               {title:"2020",desc:"SEC sues Ripple. Industry-defining legal battle begins."},
               {title:"2023",desc:"Judge Torres rules XRP not a security on exchanges."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>`);
 
 // 97. xrp-block-explorers
@@ -712,7 +712,7 @@ gen('xrp-block-explorers', {
               {title:"Search by Transaction",desc:"Paste a transaction hash to see full details and confirmation."},
               {title:"Network Stats",desc:"View ledger close time, TPS, validator status."},
               {title:"Token/NFT Lookup",desc:"Browse XRPL tokens, AMM pools, and NFT collections."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>
 
           <RevealSection id="uses" delay={0.05}>
@@ -733,7 +733,7 @@ gen('xrp-portfolio-trackers', {
   desc:'Best apps and tools to track your XRP portfolio. Real-time prices, P&L tracking, tax integration, and multi-wallet support.',
   kw:['XRP portfolio tracker','track XRP holdings','XRP portfolio app','crypto tracker XRP'],
   tldr:'Best XRP portfolio trackers: CoinTracker (tax integration), Koinly (tax reports), CoinGecko (free tracking), Delta (mobile app). Choose based on whether you need simple tracking or tax reporting.',
-  facts:[{l:"Best Free",value:"CoinGecko"},{l:"Best Tax",value:"CoinTracker"},{l:"Best Mobile",value:"Delta"},{l:"Tax Reports",value:"CoinTracker, Koinly"},{l:"Multi-Wallet",value:"All"},{l:"XRPL Support",value:"Varies"}],
+  facts:[{l:"Best Free",v:"CoinGecko"},{l:"Best Tax",v:"CoinTracker"},{l:"Best Mobile",v:"Delta"},{l:"Tax Reports",v:"CoinTracker, Koinly"},{l:"Multi-Wallet",v:"All"},{l:"XRPL Support",v:"Varies"}],
   sections:[{id:"comparison",label:"Comparison"},{id:"cointracker",label:"CoinTracker"},{id:"koinly",label:"Koinly"},{id:"free",label:"Free Options"},{id:"choosing",label:"How to Choose"}],
   stats:[{l:"Trackers",v:"5+"},{l:"Best Free",v:"CoinGecko"},{l:"Best Tax",v:"CoinTracker"},{l:"Best App",v:"Delta"}],
   faqs:[
@@ -828,7 +828,7 @@ gen('xrp-community-explained', {
               {title:"2018 Crash",desc:"Those who held through -95% developed diamond-hand conviction."},
               {title:"2020 SEC Lawsuit",desc:"The community rallied together against the SEC. Fundraised for Ripple's defense. 'Us vs the government.'"},
               {title:"2023 Victory",desc:"The Torres ruling was celebrated as a community triumph."},
-            ]} variant="number" /></div>
+            ]} variant="check" /></div>
           </RevealSection>
 
           <RevealSection id="culture" delay={0.05}>
