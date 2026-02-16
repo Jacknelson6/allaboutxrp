@@ -555,7 +555,7 @@ export async function GET(request: NextRequest) {
       "X-Title": "AllAboutXRP Digest Generator",
     },
     body: JSON.stringify({
-      model: "moonshotai/kimi-k2.5",
+      model: "anthropic/claude-sonnet-4",
       messages: [
         { role: "system", content: prompt },
         {
