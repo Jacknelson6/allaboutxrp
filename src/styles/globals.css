@@ -366,12 +366,6 @@ h1 { font-weight: 700; }
   display: none;
 }
 
-/* Force TradingView widget iframes to fill container */
-.tradingview-widget-container iframe {
-  width: 100% !important;
-  min-width: 100% !important;
-}
-
 /* Content visibility for performance */
 .cv-auto {
   content-visibility: auto;

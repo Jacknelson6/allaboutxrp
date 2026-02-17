@@ -103,7 +103,7 @@ export default function HomeFeed() {
 
         {/* Right sidebar - desktop only */}
         <div className="hidden lg:block">
-          <div className="sticky top-20 pt-8">
+          <div className="sticky top-20">
             <RightSidebar />
           </div>
         </div>

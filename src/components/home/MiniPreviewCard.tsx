@@ -32,7 +32,7 @@ export default function MiniPreviewCard() {
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
       symbol: 'BITSTAMP:XRPUSD',
-      width: 400,
+      width: 280,
       height: 240,
       locale: 'en',
       dateRange: '1D',
