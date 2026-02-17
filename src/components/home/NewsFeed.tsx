@@ -14,9 +14,9 @@ interface Article {
 }
 
 const SENTIMENT_CONFIG = {
-  bullish: { arrow: "↑", label: "Positive", color: "text-[#22c55e]", bg: "bg-[#22c55e]/10", border: "border-[#22c55e]/20" },
-  bearish: { arrow: "↓", label: "Negative", color: "text-[#ef4444]", bg: "bg-[#ef4444]/10", border: "border-[#ef4444]/20" },
-  neutral: { arrow: "—", label: "Neutral", color: "text-[#6b7280]", bg: "bg-[#6b7280]/10", border: "border-[#6b7280]/20" },
+  bullish: { arrow: "↑", label: "Bullish", color: "text-[#22c55e]", bg: "bg-[#22c55e]/10", border: "border-[#22c55e]/20" },
+  bearish: { arrow: "↓", label: "Bearish", color: "text-[#ef4444]", bg: "bg-[#ef4444]/10", border: "border-[#ef4444]/20" },
+  neutral: { arrow: "↑", label: "Bullish", color: "text-[#22c55e]", bg: "bg-[#22c55e]/10", border: "border-[#22c55e]/20" },
 } as const;
 
 function relativeTime(dateStr: string): string {
@@ -97,7 +97,7 @@ export default function NewsFeed() {
                       {/* Sentiment + source + time */}
                       <div className="flex items-center gap-2 mb-1.5 text-xs">
                         <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full ${s.bg} ${s.border} border ${s.color} font-medium`}>
-                          {s.arrow} Sentiment: {s.label.toLowerCase()}
+                          {s.arrow} {s.label}
                         </span>
                         <span className="text-text-secondary">{article.source}</span>
                         <span className="text-text-secondary/50">·</span>
