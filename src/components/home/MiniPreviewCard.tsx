@@ -28,13 +28,11 @@ function XRPSparkline() {
     let cancelled = false;
     async function fetchKlines() {
       try {
-        const res = await fetch(
-          'https://api.binance.com/api/v3/klines?symbol=XRPUSDT&interval=15m&limit=96'
-        );
+        const res = await fetch('/api/xrp-klines');
         if (!res.ok) return;
         const data = await res.json();
-        if (!cancelled) {
-          setPrices(data.map((k: unknown[]) => parseFloat(k[4] as string))); // close prices
+        if (!cancelled && Array.isArray(data) && data.length > 0) {
+          setPrices(data);
         }
       } catch { /* silent */ }
     }
