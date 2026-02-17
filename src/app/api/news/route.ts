@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
   const r1 = await supabase
     .from("news_articles")
-    .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
+    .select("title, simple_title, url, source, summary, og_image, published_at, importance_score, sentiment")
     .gte("importance_score", 7)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
   if (r1.error?.code === "42703") {
     const r2 = await supabase
       .from("news_articles")
-      .select("title, url, source, summary, og_image, published_at, importance_score")
+      .select("title, simple_title, url, source, summary, og_image, published_at, importance_score")
       .gte("importance_score", 7)
       .order("published_at", { ascending: false })
       .range(offset, offset + limit - 1);

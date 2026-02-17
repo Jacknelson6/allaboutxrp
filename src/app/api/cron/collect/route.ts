@@ -85,6 +85,7 @@ interface RawArticle {
 
 interface ArticleRow {
   title: string;
+  simple_title: string | null;
   url: string;
   source: string;
   summary: string | null;
@@ -166,14 +167,20 @@ Ask yourself: "Would a serious XRP investor need to know this TODAY to make deci
 
 Also classify sentiment as "bullish" or "bearish" based on likely impact on XRP price/ecosystem. If truly neutral, classify as "bullish".
 
-Return a JSON array. Each element must have all four fields:
-[{"index": 0, "score": 8, "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to...", "sentiment": "bullish"}]
+Also write a "simple_title" for each article: a very short, plain-language headline that tells the reader exactly what happened. No clickbait, no colons, no jargon. Write it like you're explaining to a friend. Examples:
+- Original: "One Day to Go: XRP Ledger Set to Welcome DEX Upgrade" → Simple: "XRP Ledger getting a DEX upgrade tomorrow"
+- Original: "Ripple CEO Sees Major Legal Victory Likely This Spring" → Simple: "Ripple's CEO expects to win the SEC case this spring"
+- Original: "XRP Network Activity Down 26% as Active Addresses Fall to 40,778" → Simple: "XRP network activity dropped 26% this week"
 
-The summary field must contain a substantive, multi-sentence explanation. Never return an empty string for summary on 8+ articles.`;
+Return a JSON array. Each element must have all five fields:
+[{"index": 0, "score": 8, "simple_title": "XRP Ledger getting a DEX upgrade tomorrow", "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to...", "sentiment": "bullish"}]
+
+The summary and simple_title fields must be substantive. Never return empty strings for 8+ articles.`;
 
 interface ScoredArticle {
   index: number;
   score: number;
+  simple_title: string;
   summary: string;
   sentiment: "bullish" | "neutral" | "bearish";
 }
@@ -274,6 +281,7 @@ export async function GET(request: NextRequest) {
     const raw = newRawArticles[s.index];
     return {
       title: raw.title,
+      simple_title: s.simple_title || null,
       url: raw.url,
       source: raw.source,
       summary: s.summary || null,

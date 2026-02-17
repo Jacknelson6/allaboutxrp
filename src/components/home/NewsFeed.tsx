@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 
 interface Article {
   title: string;
+  simple_title: string | null;
   url: string;
   source: string;
   summary: string | null;
@@ -104,14 +105,14 @@ export default function NewsFeed() {
                         <span className="text-text-secondary/70">{relativeTime(article.published_at)}</span>
                       </div>
 
-                      {/* Title */}
+                      {/* Simplified title */}
                       <h3 className="text-sm font-semibold text-text-primary leading-snug line-clamp-2">
-                        {article.title}
+                        {article.simple_title || article.title}
                       </h3>
 
-                      {/* Why it matters (our summary) */}
+                      {/* Why it matters */}
                       {article.summary && (
-                        <p className="mt-1.5 text-[13px] text-text-secondary leading-relaxed">
+                        <p className="mt-1.5 text-[13px] text-text-secondary leading-relaxed line-clamp-3">
                           {article.summary}
                         </p>
                       )}
