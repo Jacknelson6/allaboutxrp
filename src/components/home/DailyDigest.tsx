@@ -81,7 +81,7 @@ export default function DailyDigest() {
   // If a digest exists, show the weekly digest card
   if (digest) {
     return (
-      <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-6" aria-label="Weekly Digest">
+      <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-2" aria-label="Weekly Digest">
         <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden">
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
           <div className="relative px-5 py-8 sm:px-8 sm:py-10">
@@ -125,7 +125,7 @@ export default function DailyDigest() {
 
   // No digest yet — show email capture card
   return (
-    <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-6" aria-label="Weekly Digest">
+    <section className="px-3 pt-3 pb-3 lg:px-0 lg:mt-2" aria-label="Weekly Digest">
       <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden">
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
         <div className="relative px-5 py-8 sm:px-8 sm:py-10">
