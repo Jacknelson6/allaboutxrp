@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
   const r1 = await supabase
     .from("news_articles")
     .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
-    .gte("importance_score", 8)
+    .gte("importance_score", 7)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
 
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     const r2 = await supabase
       .from("news_articles")
       .select("title, url, source, summary, og_image, published_at, importance_score")
-      .gte("importance_score", 8)
+      .gte("importance_score", 7)
       .order("published_at", { ascending: false })
       .range(offset, offset + limit - 1);
     data = r2.data;
