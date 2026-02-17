@@ -8,11 +8,9 @@ import TradeModal from "@/components/shared/TradeModal";
 import NewsletterSignup from "@/components/shared/NewsletterSignup";
 
 const watchItems = [
-  { title: "Why SWIFT Is Dying and XRP Could Replace It", teaser: "The $150T system Ripple is disrupting", href: "/learn/xrp-vs-swift" },
-  { title: "The SEC Case That Changed Crypto Forever", teaser: "How Ripple won and what it means", href: "/learn/sec-vs-ripple-explained" },
-  { title: "XRP ETF: When It's Coming and What It Means", teaser: "Timeline, odds, and price impact", href: "/learn/xrp-etf" },
-  { title: "Can XRP Hit $100? The Real Math", teaser: "Market cap math, not hopium", href: "/learn/xrp-price-potential" },
-  { title: "Ripple IPO: What Happens to XRP Price?", teaser: "The $11B company going public", href: "/learn/ripple-ipo" },
+  { title: "Why SWIFT Is Dying and XRP Could Replace It", href: "/learn/xrp-vs-swift" },
+  { title: "The SEC Case That Changed Crypto Forever", href: "/learn/sec-vs-ripple-explained" },
+  { title: "XRP ETF: When It's Coming and What It Means", href: "/learn/xrp-etf" },
 ];
 import MiniPreviewCard from "./MiniPreviewCard";
 
@@ -170,9 +168,6 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
               <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none z-0" />
               <span className="relative z-10 text-[13px] font-semibold text-text-primary group-hover:text-[#0085FF] transition-colors leading-snug block">
                 {item.title}
-              </span>
-              <span className="relative z-10 text-[11px] text-text-secondary leading-snug block mt-0.5">
-                {item.teaser}
               </span>
             </Link>
           ))}
