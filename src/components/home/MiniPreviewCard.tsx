@@ -3,7 +3,7 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useXRPLStream } from '@/lib/globe/useXRPLStream';
 import { useXRPPrice } from '@/hooks/useXRPPrice';
 import { TrendingUp, TrendingDown } from 'lucide-react';
@@ -21,13 +21,17 @@ export default function MiniPreviewCard() {
   const { arcs, removeArc } = useXRPLStream();
   const { data: priceData } = useXRPPrice();
   const widgetRef = useRef<HTMLDivElement>(null);
+  const [widgetReady, setWidgetReady] = useState(false);
 
   useEffect(() => {
-    if (!widgetRef.current) return;
+    const el = widgetRef.current;
+    if (!el) return;
 
-    const timer = setTimeout(() => {
-      if (!widgetRef.current) return;
-      widgetRef.current.innerHTML = '';
+    let mounted = true;
+
+    function initWidget() {
+      if (!el || !mounted) return;
+      el.innerHTML = '';
 
       const script = document.createElement('script');
       script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
@@ -35,6 +39,8 @@ export default function MiniPreviewCard() {
       script.type = 'text/javascript';
       script.innerHTML = JSON.stringify({
         symbol: 'BITSTAMP:XRPUSD',
+        width: '100%',
+        height: '100%',
         locale: 'en',
         dateRange: '1D',
         colorTheme: 'dark',
@@ -52,6 +58,8 @@ export default function MiniPreviewCard() {
       wrapper.className = 'tradingview-widget-container';
       wrapper.style.height = '100%';
       wrapper.style.width = '100%';
+      wrapper.style.position = 'absolute';
+      wrapper.style.inset = '0';
 
       const innerDiv = document.createElement('div');
       innerDiv.className = 'tradingview-widget-container__widget';
@@ -60,19 +68,40 @@ export default function MiniPreviewCard() {
 
       wrapper.appendChild(innerDiv);
       wrapper.appendChild(script);
-      widgetRef.current.appendChild(wrapper);
-    }, 300);
+      el.appendChild(wrapper);
 
-    return () => clearTimeout(timer);
+      // Mark ready after widget likely loaded
+      setTimeout(() => setWidgetReady(true), 1000);
+    }
+
+    // Use ResizeObserver to detect when container has real dimensions
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 100) {
+          observer.disconnect();
+          // Give layout time to stabilize
+          setTimeout(initWidget, 200);
+        }
+      }
+    });
+    observer.observe(el);
+
+    // Fallback
+    const fallback = setTimeout(() => {
+      observer.disconnect();
+      if (el && !el.querySelector('.tradingview-widget-container')) initWidget();
+    }, 2500);
+
+    return () => { mounted = false; observer.disconnect(); clearTimeout(fallback); };
   }, []);
 
   return (
     <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
-      {/* ── Top half: TradingView (independent hover) ── */}
+      {/* ── Top half: TradingView ── */}
       <div className="relative group/chart">
-        {/* Clickable overlay */}
-        <Link href="/live-chart" className="absolute inset-0 z-30" />
-        {/* Hover overlay that sits above the iframe */}
+        {/* Clickable overlay - only shows after widget is loaded to not interfere with init */}
+        <Link href="/live-chart" className="absolute inset-0 z-30" aria-label="View Charts" />
+        {/* Hover effects */}
         <div className="absolute inset-0 z-20 bg-white/[0.03] opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none" />
         <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none z-20" />
         <div className="relative h-[240px] w-full overflow-hidden rounded-t-2xl" ref={widgetRef}>
@@ -107,7 +136,7 @@ export default function MiniPreviewCard() {
       {/* Divider */}
       <div className="mx-5 border-t border-[#2F3336]" />
 
-      {/* ── Bottom half: Globe (independent hover) ── */}
+      {/* ── Bottom half: Globe ── */}
       <Link href="/live" className="relative block group/globe">
         <div className="absolute inset-0 z-20 bg-white/[0.03] opacity-0 group-hover/globe:opacity-100 transition-opacity rounded-b-2xl pointer-events-none" />
         <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/globe:opacity-100 transition-opacity rounded-b-2xl pointer-events-none z-20" />
