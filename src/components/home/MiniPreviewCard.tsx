@@ -25,10 +25,8 @@ export default function MiniPreviewCard() {
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    // Delay to ensure container is laid out and has final dimensions
     const timer = setTimeout(() => {
       if (!widgetRef.current) return;
-      const containerWidth = widgetRef.current.offsetWidth || 300;
       widgetRef.current.innerHTML = '';
 
       const script = document.createElement('script');
@@ -37,13 +35,11 @@ export default function MiniPreviewCard() {
       script.type = 'text/javascript';
       script.innerHTML = JSON.stringify({
         symbol: 'BITSTAMP:XRPUSD',
-        width: containerWidth,
-        height: 240,
         locale: 'en',
         dateRange: '1D',
         colorTheme: 'dark',
         isTransparent: true,
-        autosize: false,
+        autosize: true,
         largeChartUrl: '',
         noTimeScale: false,
         chartOnly: false,
@@ -65,7 +61,7 @@ export default function MiniPreviewCard() {
       wrapper.appendChild(innerDiv);
       wrapper.appendChild(script);
       widgetRef.current.appendChild(wrapper);
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
