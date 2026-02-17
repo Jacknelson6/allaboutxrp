@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useAuth } from "@/lib/supabase/auth-context";
+import DigestPaywall from "@/components/digest/DigestPaywall";
 
 interface DigestContent {
   key_news?: Array<{ title: string; summary: string; url?: string; source?: string }>;
@@ -30,28 +32,37 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
+/** Convert digest content object to readable text for paywall preview */
+function contentToText(content: DigestContent): string {
+  const parts: string[] = [];
+  if (content.key_news) {
+    content.key_news.forEach((n) => {
+      parts.push(`${n.title}: ${n.summary}`);
+    });
+  }
+  if (content.price_changes?.notes) {
+    parts.push(content.price_changes.notes);
+  }
+  if (content.price_prediction?.reasoning) {
+    parts.push(content.price_prediction.reasoning);
+  }
+  if (content.macro_analysis) {
+    parts.push(...content.macro_analysis);
+  }
+  return parts.join(" ");
+}
+
 export default function DigestDetailPage() {
   const { slug } = useParams<{ slug: string }>();
+  const { user, isPro, loading: authLoading, proLoading } = useAuth();
   const [digest, setDigest] = useState<Digest | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [needsSubscribe, setNeedsSubscribe] = useState(false);
   const [allDigests, setAllDigests] = useState<DigestMeta[]>([]);
 
   useEffect(() => {
-    const email = localStorage.getItem("digest_email");
-    if (!email) {
-      setNeedsSubscribe(true);
-      setLoading(false);
-      return;
-    }
-
     Promise.all([
-      fetch(`/api/digests/${slug}?email=${encodeURIComponent(email)}`).then((r) => {
-        if (r.status === 403) {
-          setNeedsSubscribe(true);
-          throw new Error("forbidden");
-        }
+      fetch(`/api/digests/${slug}`).then((r) => {
         if (!r.ok) throw new Error("not found");
         return r.json();
       }),
@@ -61,33 +72,16 @@ export default function DigestDetailPage() {
         setDigest(d);
         setAllDigests(all.map((x: DigestMeta) => ({ slug: x.slug, title: x.title })));
       })
-      .catch((e) => {
-        if (e.message !== "forbidden") setError("Digest not found.");
+      .catch(() => {
+        setError("Digest not found.");
       })
       .finally(() => setLoading(false));
   }, [slug]);
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <main className="min-h-screen bg-black flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin" />
-      </main>
-    );
-  }
-
-  if (needsSubscribe) {
-    return (
-      <main className="min-h-screen bg-black flex items-center justify-center px-4">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-3">Subscribe to Read</h1>
-          <p className="text-gray-400 mb-6">Enter your email to access the weekly digest.</p>
-          <Link
-            href="/digest"
-            className="px-6 py-3 rounded-lg bg-[#0085FF] text-white font-semibold hover:bg-[#0070DD] transition-colors"
-          >
-            Get Access →
-          </Link>
-        </div>
       </main>
     );
   }
@@ -101,6 +95,29 @@ export default function DigestDetailPage() {
           <Link href="/digest" className="text-[#0085FF] hover:underline">
             ← Back to Digests
           </Link>
+        </div>
+      </main>
+    );
+  }
+
+  // Show paywall if not pro
+  const isSubscribed = isPro && !proLoading;
+
+  if (!isSubscribed && !proLoading) {
+    return (
+      <main className="min-h-screen bg-black px-4 py-16">
+        <div className="max-w-3xl mx-auto">
+          <Link href="/digest" className="text-[#0085FF] text-sm hover:underline mb-6 inline-block">
+            ← All Digests
+          </Link>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{digest.title}</h1>
+          <p className="text-gray-500 mb-8">
+            {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
+          </p>
+          <DigestPaywall
+            contentHtml={contentToText(digest.content)}
+            slug={slug}
+          />
         </div>
       </main>
     );
@@ -124,7 +141,6 @@ export default function DigestDetailPage() {
   return (
     <main className="min-h-screen bg-black px-4 py-16">
       <div className="max-w-3xl mx-auto">
-        {/* Header */}
         <Link href="/digest" className="text-[#0085FF] text-sm hover:underline mb-6 inline-block">
           ← All Digests
         </Link>
@@ -239,7 +255,7 @@ export default function DigestDetailPage() {
           </section>
         )}
 
-        {/* Share */}
+        {/* Share & Manage */}
         <div className="flex items-center gap-4 mb-10 pt-6 border-t border-white/[0.06]">
           <button
             onClick={handleShare}
@@ -247,6 +263,18 @@ export default function DigestDetailPage() {
           >
             Share this digest
           </button>
+          {isPro && (
+            <button
+              onClick={async () => {
+                const res = await fetch("/api/stripe/portal", { method: "POST" });
+                const data = await res.json();
+                if (data.url) window.location.href = data.url;
+              }}
+              className="px-4 py-2 rounded-lg bg-white/[0.05] border border-white/[0.1] text-gray-400 text-sm hover:bg-white/[0.1] transition-colors"
+            >
+              Manage subscription
+            </button>
+          )}
         </div>
 
         {/* Navigation */}
@@ -266,20 +294,6 @@ export default function DigestDetailPage() {
             <span />
           )}
         </div>
-
-        {/* CTA */}
-        {!localStorage.getItem("digest_email") && (
-          <div className="mt-16 text-center p-8 rounded-xl bg-[#0085FF]/5 border border-[#0085FF]/20">
-            <h3 className="text-xl font-bold text-white mb-2">Get the Weekly Digest</h3>
-            <p className="text-gray-400 mb-4">Subscribe for weekly delivery straight to your inbox.</p>
-            <Link
-              href="/digest"
-              className="inline-block px-6 py-3 rounded-lg bg-[#0085FF] text-white font-semibold hover:bg-[#0070DD] transition-colors"
-            >
-              Subscribe Free
-            </Link>
-          </div>
-        )}
       </div>
     </main>
   );

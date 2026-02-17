@@ -8,6 +8,7 @@ import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
 import LayoutShell from "@/components/layout/LayoutShell";
 import { XRPPriceProvider } from "@/contexts/XRPPriceContext";
+import { AuthProvider } from "@/lib/supabase/auth-context";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -109,12 +110,14 @@ export default function RootLayout({
           Skip to content
         </a>
         <SEOSchema schema={websiteSchema} />
+        <AuthProvider>
         <XRPPriceProvider>
         <AnnouncementBar />
         <LayoutShell megaMenu={<MegaMenu />} footer={<Footer />}>
           {children}
         </LayoutShell>
         </XRPPriceProvider>
+        </AuthProvider>
       </body>
     </html>
   );
