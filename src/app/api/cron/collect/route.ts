@@ -136,33 +136,40 @@ async function fetchFeed(feed: { name: string; url: string }): Promise<RawArticl
 
 // ── AI Importance Scoring ──────────────────────────────────────────────
 // Uses OpenRouter API (supports many models, pay-per-use)
-const SCORING_PROMPT = `You are a strict crypto news editor for an XRP-focused site. For each article below:
-1. Score it 1-10 on importance to XRP/Ripple/crypto holders
-2. For articles scoring 7+, write a 2-3 sentence "Why it matters" summary that clearly explains what the article is about, what happened, and why it matters to XRP holders. Be specific — include names, numbers, and concrete details.
+const SCORING_PROMPT = `You are an extremely strict crypto news editor for an XRP-focused financial news site. You only publish MARKET-MOVING news. For each article below:
+1. Score it 1-10 on importance to XRP/Ripple/crypto MARKETS
+2. For articles scoring 8+, write a 2-3 sentence "Why it matters" summary explaining what happened and why it affects XRP price, adoption, or ecosystem. Be specific with names, numbers, and concrete details.
 
-SCORING CRITERIA — prefer articles about:
-- Partnerships, integrations, and business deals involving Ripple or XRPL
-- Regulatory updates, court rulings, SEC actions, and legal clarity
-- Technical developments on the XRP Ledger (amendments, protocol upgrades)
-- Institutional adoption, ETF filings, and custody solutions
-- Verifiable events with named sources and concrete facts
+ONLY PUBLISH (score 8+):
+- Major partnerships, integrations, and business deals involving Ripple, XRPL, or major financial institutions
+- Regulatory rulings, SEC actions, legislation, and legal developments that directly affect XRP
+- Technical upgrades to the XRP Ledger (amendments, protocol changes)
+- Institutional adoption: ETF filings, custody solutions, bank integrations
+- Major market events: exchange listings/delistings, whale movements, significant on-chain activity
+- Macroeconomic events that directly impact crypto markets (Fed decisions, major policy changes)
 
-AUTOMATICALLY SCORE 4 OR BELOW (reject):
-- ANY op-ed, opinion piece, editorial, or commentary (even if it mentions XRP news, if the article is primarily opinion-driven, reject it)
-- Articles with titles starting with "Opinion:", "Editorial:", "Column:", "Commentary:", or "Why I think..."
+AUTOMATICALLY REJECT (score 4 or below):
+- Celebrity/influencer crypto news (Logan Paul, YouTubers, TikTokers, etc.)
+- NFT drops, meme coins, or anything not directly related to XRP/Ripple/XRPL
+- Op-eds, opinion pieces, editorials, commentary, "Why I think..." articles
 - Price prediction clickbait ("XRP will reach $1000!")
-- Pure speculation without verifiable facts
-- Low-quality aggregator rehashes of other articles
-- Anything that reads like shilling, FUD, or promotional content
-- Vague "could", "might", "may" speculation articles
-- "Analysis" pieces that are really just opinion with no new data or events
+- Speculation without verifiable facts or new information
+- Low-quality aggregator rehashes of older articles
+- Shilling, FUD, or promotional content
+- Vague "could", "might", "may" speculation
+- "Analysis" pieces that are opinion with no new data
+- Crypto drama, lawsuits between influencers, scam reports (unless directly involving Ripple)
+- General crypto market recaps that only mention XRP in passing
+- Articles where XRP is mentioned but is not the primary subject
 
-Also classify sentiment as "bullish", "neutral", or "bearish" based on the likely impact on XRP price/ecosystem.
+Ask yourself: "Would a serious XRP investor need to know this TODAY to make decisions?" If no, reject it.
+
+Also classify sentiment as "bullish" or "bearish" based on likely impact on XRP price/ecosystem. If truly neutral, classify as "bullish".
 
 Return a JSON array. Each element must have all four fields:
 [{"index": 0, "score": 8, "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to...", "sentiment": "bullish"}]
 
-The summary field must contain a substantive, multi-sentence explanation. Never return an empty string for summary on 7+ articles.`;
+The summary field must contain a substantive, multi-sentence explanation. Never return an empty string for summary on 8+ articles.`;
 
 interface ScoredArticle {
   index: number;
@@ -188,7 +195,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!openrouterKey) {
       console.error("OPENROUTER_API_KEY not set, passing all articles through unscored");
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
     }
 
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -209,7 +216,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!res.ok) {
       console.error("OpenRouter API error:", res.status, await res.text());
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
     }
 
     const data = await res.json();
@@ -219,14 +226,14 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
     const jsonMatch = responseText.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
       console.error("Could not parse AI scoring response:", responseText.slice(0, 200));
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
     }
 
     const scored: ScoredArticle[] = JSON.parse(jsonMatch[0]);
-    return scored.filter((s) => s.score >= 7);
+    return scored.filter((s) => s.score >= 8);
   } catch (err) {
     console.error("AI scoring failed:", err);
-    return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
+    return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
   }
 }
 
