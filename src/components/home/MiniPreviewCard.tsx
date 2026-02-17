@@ -29,9 +29,12 @@ export default function MiniPreviewCard() {
 
     let mounted = true;
 
-    function initWidget() {
+    function initWidget(containerWidth: number) {
       if (!el || !mounted) return;
       el.innerHTML = '';
+
+      const w = Math.floor(containerWidth);
+      const h = 240;
 
       const script = document.createElement('script');
       script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
@@ -39,13 +42,13 @@ export default function MiniPreviewCard() {
       script.type = 'text/javascript';
       script.innerHTML = JSON.stringify({
         symbol: 'BITSTAMP:XRPUSD',
-        width: '100%',
-        height: '100%',
+        width: w,
+        height: h,
         locale: 'en',
         dateRange: '1D',
         colorTheme: 'dark',
         isTransparent: true,
-        autosize: true,
+        autosize: false,
         largeChartUrl: '',
         noTimeScale: false,
         chartOnly: false,
@@ -80,7 +83,7 @@ export default function MiniPreviewCard() {
         if (entry.contentRect.width > 100) {
           observer.disconnect();
           // Give layout time to stabilize
-          setTimeout(initWidget, 200);
+          setTimeout(() => initWidget(entry.contentRect.width), 200);
         }
       }
     });
@@ -89,7 +92,7 @@ export default function MiniPreviewCard() {
     // Fallback
     const fallback = setTimeout(() => {
       observer.disconnect();
-      if (el && !el.querySelector('.tradingview-widget-container')) initWidget();
+      if (el && !el.querySelector('.tradingview-widget-container')) initWidget(el.clientWidth || 280);
     }, 2500);
 
     return () => { mounted = false; observer.disconnect(); clearTimeout(fallback); };
