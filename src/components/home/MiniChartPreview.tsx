@@ -58,9 +58,6 @@ export default function MiniChartPreview() {
 
       {/* Content below chart */}
       <div className="relative z-10 px-5 pb-5 pt-3">
-        <h3 className="text-[15px] font-bold text-text-primary mb-1">
-          Advanced <span className="text-[#0085FF]">Charts</span>
-        </h3>
         <div className="mb-3">
           <p className="text-[13px] text-text-secondary">
             24h Change: <span className={`font-bold ${positive ? 'text-success' : 'text-danger'}`}>

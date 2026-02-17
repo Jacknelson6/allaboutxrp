@@ -27,35 +27,24 @@ export default function MiniPreviewCard() {
     widgetRef.current.innerHTML = '';
 
     const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
     script.async = true;
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
-      symbols: [['BITSTAMP:XRPUSD|1D']],
-      chartOnly: true,
-      width: 280,
-      height: 200,
+      symbol: 'BITSTAMP:XRPUSD',
+      width: '100%',
+      height: '100%',
       locale: 'en',
+      dateRange: '1D',
       colorTheme: 'dark',
-      autosize: false,
-      showVolume: false,
-      showMA: false,
-      hideDateRanges: true,
-      hideMarketStatus: true,
-      hideSymbolLogo: false,
-      scalePosition: 'no',
-      scaleMode: 'Normal',
-      fontFamily: '-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif',
-      fontSize: '10',
+      isTransparent: true,
+      autosize: true,
+      largeChartUrl: '',
       noTimeScale: false,
-      valuesTracking: '0',
-      changeMode: 'price-and-percent',
-      chartType: 'area',
-      lineColor: '#0085FF',
-      topColor: 'rgba(0, 133, 255, 0.12)',
-      bottomColor: 'rgba(0, 133, 255, 0)',
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      gridLineColor: 'rgba(0, 0, 0, 0)',
+      chartOnly: false,
+      trendLineColor: '#0085FF',
+      underLineColor: 'rgba(0, 133, 255, 0.12)',
+      underLineBottomColor: 'rgba(0, 133, 255, 0)',
     });
 
     const wrapper = document.createElement('div');
@@ -80,7 +69,7 @@ export default function MiniPreviewCard() {
         {/* Hover overlay that sits above the iframe */}
         <div className="absolute inset-0 z-20 bg-white/[0.03] opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none" />
         <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none z-20" />
-        <div className="relative h-[240px] w-full overflow-hidden rounded-t-2xl pointer-events-none" ref={widgetRef}>
+        <div className="relative h-[220px] w-full overflow-hidden rounded-t-2xl pointer-events-none" ref={widgetRef}>
           <div className="flex items-center justify-center h-full">
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
           </div>
