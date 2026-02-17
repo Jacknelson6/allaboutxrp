@@ -24,42 +24,50 @@ export default function MiniPreviewCard() {
 
   useEffect(() => {
     if (!widgetRef.current) return;
-    widgetRef.current.innerHTML = '';
 
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    script.innerHTML = JSON.stringify({
-      symbol: 'BITSTAMP:XRPUSD',
-      width: '100%',
-      height: 240,
-      locale: 'en',
-      dateRange: '1D',
-      colorTheme: 'dark',
-      isTransparent: true,
-      autosize: false,
-      largeChartUrl: '',
-      noTimeScale: false,
-      chartOnly: false,
-      trendLineColor: '#0085FF',
-      underLineColor: 'rgba(0, 133, 255, 0.12)',
-      underLineBottomColor: 'rgba(0, 133, 255, 0)',
-    });
+    // Delay to ensure container is laid out and has final dimensions
+    const timer = setTimeout(() => {
+      if (!widgetRef.current) return;
+      const containerWidth = widgetRef.current.offsetWidth || 300;
+      widgetRef.current.innerHTML = '';
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'tradingview-widget-container';
-    wrapper.style.height = '100%';
-    wrapper.style.width = '100%';
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+      script.async = true;
+      script.type = 'text/javascript';
+      script.innerHTML = JSON.stringify({
+        symbol: 'BITSTAMP:XRPUSD',
+        width: containerWidth,
+        height: 240,
+        locale: 'en',
+        dateRange: '1D',
+        colorTheme: 'dark',
+        isTransparent: true,
+        autosize: false,
+        largeChartUrl: '',
+        noTimeScale: false,
+        chartOnly: false,
+        trendLineColor: '#0085FF',
+        underLineColor: 'rgba(0, 133, 255, 0.12)',
+        underLineBottomColor: 'rgba(0, 133, 255, 0)',
+      });
 
-    const innerDiv = document.createElement('div');
-    innerDiv.className = 'tradingview-widget-container__widget';
-    innerDiv.style.height = '100%';
-    innerDiv.style.width = '100%';
+      const wrapper = document.createElement('div');
+      wrapper.className = 'tradingview-widget-container';
+      wrapper.style.height = '100%';
+      wrapper.style.width = '100%';
 
-    wrapper.appendChild(innerDiv);
-    wrapper.appendChild(script);
-    widgetRef.current.appendChild(wrapper);
+      const innerDiv = document.createElement('div');
+      innerDiv.className = 'tradingview-widget-container__widget';
+      innerDiv.style.height = '100%';
+      innerDiv.style.width = '100%';
+
+      wrapper.appendChild(innerDiv);
+      wrapper.appendChild(script);
+      widgetRef.current.appendChild(wrapper);
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
