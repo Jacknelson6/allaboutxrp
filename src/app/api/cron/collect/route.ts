@@ -202,7 +202,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!openrouterKey) {
       console.error("OPENROUTER_API_KEY not set, passing all articles through unscored");
-      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, simple_title: "", summary: "", sentiment: "neutral" as const }));
     }
 
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -223,7 +223,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!res.ok) {
       console.error("OpenRouter API error:", res.status, await res.text());
-      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, simple_title: "", summary: "", sentiment: "neutral" as const }));
     }
 
     const data = await res.json();
@@ -233,14 +233,14 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
     const jsonMatch = responseText.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
       console.error("Could not parse AI scoring response:", responseText.slice(0, 200));
-      return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
+      return articles.map((_, i) => ({ index: i, score: 5, simple_title: "", summary: "", sentiment: "neutral" as const }));
     }
 
     const scored: ScoredArticle[] = JSON.parse(jsonMatch[0]);
     return scored.filter((s) => s.score >= 8);
   } catch (err) {
     console.error("AI scoring failed:", err);
-    return articles.map((_, i) => ({ index: i, score: 5, summary: "", sentiment: "neutral" as const }));
+    return articles.map((_, i) => ({ index: i, score: 5, simple_title: "", summary: "", sentiment: "neutral" as const }));
   }
 }
 
