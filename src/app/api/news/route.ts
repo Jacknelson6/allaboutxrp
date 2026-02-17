@@ -1,79 +1,42 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
-// Simple keyword-based sentiment classification
-function classifySentiment(title: string, summary: string): "bullish" | "bearish" | "neutral" {
-  const text = `${title} ${summary}`.toLowerCase();
+export async function GET(request: NextRequest) {
+  const { searchParams } = request.nextUrl;
+  const limit = Math.min(Number(searchParams.get("limit") ?? 20), 50);
+  const offset = Number(searchParams.get("offset") ?? 0);
 
-  const bullishTerms = [
-    "surge", "soar", "rally", "breakout", "bullish", "pump", "gain", "rise",
-    "approval", "approved", "partnership", "adoption", "launch", "milestone",
-    "record high", "all-time high", "ath", "etf approval", "institutional",
-    "accumulate", "buy", "upgrade", "positive", "growth", "breakthrough",
-    "integration", "listing", "support", "momentum", "uptrend", "bull",
-    "optimistic", "confident", "victory", "win", "settlement", "clarity",
-    "green light", "endorsement", "embrace",
-  ];
+  const supabase = createServiceClient();
 
-  const bearishTerms = [
-    "crash", "plunge", "dump", "bearish", "decline", "drop", "fall", "sell",
-    "lawsuit", "sued", "sec action", "fine", "penalty", "hack", "exploit",
-    "ban", "restrict", "warning", "risk", "fear", "concern", "negative",
-    "downtrend", "bear", "rejection", "delay", "postpone", "loss", "delist",
-    "fraud", "scam", "investigation", "subpoena", "enforcement",
-  ];
+  // Try with sentiment column, fall back without
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let data: any[] | null = null;
+  let error: { message: string } | null = null;
 
-  let bullScore = 0;
-  let bearScore = 0;
+  const r1 = await supabase
+    .from("news_articles")
+    .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
+    .order("published_at", { ascending: false })
+    .range(offset, offset + limit - 1);
 
-  for (const term of bullishTerms) {
-    if (text.includes(term)) bullScore++;
-  }
-  for (const term of bearishTerms) {
-    if (text.includes(term)) bearScore++;
-  }
-
-  if (bullScore > bearScore && bullScore >= 1) return "bullish";
-  if (bearScore > bullScore && bearScore >= 1) return "bearish";
-  return "neutral";
-}
-
-export async function GET() {
-  try {
-    const supabase = createServiceClient();
-
-    const { data, error } = await supabase
+  if (r1.error?.code === "42703") {
+    const r2 = await supabase
       .from("news_articles")
-      .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
-      .gte("importance_score", 7)
+      .select("title, url, source, summary, og_image, published_at, importance_score")
       .order("published_at", { ascending: false })
-      .order("importance_score", { ascending: false })
-      .limit(50);
-
-    if (error) {
-      console.error("News query error:", error);
-      return NextResponse.json([], { status: 500 });
-    }
-
-    const articles = (data ?? []).map((row) => ({
-      title: row.title,
-      source: row.source,
-      url: row.url,
-      imageUrl: row.og_image,
-      summary: row.summary ?? "",
-      publishedAt: row.published_at,
-      sentiment: row.sentiment || classifySentiment(row.title, row.summary ?? ""),
-    }));
-
-    return NextResponse.json(articles, {
-      headers: {
-        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
-      },
-    });
-  } catch (err) {
-    console.error("News route error:", err);
-    return NextResponse.json([], { status: 500 });
+      .range(offset, offset + limit - 1);
+    data = r2.data;
+    error = r2.error;
+  } else {
+    data = r1.data;
+    error = r1.error;
   }
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json(data ?? []);
 }

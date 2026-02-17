@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, BookOpen, Wallet, MessageCircle, Wrench } from "lucide-react";
 import RightSidebar from "./RightSidebar";
 import DailyDigest from "./DailyDigest";
+import NewsFeed from "./NewsFeed";
 
 const quickLinks = [
   { href: "/learn/what-is-xrp", label: "What is XRP?", icon: BookOpen },
@@ -99,6 +100,7 @@ export default function HomeFeed() {
         {/* Center feed */}
         <div className="min-w-0 overflow-hidden max-w-full lg:max-w-[650px] mx-auto lg:mx-0 lg:justify-self-center">
           <DailyDigest />
+          <NewsFeed />
         </div>
 
         {/* Right sidebar - desktop only */}

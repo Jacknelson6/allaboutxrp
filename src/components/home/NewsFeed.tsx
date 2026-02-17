@@ -1,150 +1,156 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { ArrowUp } from "lucide-react";
-import NewsCardComponent, { type NewsItem } from "./NewsCard";
+import { useState, useEffect, useCallback } from "react";
 
-function useNews() {
-  const [news, setNews] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchNews() {
-      try {
-        const res = await fetch("/api/news", { cache: "no-store" });
-        if (!res.ok) return;
-        const data: Array<{
-          title: string;
-          source: string;
-          url: string;
-          imageUrl: string | null;
-          summary: string;
-          publishedAt: string;
-          sentiment?: "bullish" | "bearish" | "neutral";
-        }> = await res.json();
-        if (Array.isArray(data)) {
-          setNews(
-            data.map((a, i) => ({
-              id: `news-${i}-${a.url}`,
-              title: a.title,
-              summary: a.summary || undefined,
-              url: a.url,
-              source: a.source,
-              published_at: a.publishedAt,
-              domain: a.source,
-              sentiment: a.sentiment || "neutral",
-            }))
-          );
-        }
-      } catch {
-        // silently fail
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchNews();
-    const interval = setInterval(fetchNews, 600_000); // 10 min
-    return () => clearInterval(interval);
-  }, []);
-
-  return { news, loading };
+interface Article {
+  title: string;
+  url: string;
+  source: string;
+  summary: string | null;
+  og_image: string | null;
+  published_at: string;
+  importance_score: number;
+  sentiment: string | null;
 }
 
-function useIsMobile() {
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 1023px)");
-    setMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return mobile;
+const SENTIMENT_CONFIG = {
+  bullish: { emoji: "🟢", label: "Bullish", color: "text-[#22c55e]", bg: "bg-[#22c55e]/10", border: "border-[#22c55e]/20" },
+  bearish: { emoji: "🔴", label: "Bearish", color: "text-[#ef4444]", bg: "bg-[#ef4444]/10", border: "border-[#ef4444]/20" },
+  neutral: { emoji: "🟡", label: "Neutral", color: "text-[#6b7280]", bg: "bg-[#6b7280]/10", border: "border-[#6b7280]/20" },
+} as const;
+
+function relativeTime(dateStr: string): string {
+  const now = Date.now();
+  const then = new Date(dateStr).getTime();
+  const diff = now - then;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "Just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days === 1) return "Yesterday";
+  if (days < 7) return `${days}d ago`;
+  return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
+
+const PAGE_SIZE = 20;
 
 export default function NewsFeed() {
-  const isMobile = useIsMobile();
-  const [visibleCount, setVisibleCount] = useState(12);
-  const [mobileExpanded, setMobileExpanded] = useState(false);
-  const loaderRef = useRef<HTMLDivElement>(null);
-  const { news, loading } = useNews();
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
-  const mobileLimit = mobileExpanded ? visibleCount : 5;
-  const effectiveCount = isMobile ? mobileLimit : visibleCount;
-  const visibleItems = news.slice(0, effectiveCount);
-
-  const loadMore = useCallback(() => {
-    setVisibleCount((c) => Math.min(c + 8, news.length));
-  }, [news.length]);
+  const fetchArticles = useCallback(async (offset: number) => {
+    const res = await fetch(`/api/news?limit=${PAGE_SIZE}&offset=${offset}`);
+    if (!res.ok) return [];
+    const data: Article[] = await res.json();
+    if (data.length < PAGE_SIZE) setHasMore(false);
+    return data;
+  }, []);
 
   useEffect(() => {
-    const el = loaderRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) loadMore();
-      },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [loadMore]);
+    fetchArticles(0).then((data) => {
+      setArticles(data);
+      setLoading(false);
+    });
+  }, [fetchArticles]);
 
-  return (
-    <div>
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-xl border-b border-[#2F3336]">
-        <div className="flex items-center px-4 py-3">
-          <h2 className="text-lg font-semibold tracking-tight text-text-primary">Latest XRP News</h2>
-        </div>
-      </div>
+  const loadMore = async () => {
+    setLoadingMore(true);
+    const data = await fetchArticles(articles.length);
+    setArticles((prev) => [...prev, ...data]);
+    setLoadingMore(false);
+  };
 
-      {/* News Feed */}
-      <div>
-        {loading && news.length === 0 && (
-          Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="border-b border-[#2F3336] px-4 py-3.5 animate-pulse">
-              <div className="flex gap-3">
-                <div className="h-10 w-10 rounded-full bg-white/[0.06]" />
-                <div className="flex-1 space-y-2">
-                  <div className="h-4 w-32 rounded bg-white/[0.06]" />
-                  <div className="h-4 w-full rounded bg-white/[0.06]" />
-                  <div className="h-4 w-3/4 rounded bg-white/[0.06]" />
-                </div>
-              </div>
-            </div>
-          ))
-        )}
-        {visibleItems.map((item) => (
-          <NewsCardComponent key={item.id} item={item} />
+  if (loading) {
+    return (
+      <div className="py-8 space-y-4">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="h-24 rounded-2xl bg-[#16181C] animate-pulse" />
         ))}
       </div>
+    );
+  }
 
-      {/* Mobile: Show more button */}
-      {isMobile && !mobileExpanded && news.length > 5 && (
-        <button
-          onClick={() => setMobileExpanded(true)}
-          className="w-full py-3 text-center text-[14px] font-medium text-xrp-accent hover:bg-white/[0.02] border-b border-[#2F3336] transition-colors"
-        >
-          Show more
-        </button>
-      )}
+  if (articles.length === 0) return null;
 
-      {(!isMobile || mobileExpanded) && visibleCount < news.length && (
-        <div ref={loaderRef} className="flex justify-center py-6">
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/[0.08] border-t-xrp-accent" />
+  return (
+    <div className="py-4">
+      <h2 className="text-lg font-bold text-text-primary px-4 mb-4">Latest News</h2>
+      <div className="relative pl-8">
+        {/* Timeline line */}
+        <div className="absolute left-[15px] top-2 bottom-2 w-[2px] bg-[#2F3336]" />
+
+        <div className="space-y-3">
+          {articles.map((article, i) => {
+            const s = SENTIMENT_CONFIG[(article.sentiment as keyof typeof SENTIMENT_CONFIG) ?? "neutral"] ?? SENTIMENT_CONFIG.neutral;
+            return (
+              <div key={article.url + i} className="relative group">
+                {/* Timeline dot */}
+                <div className="absolute -left-[21px] top-4 w-2.5 h-2.5 rounded-full bg-[#2F3336] border-2 border-[#16181C] group-hover:bg-[#0085FF] transition-colors" />
+
+                <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/30 transition-colors">
+                  <div className="flex gap-3">
+                    <div className="flex-1 min-w-0">
+                      {/* Sentiment + source + time */}
+                      <div className="flex items-center gap-2 mb-1.5 text-xs">
+                        <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full ${s.bg} ${s.border} border ${s.color} font-medium`}>
+                          {s.emoji} {s.label}
+                        </span>
+                        <span className="text-text-secondary">{article.source}</span>
+                        <span className="text-text-secondary/50">·</span>
+                        <span className="text-text-secondary/70">{relativeTime(article.published_at)}</span>
+                      </div>
+
+                      {/* Title */}
+                      <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold text-text-primary hover:text-[#0085FF] transition-colors line-clamp-2 leading-snug"
+                      >
+                        {article.title}
+                      </a>
+
+                      {/* Summary */}
+                      {article.summary && (
+                        <p className="mt-1 text-xs text-text-secondary line-clamp-2 leading-relaxed">
+                          {article.summary}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Thumbnail */}
+                    {article.og_image && (
+                      <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-[#2F3336]">
+                        <img
+                          src={article.og_image}
+                          alt=""
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      )}
+      </div>
 
-      {(!isMobile || mobileExpanded) && visibleCount >= news.length && news.length > 0 && (
-        <div className="py-6 flex flex-col items-center gap-3">
-          <span className="text-text-secondary text-[13px]">You&apos;re all caught up.</span>
+      {/* Load more */}
+      {hasMore && (
+        <div className="flex justify-center pt-4">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-1.5 text-[13px] font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
+            onClick={loadMore}
+            disabled={loadingMore}
+            className="px-6 py-2 rounded-full border border-[#2F3336] text-sm text-text-secondary hover:text-text-primary hover:border-[#0085FF]/30 transition-colors disabled:opacity-50"
           >
-            <ArrowUp className="h-3.5 w-3.5" />
-            Back to top
+            {loadingMore ? "Loading..." : "Load more"}
           </button>
         </div>
       )}

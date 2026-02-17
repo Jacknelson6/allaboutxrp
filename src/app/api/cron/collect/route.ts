@@ -91,6 +91,7 @@ interface ArticleRow {
   og_image: string | null;
   published_at: string;
   importance_score: number;
+  sentiment: string | null;
 }
 
 async function fetchFeed(feed: { name: string; url: string }): Promise<RawArticle[]> {
@@ -154,8 +155,10 @@ AUTOMATICALLY SCORE 4 OR BELOW (reject):
 - Anything that reads like shilling, FUD, or promotional content
 - Vague "could", "might", "may" speculation articles
 
-Return a JSON array. Each element must have all three fields:
-[{"index": 0, "score": 8, "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to..."}]
+Also classify sentiment as "bullish", "neutral", or "bearish" based on the likely impact on XRP price/ecosystem.
+
+Return a JSON array. Each element must have all four fields:
+[{"index": 0, "score": 8, "summary": "Ripple announced a partnership with X bank to... This matters because... The deal is expected to...", "sentiment": "bullish"}]
 
 The summary field must contain a substantive, multi-sentence explanation. Never return an empty string for summary on 7+ articles.`;
 
@@ -163,6 +166,7 @@ interface ScoredArticle {
   index: number;
   score: number;
   summary: string;
+  sentiment: "bullish" | "neutral" | "bearish";
 }
 
 async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
@@ -182,7 +186,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!openrouterKey) {
       console.error("OPENROUTER_API_KEY not set, passing all articles through unscored");
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "" }));
+      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
     }
 
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -203,7 +207,7 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
 
     if (!res.ok) {
       console.error("OpenRouter API error:", res.status, await res.text());
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "" }));
+      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
     }
 
     const data = await res.json();
@@ -213,14 +217,14 @@ async function scoreArticles(articles: RawArticle[]): Promise<ScoredArticle[]> {
     const jsonMatch = responseText.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
       console.error("Could not parse AI scoring response:", responseText.slice(0, 200));
-      return articles.map((_, i) => ({ index: i, score: 7, summary: "" }));
+      return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
     }
 
     const scored: ScoredArticle[] = JSON.parse(jsonMatch[0]);
     return scored.filter((s) => s.score >= 7);
   } catch (err) {
     console.error("AI scoring failed:", err);
-    return articles.map((_, i) => ({ index: i, score: 7, summary: "" }));
+    return articles.map((_, i) => ({ index: i, score: 7, summary: "", sentiment: "neutral" as const }));
   }
 }
 
@@ -267,6 +271,7 @@ export async function GET(request: NextRequest) {
       og_image: raw.og_image,
       published_at: raw.published_at,
       importance_score: s.score,
+      sentiment: s.sentiment || "neutral",
     };
   });
 
