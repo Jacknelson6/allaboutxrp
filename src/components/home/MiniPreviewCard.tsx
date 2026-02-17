@@ -35,7 +35,7 @@ export default function MiniPreviewCard() {
       width: 280,
       height: 240,
       locale: 'en',
-      dateRange: '3M',
+      dateRange: '1M',
       colorTheme: 'dark',
       isTransparent: true,
       autosize: false,
