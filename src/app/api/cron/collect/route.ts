@@ -148,12 +148,14 @@ SCORING CRITERIA — prefer articles about:
 - Verifiable events with named sources and concrete facts
 
 AUTOMATICALLY SCORE 4 OR BELOW (reject):
-- Op-eds and opinion pieces with no news hook
+- ANY op-ed, opinion piece, editorial, or commentary (even if it mentions XRP news, if the article is primarily opinion-driven, reject it)
+- Articles with titles starting with "Opinion:", "Editorial:", "Column:", "Commentary:", or "Why I think..."
 - Price prediction clickbait ("XRP will reach $1000!")
 - Pure speculation without verifiable facts
 - Low-quality aggregator rehashes of other articles
 - Anything that reads like shilling, FUD, or promotional content
 - Vague "could", "might", "may" speculation articles
+- "Analysis" pieces that are really just opinion with no new data or events
 
 Also classify sentiment as "bullish", "neutral", or "bearish" based on the likely impact on XRP price/ecosystem.
 

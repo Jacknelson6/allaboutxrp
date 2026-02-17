@@ -105,21 +105,26 @@ export default function NewsFeed() {
                       </div>
 
                       {/* Title */}
+                      <h3 className="text-sm font-semibold text-text-primary leading-snug line-clamp-2">
+                        {article.title}
+                      </h3>
+
+                      {/* Why it matters (our summary) */}
+                      {article.summary && (
+                        <p className="mt-1.5 text-[13px] text-text-secondary leading-relaxed">
+                          {article.summary}
+                        </p>
+                      )}
+
+                      {/* Source link */}
                       <a
                         href={article.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-text-primary hover:text-[#0085FF] transition-colors line-clamp-2 leading-snug"
+                        className="inline-flex items-center gap-1 mt-2 text-xs text-[#0085FF]/70 hover:text-[#0085FF] transition-colors"
                       >
-                        {article.title}
+                        Read source →
                       </a>
-
-                      {/* Summary */}
-                      {article.summary && (
-                        <p className="mt-1 text-xs text-text-secondary line-clamp-2 leading-relaxed">
-                          {article.summary}
-                        </p>
-                      )}
                     </div>
 
                     {/* Thumbnail */}

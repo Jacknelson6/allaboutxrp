@@ -15,9 +15,13 @@ export async function GET(request: NextRequest) {
   let data: any[] | null = null;
   let error: { message: string } | null = null;
 
+  // Op-ed / opinion filter keywords applied at query level
+  const OP_ED_KEYWORDS = ["opinion:", "op-ed:", "editorial:", "column:", "commentary:"];
+
   const r1 = await supabase
     .from("news_articles")
     .select("title, url, source, summary, og_image, published_at, importance_score, sentiment")
+    .gte("importance_score", 7)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
 
@@ -25,6 +29,7 @@ export async function GET(request: NextRequest) {
     const r2 = await supabase
       .from("news_articles")
       .select("title, url, source, summary, og_image, published_at, importance_score")
+      .gte("importance_score", 7)
       .order("published_at", { ascending: false })
       .range(offset, offset + limit - 1);
     data = r2.data;
@@ -32,6 +37,15 @@ export async function GET(request: NextRequest) {
   } else {
     data = r1.data;
     error = r1.error;
+  }
+
+  // Client-side op-ed filter (catches anything the AI missed)
+  if (data) {
+    data = data.filter((a: { title: string }) => {
+      const t = a.title.toLowerCase();
+      return !OP_ED_KEYWORDS.some((kw) => t.startsWith(kw)) &&
+        !t.includes("opinion:") && !t.includes("editorial:");
+    });
   }
 
   if (error) {
