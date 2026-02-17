@@ -32,13 +32,13 @@ export default function MiniPreviewCard() {
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
       symbol: 'BITSTAMP:XRPUSD',
-      width: 280,
+      width: 300,
       height: 240,
       locale: 'en',
       dateRange: '1D',
       colorTheme: 'dark',
       isTransparent: true,
-      autosize: false,
+      autosize: true,
       largeChartUrl: '',
       noTimeScale: false,
       chartOnly: false,
@@ -65,11 +65,13 @@ export default function MiniPreviewCard() {
   return (
     <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
       {/* ── Top half: TradingView (independent hover) ── */}
-      <Link href="/live-chart" className="relative block group/chart">
+      <div className="relative group/chart">
+        {/* Clickable overlay */}
+        <Link href="/live-chart" className="absolute inset-0 z-30" />
         {/* Hover overlay that sits above the iframe */}
         <div className="absolute inset-0 z-20 bg-white/[0.03] opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none" />
         <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/chart:opacity-100 transition-opacity rounded-t-2xl pointer-events-none z-20" />
-        <div className="relative h-[240px] w-full overflow-hidden rounded-t-2xl pointer-events-none" ref={widgetRef}>
+        <div className="relative h-[240px] w-full overflow-hidden rounded-t-2xl" ref={widgetRef}>
           <div className="flex items-center justify-center h-full">
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
           </div>
@@ -96,7 +98,7 @@ export default function MiniPreviewCard() {
             View Charts <ArrowRight className="h-3 w-3" />
           </span>
         </div>
-      </Link>
+      </div>
 
       {/* Divider */}
       <div className="mx-5 border-t border-[#2F3336]" />
