@@ -72,6 +72,7 @@ function parseDigestSummary(raw: string) {
   // Parse sections
   const takeawaysMatch = body.match(/## Key Takeaways\n([\s\S]*?)(?=\n## |\n*$)/);
   const summaryMatch = body.match(/## Summary\n([\s\S]*?)(?=\n## |\n*$)/);
+  const taMatch = body.match(/## Technical Snapshot\n([\s\S]*?)(?=\n## |\n*$)/);
   const watchMatch = body.match(/## What to Watch\n([\s\S]*?)(?=\n## |\n*$)/);
 
   const parseBullets = (text?: string) =>
@@ -81,6 +82,7 @@ function parseDigestSummary(raw: string) {
     sentiment,
     keyTakeaways: parseBullets(takeawaysMatch?.[1]),
     summary: summaryMatch?.[1]?.trim() || body,
+    technicalSnapshot: taMatch?.[1]?.trim() || "",
     whatToWatch: parseBullets(watchMatch?.[1]),
   };
 }
@@ -181,9 +183,15 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
                   <div className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">
                     {parsed.summary}
                   </div>
+                  {parsed.technicalSnapshot && (
+                    <div className="mt-3 pt-3 border-t border-white/5">
+                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Technical Snapshot</h4>
+                      <p className="text-[13px] text-gray-300 leading-relaxed">{parsed.technicalSnapshot}</p>
+                    </div>
+                  )}
                   {parsed.whatToWatch.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-white/5">
-                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">👀 What to Watch</h4>
+                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">What to Watch</h4>
                       <ul className="space-y-1">
                         {parsed.whatToWatch.map((item, i) => (
                           <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">

@@ -82,6 +82,52 @@ export async function POST(request: NextRequest) {
       // Price data is optional
     }
 
+    // Fetch basic TA data (14-day OHLC for RSI + levels)
+    let taContext = "";
+    try {
+      const ohlcRes = await fetch(
+        "https://api.coingecko.com/api/v3/coins/ripple/ohlc?vs_currency=usd&days=14",
+        { headers: { accept: "application/json" } }
+      );
+      if (ohlcRes.ok) {
+        const ohlcData: number[][] = await ohlcRes.json();
+        if (ohlcData.length >= 14) {
+          // Calculate RSI from closing prices
+          const closes = ohlcData.map((c) => c[4]);
+          const changes = closes.slice(1).map((c, i) => c - closes[i]);
+          const gains = changes.map((c) => (c > 0 ? c : 0));
+          const losses = changes.map((c) => (c < 0 ? -c : 0));
+          const avgGain = gains.slice(-14).reduce((a, b) => a + b, 0) / 14;
+          const avgLoss = losses.slice(-14).reduce((a, b) => a + b, 0) / 14;
+          const rsi = avgLoss === 0 ? 100 : 100 - 100 / (1 + avgGain / avgLoss);
+
+          // Recent highs/lows for support/resistance
+          const recentHighs = ohlcData.slice(-14).map((c) => c[2]);
+          const recentLows = ohlcData.slice(-14).map((c) => c[3]);
+          const resistance = Math.max(...recentHighs);
+          const support = Math.min(...recentLows);
+          const latestClose = closes[closes.length - 1];
+
+          // Simple moving averages
+          const sma7 = closes.slice(-7).reduce((a, b) => a + b, 0) / 7;
+          const sma14 = closes.slice(-14).reduce((a, b) => a + b, 0) / 14;
+
+          taContext = `
+Technical Indicators (14-day):
+- RSI(14): ${rsi.toFixed(1)}
+- 7-day SMA: $${sma7.toFixed(4)}
+- 14-day SMA: $${sma14.toFixed(4)}
+- 14-day Support: $${support.toFixed(4)}
+- 14-day Resistance: $${resistance.toFixed(4)}
+- Latest Close: $${latestClose.toFixed(4)}
+- Price vs 7-SMA: ${latestClose > sma7 ? "Above" : "Below"}
+- Price vs 14-SMA: ${latestClose > sma14 ? "Above" : "Below"}`;
+        }
+      }
+    } catch {
+      // TA data is optional
+    }
+
     // Build prompt for daily summary
     const articleList = articles
       .slice(0, 15)
@@ -92,15 +138,16 @@ export async function POST(request: NextRequest) {
       ? `XRP opened at $${xrpOpen.toFixed(4)} and closed at $${xrpClose.toFixed(4)} (${xrpChangePct! >= 0 ? "+" : ""}${xrpChangePct!.toFixed(2)}%).`
       : "XRP price data unavailable for this period.";
 
-    const prompt = `You are a crypto news analyst writing for AllAboutXRP.com. Write a structured daily summary for ${dateStr}.
+    const prompt = `You are a crypto analyst writing for AllAboutXRP.com. Write a structured daily analysis for ${dateStr}.
 
 ${priceContext}
+${taContext}
 
 Here are the top ${articles.length} XRP-related articles from yesterday:
 
 ${articleList}
 
-Write a daily recap using this EXACT markdown structure:
+Write a daily analysis using this EXACT markdown structure:
 
 TITLE: [short engaging title, max 80 chars]
 SENTIMENT: [Bullish or Bearish or Neutral]
@@ -115,6 +162,9 @@ SENTIMENT: [Bullish or Bearish or Neutral]
 ## Summary
 [3-5 paragraphs covering the day's news. Open with the biggest development. Cover price action if available. Group related stories. Professional tone, slightly bullish-leaning but honest. No hype. Under 400 words.]
 
+## Technical Snapshot
+[2-3 sentences max. Mention RSI reading and whether it's overbought/oversold/neutral, note if price is above or below key SMAs, and state the nearest support and resistance levels. Keep it concise and actionable. If no TA data was provided, skip this section entirely.]
+
 ## What to Watch
 - [Thing to watch 1]
 - [Thing to watch 2]
@@ -123,6 +173,7 @@ SENTIMENT: [Bullish or Bearish or Neutral]
 Rules:
 - 3-5 key takeaways (short, punchy bullet points)
 - 2-4 "what to watch" items
+- Technical Snapshot should be brief (2-3 sentences), not a full analysis
 - Sentiment should reflect the overall tone of the day's news
 - Keep the summary paragraphs flowing and readable`;
 
