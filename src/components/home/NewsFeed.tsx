@@ -27,6 +27,14 @@ interface DailyDigest {
   article_count: number;
 }
 
+interface WeeklyDigest {
+  id: string;
+  title: string;
+  slug: string;
+  week_start: string;
+  week_end: string;
+}
+
 const SENTIMENT_CONFIG = {
   bullish: { arrow: "↑", label: "Bullish", color: "text-[#22c55e]", bg: "bg-[#22c55e]/10", border: "border-[#22c55e]/20" },
   bearish: { arrow: "↓", label: "Bearish", color: "text-[#ef4444]", bg: "bg-[#ef4444]/10", border: "border-[#ef4444]/20" },
@@ -255,11 +263,45 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   );
 }
 
+function WeeklyDigestCard({ digest }: { digest: WeeklyDigest }) {
+  const formatRange = (start: string, end: string) => {
+    const s = new Date(start + "T12:00:00");
+    const e = new Date(end + "T12:00:00");
+    const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
+    return `${s.toLocaleDateString("en-US", opts)} – ${e.toLocaleDateString("en-US", { ...opts, year: "numeric" })}`;
+  };
+
+  return (
+    <div className="relative group">
+      <div className="absolute -left-[21px] top-4 w-3 h-3 rounded-full bg-[#8b5cf6] border-2 border-[#16181C] shadow-[0_0_6px_rgba(139,92,246,0.4)]" />
+      <a
+        href={`/digest/${digest.slug}`}
+        className="block relative rounded-2xl border border-[#8b5cf6]/20 bg-gradient-to-br from-[#8b5cf6]/[0.04] to-transparent overflow-hidden hover:border-[#8b5cf6]/40 transition-colors"
+      >
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8b5cf6] via-[#8b5cf6]/60 to-transparent" />
+        <div className="p-4">
+          <div className="flex items-center gap-2 mb-2 text-xs">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
+              📊 Weekly Analysis
+            </span>
+            <span className="text-text-secondary">{formatRange(digest.week_start, digest.week_end)}</span>
+          </div>
+          <h3 className="text-[15px] font-bold text-white mb-1 group-hover:text-[#8b5cf6] transition-colors">
+            {digest.title}
+          </h3>
+          <span className="text-xs text-[#8b5cf6] font-medium">Read full analysis →</span>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 const PAGE_SIZE = 20;
 
 export default function NewsFeed() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [dailyDigests, setDailyDigests] = useState<DailyDigest[]>([]);
+  const [weeklyDigests, setWeeklyDigests] = useState<WeeklyDigest[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -276,9 +318,11 @@ export default function NewsFeed() {
     Promise.all([
       fetchArticles(0),
       fetch("/api/news/daily-digest").then((r) => r.ok ? r.json() : []).catch(() => []),
-    ]).then(([newsData, digestData]) => {
+      fetch("/api/digests").then((r) => r.ok ? r.json() : []).catch(() => []),
+    ]).then(([newsData, digestData, weeklyData]) => {
       setArticles(newsData);
       setDailyDigests(Array.isArray(digestData) ? digestData : []);
+      setWeeklyDigests(Array.isArray(weeklyData) ? weeklyData : []);
       setLoading(false);
     });
   }, [fetchArticles]);
@@ -302,49 +346,19 @@ export default function NewsFeed() {
 
   if (articles.length === 0) return null;
 
-  // Merge daily digests into the timeline based on date
-  // Insert a digest card after the first article of each day that has a digest
-  const digestByDate = new Map(dailyDigests.map((d) => [d.date, d]));
+  // Build combined timeline: articles + daily digests + weekly digests, sorted newest-first
+  type TimelineItem =
+    | { type: "article"; data: Article; index: number; sortDate: string }
+    | { type: "digest"; data: DailyDigest; sortDate: string }
+    | { type: "weekly"; data: WeeklyDigest; sortDate: string };
 
-  // Build combined timeline
-  type TimelineItem = { type: "article"; data: Article; index: number } | { type: "digest"; data: DailyDigest };
-  const timeline: TimelineItem[] = [];
-  const insertedDigestDates = new Set<string>();
+  const timeline: TimelineItem[] = [
+    ...articles.map((a, i) => ({ type: "article" as const, data: a, index: i, sortDate: a.published_at })),
+    ...dailyDigests.map((d) => ({ type: "digest" as const, data: d, sortDate: d.date + "T23:59:59" })),
+    ...weeklyDigests.map((w) => ({ type: "weekly" as const, data: w, sortDate: w.week_end + "T23:59:59" })),
+  ];
 
-  for (let i = 0; i < articles.length; i++) {
-    const article = articles[i];
-    const articleDate = article.published_at.split("T")[0];
-
-    // Check if there's a daily digest for the previous day that we haven't inserted
-    const prevDate = new Date(articleDate + "T00:00:00");
-    prevDate.setDate(prevDate.getDate() - 1);
-    const prevDateStr = prevDate.toISOString().split("T")[0];
-
-    // Insert digest for the article's date area
-    if (digestByDate.has(articleDate) && !insertedDigestDates.has(articleDate)) {
-      timeline.push({ type: "digest", data: digestByDate.get(articleDate)! });
-      insertedDigestDates.add(articleDate);
-    }
-    if (digestByDate.has(prevDateStr) && !insertedDigestDates.has(prevDateStr)) {
-      timeline.push({ type: "digest", data: digestByDate.get(prevDateStr)! });
-      insertedDigestDates.add(prevDateStr);
-    }
-
-    timeline.push({ type: "article", data: article, index: i });
-  }
-
-  // Add any remaining digests at the top (preserve newest-first order)
-  const remaining = dailyDigests.filter((d) => !insertedDigestDates.has(d.date));
-  for (let i = remaining.length - 1; i >= 0; i--) {
-    timeline.unshift({ type: "digest", data: remaining[i] });
-  }
-
-  // Sort entire timeline: digests by date, articles by published_at, all newest-first
-  timeline.sort((a, b) => {
-    const dateA = a.type === "digest" ? a.data.date + "T23:59:59" : a.data.published_at;
-    const dateB = b.type === "digest" ? b.data.date + "T23:59:59" : b.data.published_at;
-    return dateB.localeCompare(dateA);
-  });
+  timeline.sort((a, b) => b.sortDate.localeCompare(a.sortDate));
 
   return (
     <div className="py-4">
@@ -357,6 +371,9 @@ export default function NewsFeed() {
           {timeline.map((item, idx) => {
             if (item.type === "digest") {
               return <DailyDigestCard key={`digest-${item.data.date}`} digest={item.data} />;
+            }
+            if (item.type === "weekly") {
+              return <WeeklyDigestCard key={`weekly-${item.data.slug}`} digest={item.data} />;
             }
 
             const article = item.data;
