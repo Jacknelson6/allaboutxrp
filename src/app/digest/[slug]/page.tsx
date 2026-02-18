@@ -178,13 +178,70 @@ export default function DigestDetailPage() {
     }
   }
 
-  // Clean html_content: remove the price header if prices are $0
+  // Clean html_content
   let cleanHtml = digest.html_content || "";
-  if (!hasPrice && cleanHtml) {
-    // Remove the "$0 → $0" price line from the html
+  if (cleanHtml) {
+    // Remove "$0 → $0" price line (including HTML entity →)
     cleanHtml = cleanHtml.replace(
-      /<p[^>]*>XRP \$0[^<]*<\/p>/gi,
+      /<p[^>]*>XRP\s*\$0[^<]*<\/p>/gi,
       ""
+    );
+    // Convert "---" paragraph separators to <hr> elements
+    cleanHtml = cleanHtml.replace(
+      /<p[^>]*>\s*-{3,}\s*<\/p>/gi,
+      '<hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:24px 0;" />'
+    );
+    // Convert pipe-separated table lines to actual HTML tables
+    cleanHtml = cleanHtml.replace(
+      /(<p[^>]*>\|\s*.+?\|<\/p>\s*(?:<div[^>]*><\/div>\s*)?)+/gi,
+      (match) => {
+        const rows = match
+          .match(/<p[^>]*>\|(.+?)\|<\/p>/gi)
+          ?.map(row => {
+            const cells = row.replace(/<\/?p[^>]*>/gi, "").split("|").filter(c => c.trim());
+            return cells.map(c => c.trim());
+          })
+          .filter(row => row.length > 0 && !row.every(c => /^-+$/.test(c))) || [];
+        
+        if (rows.length === 0) return match;
+        
+        const headerRow = rows[0];
+        const bodyRows = rows.slice(1);
+        
+        let table = '<table style="width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;">';
+        table += '<thead><tr>';
+        headerRow.forEach(cell => {
+          table += `<th style="text-align:left;color:#fff;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.1);font-weight:600;">${cell}</th>`;
+        });
+        table += '</tr></thead><tbody>';
+        bodyRows.forEach(row => {
+          table += '<tr>';
+          row.forEach(cell => {
+            table += `<td style="padding:8px 12px;color:#ccc;border-bottom:1px solid rgba(255,255,255,0.05);">${cell}</td>`;
+          });
+          table += '</tr>';
+        });
+        table += '</tbody></table>';
+        return table;
+      }
+    );
+    // Wrap orphan <li> elements in <ul>
+    cleanHtml = cleanHtml.replace(
+      /(<li[^>]*>[\s\S]*?<\/li>\s*(?:<div[^>]*><\/div>\s*)*)+/gi,
+      (match) => `<ul style="list-style:disc;padding-left:20px;margin:12px 0;">${match}</ul>`
+    );
+    // Remove empty spacer divs between list items inside ul
+    cleanHtml = cleanHtml.replace(
+      /(<ul[^>]*>)([\s\S]*?)(<\/ul>)/gi,
+      (_, open, inner, close) => {
+        const cleaned = inner.replace(/<div[^>]*>\s*<\/div>/gi, "");
+        return open + cleaned + close;
+      }
+    );
+    // Convert > blockquote-style paragraphs
+    cleanHtml = cleanHtml.replace(
+      /<p([^>]*)>&gt;\s*([\s\S]*?)<\/p>/gi,
+      '<blockquote style="border-left:3px solid #0085FF;padding:12px 16px;margin:16px 0;background:rgba(0,133,255,0.05);border-radius:0 8px 8px 0;"><p$1>$2</p></blockquote>'
     );
   }
 
