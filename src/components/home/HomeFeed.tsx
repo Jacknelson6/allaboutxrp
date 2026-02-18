@@ -4,7 +4,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, BookOpen, Wallet, MessageCircle, Wrench } from "lucide-react";
 import RightSidebar from "./RightSidebar";
-import DailyDigest from "./DailyDigest";
 import NewsFeed from "./NewsFeed";
 
 const quickLinks = [
@@ -99,7 +98,6 @@ export default function HomeFeed() {
       <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-0 lg:gap-6 px-0 lg:px-4 overflow-hidden">
         {/* Center feed */}
         <div className="min-w-0 overflow-hidden max-w-full lg:max-w-[650px] mx-auto lg:mx-0 lg:justify-self-center">
-          <DailyDigest />
           <NewsFeed />
         </div>
 
