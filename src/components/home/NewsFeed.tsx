@@ -14,6 +14,7 @@ interface Article {
   published_at: string;
   importance_score: number;
   sentiment: string | null;
+  slug: string | null;
 }
 
 interface DailyDigest {
@@ -462,9 +463,17 @@ export default function NewsFeed() {
                       </div>
 
                       {/* Simplified title */}
-                      <h3 className="text-sm font-semibold text-text-primary leading-snug line-clamp-2">
-                        {article.simple_title || article.title}
-                      </h3>
+                      {article.slug ? (
+                        <a href={`/news/${article.slug}`} className="block">
+                          <h3 className="text-sm font-semibold text-text-primary leading-snug line-clamp-2 group-hover:text-[#0085FF] transition-colors">
+                            {article.simple_title || article.title}
+                          </h3>
+                        </a>
+                      ) : (
+                        <h3 className="text-sm font-semibold text-text-primary leading-snug line-clamp-2">
+                          {article.simple_title || article.title}
+                        </h3>
+                      )}
 
                       {/* Why it matters */}
                       {article.summary && (
@@ -473,15 +482,27 @@ export default function NewsFeed() {
                         </p>
                       )}
 
-                      {/* Source link */}
-                      <a
-                        href={article.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 mt-2 text-xs text-[#0085FF]/70 hover:text-[#0085FF] transition-colors"
-                      >
-                        Read source →
-                      </a>
+                      {/* Link */}
+                      {article.slug ? (
+                        <div className="flex items-center gap-3 mt-2">
+                          <a
+                            href={`/news/${article.slug}`}
+                            className="inline-flex items-center gap-1 text-xs text-[#0085FF]/70 hover:text-[#0085FF] transition-colors"
+                          >
+                            Read more →
+                          </a>
+                          <span className="text-xs text-text-secondary/40">Source: {article.source}</span>
+                        </div>
+                      ) : (
+                        <a
+                          href={article.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-2 text-xs text-[#0085FF]/70 hover:text-[#0085FF] transition-colors"
+                        >
+                          Read source →
+                        </a>
+                      )}
                     </div>
 
                     {/* Thumbnail */}

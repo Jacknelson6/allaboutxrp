@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import { slugify } from "@/lib/slugify";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -136,6 +137,40 @@ export async function POST() {
         .eq("id", id);
 
       if (!updateErr) updated++;
+    }
+
+    // Generate slugs for newly enriched articles
+    const enrichedIds = Object.keys(enriched);
+    const slugResults: string[] = [];
+    for (const id of enrichedIds) {
+      const data = enriched[id];
+      const baseSlug = slugify(data.simple_title || raw.find(a => a.id === id)?.title || id);
+      
+      // Check for collision
+      const { data: existing } = await supabase
+        .from("news")
+        .select("id")
+        .eq("slug", baseSlug)
+        .neq("id", id)
+        .limit(1);
+
+      const finalSlug = existing && existing.length > 0
+        ? `${baseSlug}-${id.slice(0, 8)}`
+        : baseSlug;
+
+      const { error: slugErr } = await supabase
+        .from("news")
+        .update({ slug: finalSlug })
+        .eq("id", id)
+        .is("slug", null);
+
+      if (!slugErr) slugResults.push(id);
+    }
+
+    // Trigger blog generation in background (fire and forget)
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
+    if (baseUrl) {
+      fetch(`${baseUrl}/api/news/generate-blogs`, { method: "POST" }).catch(() => {});
     }
 
     return NextResponse.json({

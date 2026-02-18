@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   // Primary: read from "news" table (populated by N8N, enriched by /api/news/enrich)
   const { data, error } = await supabase
     .from("news")
-    .select("title, simple_title, url, source, summary, og_image, published_at, importance_score, sentiment")
+    .select("title, simple_title, url, source, summary, og_image, published_at, importance_score, sentiment, slug")
     .gte("importance_score", 6)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
