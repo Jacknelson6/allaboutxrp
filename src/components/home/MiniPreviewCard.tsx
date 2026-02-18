@@ -27,24 +27,35 @@ export default function MiniPreviewCard() {
     widgetRef.current.innerHTML = '';
 
     const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
     script.async = true;
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
-      symbol: 'BITSTAMP:XRPUSD',
+      symbols: [['BITSTAMP:XRPUSD|1D']],
+      chartOnly: true,
       width: '100%',
       height: '100%',
       locale: 'en',
-      dateRange: '1M',
       colorTheme: 'dark',
-      isTransparent: true,
       autosize: true,
-      largeChartUrl: '',
-      noTimeScale: false,
-      chartOnly: false,
-      trendLineColor: '#0085FF',
-      underLineColor: 'rgba(0, 133, 255, 0.12)',
-      underLineBottomColor: 'rgba(0, 133, 255, 0)',
+      showVolume: false,
+      showMA: false,
+      hideDateRanges: true,
+      hideMarketStatus: true,
+      hideSymbolLogo: false,
+      scalePosition: 'no',
+      scaleMode: 'Normal',
+      fontFamily: 'Inter, sans-serif',
+      fontSize: '10',
+      noTimeScale: true,
+      valuesTracking: '0',
+      changeMode: 'price-and-percent',
+      chartType: 'area',
+      lineColor: '#0085FF',
+      bottomColor: 'rgba(0, 133, 255, 0.12)',
+      showSymbolLogo: true,
+      isTransparent: true,
+      dateRange: '1D',
     });
 
     const wrapper = document.createElement('div');
