@@ -636,9 +636,6 @@ export default function LiveChartContent() {
               </div>
             )}
 
-            {/* Technical Analysis */}
-            <TechnicalAnalysisWidget />
-
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Price Performance</p>
