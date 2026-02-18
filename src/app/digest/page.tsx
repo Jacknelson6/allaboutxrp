@@ -51,9 +51,6 @@ export default function DigestPage() {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 text-[#0085FF] text-sm font-medium mb-4">
-            <span>📡</span> Weekly Digest
-          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">XRP Intelligence Digest</h1>
           <p className="text-gray-400 text-lg leading-relaxed">
             Comprehensive weekly breakdown of XRP ecosystem developments, market movements, and regulatory updates.
