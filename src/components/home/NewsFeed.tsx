@@ -382,15 +382,16 @@ export default function NewsFeed() {
         <div className="px-4 mb-4">
           <a
             href={`/digest/${pinnedWeekly.slug}`}
-            className="block relative rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/[0.06] to-transparent overflow-hidden hover:border-[#8b5cf6]/50 transition-colors"
+            className="block rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden hover:border-[#0085FF]/30 transition-colors group"
           >
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8b5cf6] via-[#8b5cf6]/60 to-transparent" />
-            <div className="p-4">
-              <div className="flex items-center gap-2 mb-2 text-xs">
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
-                  📌 Weekly Analysis
-                </span>
-                <span className="text-text-secondary">
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
+            <div className="relative px-5 py-6 sm:px-6">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-[#0085FF]/20 bg-[#0085FF]/[0.06] text-[#0085FF]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0085FF]">Weekly Digest</span>
+                <span className="text-xs text-white/30 ml-auto">
                   {(() => {
                     const s = new Date(pinnedWeekly.week_start + "T12:00:00");
                     const e = new Date(pinnedWeekly.week_end + "T12:00:00");
@@ -399,10 +400,12 @@ export default function NewsFeed() {
                   })()}
                 </span>
               </div>
-              <h3 className="text-[15px] font-bold text-white mb-1 hover:text-[#8b5cf6] transition-colors">
+              <h2 className="text-lg sm:text-xl font-bold tracking-[-0.02em] text-white leading-tight mb-2 group-hover:text-[#0085FF] transition-colors">
                 {pinnedWeekly.title}
-              </h3>
-              <span className="text-xs text-[#8b5cf6] font-medium">Read full analysis →</span>
+              </h2>
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0085FF]">
+                Read Full Analysis <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
             </div>
           </a>
         </div>
