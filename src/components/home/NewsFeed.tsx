@@ -86,9 +86,9 @@ function parseDigestSummary(raw: string) {
 }
 
 const DIGEST_SENTIMENT = {
-  bullish: { label: "Bullish", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20", icon: "📈" },
-  bearish: { label: "Bearish", color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/20", icon: "📉" },
-  neutral: { label: "Neutral", color: "text-gray-400", bg: "bg-gray-500/10", border: "border-gray-500/20", icon: "➡️" },
+  bullish: { label: "Bullish", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20", icon: "↑" },
+  bearish: { label: "Bearish", color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/20", icon: "↓" },
+  neutral: { label: "Neutral", color: "text-gray-400", bg: "bg-gray-500/10", border: "border-gray-500/20", icon: "–" },
 } as const;
 
 function DailyDigestCard({ digest }: { digest: DailyDigest }) {
@@ -122,7 +122,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
           {/* Badge row */}
           <div className="flex items-center gap-2 mb-2 text-xs flex-wrap">
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0085FF]/15 border border-[#0085FF]/25 text-[#0085FF] font-semibold">
-              📰 Daily Recap
+              Daily Analysis
             </span>
             <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${sentimentStyle.bg} border ${sentimentStyle.border} ${sentimentStyle.color} font-medium`}>
               {sentimentStyle.icon} {sentimentStyle.label}
@@ -300,7 +300,7 @@ function WeeklyDigestCard({ digest }: { digest: WeeklyDigest }) {
         <div className="p-4">
           <div className="flex items-center gap-2 mb-2 text-xs">
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
-              📊 Weekly Digest
+              Weekly Digest
             </span>
             <span className="text-text-secondary">{formatRange(digest.week_start, digest.week_end)}</span>
           </div>
