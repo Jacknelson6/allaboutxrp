@@ -191,6 +191,11 @@ export default function DigestDetailPage() {
   // Clean html_content
   let cleanHtml = digest.html_content || "";
   if (cleanHtml) {
+    // Remove the baked-in header div (week range + price line + border) since we render our own header
+    cleanHtml = cleanHtml.replace(
+      /<div[^>]*border-bottom[^>]*>[\s\S]*?<\/div>/i,
+      ""
+    );
     // Remove "$0 → $0" price line (including HTML entity →)
     cleanHtml = cleanHtml.replace(
       /<p[^>]*>XRP\s*\$0[^<]*<\/p>/gi,
@@ -267,7 +272,7 @@ export default function DigestDetailPage() {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 text-[#0085FF] text-xs font-medium">
-              <span>📡</span> Weekly Analysis
+              <span>📡</span> Weekly Digest
             </div>
             <SentimentBadge sentiment={content.sentiment} />
           </div>
