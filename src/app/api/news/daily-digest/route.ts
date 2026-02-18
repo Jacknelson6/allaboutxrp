@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
       ? `XRP opened at $${xrpOpen.toFixed(4)} and closed at $${xrpClose.toFixed(4)} (${xrpChangePct! >= 0 ? "+" : ""}${xrpChangePct!.toFixed(2)}%).`
       : "XRP price data unavailable for this period.";
 
-    const prompt = `You are a crypto news analyst writing for AllAboutXRP.com. Write a concise daily summary for ${dateStr}.
+    const prompt = `You are a crypto news analyst writing for AllAboutXRP.com. Write a structured daily summary for ${dateStr}.
 
 ${priceContext}
 
@@ -100,21 +100,31 @@ Here are the top ${articles.length} XRP-related articles from yesterday:
 
 ${articleList}
 
-Write a 3-5 paragraph daily summary that:
-1. Opens with the most important development of the day
-2. Covers price action if available
-3. Groups related stories together
-4. Ends with what to watch for tomorrow
-5. Tone: professional, slightly bullish-leaning but honest. No hype.
-6. Do NOT use markdown headers or bullet points. Just flowing paragraphs.
-7. Keep it under 400 words.
+Write a daily recap using this EXACT markdown structure:
 
-Also provide a short, engaging title (max 80 chars) for this daily summary.
-
-Format your response exactly as:
-TITLE: [your title here]
+TITLE: [short engaging title, max 80 chars]
+SENTIMENT: [Bullish or Bearish or Neutral]
 ---
-[your summary paragraphs here]`;
+## Key Takeaways
+- [Most important point 1]
+- [Most important point 2]
+- [Most important point 3]
+- [Optional point 4]
+- [Optional point 5]
+
+## Summary
+[3-5 paragraphs covering the day's news. Open with the biggest development. Cover price action if available. Group related stories. Professional tone, slightly bullish-leaning but honest. No hype. Under 400 words.]
+
+## What to Watch
+- [Thing to watch 1]
+- [Thing to watch 2]
+- [Thing to watch 3]
+
+Rules:
+- 3-5 key takeaways (short, punchy bullet points)
+- 2-4 "what to watch" items
+- Sentiment should reflect the overall tone of the day's news
+- Keep the summary paragraphs flowing and readable`;
 
     // Call OpenRouter (Claude Sonnet)
     const openrouterKey = process.env.OPENROUTER_API_KEY;
@@ -146,21 +156,35 @@ TITLE: [your title here]
     const aiData = await aiRes.json();
     const aiText = aiData.choices?.[0]?.message?.content || "";
 
-    // Parse title and summary
+    // Parse title, sentiment, and summary
     let title = `XRP Daily Recap — ${new Date(dateStr + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
     let summary = aiText;
 
     const titleMatch = aiText.match(/^TITLE:\s*(.+)/m);
     if (titleMatch) {
       title = titleMatch[1].trim();
-      summary = aiText.replace(/^TITLE:.*\n---\n?/m, "").trim();
     }
+
+    // Extract sentiment from the SENTIMENT: line (before the ---)
+    const sentimentMatch = aiText.match(/^SENTIMENT:\s*(Bullish|Bearish|Neutral)/mi);
+    const digestSentiment = sentimentMatch ? sentimentMatch[1].toLowerCase() : "neutral";
+
+    // Strip header lines (TITLE/SENTIMENT) and separator, keep structured markdown body
+    const separatorIdx = aiText.indexOf("---");
+    if (separatorIdx !== -1) {
+      summary = aiText.slice(separatorIdx + 3).trim();
+    } else {
+      summary = aiText.replace(/^TITLE:.*\n*/m, "").replace(/^SENTIMENT:.*\n*/m, "").trim();
+    }
+
+    // Prepend sentiment as a hidden metadata line in the summary
+    const summaryWithMeta = `<!-- sentiment:${digestSentiment} -->\n${summary}`;
 
     // Store in Supabase
     const { error: insertError } = await supabase.from("daily_digests").insert({
       date: dateStr,
       title,
-      summary,
+      summary: summaryWithMeta,
       xrp_open: xrpOpen,
       xrp_close: xrpClose,
       xrp_change_pct: xrpChangePct,

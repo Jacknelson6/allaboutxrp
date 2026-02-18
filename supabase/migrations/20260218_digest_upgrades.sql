@@ -1,0 +1,10 @@
+-- Optional: Add a metadata JSONB column for structured digest data
+-- For now, structured data (sentiment, key_takeaways, highlights) is stored
+-- as structured markdown in the summary field and parsed client-side.
+-- 
+-- If we want a dedicated column later:
+-- ALTER TABLE daily_digests ADD COLUMN IF NOT EXISTS metadata JSONB DEFAULT '{}';
+--
+-- The sentiment is embedded as an HTML comment at the top of the summary:
+-- <!-- sentiment:bullish -->
+-- The summary body uses markdown sections: ## Key Takeaways, ## Summary, ## What to Watch

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useAuth } from "@/lib/supabase/auth-context";
+import AuthModal from "@/components/auth/AuthModal";
 
 interface Article {
   title: string;
@@ -46,8 +48,43 @@ function relativeTime(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
+/** Parse structured markdown summary into sections */
+function parseDigestSummary(raw: string) {
+  // Extract sentiment from HTML comment
+  const sentimentMatch = raw.match(/<!--\s*sentiment:(\w+)\s*-->/);
+  const sentiment = (sentimentMatch?.[1] || "neutral") as "bullish" | "bearish" | "neutral";
+
+  // Strip the comment
+  const body = raw.replace(/<!--\s*sentiment:\w+\s*-->/, "").trim();
+
+  // Parse sections
+  const takeawaysMatch = body.match(/## Key Takeaways\n([\s\S]*?)(?=\n## |\n*$)/);
+  const summaryMatch = body.match(/## Summary\n([\s\S]*?)(?=\n## |\n*$)/);
+  const watchMatch = body.match(/## What to Watch\n([\s\S]*?)(?=\n## |\n*$)/);
+
+  const parseBullets = (text?: string) =>
+    text?.match(/^- .+/gm)?.map((l) => l.replace(/^- /, "").trim()) || [];
+
+  return {
+    sentiment,
+    keyTakeaways: parseBullets(takeawaysMatch?.[1]),
+    summary: summaryMatch?.[1]?.trim() || body,
+    whatToWatch: parseBullets(watchMatch?.[1]),
+  };
+}
+
+const DIGEST_SENTIMENT = {
+  bullish: { label: "Bullish", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20", icon: "📈" },
+  bearish: { label: "Bearish", color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/20", icon: "📉" },
+  neutral: { label: "Neutral", color: "text-gray-400", bg: "bg-gray-500/10", border: "border-gray-500/20", icon: "➡️" },
+} as const;
+
 function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   const [expanded, setExpanded] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
+  const { user, isPro, proLoading } = useAuth();
+
   const dateLabel = new Date(digest.date + "T00:00:00").toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -56,8 +93,17 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   const hasPrice = digest.xrp_open && digest.xrp_open > 0 && digest.xrp_close && digest.xrp_close > 0;
   const changePositive = (digest.xrp_change_pct ?? 0) >= 0;
 
-  // Show first ~300 chars when collapsed
-  const previewText = digest.summary.length > 300 ? digest.summary.slice(0, 300) + "..." : digest.summary;
+  const parsed = parseDigestSummary(digest.summary);
+  const sentimentStyle = DIGEST_SENTIMENT[parsed.sentiment];
+
+  const handleReadMore = () => {
+    if (isPro) {
+      setExpanded(!expanded);
+      setShowPaywall(false);
+    } else {
+      setShowPaywall(true);
+    }
+  };
 
   return (
     <div className="relative group">
@@ -70,9 +116,12 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
 
         <div className="p-4">
           {/* Badge row */}
-          <div className="flex items-center gap-2 mb-2 text-xs">
+          <div className="flex items-center gap-2 mb-2 text-xs flex-wrap">
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0085FF]/15 border border-[#0085FF]/25 text-[#0085FF] font-semibold">
               📰 Daily Recap
+            </span>
+            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${sentimentStyle.bg} border ${sentimentStyle.border} ${sentimentStyle.color} font-medium`}>
+              {sentimentStyle.icon} {sentimentStyle.label}
             </span>
             <span className="text-text-secondary">{dateLabel}</span>
             {digest.article_count > 0 && (
@@ -98,21 +147,110 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
             </div>
           )}
 
-          {/* Summary */}
-          <div className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">
-            {expanded ? digest.summary : previewText}
-          </div>
+          {/* Key Takeaways — always visible (free teaser) */}
+          {parsed.keyTakeaways.length > 0 && (
+            <div className="mb-3">
+              <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Key Takeaways</h4>
+              <ul className="space-y-1">
+                {parsed.keyTakeaways.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
+                    <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-          {digest.summary.length > 300 && (
+          {/* Summary preview (first ~200 chars free) */}
+          {!expanded && parsed.summary.length > 0 && (
+            <div className="text-[13px] text-gray-400 leading-relaxed">
+              {parsed.summary.slice(0, 200)}{parsed.summary.length > 200 ? "..." : ""}
+            </div>
+          )}
+
+          {/* Expanded: Full summary + What to Watch */}
+          {expanded && (
+            <div className="space-y-3">
+              <div className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">
+                {parsed.summary}
+              </div>
+
+              {parsed.whatToWatch.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-white/5">
+                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">👀 What to Watch</h4>
+                  <ul className="space-y-1">
+                    {parsed.whatToWatch.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
+                        <span className="text-yellow-500 mt-0.5 flex-shrink-0">▸</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Read more / collapse button */}
+          {parsed.summary.length > 200 && !showPaywall && (
             <button
-              onClick={() => setExpanded(!expanded)}
+              onClick={expanded ? () => setExpanded(false) : handleReadMore}
               className="mt-2 text-xs text-[#0085FF] hover:text-[#0085FF]/80 font-medium transition-colors"
             >
               {expanded ? "Show less" : "Read full recap →"}
             </button>
           )}
+
+          {/* Paywall overlay */}
+          {showPaywall && !isPro && (
+            <div className="mt-3 rounded-xl border border-[#2F3336] bg-[#16181C] p-5 text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 mb-3">
+                <span className="text-lg">🔒</span>
+              </div>
+              <h4 className="text-base font-bold text-white mb-1">Unlock Daily Recaps</h4>
+              <p className="text-xs text-gray-400 mb-3">
+                Get full daily analysis, summaries & market insights
+              </p>
+              <p className="text-xl font-bold text-white mb-0.5">
+                $9.99<span className="text-sm font-normal text-gray-500">/mo</span>
+              </p>
+              <p className="text-[11px] text-gray-600 mb-4">Use It plan · Cancel anytime</p>
+
+              {proLoading ? (
+                <div className="w-6 h-6 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin mx-auto" />
+              ) : user ? (
+                <a
+                  href="/subscribe"
+                  className="inline-block rounded-lg bg-[#0085FF] px-5 py-2 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
+                >
+                  Subscribe Now
+                </a>
+              ) : (
+                <button
+                  onClick={() => setShowAuth(true)}
+                  className="rounded-lg bg-[#0085FF] px-5 py-2 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
+                >
+                  Sign In to Subscribe
+                </button>
+              )}
+
+              <button
+                onClick={() => setShowPaywall(false)}
+                className="block mx-auto mt-2 text-[11px] text-gray-600 hover:text-gray-400 transition-colors"
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
         </div>
       </div>
+
+      <AuthModal
+        isOpen={showAuth}
+        onClose={() => setShowAuth(false)}
+        redirectAfterAuth={`/`}
+      />
     </div>
   );
 }
@@ -195,12 +333,18 @@ export default function NewsFeed() {
     timeline.push({ type: "article", data: article, index: i });
   }
 
-  // Add any remaining digests at the top
-  for (const digest of dailyDigests) {
-    if (!insertedDigestDates.has(digest.date)) {
-      timeline.unshift({ type: "digest", data: digest });
-    }
+  // Add any remaining digests at the top (preserve newest-first order)
+  const remaining = dailyDigests.filter((d) => !insertedDigestDates.has(d.date));
+  for (let i = remaining.length - 1; i >= 0; i--) {
+    timeline.unshift({ type: "digest", data: remaining[i] });
   }
+
+  // Sort entire timeline: digests by date, articles by published_at, all newest-first
+  timeline.sort((a, b) => {
+    const dateA = a.type === "digest" ? a.data.date + "T23:59:59" : a.data.published_at;
+    const dateB = b.type === "digest" ? b.data.date + "T23:59:59" : b.data.published_at;
+    return dateB.localeCompare(dateA);
+  });
 
   return (
     <div className="py-4">
