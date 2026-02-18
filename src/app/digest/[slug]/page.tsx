@@ -52,7 +52,17 @@ function formatPrice(n: number | undefined | null): string {
 function contentToText(content: DigestContent): string {
   const parts: string[] = [];
   if (content.raw_text) {
-    parts.push(content.raw_text.slice(0, 500));
+    // Strip markdown formatting for clean preview text
+    const clean = content.raw_text
+      .replace(/^#{1,6}\s+/gm, "") // headers
+      .replace(/\*\*(.+?)\*\*/g, "$1") // bold
+      .replace(/\*(.+?)\*/g, "$1") // italic
+      .replace(/^>\s*/gm, "") // blockquotes
+      .replace(/^-{3,}$/gm, "") // horizontal rules
+      .replace(/\|[^|]*\|/g, "") // table rows
+      .replace(/\n{3,}/g, "\n\n") // excess newlines
+      .trim();
+    parts.push(clean.slice(0, 500));
   } else {
     if (content.key_news) {
       content.key_news.forEach((n) => {
