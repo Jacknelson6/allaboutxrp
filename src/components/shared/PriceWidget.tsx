@@ -55,10 +55,6 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
       <span className={`font-mono text-base font-semibold transition-colors duration-300 ${flash ? "stat-refresh" : ""} ${flashColor}`}>
         ${fmtPrice(data.price)}
       </span>
-      <span className={`flex items-center gap-1 text-xs font-medium ${positive ? "text-success" : "text-danger"}`}>
-        <Icon className="h-3 w-3" />
-        {positive ? "+" : ""}{data.change24h.toFixed(2)}%
-      </span>
     </Link>
   );
 }
