@@ -294,7 +294,7 @@ function WeeklyDigestCard({ digest }: { digest: WeeklyDigest }) {
         <div className="p-4">
           <div className="flex items-center gap-2 mb-2 text-xs">
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
-              📊 Weekly Analysis
+              📊 Weekly Digest
             </span>
             <span className="text-text-secondary">{formatRange(digest.week_start, digest.week_end)}</span>
           </div>
