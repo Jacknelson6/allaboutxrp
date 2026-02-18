@@ -26,9 +26,9 @@ export async function POST() {
     return NextResponse.json({ generated: 0, message: "No articles need blog content" });
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+    || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
+    || "https://allaboutxrp.com";
 
   const results: { id: string; success: boolean; error?: string }[] = [];
 
