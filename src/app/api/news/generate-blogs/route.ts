@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import { generateBlogForArticle } from "@/lib/generate-blog-content";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -7,7 +8,6 @@ export const maxDuration = 300;
 export async function POST() {
   const supabase = createServiceClient();
 
-  // Find articles with slug but no blog_content
   const { data: articles, error } = await supabase
     .from("news")
     .select("id")
@@ -26,35 +26,13 @@ export async function POST() {
     return NextResponse.json({ generated: 0, message: "No articles need blog content" });
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
-    || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
-    || "https://allaboutxrp.com";
-
   const results: { id: string; success: boolean; error?: string }[] = [];
 
   for (const article of articles) {
-    try {
-      const res = await fetch(`${baseUrl}/api/news/generate-blog`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: article.id }),
-      });
+    const result = await generateBlogForArticle(article.id);
+    results.push({ id: article.id, ...result });
 
-      if (res.ok) {
-        results.push({ id: article.id, success: true });
-      } else {
-        const err = await res.json();
-        results.push({ id: article.id, success: false, error: err.error });
-      }
-    } catch (err) {
-      results.push({
-        id: article.id,
-        success: false,
-        error: err instanceof Error ? err.message : "Unknown",
-      });
-    }
-
-    // Small delay between requests
+    // Small delay between requests to avoid rate limiting
     await new Promise((r) => setTimeout(r, 1000));
   }
 
