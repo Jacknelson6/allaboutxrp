@@ -82,6 +82,42 @@ function contentToText(content: DigestContent): string {
   return parts.join(" ");
 }
 
+/** Extract key takeaways from HTML content */
+function extractTakeaways(html: string): string[] {
+  if (!html) return [];
+
+  // 1. Look for explicit Key Takeaways / TLDR section
+  const sectionMatch = html.match(
+    /<h[23][^>]*>[^<]*(key\s*takeaway|tldr|tl;dr|summary)[^<]*<\/h[23]>\s*([\s\S]*?)(?=<h[23]|$)/i
+  );
+  if (sectionMatch) {
+    const sectionHtml = sectionMatch[2];
+    const items = [...sectionHtml.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+      .map((m) => m[1].replace(/<[^>]+>/g, "").trim())
+      .filter((t) => t.length > 10);
+    if (items.length >= 2) return items.slice(0, 5);
+  }
+
+  // 2. Look for first section's bullet points
+  const firstSectionMatch = html.match(
+    /<h2[^>]*>[\s\S]*?<\/h2>\s*([\s\S]*?)(?=<h2|$)/i
+  );
+  if (firstSectionMatch) {
+    const items = [...firstSectionMatch[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+      .map((m) => m[1].replace(/<[^>]+>/g, "").trim())
+      .filter((t) => t.length > 10);
+    if (items.length >= 2) return items.slice(0, 5);
+  }
+
+  // 3. Fallback: grab first few <li> from anywhere
+  const allItems = [...html.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+    .map((m) => m[1].replace(/<[^>]+>/g, "").trim())
+    .filter((t) => t.length > 10 && t.length < 300);
+  if (allItems.length >= 2) return allItems.slice(0, 5);
+
+  return [];
+}
+
 function SentimentBadge({ sentiment }: { sentiment?: string }) {
   if (!sentiment) return null;
   const config: Record<string, { label: string; color: string; bg: string }> = {
@@ -304,6 +340,25 @@ export default function DigestDetailPage() {
             </div>
           </div>
         )}
+
+        {/* Key Takeaways */}
+        {(() => {
+          const takeaways = extractTakeaways(digest.html_content || "");
+          if (takeaways.length === 0) return null;
+          return (
+            <div className="mb-8 p-5 rounded-xl bg-[#0085FF]/[0.03] border border-[#0085FF]/15">
+              <h2 className="text-white text-base font-semibold mb-3">Key Takeaways</h2>
+              <ul className="space-y-2">
+                {takeaways.map((item, i) => (
+                  <li key={i} className="flex gap-2.5 text-gray-300 text-sm leading-relaxed">
+                    <span className="text-[#0085FF] mt-0.5 shrink-0">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })()}
 
         {/* TradingView Mini Chart */}
         <div className="mb-8 rounded-xl overflow-hidden border border-white/[0.06]">

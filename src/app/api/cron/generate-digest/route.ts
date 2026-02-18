@@ -63,6 +63,9 @@ Write the digest using exactly these sections in this order. Important: If a sec
 Week of [date range] | XRP [open] → [close] ([+/-]%)
 One-sentence thesis for the week. What was the single most important thing that happened? If it was a quiet week, say so — "Quiet weeks are when positioning happens."
 
+### KEY TAKEAWAYS
+Immediately after the header, include a "## Key Takeaways" section with 3-5 concise bullet points summarizing the entire digest. Each bullet should be one sentence, scannable, and actionable. This section appears as a preview card on the site, so make it compelling. Format as a markdown list (- bullet).
+
 ### 1. WHAT HAPPENED — Key Developments (only if noteworthy events occurred)
 3-5 items maximum. For each:
 - Bold headline (your framing, not the article's headline)
@@ -116,6 +119,7 @@ IMPORTANT: Return your response as a JSON object matching this exact structure:
   "xrp_open": 1.45,
   "xrp_close": 1.52,
   "xrp_change_pct": 4.83,
+  "key_takeaways": ["bullet 1", "bullet 2", "bullet 3"],
   "what_happened": [{"headline": "...", "body": "..."}] or null,
   "price_action": {"numbers_line": "Open $X, High $X, Low $X, Close $X, +X%", "analysis": "..."} or null,
   "onchain_intel": {"analysis": "..."} or null,
@@ -134,6 +138,7 @@ interface DigestContent {
   xrp_open: number;
   xrp_close: number;
   xrp_change_pct: number;
+  key_takeaways?: string[];
   what_happened: Array<{ headline: string; body: string }> | null;
   price_action: { numbers_line: string; analysis: string } | null;
   onchain_intel: { analysis: string } | null;
@@ -330,6 +335,18 @@ function generateHtml(content: DigestContent): string {
       <h1 style="color:#fff;font-size:22px;margin:0;line-height:1.3;">${content.title}</h1>
     </div>
   `);
+
+  // Key Takeaways
+  if (content.key_takeaways && content.key_takeaways.length > 0) {
+    const bullets = content.key_takeaways
+      .map((t) => `<li style="margin-bottom:6px;color:#ccc;font-size:15px;line-height:1.6;">${t}</li>`)
+      .join("");
+    s.push(`
+      <h2 style="color:${blue};font-size:16px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Key Takeaways</h2>
+      <ul style="padding-left:20px;margin:0 0 24px 0;">${bullets}</ul>
+      <div style="height:24px;"></div>
+    `);
+  }
 
   // What Happened
   if (content.what_happened && content.what_happened.length > 0) {
