@@ -112,11 +112,13 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
       {/* Timeline dot — special blue for daily digest */}
       <div className="absolute -left-[21px] top-4 w-3 h-3 rounded-full bg-[#0085FF] border-2 border-[#16181C] shadow-[0_0_6px_rgba(0,133,255,0.4)]" />
 
-      <div className="relative rounded-2xl border border-[#0085FF]/20 bg-gradient-to-br from-[#0085FF]/[0.04] to-transparent overflow-hidden">
+      <div className="relative rounded-2xl border border-[#0085FF]/15 bg-[#0A0F1A] overflow-hidden hover:border-[#0085FF]/40 hover:shadow-[0_0_30px_rgba(0,133,255,0.08)] hover:-translate-y-[1px] transition-all duration-200">
+        {/* Glow */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#0085FF]/[0.04] rounded-full blur-3xl pointer-events-none group-hover:bg-[#0085FF]/[0.08] transition-all duration-300" />
         {/* Accent stripe */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0085FF] via-[#0085FF]/60 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#0085FF]/30 to-transparent" />
 
-        <div className="p-4">
+        <div className="relative p-4">
           {/* Badge row */}
           <div className="flex items-center gap-2 mb-2 text-xs flex-wrap">
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0085FF]/15 border border-[#0085FF]/25 text-[#0085FF] font-semibold">
@@ -234,7 +236,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
                   <div className="text-[13px] text-gray-400 leading-relaxed">
                     {parsed.summary.slice(0, 100)}
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#16181C] to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#0A0F1A] to-transparent" />
                 </div>
               )}
 
