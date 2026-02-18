@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Lock, Check, BarChart3 } from "lucide-react";
+import { Lock, BarChart3 } from "lucide-react";
 import { useAuth } from "@/lib/supabase/auth-context";
 import AuthModal from "@/components/auth/AuthModal";
 
@@ -28,37 +28,6 @@ function getWeekNumber(dateStr: string): number {
   const diff = d.getTime() - start.getTime();
   return Math.ceil((diff / 86400000 + start.getDay() + 1) / 7);
 }
-
-const TIERS = [
-  {
-    name: "Plus",
-    price: "$2.99",
-    period: "/mo",
-    description: "Weekly digest access",
-    features: ["Weekly XRP analysis", "Market movement breakdowns", "Regulatory updates"],
-    cta: "Get Plus",
-    popular: false,
-  },
-  {
-    name: "Pro",
-    price: "$9.99",
-    period: "/mo",
-    description: "Full daily + weekly coverage",
-    features: ["Everything in Plus", "Daily analysis reports", "Key takeaways & summaries", "Price action tracking"],
-    cta: "Get Pro",
-    popular: true,
-  },
-  {
-    name: "Max",
-    price: "$12.99",
-    period: "/mo",
-    description: "Complete intelligence suite",
-    features: ["Everything in Pro", "Weekly technical analysis request", "Priority support", "Early access to new features"],
-    cta: "Get Max",
-    popular: false,
-    bestValue: true,
-  },
-];
 
 export default function DigestPage() {
   const { user, isPro, loading: authLoading, proLoading } = useAuth();
@@ -147,87 +116,31 @@ export default function DigestPage() {
       {showOverlay && !loading && !authLoading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          <div className="relative w-full max-w-3xl bg-[#0A0A0B] border border-[#2F3336] rounded-2xl overflow-hidden shadow-2xl">
-            {/* Header */}
-            <div className="px-6 pt-8 pb-4 text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 mb-4">
-                <Lock className="h-5 w-5 text-[#0085FF]" />
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-1">
-                {needsAuth ? "Sign in to view" : "Upgrade to view"}
-              </h2>
-              <p className="text-gray-500 text-sm">
-                {needsAuth
-                  ? "Create an account to access weekly digests and more."
-                  : "Choose a plan to unlock full access."}
-              </p>
+          <div className="relative w-full max-w-md bg-[#0A0A0B] border border-[#2F3336] rounded-2xl overflow-hidden shadow-2xl p-8 text-center">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 mb-5">
+              <Lock className="h-6 w-6 text-[#0085FF]" />
             </div>
-
-            {/* Pricing cards */}
-            <div className="px-6 pb-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {TIERS.map((tier) => (
-                  <div
-                    key={tier.name}
-                    className={`relative rounded-xl border p-5 transition-all ${
-                      tier.popular
-                        ? "border-[#0085FF]/40 bg-[#0085FF]/[0.04]"
-                        : "border-[#2F3336] bg-[#16181C]"
-                    }`}
-                  >
-                    {tier.popular && (
-                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#0085FF] text-[10px] font-bold text-white uppercase tracking-wider">
-                        Most Popular
-                      </div>
-                    )}
-                    {tier.bestValue && (
-                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
-                        Best Value
-                      </div>
-                    )}
-                    <div className="mb-4">
-                      <h3 className="text-white font-semibold text-lg">{tier.name}</h3>
-                      <p className="text-gray-500 text-xs mt-0.5">{tier.description}</p>
-                    </div>
-                    <div className="mb-4">
-                      <span className="text-2xl font-bold text-white">{tier.price}</span>
-                      <span className="text-gray-500 text-sm">{tier.period}</span>
-                    </div>
-                    <ul className="space-y-2 mb-5">
-                      {tier.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                          <Check className="h-4 w-4 text-[#0085FF] mt-0.5 flex-shrink-0" />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {needsAuth ? (
-                      <button
-                        onClick={() => setShowAuth(true)}
-                        className={`w-full py-2 rounded-lg text-sm font-semibold transition-colors ${
-                          tier.popular
-                            ? "bg-[#0085FF] text-white hover:bg-[#0070DD]"
-                            : "bg-white/5 text-white border border-[#2F3336] hover:border-[#0085FF]/30"
-                        }`}
-                      >
-                        Sign In
-                      </button>
-                    ) : (
-                      <Link
-                        href="/subscribe"
-                        className={`block w-full py-2 rounded-lg text-sm font-semibold text-center transition-colors ${
-                          tier.popular
-                            ? "bg-[#0085FF] text-white hover:bg-[#0070DD]"
-                            : "bg-white/5 text-white border border-[#2F3336] hover:border-[#0085FF]/30"
-                        }`}
-                      >
-                        {tier.cta}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              {needsAuth ? "Upgrade to unlock weekly digests" : "Upgrade your plan"}
+            </h2>
+            <p className="text-gray-500 text-sm mb-6">
+              Get in-depth XRP analysis delivered weekly.
+            </p>
+            <Link
+              href="/pricing"
+              className="inline-block w-full max-w-xs rounded-xl bg-[#0085FF] px-6 py-3 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
+            >
+              Upgrade
+            </Link>
+            <p className="text-gray-500 text-sm mt-4">
+              Already have an account?{" "}
+              <button
+                onClick={() => setShowAuth(true)}
+                className="text-[#0085FF] hover:underline"
+              >
+                Sign in
+              </button>
+            </p>
           </div>
         </div>
       )}
