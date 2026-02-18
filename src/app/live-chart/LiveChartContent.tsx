@@ -636,6 +636,9 @@ export default function LiveChartContent() {
               </div>
             )}
 
+            {/* Technical Analysis */}
+            <TechnicalAnalysisWidget />
+
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Price Performance</p>
@@ -681,27 +684,36 @@ function TechnicalAnalysisWidget() {
     if (!ref.current) return;
     ref.current.innerHTML = '';
 
+    const wrapper = document.createElement('div');
+    wrapper.className = 'tradingview-widget-container';
+
+    const inner = document.createElement('div');
+    inner.className = 'tradingview-widget-container__widget';
+    wrapper.appendChild(inner);
+
     const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://widgets.tradingview-widget.com/w/en/tv-technical-analysis.js';
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      interval: '1D',
+      width: '100%',
+      isTransparent: true,
+      height: 400,
+      symbol: 'BITSTAMP:XRPUSD',
+      showIntervalTabs: true,
+      displayMode: 'single',
+      locale: 'en',
+      colorTheme: 'dark',
+    });
+    wrapper.appendChild(script);
 
-    const widget = document.createElement('tv-technical-analysis');
-    widget.setAttribute('symbol', 'BITSTAMP:XRPUSD');
-    widget.setAttribute('interval', '1D');
-    widget.setAttribute('theme', 'dark');
-    widget.setAttribute('transparent', '');
-    widget.setAttribute('auto-size', '');
-    widget.setAttribute('show-interval-tabs', '');
-    widget.style.width = '100%';
-    widget.style.display = 'block';
-
-    ref.current.appendChild(script);
-    ref.current.appendChild(widget);
+    ref.current.appendChild(wrapper);
   }, []);
 
   return (
     <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
-      <div ref={ref} style={{ minHeight: '300px' }} />
+      <div ref={ref} style={{ minHeight: '400px' }} />
     </div>
   );
 }
