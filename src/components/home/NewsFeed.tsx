@@ -92,8 +92,10 @@ export default function NewsFeed() {
                 {/* Timeline dot */}
                 <div className="absolute -left-[21px] top-4 w-2.5 h-2.5 rounded-full bg-[#2F3336] border-2 border-[#16181C] group-hover:bg-[#0085FF] transition-colors" />
 
-                <div className="rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/30 transition-colors">
-                  <div className="flex gap-3">
+                <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/30 transition-colors overflow-hidden">
+                  <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
+                  <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
+                  <div className="relative z-10 flex gap-3">
                     <div className="flex-1 min-w-0">
                       {/* Sentiment + source + time */}
                       <div className="flex items-center gap-2 mb-1.5 text-xs">
