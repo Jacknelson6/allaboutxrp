@@ -104,11 +104,11 @@ export async function POST() {
 
   const supabase = createServiceClient();
 
-  // Fetch articles that haven't been enriched yet
+  // Fetch articles that haven't been fully enriched (missing simple_title OR summary)
   const { data: raw, error } = await supabase
     .from("news")
     .select("id, title, source, url")
-    .is("simple_title", null)
+    .or("simple_title.is.null,summary.is.null")
     .order("published_at", { ascending: false })
     .limit(BATCH_SIZE);
 
