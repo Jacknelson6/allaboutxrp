@@ -89,7 +89,6 @@ const DIGEST_SENTIMENT = {
 
 function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   const [expanded, setExpanded] = useState(false);
-  const [showPaywall, setShowPaywall] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const { user, isPro, proLoading } = useAuth();
 
@@ -103,15 +102,6 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
 
   const parsed = parseDigestSummary(digest.summary);
   const sentimentStyle = DIGEST_SENTIMENT[parsed.sentiment];
-
-  const handleReadMore = () => {
-    if (isPro) {
-      setExpanded(!expanded);
-      setShowPaywall(false);
-    } else {
-      setShowPaywall(true);
-    }
-  };
 
   return (
     <div className="relative group">
@@ -155,101 +145,123 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
             </div>
           )}
 
-          {/* Key Takeaways — always visible (free teaser) */}
-          {parsed.keyTakeaways.length > 0 && (
-            <div className="mb-3">
-              <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Key Takeaways</h4>
-              <ul className="space-y-1">
-                {parsed.keyTakeaways.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
-                    <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Summary preview (first ~200 chars free) */}
-          {!expanded && parsed.summary.length > 0 && (
-            <div className="text-[13px] text-gray-400 leading-relaxed">
-              {parsed.summary.slice(0, 200)}{parsed.summary.length > 200 ? "..." : ""}
-            </div>
-          )}
-
-          {/* Expanded: Full summary + What to Watch */}
-          {expanded && (
-            <div className="space-y-3">
-              <div className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">
-                {parsed.summary}
-              </div>
-
-              {parsed.whatToWatch.length > 0 && (
-                <div className="mt-3 pt-3 border-t border-white/5">
-                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">👀 What to Watch</h4>
+          {/* === PRO USERS: full content === */}
+          {isPro ? (
+            <>
+              {/* Key Takeaways — full */}
+              {parsed.keyTakeaways.length > 0 && (
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Key Takeaways</h4>
                   <ul className="space-y-1">
-                    {parsed.whatToWatch.map((item, i) => (
+                    {parsed.keyTakeaways.map((point, i) => (
                       <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
-                        <span className="text-yellow-500 mt-0.5 flex-shrink-0">▸</span>
-                        <span>{item}</span>
+                        <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
+                        <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
-            </div>
-          )}
 
-          {/* Read more / collapse button */}
-          {parsed.summary.length > 200 && !showPaywall && (
-            <button
-              onClick={expanded ? () => setExpanded(false) : handleReadMore}
-              className="mt-2 text-xs text-[#0085FF] hover:text-[#0085FF]/80 font-medium transition-colors"
-            >
-              {expanded ? "Show less" : "Read full recap →"}
-            </button>
-          )}
-
-          {/* Paywall overlay */}
-          {showPaywall && !isPro && (
-            <div className="mt-3 rounded-xl border border-[#2F3336] bg-[#16181C] p-5 text-center">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 mb-3">
-                <span className="text-lg">🔒</span>
-              </div>
-              <h4 className="text-base font-bold text-white mb-1">Unlock Daily Recaps</h4>
-              <p className="text-xs text-gray-400 mb-3">
-                Get full daily analysis, summaries & market insights
-              </p>
-              <p className="text-xl font-bold text-white mb-0.5">
-                $9.99<span className="text-sm font-normal text-gray-500">/mo</span>
-              </p>
-              <p className="text-[11px] text-gray-600 mb-4">Use It plan · Cancel anytime</p>
-
-              {proLoading ? (
-                <div className="w-6 h-6 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin mx-auto" />
-              ) : user ? (
-                <a
-                  href="/subscribe"
-                  className="inline-block rounded-lg bg-[#0085FF] px-5 py-2 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
-                >
-                  Subscribe Now
-                </a>
-              ) : (
-                <button
-                  onClick={() => setShowAuth(true)}
-                  className="rounded-lg bg-[#0085FF] px-5 py-2 text-sm font-semibold text-white hover:bg-[#0070DD] transition-colors"
-                >
-                  Sign In to Subscribe
-                </button>
+              {/* Summary preview / expanded */}
+              {!expanded && parsed.summary.length > 0 && (
+                <div className="text-[13px] text-gray-400 leading-relaxed">
+                  {parsed.summary.slice(0, 200)}{parsed.summary.length > 200 ? "..." : ""}
+                </div>
               )}
 
-              <button
-                onClick={() => setShowPaywall(false)}
-                className="block mx-auto mt-2 text-[11px] text-gray-600 hover:text-gray-400 transition-colors"
-              >
-                Dismiss
-              </button>
-            </div>
+              {expanded && (
+                <div className="space-y-3">
+                  <div className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">
+                    {parsed.summary}
+                  </div>
+                  {parsed.whatToWatch.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-white/5">
+                      <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">👀 What to Watch</h4>
+                      <ul className="space-y-1">
+                        {parsed.whatToWatch.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
+                            <span className="text-yellow-500 mt-0.5 flex-shrink-0">▸</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {parsed.summary.length > 200 && (
+                <button
+                  onClick={() => setExpanded(!expanded)}
+                  className="mt-2 text-xs text-[#0085FF] hover:text-[#0085FF]/80 font-medium transition-colors"
+                >
+                  {expanded ? "Show less" : "Read full recap →"}
+                </button>
+              )}
+            </>
+          ) : (
+            /* === FREE USERS: preview + paywall === */
+            <>
+              {/* Key Takeaways — first 2 only, rest blurred */}
+              {parsed.keyTakeaways.length > 0 && (
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Key Takeaways</h4>
+                  <ul className="space-y-1">
+                    {parsed.keyTakeaways.slice(0, 2).map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
+                        <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                    {parsed.keyTakeaways.length > 2 && (
+                      <li className="flex items-start gap-2 text-[13px] text-gray-300 blur-[6px] select-none pointer-events-none" aria-hidden="true">
+                        <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
+                        <span>{parsed.keyTakeaways[2]}</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              )}
+
+              {/* Summary — ~100 chars with fade */}
+              {parsed.summary.length > 0 && (
+                <div className="relative mb-3">
+                  <div className="text-[13px] text-gray-400 leading-relaxed">
+                    {parsed.summary.slice(0, 100)}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#16181C] to-transparent" />
+                </div>
+              )}
+
+              {/* Compact paywall CTA */}
+              <div className="mt-2 flex items-center justify-between rounded-xl border border-[#0085FF]/20 bg-[#0085FF]/[0.04] px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">🔒</span>
+                  <div>
+                    <p className="text-[13px] font-semibold text-white">Unlock with Use It plan</p>
+                    <p className="text-[11px] text-gray-500">$9.99/mo · Full daily recaps</p>
+                  </div>
+                </div>
+                {proLoading ? (
+                  <div className="w-5 h-5 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin" />
+                ) : user ? (
+                  <a
+                    href="/subscribe"
+                    className="rounded-lg bg-[#0085FF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#0070DD] transition-colors"
+                  >
+                    Subscribe
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => setShowAuth(true)}
+                    className="rounded-lg bg-[#0085FF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#0070DD] transition-colors"
+                  >
+                    Sign In
+                  </button>
+                )}
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -355,14 +367,47 @@ export default function NewsFeed() {
   const timeline: TimelineItem[] = [
     ...articles.map((a, i) => ({ type: "article" as const, data: a, index: i, sortDate: a.published_at })),
     ...dailyDigests.map((d) => ({ type: "digest" as const, data: d, sortDate: d.date + "T23:59:59" })),
-    ...weeklyDigests.map((w) => ({ type: "weekly" as const, data: w, sortDate: w.week_end + "T23:59:59" })),
   ];
 
   timeline.sort((a, b) => b.sortDate.localeCompare(a.sortDate));
 
+  const pinnedWeekly = weeklyDigests.length > 0 ? weeklyDigests[0] : null;
+
   return (
     <div className="py-4">
       <h2 className="text-lg font-bold text-text-primary px-4 mb-4">Latest News</h2>
+
+      {/* Pinned weekly digest */}
+      {pinnedWeekly && (
+        <div className="px-4 mb-4">
+          <a
+            href={`/digest/${pinnedWeekly.slug}`}
+            className="block relative rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/[0.06] to-transparent overflow-hidden hover:border-[#8b5cf6]/50 transition-colors"
+          >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8b5cf6] via-[#8b5cf6]/60 to-transparent" />
+            <div className="p-4">
+              <div className="flex items-center gap-2 mb-2 text-xs">
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
+                  📌 Weekly Analysis
+                </span>
+                <span className="text-text-secondary">
+                  {(() => {
+                    const s = new Date(pinnedWeekly.week_start + "T12:00:00");
+                    const e = new Date(pinnedWeekly.week_end + "T12:00:00");
+                    const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
+                    return `${s.toLocaleDateString("en-US", opts)} – ${e.toLocaleDateString("en-US", { ...opts, year: "numeric" })}`;
+                  })()}
+                </span>
+              </div>
+              <h3 className="text-[15px] font-bold text-white mb-1 hover:text-[#8b5cf6] transition-colors">
+                {pinnedWeekly.title}
+              </h3>
+              <span className="text-xs text-[#8b5cf6] font-medium">Read full analysis →</span>
+            </div>
+          </a>
+        </div>
+      )}
+
       <div className="relative pl-8">
         {/* Timeline line */}
         <div className="absolute left-[15px] top-2 bottom-2 w-[2px] bg-[#2F3336]" />
@@ -373,7 +418,7 @@ export default function NewsFeed() {
               return <DailyDigestCard key={`digest-${item.data.date}`} digest={item.data} />;
             }
             if (item.type === "weekly") {
-              return <WeeklyDigestCard key={`weekly-${item.data.slug}`} digest={item.data} />;
+              return null; // Weekly digests are pinned above the timeline
             }
 
             const article = item.data;
