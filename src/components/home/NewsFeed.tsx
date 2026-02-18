@@ -383,15 +383,16 @@ export default function NewsFeed() {
 
       {/* Pinned weekly digest */}
       {pinnedWeekly && (
-        <div className="px-4 mb-4">
+        <div className="px-4 mb-6">
           <a
             href={`/digest/${pinnedWeekly.slug}`}
-            className="block rounded-2xl border border-[#2F3336] bg-[#16181C] relative overflow-hidden hover:border-[#0085FF]/30 transition-colors group"
+            className="block rounded-2xl border border-[#0085FF]/15 bg-[#0A0F1A] relative overflow-hidden hover:border-[#0085FF]/40 hover:shadow-[0_0_30px_rgba(0,133,255,0.08)] hover:-translate-y-[1px] transition-all duration-200 group"
           >
-            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#0085FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#0085FF]/[0.04] rounded-full blur-3xl pointer-events-none group-hover:bg-[#0085FF]/[0.08] transition-all duration-300" />
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#0085FF]/30 to-transparent" />
             <div className="relative px-5 py-6 sm:px-6">
               <div className="flex items-center gap-2 mb-3">
-                <div className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-[#0085FF]/20 bg-[#0085FF]/[0.06] text-[#0085FF]">
+                <div className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-[#0085FF]/25 bg-[#0085FF]/[0.08] text-[#0085FF]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                 </div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#0085FF]">Weekly Digest</span>
@@ -407,7 +408,7 @@ export default function NewsFeed() {
               <h2 className="text-lg sm:text-xl font-bold tracking-[-0.02em] text-white leading-tight mb-2 group-hover:text-[#0085FF] transition-colors">
                 {pinnedWeekly.title}
               </h2>
-              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0085FF]">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0085FF] group-hover:gap-2.5 transition-all">
                 Read Full Analysis <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
