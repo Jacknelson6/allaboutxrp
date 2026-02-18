@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
-const BATCH_SIZE = 10;
+const BATCH_SIZE = 25;
 
 interface RawArticle {
   id: string;
