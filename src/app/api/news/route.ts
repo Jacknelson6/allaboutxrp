@@ -13,30 +13,33 @@ export async function GET(request: NextRequest) {
   // Op-ed / opinion filter keywords applied at query level
   const OP_ED_KEYWORDS = ["opinion:", "op-ed:", "editorial:", "column:", "commentary:"];
 
-  // Primary: read from "news" table (populated by N8N workflow)
+  // Primary: read from "news" table (populated by N8N, enriched by /api/news/enrich)
   const { data, error } = await supabase
     .from("news")
-    .select("title, url, source, summary, published_at")
+    .select("title, simple_title, url, source, summary, og_image, published_at, importance_score, sentiment")
+    .gte("importance_score", 6)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    // Fallback if columns don't exist yet
+    const { data: fallback, error: fbErr } = await supabase
+      .from("news")
+      .select("title, url, source, summary, published_at")
+      .order("published_at", { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    if (fbErr) return NextResponse.json({ error: fbErr.message }, { status: 500 });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const normalized = (fallback ?? []).map((a: any) => ({
+      ...a, simple_title: null, og_image: null, importance_score: 8, sentiment: null,
+    }));
+    return NextResponse.json(normalized);
   }
 
-  // Normalize to match frontend Article interface (fill missing fields)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let articles = (data ?? []).map((a: any) => ({
-    title: a.title,
-    simple_title: null,
-    url: a.url,
-    source: a.source,
-    summary: a.summary,
-    og_image: null,
-    published_at: a.published_at,
-    importance_score: 8,
-    sentiment: null,
-  }));
+  let articles = (data ?? []).map((a: any) => ({ ...a }));
 
   // Client-side op-ed filter
   articles = articles.filter((a: { title: string }) => {
