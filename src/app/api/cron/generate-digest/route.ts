@@ -50,6 +50,9 @@ You will be provided with structured data blocks. Use ALL of them to inform your
 ### RLUSD DATA
 {{RLUSD_DATA}}
 
+### TECHNICAL INDICATORS
+{{TECHNICAL_INDICATORS}}
+
 ---
 
 ## Digest Structure
@@ -76,7 +79,8 @@ Selection criteria — Only include developments that meet at least one of these
 - The week in numbers: Open, high, low, close, % change, avg daily volume vs. prior week. One line.
 - What drove it: Connect price moves to specific catalysts. Was this XRP-specific or market-wide? Use BTC/ETH correlation data.
 - Volume signal: Was volume confirming the move or diverging?
-- Key levels: What support/resistance levels matter for the coming week?
+- Key levels: What support/resistance levels matter for the coming week? Reference Fibonacci retracement levels where relevant.
+- Technical signals: Mention MACD crossover direction, Bollinger Band position, and RSI reading. Note if volume confirms or diverges from the price move.
 
 ### 3. ON-CHAIN & WHALE INTELLIGENCE (only if data reveals something meaningful)
 - Escrow: Ripple escrow releases, re-locks, trends
@@ -408,6 +412,125 @@ function generateHtml(content: DigestContent): string {
   return s.join("");
 }
 
+// --- TA Helpers ---
+
+function calcEMA(data: number[], period: number): number[] {
+  const k = 2 / (period + 1);
+  const ema: number[] = [];
+  const sma = data.slice(0, period).reduce((a, b) => a + b, 0) / period;
+  ema.push(sma);
+  for (let i = period; i < data.length; i++) {
+    ema.push(data[i] * k + ema[ema.length - 1] * (1 - k));
+  }
+  return ema;
+}
+
+function calcStdDev(data: number[], period: number): number {
+  const slice = data.slice(-period);
+  const mean = slice.reduce((a, b) => a + b, 0) / slice.length;
+  const variance = slice.reduce((sum, val) => sum + (val - mean) ** 2, 0) / slice.length;
+  return Math.sqrt(variance);
+}
+
+function computeTechnicalIndicators(ohlcData: number[][], marketData: { total_volumes?: [number, number][] } | null): string {
+  if (!ohlcData || ohlcData.length < 26) return "[Insufficient OHLC data for TA]";
+
+  const closes = ohlcData.map((c) => c[4]);
+  const latestClose = closes[closes.length - 1];
+
+  // RSI(14)
+  const changes = closes.slice(1).map((c, i) => c - closes[i]);
+  const gains = changes.map((c) => (c > 0 ? c : 0));
+  const losses = changes.map((c) => (c < 0 ? -c : 0));
+  const avgGain = gains.slice(-14).reduce((a, b) => a + b, 0) / 14;
+  const avgLoss = losses.slice(-14).reduce((a, b) => a + b, 0) / 14;
+  const rsi = avgLoss === 0 ? 100 : 100 - 100 / (1 + avgGain / avgLoss);
+
+  // SMAs
+  const sma7 = closes.slice(-7).reduce((a, b) => a + b, 0) / 7;
+  const sma14 = closes.slice(-14).reduce((a, b) => a + b, 0) / 14;
+  const sma20 = closes.slice(-20).reduce((a, b) => a + b, 0) / Math.min(20, closes.length);
+
+  // Support / Resistance (14-day)
+  const recentHighs = ohlcData.slice(-14).map((c) => c[2]);
+  const recentLows = ohlcData.slice(-14).map((c) => c[3]);
+  const resistance = Math.max(...recentHighs);
+  const support = Math.min(...recentLows);
+
+  // MACD (12/26/9)
+  const ema12 = calcEMA(closes, 12);
+  const ema26 = calcEMA(closes, 26);
+  const offset12 = closes.length - ema12.length;
+  const offset26 = closes.length - ema26.length;
+  const macdLineArr: number[] = [];
+  for (let i = offset26; i < closes.length; i++) {
+    macdLineArr.push(ema12[i - offset12] - ema26[i - offset26]);
+  }
+  const signalArr = calcEMA(macdLineArr, 9);
+  const macdLine = macdLineArr[macdLineArr.length - 1];
+  const signalLine = signalArr[signalArr.length - 1];
+  const histogram = macdLine - signalLine;
+  const macdCrossover = macdLine > signalLine ? "Bullish (MACD above Signal)" : "Bearish (MACD below Signal)";
+
+  // Bollinger Bands (20, 2σ)
+  const bbMiddle = sma20;
+  const bbStdDev = calcStdDev(closes, 20);
+  const bbUpper = bbMiddle + 2 * bbStdDev;
+  const bbLower = bbMiddle - 2 * bbStdDev;
+  const bbPosition = latestClose > bbUpper - bbStdDev * 0.5 ? "Near upper band (overbought pressure)" :
+    latestClose < bbLower + bbStdDev * 0.5 ? "Near lower band (oversold zone)" : "Mid-range";
+
+  // Fibonacci Retracement (30-day)
+  const allHighs = ohlcData.map((c) => c[2]);
+  const allLows = ohlcData.map((c) => c[3]);
+  const swingHigh = Math.max(...allHighs);
+  const swingLow = Math.min(...allLows);
+  const fibRange = swingHigh - swingLow;
+  const fib236 = swingHigh - fibRange * 0.236;
+  const fib382 = swingHigh - fibRange * 0.382;
+  const fib500 = swingHigh - fibRange * 0.5;
+  const fib618 = swingHigh - fibRange * 0.618;
+  const fib786 = swingHigh - fibRange * 0.786;
+  const fibLevels = [
+    { level: "23.6%", price: fib236 },
+    { level: "38.2%", price: fib382 },
+    { level: "50.0%", price: fib500 },
+    { level: "61.8%", price: fib618 },
+    { level: "78.6%", price: fib786 },
+  ];
+  const nearestFib = fibLevels.reduce((best, f) =>
+    Math.abs(f.price - latestClose) < Math.abs(best.price - latestClose) ? f : best
+  );
+
+  // Volume
+  let volumeText = "Volume data unavailable";
+  if (marketData?.total_volumes?.length) {
+    const volumes = marketData.total_volumes;
+    const msPerDay = 24 * 60 * 60 * 1000;
+    const buckets = new Map<number, number[]>();
+    for (const [ts, vol] of volumes) {
+      const day = Math.floor(ts / msPerDay);
+      if (!buckets.has(day)) buckets.set(day, []);
+      buckets.get(day)!.push(vol);
+    }
+    const dailyVols = [...buckets.keys()].sort((a, b) => a - b).map(d => Math.max(...buckets.get(d)!));
+    const todayVol = dailyVols[dailyVols.length - 1];
+    const avg14 = dailyVols.slice(-14).reduce((a, b) => a + b, 0) / Math.min(14, dailyVols.length);
+    const avg30 = dailyVols.reduce((a, b) => a + b, 0) / dailyVols.length;
+    const vs14 = ((todayVol - avg14) / avg14) * 100;
+    const vs30 = ((todayVol - avg30) / avg30) * 100;
+    volumeText = `Latest: $${(todayVol / 1e9).toFixed(2)}B | 14d avg: $${(avg14 / 1e9).toFixed(2)}B (${vs14 >= 0 ? "+" : ""}${vs14.toFixed(1)}%) | 30d avg: $${(avg30 / 1e9).toFixed(2)}B (${vs30 >= 0 ? "+" : ""}${vs30.toFixed(1)}%)`;
+  }
+
+  return `RSI(14): ${rsi.toFixed(1)} | 7-SMA: $${sma7.toFixed(4)} | 14-SMA: $${sma14.toFixed(4)} | 20-SMA: $${sma20.toFixed(4)}
+Support: $${support.toFixed(4)} | Resistance: $${resistance.toFixed(4)} | Close: $${latestClose.toFixed(4)}
+MACD(12/26/9): Line=${macdLine.toFixed(6)}, Signal=${signalLine.toFixed(6)}, Hist=${histogram.toFixed(6)} — ${macdCrossover}
+Bollinger(20,2σ): Upper=$${bbUpper.toFixed(4)}, Mid=$${bbMiddle.toFixed(4)}, Lower=$${bbLower.toFixed(4)} — ${bbPosition}
+Fibonacci(30d): High=$${swingHigh.toFixed(4)}, Low=$${swingLow.toFixed(4)} | Nearest: ${nearestFib.level} ($${nearestFib.price.toFixed(4)})
+  Levels: 23.6%=$${fib236.toFixed(4)}, 38.2%=$${fib382.toFixed(4)}, 50%=$${fib500.toFixed(4)}, 61.8%=$${fib618.toFixed(4)}, 78.6%=$${fib786.toFixed(4)}
+Volume: ${volumeText}`;
+}
+
 // --- Main Route ---
 
 export async function GET(request: NextRequest) {
@@ -462,6 +585,8 @@ export async function GET(request: NextRequest) {
     richlistResult,
     tweetsResult,
     rlusdResult,
+    ohlc30dResult,
+    marketChart30dResult,
   ] = await Promise.allSettled([
     // 1. News articles
     supabase
@@ -493,6 +618,10 @@ export async function GET(request: NextRequest) {
       .limit(30),
     // 10. RLUSD
     fetchJson("https://api.coingecko.com/api/v3/coins/rlusd", "RLUSD"),
+    // 11. 30-day OHLC for TA indicators
+    fetchJson("https://api.coingecko.com/api/v3/coins/ripple/ohlc?vs_currency=usd&days=30", "XRP OHLC 30d"),
+    // 12. 30-day market chart for volume
+    fetchJson("https://api.coingecko.com/api/v3/coins/ripple/market_chart?vs_currency=usd&days=30", "XRP market chart 30d"),
   ]);
 
   // Extract results safely
@@ -512,6 +641,8 @@ export async function GET(request: NextRequest) {
   const tweetsData = getValue(tweetsResult);
   const tweets = tweetsData && "data" in (tweetsData as object) ? (tweetsData as { data: Array<Record<string, unknown>> | null }).data : null;
   const rlusdData = getValue(rlusdResult);
+  const ohlc30d = getValue(ohlc30dResult) as number[][] | null;
+  const marketChart30d = getValue(marketChart30dResult) as { total_volumes?: [number, number][] } | null;
 
   // Format all data blocks
   const priceInfo = formatPriceData(xrpPrice);
@@ -528,6 +659,7 @@ export async function GET(request: NextRequest) {
   const richlistText = formatRichList(richlistData);
   const tweetsText = formatTweets(tweets);
   const rlusdText = formatRlusd(rlusdData);
+  const taText = computeTechnicalIndicators(ohlc30d || [], marketChart30d);
 
   // Assemble prompt
   const prompt = DIGEST_PROMPT_TEMPLATE
@@ -538,7 +670,8 @@ export async function GET(request: NextRequest) {
     .replace("{{TWEETS}}", tweetsText)
     .replace("{{BTC_ETH_CORRELATION}}", correlationText)
     .replace("{{FEAR_GREED_INDEX}}", fngText)
-    .replace("{{RLUSD_DATA}}", rlusdText);
+    .replace("{{RLUSD_DATA}}", rlusdText)
+    .replace("{{TECHNICAL_INDICATORS}}", taText);
 
   // Call OpenRouter
   const openrouterKey = process.env.OPENROUTER_API_KEY;
@@ -632,6 +765,7 @@ export async function GET(request: NextRequest) {
       richlist: !!richlistData,
       tweets: !!tweets?.length,
       rlusd: !!rlusdData,
+      technical_indicators: !!ohlc30d?.length,
     },
   });
 }

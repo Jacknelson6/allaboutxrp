@@ -82,47 +82,169 @@ export async function POST(request: NextRequest) {
       // Price data is optional
     }
 
-    // Fetch basic TA data (14-day OHLC for RSI + levels)
+    // --- TA Helper Functions ---
+    function calcEMA(data: number[], period: number): number[] {
+      const k = 2 / (period + 1);
+      const ema: number[] = [];
+      // Seed with SMA
+      const sma = data.slice(0, period).reduce((a, b) => a + b, 0) / period;
+      ema.push(sma);
+      for (let i = period; i < data.length; i++) {
+        ema.push(data[i] * k + ema[ema.length - 1] * (1 - k));
+      }
+      return ema;
+    }
+
+    function calcSMA(data: number[], period: number): number {
+      const slice = data.slice(-period);
+      return slice.reduce((a, b) => a + b, 0) / slice.length;
+    }
+
+    function calcStdDev(data: number[], period: number): number {
+      const slice = data.slice(-period);
+      const mean = slice.reduce((a, b) => a + b, 0) / slice.length;
+      const variance = slice.reduce((sum, val) => sum + (val - mean) ** 2, 0) / slice.length;
+      return Math.sqrt(variance);
+    }
+
+    // Fetch TA data: 30-day OHLC + market_chart for volume
     let taContext = "";
     try {
-      const ohlcRes = await fetch(
-        "https://api.coingecko.com/api/v3/coins/ripple/ohlc?vs_currency=usd&days=14",
-        { headers: { accept: "application/json" } }
-      );
-      if (ohlcRes.ok) {
-        const ohlcData: number[][] = await ohlcRes.json();
-        if (ohlcData.length >= 14) {
-          // Calculate RSI from closing prices
-          const closes = ohlcData.map((c) => c[4]);
-          const changes = closes.slice(1).map((c, i) => c - closes[i]);
-          const gains = changes.map((c) => (c > 0 ? c : 0));
-          const losses = changes.map((c) => (c < 0 ? -c : 0));
-          const avgGain = gains.slice(-14).reduce((a, b) => a + b, 0) / 14;
-          const avgLoss = losses.slice(-14).reduce((a, b) => a + b, 0) / 14;
-          const rsi = avgLoss === 0 ? 100 : 100 - 100 / (1 + avgGain / avgLoss);
+      const [ohlcRes, marketChartRes] = await Promise.all([
+        fetch("https://api.coingecko.com/api/v3/coins/ripple/ohlc?vs_currency=usd&days=30", { headers: { accept: "application/json" } }),
+        fetch("https://api.coingecko.com/api/v3/coins/ripple/market_chart?vs_currency=usd&days=30", { headers: { accept: "application/json" } }),
+      ]);
 
-          // Recent highs/lows for support/resistance
-          const recentHighs = ohlcData.slice(-14).map((c) => c[2]);
-          const recentLows = ohlcData.slice(-14).map((c) => c[3]);
-          const resistance = Math.max(...recentHighs);
-          const support = Math.min(...recentLows);
-          const latestClose = closes[closes.length - 1];
+      const ohlcData: number[][] = ohlcRes.ok ? await ohlcRes.json() : [];
+      const marketData = marketChartRes.ok ? await marketChartRes.json() : null;
 
-          // Simple moving averages
-          const sma7 = closes.slice(-7).reduce((a, b) => a + b, 0) / 7;
-          const sma14 = closes.slice(-14).reduce((a, b) => a + b, 0) / 14;
+      if (ohlcData.length >= 26) {
+        const closes = ohlcData.map((c) => c[4]);
+        const latestClose = closes[closes.length - 1];
 
-          taContext = `
-Technical Indicators (14-day):
+        // --- RSI (14) ---
+        const changes = closes.slice(1).map((c, i) => c - closes[i]);
+        const gains = changes.map((c) => (c > 0 ? c : 0));
+        const losses = changes.map((c) => (c < 0 ? -c : 0));
+        const avgGain = gains.slice(-14).reduce((a, b) => a + b, 0) / 14;
+        const avgLoss = losses.slice(-14).reduce((a, b) => a + b, 0) / 14;
+        const rsi = avgLoss === 0 ? 100 : 100 - 100 / (1 + avgGain / avgLoss);
+
+        // --- SMAs ---
+        const sma7 = calcSMA(closes, 7);
+        const sma14 = calcSMA(closes, 14);
+        const sma20 = calcSMA(closes, 20);
+
+        // --- Support / Resistance ---
+        const recentHighs = ohlcData.slice(-14).map((c) => c[2]);
+        const recentLows = ohlcData.slice(-14).map((c) => c[3]);
+        const resistance = Math.max(...recentHighs);
+        const support = Math.min(...recentLows);
+
+        // --- MACD (12/26/9) ---
+        const ema12 = calcEMA(closes, 12);
+        const ema26 = calcEMA(closes, 26);
+        // Align: ema12 starts at index 12, ema26 at index 26. We need overlap.
+        const macdLineArr: number[] = [];
+        const offset12 = closes.length - ema12.length;
+        const offset26 = closes.length - ema26.length;
+        for (let i = offset26; i < closes.length; i++) {
+          macdLineArr.push(ema12[i - offset12] - ema26[i - offset26]);
+        }
+        const signalArr = calcEMA(macdLineArr, 9);
+        const macdLine = macdLineArr[macdLineArr.length - 1];
+        const signalLine = signalArr[signalArr.length - 1];
+        const histogram = macdLine - signalLine;
+        const macdCrossover = macdLine > signalLine ? "Bullish (MACD above Signal)" : "Bearish (MACD below Signal)";
+
+        // --- Bollinger Bands (20, 2) ---
+        const bbMiddle = sma20;
+        const bbStdDev = calcStdDev(closes, 20);
+        const bbUpper = bbMiddle + 2 * bbStdDev;
+        const bbLower = bbMiddle - 2 * bbStdDev;
+        const bbPosition = latestClose > bbUpper - bbStdDev * 0.5 ? "Near upper band (overbought pressure)" :
+          latestClose < bbLower + bbStdDev * 0.5 ? "Near lower band (oversold zone)" : "Mid-range";
+
+        // --- Fibonacci Retracement (30-day swing) ---
+        const allHighs = ohlcData.map((c) => c[2]);
+        const allLows = ohlcData.map((c) => c[3]);
+        const swingHigh = Math.max(...allHighs);
+        const swingLow = Math.min(...allLows);
+        const fibRange = swingHigh - swingLow;
+        const fib236 = swingHigh - fibRange * 0.236;
+        const fib382 = swingHigh - fibRange * 0.382;
+        const fib500 = swingHigh - fibRange * 0.5;
+        const fib618 = swingHigh - fibRange * 0.618;
+        const fib786 = swingHigh - fibRange * 0.786;
+        const fibLevels = [
+          { level: "23.6%", price: fib236 },
+          { level: "38.2%", price: fib382 },
+          { level: "50.0%", price: fib500 },
+          { level: "61.8%", price: fib618 },
+          { level: "78.6%", price: fib786 },
+        ];
+        const nearestFib = fibLevels.reduce((best, f) =>
+          Math.abs(f.price - latestClose) < Math.abs(best.price - latestClose) ? f : best
+        );
+
+        // --- Volume Analysis ---
+        let volumeContext = "";
+        if (marketData?.total_volumes?.length > 0) {
+          const volumes: [number, number][] = marketData.total_volumes;
+          // Aggregate to daily volumes
+          const msPerDay = 24 * 60 * 60 * 1000;
+          const dailyVols: number[] = [];
+          const buckets = new Map<number, number[]>();
+          for (const [ts, vol] of volumes) {
+            const day = Math.floor(ts / msPerDay);
+            if (!buckets.has(day)) buckets.set(day, []);
+            buckets.get(day)!.push(vol);
+          }
+          const sortedDays = [...buckets.keys()].sort((a, b) => a - b);
+          for (const day of sortedDays) {
+            dailyVols.push(Math.max(...buckets.get(day)!));
+          }
+          const todayVol = dailyVols[dailyVols.length - 1];
+          const avg14Vol = dailyVols.slice(-14).reduce((a, b) => a + b, 0) / Math.min(14, dailyVols.length);
+          const avg30Vol = dailyVols.reduce((a, b) => a + b, 0) / dailyVols.length;
+          const volVsAvg14 = ((todayVol - avg14Vol) / avg14Vol) * 100;
+          const volVsAvg30 = ((todayVol - avg30Vol) / avg30Vol) * 100;
+          volumeContext = `
+- Latest Daily Volume: $${(todayVol / 1e9).toFixed(2)}B
+- 14-day Avg Volume: $${(avg14Vol / 1e9).toFixed(2)}B (today ${volVsAvg14 >= 0 ? "+" : ""}${volVsAvg14.toFixed(1)}% vs avg)
+- 30-day Avg Volume: $${(avg30Vol / 1e9).toFixed(2)}B (today ${volVsAvg30 >= 0 ? "+" : ""}${volVsAvg30.toFixed(1)}% vs avg)`;
+        }
+
+        taContext = `
+Technical Indicators:
 - RSI(14): ${rsi.toFixed(1)}
 - 7-day SMA: $${sma7.toFixed(4)}
 - 14-day SMA: $${sma14.toFixed(4)}
+- 20-day SMA: $${sma20.toFixed(4)}
 - 14-day Support: $${support.toFixed(4)}
 - 14-day Resistance: $${resistance.toFixed(4)}
 - Latest Close: $${latestClose.toFixed(4)}
 - Price vs 7-SMA: ${latestClose > sma7 ? "Above" : "Below"}
-- Price vs 14-SMA: ${latestClose > sma14 ? "Above" : "Below"}`;
-        }
+- Price vs 14-SMA: ${latestClose > sma14 ? "Above" : "Below"}
+
+MACD (12/26/9):
+- MACD Line: ${macdLine.toFixed(6)}
+- Signal Line: ${signalLine.toFixed(6)}
+- Histogram: ${histogram.toFixed(6)}
+- Crossover: ${macdCrossover}
+
+Bollinger Bands (20, 2σ):
+- Upper: $${bbUpper.toFixed(4)}
+- Middle: $${bbMiddle.toFixed(4)}
+- Lower: $${bbLower.toFixed(4)}
+- Price Position: ${bbPosition}
+
+Fibonacci Retracement (30-day):
+- Swing High: $${swingHigh.toFixed(4)}, Swing Low: $${swingLow.toFixed(4)}
+- 23.6%: $${fib236.toFixed(4)}, 38.2%: $${fib382.toFixed(4)}, 50%: $${fib500.toFixed(4)}, 61.8%: $${fib618.toFixed(4)}, 78.6%: $${fib786.toFixed(4)}
+- Nearest Fib Level: ${nearestFib.level} ($${nearestFib.price.toFixed(4)})
+
+Volume Analysis:${volumeContext || "\n- Volume data unavailable"}`;
       }
     } catch {
       // TA data is optional
@@ -163,7 +285,7 @@ SENTIMENT: [Bullish or Bearish or Neutral]
 [3-5 paragraphs covering the day's news. Open with the biggest development. Cover price action if available. Group related stories. Professional tone, slightly bullish-leaning but honest. No hype. Under 400 words.]
 
 ## Technical Snapshot
-[2-3 sentences max. Mention RSI reading and whether it's overbought/oversold/neutral, note if price is above or below key SMAs, and state the nearest support and resistance levels. Keep it concise and actionable. If no TA data was provided, skip this section entirely.]
+[3-5 sentences. Mention RSI reading and whether it's overbought/oversold/neutral. Note MACD crossover direction (bullish/bearish). State Bollinger Band position (overbought pressure, oversold, or mid-range). Mention the nearest Fibonacci retracement level. Comment on volume relative to averages (above/below, confirming or diverging from price action). State nearest support and resistance. Keep it concise and actionable. If no TA data was provided, skip this section entirely.]
 
 ## What to Watch
 - [Thing to watch 1]
