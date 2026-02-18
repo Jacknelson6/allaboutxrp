@@ -62,8 +62,12 @@ function parseDigestSummary(raw: string) {
   const sentimentMatch = raw.match(/<!--\s*sentiment:(\w+)\s*-->/);
   const sentiment = (sentimentMatch?.[1] || "neutral") as "bullish" | "bearish" | "neutral";
 
-  // Strip the comment
-  const body = raw.replace(/<!--\s*sentiment:\w+\s*-->/, "").trim();
+  // Strip the comment and any raw TITLE:/--- artifacts
+  const body = raw
+    .replace(/<!--\s*sentiment:\w+\s*-->/, "")
+    .replace(/^TITLE:.*$/gm, "")
+    .replace(/^---+$/gm, "")
+    .trim();
 
   // Parse sections
   const takeawaysMatch = body.match(/## Key Takeaways\n([\s\S]*?)(?=\n## |\n*$)/);
