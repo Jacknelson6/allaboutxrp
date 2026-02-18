@@ -245,7 +245,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
                 <div className="flex items-center gap-2">
                   <span className="text-base">🔒</span>
                   <div>
-                    <p className="text-[13px] font-semibold text-white">Unlock with Use It plan</p>
+                    <p className="text-[13px] font-semibold text-white">Unlock with Pro</p>
                     <p className="text-[11px] text-gray-500">$9.99/mo · Full daily recaps</p>
                   </div>
                 </div>
