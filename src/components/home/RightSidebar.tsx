@@ -8,9 +8,9 @@ import TradeModal from "@/components/shared/TradeModal";
 import NewsletterSignup from "@/components/shared/NewsletterSignup";
 
 const watchItems = [
-  { title: "Why SWIFT Is Dying and XRP Could Replace It", href: "/learn/xrp-vs-swift" },
-  { title: "The SEC Case That Changed Crypto Forever", href: "/learn/sec-vs-ripple-explained" },
-  { title: "XRP ETF: When It's Coming and What It Means", href: "/learn/xrp-etf" },
+  { title: "XRP vs SWIFT", href: "/learn/xrp-vs-swift" },
+  { title: "SEC vs Ripple", href: "/learn/sec-vs-ripple-explained" },
+  { title: "XRP ETF", href: "/learn/xrp-etf" },
 ];
 import MiniPreviewCard from "./MiniPreviewCard";
 
