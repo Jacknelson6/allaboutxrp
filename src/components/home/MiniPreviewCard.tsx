@@ -26,51 +26,25 @@ export default function MiniPreviewCard() {
     if (!widgetRef.current) return;
     widgetRef.current.innerHTML = '';
 
+    // Load the TradingView mini-chart Web Component script
     const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    script.innerHTML = JSON.stringify({
-      symbols: [['BITSTAMP:XRPUSD|1D']],
-      chartOnly: true,
-      width: '100%',
-      height: '100%',
-      locale: 'en',
-      colorTheme: 'dark',
-      autosize: true,
-      showVolume: false,
-      showMA: false,
-      hideDateRanges: true,
-      hideMarketStatus: true,
-      hideSymbolLogo: false,
-      scalePosition: 'no',
-      scaleMode: 'Normal',
-      fontFamily: 'Inter, sans-serif',
-      fontSize: '10',
-      noTimeScale: true,
-      valuesTracking: '0',
-      changeMode: 'price-and-percent',
-      chartType: 'area',
-      lineColor: '#0085FF',
-      bottomColor: 'rgba(0, 133, 255, 0.12)',
-      showSymbolLogo: true,
-      isTransparent: true,
-      dateRange: '1D',
-    });
+    script.type = 'module';
+    script.src = 'https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js';
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'tradingview-widget-container';
-    wrapper.style.height = '100%';
-    wrapper.style.width = '100%';
+    // Create the Web Component element
+    const widget = document.createElement('tv-mini-chart');
+    widget.setAttribute('symbol', 'BITSTAMP:XRPUSD');
+    widget.setAttribute('date-range', '1D');
+    widget.setAttribute('theme', 'dark');
+    widget.setAttribute('transparent', '');
+    widget.setAttribute('auto-size', '');
+    widget.setAttribute('no-time-scale', '');
+    widget.style.height = '100%';
+    widget.style.width = '100%';
+    widget.style.display = 'block';
 
-    const innerDiv = document.createElement('div');
-    innerDiv.className = 'tradingview-widget-container__widget';
-    innerDiv.style.height = '100%';
-    innerDiv.style.width = '100%';
-
-    wrapper.appendChild(innerDiv);
-    wrapper.appendChild(script);
-    widgetRef.current.appendChild(wrapper);
+    widgetRef.current.appendChild(script);
+    widgetRef.current.appendChild(widget);
   }, []);
 
   return (
