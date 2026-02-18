@@ -2,11 +2,21 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/lib/supabase/auth-context";
 import DigestPaywall from "@/components/digest/DigestPaywall";
 
 interface DigestContent {
+  title?: string;
+  raw_text?: string;
+  xrp_open?: number;
+  xrp_close?: number;
+  xrp_change_pct?: number;
+  sentiment?: string;
+  model_used?: string;
+  week_range?: string;
+  // Legacy structured fields
   key_news?: Array<{ title: string; summary: string; url?: string; source?: string }>;
   price_changes?: { high?: string; low?: string; close?: string; change_pct?: string; notes?: string };
   price_prediction?: { direction?: string; reasoning?: string };
@@ -30,27 +40,51 @@ interface DigestMeta {
 }
 
 function formatDate(d: string) {
-  return new Date(d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  return new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
+function formatPrice(n: number | undefined | null): string {
+  if (n == null || n === 0) return "";
+  return `$${n.toFixed(4)}`;
 }
 
 /** Convert digest content object to readable text for paywall preview */
 function contentToText(content: DigestContent): string {
   const parts: string[] = [];
-  if (content.key_news) {
-    content.key_news.forEach((n) => {
-      parts.push(`${n.title}: ${n.summary}`);
-    });
-  }
-  if (content.price_changes?.notes) {
-    parts.push(content.price_changes.notes);
-  }
-  if (content.price_prediction?.reasoning) {
-    parts.push(content.price_prediction.reasoning);
-  }
-  if (content.macro_analysis) {
-    parts.push(...content.macro_analysis);
+  if (content.raw_text) {
+    parts.push(content.raw_text.slice(0, 500));
+  } else {
+    if (content.key_news) {
+      content.key_news.forEach((n) => {
+        parts.push(`${n.title}: ${n.summary}`);
+      });
+    }
+    if (content.price_changes?.notes) {
+      parts.push(content.price_changes.notes);
+    }
+    if (content.price_prediction?.reasoning) {
+      parts.push(content.price_prediction.reasoning);
+    }
+    if (content.macro_analysis) {
+      parts.push(...content.macro_analysis);
+    }
   }
   return parts.join(" ");
+}
+
+function SentimentBadge({ sentiment }: { sentiment?: string }) {
+  if (!sentiment) return null;
+  const config: Record<string, { label: string; color: string; bg: string }> = {
+    bullish: { label: "Bullish", color: "text-green-400", bg: "bg-green-400/10 border-green-400/20" },
+    bearish: { label: "Bearish", color: "text-red-400", bg: "bg-red-400/10 border-red-400/20" },
+    neutral: { label: "Neutral", color: "text-yellow-400", bg: "bg-yellow-400/10 border-yellow-400/20" },
+  };
+  const c = config[sentiment] ?? config.neutral;
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-xs font-medium ${c.bg} ${c.color}`}>
+      {c.label}
+    </span>
+  );
 }
 
 export default function DigestDetailPage() {
@@ -111,7 +145,7 @@ export default function DigestDetailPage() {
           <Link href="/digest" className="text-[#0085FF] text-sm hover:underline mb-6 inline-block">
             ← All Digests
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{digest.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{digest.title || "Weekly Digest"}</h1>
           <p className="text-gray-500 mb-8">
             {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
           </p>
@@ -129,6 +163,11 @@ export default function DigestDetailPage() {
   const prevDigest = currentIdx < allDigests.length - 1 ? allDigests[currentIdx + 1] : null;
   const nextDigest = currentIdx > 0 ? allDigests[currentIdx - 1] : null;
 
+  // Price data from content (skip if zero/missing)
+  const hasPrice = content.xrp_open && content.xrp_open > 0 && content.xrp_close && content.xrp_close > 0;
+  const changePct = content.xrp_change_pct;
+  const changePositive = changePct != null && changePct >= 0;
+
   function handleShare() {
     const url = window.location.href;
     if (navigator.share) {
@@ -139,22 +178,94 @@ export default function DigestDetailPage() {
     }
   }
 
+  // Clean html_content: remove the price header if prices are $0
+  let cleanHtml = digest.html_content || "";
+  if (!hasPrice && cleanHtml) {
+    // Remove the "$0 → $0" price line from the html
+    cleanHtml = cleanHtml.replace(
+      /<p[^>]*>XRP \$0[^<]*<\/p>/gi,
+      ""
+    );
+  }
+
   return (
-    <main className="min-h-screen bg-black px-4 py-16">
+    <main className="min-h-screen bg-black px-4 py-10 md:py-16">
       <div className="max-w-3xl mx-auto">
+        {/* Breadcrumb */}
         <Link href="/digest" className="text-[#0085FF] text-sm hover:underline mb-6 inline-block">
           ← All Digests
         </Link>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{digest.title}</h1>
-        <p className="text-gray-500 mb-8">
-          {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
-        </p>
+
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 text-[#0085FF] text-xs font-medium">
+              <span>📡</span> Weekly Analysis
+            </div>
+            <SentimentBadge sentiment={content.sentiment} />
+          </div>
+          <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">
+            {digest.title || "Weekly Digest"}
+          </h1>
+          <p className="text-gray-500">
+            {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
+          </p>
+        </div>
+
+        {/* Price Summary Card (only if we have real price data) */}
+        {hasPrice && (
+          <div className="mb-8 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">XRP Price This Week</p>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-white text-lg font-semibold">{formatPrice(content.xrp_open)}</span>
+                  <span className="text-gray-500">→</span>
+                  <span className="text-white text-lg font-semibold">{formatPrice(content.xrp_close)}</span>
+                  {changePct != null && changePct !== 0 && (
+                    <span className={`text-sm font-medium ${changePositive ? "text-green-400" : "text-red-400"}`}>
+                      {changePositive ? "+" : ""}{changePct.toFixed(2)}%
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TradingView Mini Chart */}
+        <div className="mb-8 rounded-xl overflow-hidden border border-white/[0.06]">
+          <Script
+            src="https://widgets.tradingview-widget.com/w/en/tv-mini-chart.js"
+            strategy="lazyOnload"
+          />
+          {/* @ts-expect-error - TradingView web component */}
+          <tv-mini-chart
+            symbol="BINANCE:XRPUSDT"
+            width="100%"
+            height="220"
+            locale="en"
+            dateRange="1M"
+            colorTheme="dark"
+            isTransparent="true"
+            autosize="false"
+            largeChartUrl="https://allaboutxrp.com/live-chart"
+          />
+        </div>
 
         {/* Render html_content if available, otherwise fall back to structured content */}
-        {digest.html_content ? (
+        {cleanHtml ? (
           <div
-            className="prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: digest.html_content }}
+            className="prose prose-invert prose-sm md:prose-base max-w-none
+              prose-headings:text-[#0085FF] prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4
+              prose-p:text-gray-300 prose-p:leading-relaxed
+              prose-strong:text-white
+              prose-li:text-gray-300
+              prose-a:text-[#0085FF] prose-a:no-underline hover:prose-a:underline
+              [&_table]:w-full [&_table]:border-collapse [&_table]:text-sm
+              [&_th]:text-left [&_th]:text-white [&_th]:p-2 [&_th]:border-b [&_th]:border-white/10
+              [&_td]:p-2 [&_td]:text-gray-300 [&_td]:border-b [&_td]:border-white/[0.05]"
+            dangerouslySetInnerHTML={{ __html: cleanHtml }}
           />
         ) : (
           <>
@@ -170,19 +281,26 @@ export default function DigestDetailPage() {
                       <h3 className="text-white font-medium mb-1">
                         {item.url ? (
                           <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#0085FF] transition-colors">
-                            {item.title} ↗
+                            {item.title || "Untitled"} ↗
                           </a>
                         ) : (
-                          item.title
+                          item.title || "Untitled"
                         )}
                       </h3>
-                      <p className="text-gray-400 text-sm">{item.summary}</p>
+                      <p className="text-gray-400 text-sm">{item.summary || "No summary available."}</p>
                       {item.source && <span className="text-gray-600 text-xs mt-1 inline-block">{item.source}</span>}
                     </li>
                   ))}
                 </ul>
+              ) : content.raw_text ? (
+                <div className="prose prose-invert prose-sm max-w-none">
+                  <p className="text-gray-300 whitespace-pre-line leading-relaxed">
+                    {content.raw_text.slice(0, 2000)}
+                    {content.raw_text.length > 2000 && "..."}
+                  </p>
+                </div>
               ) : (
-                <p className="text-gray-500">Nothing major this week.</p>
+                <p className="text-gray-500">No content available for this digest.</p>
               )}
             </section>
 
@@ -229,7 +347,7 @@ export default function DigestDetailPage() {
             )}
 
             {/* Price Outlook */}
-            {content.price_prediction && (
+            {content.price_prediction && (content.price_prediction.direction || content.price_prediction.reasoning) && (
               <section className="mb-10">
                 <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
                   <span>🔮</span> Price Outlook
@@ -257,7 +375,7 @@ export default function DigestDetailPage() {
                   {content.macro_analysis.map((item, i) => (
                     <li key={i} className="flex gap-3 text-gray-400 text-sm">
                       <span className="text-[#0085FF] mt-0.5">•</span>
-                      <span>{item}</span>
+                      <span>{item || "No data available."}</span>
                     </li>
                   ))}
                 </ul>
