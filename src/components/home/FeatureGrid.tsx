@@ -36,9 +36,9 @@ const features = [
   },
   {
     icon: <Heart className="h-5 w-5" />,
-    title: "Donate",
-    desc: "Support the project and help keep AllAboutXRP free, independent, and ad-free.",
-    href: "/donate",
+    title: "Weekly Digest",
+    desc: "Get weekly XRP analysis and key developments delivered to your inbox.",
+    href: "/digest",
   },
 ];
 

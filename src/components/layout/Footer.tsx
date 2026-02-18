@@ -9,7 +9,7 @@ const footerSections = [
       { href: "/learn", label: "Learn" },
       { href: "/tools", label: "Tools" },
       { href: "/learn/get-started", label: "How to Invest in XRP" },
-      { href: "/donate", label: "Donate" },
+      { href: "/digest", label: "Weekly Digest" },
     ],
   },
   {

@@ -20,6 +20,7 @@ interface Digest {
   week_start: string;
   week_end: string;
   content: DigestContent;
+  html_content?: string;
   published_at: string;
 }
 
@@ -149,110 +150,120 @@ export default function DigestDetailPage() {
           {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
         </p>
 
-        {/* Key News */}
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <span>🔑</span> Key News
-          </h2>
-          {content.key_news && content.key_news.length > 0 ? (
-            <ul className="space-y-3">
-              {content.key_news.map((item, i) => (
-                <li key={i} className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-                  <h3 className="text-white font-medium mb-1">
-                    {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#0085FF] transition-colors">
-                        {item.title} ↗
-                      </a>
-                    ) : (
-                      item.title
+        {/* Render html_content if available, otherwise fall back to structured content */}
+        {digest.html_content ? (
+          <div
+            className="prose prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: digest.html_content }}
+          />
+        ) : (
+          <>
+            {/* Key News */}
+            <section className="mb-10">
+              <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                <span>🔑</span> Key News
+              </h2>
+              {content.key_news && content.key_news.length > 0 ? (
+                <ul className="space-y-3">
+                  {content.key_news.map((item, i) => (
+                    <li key={i} className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                      <h3 className="text-white font-medium mb-1">
+                        {item.url ? (
+                          <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#0085FF] transition-colors">
+                            {item.title} ↗
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                      </h3>
+                      <p className="text-gray-400 text-sm">{item.summary}</p>
+                      {item.source && <span className="text-gray-600 text-xs mt-1 inline-block">{item.source}</span>}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-500">Nothing major this week.</p>
+              )}
+            </section>
+
+            {/* Price Action */}
+            {content.price_changes && (
+              <section className="mb-10">
+                <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <span>📊</span> Price Action
+                </h2>
+                <div className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-3">
+                    {content.price_changes.high && (
+                      <div>
+                        <p className="text-gray-500 text-xs uppercase">High</p>
+                        <p className="text-white font-semibold">{content.price_changes.high}</p>
+                      </div>
                     )}
-                  </h3>
-                  <p className="text-gray-400 text-sm">{item.summary}</p>
-                  {item.source && <span className="text-gray-600 text-xs mt-1 inline-block">{item.source}</span>}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500">Nothing major this week.</p>
-          )}
-        </section>
+                    {content.price_changes.low && (
+                      <div>
+                        <p className="text-gray-500 text-xs uppercase">Low</p>
+                        <p className="text-white font-semibold">{content.price_changes.low}</p>
+                      </div>
+                    )}
+                    {content.price_changes.close && (
+                      <div>
+                        <p className="text-gray-500 text-xs uppercase">Close</p>
+                        <p className="text-white font-semibold">{content.price_changes.close}</p>
+                      </div>
+                    )}
+                    {content.price_changes.change_pct && (
+                      <div>
+                        <p className="text-gray-500 text-xs uppercase">Change</p>
+                        <p className={`font-semibold ${content.price_changes.change_pct.startsWith("-") ? "text-red-400" : "text-green-400"}`}>
+                          {content.price_changes.change_pct}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  {content.price_changes.notes && (
+                    <p className="text-gray-400 text-sm">{content.price_changes.notes}</p>
+                  )}
+                </div>
+              </section>
+            )}
 
-        {/* Price Action */}
-        {content.price_changes && (
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <span>📊</span> Price Action
-            </h2>
-            <div className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-3">
-                {content.price_changes.high && (
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase">High</p>
-                    <p className="text-white font-semibold">{content.price_changes.high}</p>
-                  </div>
-                )}
-                {content.price_changes.low && (
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase">Low</p>
-                    <p className="text-white font-semibold">{content.price_changes.low}</p>
-                  </div>
-                )}
-                {content.price_changes.close && (
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase">Close</p>
-                    <p className="text-white font-semibold">{content.price_changes.close}</p>
-                  </div>
-                )}
-                {content.price_changes.change_pct && (
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase">Change</p>
-                    <p className={`font-semibold ${content.price_changes.change_pct.startsWith("-") ? "text-red-400" : "text-green-400"}`}>
-                      {content.price_changes.change_pct}
+            {/* Price Outlook */}
+            {content.price_prediction && (
+              <section className="mb-10">
+                <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <span>🔮</span> Price Outlook
+                </h2>
+                <div className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                  {content.price_prediction.direction && (
+                    <p className="text-white font-medium mb-2">
+                      Direction: <span className="text-[#0085FF]">{content.price_prediction.direction}</span>
                     </p>
-                  </div>
-                )}
-              </div>
-              {content.price_changes.notes && (
-                <p className="text-gray-400 text-sm">{content.price_changes.notes}</p>
-              )}
-            </div>
-          </section>
-        )}
+                  )}
+                  {content.price_prediction.reasoning && (
+                    <p className="text-gray-400 text-sm">{content.price_prediction.reasoning}</p>
+                  )}
+                </div>
+              </section>
+            )}
 
-        {/* Price Outlook */}
-        {content.price_prediction && (
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <span>🔮</span> Price Outlook
-            </h2>
-            <div className="p-4 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-              {content.price_prediction.direction && (
-                <p className="text-white font-medium mb-2">
-                  Direction: <span className="text-[#0085FF]">{content.price_prediction.direction}</span>
-                </p>
-              )}
-              {content.price_prediction.reasoning && (
-                <p className="text-gray-400 text-sm">{content.price_prediction.reasoning}</p>
-              )}
-            </div>
-          </section>
-        )}
-
-        {/* Macro Watch */}
-        {content.macro_analysis && content.macro_analysis.length > 0 && (
-          <section className="mb-10">
-            <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <span>🌍</span> Macro Watch
-            </h2>
-            <ul className="space-y-2">
-              {content.macro_analysis.map((item, i) => (
-                <li key={i} className="flex gap-3 text-gray-400 text-sm">
-                  <span className="text-[#0085FF] mt-0.5">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+            {/* Macro Watch */}
+            {content.macro_analysis && content.macro_analysis.length > 0 && (
+              <section className="mb-10">
+                <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <span>🌍</span> Macro Watch
+                </h2>
+                <ul className="space-y-2">
+                  {content.macro_analysis.map((item, i) => (
+                    <li key={i} className="flex gap-3 text-gray-400 text-sm">
+                      <span className="text-[#0085FF] mt-0.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </>
         )}
 
         {/* Share & Manage */}

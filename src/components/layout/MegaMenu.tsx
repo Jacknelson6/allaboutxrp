@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight, User, LogOut } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
+import { useAuth } from "@/lib/supabase/auth-context";
+import AuthModal from "@/components/auth/AuthModal";
 
 const learnCategories = [
   {
@@ -56,10 +58,17 @@ export default function MegaMenu() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLearnOpen, setMobileLearnOpen] = useState(false);
   const [navHeight, setNavHeight] = useState(0);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
   const pathname = usePathname();
   const learnRef = useRef<HTMLDivElement>(null);
+  const accountRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { user, loading, signOut } = useAuth();
+  const truncatedEmail = user?.email
+    ? user.email.length > 16 ? user.email.slice(0, 16) + "..." : user.email
+    : "";
 
   // Measure nav height for mobile overlay positioning
   useEffect(() => {
@@ -81,6 +90,9 @@ export default function MegaMenu() {
     const handleClickOutside = (e: MouseEvent) => {
       if (learnRef.current && !learnRef.current.contains(e.target as Node)) {
         setLearnOpen(false);
+      }
+      if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
+        setAccountOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -119,6 +131,7 @@ export default function MegaMenu() {
     pathname === href || pathname.startsWith(href + "/");
 
   return (
+    <>
     <nav
       ref={navRef}
       className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/90 backdrop-blur-xl"
@@ -240,12 +253,46 @@ export default function MegaMenu() {
             How to Invest in XRP
           </Link>
 
-          <Link
-            href="/donate"
-            className="ml-3 rounded-lg bg-[#0085FF] px-3.5 py-1.5 text-[13px] font-medium text-white transition-all duration-200 hover:bg-[#0070DD]"
-          >
-            Donate
-          </Link>
+          {/* Sign Up / Account */}
+          {!loading && (
+            user ? (
+              <div ref={accountRef} className="relative ml-3">
+                <button
+                  onClick={() => setAccountOpen(!accountOpen)}
+                  className="flex items-center gap-2 rounded-lg border border-white/[0.08] px-3 py-1.5 text-[13px] text-white transition-colors hover:bg-white/[0.04]"
+                >
+                  <User className="h-3.5 w-3.5 text-[#0085FF]" />
+                  <span className="hidden xl:inline">{truncatedEmail}</span>
+                  <ChevronDown className={`h-3 w-3 transition-transform ${accountOpen ? "rotate-180" : ""}`} />
+                </button>
+                {accountOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-48 rounded-xl border border-white/[0.06] bg-[#0A0A0B] py-2 shadow-xl z-50">
+                    <Link
+                      href="/digest"
+                      onClick={() => setAccountOpen(false)}
+                      className="block px-4 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-colors"
+                    >
+                      My Account
+                    </Link>
+                    <button
+                      onClick={() => { signOut(); setAccountOpen(false); }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:text-red-400 hover:bg-white/[0.04] transition-colors"
+                    >
+                      <LogOut className="h-3.5 w-3.5" />
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowAuthModal(true)}
+                className="ml-3 rounded-lg bg-[#0085FF] px-3.5 py-1.5 text-[13px] font-medium text-white transition-all duration-200 hover:bg-[#0070DD]"
+              >
+                Sign Up
+              </button>
+            )
+          )}
           <div className="ml-3">
             <PriceWidget />
           </div>
@@ -352,17 +399,40 @@ export default function MegaMenu() {
           </Link>
 
           <div className="pt-5">
-            <Link
-              href="/donate"
-              onClick={closeMobile}
-              className="btn-primary w-full"
-            >
-              Donate
-            </Link>
+            {!loading && (
+              user ? (
+                <div className="flex flex-col gap-1">
+                  <Link
+                    href="/digest"
+                    onClick={closeMobile}
+                    className="flex items-center gap-2 min-h-[48px] px-2 text-[15px] font-medium text-text-primary"
+                  >
+                    <User className="h-4 w-4 text-[#0085FF]" />
+                    My Account
+                  </Link>
+                  <button
+                    onClick={() => { signOut(); closeMobile(); }}
+                    className="flex items-center gap-2 min-h-[48px] px-2 text-[15px] font-medium text-text-secondary hover:text-red-400"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setShowAuthModal(true); closeMobile(); }}
+                  className="btn-primary w-full"
+                >
+                  Sign Up
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
       )}
     </nav>
+    <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+    </>
   );
 }

@@ -89,7 +89,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/riddlers", changeFrequency: "monthly", priority: 0.5 },
 
     // Other
-    { path: "/donate", changeFrequency: "monthly", priority: 0.4 },
     { path: "/privacy-policy", changeFrequency: "monthly", priority: 0.3 },
     { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
   ];
