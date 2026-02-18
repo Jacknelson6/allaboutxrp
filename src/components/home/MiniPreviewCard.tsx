@@ -60,11 +60,7 @@ export default function MiniPreviewCard() {
           </div>
         </div>
         {/* 24h change now shown by the TradingView widget itself */}
-        <div className="relative z-10 px-5 pb-3">
-          <span className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 group-hover/chart:text-[#0085FF] group-hover/chart:gap-2.5 transition-all">
-            View Charts <ArrowRight className="h-3 w-3" />
-          </span>
-        </div>
+        <div className="pb-1" />
       </Link>
 
       {/* Divider */}
@@ -85,11 +81,7 @@ export default function MiniPreviewCard() {
             </Suspense>
           </div>
         </div>
-        <div className="relative z-10 px-5 pb-4 pt-1">
-          <span className="flex items-center gap-1.5 text-[11px] text-[#0085FF]/70 group-hover/globe:text-[#0085FF] group-hover/globe:gap-2.5 transition-all">
-            Explore Live <ArrowRight className="h-3 w-3" />
-          </span>
-        </div>
+        <div className="pb-1" />
         <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10 rounded-full blur-3xl -z-0" />
       </Link>
     </div>
