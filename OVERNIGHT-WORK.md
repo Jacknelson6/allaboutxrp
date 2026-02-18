@@ -1,82 +1,85 @@
 # Overnight Work Summary — Feb 17, 2026
 
-## Workstream 1: Weekly Digest UI Audit ✅
+## Session State (for next session pickup)
 
+### COMPLETED ✅
+
+#### 1. Weekly Digest UI Audit (Workstream 1)
 **File:** `src/app/digest/[slug]/page.tsx`
+- Fixed null/zero value handling — price summary card only renders when `xrp_open > 0 && xrp_close > 0`
+- Strips "$0 → $0" price line from `html_content` via regex when prices are zero
+- Added `SentimentBadge` component showing Bullish/Bearish/Neutral pill from `content.sentiment`
+- Added TradingView mini-chart (`<tv-mini-chart>` web component, BINANCE:XRPUSDT, 1M range, dark theme)
+- Improved prose styling with Tailwind prose classes for headings, tables, lists
+- Fixed date formatting (added `T00:00:00` to prevent timezone off-by-one)
+- Added fallback: when `html_content` missing AND legacy `key_news` fields don't exist, renders `content.raw_text`
+- Added "📡 Weekly Analysis" badge + sentiment badge in header
+- Updated `DigestContent` interface to match actual Supabase schema (`raw_text`, `xrp_open`, `xrp_close`, `xrp_change_pct`, `sentiment`, `model_used`, `week_range`)
 
-### Changes:
-- **Fixed null/zero value handling**: The content JSON has `xrp_open: 0, xrp_close: 0, xrp_change_pct: 0` which showed "$0 → $0 (+0%)" in the HTML. Now the price summary card only renders when prices are real (> 0). Also strips the "$0" price line from `html_content` when prices are zero.
-- **Added sentiment badge**: Shows Bullish/Bearish/Neutral pill badge from `content.sentiment`
-- **Added TradingView mini-chart**: Embedded `<tv-mini-chart>` web component showing XRPUSDT 1-month chart
-- **Improved prose styling**: Better Tailwind prose classes for headings, tables, lists in the html_content render
-- **Fixed date formatting**: Added `T00:00:00` to prevent timezone-related off-by-one date display
-- **Added fallback for raw_text**: When `html_content` is missing AND legacy `key_news` fields don't exist, falls back to displaying `content.raw_text`
-- **Weekly Analysis badge** + better header layout with pill badges
+**Root cause of "null values":** The digest content JSON uses `raw_text`/`xrp_open`/`xrp_close`/`xrp_change_pct`/`sentiment` fields, NOT the legacy `key_news`/`price_changes`/`price_prediction`/`macro_analysis` the UI originally expected. Price values were `0` not null, so they rendered as "$0". The `html_content` field also had "$0 → $0" baked in.
 
-### Note on Data:
-The digest content structure uses `raw_text`, `xrp_open`, `xrp_close`, `xrp_change_pct`, `sentiment` — NOT the legacy `key_news`, `price_changes`, `price_prediction`, `macro_analysis` fields. The code now handles both.
-
----
-
-## Workstream 2: Mobile Optimization ✅
-
-**Finding:** The MegaMenu (`src/components/layout/MegaMenu.tsx`) already has a well-implemented mobile accordion for the Learn menu. It uses:
-- Full-height mobile overlay with proper body scroll lock
-- Accordion expand/collapse for Learn categories (flat list)
-- 48px min touch targets
-- Escape key to close
-- Proper `overflow-y-auto overscroll-contain`
-
-The homepage layout (`HomeFeed.tsx`) is also mobile-ready:
-- `grid-cols-1 lg:grid-cols-[1fr_300px]` — single column on mobile
-- Sidebar hidden via `hidden lg:block`
-- `overflow-hidden` and `min-w-0` prevent horizontal overflow
+#### 2. Mobile Optimization (Workstream 2)
+**Finding:** Already well-implemented. No changes needed.
+- `MegaMenu.tsx` has full mobile accordion for Learn (flat list, not categories)
+- 48px min touch targets, body scroll lock, escape key close, `overflow-y-auto overscroll-contain`
+- `HomeFeed.tsx` uses `grid-cols-1 lg:grid-cols-[1fr_300px]`, sidebar `hidden lg:block`
 - Quick links bar has horizontal scroll with fade chevrons
+- `overflow-hidden` and `min-w-0` on feed column prevent horizontal overflow
+- Nav.tsx exists but is NOT used (MegaMenu.tsx is the active nav via layout.tsx)
 
-**No additional mobile fixes needed** — the existing implementation is solid.
+#### 3. Daily Digest API + NewsFeed Integration (Workstream 3)
+**New files:**
+- `src/app/api/news/daily-digest/route.ts` — POST generates digest, GET returns latest 10
+- `supabase/migrations/20260217_daily_digests.sql` — table creation SQL
 
----
+**Updated files:**
+- `src/components/home/NewsFeed.tsx` — fetches daily digests, merges into timeline with distinct visual treatment (blue gradient border, accent stripe, glowing dot, "📰 Daily Recap" badge, expandable summary, inline price bar)
 
-## Workstream 3: Daily Blog/Digest in News Feed ✅
+**API route details:**
+- POST requires `Authorization: Bearer <CRON_SECRET>` (default: `xrp-daily-digest-2026`)
+- Fetches yesterday's news from `news` table (up to 30 articles, sorted by importance)
+- Gets XRP price from CoinGecko `/coins/ripple/market_chart/range`
+- Generates summary via OpenRouter Claude Sonnet (`anthropic/claude-sonnet-4`)
+- Stores in `daily_digests` table
+- GET returns latest 10 digests for the NewsFeed to consume
 
-### New Files:
-1. **`src/app/api/news/daily-digest/route.ts`** — API route that:
-   - `POST`: Generates a daily digest (requires `Authorization: Bearer <CRON_SECRET>`)
-     - Fetches yesterday's news from `news` table
-     - Gets XRP price from CoinGecko
-     - Generates 3-5 paragraph summary via OpenRouter (Claude Sonnet)
-     - Stores in `daily_digests` table
-   - `GET`: Returns latest 10 daily digests
+### BLOCKED / ACTION REQUIRED FOR JACK ⚠️
 
-2. **`supabase/migrations/20260217_daily_digests.sql`** — Table creation SQL
+1. **Create `daily_digests` table in Supabase** — Run SQL from `supabase/migrations/20260217_daily_digests.sql` in [Supabase SQL Editor](https://supabase.com/dashboard/project/qnvplzufnybvfdltamcw/sql). Without this, the daily digest API returns 500 and the NewsFeed silently skips digests.
 
-3. **Updated `src/components/home/NewsFeed.tsx`**:
-   - Fetches daily digests alongside news articles
-   - Merges them into timeline based on date
-   - **Distinct visual treatment**: Blue gradient border, accent stripe, glowing timeline dot, "📰 Daily Recap" badge, collapsible summary, inline price bar
+2. **Add `CRON_SECRET` to Vercel env vars** — Set to `xrp-daily-digest-2026` or any string. Without this, the default value is used (which works but isn't secure for production).
 
-### ⚠️ ACTION REQUIRED:
-
-1. **Create the `daily_digests` table** — Run the SQL in `supabase/migrations/20260217_daily_digests.sql` in the Supabase SQL Editor
-
-2. **Add `CRON_SECRET` to Vercel env vars** — Any string, e.g. `xrp-daily-digest-2026`
-
-3. **Set up the daily trigger** — Call the API at 8 AM CT daily:
+3. **Set up daily 8 AM CT trigger** — Options:
    ```bash
    curl -X POST https://allaboutxrp.com/api/news/daily-digest \
-     -H "Authorization: Bearer xrp-daily-digest-2026" \
-     -H "Content-Type: application/json"
+     -H "Authorization: Bearer xrp-daily-digest-2026"
    ```
-   Options:
    - Vercel Cron (add to `vercel.json`)
-   - N8N workflow
-   - OpenClaw cron
+   - N8N workflow on `https://jacknelson.app.n8n.cloud`
+   - OpenClaw scheduled task
 
-4. **Test it** — After creating the table, trigger manually to generate the first digest
+4. **Test first digest** — After creating table, trigger manually to verify end-to-end
 
----
+### NOT STARTED / FUTURE IDEAS
 
-## Deployments
-- Deployed 2x to production via Vercel
-- Both builds passed successfully
-- Live at https://allaboutxrp.com
+- Add TradingView chart to weekly digest list page (`/digest/page.tsx`)
+- Consider surfacing some RightSidebar content (trending topics, price performance) on mobile via a collapsible section
+- The weekly digest `html_content` has inline styles (not Tailwind) — could be improved by generating markdown and rendering client-side instead
+- Daily digest could include a "top 3 articles" section with links
+- Could add Vercel Cron config to `vercel.json` automatically
+
+### Deployments
+| Commit | Description | Status |
+|--------|-------------|--------|
+| `20d80da` | Digest page null guards, sentiment badge, TradingView chart, prose styling | ✅ Deployed |
+| `7d1530e` | Daily digest API route, NewsFeed integration, SQL migration | ✅ Deployed |
+| `91ae61d` | Docs: overnight work summary | ✅ Pushed |
+
+### Key Architecture Notes
+- **Active nav:** `MegaMenu.tsx` (not `Nav.tsx`) — set in `src/app/layout.tsx`
+- **Supabase service client:** `src/lib/supabase/server.ts` — uses `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`
+- **Digest data shape:** `digests` table has `content` JSONB with `raw_text`, `xrp_open`, `xrp_close`, `xrp_change_pct`, `sentiment`, `model_used`, `week_range`, `title` — plus `html_content` text column
+- **News feed:** `news` table → `/api/news` → `NewsFeed.tsx`; daily digests → `/api/news/daily-digest` (GET) → merged into NewsFeed timeline
+- **OpenRouter key:** in `.env.local` as `OPENROUTER_API_KEY`
+- **Vercel token:** `~/.config/vercel-aacn/token`
+- **Deploy command:** `cd ~/clawd/projects/allaboutxrp && git add -A && git commit -m "msg" && git push origin main && npx vercel --prod --token "$(cat ~/.config/vercel-aacn/token)"`
