@@ -28,7 +28,7 @@ export function KeyFactsTable({ facts }: { facts: { label: string; value: string
       <table className="w-full min-w-[300px] text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>
-            <th colSpan={2} className="px-4 py-3 text-[11px] font-medium uppercase tracking-widest text-white/30">Key Facts</th>
+            <th colSpan={2} className="px-4 py-3 text-xs font-medium uppercase tracking-widest text-white/30">Key Facts</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-white/[0.04]">
@@ -89,7 +89,7 @@ export function StatPill({
   return (
     <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 text-center transition-all duration-250 hover:border-white/[0.1]">
       <div className="font-mono text-xl font-bold text-xrp-accent tracking-tight">{value}</div>
-      <div className="mt-1 text-[11px] font-medium uppercase tracking-widest text-white/30">{label}</div>
+      <div className="mt-1 text-xs font-medium uppercase tracking-widest text-white/30">{label}</div>
     </div>
   );
 }
@@ -303,7 +303,7 @@ export function DataTable({
         <thead className="border-b border-white/[0.06]">
           <tr>
             {headers.map((h, i) => (
-              <th key={i} className="px-4 py-3 text-[11px] font-medium uppercase tracking-widest text-white/30">
+              <th key={i} className="px-4 py-3 text-xs font-medium uppercase tracking-widest text-white/30">
                 {h}
               </th>
             ))}

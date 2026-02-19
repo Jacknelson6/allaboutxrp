@@ -18,7 +18,7 @@ export default function DataTable<T>({ data, columns, keyExtractor }: DataTableP
         <thead className="border-b border-white/[0.06]">
           <tr>
             {columns.map((col) => (
-              <th key={col.key} className={`px-4 py-3 text-[11px] font-medium uppercase tracking-widest text-white/30 ${col.className || ""}`}>
+              <th key={col.key} className={`px-4 py-3 text-xs font-medium uppercase tracking-widest text-white/30 ${col.className || ""}`}>
                 {col.header}
               </th>
             ))}

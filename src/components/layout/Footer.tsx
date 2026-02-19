@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:flex md:gap-16">
             {footerSections.map((section) => (
               <nav key={section.title} aria-label={`${section.title} navigation`}>
-                <p className="text-[11px] font-medium uppercase tracking-widest text-white/25 mb-4">{section.title}</p>
+                <p className="text-xs font-medium uppercase tracking-widest text-white/25 mb-4">{section.title}</p>
                 <ul className="space-y-2.5">
                   {section.links.map((link) => (
                     <li key={link.href + link.label}>
@@ -71,14 +71,14 @@ export default function Footer() {
         <div className="section-divider mt-12 mb-6" />
         
         <div className="flex gap-4 mb-4">
-          <Link href="/privacy-policy" className="text-[11px] text-white/20 hover:text-white/40 transition-colors">
+          <Link href="/privacy-policy" className="text-xs text-white/20 hover:text-white/40 transition-colors">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="text-[11px] text-white/20 hover:text-white/40 transition-colors">
+          <Link href="/terms" className="text-xs text-white/20 hover:text-white/40 transition-colors">
             Terms of Service
           </Link>
         </div>
-        <p className="text-[11px] text-white/20 leading-relaxed">
+        <p className="text-xs text-white/20 leading-relaxed">
           © {new Date().getFullYear()} AllAboutXRP.com — This site is for informational purposes only and does not constitute financial, legal, or investment advice.
           Cryptocurrency investments carry significant risk. Always do your own research. XRP, the XRP Ledger, and Ripple are trademarks of their respective owners.
           This website is not affiliated with or endorsed by Ripple Labs Inc.

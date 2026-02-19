@@ -17,7 +17,7 @@ export default function AnnouncementBar() {
   return (
     <>
       <div className="border-b border-white/[0.04] bg-black/80">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-5 px-4 py-1 text-[11px]">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-5 px-4 py-1 text-xs">
           <span className="hidden text-white/20 sm:inline">Network:</span>
           {sites.map((site) =>
             site.current ? (

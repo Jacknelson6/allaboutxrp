@@ -82,24 +82,24 @@ function WhaleActivityCard({ data }: { data: WhaleData | null }) {
   return (
     <div className="flex flex-col h-full">
       {/* Stats row */}
-      <div className="grid grid-cols-3 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
         <div className="text-center">
           <div className="text-2xl font-bold text-text-primary font-mono">{data.count}</div>
-          <div className="text-[10px] text-text-secondary mt-0.5">Transactions</div>
+          <div className="text-xs text-text-secondary mt-0.5">Transactions</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-xrp-accent font-mono">{formatCompact(data.totalMoved)}</div>
-          <div className="text-[10px] text-text-secondary mt-0.5">XRP Moved</div>
+          <div className="text-xs text-text-secondary mt-0.5">XRP Moved</div>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-text-primary font-mono">{formatCompact(data.largest)}</div>
-          <div className="text-[10px] text-text-secondary mt-0.5">Largest TX</div>
+          <div className="text-xs text-text-secondary mt-0.5">Largest TX</div>
         </div>
       </div>
 
       {/* Mini bar chart - hourly volume */}
       <div className="flex-1 min-h-0">
-        <div className="text-[10px] text-text-secondary mb-1.5">Volume by Hour (24h)</div>
+        <div className="text-xs text-text-secondary mb-1.5">Volume by Hour (24h)</div>
         <div className="flex items-end gap-[2px] h-16">
           {data.hourlyVolume.map((h, i) => (
             <div
@@ -298,7 +298,7 @@ export default function HoldersPage() {
 
               <div className="overflow-x-auto max-h-[560px] overflow-y-auto">
               {/* Header */}
-              <div className="sticky top-0 z-10 bg-[#16181C] grid grid-cols-[32px_1fr_100px] sm:grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-3 sm:px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336]">
+              <div className="sticky top-0 z-10 bg-[#16181C] grid grid-cols-[32px_1fr_100px] sm:grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-3 sm:px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336]">
                 <div>#</div>
                 <div>Wallet</div>
                 <div className="text-right">Amount (XRP)</div>

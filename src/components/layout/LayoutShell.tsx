@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+import BackToTop from "@/components/shared/BackToTop";
 
 interface LayoutShellProps {
   megaMenu: ReactNode;
@@ -22,6 +23,7 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
       {megaMenu}
       <main id="main-content" className="min-h-[80vh]">{children}</main>
       {footer}
+      <BackToTop />
     </>
   );
 }

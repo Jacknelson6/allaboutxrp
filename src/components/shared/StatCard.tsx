@@ -13,7 +13,7 @@ export default function StatCard({ label, value, change, positive, icon }: StatC
   return (
     <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-250 hover:border-white/[0.1] hover:translate-y-[-1px]">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-medium uppercase tracking-widest text-white/30">{label}</span>
+        <span className="text-xs font-medium uppercase tracking-widest text-white/30">{label}</span>
         {icon && <span className="text-white/20">{icon}</span>}
       </div>
       <div className="mt-2 font-mono text-2xl font-bold text-text-primary tracking-tight">{value}</div>

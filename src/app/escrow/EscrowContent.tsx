@@ -83,9 +83,9 @@ export default function EscrowContent() {
       </div>
 
       {/* Section nav */}
-      <nav className="mt-6 flex flex-wrap gap-2" aria-label="Page sections">
+      <nav className="mt-6 flex gap-2 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1 sm:flex-wrap sm:overflow-visible" aria-label="Page sections">
         {sections.map((s) => (
-          <a key={s.id} href={`#${s.id}`} className="rounded-full border border-white/[0.06] px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
+          <a key={s.id} href={`#${s.id}`} className="shrink-0 whitespace-nowrap rounded-full border border-white/[0.06] px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
             {s.label}
           </a>
         ))}
