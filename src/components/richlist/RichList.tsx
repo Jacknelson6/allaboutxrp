@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import ScrollHint from '@/components/shared/ScrollHint';
 
 interface RichListEntry {
   address: string;
@@ -91,7 +92,7 @@ export default function RichList() {
       <h2 className="text-lg font-bold text-text-primary mb-1">XRP Rich List</h2>
       <p className="text-sm text-white/40 mb-4">Top wallets ranked by XRP balance</p>
 
-      <div className="overflow-x-auto">
+      <ScrollHint>
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-white/[0.06] text-left">
@@ -129,7 +130,7 @@ export default function RichList() {
             })}
           </tbody>
         </table>
-      </div>
+      </ScrollHint>
 
       {entries.length > ROWS_PER_PAGE && (
         <Pagination currentPage={page} totalPages={totalPages} totalItems={entries.length} perPage={ROWS_PER_PAGE} onPageChange={setPage} />

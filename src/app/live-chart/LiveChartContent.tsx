@@ -307,7 +307,7 @@ export default function LiveChartContent() {
 
             {/* 24h Price Range */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-3">24h Range</p>
+              <p className="text-xs text-white/50 uppercase tracking-widest mb-3">24h Range</p>
               <div className="flex justify-between text-xs text-white/50 mb-1.5">
                 <span>{low24h ? fmtPrice(low24h) : '—'}</span>
                 <span>{high24h ? fmtPrice(high24h) : '—'}</span>
@@ -370,7 +370,7 @@ export default function LiveChartContent() {
 
             {/* Converter */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-3">
+              <p className="text-xs text-white/50 uppercase tracking-widest mb-3">
                 {converterDir === 'xrp-usd' ? 'XRP → USD' : 'USD → XRP'} Converter
               </p>
               <div className="flex items-center gap-2 mb-3">
@@ -378,7 +378,7 @@ export default function LiveChartContent() {
                   type="number"
                   value={converterXrp}
                   onChange={e => setConverterXrp(e.target.value)}
-                  className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-sm font-mono text-white outline-none focus:border-[#0085FF]/50"
+                  className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 min-h-[44px] text-sm font-mono text-white outline-none focus:border-[#0085FF]/50"
                   placeholder="Amount"
                 />
                 <button
@@ -595,7 +595,7 @@ export default function LiveChartContent() {
             {/* Community Sentiment */}
             {coin && (coin as unknown as Record<string, number>).sentiment_votes_up_percentage != null && (
               <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-                <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Community Sentiment</p>
+                <p className="text-xs text-white/50 uppercase tracking-widest mb-3">Community Sentiment</p>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-medium text-green-400">
                     🟢 {((coin as unknown as Record<string, number>).sentiment_votes_up_percentage ?? 0).toFixed(0)}% Bullish
@@ -620,7 +620,7 @@ export default function LiveChartContent() {
 
             {/* Quick Stats Card */}
             <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Price Performance</p>
+              <p className="text-xs text-white/50 uppercase tracking-widest mb-3">Price Performance</p>
               <div className="space-y-2">
                 {[
                   { label: '24h', value: change24h || price?.usd_24h_change },
@@ -865,7 +865,7 @@ function ETFFlowsTab() {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {[
           { label: 'TOTAL INFLOWS', value: `+${fmtXRP(week.totalInflows)} XRP`, color: 'text-emerald-400' },
           { label: 'TOTAL OUTFLOWS', value: `${fmtXRP(week.totalOutflows, true)} XRP`, color: 'text-red-400' },

@@ -117,7 +117,7 @@ export default function ChartsContent() {
 function ChartStatCard({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
     <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 transition-all duration-250 hover:border-white/[0.1]">
-      <p className="text-[11px] text-white/30 font-medium uppercase tracking-widest mb-1">{label}</p>
+      <p className="text-[11px] text-white/50 font-medium uppercase tracking-widest mb-1">{label}</p>
       <p className="text-lg font-bold font-mono tracking-tight" style={{ color: color || '#F0F0F0' }}>{value}</p>
     </div>
   );

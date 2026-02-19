@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ChevronDown, CheckCircle, XCircle, AlertTriangle, Info, Zap } from "lucide-react";
+import ScrollHint from "@/components/shared/ScrollHint";
 
 /**
  * TL;DR Summary box — styled callout at the top of learn pages.
@@ -24,7 +25,7 @@ export function TLDRBox({ children }: { children: ReactNode }) {
  */
 export function KeyFactsTable({ facts }: { facts: { label: string; value: string }[] }) {
   return (
-    <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+    <ScrollHint className="mt-6 rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
       <table className="w-full min-w-[300px] text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>
@@ -40,7 +41,7 @@ export function KeyFactsTable({ facts }: { facts: { label: string; value: string
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollHint>
   );
 }
 
@@ -298,7 +299,7 @@ export function DataTable({
   highlightCol?: number;
 }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+    <ScrollHint className="rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
       <table className="w-full text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>
@@ -321,7 +322,7 @@ export function DataTable({
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollHint>
   );
 }
 

@@ -214,7 +214,7 @@ function CardGrid({ cards, sectionId }: { cards: Card[]; sectionId: string }) {
               </div>
               <h3 className={`${isFeatured ? "mt-4 text-lg" : "mt-3 text-base"} font-bold text-white`}>{card.title}</h3>
               <p className="mt-1 text-sm text-[#888] line-clamp-1 flex-1">{card.desc}</p>
-              <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white/40 group-hover:text-[#0085FF] group-hover:gap-2 transition-all duration-300">
+              <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white/50 group-hover:text-[#0085FF] group-hover:gap-2 transition-all duration-300">
                 Read more <ArrowRight className="h-3 w-3" />
               </div>
             </Link>

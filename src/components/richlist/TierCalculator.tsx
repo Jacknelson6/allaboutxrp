@@ -51,7 +51,7 @@ export default function TierCalculator() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter XRP balance"
             aria-label="XRP balance amount"
-            className="w-full rounded-full border border-white/[0.06] bg-black px-4 py-2.5 text-base text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
+            className="w-full rounded-full border border-white/[0.06] bg-black px-4 py-2.5 min-h-[44px] text-base text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
           />
         </div>
         <button

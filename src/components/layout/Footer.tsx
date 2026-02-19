@@ -37,7 +37,7 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-black" role="contentinfo">
+    <footer className="border-t border-white/[0.06] bg-black pb-[env(safe-area-inset-bottom)]" role="contentinfo">
       <div className="mx-auto max-w-7xl px-5 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="max-w-xs">

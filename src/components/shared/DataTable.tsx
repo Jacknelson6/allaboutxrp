@@ -1,3 +1,5 @@
+import ScrollHint from "./ScrollHint";
+
 interface Column<T> {
   key: string;
   header: string;
@@ -13,7 +15,7 @@ interface DataTableProps<T> {
 
 export default function DataTable<T>({ data, columns, keyExtractor }: DataTableProps<T>) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/[0.06]">
+    <ScrollHint className="rounded-xl border border-white/[0.06]">
       <table className="w-full text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>
@@ -36,6 +38,6 @@ export default function DataTable<T>({ data, columns, keyExtractor }: DataTableP
           ))}
         </tbody>
       </table>
-    </div>
+    </ScrollHint>
   );
 }

@@ -67,7 +67,7 @@ export default function NewsletterSignup({ variant = "full" }: NewsletterSignupP
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className={`${isCompact ? "w-full" : "flex-1"} rounded-xl border border-[#2F3336] bg-[#0E1015] px-4 py-2.5 text-[14px] text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-[#0085FF]/50 transition-colors`}
+          className={`${isCompact ? "w-full" : "flex-1"} rounded-xl border border-[#2F3336] bg-[#0E1015] px-4 py-2.5 min-h-[44px] text-[14px] text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-[#0085FF]/50 transition-colors`}
         />
         <button
           type="submit"

@@ -28,13 +28,13 @@ export default function ScrollHint({ children, className = "" }: { children: Rea
   return (
     <div className={`relative ${className}`}>
       {canScrollLeft && (
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-[#16181C] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-black to-transparent" />
       )}
       <div ref={ref} className="overflow-x-auto">
         {children}
       </div>
       {canScrollRight && (
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-[#16181C] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-black to-transparent" />
       )}
     </div>
   );

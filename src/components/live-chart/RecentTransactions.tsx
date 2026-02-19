@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
+import ScrollHint from '@/components/shared/ScrollHint';
 
 interface Transaction {
   hash: string;
@@ -114,7 +115,7 @@ export default function RecentTransactions() {
         </span>
       </div>
 
-      <div className="overflow-x-auto">
+      <ScrollHint>
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-[11px] text-white/30 uppercase tracking-widest border-b border-white/[0.06]">
@@ -174,7 +175,7 @@ export default function RecentTransactions() {
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0A0A0B] to-transparent pointer-events-none" />
           )}
         </div>
-      </div>
+      </ScrollHint>
     </div>
   );
 }

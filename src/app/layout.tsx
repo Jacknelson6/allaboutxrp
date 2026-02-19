@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "../styles/globals.css";
@@ -32,6 +32,12 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {
