@@ -295,7 +295,7 @@ export default function RiddlersContent() {
           </p>
 
           <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
-            <table className="w-full min-w-[500px] text-left text-sm">
+            <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Post</th>
@@ -339,7 +339,7 @@ export default function RiddlersContent() {
         {/* Symbols Reference */}
         <Section id="symbols" title="Symbol Reference Guide" index={7} total={8}>
           <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
-            <table className="w-full min-w-[400px] text-left text-sm">
+            <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
                   <th className="px-4 py-3 font-medium text-text-secondary">Symbol</th>

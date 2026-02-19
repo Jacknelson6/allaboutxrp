@@ -88,7 +88,7 @@ export default function Nav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative rounded-lg px-3 py-2 text-sm transition-colors ${
+                  className={`relative rounded-lg px-3 py-2 min-h-[44px] flex items-center text-sm transition-colors ${
                     active
                       ? "text-text-primary"
                       : "text-text-secondary hover:text-text-primary"
@@ -110,7 +110,7 @@ export default function Nav() {
             <div ref={learnRef} className="relative">
               <button
                 onClick={() => setLearnOpen(!learnOpen)}
-                className={`relative flex items-center gap-1 rounded-lg px-3 py-2 text-sm transition-colors ${
+                className={`relative flex items-center gap-1 rounded-lg px-3 py-2 min-h-[44px] flex items-center text-sm transition-colors ${
                   isLearnActive
                     ? "text-text-primary"
                     : "text-text-secondary hover:text-text-primary"
@@ -157,7 +157,7 @@ export default function Nav() {
             {/* How to Invest in XRP */}
             <Link
               href="/how-to-start"
-              className={`relative rounded-lg px-3 py-2 text-sm transition-colors ${
+              className={`relative rounded-lg px-3 py-2 min-h-[44px] flex items-center text-sm transition-colors ${
                 pathname === "/how-to-start"
                   ? "text-text-primary"
                   : "text-text-secondary hover:text-text-primary"

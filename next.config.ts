@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
       { source: '/people/key-people', destination: '/learn/key-people', permanent: true },
       { source: '/people/partnerships', destination: '/learn/partnerships', permanent: true },
       { source: '/people/trusted-sources', destination: '/learn/trusted-sources', permanent: true },
+      // Missing route redirects
+      { source: '/blog', destination: '/news', permanent: true },
+      { source: '/rlusd', destination: '/learn', permanent: false },
+      { source: '/donate', destination: '/learn', permanent: false },
     ];
   },
 };

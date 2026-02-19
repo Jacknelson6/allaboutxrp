@@ -67,7 +67,7 @@ export default function HomeFeed() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 text-xs font-medium text-[#888] hover:text-white hover:border-[#0085FF]/30 transition-all"
+                className="flex items-center gap-1.5 whitespace-nowrap rounded-full border border-white/[0.06] bg-white/[0.02] px-3 py-2 min-h-[44px] text-xs font-medium text-[#888] hover:text-white hover:border-[#0085FF]/30 transition-all"
               >
                 <link.icon className="h-3 w-3" />
                 {link.label}
@@ -75,7 +75,7 @@ export default function HomeFeed() {
             ))}
             <Link
               href="/learn"
-              className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 px-3 py-1.5 text-xs font-medium text-[#0085FF] hover:bg-[#0085FF]/20 transition-all"
+              className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#0085FF]/10 border border-[#0085FF]/20 px-3 py-2 min-h-[44px] text-xs font-medium text-[#0085FF] hover:bg-[#0085FF]/20 transition-all"
             >
               Learn Hub <ArrowRight className="h-3 w-3" />
             </Link>
@@ -85,7 +85,7 @@ export default function HomeFeed() {
           {canScrollRight && (
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center h-8 w-8 bg-gradient-to-l from-black via-black/90 to-transparent"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center h-8 w-12 bg-gradient-to-l from-black via-black/80 to-transparent"
               aria-label="Scroll right"
             >
               <ChevronRight className="h-4 w-4 text-white/60" />

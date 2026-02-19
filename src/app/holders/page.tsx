@@ -298,12 +298,12 @@ export default function HoldersPage() {
 
               <div className="overflow-x-auto max-h-[560px] overflow-y-auto">
               {/* Header */}
-              <div className="sticky top-0 z-10 bg-[#16181C] grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336] min-w-[580px]">
+              <div className="sticky top-0 z-10 bg-[#16181C] grid grid-cols-[32px_1fr_100px] sm:grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-3 sm:px-5 py-2.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary border-b border-[#2F3336]">
                 <div>#</div>
                 <div>Wallet</div>
                 <div className="text-right">Amount (XRP)</div>
-                <div className="text-right">Value (USD)</div>
-                <div className="text-right">%</div>
+                <div className="text-right hidden sm:block">Value (USD)</div>
+                <div className="text-right hidden sm:block">%</div>
               </div>
                 {loading ? (
                   <div className="px-5 py-12 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
@@ -314,7 +314,7 @@ export default function HoldersPage() {
                   <div className="px-5 py-12 text-center text-text-secondary text-sm">Unable to load holder data</div>
                 ) : (
                   holders!.topHolders.slice(0, 25).map((h) => (
-                    <div key={h.rank} className="grid grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-5 py-3 border-b border-[#2F3336]/50 hover:bg-white/[0.02] transition-colors min-w-[580px] group">
+                    <div key={h.rank} className="grid grid-cols-[32px_1fr_100px] sm:grid-cols-[40px_1fr_120px_110px_100px] gap-2 px-3 sm:px-5 py-3 border-b border-[#2F3336]/50 hover:bg-white/[0.02] transition-colors group">
                       <div className="font-mono text-sm text-text-secondary">{h.rank}</div>
                       <div className="flex items-center">
                         <span className="font-mono text-xs text-xrp-accent">{shortenAddress(h.address)}</span>
@@ -326,8 +326,8 @@ export default function HoldersPage() {
                         )}
                       </div>
                       <div className="text-right font-mono text-sm text-text-primary">{formatCompact(h.balance)}</div>
-                      <div className="text-right font-mono text-xs text-text-secondary">${formatCompact(h.valueUsd)}</div>
-                      <div className="text-right flex items-center justify-end gap-2">
+                      <div className="text-right font-mono text-xs text-text-secondary hidden sm:block">${formatCompact(h.valueUsd)}</div>
+                      <div className="text-right hidden sm:flex items-center justify-end gap-2">
                         <div className="w-16 h-1.5 rounded-full bg-[#2F3336] overflow-hidden">
                           <div
                             className="h-full rounded-full bg-xrp-accent transition-all duration-300"

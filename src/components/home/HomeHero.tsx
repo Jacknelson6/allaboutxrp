@@ -20,7 +20,7 @@ export default function HomeHero() {
 
   return (
     <section className="relative max-w-full" aria-label="Hero">
-      <div className="mx-auto max-w-5xl px-5 pt-24 pb-8">
+      <div className="mx-auto max-w-5xl px-5 pt-8 sm:pt-16 md:pt-24 pb-8">
         {/* Stat pills row */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
           <StatPill

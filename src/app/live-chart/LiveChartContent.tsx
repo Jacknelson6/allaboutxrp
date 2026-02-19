@@ -691,8 +691,13 @@ function TechnicalAnalysisWidget() {
   }, []);
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
+    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden relative">
       <div ref={ref} style={{ minHeight: '400px' }} />
+      {!ref.current?.hasChildNodes() && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="animate-pulse text-white/30">Loading chart...</div>
+        </div>
+      )}
     </div>
   );
 }

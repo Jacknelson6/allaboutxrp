@@ -265,7 +265,7 @@ export default function LearnPage() {
         </div>
 
         {/* Hero */}
-        <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12">
+        <div className="relative mx-auto max-w-7xl px-4 pt-6 sm:pt-12 md:pt-20 pb-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 mb-6 rounded-full border border-[#0085FF]/20 bg-[#0085FF]/[0.06] px-4 py-1.5">
               <GraduationCap className="h-4 w-4 text-[#0085FF]" />

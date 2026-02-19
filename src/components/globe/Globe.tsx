@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
@@ -167,9 +167,16 @@ interface GlobeProps {
 }
 
 export default function Globe({ arcs, onArcComplete }: GlobeProps) {
+  const [loaded, setLoaded] = useState(false);
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full relative">
+      {!loaded && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="animate-pulse text-white/30">Loading globe...</div>
+        </div>
+      )}
       <Canvas
+        onCreated={() => setLoaded(true)}
         camera={{ position: [0, 0, 3.8], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
