@@ -30,12 +30,11 @@ import RecentTransactions from '@/components/live-chart/RecentTransactions';
 import EscrowSchedule from '@/components/live-chart/EscrowSchedule';
 import etfData from '@/data/xrp-etf-data.json';
 
-type MarketTab = 'markets' | 'transactions' | 'etf';
+type MarketTab = 'markets' | 'transactions';
 
 const marketTabs: { id: MarketTab; label: string }[] = [
   { id: 'transactions', label: 'Transactions' },
   { id: 'markets', label: 'Markets' },
-  { id: 'etf', label: 'ETF Flows' },
 ];
 
 const Globe = dynamic(() => import('@/components/globe/Globe'), {
@@ -486,7 +485,7 @@ export default function LiveChartContent() {
             )}
 
                 {activeMarketTab === 'transactions' && <RecentTransactions />}
-                {activeMarketTab === 'etf' && <ETFFlowsTab />}
+                {/* ETF Flows tab removed */}
           </div>
 
           {/* ─── CENTER: CHART + MARKETS ───────────────────────────────── */}
