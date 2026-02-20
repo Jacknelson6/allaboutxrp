@@ -11,7 +11,7 @@ interface StatCardProps {
 
 export default function StatCard({ label, value, change, positive, icon }: StatCardProps) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-250 hover:border-white/[0.1] hover:translate-y-[-1px]">
+    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-200 hover:border-white/[0.1] hover:translate-y-[-1px]">
       <div className="flex items-center justify-between">
         <span className="text-xs font-medium uppercase tracking-widest text-white/30">{label}</span>
         {icon && <span className="text-white/20">{icon}</span>}

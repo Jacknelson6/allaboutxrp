@@ -88,7 +88,7 @@ export function StatPill({
   delay?: number;
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 text-center transition-all duration-250 hover:border-white/[0.1]">
+    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 text-center transition-all duration-200 hover:border-white/[0.1]">
       <div className="font-mono text-xl font-bold text-xrp-accent tracking-tight">{value}</div>
       <div className="mt-1 text-xs font-medium uppercase tracking-widest text-white/30">{label}</div>
     </div>

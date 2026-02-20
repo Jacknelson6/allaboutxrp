@@ -141,7 +141,7 @@ export default async function FAQBlogPage({ params }: Props) {
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP cryptocurrency" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
               { href: "/learn/history", label: "XRP History", desc: "Full timeline from 2011 to now" },
-              { href: "/learn/get-started", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
+              { href: "/how-to-start", label: "How to Buy XRP", desc: "Step-by-step beginner guide" },
             ].map((link) => (
               <Link
                 key={link.href}
