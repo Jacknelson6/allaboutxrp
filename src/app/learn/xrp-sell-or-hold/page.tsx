@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Should I Sell or Hold XRP? Decision Framework | AllAboutXRP",
   description: "A rational framework for deciding whether to sell or hold XRP. Catalysts, price targets, tax implications, and personal risk tolerance.",
   keywords: ["should I sell XRP","sell or hold XRP","when to sell XRP","keep XRP or sell"],

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Escrow Explained: The 1 Billion XRP Monthly Unlock | AllAboutXRP",
   description:
     "How Ripple's XRP escrow works: 1 billion XRP unlocked monthly, what gets re-locked vs released, impact on price and supply. Complete escrow guide for 2026.",

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP ETF Price Impact: What Happens When It's Approved | AllAboutXRP",
   description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.",
   keywords: ["XRP ETF price impact","XRP price after ETF","XRP ETF effect on price","ETF XRP rally"],

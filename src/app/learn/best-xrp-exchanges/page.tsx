@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best XRP Exchanges in 2026: Compared & Ranked | AllAboutXRP",
   description: "Compare the best exchanges to buy XRP in 2026. Fees, security, features, and withdrawal options ranked side by side.",
   keywords: ["best XRP exchanges", "where to buy XRP", "top XRP exchanges 2026", "XRP exchange comparison"],

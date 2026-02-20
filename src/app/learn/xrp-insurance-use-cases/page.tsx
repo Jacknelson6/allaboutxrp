@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP in Insurance: Blockchain Claims & Settlements | AllAboutXRP",
   description: "How XRP and the XRPL are being explored for insurance — instant claims settlement, parametric insurance, and cross-border reinsurance.",
   keywords: ["XRP insurance","blockchain insurance XRP","XRPL insurance use case"],

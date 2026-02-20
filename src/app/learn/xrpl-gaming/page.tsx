@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Gaming on the XRP Ledger: Play-to-Earn & Beyond | AllAboutXRP",
   description: "Gaming on the XRP Ledger — play-to-earn projects, in-game NFTs, and why XRPL's low fees make it ideal for blockchain gaming.",
   keywords: ["XRPL gaming","XRP games","play to earn XRP","XRP gaming ecosystem"],

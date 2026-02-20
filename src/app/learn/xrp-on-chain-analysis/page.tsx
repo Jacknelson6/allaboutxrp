@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP On-Chain Analysis: Read the Blockchain Like a Pro | AllAboutXRP",
   description: "How to analyze XRP on-chain data. Active addresses, transaction volume, whale activity, and what on-chain signals mean for price.",
   keywords: ["XRP on-chain analysis","XRP blockchain data","XRP on-chain metrics","XRP chain analysis"],

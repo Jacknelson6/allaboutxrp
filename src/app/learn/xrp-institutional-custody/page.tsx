@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Institutional Custody: Enterprise-Grade Storage | AllAboutXRP",
   description: "XRP institutional custody solutions. Enterprise storage, security frameworks, regulatory requirements, and leading providers.",
   keywords: ["XRP institutional custody","XRP custody solutions","XRP enterprise storage","institutional XRP"],

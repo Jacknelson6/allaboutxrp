@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP ETF Approval Odds: Will It Get Approved? (2026) | AllAboutXRP",
   description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.",
   keywords: ["XRP ETF approval odds","will XRP ETF be approved","XRP ETF probability","XRP ETF 2026"],

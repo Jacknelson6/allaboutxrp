@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best XRP Portfolio Trackers: Monitor Your Holdings (2026) | AllAboutXRP",
   description: "Best apps and tools to track your XRP portfolio. Real-time prices, P&L tracking, tax integration, and multi-wallet support.",
   keywords: ["XRP portfolio tracker","track XRP holdings","XRP portfolio app","crypto tracker XRP"],

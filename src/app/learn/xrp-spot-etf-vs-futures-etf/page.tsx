@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Spot ETF vs Futures ETF: Key Differences Explained | AllAboutXRP",
   description: "XRP spot ETF vs futures ETF comparison. Learn how each works, price impact, investor access, and which matters more for XRP's future.",
   keywords: ["XRP spot ETF","XRP futures ETF","XRP ETF comparison","spot vs futures ETF XRP"],

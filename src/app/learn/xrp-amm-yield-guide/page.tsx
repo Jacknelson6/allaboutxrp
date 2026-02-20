@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider | AllAboutXRP",
   description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.",
   keywords: ["XRPL AMM yield","XRPL LP yield","earn fees XRP AMM","XRPL liquidity provider income"],

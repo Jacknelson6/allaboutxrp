@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "SEC vs Ripple Explained: The Case That Changed Crypto Forever | AllAboutXRP",
   description:
     "Complete timeline and analysis of the SEC vs Ripple lawsuit. Key rulings, what the settlement means, and how it set precedent for crypto regulation in the US.",

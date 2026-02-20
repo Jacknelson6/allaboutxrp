@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Hold XRP in a Retirement Account (IRA/401k) | AllAboutXRP",
   description: "Can you hold XRP in a retirement account? How to add XRP to self-directed IRAs, Roth IRAs, and crypto-friendly 401k plans.",
   keywords: ["XRP IRA","XRP retirement account","XRP 401k","crypto IRA XRP","XRP Roth IRA"],

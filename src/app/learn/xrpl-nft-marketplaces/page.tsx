@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best XRPL NFT Marketplaces: Where to Buy & Sell (2026) | AllAboutXRP",
   description: "Best NFT marketplaces on the XRP Ledger. Compare xrp.cafe, Sologenic, and others — fees, features, and collections.",
   keywords: ["XRPL NFT marketplace","buy NFT XRP","XRP NFT market","XRPL NFT platforms"],

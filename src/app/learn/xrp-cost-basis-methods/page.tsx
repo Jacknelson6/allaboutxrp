@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Cost Basis Explained: FIFO, LIFO, HIFO | AllAboutXRP",
   description: "How to calculate your XRP cost basis. FIFO, LIFO, HIFO methods compared with examples. Choose the method that saves you the most.",
   keywords: ["XRP cost basis","XRP FIFO LIFO","XRP tax cost basis","crypto cost basis methods"],

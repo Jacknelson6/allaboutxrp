@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Day Trading Guide: Intraday Strategies (2026) | AllAboutXRP",
   description: "Complete XRP day trading guide — intraday setups, volatility patterns, exchange selection, and risk management for active traders.",
   keywords: ["XRP day trading","day trade XRP","XRP intraday","XRP scalping"],

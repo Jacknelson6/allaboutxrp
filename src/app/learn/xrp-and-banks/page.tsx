@@ -18,6 +18,7 @@ const url = `https://allaboutxrp.com/learn/${slug}`;
 const datePublished = "2026-02-15";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title,
   description,
   openGraph: { title: `${title} | AllAboutXRP`, description, url, type: "article" },

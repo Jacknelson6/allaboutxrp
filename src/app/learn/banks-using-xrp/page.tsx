@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Banks Using XRP: Complete List of Financial Institutions | AllAboutXRP",
   description:
     "Complete list of banks and financial institutions using XRP and RippleNet. SBI Holdings, Santander, Standard Chartered, and 300+ more. Updated for 2026.",

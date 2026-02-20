@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best Crypto Wallets for XRP in 2026: Complete Guide | AllAboutXRP",
   description: "Best crypto wallets for XRP — hardware, software, and mobile wallet reviews with security ratings, features, and setup guides.",
   keywords: ["crypto wallets for XRP","best XRP wallet","XRP wallet 2026","XRPL wallet","hardware wallet XRP"],

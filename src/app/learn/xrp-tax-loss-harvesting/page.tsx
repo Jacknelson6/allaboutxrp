@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Tax-Loss Harvesting: Save on Crypto Taxes | AllAboutXRP",
   description: "How to use tax-loss harvesting with XRP. Wash sale rules, timing strategies, and how to reduce your crypto tax bill legally.",
   keywords: ["XRP tax loss harvesting","crypto tax loss harvesting XRP","sell XRP for tax loss"],

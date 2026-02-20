@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Order Types Explained: Market, Limit, Stop & More | AllAboutXRP",
   description: "Every order type for trading XRP — market, limit, stop-loss, OCO, and XRPL-native offers. When and how to use each one.",
   keywords: ["XRP order types","XRP limit order","XRP stop loss","XRP market order"],

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "RLUSD Explained: Ripple's Stablecoin That Could Flip USDC | AllAboutXRP",
   description:
     "What is RLUSD? Ripple's USD stablecoin runs on XRPL and Ethereum, is NY DFS approved, and is growing fast. Full guide to how RLUSD works and why it matters.",

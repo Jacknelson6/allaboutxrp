@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${faq.question} — XRP FAQ`,
     description: faq.answer.slice(0, 160),
+    robots: { index: false, follow: true },
     openGraph: {
       title: `${faq.question} | AllAboutXRP FAQ`,
       description: faq.answer.slice(0, 160),

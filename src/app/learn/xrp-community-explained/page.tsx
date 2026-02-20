@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "The XRP Community (XRP Army) Explained | AllAboutXRP",
   description: "Who is the XRP Army? The history, culture, and influence of one of crypto's most passionate communities.",
   keywords: ["XRP community","XRP Army","XRP Twitter","XRP community explained"],

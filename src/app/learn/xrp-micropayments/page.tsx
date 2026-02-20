@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP for Micropayments: Why XRP Was Built for Small Payments | AllAboutXRP",
   description: "Why XRP is the ideal micropayment currency. Sub-cent fees, 3-second settlement, and use cases from content tipping to IoT.",
   keywords: ["XRP micropayments","XRP small payments","XRP micro transactions","IoT payments XRP"],

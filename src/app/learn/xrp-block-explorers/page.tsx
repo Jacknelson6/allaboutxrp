@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best XRP Block Explorers: Track Transactions & Wallets | AllAboutXRP",
   description: "Best XRP block explorers compared — Bithomp, XRPScan, XRPL.org. How to track transactions, wallets, and on-chain data.",
   keywords: ["XRP block explorer","XRPL explorer","XRP transaction tracker","Bithomp","XRPScan"],

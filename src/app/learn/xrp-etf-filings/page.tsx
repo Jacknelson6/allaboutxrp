@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP ETF Filings Tracker: Every Application (2026) | AllAboutXRP",
   description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.",
   keywords: ["XRP ETF filings","XRP ETF applications","who filed XRP ETF","XRP ETF tracker"],

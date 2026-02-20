@@ -40,6 +40,51 @@ function getAllAnswerSlugs(): string[] {
     .map((entry) => entry.name);
 }
 
+/**
+ * Learn pages that are noindexed (thin, duplicative, or niche).
+ * These are excluded from the sitemap to focus crawl budget.
+ */
+export const NOINDEX_LEARN_SLUGS = new Set([
+  // Duplicates of /best/* pages
+  "best-xrp-exchanges",
+  "crypto-wallets-for-xrp",
+  "best-xrp-trading-pairs",
+  // Duplicates of other learn pages
+  "banks-using-xrp",          // → how-banks-use-xrp
+  "xrp-and-banks",            // → how-banks-use-xrp
+  "rlusd-explained",          // → rlusd
+  "sec-vs-ripple-explained",  // → sec-vs-ripple
+  "xrp-escrow-explained",     // → escrow
+  "xrp-vs-ripple-for-beginners", // → ripple-vs-xrp
+  "xrp-and-cbdc-bridge",      // → cbdcs-and-xrp
+  "xrp-and-correspondent-banking", // → cross-border-payments
+  // Thin niche pages (< ~130 lines, very specific topics)
+  "xrpl-gaming",
+  "xrp-insurance-use-cases",
+  "xrp-cost-basis-methods",
+  "xrp-airdrop-taxes",        // → xrp-tax-guide covers this
+  "xrp-tax-loss-harvesting",  // → xrp-tax-guide covers this
+  "xrp-amm-yield-guide",      // → xrp-amm covers this
+  "xrp-on-chain-analysis",
+  "xrp-order-types-explained",
+  "xrp-futures-trading",
+  "xrp-block-explorers",
+  "xrp-portfolio-trackers",
+  // ETF sub-pages (xrp-etf is the canonical)
+  "xrp-etf-filings",
+  "xrp-etf-approval-odds",
+  "xrp-etf-price-impact",
+  "xrp-spot-etf-vs-futures-etf",
+  // Niche regional/comparison pages
+  "xrp-micropayments",
+  "xrp-in-retirement-accounts",
+  "xrp-institutional-custody",
+  "xrp-community-explained",
+  "xrpl-nft-marketplaces",
+  "xrp-day-trading-guide",
+  "xrp-sell-or-hold",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";
   const now = new Date("2026-02-11T12:00:00Z");
@@ -79,15 +124,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Extension
     { path: "/extension", changeFrequency: "monthly", priority: 0.7 },
 
-    // Root-level aliases / standalone pages
-    { path: "/acquisitions", changeFrequency: "weekly", priority: 0.6 },
-    { path: "/charts", changeFrequency: "hourly", priority: 0.7 },
-    { path: "/escrow", changeFrequency: "weekly", priority: 0.6 },
-    { path: "/etf", changeFrequency: "weekly", priority: 0.7 },
-    { path: "/get-started", changeFrequency: "weekly", priority: 0.7 },
-    { path: "/live", changeFrequency: "hourly", priority: 0.7 },
-    { path: "/riddlers", changeFrequency: "monthly", priority: 0.5 },
-
     // Other
     { path: "/privacy-policy", changeFrequency: "monthly", priority: 0.3 },
     { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
@@ -108,13 +144,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: page.priority,
     })),
 
-    // All learn pages (auto-discovered)
-    ...learnSlugs.map((slug) => ({
-      url: `${baseUrl}/learn/${slug}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.75,
-    })),
+    // All learn pages (auto-discovered, excluding noindexed)
+    ...learnSlugs
+      .filter((slug) => !NOINDEX_LEARN_SLUGS.has(slug))
+      .map((slug) => ({
+        url: `${baseUrl}/learn/${slug}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.75,
+      })),
 
     // All answer pages (auto-discovered)
     ...answerSlugs.map((slug) => ({
@@ -138,12 +176,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     })),
 
-    // FAQ individual pages
-    ...faqSlugs.map((slug) => ({
-      url: `${baseUrl}/learn/faq/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
+    // FAQ individual pages excluded — thin content, FAQ hub is canonical
   ];
 }

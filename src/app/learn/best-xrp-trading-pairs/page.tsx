@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Best XRP Trading Pairs: Optimize Your Trades | AllAboutXRP",
   description: "Guide to the best XRP trading pairs. XRP/USDT, XRP/BTC, XRP/ETH, and XRPL DEX pairs with liquidity analysis.",
   keywords: ["best XRP trading pairs","XRP USDT","XRP BTC pair","XRP trading","XRP liquidity"],
