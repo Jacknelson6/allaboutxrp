@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/how-many-xrp-are-there",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/how-many-xrp-are-there" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-escrow-explained" },
 };
 
 export default function Page() {

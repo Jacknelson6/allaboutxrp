@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/is-xrp-a-security",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/is-xrp-a-security" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-security" },
 };
 
 export default function Page() {

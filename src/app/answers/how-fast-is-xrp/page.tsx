@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/how-fast-is-xrp",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/how-fast-is-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/how-does-xrp-work" },
 };
 
 export default function Page() {

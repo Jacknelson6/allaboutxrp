@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/is-xrp-a-good-investment",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/is-xrp-a-good-investment" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" },
 };
 
 export default function Page() {

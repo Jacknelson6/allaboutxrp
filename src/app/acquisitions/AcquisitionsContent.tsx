@@ -17,6 +17,7 @@ const sections = [
 interface Acquisition {
   year: string;
   name: string;
+  url?: string;
   price: string;
   hq: string;
   what: string;
@@ -31,6 +32,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2019",
     name: "Algrim",
+    url: "https://www.algrim.co",
     price: "Undisclosed",
     hq: "Reykjavik, Iceland",
     what: "High-frequency trading & crypto exchange engineering (acqui-hire)",
@@ -42,6 +44,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2021",
     name: "Tranglo (40% Stake)",
+    url: "https://www.tranglo.com",
     price: "Undisclosed",
     hq: "Malaysia",
     what: "Cross-border payments across Southeast Asia. 250K transactions / $48M in first 100 days.",
@@ -53,6 +56,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2023",
     name: "Metaco",
+    url: "https://www.metaco.com",
     price: "$250 Million",
     hq: "Lausanne, Switzerland",
     what: "Institutional crypto custody & tokenization. Trusted by Citibank, BBVA, BNP Paribas, Société Générale.",
@@ -64,6 +68,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2024",
     name: "Standard Custody & Trust",
+    url: "https://www.standardcustody.com",
     price: "Undisclosed",
     hq: "New York, USA",
     what: "NY Limited Purpose Trust Charter — one of only 9 in existence. Co-founded with Arthur Britto & David Schwartz's tech.",
@@ -75,6 +80,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2025",
     name: "Hidden Road",
+    url: "https://www.hiddenroad.com",
     price: "$1.25 Billion",
     hq: "New York, USA → Ripple Prime",
     what: "Global multi-asset prime brokerage. $3T+ annual clearing, 300+ institutional clients, $100M revenue in 2024.",
@@ -86,6 +92,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2025",
     name: "Rail",
+    url: "https://www.rail.xyz",
     price: "$200 Million",
     hq: "Toronto, Canada",
     what: "B2B stablecoin payments — ~10% of $36B global stablecoin market. Supports USDC, USDT, RLUSD, and XRP.",
@@ -97,6 +104,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2025",
     name: "GTreasury",
+    url: "https://www.gtreasury.com",
     price: "$1 Billion",
     hq: "USA → Ripple Treasury",
     what: "Enterprise treasury management for Fortune 500. 40+ years experience. Cash forecasting, FX, compliance.",
@@ -108,6 +116,7 @@ const acquisitions: Acquisition[] = [
   {
     year: "2025",
     name: "Palisade",
+    url: "https://www.palisade.co",
     price: "Undisclosed",
     hq: "London, UK",
     what: "MPC-based Wallet-as-a-Service. Zero-trust security, multi-chain, fast provisioning. Clients: Absa, BBVA, Société Générale.",
@@ -221,7 +230,13 @@ export default function AcquisitionsContent() {
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs text-text-secondary">{a.year}</span>
-                      <h3 className="text-lg font-bold text-text-primary">{a.name}</h3>
+                      {a.url ? (
+                        <a href={a.url} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-text-primary hover:text-xrp-accent transition-colors">
+                          {a.name} <span className="text-xs text-text-secondary">↗</span>
+                        </a>
+                      ) : (
+                        <h3 className="text-lg font-bold text-text-primary">{a.name}</h3>
+                      )}
                       {a.price !== "Undisclosed" && (
                         <span className="rounded-full border border-success/20 bg-success/10 px-2.5 py-0.5 font-mono text-xs text-success">
                           {a.price}

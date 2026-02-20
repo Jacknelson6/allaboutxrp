@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "XRP Price Prediction 2026 | AllAboutXRP",
     description: "What analysts really predict for XRP's price in 2026. Real data, real sources.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/xrp-price-prediction-2026" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-prediction" },
 };
 
 const schemas = [

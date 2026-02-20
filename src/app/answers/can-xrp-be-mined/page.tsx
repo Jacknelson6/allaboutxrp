@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/can-xrp-be-mined",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/can-xrp-be-mined" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-be-mined" },
 };
 
 export default function Page() {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/will-xrp-reach-10-dollars",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/will-xrp-reach-10-dollars" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-10" },
 };
 
 export default function Page() {

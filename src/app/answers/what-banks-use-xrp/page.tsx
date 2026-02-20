@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/what-banks-use-xrp",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/what-banks-use-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/banks-using-xrp" },
 };
 
 export default function Page() {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/why-is-xrp-dropping",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/why-is-xrp-dropping" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-crash-history" },
 };
 
 export default function Page() {

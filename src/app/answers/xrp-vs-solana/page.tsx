@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/xrp-vs-solana",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/xrp-vs-solana" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-solana" },
 };
 
 export default function Page() {

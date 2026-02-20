@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     title: "How to Buy XRP: Beginner Guide | AllAboutXRP",
     description: "Complete XRP beginner guide — where to buy, how to store, and essential tips for new investors.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/get-started" },
+  robots: { index: false, follow: true },
+  alternates: { canonical: "https://allaboutxrp.com/how-to-start" },
 };
 
 const schemas = [

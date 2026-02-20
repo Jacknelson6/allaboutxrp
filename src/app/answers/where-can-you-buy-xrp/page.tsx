@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/answers/where-can-you-buy-xrp",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/where-can-you-buy-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/best-xrp-exchanges" },
 };
 
 export default function Page() {
