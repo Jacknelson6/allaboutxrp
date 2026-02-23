@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: "Honest guide to earning yield on XRP — AMM, lending, and more.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/xrp-staking-platforms" },
+  robots: { index: false, follow: true },
 };
 
 const platforms = [
@@ -337,7 +338,7 @@ export default function BestXRPStakingPage() {
               <a
                 href={p.url}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
               >
                 Learn More →
@@ -442,10 +443,6 @@ export default function BestXRPStakingPage() {
               ))}
             </div>
           </section>
-          {/* Affiliate Disclosure */}
-          <div className="mt-16 rounded-lg border border-yellow-900/50 bg-yellow-950/20 px-4 py-3 text-sm text-yellow-200/80">
-            📋 This page may contain affiliate links. We may earn a commission at no extra cost to you.
-          </div>
         </article>
       </main>
     </>

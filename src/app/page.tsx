@@ -26,6 +26,16 @@ const organizationSchema = {
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
   description: "Comprehensive XRP community hub with news, sentiment analysis, education, and live data.",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://allaboutxrp.com/logo-full.png",
+    width: 600,
+    height: 200,
+  },
+  sameAs: [
+    "https://x.com/allaboripple",
+    "https://www.youtube.com/@AllAboutXRP",
+  ],
 };
 
 const faqSchema = {

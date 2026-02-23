@@ -234,7 +234,7 @@ export default function BuyXRPInCanadaPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. This is not financial or tax advice. This page may contain affiliate links.</em>
+          <em>Last updated: February 15, 2026. This is not financial or tax advice.</em>
         </p>
       </div>
     </>

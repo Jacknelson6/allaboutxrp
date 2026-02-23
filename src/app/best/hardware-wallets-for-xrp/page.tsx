@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: "Expert comparison of Ledger, Trezor, and Tangem hardware wallets for XRP storage.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/hardware-wallets-for-xrp" },
+  robots: { index: false, follow: true },
 };
 
 const wallets = [
@@ -37,7 +38,7 @@ const wallets = [
     dimensions: "72mm × 18.6mm × 11.75mm",
     weight: "34g",
     companion: "Ledger Live (Desktop + Mobile)",
-    url: "https://shop.ledger.com/?r=ec8ed55b0503&tracker=MY_TRACKER",
+    url: "https://www.ledger.com",
     verdict: "The best all-around hardware wallet for XRP — Bluetooth convenience meets bank-grade security.",
     pros: ["Bluetooth for mobile management", "CC EAL5+ Secure Element", "5,500+ supported assets", "Mature Ledger Live ecosystem"],
     cons: ["$149 price point", "Proprietary firmware (not open-source)", "Bluetooth is an additional attack vector (minor)"],
@@ -61,7 +62,7 @@ const wallets = [
     dimensions: "62.39mm × 17.40mm × 8.24mm",
     weight: "21g",
     companion: "Ledger Live (Desktop only for signing)",
-    url: "https://shop.ledger.com/?r=ec8ed55b0503&tracker=MY_TRACKER",
+    url: "https://www.ledger.com",
     verdict: "All the security of the Nano X at half the price — the best value hardware wallet for XRP.",
     pros: ["Same CC EAL5+ Secure Element as Nano X", "Half the price at $79", "Compact and lightweight", "100 app capacity"],
     cons: ["No Bluetooth (USB-C only)", "No battery — requires cable for every use", "No mobile signing (desktop only for transactions)"],
@@ -349,7 +350,7 @@ export default function BestHardwareWalletsPage() {
               <a
                 href={w.url}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
               >
                 Visit {w.name} →
@@ -449,10 +450,6 @@ export default function BestHardwareWalletsPage() {
               ))}
             </div>
           </section>
-          {/* Affiliate Disclosure */}
-          <div className="mt-16 rounded-lg border border-yellow-900/50 bg-yellow-950/20 px-4 py-3 text-sm text-yellow-200/80">
-            📋 This page may contain affiliate links. We may earn a commission at no extra cost to you.
-          </div>
         </article>
       </main>
     </>

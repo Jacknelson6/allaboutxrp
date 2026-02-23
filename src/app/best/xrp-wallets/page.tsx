@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: "Expert-reviewed XRP wallets — hardware, mobile, and desktop options compared.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/xrp-wallets" },
+  robots: { index: false, follow: true },
 };
 
 const wallets = [
@@ -33,7 +34,7 @@ const wallets = [
     xrpNative: "Via Ledger Live",
     platforms: "Windows, macOS, Linux, iOS, Android",
     coins: "5,500+",
-    url: "https://shop.ledger.com/?r=ec8ed55b0503&tracker=MY_TRACKER",
+    url: "https://www.ledger.com",
     verdict: "The gold standard for XRP cold storage — unmatched security with Bluetooth convenience.",
     pros: ["Military-grade Secure Element chip", "Bluetooth for mobile use", "Supports 5,500+ assets", "Excellent track record"],
     cons: ["Premium price at $149", "Learning curve for beginners", "Bluetooth adds minor attack surface"],
@@ -376,7 +377,7 @@ export default function BestXRPWalletsPage() {
               <a
                 href={w.url}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
               >
                 Visit {w.name} →
@@ -487,10 +488,6 @@ export default function BestXRPWalletsPage() {
               ))}
             </div>
           </section>
-          {/* Affiliate Disclosure */}
-          <div className="mt-16 rounded-lg border border-yellow-900/50 bg-yellow-950/20 px-4 py-3 text-sm text-yellow-200/80">
-            📋 This page may contain affiliate links. We may earn a commission at no extra cost to you.
-          </div>
         </article>
       </main>
     </>

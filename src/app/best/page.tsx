@@ -121,8 +121,7 @@ export default function BestHubPage() {
             <p className="text-zinc-400 leading-relaxed">
               Every product on AllAboutXRP is independently researched and evaluated. We consider
               security, ease of use, fees, XRP-specific features, community reputation, and
-              regulatory compliance. We may earn affiliate commissions, but this never influences
-              our rankings or recommendations.
+              regulatory compliance. Our rankings are based purely on merit and independent research.
             </p>
             <div className="mt-4 flex gap-4">
               <Link href="/learn/what-is-xrp" className="text-sm text-[#0085FF] hover:underline">

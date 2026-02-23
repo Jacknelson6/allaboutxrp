@@ -87,10 +87,6 @@ export default function PrivacyPolicyPage() {
                 <strong className="text-white/80">CoinGecko API</strong> — cryptocurrency price,
                 market cap, and volume data.
               </li>
-              <li>
-                <strong className="text-white/80">Affiliate Partners</strong> — including Uphold,
-                Coinbase, and Ledger. See the Affiliate Disclosure section below.
-              </li>
             </ul>
             <p className="mt-3">
               We encourage you to review the privacy policies of these third-party services.
@@ -123,21 +119,11 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">Affiliate Disclosure</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">External Links</h2>
             <p>
-              AllAboutXRP.com participates in affiliate programs. Some links on our site are affiliate
-              links, meaning we may earn a commission if you click through and make a purchase or sign
-              up for a service — at <strong className="text-white/80">no additional cost to you</strong>.
-            </p>
-            <p className="mt-3">
-              Our affiliate partners include, but are not limited to:{" "}
-              <strong className="text-white/80">Uphold</strong>,{" "}
-              <strong className="text-white/80">Coinbase</strong>, and{" "}
-              <strong className="text-white/80">Ledger</strong>.
-            </p>
-            <p className="mt-3">
-              Affiliate relationships do not influence our editorial content, rankings, or reviews.
-              We only recommend products and services we believe provide value to our readers.
+              AllAboutXRP.com may link to third-party websites such as cryptocurrency exchanges and
+              wallet providers for informational purposes. We do not control these external sites and
+              are not responsible for their content or privacy practices.
             </p>
           </section>
 

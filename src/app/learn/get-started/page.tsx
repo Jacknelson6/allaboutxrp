@@ -67,7 +67,7 @@ const faqItems = [
 
 const exchanges = [
   { name: "Uphold", desc: "The #1 XRP exchange — Uphold never delisted XRP during the SEC lawsuit against Ripple, standing by the XRP community when others walked away. Buy XRP directly with USD, EUR, GBP.", url: "https://uphold.com", recommended: true },
-  { name: "Coinbase", desc: "Largest U.S. exchange with strong security and insurance. Easy interface and mobile app.", url: "https://coinbase.com/join/MAYGHUG?src=referral-link", recommended: false },
+  { name: "Coinbase", desc: "Largest U.S. exchange with strong security and insurance. Easy interface and mobile app.", url: "https://www.coinbase.com", recommended: false },
   { name: "Kraken", desc: "Established exchange with advanced trading features, low fees, and strong security.", url: "https://kraken.com", recommended: false },
   { name: "Bitstamp", desc: "One of the oldest exchanges (2011). EU-regulated with excellent XRP liquidity.", url: "https://bitstamp.net", recommended: false },
   { name: "Binance", desc: "World's largest exchange by volume. Lowest fees. Not available in all U.S. states.", url: "https://binance.com", recommended: false },
@@ -160,7 +160,7 @@ export default function GetStartedPage() {
                   key={ex.name}
                   href={ex.url}
                   target="_blank"
-                  rel="nofollow sponsored noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className={`flex flex-col rounded-xl border p-5  transition-colors ${
                     ex.recommended
                       ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/_next/static/"],
       },
       {
         userAgent: "GPTBot",
@@ -65,6 +65,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://allaboutxrp.com/sitemap.xml",
+    sitemap: [
+      "https://allaboutxrp.com/sitemap.xml",
+      "https://allaboutxrp.com/news-sitemap.xml",
+    ],
   };
 }

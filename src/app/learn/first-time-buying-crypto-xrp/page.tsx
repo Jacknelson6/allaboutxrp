@@ -143,7 +143,7 @@ export default function FirstTimeBuyingCryptoPage() {
                 },
               ]} />
             </div>
-            {/* 💰 AFFILIATE NOTE: Replace the exchange descriptions above with referral links when affiliate partnerships are established */}
+            
           </RevealSection>
 
           <RevealSection id="steps" delay={0.05}>
@@ -201,7 +201,7 @@ export default function FirstTimeBuyingCryptoPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Not financial advice. All investments carry risk. Exchange referral links may earn us a commission at no extra cost to you.</em>
+          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Not financial advice. All investments carry risk. </em>
         </p>
       </div>
     </>

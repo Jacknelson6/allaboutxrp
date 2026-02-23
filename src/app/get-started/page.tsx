@@ -21,7 +21,7 @@ const howToSchema = {
 
 const exchanges = [
   { name: "Uphold", description: "Our #1 pick — Uphold never delisted XRP during the SEC lawsuit against Ripple, standing by the XRP community when others walked away. Buy XRP directly with USD, EUR, GBP with no conversion steps.", url: "https://uphold.com", featured: true },
-  { name: "Coinbase", description: "Largest U.S. exchange. Easy-to-use interface with strong security.", url: "https://coinbase.com/join/MAYGHUG?src=referral-link", featured: false },
+  { name: "Coinbase", description: "Largest U.S. exchange. Easy-to-use interface with strong security.", url: "https://www.coinbase.com", featured: false },
   { name: "Kraken", description: "Established exchange with advanced trading features and low fees.", url: "https://kraken.com", featured: false },
   { name: "Bitstamp", description: "One of the oldest exchanges. EU-regulated with good XRP liquidity.", url: "https://bitstamp.net", featured: false },
 ];
@@ -64,7 +64,7 @@ export default function GetStartedPage() {
                 key={ex.name}
                 href={ex.url}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
+                rel="nofollow noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

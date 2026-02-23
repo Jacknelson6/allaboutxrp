@@ -86,6 +86,12 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-etf-filings",
   "/learn/xrp-etf-price-impact",
 
+  // ── Best / recommendation pages ───────────────────────────────────────
+  "/best/xrp-exchanges",
+  "/best/xrp-wallets",
+  "/best/hardware-wallets-for-xrp",
+  "/best/xrp-staking-platforms",
+
   // ── Utility pages ────────────────────────────────────────────────────
   "/privacy-policy",
   "/terms",

@@ -296,7 +296,7 @@ export default function BuyXRPOnCoinbasePage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. This page may contain affiliate links. AllAboutXRP may earn a commission at no extra cost to you.</em>
+          <em>Last updated: February 15, 2026. This is not financial advice. Always do your own research.</em>
         </p>
       </div>
     </>

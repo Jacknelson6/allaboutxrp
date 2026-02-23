@@ -71,6 +71,12 @@ export default function Footer() {
         <div className="section-divider mt-12 mb-6" />
         
         <div className="flex gap-4 mb-4">
+          <Link href="/about" className="text-xs text-white/20 hover:text-white/40 transition-colors">
+            About
+          </Link>
+          <Link href="/editorial" className="text-xs text-white/20 hover:text-white/40 transition-colors">
+            Editorial Standards
+          </Link>
           <Link href="/privacy-policy" className="text-xs text-white/20 hover:text-white/40 transition-colors">
             Privacy Policy
           </Link>

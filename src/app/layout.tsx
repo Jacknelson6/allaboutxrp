@@ -70,9 +70,6 @@ export const metadata: Metadata = {
       google: GSC_VERIFICATION,
     },
   }),
-  other: {
-    'impact-site-verification': 'e24ca6ab-7d1f-4ab3-9e66-8fb7c38b84e0',
-  },
 };
 
 const websiteSchema = {

@@ -245,7 +245,7 @@ export default function BuyXRPInUSAPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. This is not financial or legal advice. This page may contain affiliate links.</em>
+          <em>Last updated: February 15, 2026. This is not financial or legal advice.</em>
         </p>
       </div>
     </>

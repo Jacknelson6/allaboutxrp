@@ -42,6 +42,25 @@ function getAllAnswerSlugs(): string[] {
 
 import { NOINDEX_LEARN_SLUGS } from "@/lib/seo/noindex-pages";
 
+/** Top learn pages get priority 0.9 instead of default 0.75 */
+const TOP_LEARN_SLUGS = new Set([
+  "what-is-xrp",
+  "how-to-buy-xrp",
+  "sec-vs-ripple",
+  "partnerships",
+  "escrow",
+  "rlusd",
+  "xrp-etf",
+  "xrp-price-prediction",
+  "history",
+  "what-makes-xrp-different",
+  "xrp-vs-bitcoin",
+  "xrp-vs-ethereum",
+  "how-does-xrp-work",
+  "is-xrp-a-good-investment",
+  "xrp-ledger-explained",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";
   const now = new Date("2026-02-11T12:00:00Z");
@@ -63,12 +82,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/learn", changeFrequency: "weekly", priority: 0.85 },
     { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
 
-    // Best / recommendations
-    { path: "/best", changeFrequency: "weekly", priority: 0.8 },
-    { path: "/best/xrp-exchanges", changeFrequency: "weekly", priority: 0.85 },
-    { path: "/best/xrp-wallets", changeFrequency: "weekly", priority: 0.85 },
-    { path: "/best/hardware-wallets-for-xrp", changeFrequency: "monthly", priority: 0.75 },
-    { path: "/best/xrp-staking-platforms", changeFrequency: "weekly", priority: 0.75 },
+    // Best / recommendations (noindexed — excluded from sitemap)
+
+    // Trust / E-E-A-T pages
+    { path: "/about", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/editorial", changeFrequency: "monthly", priority: 0.7 },
 
     // Answers hub
     { path: "/answers", changeFrequency: "weekly", priority: 0.8 },
@@ -108,7 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}/learn/${slug}`,
         lastModified: now,
         changeFrequency: "weekly" as const,
-        priority: 0.75,
+        priority: TOP_LEARN_SLUGS.has(slug) ? 0.9 : 0.75,
       })),
 
     // All answer pages (auto-discovered)
