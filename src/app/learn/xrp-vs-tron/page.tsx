@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Tron (TRX): Payments & Transfers Compared (2026) | AllAboutXRP",
   description: "XRP vs Tron — two payment-focused blockchains compared. Speed, fees, stablecoin volume, and adoption head to head.",
   keywords: ["XRP vs Tron", "XRP vs TRX", "Ripple vs Tron", "TRX comparison"],

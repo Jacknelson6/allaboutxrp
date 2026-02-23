@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Bitstamp: Europe's Trusted Exchange (2026) | AllAboutXRP",
   description: "Buy XRP on Bitstamp — one of the oldest and most trusted exchanges. Covers SEPA, credit card, and fee tiers.",
   keywords: ["buy XRP Bitstamp", "Bitstamp XRP", "XRP Europe exchange"],

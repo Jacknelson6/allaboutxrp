@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Understanding XRP Addresses & Keys",
   description:
     "Learn how XRP addresses, secret keys, regular keys, multi-signing, reserves, and destination tags work on the XRP Ledger.",

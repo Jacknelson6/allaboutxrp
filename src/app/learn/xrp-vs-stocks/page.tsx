@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Stocks: Key Differences for Investors | AllAboutXRP",
   description: "XRP vs stocks comparison — volatility, returns, trading hours, risks, and how to decide between crypto and traditional equities in your portfolio.",
   keywords: ["XRP vs stocks","crypto vs stocks","XRP compared to stocks","should I buy XRP or stocks"],

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Kraken: Step-by-Step (2026) | AllAboutXRP",
   description: "Buy XRP on Kraken with this step-by-step guide. Covers Pro vs Basic, staking options, and lowest-fee methods.",
   keywords: ["buy XRP Kraken", "XRP Kraken", "Kraken XRP guide"],

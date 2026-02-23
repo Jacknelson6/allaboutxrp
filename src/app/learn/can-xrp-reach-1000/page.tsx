@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Can XRP Reach $1,000? Breaking Down the Claims | AllAboutXRP",
   description: "Can XRP hit $1,000? An honest breakdown of the viral claims, market cap math, and why this is (or isn't) realistic.",
   keywords: ["can XRP reach $1000", "XRP $1000", "will XRP hit $1000", "XRP $1000 possible"],

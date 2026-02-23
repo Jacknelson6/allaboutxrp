@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP in the USA: Complete Guide (2026) | AllAboutXRP",
   description: "How to buy XRP in the United States. Best exchanges, state restrictions, tax implications, and step-by-step guide for American investors.",
   keywords: ["buy XRP USA", "how to buy XRP in US", "XRP United States", "buy XRP America"],

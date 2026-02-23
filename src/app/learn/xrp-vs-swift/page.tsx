@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Why SWIFT Is Dying and XRP Could Replace It | AllAboutXRP",
   description:
     "Compare SWIFT vs XRP for cross-border payments. Learn why SWIFT is slow and expensive, and how Ripple's ODL uses XRP for instant, low-cost international transfers.",

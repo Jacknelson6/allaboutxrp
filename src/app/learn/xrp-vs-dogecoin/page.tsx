@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Dogecoin (DOGE): Serious Comparison (2026) | AllAboutXRP",
   description: "XRP vs Dogecoin — utility vs meme. Compare real-world use, technology, institutional backing, and long-term potential.",
   keywords: ["XRP vs Dogecoin", "XRP vs DOGE", "Ripple vs Dogecoin", "DOGE comparison"],

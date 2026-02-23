@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP in the UK: GBP Guide (2026) | AllAboutXRP",
   description: "How to buy XRP in the UK with GBP. Best platforms, FCA-regulated exchanges, bank transfers, and fees.",
   keywords: ["buy XRP UK", "how to buy XRP in UK", "XRP United Kingdom", "XRP GBP"],

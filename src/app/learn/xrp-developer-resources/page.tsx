@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Developer Resources: Build on the XRP Ledger | AllAboutXRP",
   description: "Everything developers need to start building on the XRP Ledger. SDKs, documentation, testnet, grants, and getting started guides.",
   keywords: ["XRP developer","XRPL developer resources","build on XRPL","XRP development guide","XRPL SDK"],

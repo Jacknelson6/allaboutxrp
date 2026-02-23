@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Binance: Complete Guide (2026) | AllAboutXRP",
   description: "How to buy XRP on Binance — account setup, deposit methods, trading pairs, and fee optimization. Full walkthrough.",
   keywords: ["buy XRP Binance", "XRP Binance", "how to buy XRP on Binance"],

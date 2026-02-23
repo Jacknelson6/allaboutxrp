@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Transaction Types Explained",
   description:
     "Learn about all XRP transaction types: Payment, OfferCreate, TrustSet, Escrow, NFTokenMint, AMM, and how to read transaction hashes.",

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Stellar (XLM): Key Differences Explained | AllAboutXRP",
   description:
     "Compare XRP vs Stellar (XLM) — two cryptocurrencies built for cross-border payments. Learn the differences in technology, speed, use cases, and market position.",

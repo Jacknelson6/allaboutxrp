@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Solana: Key Differences Explained",
   description:
     "Compare XRP vs Solana: speed, fees, consensus, use cases, and institutional adoption. See how XRP and SOL stack up in 2026.",

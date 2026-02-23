@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Can XRP Reach $100? Realistic Price Analysis | AllAboutXRP",
   description:
     "Can XRP reach $100? We analyze the market cap math, adoption requirements, and realistic scenarios. Honest assessment with no hype.",

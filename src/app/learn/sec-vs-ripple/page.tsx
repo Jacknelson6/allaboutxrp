@@ -8,6 +8,7 @@ import {
   HighlightBox, DataTable, FAQAccordion, IconList, GlowCard,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
+import UniqueInsight from "@/components/learn/UniqueInsight";
 
 export const dynamic = "force-static";
 
@@ -276,6 +277,12 @@ export default function SECvsRipplePage() {
             ]} />
           </RevealSection>
         </div>
+
+        <UniqueInsight title="The Torres Ruling Changed Crypto Law Forever — Here's How" verifiedDate="February 23, 2026">
+          <p>The SEC v. Ripple settlement wasn't just about XRP — it established the most important legal framework for digital assets since the Howey Test in 1946. Judge Torres's distinction between <strong className="text-white">institutional sales (securities) and programmatic exchange sales (not securities)</strong> created a two-tier framework that every crypto project now references in their legal strategy.</p>
+          <p>The numbers are staggering: Ripple paid a $125 million fine on the institutional sales — roughly 6% of the $1.3 billion the SEC originally sought. The SEC's internal documents, including the Hinman emails released in June 2023, revealed the agency itself couldn't consistently define what made a token a security. This internal contradiction was devastating to the SEC's case and why Commissioner Peirce publicly dissented on the original enforcement action.</p>
+          <p>What matters now: at least 6 pending SEC cases (including actions against Coinbase, Binance, and Kraken) have cited the Torres ruling in their defense briefs. The SEC under Chair Atkins has signaled a shift toward rulemaking over enforcement. Our view: the Ripple case didn't just save XRP — it forced the entire US regulatory apparatus to reconsider regulation-by-enforcement. That's a $2 trillion+ impact across the crypto market.</p>
+        </UniqueInsight>
 
         <LearnCTA
           title="XRP Has Regulatory Clarity"

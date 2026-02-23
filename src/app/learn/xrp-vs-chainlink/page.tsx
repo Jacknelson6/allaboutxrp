@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Chainlink (LINK): Key Differences (2026) | AllAboutXRP",
   description: "XRP vs Chainlink — payments vs oracle networks. Compare use cases, market position, and which serves your needs.",
   keywords: ["XRP vs Chainlink", "XRP vs LINK", "Ripple vs Chainlink", "LINK comparison"],

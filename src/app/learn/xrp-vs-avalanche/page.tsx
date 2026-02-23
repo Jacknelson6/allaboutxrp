@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Avalanche (AVAX): Which Is Better? (2026) | AllAboutXRP",
   description: "XRP vs Avalanche compared — speed, fees, DeFi ecosystems, enterprise adoption, and 2026 outlook.",
   keywords: ["XRP vs Avalanche", "XRP vs AVAX", "Ripple vs Avalanche", "AVAX comparison"],

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Sui (SUI): Next-Gen Blockchain Comparison (2026) | AllAboutXRP",
   description: "XRP vs Sui — enterprise payments veteran vs next-gen L1. Speed, architecture, DeFi, and developer ecosystems compared.",
   keywords: ["XRP vs Sui", "XRP vs SUI", "Ripple vs Sui", "SUI comparison"],

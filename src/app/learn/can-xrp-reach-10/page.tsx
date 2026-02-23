@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Can XRP Reach $10? Realistic Analysis (2026) | AllAboutXRP",
   description: "Can XRP reach $10? We break down the market cap math, adoption catalysts, and realistic timeline. No hype — just data.",
   keywords: ["can XRP reach $10", "XRP $10", "will XRP hit $10", "XRP $10 price target"],

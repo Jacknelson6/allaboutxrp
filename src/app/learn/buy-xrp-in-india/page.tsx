@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP in India: INR Guide (2026) | AllAboutXRP",
   description: "Buy XRP in India — UPI and INR deposit methods, best Indian exchanges, TDS tax rules, and legal status.",
   keywords: ["buy XRP India", "how to buy XRP in India", "XRP INR", "XRP India exchange"],

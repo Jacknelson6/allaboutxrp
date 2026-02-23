@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs PayPal for International Transfers (2026) | AllAboutXRP",
   description: "XRP vs PayPal for sending money internationally. Compare fees, speed, limits, and which is better for cross-border transfers.",
   keywords: ["XRP vs PayPal", "XRP or PayPal", "send money XRP vs PayPal", "crypto vs PayPal"],

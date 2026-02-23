@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Can XRP Reach $50? What It Would Take | AllAboutXRP",
   description: "Can XRP reach $50? Analyzing the market cap requirements, institutional demand, and scenarios where $50 XRP is possible.",
   keywords: ["can XRP reach $50", "XRP $50", "will XRP hit $50", "XRP $50 price prediction"],

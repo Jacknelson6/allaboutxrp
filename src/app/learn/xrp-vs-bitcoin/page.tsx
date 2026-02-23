@@ -11,6 +11,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Bitcoin: Key Differences Explained (2026)",
   description:
     "XRP vs Bitcoin — compare speed, cost, energy use, use cases, and technology. A comprehensive side-by-side breakdown for 2026.",

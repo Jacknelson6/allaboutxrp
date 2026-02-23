@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP Destination Tag Explained: Don't Lose Your XRP",
   description: "What is an XRP destination tag, why it matters, and what happens if you forget it. Critical guide for sending XRP to exchanges.",
   keywords: ["XRP destination tag", "what is destination tag XRP", "XRP destination tag missing", "forgot destination tag"],

@@ -40,50 +40,7 @@ function getAllAnswerSlugs(): string[] {
     .map((entry) => entry.name);
 }
 
-/**
- * Learn pages that are noindexed (thin, duplicative, or niche).
- * These are excluded from the sitemap to focus crawl budget.
- */
-export const NOINDEX_LEARN_SLUGS = new Set([
-  // Duplicates of /best/* pages
-  "best-xrp-exchanges",
-  "crypto-wallets-for-xrp",
-  "best-xrp-trading-pairs",
-  // Duplicates of other learn pages
-  "banks-using-xrp",          // → how-banks-use-xrp
-  "xrp-and-banks",            // → how-banks-use-xrp
-  "rlusd-explained",          // → rlusd
-  "sec-vs-ripple-explained",  // → sec-vs-ripple
-  "xrp-escrow-explained",     // → escrow
-  "xrp-vs-ripple-for-beginners", // → ripple-vs-xrp
-  "xrp-and-cbdc-bridge",      // → cbdcs-and-xrp
-  "xrp-and-correspondent-banking", // → cross-border-payments
-  // Thin niche pages (< ~130 lines, very specific topics)
-  "xrpl-gaming",
-  "xrp-insurance-use-cases",
-  "xrp-cost-basis-methods",
-  "xrp-airdrop-taxes",        // → xrp-tax-guide covers this
-  "xrp-tax-loss-harvesting",  // → xrp-tax-guide covers this
-  "xrp-amm-yield-guide",      // → xrp-amm covers this
-  "xrp-on-chain-analysis",
-  "xrp-order-types-explained",
-  "xrp-futures-trading",
-  "xrp-block-explorers",
-  "xrp-portfolio-trackers",
-  // ETF sub-pages (xrp-etf is the canonical)
-  "xrp-etf-filings",
-  "xrp-etf-approval-odds",
-  "xrp-etf-price-impact",
-  "xrp-spot-etf-vs-futures-etf",
-  // Niche regional/comparison pages
-  "xrp-micropayments",
-  "xrp-in-retirement-accounts",
-  "xrp-institutional-custody",
-  "xrp-community-explained",
-  "xrpl-nft-marketplaces",
-  "xrp-day-trading-guide",
-  "xrp-sell-or-hold",
-]);
+import { NOINDEX_LEARN_SLUGS } from "@/lib/seo/noindex-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";

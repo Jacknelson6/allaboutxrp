@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Litecoin (LTC): Digital Payments Showdown (2026) | AllAboutXRP",
   description: "XRP vs Litecoin — both built for fast payments. Compare transaction speed, fees, mining vs consensus, and market outlook.",
   keywords: ["XRP vs Litecoin", "XRP vs LTC", "Ripple vs Litecoin", "LTC comparison"],

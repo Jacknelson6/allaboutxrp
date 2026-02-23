@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Stablecoins: Why Not Just Use USDT? | AllAboutXRP",
   description: "Why use XRP as a bridge currency when stablecoins exist? Compare volatility, liquidity, speed, and the case for XRP over USDT/USDC.",
   keywords: ["XRP vs stablecoins", "XRP vs USDT", "why use XRP instead of stablecoin", "XRP vs USDC"],

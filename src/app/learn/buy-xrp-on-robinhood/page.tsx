@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Robinhood: What to Know (2026) | AllAboutXRP",
   description: "How to buy XRP on Robinhood — setup, fees, limitations, and why you may want to transfer to a real wallet.",
   keywords: ["buy XRP Robinhood", "XRP Robinhood", "Robinhood crypto XRP"],

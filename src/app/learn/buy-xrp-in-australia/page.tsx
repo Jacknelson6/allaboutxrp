@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP in Australia: AUD Guide (2026) | AllAboutXRP",
   description: "How to buy XRP in Australia with AUD. Top exchanges, PayID deposits, tax reporting, and AUSTRAC-regulated options.",
   keywords: ["buy XRP Australia", "how to buy XRP in Australia", "XRP AUD"],

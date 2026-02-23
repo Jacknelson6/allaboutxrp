@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Polygon (POL): Scaling vs Payments (2026) | AllAboutXRP",
   description: "XRP vs Polygon — how two top-20 cryptos with different missions compare on speed, adoption, and technology.",
   keywords: ["XRP vs Polygon", "XRP vs POL", "XRP vs MATIC", "Ripple vs Polygon"],

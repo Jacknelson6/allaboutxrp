@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Bitcoin: Which Is the Better Investment? (2026) | AllAboutXRP",
   description: "XRP vs Bitcoin as an investment — risk/reward, growth potential, market caps, and how to allocate between the two in 2026.",
   keywords: ["XRP vs Bitcoin investment", "should I buy XRP or Bitcoin", "XRP or BTC", "XRP vs Bitcoin 2026"],

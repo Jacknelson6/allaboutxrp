@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP in Canada: CAD Guide (2026) | AllAboutXRP",
   description: "Buy XRP in Canada — best CAD exchanges, Interac e-Transfer options, tax rules, and FINTRAC-compliant platforms.",
   keywords: ["buy XRP Canada", "how to buy XRP in Canada", "XRP CAD", "XRP Canadian exchange"],

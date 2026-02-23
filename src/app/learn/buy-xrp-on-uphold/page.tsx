@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Uphold: Fastest Method (2026) | AllAboutXRP",
   description: "Uphold was one of the first US platforms to relist XRP. Learn how to buy, fees, withdrawal to self-custody, and limits.",
   keywords: ["buy XRP Uphold", "XRP Uphold", "Uphold XRP guide"],

@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Ethereum: A Comprehensive Comparison",
   description:
     "Compare XRP vs Ethereum: speed, fees, smart contracts, consensus, and use cases. See how XRP and ETH differ in 2026.",

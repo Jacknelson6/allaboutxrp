@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Western Union: Remittance Comparison (2026) | AllAboutXRP",
   description: "XRP vs Western Union for remittances. Compare fees, speed, accessibility, and why XRP could disrupt traditional money transfer.",
   keywords: ["XRP vs Western Union", "XRP remittance comparison", "crypto vs Western Union", "XRP money transfer"],

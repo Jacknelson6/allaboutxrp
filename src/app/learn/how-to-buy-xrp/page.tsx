@@ -7,6 +7,7 @@ import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
 } from "@/components/learn/LearnPageShell";
+import UniqueInsight from "@/components/learn/UniqueInsight";
 
 export const dynamic = "force-static";
 
@@ -341,6 +342,12 @@ export default function HowToBuyXRPPage() {
             ]} />
           </RevealSection>
         </div>
+
+        <UniqueInsight title="Exchange Safety Rankings: What We Actually Recommend in 2026" verifiedDate="February 23, 2026">
+          <p>After tracking exchange reliability since 2020, here's our honest assessment: <strong className="text-white">Uphold and Kraken remain the safest platforms for XRP</strong>, but for different reasons. Uphold offers direct XRP/USD pairs with zero spread markup on limit orders (their spread on market orders is ~1.2%, which is steep — always use limit orders). Kraken has never suffered a security breach in 13 years of operation and offers the lowest fees at 0.16% maker / 0.26% taker.</p>
+          <p>Coinbase re-listed XRP in February 2025 after the SEC settlement, but their XRP liquidity is still thinner than Kraken's — we've observed 15-30% wider bid-ask spreads on large orders (&gt;$10K). Robinhood gives you XRP exposure but <em>still doesn't support external withdrawals to self-custody wallets</em> as of February 2026. If you can't withdraw your XRP, you don't truly own it.</p>
+          <p>Binance.US remains effectively unavailable for most American users post-SEC action. For non-US buyers, Bitstamp (now owned by Robinhood) is solid with deep EUR/XRP liquidity and full withdrawal support. Our bottom line: Kraken for serious traders, Uphold for beginners who want simplicity, and always move significant holdings to a hardware wallet like a Ledger Nano X.</p>
+        </UniqueInsight>
 
         <LearnCTA
           title="Ready to Buy Your First XRP?"

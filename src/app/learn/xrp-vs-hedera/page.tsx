@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "XRP vs Hedera (HBAR): Enterprise Crypto Comparison | AllAboutXRP",
   description:
     "Compare XRP vs Hedera (HBAR) — two enterprise-focused crypto projects. Speed, fees, governance, ISO 20022, and institutional adoption compared.",

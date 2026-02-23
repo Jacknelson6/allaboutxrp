@@ -8,6 +8,7 @@ import {
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, GlowCard,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
+import UniqueInsight from "@/components/learn/UniqueInsight";
 import timelineData from "@/data/timeline.json";
 
 export const dynamic = "force-static";
@@ -301,6 +302,12 @@ export default function HistoryPage() {
             ]} />
           </RevealSection>
         </div>
+
+        <UniqueInsight title="Five Inflection Points That Made XRP What It Is Today" verifiedDate="February 23, 2026">
+          <p>Having tracked XRP since 2013, we identify five moments that fundamentally altered its trajectory — and most histories miss at least two of them.</p>
+          <p><strong className="text-white">1. Jed McCaleb's departure (2014)</strong> — McCaleb's exit and subsequent agreement to sell his 9B XRP over 7+ years created the first major overhang. His final sales completed in 2022, removing ~$3.5B in structured sell pressure. <strong className="text-white">2. The Coinbase non-listing (2018)</strong> — XRP hit $3.84 in January 2018 without ever being listed on the largest US exchange. When Coinbase publicly questioned XRP's security status, it signaled the regulatory storm to come. <strong className="text-white">3. MoneyGram partnership (2019-2021)</strong> — The ODL pilot with MoneyGram processed $2.4B before being suspended during the SEC lawsuit. It proved institutional demand was real. <strong className="text-white">4. Torres ruling (July 13, 2023)</strong> — XRP surged 96% in 24 hours, from $0.47 to $0.93. The single most important day in XRP's history. <strong className="text-white">5. The Ripple IPO signals (2025)</strong> — Ripple's $11B valuation in secondary markets and persistent IPO rumors have made XRP the de facto equity proxy for Ripple's success.</p>
+          <p>The pattern: every major XRP inflection point has been driven by regulatory or institutional catalysts — not technology upgrades. This tells us the next major move will likely come from ETF approval or a major central bank XRPL deployment, not from protocol improvements.</p>
+        </UniqueInsight>
 
         <LearnCTA
           title="Ready to Be Part of the Story?"

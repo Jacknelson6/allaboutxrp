@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "How to Buy XRP on Coinbase: Step-by-Step Guide (2026) | AllAboutXRP",
   description: "Step-by-step guide to buying XRP on Coinbase. Fees, limits, verification, and pro tips. Takes under 5 minutes.",
   keywords: ["buy XRP Coinbase", "XRP Coinbase", "how to buy XRP on Coinbase", "Coinbase XRP"],

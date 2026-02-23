@@ -12,6 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "Can XRP Reach $500? The Math Explained | AllAboutXRP",
   description: "Can XRP reach $500? We examine the math honestly — market cap, global money supply, and what believers get wrong (and right).",
   keywords: ["can XRP reach $500", "XRP $500 price", "will XRP reach $500", "XRP $500 possible"],
