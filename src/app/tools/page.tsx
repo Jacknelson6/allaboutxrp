@@ -24,6 +24,24 @@ export const metadata: Metadata = {
 
 const tools: { href: string; title: string; description: string; badge: string; linkText?: string }[] = [
   {
+    href: "/tools/whale-tracker",
+    title: "XRP Whale Tracker",
+    description: "Monitor large XRP transactions in real-time. Track whale movements, exchange flows, and institutional activity on the XRPL.",
+    badge: "Live Data",
+  },
+  {
+    href: "/tools/escrow-tracker",
+    title: "XRP Escrow Live Tracker",
+    description: "Track Ripple's monthly 1B XRP escrow releases. Upcoming schedule, historical data, and re-lock amounts.",
+    badge: "Live Data",
+  },
+  {
+    href: "/tools/price-alerts",
+    title: "XRP Price Levels to Watch",
+    description: "Key support and resistance levels for XRP with current price. Technical analysis and price targets updated regularly.",
+    badge: "Live Data",
+  },
+  {
     href: "/tools/xrp-profit-calculator",
     title: "XRP Profit Calculator",
     description: "Calculate your profit or loss on XRP trades. Input buy price, sell price, and amount — see ROI instantly.",

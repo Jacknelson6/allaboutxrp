@@ -93,6 +93,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Tools
     { path: "/tools", changeFrequency: "weekly", priority: 0.75 },
+    { path: "/tools/whale-tracker", changeFrequency: "hourly", priority: 0.85 },
+    { path: "/tools/escrow-tracker", changeFrequency: "daily", priority: 0.8 },
+    { path: "/tools/price-alerts", changeFrequency: "hourly", priority: 0.8 },
     { path: "/tools/xrp-profit-calculator", changeFrequency: "monthly", priority: 0.7 },
     { path: "/tools/xrp-fee-calculator", changeFrequency: "monthly", priority: 0.7 },
 
