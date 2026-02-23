@@ -95,7 +95,7 @@
   /* Status Summary */
   .stats-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
     margin-bottom: 40px;
   }
@@ -170,6 +170,7 @@
   .status-progress { background: rgba(0,133,255,0.15); }
   .status-next { background: rgba(139,92,246,0.15); }
   .status-auto { background: rgba(245,158,11,0.15); }
+  .status-ready { background: rgba(0,133,255,0.15); }
   
   .action-content { flex: 1; }
   .action-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
@@ -191,6 +192,9 @@
   .tag-progress { background: rgba(0,133,255,0.15); color: var(--accent); }
   .tag-next { background: rgba(139,92,246,0.15); color: var(--purple); }
   .tag-auto { background: rgba(245,158,11,0.15); color: var(--orange); }
+  .tag-ready { background: rgba(0,133,255,0.15); color: var(--accent); }
+  .tag-manual { background: rgba(245,158,11,0.15); color: var(--orange); }
+  .tag-atlas { background: rgba(139,92,246,0.15); color: var(--purple); }
   
   /* Timeline */
   .timeline {
@@ -306,6 +310,106 @@
     transition: width 1s ease;
   }
   
+  /* Flywheel */
+  .flywheel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 32px 0;
+  }
+  
+  .flywheel-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 140px;
+  }
+  
+  .flywheel-step h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .flywheel-step p { font-size: 11px; color: var(--dim); }
+  
+  .flywheel-arrow {
+    font-size: 20px;
+    color: var(--accent);
+    padding: 0 8px;
+    font-weight: 700;
+  }
+  
+  /* Strategy cards */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .strategy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  
+  .strategy-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  
+  .strategy-card p { font-size: 13px; color: var(--dim); line-height: 1.6; }
+  
+  .strategy-card ul {
+    list-style: none;
+    margin-top: 8px;
+  }
+  
+  .strategy-card li {
+    font-size: 13px;
+    color: var(--dim);
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  
+  .strategy-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  
+  /* Content topics */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  
+  .topic-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .topic-item .topic-freq {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    background: rgba(0,133,255,0.1);
+    color: var(--accent);
+    margin-left: 6px;
+  }
+  
   /* Footer */
   .footer {
     padding: 48px 0;
@@ -314,11 +418,27 @@
   
   .footer p { color: var(--dim); font-size: 13px; }
   
+  /* Highlight box */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(0,133,255,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(0,133,255,0.2);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+  
+  .highlight-box h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .highlight-box p { font-size: 13px; color: var(--dim); line-height: 1.6; }
+  
   @media (max-width: 768px) {
     .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .topic-grid { grid-template-columns: 1fr; }
     .container { padding: 0 16px; }
     .header h1 { font-size: 28px; }
     .impact-label { width: 140px; font-size: 12px; }
+    .flywheel { flex-direction: column; }
+    .flywheel-arrow { transform: rotate(90deg); }
   }
 </style>
 </head>
@@ -352,13 +472,18 @@
       </div>
       <div class="stat-card">
         <div class="label">Noindexed</div>
-        <div class="value orange">79</div>
+        <div class="value orange">83</div>
         <div class="change orange">Focusing crawl budget</div>
       </div>
       <div class="stat-card">
         <div class="label">Domain Age</div>
         <div class="value">13d</div>
         <div class="change dim">DR: ~0 (new domain)</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Optimizations</div>
+        <div class="value green">18+</div>
+        <div class="change green">Deployed today</div>
       </div>
     </div>
   </section>
@@ -367,14 +492,14 @@
   <section>
     <div class="section-num">02 — Completed Optimizations</div>
     <h2>Everything we've done</h2>
-    <p class="desc">14 major optimizations across content quality, technical SEO, and trust signals.</p>
+    <p class="desc">18+ major optimizations across content quality, technical SEO, and trust signals.</p>
     
     <div class="action-grid">
       <div class="action-item">
         <div class="action-status status-done">✓</div>
         <div class="action-content">
-          <h3>Noindex 79 low-value pages <span class="action-tag tag-done">Done</span></h3>
-          <p>Removed buy guides (11), comparisons (19), price predictions (5), duplicates (8), deep cuts (28), /best/ affiliate pages (4), and utility pages (3) from Google's index. These were diluting crawl budget on a zero-authority domain. Pages still accessible to users, just invisible to Google.</p>
+          <h3>Noindex 83 low-value pages <span class="action-tag tag-done">Done</span></h3>
+          <p>Removed buy guides (11), comparisons (19), price predictions (5), duplicates (8), deep cuts (28), /best/ affiliate pages (8), and utility pages (3) from Google's index. These were diluting crawl budget on a zero-authority domain. Pages still accessible to users, just invisible to Google.</p>
         </div>
       </div>
       
@@ -451,18 +576,58 @@
       </div>
       
       <div class="action-item">
-        <div class="action-status status-progress">⟳</div>
+        <div class="action-status status-done">✓</div>
         <div class="action-content">
-          <h3>Live data pages (Whale Tracker, Escrow Tracker, Price Levels) <span class="action-tag tag-progress">Building</span></h3>
+          <h3>Live data pages (Whale Tracker, Escrow Tracker, Price Levels) <span class="action-tag tag-done">Done</span></h3>
           <p>Three new /tools/ pages with live XRPL data that updates every page load. Google indexes fresh data pages faster because they're inherently unique. Includes Tools hub page with nav link.</p>
         </div>
       </div>
       
       <div class="action-item">
-        <div class="action-status status-progress">⟳</div>
+        <div class="action-status status-done">✓</div>
         <div class="action-content">
-          <h3>Backlink submission strategy <span class="action-tag tag-progress">Research</span></h3>
-          <p>Compiling every crypto directory, resource list, forum, and platform where we can submit for backlinks. Includes Reddit/Quora strategies, Medium syndication drafts, and Web 2.0 profile list. Full playbook with status tracking.</p>
+          <h3>Backlink submission strategy <span class="action-tag tag-done">Done</span></h3>
+          <p>Complete playbook compiled: every crypto directory, resource list, forum, and platform for backlink submissions. Includes Reddit/Quora strategies, Medium syndication drafts, and Web 2.0 profile list. Full playbook with status tracking in docs/BACKLINK-SUBMISSIONS.md.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-done">✓</div>
+        <div class="action-content">
+          <h3>Google News sitemap <span class="action-tag tag-done">Done</span></h3>
+          <p>Dedicated news sitemap at /news-sitemap.xml for digest and news pages. Enables Google News inclusion and faster crawling of time-sensitive content.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-done">✓</div>
+        <div class="action-content">
+          <h3>Tools hub page with Live Data badges <span class="action-tag tag-done">Done</span></h3>
+          <p>Central /tools/ hub linking to all live data pages with "Live Data" badges. Gives Google a clear entry point to discover and crawl dynamic content.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-done">✓</div>
+        <div class="action-content">
+          <h3>Compression + performance optimization <span class="action-tag tag-done">Done</span></h3>
+          <p>Optimized asset delivery, image compression, and bundle sizes. Faster pages = better Core Web Vitals = better rankings. Google explicitly uses page speed as a ranking factor.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-done">✓</div>
+        <div class="action-content">
+          <h3>Dynamic OG image generation <span class="action-tag tag-done">Done</span></h3>
+          <p>Every page now generates a unique Open Graph image dynamically. Better social sharing previews = more clicks from social platforms = more backlinks and signals.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-done">✓</div>
+        <div class="action-content">
+          <h3>IndexNow ping script <span class="action-tag tag-done">Done</span></h3>
+          <p>Automated script for instant Bing/Yandex notification of all pages. Run after every deploy to ensure search engines know about changes immediately.</p>
         </div>
       </div>
     </div>
@@ -518,6 +683,242 @@
     </div>
   </section>
 
+  <!-- The Strategy -->
+  <section>
+    <div class="section-num">03.5 — The Strategy</div>
+    <h2>Race against time</h2>
+    <p class="desc">Google is actively fighting our rankings. Here's how we win.</p>
+    
+    <div class="highlight-box">
+      <h4>🎯 The Big Picture</h4>
+      <p>AllAboutXRP is a pilot site for a larger network of content sites. We're not building one site — we're building a playbook. Every optimization, every strategy, every automation we prove here gets replicated across the network. XRP is the testing ground.</p>
+    </div>
+    
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <h4>Why XRP?</h4>
+        <p>The ideal first target for the content network:</p>
+        <ul>
+          <li>Moderate search volume = less competition</li>
+          <li>Constant news flow = daily content opportunities</li>
+          <li>Many content facets: tech, legal, trading, DeFi, partnerships, regulation</li>
+          <li>Passionate community = natural sharing</li>
+          <li>SEC lawsuit creates ongoing search demand</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-card">
+        <h4>The Approach</h4>
+        <p>Throw everything at the wall. See what sticks. Double down on winners. Kill what doesn't work.</p>
+        <ul>
+          <li>Data over editorial — always</li>
+          <li>Speed over perfection</li>
+          <li>Automation over manual effort</li>
+          <li>Distribution over creation</li>
+          <li>Metrics over gut feeling</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-card">
+        <h4>Data Over Editorial</h4>
+        <p>Blog content should be structured data, tables, and facts — not opinion pieces. Here's why:</p>
+        <ul>
+          <li>Data gets featured snippets</li>
+          <li>Data gets Google News inclusion</li>
+          <li>Data earns natural backlinks</li>
+          <li>Data is hard to replicate (competitive moat)</li>
+          <li>Data can be auto-generated from APIs</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-card">
+        <h4>Distribution Is Everything</h4>
+        <p>Creating content without a distribution plan is pointless. Every piece needs:</p>
+        <ul>
+          <li>Reddit, Quora, X, Medium, Dev.to</li>
+          <li>Aggregator/news site submissions</li>
+          <li>Crypto community directories</li>
+          <li>Ecosystem resource pages</li>
+          <li>Social profiles as backlink sources</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="highlight-box" style="margin-top: 24px; border-color: rgba(239,68,68,0.3); background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.06));">
+      <h4>⚡ Speed Matters</h4>
+      <p>Every day without indexing is lost traffic. We need to compress months of SEO work into weeks. Aggregator submissions drive crawl frequency. Social distribution drives authority signals. Backlink requests drive DR growth. All of this needs to happen <strong>now</strong>, not next month. The window for a new XRP site to establish itself is closing as more competitors enter the space.</p>
+    </div>
+  </section>
+
+  <!-- Immediate Action Plan -->
+  <section>
+    <div class="section-num">03.7 — Immediate Action Plan</div>
+    <h2>What happens right now</h2>
+    <p class="desc">The next 48 hours. Every hour counts.</p>
+    
+    <div class="action-grid">
+      <div class="action-item">
+        <div class="action-status status-ready" style="font-size: 12px; font-weight: 700; color: var(--accent);">01</div>
+        <div class="action-content">
+          <h3>Activate N8N daily digest <span class="action-tag tag-ready">Ready to Activate</span></h3>
+          <p>Turn on the automated daily news workflow. Fresh content daily starting tomorrow morning. The workflow is built and tested — just needs the switch flipped.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-ready" style="font-size: 12px; font-weight: 700; color: var(--accent);">02</div>
+        <div class="action-content">
+          <h3>Submit to 15 crypto aggregators <span class="action-tag tag-ready">Ready — Use Playbook</span></h3>
+          <p>CryptoPanic RSS, CoinGecko ecosystem, DappRadar, XRPL.org, XRPScan, CoinPaprika, LiveCoinWatch, CoinCodex, Blockchair, CryptoCompare, CoinGlass, Messari, DeFi Llama, L2Beat, TokenInsight. Each drives crawl frequency and authority.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-auto" style="font-size: 12px; font-weight: 700; color: var(--orange);">03</div>
+        <div class="action-content">
+          <h3>Create social profiles <span class="action-tag tag-manual">Manual — 1 Hour</span></h3>
+          <p>X/Twitter (for the site, not Jack's personal), Medium publication, Dev.to, LinkedIn page, Pinterest. Each is a DR 50-90 backlink just for creating an account.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-ready" style="font-size: 12px; font-weight: 700; color: var(--accent);">04</div>
+        <div class="action-content">
+          <h3>Publish 3 syndication articles <span class="action-tag tag-ready">Ready to Publish</span></h3>
+          <p>Medium and Dev.to with canonical links back. Articles already drafted in playbook. Canonical tags ensure we get credit, not the platform.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-auto" style="font-size: 12px; font-weight: 700; color: var(--orange);">05</div>
+        <div class="action-content">
+          <h3>Post on Reddit (5 communities) <span class="action-tag tag-manual">Ready — Be Careful</span></h3>
+          <p>r/XRP, r/Ripple, r/CryptoCurrency, r/CryptoMarkets, r/altcoin. Genuinely helpful comments with natural links. Templates ready in playbook. Don't spam — be a community member first.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-ready" style="font-size: 12px; font-weight: 700; color: var(--accent);">06</div>
+        <div class="action-content">
+          <h3>Answer 7 Quora questions <span class="action-tag tag-ready">Ready</span></h3>
+          <p>Pre-written answers in playbook. Each answer links naturally to relevant AllAboutXRP pages. Quora answers rank well in Google themselves.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-next" style="font-size: 12px; font-weight: 700; color: var(--purple);">07</div>
+        <div class="action-content">
+          <h3>Submit GitHub PR to awesome-xrpl <span class="action-tag tag-atlas">Atlas Can Do This</span></h3>
+          <p>Add allaboutxrp.com to the community resources section. GitHub backlink (DR 96) + genuine ecosystem contribution.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-auto" style="font-size: 12px; font-weight: 700; color: var(--orange);">08</div>
+        <div class="action-content">
+          <h3>Request manual indexing <span class="action-tag tag-manual">Manual — 15 Min</span></h3>
+          <p>Top 15 pages in Google Search Console URL Inspector. Tedious but forces Google to look at specific pages immediately.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-next" style="font-size: 12px; font-weight: 700; color: var(--purple);">09</div>
+        <div class="action-content">
+          <h3>Ping Google sitemap <span class="action-tag tag-atlas">Atlas Can Do This</span></h3>
+          <p>Hit google.com/ping?sitemap=URL to trigger Google re-crawl of the updated sitemap.</p>
+        </div>
+      </div>
+      
+      <div class="action-item">
+        <div class="action-status status-next" style="font-size: 12px; font-weight: 700; color: var(--purple);">10</div>
+        <div class="action-content">
+          <h3>Run IndexNow script <span class="action-tag tag-atlas">Atlas Can Do This</span></h3>
+          <p>Notify Bing/Yandex of all pages immediately. Instant indexing on non-Google search engines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Engine -->
+  <section>
+    <div class="section-num">03.9 — Content Engine</div>
+    <h2>Data-first content that indexes itself</h2>
+    <p class="desc">Editorial gets ignored. Data gets featured.</p>
+    
+    <div class="highlight-box">
+      <h4>📊 The Bloomberg Terminal for XRP</h4>
+      <p>The goal is simple: become the place people go for XRP data, not opinions. Every blog post should be data-first — tables, charts, numbers, structured facts. Data earns featured snippets, Google News inclusion, and natural backlinks. Opinion pieces earn nothing.</p>
+    </div>
+    
+    <h3 style="font-size: 16px; font-weight: 700; margin: 28px 0 16px;">Data-Driven Content Topics</h3>
+    
+    <div class="topic-grid">
+      <div class="topic-item">📈 Daily XRP transaction volume & trends <span class="topic-freq">Daily</span></div>
+      <div class="topic-item">🐋 Weekly whale movement summaries <span class="topic-freq">Weekly</span></div>
+      <div class="topic-item">🔒 Monthly escrow release reports <span class="topic-freq">Monthly</span></div>
+      <div class="topic-item">⚔️ XRP vs competitors performance <span class="topic-freq">Monthly</span></div>
+      <div class="topic-item">📋 ETF filing tracker <span class="topic-freq">As Needed</span></div>
+      <div class="topic-item">⚖️ Regulatory timeline tracker <span class="topic-freq">As Needed</span></div>
+      <div class="topic-item">🏦 Exchange listing/delisting tracker <span class="topic-freq">As Needed</span></div>
+      <div class="topic-item">🖥️ Network health metrics (TPS, accounts, DEX) <span class="topic-freq">Weekly</span></div>
+    </div>
+    
+    <div class="strategy-grid" style="margin-top: 24px;">
+      <div class="strategy-card">
+        <h4>Format: Every Post</h4>
+        <ul>
+          <li>DataTable with sortable columns</li>
+          <li>KeyFactsTable with key metrics</li>
+          <li>StatPills for quick-glance numbers</li>
+          <li>FAQ schema for rich results</li>
+          <li>Structured data markup throughout</li>
+        </ul>
+      </div>
+      
+      <div class="strategy-card">
+        <h4>Auto-Generation Potential</h4>
+        <p>Most content can be generated from APIs:</p>
+        <ul>
+          <li>XRPL API → transaction data, accounts</li>
+          <li>CoinGecko API → prices, market cap</li>
+          <li>Bithomp API → whale movements</li>
+          <li>Court records → regulatory updates</li>
+          <li>N8N orchestrates all of it</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 16px; font-weight: 700; margin: 32px 0 16px;">The Flywheel</h3>
+    
+    <div class="flywheel">
+      <div class="flywheel-step">
+        <h4>📊 Data Content</h4>
+        <p>Auto-generated<br>from APIs</p>
+      </div>
+      <div class="flywheel-arrow">→</div>
+      <div class="flywheel-step">
+        <h4>📣 Distribution</h4>
+        <p>Reddit, Quora, X<br>Medium, Dev.to</p>
+      </div>
+      <div class="flywheel-arrow">→</div>
+      <div class="flywheel-step">
+        <h4>🔗 Backlinks</h4>
+        <p>Natural links from<br>data citations</p>
+      </div>
+      <div class="flywheel-arrow">→</div>
+      <div class="flywheel-step">
+        <h4>📈 Authority</h4>
+        <p>DR growth,<br>trust signals</p>
+      </div>
+      <div class="flywheel-arrow">→</div>
+      <div class="flywheel-step">
+        <h4>✅ Indexing</h4>
+        <p>Google indexes<br>more pages</p>
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 12px; color: var(--dim); margin-top: -8px;">↻ More indexed pages = more data content opportunities = flywheel spins faster</p>
+  </section>
+
   <!-- Timeline -->
   <section>
     <div class="section-num">04 — Timeline</div>
@@ -541,28 +942,43 @@
       </div>
       <div class="tl-item done">
         <div class="tl-date">Feb 23 (today)</div>
-        <h4>Massive SEO overhaul</h4>
-        <p>Noindex 79 pages, remove all affiliate links, add editorial analysis, data-rich content, E-E-A-T pages, IndexNow, schema markup, internal linking optimization.</p>
+        <h4>Full SEO overhaul</h4>
+        <p>Noindex 83 pages, remove all affiliate links, add editorial analysis, data-rich content, E-E-A-T pages, IndexNow, schema markup, internal linking, live data pages, backlink playbook, compression, OG images, news sitemap. 18+ optimizations in one day.</p>
       </div>
       <div class="tl-item active">
-        <div class="tl-date">Feb 23–28</div>
-        <h4>Backlink blitz + fresh content</h4>
-        <p>Submit to directories, create Web 2.0 profiles, syndicate content to Medium/Dev.to. Activate daily news digest. Deploy live data tools.</p>
+        <div class="tl-date">Feb 23–24</div>
+        <h4>Activate & distribute</h4>
+        <p>Turn on daily digest, submit to 15 aggregators, create social profiles, publish syndication articles on Medium/Dev.to.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Feb 24–28</div>
+        <h4>Community distribution blitz</h4>
+        <p>Reddit/Quora distribution, backlink requests from crypto communities, manual indexing requests in Search Console, awesome-xrpl PR.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mar 1</div>
+        <h4>Daily data blog posts begin</h4>
+        <p>Automated via N8N. Daily XRP transaction summaries, whale alerts, market data. Content engine runs on autopilot.</p>
       </div>
       <div class="tl-item">
         <div class="tl-date">Mar 1–7</div>
-        <h4>Indexing recovery expected</h4>
-        <p>Google should begin re-evaluating the site with clean signals. Watch "Discovered, not indexed" count in Search Console. Target: drop from 241 to under 100.</p>
+        <h4>Google re-evaluation expected</h4>
+        <p>Monitor "not indexed" count in Search Console. Target: drop from 241 to under 100. Watch for crawl rate increases.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mar 7–14</div>
+        <h4>Double down or kill</h4>
+        <p>Analyze what's working. Double down on winners. Kill what isn't. Data-driven decisions only.</p>
       </div>
       <div class="tl-item">
         <div class="tl-date">Mar 15+</div>
-        <h4>Authority building</h4>
-        <p>Continue backlink acquisition. Monitor which pages get indexed. Gradually un-noindex high-quality pages as domain authority grows. Target DR 5-10.</p>
+        <h4>Re-introduce affiliate links</h4>
+        <p>Once DR is 10+ and indexing is healthy. This time with proper authority backing them. Gradual rollout, monitor impact.</p>
       </div>
       <div class="tl-item">
         <div class="tl-date">Apr+</div>
-        <h4>Re-introduce affiliate links</h4>
-        <p>Once indexing is healthy (150+ pages indexed) and DR is 10+, add affiliate links back. This time with proper authority backing them.</p>
+        <h4>Launch site #2 in the network</h4>
+        <p>allabouthbar.com or a different category entirely. Apply every lesson learned. Data-first content from day one. Automated daily content from day one. Social distribution plan before launch.</p>
       </div>
     </div>
   </section>
@@ -719,33 +1135,47 @@
       <div class="action-item">
         <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">2</div>
         <div class="action-content">
-          <h3>Include About + Editorial Standards pages at launch</h3>
-          <p>E-E-A-T signals from day one. Google's quality raters look for these immediately.</p>
+          <h3>Data-first content from day one</h3>
+          <p>Every page should be data-rich: tables, charts, numbers, structured facts. No opinion pieces. Data gets featured snippets and earns natural backlinks. Build the "Bloomberg Terminal" for your niche from the start.</p>
         </div>
       </div>
       <div class="action-item">
         <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">3</div>
         <div class="action-content">
-          <h3>Activate daily fresh content immediately</h3>
-          <p>Auto-generated daily news digests from day one. Google crawls new sites more aggressively when they publish frequently.</p>
+          <h3>Include About + Editorial Standards pages at launch</h3>
+          <p>E-E-A-T signals from day one. Google's quality raters look for these immediately.</p>
         </div>
       </div>
       <div class="action-item">
         <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">4</div>
         <div class="action-content">
-          <h3>Submit backlinks in week 1</h3>
-          <p>Directories, Web 2.0 profiles, Medium syndication. Don't wait for organic discovery.</p>
+          <h3>Automated daily content from day 1 (not month 2)</h3>
+          <p>Auto-generated daily news digests from day one. Don't wait to "build the site first." Google crawls new sites more aggressively when they publish frequently. N8N workflow should be ready before launch.</p>
         </div>
       </div>
       <div class="action-item">
         <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">5</div>
+        <div class="action-content">
+          <h3>Social distribution plan before launch</h3>
+          <p>Create all social profiles (X, Medium, Dev.to, LinkedIn, Pinterest) BEFORE the site goes live. Have syndication articles ready. Have Reddit/Quora answers drafted. Launch with distribution, not just content.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">6</div>
+        <div class="action-content">
+          <h3>Aggregator submissions in week 1</h3>
+          <p>Submit to every relevant aggregator, directory, and ecosystem page in the first week. Don't wait for organic discovery. Directories, Web 2.0 profiles, Medium syndication — all in week 1.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">7</div>
         <div class="action-content">
           <h3>Add more pages gradually (10/week)</h3>
           <p>Don't dump 200 pages at once. Google trusts gradual growth. Add 10 high-quality pages per week.</p>
         </div>
       </div>
       <div class="action-item">
-        <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">6</div>
+        <div class="action-status" style="background: var(--surface2); font-size: 13px; font-weight: 700; color: var(--text);">8</div>
         <div class="action-content">
           <h3>Affiliate links after 30 days + DR 10+</h3>
           <p>Only add commercial pages once the domain has established authority and healthy indexing.</p>
