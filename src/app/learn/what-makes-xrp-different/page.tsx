@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, FAQAccordion, IconList,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 import UniqueInsight from "@/components/learn/UniqueInsight";
@@ -106,6 +106,24 @@ export default function WhatMakesXRPDifferentPage() {
               <HighlightBox title="Different Tools for Different Jobs" variant="info">
                 <p>Comparing XRP to Bitcoin is like comparing a sports car to a vault. They&apos;re both valuable, but they do completely different things. Bitcoin stores value. Ethereum runs applications. <strong>XRP moves money.</strong> The best portfolio might include all three for different reasons.</p>
               </HighlightBox>
+              <div className="mt-6">
+              <DataTable
+                headers={["Metric", "XRP", "Bitcoin", "Ethereum", "Solana"]}
+                rows={[
+                  ["Settlement Time", "3-5 seconds", "10-60 minutes", "12-15 seconds", "~12.8s (finality)"],
+                  ["Cost Per Tx", "$0.0002", "$1-50", "$0.50-$5.00", "$0.003"],
+                  ["Throughput (TPS)", "1,500 (3,400 max)", "7", "15-30 (L1)", "3,000-4,000 real"],
+                  ["Consensus", "Federated (RPCA)", "Proof of Work", "Proof of Stake", "Proof of History + PoS"],
+                  ["Energy Per Tx", "0.0079 kWh", "707 kWh", "0.03 kWh", "0.00051 kWh"],
+                  ["Launch Year", "2012", "2009", "2015", "2020"],
+                  ["Supply Model", "100B fixed (deflationary)", "21M fixed (halving)", "Unlimited (EIP-1559 burn)", "Unlimited (inflationary)"],
+                  ["Primary Use Case", "Payments & settlement", "Store of value", "Smart contracts & DeFi", "High-speed DeFi & NFTs"],
+                  ["Network Uptime", "100% (13+ years)", "99.98%", "99.9% (DAO fork)", "~95% (7+ outages)"],
+                  ["Regulatory Status", "Court-ruled not a security", "Commodity (SEC)", "Under review", "Under review"],
+                  ["Institutional Partners", "100+ banks", "ETF issuers", "Enterprise Alliance", "Limited"],
+                ]}
+              />
+              </div>
             </div>
           </RevealSection>
 
