@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList, GlowCard,
+  FeatureGrid, DataTable, FAQAccordion, IconList, GlowCard,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
@@ -35,7 +35,7 @@ const schemas = [
     description: "Complete guide to Multi-Purpose Tokens on the XRP Ledger — a more flexible, efficient tokenization standard replacing traditional trust lines for complex use cases.",
     url: "https://allaboutxrp.com/learn/xrpl-multi-purpose-tokens",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -73,8 +73,8 @@ export default function XRPLMultiPurposeTokensPage() {
           breadcrumbLabel="XRPL Multi-Purpose Tokens"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -129,7 +129,7 @@ export default function XRPLMultiPurposeTokensPage() {
                 rows={[
                   ["Model", "Bilateral (issuer-holder)", "Token class with holders"],
                   ["Metadata", "Limited", "Rich on-chain metadata"],
-                  ["Reserve Cost", "2 XRP per trust line", "Lower per-holder cost"],
+                  ["Reserve Cost", "0.2 XRP per trust line", "Lower per-holder cost"],
                   ["Compliance", "Basic freeze/clawback", "Advanced transfer controls"],
                   ["Best For", "Simple fungible tokens", "Complex assets, securities, RWA"],
                   ["Status", "Live since 2012", "Activating (XLS-33)"],
@@ -209,7 +209,7 @@ export default function XRPLMultiPurposeTokensPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, XLS-33 specification.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, XLS-33 specification.</em>
         </p>
       </div>
     </>

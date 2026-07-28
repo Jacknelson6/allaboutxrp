@@ -290,39 +290,6 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   );
 }
 
-function WeeklyDigestCard({ digest }: { digest: WeeklyDigest }) {
-  const formatRange = (start: string, end: string) => {
-    const s = new Date(start + "T12:00:00");
-    const e = new Date(end + "T12:00:00");
-    const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
-    return `${s.toLocaleDateString("en-US", opts)} – ${e.toLocaleDateString("en-US", { ...opts, year: "numeric" })}`;
-  };
-
-  return (
-    <div className="relative group">
-      <div className="absolute -left-[21px] top-4 w-3 h-3 rounded-full bg-[#8b5cf6] border-2 border-[#16181C] shadow-[0_0_6px_rgba(139,92,246,0.4)]" />
-      <a
-        href={`/digest/${digest.slug}`}
-        className="block relative rounded-2xl border border-[#8b5cf6]/20 bg-gradient-to-br from-[#8b5cf6]/[0.04] to-transparent overflow-hidden hover:border-[#8b5cf6]/40 transition-colors"
-      >
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#8b5cf6] via-[#8b5cf6]/60 to-transparent" />
-        <div className="p-4">
-          <div className="flex items-center gap-2 mb-2 text-xs">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#8b5cf6]/15 border border-[#8b5cf6]/25 text-[#8b5cf6] font-semibold">
-              Weekly Digest
-            </span>
-            <span className="text-text-secondary">{formatRange(digest.week_start, digest.week_end)}</span>
-          </div>
-          <h3 className="text-[15px] font-bold text-white mb-1 group-hover:text-[#8b5cf6] transition-colors">
-            {digest.title}
-          </h3>
-          <span className="text-xs text-[#8b5cf6] font-medium">Read full analysis →</span>
-        </div>
-      </a>
-    </div>
-  );
-}
-
 const PAGE_SIZE = 20;
 
 export default function NewsFeed() {
@@ -337,7 +304,6 @@ export default function NewsFeed() {
     const res = await fetch(`/api/news?limit=${PAGE_SIZE}&offset=${offset}`);
     if (!res.ok) return [];
     const data: Article[] = await res.json();
-    if (data.length < PAGE_SIZE) setHasMore(false);
     return data;
   }, []);
 
@@ -348,6 +314,7 @@ export default function NewsFeed() {
       fetch("/api/digests").then((r) => r.ok ? r.json() : []).catch(() => []),
     ]).then(([newsData, digestData, weeklyData]) => {
       setArticles(newsData);
+      setHasMore(newsData.length === PAGE_SIZE);
       setDailyDigests(Array.isArray(digestData) ? digestData : []);
       setWeeklyDigests(Array.isArray(weeklyData) ? weeklyData : []);
       setLoading(false);
@@ -358,6 +325,7 @@ export default function NewsFeed() {
     setLoadingMore(true);
     const data = await fetchArticles(articles.length);
     setArticles((prev) => [...prev, ...data]);
+    setHasMore(data.length === PAGE_SIZE);
     setLoadingMore(false);
   };
 
@@ -371,7 +339,30 @@ export default function NewsFeed() {
     );
   }
 
-  if (articles.length === 0) return null;
+  if (articles.length === 0) {
+    const essentialGuides = [
+      { href: "/learn/what-is-xrp", title: "What is XRP?", description: "A source-backed introduction to XRP, XRPL, supply, and use cases." },
+      { href: "/learn/how-to-buy-xrp", title: "How to buy XRP", description: "A safety-first buying checklist with current reserve guidance." },
+      { href: "/learn/xrp-wallets", title: "XRP wallets", description: "Compare custody choices and learn how to protect your keys." },
+      { href: "/learn/xrpl-reserves-explained", title: "XRPL reserves", description: "The current 1 XRP base reserve and 0.2 XRP owner reserve explained." },
+    ];
+
+    return (
+      <section className="px-4 py-8" aria-labelledby="essential-guides-heading">
+        <h2 id="essential-guides-heading" className="text-lg font-bold text-text-primary">Essential XRP guides</h2>
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-text-secondary">Start with clear answers, primary sources, and practical next steps.</p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {essentialGuides.map((guide) => (
+            <a key={guide.href} href={guide.href} className="rounded-2xl border border-white/[0.08] bg-[#16181C] p-5 transition-colors hover:border-xrp-accent/30">
+              <h3 className="font-semibold text-text-primary">{guide.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-text-secondary">{guide.description}</p>
+              <span className="mt-4 inline-block text-sm font-medium text-xrp-accent">Read guide →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   // Build combined timeline: articles + daily digests + weekly digests, sorted newest-first
   type TimelineItem =

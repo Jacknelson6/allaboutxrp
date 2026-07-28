@@ -26,27 +26,51 @@ const AuthContext = createContext<AuthContextType>({
   refreshProStatus: async () => {},
 });
 
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const ADMIN_EMAILS = ["jack@nativz.io", "cole@nativz.io", "trevor@nativz.io"];
+
+const UNCONFIGURED_AUTH_VALUE: AuthContextType = {
+  user: null,
+  session: null,
+  loading: false,
+  isPro: false,
+  proLoading: false,
+  signInWithMagicLink: async () => ({
+    error: "Sign-in is not configured for this deployment.",
+  }),
+  signOut: async () => {},
+  refreshProStatus: async () => {},
+};
+
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 function getSupabaseBrowserClient() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  return createBrowserClient(SUPABASE_URL!, SUPABASE_ANON_KEY!);
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    return (
+      <AuthContext.Provider value={UNCONFIGURED_AUTH_VALUE}>
+        {children}
+      </AuthContext.Provider>
+    );
+  }
+
+  return <ConfiguredAuthProvider>{children}</ConfiguredAuthProvider>;
+}
+
+function ConfiguredAuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [isPro, setIsPro] = useState(false);
   const [proLoading, setProLoading] = useState(true);
 
-  const supabase = getSupabaseBrowserClient();
-
-  const ADMIN_EMAILS = ["jack@nativz.io", "cole@nativz.io", "trevor@nativz.io"];
+  const [supabase] = useState(getSupabaseBrowserClient);
 
   const checkPro = useCallback(async (email: string) => {
     setProLoading(true);

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
+import SourceList from "@/components/shared/SourceList";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
 import {
@@ -37,7 +38,12 @@ const schemas = [
     description: "A comprehensive guide to XRP wallets covering types, setup, security best practices, and comparisons of the best options in 2026.",
     url: "https://allaboutxrp.com/learn/xrp-wallets",
     datePublished: "2026-02-11",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
+    citations: [
+      "https://xrpl.org/docs/introduction/crypto-wallets",
+      "https://xrpl.org/docs/concepts/accounts",
+      "https://xrpl.org/docs/concepts/accounts/reserves",
+    ],
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -46,7 +52,7 @@ const schemas = [
   ]),
   buildFAQSchema([
     { question: "What is the best XRP wallet?", answer: "The best XRP wallet depends on your needs. Xaman (formerly XUMM) is the most popular self-custody mobile wallet built specifically for the XRPL. Ledger Nano is the best hardware wallet option. For convenience, exchange wallets on Coinbase or Kraken work well for active traders." },
-    { question: "What is the 10 XRP wallet reserve?", answer: "The XRP Ledger requires a base reserve of 10 XRP to activate any account. This XRP is locked and cannot be spent while the account exists. The reserve amount is set by validator vote and may be reduced in the future." },
+    { question: "What is the 1 XRP wallet reserve?", answer: "The XRP Ledger requires a base reserve of 1 XRP to activate any account. This XRP is locked and cannot be spent while the account exists. The reserve amount is set by validator vote and may be reduced in the future." },
     { question: "Can I store XRP on a Ledger?", answer: "Yes. Ledger hardware wallets (Nano S Plus and Nano X) support XRP natively. You can manage your XRP through Ledger Live software, which provides a secure way to send, receive, and manage your XRP holdings." },
     { question: "What happens if I lose my wallet recovery phrase?", answer: "If you lose your recovery phrase (seed phrase) and also lose access to your wallet device, your XRP is permanently lost. There is no password reset or account recovery. Always store your recovery phrase securely offline in multiple locations." },
     { question: "Do I need a destination tag when sending XRP?", answer: "It depends. When sending XRP to an exchange or custodial service, you typically need a destination tag to identify your account. When sending to a personal self-custody wallet like Xaman, a destination tag is usually not required." },
@@ -55,7 +61,7 @@ const schemas = [
 
 const faqItems = [
   { q: "What is the best XRP wallet?", a: "The best wallet depends on your needs. For mobile self-custody, Xaman (formerly XUMM) is the gold standard — it's built specifically for the XRP Ledger by XRPL Labs. For maximum security on large holdings, Ledger hardware wallets are ideal. For convenience and active trading, exchange wallets on Coinbase or Kraken work well. Many experienced users combine multiple wallet types." },
-  { q: "What is the 10 XRP wallet reserve?", a: "The XRP Ledger requires a base reserve of 10 XRP to activate any account. This amount is locked and cannot be spent while the account exists. Each additional object you create on the XRPL (trust lines, offers, etc.) requires an additional 2 XRP owner reserve. The reserve amounts are set by validator vote and could be lowered in the future — in fact, they were already reduced from 20 XRP in 2021." },
+  { q: "What is the 1 XRP wallet reserve?", a: "The XRP Ledger requires a base reserve of 1 XRP to activate any account. This amount is locked and cannot be spent while the account exists. Each additional object you create on the XRPL (trust lines, offers, etc.) requires an additional 0.2 XRP owner reserve. The reserve amounts are set by validator vote and could be lowered in the future — in fact, they were already reduced from 20 XRP in 2021." },
   { q: "Can I store XRP on a Ledger hardware wallet?", a: "Yes. Both the Ledger Nano S Plus and Ledger Nano X support XRP natively. You can manage your XRP through Ledger Live software. For even more functionality, you can connect your Ledger to Xaman for the best of both worlds — hardware security with full XRPL feature access." },
   { q: "What happens if I lose my wallet recovery phrase?", a: "If you lose your recovery phrase (also called seed phrase or secret numbers) and also lose access to your wallet device, your XRP is permanently and irreversibly lost. There is no password reset, no customer support, and no way to recover the funds. This is why securely backing up your recovery phrase is the single most important thing you can do." },
   { q: "Do I need a destination tag when sending XRP?", a: "When sending XRP to an exchange or custodial service, you almost always need a destination tag — it's how the exchange identifies which account the XRP belongs to. Missing the destination tag can result in lost funds (though some exchanges can recover them with support tickets). When sending to a personal self-custody wallet like Xaman, a destination tag is not required." },
@@ -75,7 +81,7 @@ export default function XRPWalletsPage() {
           breadcrumbLabel="XRP Wallets"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
           </div>
         </LearnHero>
 
@@ -83,7 +89,7 @@ export default function XRPWalletsPage() {
         <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
-            <strong className="text-text-primary">Here&apos;s what you need to know:</strong> For most users, <strong className="text-text-primary">Xaman</strong> (formerly XUMM) is the best self-custody XRP wallet — it&apos;s free, mobile, and built specifically for the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. For maximum security on large holdings, pair it with a <strong className="text-text-primary">Ledger</strong> hardware wallet. Remember: XRPL accounts require a 10 XRP base reserve.
+            <strong className="text-text-primary">Here&apos;s what you need to know:</strong> For most users, <strong className="text-text-primary">Xaman</strong> (formerly XUMM) is the best self-custody XRP wallet — it&apos;s free, mobile, and built specifically for the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. For maximum security on large holdings, pair it with a <strong className="text-text-primary">Ledger</strong> hardware wallet. Remember: XRPL accounts require a 1 XRP base reserve.
           </p>
         </div>
 
@@ -93,15 +99,15 @@ export default function XRPWalletsPage() {
           { id: "xaman", label: "Xaman (XUMM)" },
           { id: "hardware", label: "Hardware Wallets" },
           { id: "other", label: "Other Wallets" },
-          { id: "reserve", label: "10 XRP Reserve" },
+          { id: "reserve", label: "1 XRP Reserve" },
           { id: "security", label: "Security Tips" },
           { id: "tags", label: "Destination Tags" },
           { id: "faq", label: "FAQ" },
         ]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Base Reserve" value="10 XRP" />
-          <StatPill label="Owner Reserve" value="2 XRP" />
+          <StatPill label="Base Reserve" value="1 XRP" />
+          <StatPill label="Owner Reserve" value="0.2 XRP" />
           <StatPill label="Transfer Fee" value="< $0.01" />
           <StatPill label="Transfer Time" value="3-5 sec" />
         </div>
@@ -173,7 +179,7 @@ export default function XRPWalletsPage() {
                   <li>Create a new account — the app will generate a set of &quot;Secret Numbers&quot; (your recovery phrase)</li>
                   <li><strong className="text-text-primary">Write down your Secret Numbers on paper and store them securely.</strong> Never screenshot or store digitally.</li>
                   <li>Verify your Secret Numbers by entering them back</li>
-                  <li>Your wallet is ready — but you&apos;ll need to send at least 10 XRP to activate the account on the XRPL</li>
+                  <li>Your wallet is ready — but you&apos;ll need to send at least 1 XRP to activate the account on the XRPL</li>
                 </ol>
               </HighlightBox>
             </div>
@@ -217,7 +223,7 @@ export default function XRPWalletsPage() {
 
           {/* ===== RESERVE ===== */}
           <RevealSection id="reserve">
-            <h2 className="text-2xl font-bold text-text-primary">Understanding the 10 XRP Account Reserve</h2>
+            <h2 className="text-2xl font-bold text-text-primary">Understanding the 1 XRP Account Reserve</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
               One unique aspect of the XRP Ledger is the <strong className="text-text-primary">account reserve system</strong>. To activate an account on the XRPL and prevent spam, a minimum amount of XRP must be held in the account at all times.
             </p>
@@ -225,8 +231,8 @@ export default function XRPWalletsPage() {
               <DataTable
                 headers={["Reserve Type", "Amount", "Purpose"]}
                 rows={[
-                  ["Base Reserve", "10 XRP", "Required to activate any XRPL account"],
-                  ["Owner Reserve", "2 XRP per object", "Required for each trust line, offer, escrow, etc."],
+                  ["Base Reserve", "1 XRP", "Required to activate any XRPL account"],
+                  ["Owner Reserve", "0.2 XRP per object", "Required for each trust line, offer, escrow, etc."],
                 ]}
                 highlightCol={1}
               />
@@ -291,6 +297,12 @@ export default function XRPWalletsPage() {
           </RevealSection>
         </div>
 
+        <SourceList sources={[
+          { label: "XRPL crypto wallet guide", href: "https://xrpl.org/docs/introduction/crypto-wallets", note: "Custodial versus non-custodial wallet tradeoffs" },
+          { label: "XRPL accounts", href: "https://xrpl.org/docs/concepts/accounts", note: "Account creation and key-control basics" },
+          { label: "XRPL reserves", href: "https://xrpl.org/docs/concepts/accounts/reserves", note: "Current 1 XRP base and 0.2 XRP owner reserve values" },
+        ]} />
+
         <LearnCTA
           title="Ready to Set Up Your XRP Wallet?"
           description="Download Xaman to get started with self-custody, or check out our buying guide if you haven't purchased XRP yet."
@@ -301,7 +313,7 @@ export default function XRPWalletsPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Xaman official docs, Ledger support documentation.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Xaman official docs, Ledger support documentation.</em>
         </p>
       </div>
     </>

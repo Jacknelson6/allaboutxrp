@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "How to Create an XRPL Token: Token Issuance Guide", description: "Step-by-step guide to creating tokens on the XRP Ledger. Covers trust lines, token settings, and distribution.", url: "https://allaboutxrp.com/learn/how-to-create-xrpl-token", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "How to Create an XRPL Token: Token Issuance Guide", description: "Step-by-step guide to creating tokens on the XRP Ledger. Covers trust lines, token settings, and distribution.", url: "https://allaboutxrp.com/learn/how-to-create-xrpl-token", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How to Create an XRPL Token" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-create-xrpl-token" }),
   buildFAQSchema([
-    { question: "How much does it cost?", answer: "~10 XRP for account reserve plus minimal fees. Much cheaper than Ethereum." },
+    { question: "How much does it cost?", answer: "About 1 XRP for the account reserve plus minimal transaction fees. Additional ledger objects can add owner reserves." },
     { question: "Do I need to code?", answer: "No. Native feature — use wallet interfaces or API calls." },
     { question: "Can I control tokens after issuance?", answer: "Yes if configured. Freeze, transfer fees, clawback all possible." },
     { question: "What's a trust line?", answer: "Opt-in from a wallet to hold your token. Prevents spam, gives users control." },
@@ -39,7 +39,7 @@ const schemas = [
 ];
 
 const faqItems = [
-  { q: "How much does it cost?", a: "~10 XRP for account reserve plus minimal fees. Much cheaper than Ethereum." },
+  { q: "How much does it cost?", a: "About 1 XRP for the account reserve plus minimal transaction fees. Additional ledger objects can add owner reserves." },
   { q: "Do I need to code?", a: "No. Native feature — use wallet interfaces or API calls." },
   { q: "Can I control tokens after issuance?", a: "Yes if configured. Freeze, transfer fees, clawback all possible." },
   { q: "What's a trust line?", a: "Opt-in from a wallet to hold your token. Prevents spam, gives users control." },
@@ -52,7 +52,7 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="How to Create an XRPL Token" titleAccent="Token Issuance Guide" subtitle="Issue your own token on the XRP Ledger in minutes. No smart contracts required — tokenization is native." breadcrumbLabel="How to Create an XRPL Token">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
@@ -60,7 +60,7 @@ export default function Page() {
         </TLDRBox>
 
         <KeyFactsTable facts={[
-          { label: "Cost", value: "~10 XRP (reserve)" },
+          { label: "Base Reserve", value: "1 XRP" },
           { label: "Contracts", value: "Not needed" },
           { label: "Time", value: "Minutes" },
           { label: "Trust Lines", value: "Required for holders" },
@@ -78,7 +78,7 @@ export default function Page() {
         ]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Cost" value="~10 XRP" delay={0.00} />
+          <StatPill label="Base Reserve" value="1 XRP" delay={0.00} />
           <StatPill label="Time" value="Minutes" delay={0.06} />
           <StatPill label="Contracts" value="None" delay={0.12} />
           <StatPill label="Type" value="Native" delay={0.18} />
@@ -154,7 +154,7 @@ export default function Page() {
 
         <LearnCTA title="Build on the XRP Ledger" description="Create tokens, trade on the DEX, and explore the XRPL ecosystem." primaryHref="/learn/xrp-ledger-explained" primaryLabel="XRPL Guide →" secondaryHref="/learn/xrpl-defi" secondaryLabel="XRPL DeFi" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

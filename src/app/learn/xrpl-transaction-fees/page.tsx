@@ -35,7 +35,7 @@ const schemas = [
     description: "How XRP Ledger transaction fees work — the base fee, fee escalation mechanism, fee burning, and why XRPL transactions cost fractions of a penny.",
     url: "https://allaboutxrp.com/learn/xrpl-transaction-fees",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -73,8 +73,8 @@ export default function XRPLTransactionFeesPage() {
           breadcrumbLabel="XRPL Transaction Fees"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -182,7 +182,7 @@ export default function XRPLTransactionFeesPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 10 XRP minimum" },
+              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 1 XRP minimum" },
               { href: "/learn/xrp-supply-explained", label: "XRP Supply", desc: "Total supply explained" },
               { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Economics of XRP" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "How the XRPL works" },
@@ -202,7 +202,7 @@ export default function XRPLTransactionFeesPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org fee documentation.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org fee documentation.</em>
         </p>
       </div>
     </>

@@ -40,7 +40,7 @@ const schemas = [
     description: "A comprehensive guide to decentralized finance on the XRP Ledger, covering the native AMM, liquidity pools, built-in DEX, trust lines, and projects building on XRPL.",
     url: "https://allaboutxrp.com/learn/xrpl-defi",
     datePublished: "2026-02-13",
-    dateModified: "2026-02-13",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -77,8 +77,8 @@ export default function XRPLDeFiPage() {
           breadcrumbLabel="XRPL DeFi & AMM"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-13" />
-            <LastUpdated date="February 13, 2026" />
+            <AuthorByline date="2026-02-13" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -197,7 +197,7 @@ export default function XRPLDeFiPage() {
               <FeatureGrid columns={2} items={[
                 { title: "Spam Protection", desc: "No one can force unwanted tokens into your wallet — you choose what you hold by creating trust lines" },
                 { title: "Opt-in Model", desc: "Unlike Ethereum (where anyone can send you any ERC-20 token), XRPL requires your explicit consent" },
-                { title: "XRP Reserve", desc: "Each trust line requires a small XRP reserve (currently 2 XRP), which is recoverable when the trust line is removed" },
+                { title: "XRP Reserve", desc: "Each trust line requires a small XRP reserve (currently 0.2 XRP), which is recoverable when the trust line is removed" },
                 { title: "Rippling", desc: "Trust lines enable 'rippling' — the XRPL can route payments through intermediary trust lines for efficient settlement" },
               ]} />
             </div>
@@ -299,7 +299,7 @@ export default function XRPLDeFiPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple Insights, CoinDesk, DeFi Llama.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple Insights, CoinDesk, DeFi Llama.</em>
         </p>
       </div>
     </>

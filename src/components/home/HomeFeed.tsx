@@ -104,6 +104,21 @@ export default function HomeFeed() {
         </div>
       </div>
 
+      <section className="border-b border-white/[0.06]" aria-labelledby="xrp-overview-heading">
+        <div className="mx-auto max-w-[1100px] px-4 py-6 sm:px-5">
+          <h2 id="xrp-overview-heading" className="text-lg font-bold tracking-[-0.02em] text-text-primary">
+            What is XRP?
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">
+            XRP is the native digital asset of the open-source XRP Ledger. It is used for transaction fees and can bridge value between currencies and tokens. XRP is distinct from Ripple, the private company that builds products using XRP and XRPL technology.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            <Link href="/learn/what-is-xrp" className="font-medium text-xrp-accent hover:underline">Read the complete XRP guide</Link>
+            <a href="https://xrpl.org/about/xrp" rel="noopener noreferrer" className="text-text-secondary hover:text-text-primary hover:underline">Verify with XRPL.org</a>
+          </div>
+        </div>
+      </section>
+
       {/* Two-column layout */}
       <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-0 lg:gap-6 px-0 lg:px-4 overflow-hidden">
         {/* Center feed */}

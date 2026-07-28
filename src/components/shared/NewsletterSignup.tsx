@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Mail, CheckCircle, Loader2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   variant?: "compact" | "full";
@@ -27,6 +28,7 @@ export default function NewsletterSignup({ variant = "full" }: NewsletterSignupP
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong");
       setStatus("success");
+      trackEvent("newsletter_signup_completed", { placement: variant });
     } catch (err: unknown) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP NFTs: NFTs on the XRP Ledger (XLS-20)", description: "A comprehensive guide to NFTs on the XRP Ledger, covering XLS-20, minting, trading, and advantages over Ethereum-based NFTs.", url: "https://allaboutxrp.com/learn/xrp-nfts", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP NFTs: NFTs on the XRP Ledger (XLS-20)", description: "A comprehensive guide to NFTs on the XRP Ledger, covering XLS-20, minting, trading, and advantages over Ethereum-based NFTs.", url: "https://allaboutxrp.com/learn/xrp-nfts", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP NFTs" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-nfts" }),
   buildFAQSchema([
@@ -53,7 +53,7 @@ export default function XRPNFTsPage() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="XRP NFTs" titleAccent="NFTs on the XRP Ledger" subtitle="The XRP Ledger has native NFT support through XLS-20 — offering faster, cheaper, and greener NFTs than Ethereum. Here's everything you need to know about creating, buying, and trading NFTs on the XRPL." breadcrumbLabel="XRP NFTs">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
@@ -173,7 +173,7 @@ export default function XRPNFTsPage() {
             <h2 className="text-2xl font-bold text-text-primary">How to Mint an NFT on the XRP Ledger</h2>
             <div className="mt-6">
               <IconList items={[
-                { title: "1. Set up an XRP wallet", desc: "You need an XRPL wallet with at least 10 XRP for the reserve requirement. Xumm (now Xaman) is the most popular choice." },
+                { title: "1. Set up an XRP wallet", desc: "You need an XRPL wallet with at least 1 XRP for the reserve requirement. Xumm (now Xaman) is the most popular choice." },
                 { title: "2. Prepare your asset", desc: "Create your digital artwork, music, or content. Upload it to IPFS or another decentralized storage solution." },
                 { title: "3. Choose a minting platform", desc: "Use a marketplace like xrp.cafe or Sologenic, or mint directly using XRPL developer tools." },
                 { title: "4. Configure your NFT", desc: "Set the metadata URI, transfer fee (royalty percentage), and flags (burnable, transferable, etc.)." },
@@ -204,7 +204,7 @@ export default function XRPNFTsPage() {
 
         <LearnCTA title="Explore the XRPL Ecosystem" description="NFTs are just one feature of the XRP Ledger. Discover DeFi, tokenized assets, and more." primaryHref="/learn/xrpl-defi" primaryLabel="XRPL DeFi →" secondaryHref="/learn/xrp-ledger-explained" secondaryLabel="XRP Ledger Explained" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, XLS-20 documentation, xrp.cafe.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, XLS-20 documentation, xrp.cafe.</em></p>
       </div>
     </>
   );

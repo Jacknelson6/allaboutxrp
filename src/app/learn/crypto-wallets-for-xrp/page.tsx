@@ -27,13 +27,13 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Best Crypto Wallets for XRP in 2026: Complete Guide", description: "Best crypto wallets for XRP — hardware, software, and mobile reviews with security ratings.", url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Best Crypto Wallets for XRP in 2026: Complete Guide", description: "Best crypto wallets for XRP — hardware, software, and mobile reviews with security ratings.", url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Wallets for XRP" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp" }),
   buildFAQSchema([
     { question: "What's the best wallet for XRP?", answer: "For maximum security: Ledger Nano X or Trezor Safe 3 (hardware). For convenience: Xaman (XUMM) or Trust Wallet (mobile). For XRPL features: Xaman." },
     { question: "Do I need a special wallet for XRP?", answer: "No, but the wallet must support XRP/XRPL. Not all wallets do. Major hardware and software wallets support XRP." },
-    { question: "What's the 10 XRP wallet reserve?", answer: "XRPL requires a 10 XRP minimum balance to activate an account. This reserve prevents ledger spam and is locked until you close the account." },
+    { question: "What's the 1 XRP wallet reserve?", answer: "XRPL requires a 1 XRP minimum balance to activate an account. This reserve prevents ledger spam and is locked until you close the account." },
     { question: "Can I use the same wallet for XRP and Bitcoin?", answer: "Yes. Multi-asset wallets like Ledger, Trezor, and Trust Wallet support both XRP and Bitcoin (and many other assets)." },
     { question: "Are mobile wallets safe for XRP?", answer: "Reasonably safe for moderate amounts. For large holdings ($10K+), use a hardware wallet. Mobile wallets are vulnerable to phone theft/malware." },
     { question: "What happens if I lose my wallet?", answer: "If you have your recovery phrase (12-24 words), you can restore your wallet on any compatible device. If you lose the phrase, your XRP is gone forever." },
@@ -43,7 +43,7 @@ const schemas = [
 const faqItems = [
   { q: "What's the best wallet for XRP?", a: "For maximum security: Ledger Nano X or Trezor Safe 3 (hardware). For convenience: Xaman (XUMM) or Trust Wallet (mobile). For XRPL features: Xaman." },
   { q: "Do I need a special wallet for XRP?", a: "No, but the wallet must support XRP/XRPL. Not all wallets do. Major hardware and software wallets support XRP." },
-  { q: "What's the 10 XRP wallet reserve?", a: "XRPL requires a 10 XRP minimum balance to activate an account. This reserve prevents ledger spam and is locked until you close the account." },
+  { q: "What's the 1 XRP wallet reserve?", a: "XRPL requires a 1 XRP minimum balance to activate an account. This reserve prevents ledger spam and is locked until you close the account." },
   { q: "Can I use the same wallet for XRP and Bitcoin?", a: "Yes. Multi-asset wallets like Ledger, Trezor, and Trust Wallet support both XRP and Bitcoin (and many other assets)." },
   { q: "Are mobile wallets safe for XRP?", a: "Reasonably safe for moderate amounts. For large holdings ($10K+), use a hardware wallet. Mobile wallets are vulnerable to phone theft/malware." },
   { q: "What happens if I lose my wallet?", a: "If you have your recovery phrase (12-24 words), you can restore your wallet on any compatible device. If you lose the phrase, your XRP is gone forever." },
@@ -55,18 +55,18 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="Best Crypto Wallets for XRP" titleAccent="Complete 2026 Guide" subtitle="Hardware, software, and mobile wallet reviews — find the right wallet for your XRP based on security, features, and ease of use." breadcrumbLabel="Wallets for XRP">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
-          <p>For maximum security, use a <strong className="text-text-primary">hardware wallet</strong> (Ledger or Trezor). For daily use, <strong className="text-text-primary">Xaman (XUMM)</strong> is the best XRPL-native mobile wallet. Always <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">secure your recovery phrase</Link>. Remember: XRPL requires a <Link href="/learn/xrp-addresses-and-keys" className="text-xrp-accent underline decoration-xrp-accent/30">10 XRP reserve</Link> to activate accounts.</p>
+          <p>For maximum security, use a <strong className="text-text-primary">hardware wallet</strong> (Ledger or Trezor). For daily use, <strong className="text-text-primary">Xaman (XUMM)</strong> is the best XRPL-native mobile wallet. Always <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">secure your recovery phrase</Link>. Remember: XRPL requires a <Link href="/learn/xrp-addresses-and-keys" className="text-xrp-accent underline decoration-xrp-accent/30">1 XRP reserve</Link> to activate accounts.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Best Security", value: "Ledger Nano X" },
           { label: "Best XRPL", value: "Xaman (XUMM)" },
           { label: "Best Multi-Asset", value: "Trust Wallet" },
-          { label: "Account Reserve", value: "10 XRP minimum" },
+          { label: "Account Reserve", value: "1 XRP minimum" },
           { label: "Backup", value: "Recovery phrase (24 words)" },
           { label: "Never Share", value: "Private keys or seed phrase" },
         ]} />
@@ -83,7 +83,7 @@ export default function Page() {
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Hardware" value="Most Secure" delay={0.00} />
           <StatPill label="Software" value="Most Easy" delay={0.06} />
-          <StatPill label="Reserve" value="10 XRP" delay={0.12} />
+          <StatPill label="Reserve" value="1 XRP" delay={0.12} />
           <StatPill label="Backup" value="Essential" delay={0.18} />
         </div>
 
@@ -107,7 +107,7 @@ export default function Page() {
               ["Trezor Safe 3","~$79","Full","Basic send/receive","8.5/10"],
               ["Tangem","~$55","Full","NFC card format","8/10"],
             ]} highlightCol={4} /></div>
-            <div className="mt-6"><HighlightBox title="Our Pick: Ledger Nano X" variant="info"><p>The Ledger Nano X offers Bluetooth connectivity, supports 5,500+ assets including XRP, and pairs with the Ledger Live app. It's the gold standard for crypto self-custody.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Example: Ledger Nano X" variant="info"><p>The Ledger Nano X offers Bluetooth connectivity and pairs with the Ledger Live app. Verify current asset support, pricing, and device specifications with the manufacturer before buying.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="software" delay={0.05}>
@@ -137,7 +137,7 @@ export default function Page() {
             <div className="mt-6"><IconList items={[
               { title: "Write down recovery phrase on paper", desc: "Never digitally. No photos, no cloud storage, no text files. Paper only, stored in a safe place." },
               { title: "Test with a small amount first", desc: "Send a tiny amount of XRP before transferring your full balance. Verify the address." },
-              { title: "Remember the 10 XRP reserve", desc: "Your first 10 XRP are locked as an account reserve. Plan accordingly when transferring." },
+              { title: "Remember the 1 XRP reserve", desc: "Your first 1 XRP is locked as an account reserve. Plan accordingly when transferring." },
               { title: "Use destination tags for exchanges", desc: "When sending TO an exchange, include the destination tag or your XRP may be lost." },
               { title: "Enable all security features", desc: "PIN, biometrics, 2FA — use every security layer available." },
               { title: "Buy hardware wallets from official sources only", desc: "Never buy second-hand or from Amazon third-party sellers. Tampered devices steal funds." },
@@ -166,7 +166,7 @@ export default function Page() {
 
         <LearnCTA title="Secure Your XRP" description="The best investment you can make is in security. Choose the right wallet." primaryHref="/learn/how-to-store-xrp-safely" primaryLabel="Storage Guide →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="Buy XRP" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

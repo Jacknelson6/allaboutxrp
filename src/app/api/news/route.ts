@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient, isSupabaseServiceConfigured } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
+  if (!isSupabaseServiceConfigured()) {
+    return NextResponse.json([]);
+  }
+
   const { searchParams } = request.nextUrl;
   const limit = Math.min(Number(searchParams.get("limit") ?? 20), 50);
   const offset = Number(searchParams.get("offset") ?? 0);

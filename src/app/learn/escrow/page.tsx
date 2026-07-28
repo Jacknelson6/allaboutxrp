@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import EscrowContent from "@/app/escrow/EscrowContent";
 import SEOSchema from "@/components/shared/SEOSchema";
-import UniqueInsight from "@/components/learn/UniqueInsight";
 import { buildArticleSchema, buildBreadcrumbSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 
 export const dynamic = "force-static";
@@ -20,7 +19,7 @@ const schemas = [
     description: "A comprehensive guide to Ripple's XRP escrow system, monthly release schedule, and impact on supply.",
     url: "https://allaboutxrp.com/learn/escrow",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -46,11 +45,10 @@ export default function EscrowLearnPage() {
       <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
         <EscrowContent />
         <div className="mx-auto max-w-4xl">
-          <UniqueInsight title="Escrow Releases Don't Crash XRP's Price — The Data Proves It" verifiedDate="February 23, 2026">
-            <p>This is one of the most persistent myths in crypto: "Ripple dumps 1 billion XRP on the market every month." Let's kill it with data. Since the escrow system launched in December 2017, Ripple has <strong className="text-white">re-escrowed an average of 80-85% of each monthly release</strong>. In 2024, Ripple used only ~200M XRP per quarter for operational purposes out of 3B unlocked — that's a 93% re-escrow rate.</p>
-            <p>We analyzed XRP price action around all 86 escrow release dates from 2017-2025. The correlation between escrow unlock days and negative price movement is <strong className="text-white">statistically insignificant (r = -0.03)</strong>. In fact, 48 of those 86 months saw <em>positive</em> price action in the 7 days following the unlock. The market priced in the escrow schedule years ago — it's entirely predictable and transparent on-chain via XRPScan.</p>
-            <p>What actually matters: Ripple's remaining escrow balance (~33.9B XRP as of January 2026) represents long-term commitment to the ecosystem. Each month they don't sell is a month of reduced effective supply. The real sell pressure comes from retail traders, not Ripple's treasury operations.</p>
-          </UniqueInsight>
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">
+            <h2 className="text-xl font-bold text-text-primary">How to evaluate an escrow release</h2>
+            <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/tools/escrow-tracker" className="text-xrp-accent underline decoration-xrp-accent/30">live escrow tracker</Link> is designed to make those on-ledger events inspectable without presenting an unsupported price-correlation claim.</p>
+          </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/[0.06]">

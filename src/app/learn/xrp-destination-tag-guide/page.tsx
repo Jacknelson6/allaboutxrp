@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList, GlowCard,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
@@ -36,7 +36,7 @@ const schemas = [
     description: "Complete guide to XRP destination tags — what they are, why exchanges require them, and how to recover XRP sent without one.",
     url: "https://allaboutxrp.com/learn/xrp-destination-tag-guide",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -74,8 +74,8 @@ export default function XRPDestinationTagGuidePage() {
           breadcrumbLabel="XRP Destination Tag Guide"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -124,7 +124,7 @@ export default function XRPDestinationTagGuidePage() {
           <RevealSection id="why-needed" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Why Exchanges Require Destination Tags</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Every active XRP account requires a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">reserve of 10 XRP</Link>. If an exchange created a separate address for each customer, they&apos;d lock up millions of XRP in reserves. Instead, exchanges use one (or a few) XRP addresses and assign unique destination tags to each customer.
+              Every active XRP account requires a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">reserve of 1 XRP</Link>. If an exchange created a separate address for each customer, they&apos;d lock up millions of XRP in reserves. Instead, exchanges use one (or a few) XRP addresses and assign unique destination tags to each customer.
             </p>
             <div className="mt-5">
               <FeatureGrid columns={2} items={[
@@ -198,7 +198,7 @@ export default function XRPDestinationTagGuidePage() {
               { href: "/learn/xrp-scams", label: "XRP Scams", desc: "Common scams to avoid" },
               { href: "/learn/recover-lost-xrp", label: "Recover Lost XRP", desc: "Options for lost access" },
               { href: "/learn/xrp-self-custody-guide", label: "Self-Custody Guide", desc: "Be your own bank" },
-              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 10 XRP minimum" },
+              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 1 XRP minimum" },
               { href: "/learn/xrpl-transaction-fees", label: "Transaction Fees", desc: "How XRPL fees work" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Best wallets compared" },
               { href: "/learn/how-does-xrp-work", label: "How XRP Works", desc: "Understand the basics" },
@@ -217,7 +217,7 @@ export default function XRPDestinationTagGuidePage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation.</em>
         </p>
       </div>
     </>

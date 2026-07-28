@@ -26,13 +26,13 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP for Beginners: Complete Starter Guide 2026", description: "Everything beginners need to know about XRP — how it works, how to buy, store, and why it matters.", url: "https://allaboutxrp.com/learn/xrp-for-beginners", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP for Beginners: Complete Starter Guide 2026", description: "Everything beginners need to know about XRP — how it works, how to buy, store, and why it matters.", url: "https://allaboutxrp.com/learn/xrp-for-beginners", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP for Beginners" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-for-beginners" }),
   buildFAQSchema([
     { question: "What is XRP in simple terms?", answer: "XRP is a digital currency designed for fast, cheap international payments. It settles in 3-5 seconds and costs fractions of a penny to send." },
     { question: "Is XRP a good investment for beginners?", answer: "XRP is one of the most established crypto assets. It's relatively affordable per coin, but always invest only what you can afford to lose and do your own research." },
-    { question: "How much money do I need to start with XRP?", answer: "You can buy fractional XRP — start with as little as $10-$50 to learn. The 10 XRP wallet reserve is the minimum to activate an XRPL wallet." },
+    { question: "How much money do I need to start with XRP?", answer: "You can buy fractional XRP — start with as little as $10-$50 to learn. The 1 XRP wallet reserve is the minimum to activate an XRPL wallet." },
     { question: "Is XRP safe?", answer: "The XRP Ledger has operated since 2012 without a security breach. Your biggest risk is losing access to your wallet or buying at a bad price." },
     { question: "What's the difference between XRP and Bitcoin?", answer: "Bitcoin is digital gold (slow, expensive, store of value). XRP is digital payments (fast, cheap, designed for moving money). Different purposes." },
     { question: "Where can I buy XRP?", answer: "Major exchanges like Coinbase, Binance, Kraken, and Uphold all support XRP. See our detailed buying guide for step-by-step instructions." },
@@ -42,7 +42,7 @@ const schemas = [
 const faqItems = [
   { q: "What is XRP in simple terms?", a: "XRP is a digital currency designed for fast, cheap international payments. It settles in 3-5 seconds and costs fractions of a penny to send." },
   { q: "Is XRP a good investment for beginners?", a: "XRP is one of the most established crypto assets. It's relatively affordable per coin, but always invest only what you can afford to lose and do your own research." },
-  { q: "How much money do I need to start with XRP?", a: "You can buy fractional XRP — start with as little as $10-$50 to learn. The 10 XRP wallet reserve is the minimum to activate an XRPL wallet." },
+  { q: "How much money do I need to start with XRP?", a: "You can buy fractional XRP — start with as little as $10-$50 to learn. The 1 XRP wallet reserve is the minimum to activate an XRPL wallet." },
   { q: "Is XRP safe?", a: "The XRP Ledger has operated since 2012 without a security breach. Your biggest risk is losing access to your wallet or buying at a bad price." },
   { q: "What's the difference between XRP and Bitcoin?", a: "Bitcoin is digital gold (slow, expensive, store of value). XRP is digital payments (fast, cheap, designed for moving money). Different purposes." },
   { q: "Where can I buy XRP?", a: "Major exchanges like Coinbase, Binance, Kraken, and Uphold all support XRP. See our detailed buying guide for step-by-step instructions." },
@@ -54,7 +54,7 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="XRP for Beginners" titleAccent="Complete Starter Guide" subtitle="New to XRP? Start here. Plain-language guide to what XRP is, how to buy it, store it, and why millions of people hold it." breadcrumbLabel="XRP for Beginners">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
@@ -102,8 +102,8 @@ export default function Page() {
 
           <RevealSection id="how" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">How Does XRP Work?</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">XRP runs on the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> — a network of computers that verify transactions. Unlike Bitcoin mining, XRPL uses a <Link href="/learn/xrpl-consensus-mechanism" className="text-xrp-accent underline decoration-xrp-accent/30">consensus mechanism</Link> that's faster and more energy efficient.</p>
-            <div className="mt-6"><HighlightBox title="Simple Analogy" variant="info"><p>Imagine sending money from the US to Japan. Today: your bank → correspondent bank → their bank → recipient. 3-5 days, $40+ fees. With XRP: you → XRP → recipient. 4 seconds, $0.001 fee. That's the value proposition.</p></HighlightBox></div>
+            <p className="mt-4 text-text-secondary leading-relaxed">XRP runs on the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> — a network of computers that verify transactions. Unlike Bitcoin mining, XRPL uses a <Link href="/learn/xrpl-consensus-mechanism" className="text-xrp-accent underline decoration-xrp-accent/30">consensus mechanism</Link> that&apos;s designed for fast settlement without proof-of-work mining.</p>
+            <div className="mt-6"><HighlightBox title="Simple Analogy" variant="info"><p>In a cross-border payment, XRP can act as a temporary bridge between two currencies. The exact route, cost, and time depend on the payment provider and available liquidity; XRP itself is not a guarantee that every transfer uses the shortest route.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="buy" delay={0.05}>
@@ -172,7 +172,7 @@ export default function Page() {
 
         <LearnCTA title="Start Your XRP Journey" description="You've got the basics. Ready to go deeper?" primaryHref="/learn/how-to-buy-xrp" primaryLabel="Buy XRP →" secondaryHref="/learn/what-is-xrp" secondaryLabel="What Is XRP" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

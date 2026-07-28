@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "How to Store XRP Safely: Complete Security Guide", description: "Learn how to store XRP safely using hardware wallets, cold storage, and best security practices. Complete guide to protecting your XRP investment.", url: "https://allaboutxrp.com/learn/how-to-store-xrp-safely", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "How to Store XRP Safely: Complete Security Guide", description: "Learn how to store XRP safely using hardware wallets, cold storage, and best security practices. Complete guide to protecting your XRP investment.", url: "https://allaboutxrp.com/learn/how-to-store-xrp-safely", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How to Store XRP Safely" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-store-xrp-safely" }),
   buildFAQSchema([
@@ -36,7 +36,7 @@ const schemas = [
     },
     {
         "question": "What is the XRP reserve requirement?",
-        "answer": "Every XRP wallet must maintain a 10 XRP minimum reserve to remain active on the ledger. This is a spam-prevention mechanism."
+        "answer": "Every XRP wallet must maintain a 1 XRP minimum reserve to remain active on the ledger. This is a spam-prevention mechanism."
     },
     {
         "question": "Can I store XRP on a Ledger?",
@@ -60,7 +60,7 @@ const faqItems = [
   },
   {
     "q": "What is the XRP reserve requirement?",
-    "a": "Every XRP wallet must maintain a 10 XRP minimum reserve to remain active on the ledger. This is a spam-prevention mechanism."
+    "a": "Every XRP wallet must maintain a 1 XRP minimum reserve to remain active on the ledger. This is a spam-prevention mechanism."
   },
   {
     "q": "Can I store XRP on a Ledger?",
@@ -82,20 +82,20 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="How to Store XRP Safely" titleAccent="Complete Security Guide" subtitle="Learn the safest ways to store your XRP — from hardware wallets to cold storage. Protect your investment from hacks, scams, and loss." breadcrumbLabel="How to Store XRP Safely">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
           <p>Storing XRP safely means moving it off exchanges and into wallets you control. <strong className="text-text-primary">Hardware wallets</strong> like Ledger and Trezor offer the best security for long-term holders. For everyday use, the <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">Xaman wallet</Link> provides a good balance of security and convenience. Never share your secret keys, always enable 2FA on exchanges, and consider splitting large holdings across multiple wallets.</p>
         </TLDRBox>
 
-        <KeyFactsTable facts={[{"label":"Safest Method","value":"Hardware wallet (Ledger)"},{"label":"Reserve Requirement","value":"10 XRP minimum"},{"label":"Backup","value":"24-word recovery phrase"},{"label":"Exchange Risk","value":"Not your keys, not your crypto"},{"label":"2FA","value":"Always enable on exchanges"},{"label":"Best Mobile Wallet","value":"Xaman (formerly Xumm)"}]} />
+        <KeyFactsTable facts={[{"label":"Safest Method","value":"Hardware wallet (Ledger)"},{"label":"Reserve Requirement","value":"1 XRP minimum"},{"label":"Backup","value":"24-word recovery phrase"},{"label":"Exchange Risk","value":"Not your keys, not your crypto"},{"label":"2FA","value":"Always enable on exchanges"},{"label":"Best Mobile Wallet","value":"Xaman (formerly Xumm)"}]} />
 
         <SectionNav items={[{"id":"wallet-types","label":"Wallet Types"},{"id":"hardware-wallets","label":"Hardware Wallets"},{"id":"software-wallets","label":"Software Wallets"},{"id":"exchange-storage","label":"Exchange Storage"},{"id":"security-tips","label":"Security Tips"},{"id":"faq","label":"FAQ"}]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Best Security" value="Hardware" delay={0.00} />
-          <StatPill label="Reserve" value="10 XRP" delay={0.06} />
+          <StatPill label="Reserve" value="1 XRP" delay={0.06} />
           <StatPill label="Backup" value="24 words" delay={0.12} />
           <StatPill label="Cost" value="$79+" delay={0.18} />
         </div>
@@ -153,11 +153,11 @@ export default function Page() {
           <RevealSection id="exchange-storage" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Should You Store XRP on an Exchange?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Keeping XRP on exchanges like <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Coinbase or Binance</Link> is convenient for trading but risky for long-term storage. Exchange hacks, freezes, and bankruptcies (like FTX) have cost investors billions. The crypto rule: <strong className="text-text-primary">"Not your keys, not your crypto."</strong>
+              Keeping XRP on exchanges like <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Coinbase or Binance</Link> is convenient for trading but introduces platform and custody risk. The common self-custody principle is: <strong className="text-text-primary">&quot;Not your keys, not your crypto.&quot;</strong>
             </p>
             <div className="mt-6">
               <HighlightBox title="When Exchange Storage Is OK" variant="accent">
-                <p>If you're actively trading small amounts, exchange storage is fine. But for any significant holding you plan to keep long-term, move it to a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link>.</p>
+                <p>If you&apos;re actively trading, exchange custody may be convenient. For a long-term holding, compare that convenience with the responsibility and control of a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -197,7 +197,7 @@ export default function Page() {
 
         <LearnCTA title="Secure Your XRP Today" description="Don't leave your XRP at risk. Get a hardware wallet and take control of your crypto security." primaryHref="/learn/xrp-wallets" primaryLabel="XRP Wallets Guide →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="Buy XRP" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

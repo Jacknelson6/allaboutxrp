@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
@@ -40,7 +40,7 @@ const schemas = [
     description: "A comprehensive guide to stablecoins on the XRP Ledger, including RLUSD backing, regulation, DEX integration, and institutional use cases.",
     url: "https://allaboutxrp.com/learn/xrp-stablecoin-ecosystem",
     datePublished: "2026-02-13",
-    dateModified: "2026-02-13",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -77,8 +77,8 @@ export default function XRPStablecoinEcosystemPage() {
           breadcrumbLabel="XRP Stablecoin Ecosystem"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-13" />
-            <LastUpdated date="February 13, 2026" />
+            <AuthorByline date="2026-02-13" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -196,7 +196,7 @@ export default function XRPStablecoinEcosystemPage() {
             </div>
             <div className="mt-6">
               <HighlightBox title="Trust Lines Are Key" variant="info">
-                <p>To hold any issued token on XRPL (including stablecoins), you must first create a <strong className="text-text-primary">trust line</strong> to the issuer using a <Link href="/learn/xrp-transaction-types" className="text-xrp-accent underline decoration-xrp-accent/30">TrustSet transaction</Link>. This is a deliberate security feature — you explicitly choose which tokens and issuers to trust. Each trust line increases your <Link href="/learn/xrp-addresses-and-keys" className="text-xrp-accent underline decoration-xrp-accent/30">account reserve</Link> by 2 XRP.</p>
+                <p>To hold any issued token on XRPL (including stablecoins), you must first create a <strong className="text-text-primary">trust line</strong> to the issuer using a <Link href="/learn/xrp-transaction-types" className="text-xrp-accent underline decoration-xrp-accent/30">TrustSet transaction</Link>. This is a deliberate security feature — you explicitly choose which tokens and issuers to trust. Each trust line increases your <Link href="/learn/xrp-addresses-and-keys" className="text-xrp-accent underline decoration-xrp-accent/30">account reserve</Link> by 0.2 XRP.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -242,7 +242,7 @@ export default function XRPStablecoinEcosystemPage() {
             <div className="mt-5">
               <IconList items={[
                 { title: "Fee Burns", desc: "Every RLUSD transaction burns XRP as a transaction fee — reducing total XRP supply permanently" },
-                { title: "Reserve Requirements", desc: "Holding RLUSD requires trust lines, which lock up XRP in account reserves (2 XRP per trust line)" },
+                { title: "Reserve Requirements", desc: "Holding RLUSD requires trust lines, which lock up XRP in account reserves (0.2 XRP per trust line)" },
                 { title: "DEX Auto-Bridging", desc: "The XRPL DEX routes trades through XRP when optimal, creating constant buy/sell pressure" },
                 { title: "Network Activity", desc: "More stablecoin usage means more XRPL transactions, validators, and ecosystem growth" },
                 { title: "Institutional Gravity", desc: "RLUSD brings institutions to the XRPL — once on the ledger, they naturally encounter XRP" },
@@ -299,7 +299,7 @@ export default function XRPStablecoinEcosystemPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, XRPL.org documentation, NYDFS records, CoinGecko market data.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple official announcements, XRPL.org documentation, NYDFS records, CoinGecko market data.</em>
         </p>
       </div>
     </>

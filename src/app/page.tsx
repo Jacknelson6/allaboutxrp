@@ -29,13 +29,9 @@ const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     url: "https://allaboutxrp.com/logo-full.png",
-    width: 600,
-    height: 200,
+    width: 2000,
+    height: 2000,
   },
-  sameAs: [
-    "https://x.com/allaboripple",
-    "https://www.youtube.com/@AllAboutXRP",
-  ],
 };
 
 const faqSchema = {

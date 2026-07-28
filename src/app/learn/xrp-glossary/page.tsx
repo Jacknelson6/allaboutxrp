@@ -40,7 +40,7 @@ const schemas = [
     description: "A comprehensive glossary covering every important XRP and XRP Ledger term, from AMM to X-address.",
     url: "https://allaboutxrp.com/learn/xrp-glossary",
     datePublished: "2026-02-13",
-    dateModified: "2026-02-13",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -60,7 +60,7 @@ interface GlossaryTerm {
 const glossaryTerms: GlossaryTerm[] = [
   { id: "amm", term: "AMM (Automated Market Maker)", definition: "A native XRPL feature that enables decentralized token swaps using liquidity pools instead of order books. Users can provide liquidity to AMM pools and earn fees from trades. Added to the XRPL via the AMM amendment.", link: { href: "/learn/xrp-ledger-explained", label: "Learn about the XRPL" } },
   { id: "amendment", term: "Amendment", definition: "A proposed change to the XRP Ledger protocol. Amendments require approval by at least 80% of validators over a two-week period before activating. This ensures no single entity can unilaterally change the network rules." },
-  { id: "base-reserve", term: "Base Reserve", definition: "The minimum amount of XRP required to activate and maintain an account on the XRP Ledger. Currently set at 10 XRP. This reserve cannot be spent and serves as anti-spam protection." },
+  { id: "base-reserve", term: "Base Reserve", definition: "The minimum amount of XRP required to activate and maintain an account on the XRP Ledger. Currently set at 1 XRP. This reserve cannot be spent and serves as anti-spam protection." },
   { id: "bridge", term: "Bridge", definition: "Infrastructure that enables assets to move between the XRP Ledger and other blockchains (e.g., Ethereum, EVM sidechains). The XRPL supports cross-chain bridges for interoperability." },
   { id: "burn", term: "Burn", definition: "The permanent destruction of XRP through transaction fees. Every XRPL transaction burns a small amount of XRP (typically 0.00001 XRP) that can never be recovered, making XRP deflationary over time.", link: { href: "/learn/xrp-supply-explained", label: "XRP Supply Explained" } },
   { id: "cbdc", term: "CBDC (Central Bank Digital Currency)", definition: "A digital currency issued by a central bank. Ripple is working with 20+ central banks globally on CBDC pilots, many of which leverage XRPL technology for issuance and settlement." },
@@ -77,14 +77,14 @@ const glossaryTerms: GlossaryTerm[] = [
   { id: "memo", term: "Memo", definition: "An optional data field attached to XRPL transactions. Memos can contain messages, references, or metadata. Often used by exchanges to identify deposits (destination tags serve a similar but distinct purpose)." },
   { id: "nft", term: "NFT (Non-Fungible Token / XLS-20)", definition: "Native NFT support on the XRPL, enabled by the XLS-20 amendment in October 2022. Unlike Ethereum NFTs, XRPL NFTs are minted and traded natively without smart contracts, with built-in royalty enforcement." },
   { id: "odl", term: "ODL (On-Demand Liquidity)", definition: "Ripple's flagship product that uses XRP as a bridge currency for real-time cross-border payments. ODL eliminates the need for pre-funded nostro/vostro accounts by converting between currencies via XRP in seconds.", link: { href: "/learn/on-demand-liquidity", label: "ODL Explained" } },
-  { id: "owner-reserve", term: "Owner Reserve", definition: "An additional XRP reserve required for each object an account owns on the XRPL (trust lines, offers, escrows, etc.). Currently 2 XRP per object. This prevents ledger spam by making it costly to create many objects." },
+  { id: "owner-reserve", term: "Owner Reserve", definition: "An additional XRP reserve required for each object an account owns on the XRPL (trust lines, offers, escrows, etc.). Currently 0.2 XRP per object. This prevents ledger spam by making it costly to create many objects." },
   { id: "payment-channel", term: "Payment Channel", definition: "An XRPL feature enabling off-ledger micropayment streams between two parties. Payment channels allow thousands of transactions per second between two accounts, with only the opening and closing transactions recorded on-ledger." },
-  { id: "reserve", term: "Reserve", definition: "The minimum XRP balance required by the XRPL. Consists of the base reserve (10 XRP to activate an account) plus the owner reserve (2 XRP per owned object). Reserves are not fees — they remain in your account." },
+  { id: "reserve", term: "Reserve", definition: "The minimum XRP balance required by the XRPL. Consists of the base reserve (1 XRP to activate an account) plus the owner reserve (0.2 XRP per owned object). Reserves are not fees — they remain in your account." },
   { id: "ripple", term: "Ripple", definition: "A private technology company (Ripple Labs Inc.) that builds enterprise blockchain solutions using the XRP Ledger. Ripple is the largest corporate contributor to XRPL development but does not control the decentralized network.", link: { href: "/learn/what-is-ripple", label: "What is Ripple?" } },
   { id: "ripplenet", term: "RippleNet", definition: "Ripple's global payment network connecting banks and financial institutions. RippleNet includes messaging, settlement, and On-Demand Liquidity products for cross-border payments.", link: { href: "/learn/ripplenet", label: "RippleNet Explained" } },
   { id: "rlusd", term: "RLUSD", definition: "Ripple's USD-backed stablecoin, launched in December 2024. RLUSD operates on both the XRPL and Ethereum, backed 1:1 by USD deposits and U.S. Treasury bills. Market cap surpassed $1.26 billion by early 2026.", link: { href: "/learn/rlusd", label: "RLUSD Guide" } },
   { id: "sidechain", term: "Sidechain", definition: "A separate blockchain that operates alongside the XRPL mainnet, connected via a bridge. Sidechains can have different features or consensus rules while maintaining interoperability with the main XRPL. Xahau is a notable example." },
-  { id: "trust-line", term: "Trust Line", definition: "A connection between two XRPL accounts that enables holding issued tokens (IOUs). Trust lines must be explicitly created by the token holder, ensuring users opt-in to holding specific assets. Each trust line requires an owner reserve of 2 XRP." },
+  { id: "trust-line", term: "Trust Line", definition: "A connection between two XRPL accounts that enables holding issued tokens (IOUs). Trust lines must be explicitly created by the token holder, ensuring users opt-in to holding specific assets. Each trust line requires an owner reserve of 0.2 XRP." },
   { id: "unl", term: "UNL (Unique Node List)", definition: "The set of validators that a node trusts for consensus. Each XRPL node operator can configure their own UNL. The default UNL is published by the XRPL Foundation and includes diverse, independent validators." },
   { id: "validator", term: "Validator", definition: "A server that participates in the XRPL consensus process, proposing and voting on transactions to include in each ledger. Over 150 validators operate globally, run by universities, exchanges, institutions, and individuals.", link: { href: "/learn/xrp-ledger-explained", label: "How Validators Work" } },
   { id: "wallet", term: "Wallet", definition: "Software or hardware that stores your XRP private keys and enables you to send and receive XRP. Popular XRP wallets include Xaman (formerly XUMM), Ledger, and Trezor.", link: { href: "/learn/xrp-wallets", label: "XRP Wallets Guide" } },
@@ -118,8 +118,8 @@ export default function XRPGlossaryPage() {
           breadcrumbLabel="XRP Glossary"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-13" />
-            <LastUpdated date="February 13, 2026" />
+            <AuthorByline date="2026-02-13" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -189,7 +189,7 @@ export default function XRPGlossaryPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple Insights, XRPL Foundation, GitHub XRPLF/rippled.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple Insights, XRPL Foundation, GitHub XRPLF/rippled.</em>
         </p>
       </div>
     </>

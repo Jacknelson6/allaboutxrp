@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { getAllFAQSlugs } from "@/lib/utils/faq";
 import { getAllRecaps } from "@/lib/utils/news";
 import fs from "fs";
 import path from "path";
@@ -63,7 +62,6 @@ const TOP_LEARN_SLUGS = new Set([
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allaboutxrp.com";
-  const now = new Date("2026-02-11T12:00:00Z");
 
   // ── Core / static pages ──────────────────────────────────────────────
   const staticPages: {
@@ -110,14 +108,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Dynamic: learn pages (filesystem-discovered) ─────────────────────
   const learnSlugs = getAllLearnSlugs();
   const answerSlugs = getAllAnswerSlugs();
-  const faqSlugs = getAllFAQSlugs();
   const recaps = getAllRecaps();
 
   return [
     // Static pages
     ...staticPages.map((page) => ({
       url: `${baseUrl}${page.path}`,
-      lastModified: now,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),
@@ -127,7 +123,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((slug) => !NOINDEX_LEARN_SLUGS.has(slug))
       .map((slug) => ({
         url: `${baseUrl}/learn/${slug}`,
-        lastModified: now,
         changeFrequency: "weekly" as const,
         priority: TOP_LEARN_SLUGS.has(slug) ? 0.9 : 0.75,
       })),
@@ -135,7 +130,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // All answer pages (auto-discovered)
     ...answerSlugs.map((slug) => ({
       url: `${baseUrl}/answers/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
@@ -143,7 +137,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // News recaps
     {
       url: `${baseUrl}/news/recaps`,
-      lastModified: now,
       changeFrequency: "daily" as const,
       priority: 0.8,
     },

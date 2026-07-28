@@ -37,7 +37,7 @@ const schemas = [
     description: "A comprehensive guide to XRP tokenomics covering total supply, circulating supply, Ripple's escrow system, transaction fee burns, and distribution history.",
     url: "https://allaboutxrp.com/learn/xrp-tokenomics",
     datePublished: "2026-02-11",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -76,7 +76,7 @@ export default function XRPTokenomicsPage() {
           breadcrumbLabel="XRP Tokenomics"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
           </div>
         </LearnHero>
 
@@ -316,14 +316,14 @@ export default function XRPTokenomicsPage() {
               <DataTable
                 headers={["Reserve Type", "Current Amount", "Purpose"]}
                 rows={[
-                  ["Base Reserve", "10 XRP", "Required to activate any XRPL account"],
-                  ["Owner Reserve", "2 XRP per object", "Per trust line, offer, escrow, NFT page, etc."],
+                  ["Base Reserve", "1 XRP", "Required to activate any XRPL account"],
+                  ["Owner Reserve", "0.2 XRP per object", "Per trust line, offer, escrow, NFT page, etc."],
                 ]}
                 highlightCol={1}
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              These reserves effectively remove XRP from active circulation. With millions of XRPL accounts and objects, a significant amount of XRP is locked in reserves across the network. The reserve amounts are set by validator vote and have been reduced in the past — from 20/5 XRP to the current 10/2 XRP in 2021.
+              These reserves effectively remove XRP from active circulation. With millions of XRPL accounts and objects, a significant amount of XRP is locked in reserves across the network. Validators reduced the values from 10/2 XRP to the current 1/0.2 XRP in December 2024.
             </p>
           </RevealSection>
 
@@ -370,7 +370,7 @@ export default function XRPTokenomicsPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple Quarterly XRP Markets Reports, XRPScan on-chain data, CoinMarketCap.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple Quarterly XRP Markets Reports, XRPScan on-chain data, CoinMarketCap.</em>
         </p>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServiceClient } from "@/lib/supabase/server";
+import { createServiceClient, isSupabaseServiceConfigured } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -386,6 +386,10 @@ Rules:
 
 // Also support GET for testing (returns latest digests)
 export async function GET() {
+  if (!isSupabaseServiceConfigured()) {
+    return NextResponse.json([]);
+  }
+
   const supabase = createServiceClient();
 
   const { data, error } = await supabase

@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
+import SourceList from "@/components/shared/SourceList";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
 } from "@/components/learn/LearnPageShell";
-import UniqueInsight from "@/components/learn/UniqueInsight";
 
 export const dynamic = "force-static";
 
@@ -38,7 +38,13 @@ const schemas = [
     description: "A comprehensive step-by-step guide to buying XRP cryptocurrency in 2026, covering exchanges, wallets, verification, and security best practices.",
     url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     datePublished: "2026-02-11",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
+    citations: [
+      "https://xrpl.org/about/xrp",
+      "https://xrpl.org/docs/concepts/accounts",
+      "https://www.coinbase.com/how-to-buy/xrp",
+      "https://www.kraken.com/buy/xrp",
+    ],
   }),
   buildHowToSchema({
     name: "How to Buy XRP",
@@ -60,7 +66,7 @@ const schemas = [
   buildFAQSchema([
     { question: "What is the easiest way to buy XRP?", answer: "The easiest way to buy XRP in 2026 is through a major exchange like Uphold, Coinbase, or Kraken. Uphold is particularly popular for XRP because it allows direct USD-to-XRP purchases with low fees." },
     { question: "Can I buy XRP in the United States?", answer: "Yes. Following the 2023 court ruling that XRP is not a security when sold on exchanges, XRP is available on most major U.S. exchanges including Coinbase, Kraken, Uphold, and Gemini." },
-    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow you to buy fractional amounts of XRP, often as little as $1-10 worth. However, if you plan to use a self-custody wallet, note that XRPL accounts require a 10 XRP reserve to activate." },
+    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow you to buy fractional amounts of XRP, often as little as $1-10 worth. However, if you plan to use a self-custody wallet, note that XRPL accounts require a 1 XRP reserve to activate." },
     { question: "Is it safe to buy XRP?", answer: "Buying XRP on reputable, regulated exchanges is generally safe. However, always use strong passwords, enable two-factor authentication, and consider moving large holdings to a self-custody wallet." },
     { question: "Should I store XRP on an exchange or in a wallet?", answer: "For small amounts and active trading, an exchange is convenient. For larger holdings or long-term storage, a self-custody wallet like Xaman provides better security because you control your private keys." },
   ]),
@@ -69,7 +75,7 @@ const schemas = [
 const faqItems = [
   { q: "What is the easiest way to buy XRP?", a: "The easiest way to buy XRP in 2026 is through a major exchange like Uphold, Coinbase, or Kraken. Uphold is particularly popular for XRP because it allows direct USD-to-XRP purchases with low fees and a simple interface. You can have XRP in your account within minutes of signing up." },
   { q: "Can I buy XRP in the United States?", a: "Yes. Following the 2023 Torres ruling that XRP sold on public exchanges is not a security, XRP is available on most major U.S. exchanges including Coinbase, Kraken, Uphold, Gemini, and Robinhood. U.S. residents can freely buy, sell, and hold XRP." },
-  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges allow you to buy fractional amounts of XRP, often as little as $1-10 worth. However, if you plan to transfer XRP to a self-custody wallet on the XRP Ledger, note that accounts require a 10 XRP base reserve to activate. This reserve is locked but may be lowered through future validator amendments." },
+  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges allow you to buy fractional amounts of XRP, often as little as $1-10 worth. However, if you plan to transfer XRP to a self-custody wallet on the XRP Ledger, note that accounts require a 1 XRP base reserve to activate. This reserve is locked but may be lowered through future validator amendments." },
   { q: "Is it safe to buy XRP?", a: "Buying XRP on reputable, regulated exchanges is generally safe. To maximize security: use strong unique passwords, enable two-factor authentication (2FA), avoid sharing account details, and consider moving large holdings to a self-custody wallet like Xaman where you control your own private keys." },
   { q: "Should I store XRP on an exchange or in a wallet?", a: "For small amounts and active trading, keeping XRP on a trusted exchange is convenient. For larger holdings or long-term storage, a self-custody wallet like Xaman (formerly XUMM) or a hardware wallet like Ledger provides better security. The crypto saying 'not your keys, not your crypto' applies — when you hold your own keys, only you can access your funds." },
   { q: "Do I need to pay taxes on XRP?", a: "In most jurisdictions, buying XRP is not a taxable event. However, selling XRP for profit, trading XRP for other cryptocurrencies, or using XRP to purchase goods and services may trigger capital gains taxes. Consult a tax professional for advice specific to your situation." },
@@ -88,7 +94,7 @@ export default function HowToBuyXRPPage() {
           breadcrumbLabel="How to Buy XRP"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
           </div>
         </LearnHero>
 
@@ -116,7 +122,7 @@ export default function HowToBuyXRPPage() {
           <StatPill label="Setup Time" value="~15 min" />
           <StatPill label="Min Purchase" value="~$1" />
           <StatPill label="XRP Settlement" value="3-5 sec" />
-          <StatPill label="Account Reserve" value="10 XRP" />
+          <StatPill label="Account Reserve" value="1 XRP" />
         </div>
 
         <div className="cv-auto mt-14 space-y-14">
@@ -133,7 +139,7 @@ export default function HowToBuyXRPPage() {
               <IconList items={[
                 { title: "You'll need ID verification", desc: "All major exchanges require Know Your Customer (KYC) verification — a government-issued photo ID and sometimes proof of address" },
                 { title: "Bank account or payment method", desc: "A bank account, debit card, or other funding source connected to your exchange account" },
-                { title: "Understand the 10 XRP reserve", desc: "If using a self-custody wallet, the XRP Ledger requires 10 XRP to activate an account (this is recoverable if the reserve is lowered)" },
+                { title: "Understand the 1 XRP reserve", desc: "If using a self-custody wallet, the XRP Ledger requires 1 XRP to activate an account (this is recoverable if the reserve is lowered)" },
                 { title: "Consider your storage plan", desc: "Decide whether you'll hold on the exchange or transfer to a self-custody wallet for added security" },
               ]} variant="zap" />
             </div>
@@ -312,7 +318,7 @@ export default function HowToBuyXRPPage() {
             <div className="mt-5">
               <IconList items={[
                 { title: "Forgetting the destination tag", desc: "When sending XRP to an exchange, you must include the destination tag. Missing it can result in lost funds. Self-custody wallets typically don't require tags." },
-                { title: "Not accounting for the 10 XRP reserve", desc: "XRPL accounts require a 10 XRP base reserve. This XRP is locked in your account and cannot be spent (though the reserve amount may decrease in the future)." },
+                { title: "Not accounting for the 1 XRP reserve", desc: "XRPL accounts require a 1 XRP base reserve. This XRP is locked in your account and cannot be spent (though the reserve amount may decrease in the future)." },
                 { title: "Buying on unregulated exchanges", desc: "Stick to well-known, regulated exchanges. Unregulated platforms carry higher risk of fraud, hacks, or sudden shutdowns." },
                 { title: "Investing more than you can afford", desc: "Cryptocurrency is volatile. Only invest money you can afford to lose entirely. Never take on debt to buy crypto." },
                 { title: "Skipping 2FA setup", desc: "Two-factor authentication is your most important security measure. Set it up immediately after creating your exchange account." },
@@ -343,11 +349,18 @@ export default function HowToBuyXRPPage() {
           </RevealSection>
         </div>
 
-        <UniqueInsight title="Exchange Safety Rankings: What We Actually Recommend in 2026" verifiedDate="February 23, 2026">
-          <p>After tracking exchange reliability since 2020, here's our honest assessment: <strong className="text-white">Uphold and Kraken remain the safest platforms for XRP</strong>, but for different reasons. Uphold offers direct XRP/USD pairs with zero spread markup on limit orders (their spread on market orders is ~1.2%, which is steep — always use limit orders). Kraken has never suffered a security breach in 13 years of operation and offers the lowest fees at 0.16% maker / 0.26% taker.</p>
-          <p>Coinbase re-listed XRP in February 2025 after the SEC settlement, but their XRP liquidity is still thinner than Kraken's — we've observed 15-30% wider bid-ask spreads on large orders (&gt;$10K). Robinhood gives you XRP exposure but <em>still doesn't support external withdrawals to self-custody wallets</em> as of February 2026. If you can't withdraw your XRP, you don't truly own it.</p>
-          <p>Binance.US remains effectively unavailable for most American users post-SEC action. For non-US buyers, Bitstamp (now owned by Robinhood) is solid with deep EUR/XRP liquidity and full withdrawal support. Our bottom line: Kraken for serious traders, Uphold for beginners who want simplicity, and always move significant holdings to a hardware wallet like a Ledger Nano X.</p>
-        </UniqueInsight>
+        <div className="mt-10">
+          <HighlightBox title="Verify the exchange on the day you buy" variant="warning">
+            <p>Availability, fees, spreads, withdrawal support, and regional restrictions change frequently. Compare the final order preview and the platform&apos;s current fee and withdrawal documentation before depositing funds. Favor an exchange that is available in your jurisdiction, supports XRP withdrawals, publishes its fees, and lets you use a strong second factor for account security.</p>
+          </HighlightBox>
+        </div>
+
+        <SourceList sources={[
+          { label: "XRPL.org: XRP overview", href: "https://xrpl.org/about/xrp", note: "Official due-diligence guidance and XRP basics" },
+          { label: "XRPL account documentation", href: "https://xrpl.org/docs/concepts/accounts", note: "Current account funding and reserve requirements" },
+          { label: "Coinbase XRP buying instructions", href: "https://www.coinbase.com/how-to-buy/xrp", note: "Check current availability and order steps" },
+          { label: "Kraken XRP buying instructions", href: "https://www.kraken.com/buy/xrp", note: "Check current availability and order steps" },
+        ]} />
 
         <LearnCTA
           title="Ready to Buy Your First XRP?"
@@ -359,7 +372,7 @@ export default function HowToBuyXRPPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: Exchange official documentation, XRPL.org, CoinMarketCap. This is not financial advice.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: Exchange official documentation, XRPL.org, CoinMarketCap. This is not financial advice.</em>
         </p>
       </div>
     </>

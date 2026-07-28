@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "How to Send XRP: Fast & Cheap Transfers", description: "Learn how to send XRP step-by-step. Covers wallets, destination tags, fees, and common mistakes when transferring XRP.", url: "https://allaboutxrp.com/learn/how-to-send-xrp", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "How to Send XRP: Fast & Cheap Transfers", description: "Learn how to send XRP step-by-step. Covers wallets, destination tags, fees, and common mistakes when transferring XRP.", url: "https://allaboutxrp.com/learn/how-to-send-xrp", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How to Send XRP" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-send-xrp" }),
   buildFAQSchema([
@@ -48,7 +48,7 @@ const schemas = [
     },
     {
         "question": "What's the minimum amount of XRP I can send?",
-        "answer": "The minimum transaction is 0.000001 XRP (one drop). However, the receiving wallet must maintain a 10 XRP reserve."
+        "answer": "The minimum transaction is 0.000001 XRP (one drop). However, the receiving wallet must maintain a 1 XRP reserve."
     }
 ]),
 ];
@@ -72,7 +72,7 @@ const faqItems = [
   },
   {
     "q": "What's the minimum amount of XRP I can send?",
-    "a": "The minimum transaction is 0.000001 XRP (one drop). However, the receiving wallet must maintain a 10 XRP reserve."
+    "a": "The minimum transaction is 0.000001 XRP (one drop). However, the receiving wallet must maintain a 1 XRP reserve."
   }
 ];
 
@@ -82,11 +82,11 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="How to Send XRP" titleAccent="Fast & Cheap Transfers" subtitle="Send XRP anywhere in the world in 3-5 seconds for less than a penny. Step-by-step guide for beginners." breadcrumbLabel="How to Send XRP">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
-          <p>Sending XRP is fast, cheap, and simple. You need the recipient's <strong className="text-text-primary">XRP address</strong> and sometimes a <strong className="text-text-primary">destination tag</strong> (required for exchanges). Transactions settle in 3-5 seconds and cost a fraction of a penny. Use a wallet like <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">Xaman</Link> or an exchange to send. Always double-check the address — XRP transactions are <strong className="text-text-primary">irreversible</strong>.</p>
+          <p>Sending XRP is fast, cheap, and simple. You need the recipient&apos;s <strong className="text-text-primary">XRP address</strong> and sometimes a <strong className="text-text-primary">destination tag</strong> (required for exchanges). Transactions typically settle in seconds and cost a fraction of a penny. Use a wallet like <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">Xaman</Link> or an exchange to send. Always double-check the address — validated XRP transactions are <strong className="text-text-primary">irreversible</strong>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[{"label":"Speed","value":"3-5 seconds"},{"label":"Cost","value":"~0.00001 XRP (~$0.00003)"},{"label":"Destination Tag","value":"Required for exchanges"},{"label":"Minimum Send","value":"0.000001 XRP"},{"label":"Irreversible","value":"Yes — always double check"},{"label":"24/7","value":"Works any time, any day"}]} />
@@ -170,7 +170,7 @@ export default function Page() {
               <IconList items={[
                 { title: "Missing destination tag", desc: "Contact the exchange support immediately. Many can recover funds with proof of the transaction hash." },
                 { title: "Transaction not arriving", desc: "Check the transaction hash on an explorer like xrpscan.com. Most issues are wrong address or missing tag." },
-                { title: "Below minimum reserve", desc: "You can't send XRP that would bring your wallet below the 10 XRP reserve requirement." },
+                { title: "Below minimum reserve", desc: "You can't send XRP that would bring your wallet below the 1 XRP reserve requirement." },
                 { title: "Wrong address format", desc: "XRP addresses start with 'r'. If you sent to a wrong but valid address, the funds cannot be recovered." },
               ]} variant="warn" />
             </div>
@@ -198,7 +198,7 @@ export default function Page() {
 
         <LearnCTA title="Ready to Send XRP?" description="Get a wallet and start sending XRP anywhere in the world in seconds." primaryHref="/learn/xrp-wallets" primaryLabel="Get a Wallet →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="Buy XRP" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

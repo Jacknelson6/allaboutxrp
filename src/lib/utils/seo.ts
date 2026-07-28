@@ -10,17 +10,16 @@ const publisher = {
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/logo.png`,
-    width: 200,
-    height: 200,
+    url: `${SITE_URL}/logo-full.png`,
+    width: 2000,
+    height: 2000,
   },
 };
 
 const author = {
-  "@type": "Person",
+  "@type": "Organization",
   name: "AllAboutXRP Editorial Team",
-  url: SITE_URL,
-  jobTitle: "XRP & Blockchain Research",
+  url: `${SITE_URL}/editorial`,
 };
 
 export function buildArticleSchema(opts: {
@@ -30,6 +29,7 @@ export function buildArticleSchema(opts: {
   datePublished: string;
   dateModified: string;
   image?: string;
+  citations?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -41,8 +41,11 @@ export function buildArticleSchema(opts: {
     dateModified: opts.dateModified,
     author,
     publisher,
+    inLanguage: "en-US",
+    isAccessibleForFree: true,
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
     ...(opts.image && { image: opts.image }),
+    ...(opts.citations?.length && { citation: opts.citations }),
   };
 }
 

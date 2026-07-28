@@ -35,7 +35,7 @@ const schemas = [
     description: "Complete guide to taking custody of your own XRP. Why self-custody matters, hardware vs software wallets, setup steps, and security best practices.",
     url: "https://allaboutxrp.com/learn/xrp-self-custody-guide",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -47,7 +47,7 @@ const schemas = [
     { question: "What is XRP self-custody?", answer: "Self-custody means you personally control the private keys (secret key or seed phrase) to your XRP wallet — not an exchange or third party. The phrase 'not your keys, not your crypto' emphasizes that XRP on an exchange is controlled by that company, not you." },
     { question: "Why should I move XRP off exchanges?", answer: "Exchange risks include hacking (Mt. Gox, FTX), bankruptcy, account freezes, and regulatory seizures. With self-custody, only you control your funds. No exchange can freeze, lose, or restrict access to your XRP." },
     { question: "What's the best self-custody wallet for XRP?", answer: "For maximum security, use a hardware wallet like Ledger Nano X or Trezor Model T. For mobile convenience, Xaman (formerly XUMM) is the most popular XRP-specific wallet. For a balance, use Xaman paired with a Ledger via Tangem cards." },
-    { question: "How much XRP do I need for a self-custody wallet?", answer: "You need a minimum of 10 XRP as a base reserve to activate an XRPL account. This reserve is locked but recoverable if you delete the account. Each additional feature (trust lines, offers) requires 2 XRP more in owner reserves." },
+    { question: "How much XRP do I need for a self-custody wallet?", answer: "You need a minimum of 1 XRP as a base reserve to activate an XRPL account. This reserve is locked but recoverable if you delete the account. Each additional ledger object usually requires 0.2 XRP more in owner reserve." },
     { question: "What happens to my XRP if I lose my hardware wallet?", answer: "If you have your seed phrase backed up, you can restore your wallet on a new device. The hardware wallet is just an access tool — your XRP lives on the XRP Ledger, not on the device. The seed phrase is the actual key." },
   ]),
 ];
@@ -56,7 +56,7 @@ const faqItems = [
   { q: "What is XRP self-custody?", a: "Self-custody means you personally control the private keys to your XRP wallet. 'Not your keys, not your crypto' — XRP on an exchange is controlled by that company. With self-custody, only you can access your funds." },
   { q: "Why should I move XRP off exchanges?", a: "Exchanges can be hacked (Mt. Gox), go bankrupt (FTX), freeze accounts, or face regulatory action. Self-custody means no third party can freeze, lose, or restrict your XRP access." },
   { q: "What's the best self-custody wallet for XRP?", a: "Hardware wallets (Ledger Nano X, Trezor) offer maximum security. Xaman (formerly XUMM) is the best mobile option. For a balance, pair Xaman with Tangem cards for hardware-level security with mobile convenience." },
-  { q: "How much XRP do I need for a self-custody wallet?", a: "A minimum of 10 XRP as base reserve to activate an XRPL account. Each trust line or DEX offer requires an additional 2 XRP owner reserve. These reserves are recoverable if you delete the account." },
+  { q: "How much XRP do I need for a self-custody wallet?", a: "A minimum of 1 XRP as base reserve to activate an XRPL account. Each trust line or DEX offer requires an additional 0.2 XRP owner reserve. These reserves are recoverable if you remove the object or delete the account." },
   { q: "What happens if I lose my hardware wallet?", a: "Your XRP lives on the ledger, not the device. If you have your seed phrase backed up, you can restore on a new device. The seed phrase is the actual key — the hardware wallet is just the access tool." },
   { q: "Is self-custody safe for beginners?", a: "Yes, with proper setup. Start with a small amount, verify you can send and receive, and secure your seed phrase backup before transferring large amounts. The biggest risk is losing your seed phrase — not hackers." },
 ];
@@ -73,18 +73,18 @@ export default function XRPSelfCustodyGuidePage() {
           breadcrumbLabel="XRP Self-Custody Guide"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p>Self-custody means <em>you</em> hold the keys to your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> — not an exchange. Get a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a>, write down your seed phrase, store it safely in multiple locations, and transfer your XRP from the exchange. You need a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">10 XRP reserve</Link> to activate your wallet.</p>
+          <p>Self-custody means <em>you</em> hold the keys to your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> — not an exchange. Get a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a>, write down your seed phrase, store it safely in multiple locations, and transfer your XRP from the exchange. You need a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">1 XRP reserve</Link> to activate your wallet.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "What It Means", value: "You control your private keys" },
-          { label: "Min. Balance", value: "10 XRP (base reserve)" },
+          { label: "Min. Balance", value: "1 XRP (base reserve)" },
           { label: "Best Option", value: "Hardware wallet (Ledger, Trezor)" },
           { label: "Mobile Option", value: "Xaman (formerly XUMM)" },
           { label: "Key Risk", value: "Losing your seed phrase" },
@@ -101,7 +101,7 @@ export default function XRPSelfCustodyGuidePage() {
         ]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Min Reserve" value="10 XRP" delay={0} />
+          <StatPill label="Min Reserve" value="1 XRP" delay={0} />
           <StatPill label="Best Security" value="HW Wallet" delay={0.06} />
           <StatPill label="Exchange Risk" value="Real" delay={0.12} />
           <StatPill label="Your Keys" value="Your Crypto" delay={0.18} />
@@ -165,7 +165,7 @@ export default function XRPSelfCustodyGuidePage() {
                 { title: "2. Set Up the Device", desc: "Follow the manufacturer's setup process. The device will generate a seed phrase (12 or 24 words). Write this down on paper immediately." },
                 { title: "3. Secure Your Seed Phrase", desc: "Write the seed phrase on multiple physical copies. Store in separate secure locations (safe, bank deposit box). Never store digitally." },
                 { title: "4. Add the XRP App", desc: "Install the XRP app on your hardware wallet through the manufacturer's software (Ledger Live, Trezor Suite)." },
-                { title: "5. Send a Test Transaction", desc: "Send a small amount (11-12 XRP to cover the 10 XRP reserve plus fees) from your exchange to your new wallet address." },
+                { title: "5. Send a Test Transaction", desc: "Send about 2 XRP first so the 1 XRP reserve is covered and a small spendable balance remains before moving more." },
                 { title: "6. Verify Receipt", desc: "Check the transaction on xrpscan.com. Verify your balance shows correctly in your wallet." },
                 { title: "7. Transfer Remaining XRP", desc: "Once confirmed, transfer the rest of your XRP from the exchange. Include the correct destination tag when withdrawing." },
               ]} variant="zap" />
@@ -213,7 +213,7 @@ export default function XRPSelfCustodyGuidePage() {
               { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Compare all wallet options" },
               { href: "/learn/xrp-scams", label: "XRP Scams", desc: "Avoid common scams" },
               { href: "/learn/xrp-phishing-protection", label: "Phishing Protection", desc: "Protect against phishing" },
-              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 10 XRP minimum" },
+              { href: "/learn/xrpl-reserves-explained", label: "XRPL Reserves", desc: "Why 1 XRP minimum" },
               { href: "/learn/xrp-destination-tag-guide", label: "Destination Tags", desc: "Don't lose XRP in transfers" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
               { href: "/learn/recover-lost-xrp", label: "Recover Lost XRP", desc: "What if you lose access" },
@@ -232,7 +232,7 @@ export default function XRPSelfCustodyGuidePage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em>
         </p>
       </div>
     </>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
+import SourceList from "@/components/shared/SourceList";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
@@ -26,23 +27,23 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRPL Trust Lines Explained: How Token Holding Works", description: "XRPL trust lines explained. How to set them, why they're needed, reserve requirements, and security implications.", url: "https://allaboutxrp.com/learn/xrpl-trust-lines-explained", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRPL Trust Lines Explained: How Token Holding Works", description: "XRPL trust lines explained. How to set them, why they're needed, reserve requirements, and security implications.", url: "https://allaboutxrp.com/learn/xrpl-trust-lines-explained", datePublished: "2026-02-15", dateModified: "2026-07-27", citations: ["https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens", "https://xrpl.org/docs/concepts/accounts/reserves"] }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRPL Trust Lines Explained" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-trust-lines-explained" }),
   buildFAQSchema([
     { question: "What is a trust line?", answer: "An opt-in connection between your wallet and a token issuer that allows you to hold their token on the XRPL." },
-    { question: "Why do trust lines cost 2 XRP?", answer: "The 2 XRP owner reserve prevents spam (creating millions of trust lines). It's locked, not spent, and returned when removed." },
+    { question: "Why do trust lines usually reserve 0.2 XRP?", answer: "The owner reserve discourages ledger spam. The first two trust lines can qualify for an exemption when an account holds only the 1 XRP base reserve; otherwise the current owner reserve is 0.2 XRP per item." },
     { question: "Can someone send me tokens without a trust line?", answer: "No. You must create a trust line first. This is a security feature preventing token spam." },
-    { question: "How do I remove a trust line?", answer: "Set the trust line limit to 0 and ensure zero token balance. The 2 XRP reserve will be freed." },
+    { question: "How do I remove a trust line?", answer: "Return your settings to their defaults and offload any positive token balance. When neither side keeps the line in a non-default state, the trust line is deleted and any owner reserve it required is freed." },
     { question: "Do I need trust lines for XRP?", answer: "No. XRP is the native token and doesn't require trust lines. Only non-XRP issued tokens need them." },
   ]),
 ];
 
 const faqItems = [
   { q: "What is a trust line?", a: "An opt-in connection between your wallet and a token issuer that allows you to hold their token on the XRPL." },
-  { q: "Why do trust lines cost 2 XRP?", a: "The 2 XRP owner reserve prevents spam (creating millions of trust lines). It's locked, not spent, and returned when removed." },
+  { q: "Why do trust lines usually reserve 0.2 XRP?", a: "The owner reserve discourages ledger spam. The first two trust lines can qualify for an exemption when an account holds only the 1 XRP base reserve; otherwise the current owner reserve is 0.2 XRP per item." },
   { q: "Can someone send me tokens without a trust line?", a: "No. You must create a trust line first. This is a security feature preventing token spam." },
-  { q: "How do I remove a trust line?", a: "Set the trust line limit to 0 and ensure zero token balance. The 2 XRP reserve will be freed." },
+  { q: "How do I remove a trust line?", a: "Return your settings to their defaults and offload any positive token balance. When neither side keeps the line in a non-default state, the trust line is deleted and any owner reserve it required is freed." },
   { q: "Do I need trust lines for XRP?", a: "No. XRP is the native token and doesn't require trust lines. Only non-XRP issued tokens need them." },
 ];
 
@@ -52,16 +53,16 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="XRPL Trust Lines Explained" titleAccent="How Token Holding Works" subtitle="Trust lines are the XRPL mechanism for holding non-XRP tokens. Understand how they work and why they matter." breadcrumbLabel="XRPL Trust Lines Explained">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Trust lines</strong> are how the XRPL handles non-XRP tokens. Before you can hold any <Link href="/learn/how-to-create-xrpl-token" className="text-xrp-accent underline decoration-xrp-accent/30">issued token</Link>, you must create a trust line to the issuer. This <strong className="text-text-primary">opt-in model prevents token spam</strong> and gives users full control over which assets appear in their wallets. Each trust line requires a 2 XRP reserve.</p>
+          <p><strong className="text-text-primary">Trust lines</strong> are how the XRPL handles non-XRP tokens. Before you can hold any <Link href="/learn/how-to-create-xrpl-token" className="text-xrp-accent underline decoration-xrp-accent/30">issued token</Link>, you must create a trust line to the issuer. This <strong className="text-text-primary">opt-in model reduces unsolicited token spam</strong> and gives users control over which assets they accept. A trust line normally adds the current 0.2 XRP owner reserve, with a limited exception for an account&apos;s first two trust lines.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Purpose", value: "Enable holding non-XRP tokens" },
-          { label: "Reserve", value: "2 XRP per trust line" },
+          { label: "Reserve", value: "Usually 0.2 XRP per trust line" },
           { label: "Creation", value: "User opts in (not automatic)" },
           { label: "Spam Prevention", value: "Reserve + opt-in model" },
           { label: "Rippling", value: "Configurable per line" },
@@ -78,7 +79,7 @@ export default function Page() {
         ]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Reserve" value="2 XRP" delay={0.00} />
+          <StatPill label="Reserve" value="0.2 XRP" delay={0.00} />
           <StatPill label="Model" value="Opt-in" delay={0.06} />
           <StatPill label="Spam" value="Prevented" delay={0.12} />
           <StatPill label="Control" value="User" delay={0.18} />
@@ -101,30 +102,31 @@ export default function Page() {
             <div className="mt-6"><IconList items={[
               {title:"1. Issuer creates token",desc:"An XRPL account decides to issue a token (e.g., 'USD' from Bitstamp)."},
               {title:"2. You create trust line",desc:"Submit a TrustSet transaction specifying the issuer and token code."},
-              {title:"3. 2 XRP reserved",desc:"Your wallet reserves 2 XRP for the trust line. This is locked, not spent."},
+              {title:"3. Reserve evaluated",desc:"A trust line normally adds the current 0.2 XRP owner reserve. A narrow exemption can apply to an account's first two lines."},
               {title:"4. Receive tokens",desc:"Now the issuer (or anyone holding the token) can send it to you."},
               {title:"5. Trade on DEX",desc:"With trust lines set, you can trade tokens on the <Link href='/learn/how-to-use-xrpl-dex' className='text-xrp-accent underline decoration-xrp-accent/30'>XRPL DEX</Link>."},
             ]} variant="check" /></div>
           </RevealSection>
           <RevealSection id="reserve" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Reserve Cost</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Each trust line requires a <strong className="text-text-primary">2 XRP owner reserve</strong>. This is locked (not burned) and returned when the trust line is deleted. Combined with the 10 XRP base reserve, this means holding multiple tokens requires more XRP.</p>
-            <div className="mt-6"><DataTable headers={["Trust Lines","Total Reserve","Available"]} rows={[
-              ["0 (XRP only)","10 XRP","All above 10"],
-              ["5 tokens","20 XRP","All above 20"],
-              ["10 tokens","30 XRP","All above 30"],
-              ["20 tokens","50 XRP","All above 50"],
+            <p className="mt-4 text-text-secondary leading-relaxed">A trust line normally adds the current <strong className="text-text-primary">0.2 XRP owner reserve</strong>. This XRP is locked rather than burned and becomes available again when the line no longer counts toward the owner reserve. The XRPL has a special exception that can let a new account create its first two trust lines while holding only the 1 XRP base reserve; once the account owns three or more objects, the full owner reserve applies.</p>
+            <div className="mt-6"><DataTable headers={["Trust Lines","Typical Total Reserve","Available"]} rows={[
+              ["0 (XRP only)","1 XRP","All above 1"],
+              ["5 tokens","2 XRP","All above 2"],
+              ["10 tokens","3 XRP","All above 3"],
+              ["20 tokens","5 XRP","All above 5"],
             ]} highlightCol={1} /></div>
+            <p className="mt-3 text-xs leading-relaxed text-text-secondary/70">Typical totals assume every line counts toward the owner reserve and no other owned ledger objects. Check the live account state for an exact requirement.</p>
           </RevealSection>
           <RevealSection id="security" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Security Benefits</h2>
-            <div className="mt-6"><HighlightBox title="Why Opt-In Matters" variant="accent"><p>On Ethereum, anyone can send you any ERC-20 token — including scam tokens with malicious smart contracts. On the XRPL, the trust line model means you only hold tokens you&apos;ve explicitly agreed to. This eliminates an entire class of scam attacks.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Why Opt-In Matters" variant="accent"><p>The trust-line model means an account generally accepts only the issued assets it has opted into. That reduces unsolicited token spam, but it does not make an issued asset safe: verify the issuer and currency before creating a line.</p></HighlightBox></div>
           </RevealSection>
           <RevealSection id="management" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Managing Trust Lines</h2>
             <div className="mt-6"><IconList items={[
               {title:"Setting trust lines",desc:"Use Xaman, Crossmark, or any XRPL wallet. Most handle it automatically when you first interact with a token."},
-              {title:"Removing trust lines",desc:"Set limit to 0 and ensure zero balance. The 2 XRP reserve is returned."},
+              {title:"Removing trust lines",desc:"Return your settings to their defaults and offload any positive balance. If the line is deleted, any owner reserve it required is freed."},
               {title:"Rippling",desc:"Configure whether tokens can 'ripple' through your account in payment paths. Default off for most users."},
               {title:"Check before trusting",desc:"Verify the token issuer before setting trust lines. Scam tokens exist on XRPL too."},
             ]} variant="check" /></div>
@@ -134,6 +136,11 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
+
+          <SourceList sources={[
+            { label: "XRPL.org: Trust Line Tokens", href: "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens" },
+            { label: "XRPL.org: Account Reserves", href: "https://xrpl.org/docs/concepts/accounts/reserves" },
+          ]} />
 
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
@@ -152,7 +159,7 @@ export default function Page() {
 
         <LearnCTA title="Master XRPL Tokens" description="Understand trust lines to safely participate in the XRPL token ecosystem." primaryHref="/learn/how-to-create-xrpl-token" primaryLabel="Create Token →" secondaryHref="/learn/how-to-use-xrpl-dex" secondaryLabel="XRPL DEX" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

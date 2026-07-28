@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
@@ -41,7 +41,7 @@ const schemas = [
     description: "A comprehensive guide to every transaction type on the XRP Ledger, including payments, offers, trust lines, escrows, NFTs, AMM operations, and how to read transaction hashes.",
     url: "https://allaboutxrp.com/learn/xrp-transaction-types",
     datePublished: "2026-02-13",
-    dateModified: "2026-02-13",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -53,7 +53,7 @@ const schemas = [
     { question: "How many transaction types does the XRPL support?", answer: "The XRPL supports over 25 transaction types including Payment, OfferCreate, OfferCancel, TrustSet, EscrowCreate, EscrowFinish, EscrowCancel, AccountSet, SetRegularKey, SignerListSet, NFTokenMint, NFTokenBurn, AMMCreate, AMMDeposit, AMMWithdraw, and more." },
     { question: "How much does an XRP transaction cost?", answer: "The minimum transaction fee on the XRPL is 0.00001 XRP (10 drops), typically less than $0.01. Some transaction types like multi-signed transactions or account deletions have higher fees. All fees are permanently burned." },
     { question: "What is a transaction hash on the XRPL?", answer: "A transaction hash is a unique 64-character hexadecimal identifier for every transaction on the XRPL. You can look up any transaction by its hash on explorers like XRPScan, Bithomp, or XRPL.org Explorer." },
-    { question: "What is a TrustSet transaction?", answer: "TrustSet creates or modifies a trust line between your account and an issuer. It's required before you can hold any issued token (stablecoins, NFTs on the DEX, etc.) on the XRPL. Each trust line increases your account reserve by 2 XRP." },
+    { question: "What is a TrustSet transaction?", answer: "TrustSet creates or modifies a trust line between your account and an issuer. It's required before you can hold any issued token (stablecoins, NFTs on the DEX, etc.) on the XRPL. Each trust line increases your account reserve by 0.2 XRP." },
     { question: "Can I cancel an XRP transaction?", answer: "No. Once a transaction is validated and included in a closed ledger (3-5 seconds), it cannot be reversed. However, you can cancel pending offers (OfferCancel) and finish or cancel escrows before they expire." },
   ]),
 ];
@@ -62,7 +62,7 @@ const faqItems = [
   { q: "How many transaction types does the XRPL support?", a: "The XRPL supports over 25 transaction types including Payment, OfferCreate, OfferCancel, TrustSet, EscrowCreate, EscrowFinish, EscrowCancel, AccountSet, SetRegularKey, SignerListSet, NFTokenMint, NFTokenBurn, AMMCreate, AMMDeposit, AMMWithdraw, and more. New types are added through the amendment process." },
   { q: "How much does an XRP transaction cost?", a: "The minimum transaction fee is 0.00001 XRP (10 drops), typically less than $0.01 USD. Some transaction types like multi-signed transactions or account deletions have higher minimum fees. All fees are permanently burned — they're not paid to validators." },
   { q: "What is a transaction hash on the XRPL?", a: "A transaction hash is a unique 64-character hexadecimal string (SHA-512Half) that identifies every transaction. You can look up any transaction by its hash on explorers like XRPScan, Bithomp, or the XRPL.org Explorer." },
-  { q: "What is a TrustSet transaction?", a: "TrustSet creates or modifies a trust line between your account and a token issuer. It's required before you can hold any issued token (like RLUSD or other stablecoins) on the XRPL. Each trust line increases your account reserve by 2 XRP." },
+  { q: "What is a TrustSet transaction?", a: "TrustSet creates or modifies a trust line between your account and a token issuer. It's required before you can hold any issued token (like RLUSD or other stablecoins) on the XRPL. Each trust line increases your account reserve by 0.2 XRP." },
   { q: "Can I cancel an XRP transaction after sending?", a: "No. Once a transaction is validated and included in a closed ledger (3-5 seconds), it is permanent and irreversible. However, you can cancel pending DEX offers with OfferCancel, and escrows can be cancelled before completion with EscrowCancel." },
 ];
 
@@ -78,8 +78,8 @@ export default function XRPTransactionTypesPage() {
           breadcrumbLabel="XRP Transaction Types"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-13" />
-            <LastUpdated date="February 13, 2026" />
+            <AuthorByline date="2026-02-13" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -132,7 +132,7 @@ export default function XRPTransactionTypesPage() {
                 { title: "Direct XRP Payment", desc: "Send XRP from one address to another — the simplest transaction type" },
                 { title: "Cross-Currency Payment", desc: "Send USD and deliver EUR — the XRPL DEX handles the conversion atomically" },
                 { title: "Partial Payments", desc: "Allow the delivered amount to be less than the specified amount (flagged with tfPartialPayment)" },
-                { title: "Account Creation", desc: "The first payment to a new address (≥10 XRP) creates the account on the ledger" },
+                { title: "Account Creation", desc: "The first payment to a new address (at least 1 XRP) creates the account on the ledger" },
               ]} variant="zap" />
             </div>
             <div className="mt-6">
@@ -172,7 +172,7 @@ export default function XRPTransactionTypesPage() {
             <div className="mt-5">
               <IconList items={[
                 { title: "Set a Limit", desc: "Define the maximum amount of a token you're willing to hold from an issuer" },
-                { title: "Reserve Cost", desc: "Each trust line adds 2 XRP to your account's owner reserve" },
+                { title: "Reserve Cost", desc: "Each trust line adds 0.2 XRP to your account's owner reserve" },
                 { title: "Freeze Controls", desc: "Issuers can freeze individual trust lines for compliance — a feature used by regulated stablecoins" },
                 { title: "Rippling", desc: "Trust lines can enable 'rippling' — allowing balances to shift through your account for path-finding" },
               ]} variant="zap" />
@@ -211,7 +211,7 @@ export default function XRPTransactionTypesPage() {
                   ["AccountSet", "Modify account settings — enable RequireDest, disable master key, set domain, etc."],
                   ["SetRegularKey", "Assign or remove a regular key pair for daily transaction signing"],
                   ["SignerListSet", "Configure multi-signing with up to 32 signers and a quorum threshold"],
-                  ["AccountDelete", "Delete an account, recovering most of the base reserve (costs 2 XRP fee)"],
+                  ["AccountDelete", "Delete an account, recovering most of the base reserve (costs a 0.2 XRP fee)"],
                 ]}
                 highlightCol={0}
               />
@@ -334,7 +334,7 @@ export default function XRPTransactionTypesPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRPScan on-chain data.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRPScan on-chain data.</em>
         </p>
       </div>
     </>

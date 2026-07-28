@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
+  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
@@ -41,7 +41,7 @@ const schemas = [
     description: "A comprehensive guide to how XRP wallet addresses, secret keys, regular keys, multi-signing, account reserves, and destination tags work on the XRP Ledger.",
     url: "https://allaboutxrp.com/learn/xrp-addresses-and-keys",
     datePublished: "2026-02-13",
-    dateModified: "2026-02-13",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -51,7 +51,7 @@ const schemas = [
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-addresses-and-keys" }),
   buildFAQSchema([
     { question: "What does an XRP address look like?", answer: "An XRP classic address starts with the letter 'r' followed by 25-34 alphanumeric characters, e.g., rN7n3473SaZBCG4dFL83w7p1W9cgZw7Gj9. X-addresses start with 'X' and encode both the address and destination tag in one string." },
-    { question: "What is the XRP account reserve?", answer: "The XRP Ledger requires a base reserve of 10 XRP to activate an account. Each additional object (trust lines, offers, escrows) adds 2 XRP to the owner reserve. These reserves cannot be spent while the objects exist." },
+    { question: "What is the XRP account reserve?", answer: "The XRP Ledger requires a base reserve of 1 XRP to activate an account. Each additional object (trust lines, offers, escrows) adds 0.2 XRP to the owner reserve. These reserves cannot be spent while the objects exist." },
     { question: "What is the difference between X-addresses and classic addresses?", answer: "Classic addresses (r-addresses) require a separate destination tag for exchanges. X-addresses encode both the address and destination tag into a single string starting with 'X', reducing errors when sending to exchanges." },
     { question: "Can I recover my XRP if I lose my secret key?", answer: "No. If you lose your secret key (family seed) and have no regular key or multi-sign configured, your XRP is permanently inaccessible. There is no recovery mechanism — always back up your keys securely." },
     { question: "What is multi-signing on the XRPL?", answer: "Multi-signing allows multiple parties to authorize a transaction using a SignerList. You can set a quorum (e.g., 3 of 5 signers must approve) for enhanced security, shared wallets, or organizational governance." },
@@ -60,7 +60,7 @@ const schemas = [
 
 const faqItems = [
   { q: "What does an XRP address look like?", a: "An XRP classic address starts with the letter 'r' followed by 25-34 alphanumeric characters, e.g., rN7n3473SaZBCG4dFL83w7p1W9cgZw7Gj9. X-addresses start with 'X' and encode both the address and destination tag into a single string." },
-  { q: "What is the XRP account reserve?", a: "The XRP Ledger requires a base reserve of 10 XRP to activate an account. Each additional object (trust lines, offers, escrows) adds 2 XRP to the owner reserve. These reserved amounts cannot be spent while the objects exist." },
+  { q: "What is the XRP account reserve?", a: "The XRP Ledger requires a base reserve of 1 XRP to activate an account. Each additional object (trust lines, offers, escrows) adds 0.2 XRP to the owner reserve. These reserved amounts cannot be spent while the objects exist." },
   { q: "What is the difference between X-addresses and classic addresses?", a: "Classic addresses (r-addresses) require a separate destination tag for exchanges. X-addresses encode both the address and destination tag into a single string starting with 'X', reducing the risk of lost funds due to missing tags." },
   { q: "Can I recover my XRP if I lose my secret key?", a: "No. If you lose your secret key (family seed) and have no regular key or multi-sign configured, your XRP is permanently inaccessible. There is no recovery mechanism on the XRPL — always back up your keys in multiple secure locations." },
   { q: "What is multi-signing on the XRPL?", a: "Multi-signing allows multiple parties to authorize a single transaction using a SignerList. You set a quorum (e.g., 3 of 5 signers must approve). This enables enhanced security, shared wallets, and organizational governance on the XRPL." },
@@ -78,19 +78,19 @@ export default function XRPAddressesAndKeysPage() {
           breadcrumbLabel="XRP Addresses & Keys"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-13" />
-            <LastUpdated date="February 13, 2026" />
+            <AuthorByline date="2026-02-13" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p>XRP addresses start with <strong className="text-text-primary">&quot;r&quot;</strong> (classic) or <strong className="text-text-primary">&quot;X&quot;</strong> (X-address format). Your secret key controls your account — lose it and your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> is gone forever. The XRPL supports <strong className="text-text-primary">regular keys</strong> (changeable signing keys) and <strong className="text-text-primary">multi-signing</strong> (multiple parties approve transactions). Every account needs a 10 XRP base reserve, plus 2 XRP per object (trust lines, offers).</p>
+          <p>XRP addresses start with <strong className="text-text-primary">&quot;r&quot;</strong> (classic) or <strong className="text-text-primary">&quot;X&quot;</strong> (X-address format). Your secret key controls your account — lose it and your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> is gone forever. The XRPL supports <strong className="text-text-primary">regular keys</strong> (changeable signing keys) and <strong className="text-text-primary">multi-signing</strong> (multiple parties approve transactions). Every account needs a 1 XRP base reserve, plus 0.2 XRP per object (trust lines, offers).</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Address Format", value: "r-address (classic) or X-address" },
-          { label: "Base Reserve", value: "10 XRP to activate" },
-          { label: "Owner Reserve", value: "2 XRP per object" },
+          { label: "Base Reserve", value: "1 XRP to activate" },
+          { label: "Owner Reserve", value: "0.2 XRP per object" },
           { label: "Key Algorithm", value: "secp256k1 or Ed25519" },
           { label: "Multi-Sign", value: "Up to 32 signers" },
           { label: "Destination Tags", value: "Required for exchanges" },
@@ -111,8 +111,8 @@ export default function XRPAddressesAndKeysPage() {
         ]} />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Base Reserve" value="10 XRP" delay={0} />
-          <StatPill label="Owner Reserve" value="2 XRP/obj" delay={0.06} />
+          <StatPill label="Base Reserve" value="1 XRP" delay={0} />
+          <StatPill label="Owner Reserve" value="0.2 XRP/obj" delay={0.06} />
           <StatPill label="Max Signers" value="32" delay={0.12} />
           <StatPill label="Key Types" value="2 algos" delay={0.18} />
         </div>
@@ -135,7 +135,7 @@ export default function XRPAddressesAndKeysPage() {
             </p>
             <div className="mt-6">
               <HighlightBox title="Addresses vs. Accounts" variant="info">
-                <p>An address is just a mathematical derivation from a key pair. It doesn&apos;t become an <strong className="text-text-primary">account</strong> on the XRPL until it receives at least 10 XRP (the base reserve). Until funded, the address exists mathematically but not on the ledger.</p>
+                <p>An address is just a mathematical derivation from a key pair. It doesn&apos;t become an <strong className="text-text-primary">account</strong> on the XRPL until it receives at least 1 XRP (the base reserve). Until funded, the address exists mathematically but not on the ledger.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -207,10 +207,10 @@ export default function XRPAddressesAndKeysPage() {
               <DataTable
                 headers={["Reserve Type", "Amount", "Purpose"]}
                 rows={[
-                  ["Base Reserve", "10 XRP", "Required to activate any XRPL account"],
-                  ["Owner Reserve", "2 XRP per object", "For each trust line, offer, escrow, signer list entry, etc."],
-                  ["Example: 3 trust lines", "16 XRP total", "10 base + (3 × 2) owner reserve"],
-                  ["Example: 3 trust lines + 2 offers", "20 XRP total", "10 base + (5 × 2) owner reserve"],
+                  ["Base Reserve", "1 XRP", "Required to activate any XRPL account"],
+                  ["Owner Reserve", "0.2 XRP per object", "For each trust line, offer, escrow, signer list entry, etc."],
+                  ["Example: 3 trust lines", "1.6 XRP total", "1 base + (3 × 0.2) owner reserve"],
+                  ["Example: 3 trust lines + 2 offers", "2 XRP total", "1 base + (5 × 0.2) owner reserve"],
                 ]}
                 highlightCol={1}
               />
@@ -318,7 +318,7 @@ export default function XRPAddressesAndKeysPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRP Address Codec specification.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRP Address Codec specification.</em>
         </p>
       </div>
     </>

@@ -51,7 +51,7 @@ const schemas = [
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/get-started" }),
   buildFAQSchema([
     { question: "What is the best exchange to buy XRP?", answer: "For beginners, Uphold is recommended for simplicity. Coinbase is the largest U.S. exchange. Kraken offers advanced features with low fees." },
-    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. XRP wallets require a 10 XRP reserve to activate." },
+    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. XRP wallets require a 1 XRP reserve to activate." },
     { question: "What wallet should I use for XRP?", answer: "Xaman (formerly XUMM) is the most popular XRP wallet. For hardware security, Ledger and Trezor both support XRP." },
     { question: "Is it safe to buy XRP?", answer: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding." },
   ]),
@@ -59,10 +59,10 @@ const schemas = [
 
 const faqItems = [
   { q: "What is the best exchange to buy XRP?", a: "For beginners, Uphold is recommended for its simplicity and direct XRP purchases. Coinbase is the largest U.S. exchange with strong security. Kraken offers advanced features with low fees." },
-  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges let you buy fractional XRP — as little as $1-10 worth. However, self-custody wallets need at least 10 XRP to activate an account on the XRP Ledger." },
+  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges let you buy fractional XRP — as little as $1-10 worth. However, self-custody wallets need at least 1 XRP to activate an account on the XRP Ledger." },
   { q: "What wallet should I use for XRP?", a: "Xaman (formerly XUMM) is the most popular — a free, self-custody mobile wallet built for the XRP Ledger. For hardware security, Ledger and Trezor both support XRP." },
   { q: "Is it safe to buy XRP?", a: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding. All crypto investments carry risk." },
-  { q: "Why do I need 10 XRP to activate a wallet?", a: "The 10 XRP reserve is a protocol-level feature designed to prevent spam. It's locked in your account and not spendable, ensuring only serious users create accounts." },
+  { q: "Why do I need 1 XRP to activate a wallet?", a: "The 1 XRP reserve is a protocol-level feature designed to prevent spam. It's locked in your account and not spendable, ensuring only serious users create accounts." },
 ];
 
 const exchanges = [
@@ -93,20 +93,20 @@ export default function GetStartedPage() {
           breadcrumbLabel="Get Started"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
-            <LastUpdated date="February 11, 2026" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p>Buy <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> in 5 steps: choose an exchange (Uphold, Coinbase, or Kraken), create an account, deposit funds, buy XRP, then secure it in a self-custody wallet like Xaman. XRP wallets require a 10 XRP reserve. For long-term holding, use a hardware wallet (Ledger/Trezor). Learn about <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">the company behind XRP</Link> first.</p>
+          <p>Buy <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> in 5 steps: choose an exchange (Uphold, Coinbase, or Kraken), create an account, deposit funds, buy XRP, then secure it in a self-custody wallet like Xaman. XRP wallets require a 1 XRP reserve. For long-term holding, use a hardware wallet (Ledger/Trezor). Learn about <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">the company behind XRP</Link> first.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Best Beginner Exchange", value: "Uphold" },
           { label: "Largest U.S. Exchange", value: "Coinbase" },
           { label: "Best Wallet", value: "Xaman (XUMM)" },
-          { label: "Wallet Reserve", value: "10 XRP required" },
+          { label: "Wallet Reserve", value: "1 XRP required" },
           { label: "Min Purchase", value: "~$1-10 on most exchanges" },
           { label: "Best Security", value: "Ledger hardware wallet" },
         ]} />
@@ -134,7 +134,7 @@ export default function GetStartedPage() {
                 { num: "3", title: "Deposit Funds", desc: "Add money via bank transfer (ACH), debit/credit card, wire, or Apple/Google Pay. Bank transfers are free but take 1-3 days; cards are instant." },
                 { num: "4", title: "Buy XRP", desc: "Search for 'XRP', enter the amount, and place your order at market price or set a limit order." },
                 { num: "5", title: "Secure Your XRP", desc: "Transfer to a self-custody wallet like Xaman for long-term storage. 'Not your keys, not your crypto.'" },
-              ].map((step, i) => (
+              ].map((step) => (
                 <div key={step.num} className="flex gap-5 rounded-xl border border-white/[0.06]/60 bg-black p-6  transition-all duration-300 hover:border-xrp-accent/20 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)]">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xrp-accent/10">
                     <span className="font-mono text-lg font-bold text-xrp-accent">{step.num}</span>
@@ -206,8 +206,8 @@ export default function GetStartedPage() {
             </p>
 
             <div className="mt-4">
-              <HighlightBox title="10 XRP Wallet Reserve" variant="warning">
-                <p>XRP wallets require a <strong className="text-text-primary">10 XRP reserve</strong> to activate an account on the XRP Ledger. This reserve is locked (not spendable) and acts as anti-spam protection. You&apos;ll need to send at least 10 XRP to activate a new wallet.</p>
+              <HighlightBox title="1 XRP Wallet Reserve" variant="warning">
+                <p>XRP wallets require a <strong className="text-text-primary">1 XRP reserve</strong> to activate an account on the XRP Ledger. This reserve is locked (not spendable) and acts as anti-spam protection. You&apos;ll need to send at least 1 XRP to activate a new wallet.</p>
               </HighlightBox>
             </div>
 
@@ -278,7 +278,7 @@ export default function GetStartedPage() {
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="Not verifying the correct XRP token" reality="Search specifically for 'XRP' — not 'XRP Classic' or other scam tokens. The real XRP is native to the XRP Ledger." />
               <MisconceptionCard myth="Leaving large holdings on exchanges" reality="Exchanges can be hacked or freeze withdrawals. Transfer to a self-custody wallet like Xaman for long-term holding." />
-              <MisconceptionCard myth="Forgetting about the 10 XRP wallet reserve" reality="XRPL accounts need 10 XRP to activate. Don't be surprised when 10 XRP appears 'locked' — it's a protocol feature." />
+              <MisconceptionCard myth="Forgetting about the 1 XRP wallet reserve" reality="XRPL accounts need 1 XRP to activate. Don't be surprised when 1 XRP appears 'locked' — it's a protocol feature." />
               <MisconceptionCard myth="Panic selling during dips" reality="XRP's price is volatile. Have a plan before you buy. Understand what you own by reading our what-is-XRP guide." />
               <MisconceptionCard myth="Sharing seed phrases or private keys" reality="No legitimate service will ever ask for your seed phrase. If someone asks, it's a scam. Period." />
               <MisconceptionCard myth="Using SMS for 2FA" reality="SMS is vulnerable to SIM swapping. Use an authenticator app (Google Authenticator, Authy) for much stronger security." />

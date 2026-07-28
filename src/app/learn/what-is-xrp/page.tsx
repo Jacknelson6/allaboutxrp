@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
+import SourceList from "@/components/shared/SourceList";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
@@ -8,7 +9,6 @@ import {
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, MisconceptionCard, IconList, GlowCard,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
-import UniqueInsight from "@/components/learn/UniqueInsight";
 
 export const dynamic = "force-static";
 
@@ -40,7 +40,12 @@ const schemas = [
     description: "A comprehensive guide explaining what XRP is, how it works, its tokenomics, use cases, and role in the future of global payments.",
     url: "https://allaboutxrp.com/learn/what-is-xrp",
     datePublished: "2026-02-10",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
+    citations: [
+      "https://xrpl.org/about/xrp",
+      "https://xrpl.org/docs/concepts/consensus-protocol",
+      "https://xrpl.org/docs/concepts/accounts/reserves",
+    ],
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -78,8 +83,8 @@ export default function WhatIsXRPPage() {
           breadcrumbLabel="What is XRP?"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
-            <LastUpdated date="February 11, 2026" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
+            <LastUpdated date="July 27, 2026" />
           </div>
         </LearnHero>
 
@@ -343,7 +348,7 @@ export default function WhatIsXRPPage() {
               <MisconceptionCard myth="XRP has unlimited supply" reality="XRP has a fixed supply of 100 billion. No more can ever be created. It's actually deflationary — transaction fees permanently burn XRP." />
               <MisconceptionCard myth="Escrow unlocks crash the price" reality="Monthly escrow unlocks are fully predictable and priced in. 60-80% is re-escrowed immediately. Only 200-300M enters potential circulation." />
               <MisconceptionCard myth="You should store XRP only on exchanges" reality="For long-term holding, use a self-custody wallet like Xaman. 'Not your keys, not your crypto.'" />
-              <MisconceptionCard myth="I can use all my XRP — the wallet reserve doesn't matter" reality="XRPL accounts require a 10 XRP reserve to activate. Factor this in when setting up a new wallet." />
+              <MisconceptionCard myth="I can use all my XRP — the wallet reserve doesn't matter" reality="XRPL accounts require a 1 XRP reserve to activate. Factor this in when setting up a new wallet." />
             </div>
           </RevealSection>
 
@@ -369,11 +374,17 @@ export default function WhatIsXRPPage() {
           </RevealSection>
         </div>
 
-        <UniqueInsight title="XRP's Post-Settlement Position Is Unprecedented" verifiedDate="February 23, 2026">
-          <p>Here's what most analysts are missing: XRP is now the <strong className="text-white">only large-cap digital asset with explicit judicial clarity</strong> that it is not a security when sold on secondary markets. Judge Torres's July 2023 ruling, upheld through the final resolution in March 2025, created a legal moat that Bitcoin achieved through SEC inaction and Ethereum through the Hinman speech — but XRP has it in black-letter case law.</p>
-          <p>The numbers tell the story. Pre-settlement (Dec 2020), XRP traded at $0.21 with a $9.8B market cap. Post-settlement, it's consistently held above $2.00 with 300+ institutional partners actively using it. Ripple's On-Demand Liquidity corridors processed over $90 billion cumulatively by Q4 2025. The SEC case didn't just end — it <em>removed the single largest overhang</em> on institutional adoption. Major custodians (BNY Mellon, State Street) began XRP support within weeks of final resolution. No other altcoin has undergone this kind of regulatory stress test and emerged stronger.</p>
-          <p>Our take: XRP's regulatory clarity is now its most undervalued asset. While other L1s face potential SEC enforcement, XRP has a federal court precedent. That's not just bullish — it's structurally differentiated.</p>
-        </UniqueInsight>
+        <div className="mt-10">
+          <HighlightBox title="Keep the legal conclusion precise" variant="info">
+            <p>The 2023 summary-judgment decision addressed specific categories of XRP sales; it did not declare that every XRP transaction is categorically outside securities law. Legal status depends on the transaction and jurisdiction, so this guide separates the asset, Ripple the company, and the circumstances in which XRP is offered or sold.</p>
+          </HighlightBox>
+        </div>
+
+        <SourceList sources={[
+          { label: "XRPL.org: XRP overview", href: "https://xrpl.org/about/xrp", note: "XRP purpose, supply, settlement, and its relationship to Ripple" },
+          { label: "XRPL consensus protocol", href: "https://xrpl.org/docs/concepts/consensus-protocol", note: "How transactions are validated without mining" },
+          { label: "XRPL account reserves", href: "https://xrpl.org/docs/concepts/accounts/reserves", note: "Current base and owner reserve settings" },
+        ]} />
 
         {/* Conclusion CTA */}
         <LearnCTA
@@ -386,7 +397,7 @@ export default function WhatIsXRPPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple official announcements, CoinMarketCap, SEC court filings, XRPScan on-chain data.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple official announcements, CoinMarketCap, SEC court filings, XRPScan on-chain data.</em>
         </p>
       </div>
     </>

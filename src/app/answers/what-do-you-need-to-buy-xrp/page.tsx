@@ -82,7 +82,7 @@ export default function Page() {
 
           <h3 className="text-xl font-semibold text-white">Step 5 (Optional): Transfer to a Personal Wallet</h3>
           <p>
-            For long-term holding, consider moving your XRP to a personal wallet. This gives you full control of your assets. Note: XRP wallets require a 10 XRP minimum reserve (account activation cost on the XRP Ledger).
+            For long-term holding, consider moving your XRP to a personal wallet. This gives you full control of your assets. Note: XRP wallets require a 1 XRP minimum reserve (account activation cost on the XRP Ledger).
           </p>
           <ul className="list-disc list-inside space-y-1 text-gray-400">
             <li><strong className="text-white">Hardware wallets</strong> — Ledger Nano X/S, Trezor Model T (most secure)</li>
@@ -126,7 +126,7 @@ export default function Page() {
       faqSchema={[
         { question: "What do you need to buy XRP?", answer: "You need a cryptocurrency exchange account (like Uphold or Coinbase), government-issued ID for verification, a funding method (bank account, debit card), and optionally a personal XRP wallet for long-term storage." },
         { question: "How long does it take to buy XRP?", answer: "The entire process — signing up, verifying identity, funding your account, and purchasing XRP — typically takes 10-30 minutes. Some exchanges offer instant verification." },
-        { question: "What is the minimum amount of XRP you can buy?", answer: "Most exchanges allow purchases as low as $1-10 worth of XRP. If you want a personal XRP wallet, note that the XRP Ledger requires a 10 XRP minimum reserve to activate an account." },
+        { question: "What is the minimum amount of XRP you can buy?", answer: "Most exchanges allow purchases as low as $1-10 worth of XRP. If you want a personal XRP wallet, note that the XRP Ledger requires a 1 XRP minimum reserve to activate an account." },
       ]}
     />
   );

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "How to Use the XRPL DEX: Decentralized Trading Guide", description: "Step-by-step guide to using the XRPL DEX. Trade tokens, place orders, and access DeFi on the XRP Ledger.", url: "https://allaboutxrp.com/learn/how-to-use-xrpl-dex", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "How to Use the XRPL DEX: Decentralized Trading Guide", description: "Step-by-step guide to using the XRPL DEX. Trade tokens, place orders, and access DeFi on the XRP Ledger.", url: "https://allaboutxrp.com/learn/how-to-use-xrpl-dex", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How to Use the XRPL DEX" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-use-xrpl-dex" }),
   buildFAQSchema([
@@ -52,7 +52,7 @@ export default function Page() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero title="How to Use the XRPL DEX" titleAccent="Decentralized Trading Guide" subtitle="Trade tokens on the XRP Ledger's built-in decentralized exchange — no intermediaries, no KYC, near-zero fees." breadcrumbLabel="How to Use the XRPL DEX">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-07-27" /><LastUpdated date="July 27, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
@@ -125,7 +125,7 @@ export default function Page() {
               {title:"Check liquidity",desc:"Low-liquidity pairs have high slippage. Stick to popular pairs."},
               {title:"Use limit orders",desc:"For larger trades, limits ensure your desired price without slippage."},
               {title:"Verify tokens",desc:"Anyone can issue XRPL tokens. Verify issuers before trading."},
-              {title:"Mind reserves",desc:"Keep 10 XRP base reserve plus 2 XRP per trust line."},
+              {title:"Mind reserves",desc:"Keep 1 XRP base reserve plus 0.2 XRP per trust line."},
             ]} variant="check" /></div>
           </RevealSection>
 
@@ -151,7 +151,7 @@ export default function Page() {
 
         <LearnCTA title="Start Trading on the XRPL" description="Decentralized, fast, and nearly free. The original crypto DEX." primaryHref="/learn/xrp-wallets" primaryLabel="Get a Wallet →" secondaryHref="/learn/xrp-amm" secondaryLabel="XRPL AMM" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>
   );

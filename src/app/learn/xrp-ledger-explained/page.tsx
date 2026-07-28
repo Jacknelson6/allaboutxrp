@@ -37,7 +37,7 @@ const schemas = [
     description: "A comprehensive technical guide explaining how the XRP Ledger works, including its consensus protocol, validator network, native features, and architecture.",
     url: "https://allaboutxrp.com/learn/xrp-ledger-explained",
     datePublished: "2026-02-11",
-    dateModified: "2026-02-11",
+    dateModified: "2026-07-27",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -60,7 +60,7 @@ const faqItems = [
   { q: "Is the XRP Ledger decentralized?", a: "Yes. The XRPL has over 150 independent validators run by universities, exchanges, businesses, and individuals worldwide. Ripple operates approximately 6% of all validators. Anyone can run a validator without permission. The XRPL existed before Ripple was incorporated and would continue operating if Ripple ceased to exist." },
   { q: "What is the difference between XRPL and Ripple?", a: "The XRPL is the decentralized, open-source blockchain. Ripple is a private company that builds products using the XRPL and XRP. Ripple contributes to XRPL development but does not control it. Think of it like the relationship between a company that builds apps on the internet — they use the infrastructure but don't control it." },
   { q: "What are XRPL amendments?", a: "Amendments are the XRPL's governance mechanism for protocol upgrades. Any proposed change must receive continuous 80% supermajority support from validators over a two-week voting period before it activates. This ensures changes have broad consensus and gives the ecosystem time to prepare." },
-  { q: "How much does it cost to use the XRPL?", a: "Standard XRPL transactions cost approximately 0.00001 XRP (well under one cent). Accounts require a 10 XRP base reserve and 2 XRP per owned object (trust lines, offers, etc.). These reserves are set by validator vote and can be adjusted." },
+  { q: "How much does it cost to use the XRPL?", a: "Standard XRPL transactions cost approximately 0.00001 XRP (well under one cent). Accounts require a 1 XRP base reserve and 0.2 XRP per owned object (trust lines, offers, etc.). These reserves are set by validator vote and can be adjusted." },
 ];
 
 export default function XRPLedgerExplainedPage() {
@@ -75,7 +75,7 @@ export default function XRPLedgerExplainedPage() {
           breadcrumbLabel="XRP Ledger Explained"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" />
+            <AuthorByline date="2026-02-11" modified="2026-07-27" />
           </div>
         </LearnHero>
 
@@ -397,7 +397,7 @@ export default function XRPLedgerExplainedPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 11, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRP Ledger Foundation, Ripple technical whitepapers, XRPScan on-chain data.</em>
+          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, XRP Ledger Foundation, Ripple technical whitepapers, XRPScan on-chain data.</em>
         </p>
       </div>
     </>
