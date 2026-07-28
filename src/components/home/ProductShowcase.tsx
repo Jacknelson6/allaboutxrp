@@ -57,7 +57,7 @@ export default function ProductShowcase() {
           {/* Mini chart bars */}
           <div className="mt-6 flex items-end gap-[3px] h-16">
             {Array.from({ length: 24 }, (_, i) => {
-              const h = 20 + Math.sin(i * 0.5 + 1) * 15 + Math.random() * 10;
+              const h = 24 + Math.sin(i * 0.5 + 1) * 15 + ((i * 17) % 9);
               return (
                 <div
                   key={i}
@@ -102,14 +102,14 @@ export default function ProductShowcase() {
 
           <div className="grid grid-cols-2 gap-3">
             <Link
-              href="/people"
+              href="/learn/escrow"
               className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 text-[13px] font-medium text-text-primary hover:bg-white/[0.04] hover:border-white/[0.1] transition-all"
             >
               <Lock className="h-3.5 w-3.5 text-xrp-accent" />
               Escrow Deep Dive
             </Link>
             <Link
-              href="/people"
+              href="/holders"
               className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 text-[13px] font-medium text-text-primary hover:bg-white/[0.04] hover:border-white/[0.1] transition-all"
             >
               <Globe className="h-3.5 w-3.5 text-xrp-accent" />

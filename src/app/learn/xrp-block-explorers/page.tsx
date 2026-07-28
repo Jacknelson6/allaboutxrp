@@ -124,7 +124,7 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-on-chain-analysis", label: "On-Chain Analysis", desc: "Read blockchain data" },
               { href: "/learn/xrp-portfolio-trackers", label: "Portfolio Trackers", desc: "Track holdings" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "XRPL basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "XRPL basics" },
               { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build on XRPL" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP", desc: "Wallet security" },
               { href: "/learn/xrp-community-explained", label: "Community", desc: "XRP ecosystem" },
@@ -132,7 +132,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore the Blockchain" description="See every XRP transaction in real-time." primaryHref="/learn/xrp-on-chain-analysis" primaryLabel="On-Chain Analysis →" secondaryHref="/learn/what-is-xrp-ledger" secondaryLabel="XRP Ledger" />
+        <LearnCTA title="Explore the Blockchain" description="See every XRP transaction in real-time." primaryHref="/learn/xrp-on-chain-analysis" primaryLabel="On-Chain Analysis →" secondaryHref="/learn/xrp-ledger-explained" secondaryLabel="XRP Ledger" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

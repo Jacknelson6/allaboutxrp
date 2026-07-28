@@ -73,7 +73,7 @@ export default function Page() {
             explore{" "}
             <Link href="/learn/rlusd" className="text-[#0085FF] hover:underline">RLUSD</Link>,
             and check{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">live XRP transaction data</Link>.
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">live XRP market data</Link>.
           </p>
         </div>
       }

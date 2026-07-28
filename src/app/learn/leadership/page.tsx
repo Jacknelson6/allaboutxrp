@@ -291,7 +291,7 @@ export default function LeadershipPage() {
           description="This leadership team has assembled $3.7B+ in acquisitions and built partnerships across 55+ countries. Ready to start accumulating XRP?"
           primaryHref="/learn/get-started"
           primaryLabel="How to Buy XRP →"
-          secondaryHref="/acquisitions"
+          secondaryHref="/learn/acquisitions"
           secondaryLabel="Acquisition Strategy"
         />
 

@@ -65,7 +65,7 @@ export default function Page() {
             Rather than focusing on a single price target, consider learning about{" "}
             <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">XRP&apos;s fundamentals</Link>{" "}
             and monitoring{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">live price data</Link>{" "}
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">live price data</Link>{" "}
             and{" "}
             <Link href="/learn/escrow" className="text-[#0085FF] hover:underline">escrow releases</Link>{" "}
             to make informed decisions.

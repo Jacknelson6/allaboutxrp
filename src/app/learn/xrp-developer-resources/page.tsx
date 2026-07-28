@@ -81,7 +81,7 @@ export default function Page() {
 
           <RevealSection id="overview">
             <h2 className="text-2xl font-bold text-text-primary">Building on the XRP Ledger</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> provides native features that don&apos;t require smart contracts: built-in DEX, AMM, NFTs (XLS-20), escrow, payment channels, and multi-signing. This makes development simpler and more secure.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> provides native features that don&apos;t require smart contracts: built-in DEX, AMM, NFTs (XLS-20), escrow, payment channels, and multi-signing. This makes development simpler and more secure.</p>
           </RevealSection>
 
           <RevealSection id="sdks" delay={0.05}>
@@ -118,7 +118,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "XRPL basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "XRPL basics" },
               { href: "/learn/xrpl-nft-marketplaces", label: "NFT Markets", desc: "XRPL NFTs" },
               { href: "/learn/xrpl-gaming", label: "XRPL Gaming", desc: "Game dev" },
               { href: "/learn/xrp-micropayments", label: "Micropayments", desc: "Payment use cases" },
@@ -128,7 +128,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Start Building" description="The XRP Ledger is open and ready for your project." primaryHref="/learn/what-is-xrp-ledger" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-community-explained" secondaryLabel="Join Community" />
+        <LearnCTA title="Start Building" description="The XRP Ledger is open and ready for your project." primaryHref="/learn/xrp-ledger-explained" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-community-explained" secondaryLabel="Join Community" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

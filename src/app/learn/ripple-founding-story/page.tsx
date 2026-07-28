@@ -80,7 +80,7 @@ export default function Page() {
 
           <RevealSection id="origin">
             <h2 className="text-2xl font-bold text-text-primary">The Origin of XRP</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">In 2011, David Schwartz, Jed McCaleb, and Arthur Britto began building an alternative to Bitcoin — faster, more energy-efficient, and designed for payments. By 2012, the <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> was live.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">In 2011, David Schwartz, Jed McCaleb, and Arthur Britto began building an alternative to Bitcoin — faster, more energy-efficient, and designed for payments. By 2012, the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> was live.</p>
           </RevealSection>
 
           <RevealSection id="founders" delay={0.05}>
@@ -127,7 +127,7 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Price history" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC Impact", desc: "Lawsuit story" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "How it works" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "How it works" },
               { href: "/learn/xrp-crash-history", label: "Crashes", desc: "Price drops" },
               { href: "/learn/xrp-community-explained", label: "Community", desc: "XRP Army" },
               { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build on XRPL" },
@@ -135,7 +135,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Learn XRP's History" description="Understanding the origin helps you understand the mission." primaryHref="/learn/what-is-xrp-ledger" primaryLabel="XRP Ledger →" secondaryHref="/learn/xrp-community-explained" secondaryLabel="XRP Community" />
+        <LearnCTA title="Learn XRP's History" description="Understanding the origin helps you understand the mission." primaryHref="/learn/xrp-ledger-explained" primaryLabel="XRP Ledger →" secondaryHref="/learn/xrp-community-explained" secondaryLabel="XRP Community" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

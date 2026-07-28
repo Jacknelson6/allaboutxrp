@@ -1,23 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Start with XRP — Beginner's Guide | AllAboutXRP",
+  title: "How to Start with XRP — Buy, Store & Verify Safely",
   description:
-    "Quick-start guide to buying XRP. Choose an exchange, verify your identity, and secure your tokens. Simple steps for beginners.",
-  openGraph: {
-    title: "How to Start with XRP — Beginner's Guide | AllAboutXRP",
-    description: "Step-by-step guide to buying XRP for beginners.",
-    url: "https://allaboutxrp.com/how-to-start",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "How to Start with XRP | AllAboutXRP",
-    description: "Quick-start guide to buying XRP cryptocurrency.",
-  },
+    "A risk-aware beginner checklist for researching exchanges, buying XRP, understanding custody, and securing an XRP wallet.",
   alternates: { canonical: "https://allaboutxrp.com/how-to-start" },
+  openGraph: {
+    title: "How to Start with XRP | AllAboutXRP",
+    description: "A practical, risk-aware checklist for buying and securing XRP.",
+    url: "https://allaboutxrp.com/how-to-start",
+    type: "article",
+  },
 };
 
 export default function HowToStartLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return children;
 }

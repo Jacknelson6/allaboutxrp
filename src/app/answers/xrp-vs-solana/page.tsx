@@ -85,7 +85,7 @@ export default function Page() {
             Many investors hold both, viewing them as complementary rather than competing. Learn more about{" "}
             <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">what makes XRP unique</Link>{" "}
             and explore{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">live market data</Link>{" "}
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">live market data</Link>{" "}
             to compare current metrics.
           </p>
         </div>

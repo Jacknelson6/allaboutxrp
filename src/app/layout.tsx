@@ -64,6 +64,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   ...(GSC_VERIFICATION && {
     verification: {
@@ -75,9 +82,16 @@ export const metadata: Metadata = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://allaboutxrp.com/#website",
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
-  description: "Comprehensive XRP resource hub with education, live data, and community.",
+  description: "Independent XRP resource with source-led education, live data, tools, and news.",
+  inLanguage: "en-US",
+  publisher: { "@id": "https://allaboutxrp.com/#organization" },
+  about: [
+    { "@type": "Thing", name: "XRP", sameAs: "https://xrpl.org/about/xrp" },
+    { "@type": "Thing", name: "XRP Ledger", sameAs: "https://xrpl.org" },
+  ],
 };
 
 export default function RootLayout({

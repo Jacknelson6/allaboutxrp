@@ -110,7 +110,7 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrpl-nft-marketplaces", label: "NFT Markets", desc: "Buy/sell" },
               { href: "/learn/xrp-micropayments", label: "Micro", desc: "Payments" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRPL", desc: "Basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRPL", desc: "Basics" },
               { href: "/learn/xrp-developer-resources", label: "Dev", desc: "Build" },
               { href: "/learn/how-to-store-xrp-safely", label: "Wallets", desc: "Setup" },
               { href: "/learn/xrp-community-explained", label: "Community", desc: "Ecosystem" },
@@ -118,7 +118,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore XRPL Gaming" description="Gaming meets blockchain." primaryHref="/learn/xrpl-nft-marketplaces" primaryLabel="NFT Markets →" secondaryHref="/learn/what-is-xrp-ledger" secondaryLabel="Learn XRPL" />
+        <LearnCTA title="Explore XRPL Gaming" description="Gaming meets blockchain." primaryHref="/learn/xrpl-nft-marketplaces" primaryLabel="NFT Markets →" secondaryHref="/learn/xrp-ledger-explained" secondaryLabel="Learn XRPL" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

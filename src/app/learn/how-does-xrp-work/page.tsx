@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
+import SourceList from "@/components/shared/SourceList";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
@@ -30,13 +31,26 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/how-does-xrp-work" },
 };
 
+const faqItems = [
+  { q: "How does XRP work in simple terms?", a: "XRP transactions are processed by the XRP Ledger. Independent servers propose transactions and use the XRPL consensus protocol to agree on a validated ledger, typically every three to five seconds. The network does not use proof-of-work mining." },
+  { q: "When is an XRP transaction final?", a: "A transaction result is final when the transaction appears in a validated ledger. A preliminary result from a submitted transaction is not enough; wallets and exchanges should verify the validated result." },
+  { q: "How much does an XRP transaction cost?", a: "The reference transaction cost on Mainnet is normally 10 drops, or 0.00001 XRP, but the open-ledger cost can rise when the network is busy. The cost is destroyed rather than paid to a validator." },
+  { q: "Does XRP use mining?", a: "No. The 100 billion XRP supply was created when the XRP Ledger began. XRPL validation uses a consensus process, not proof-of-work mining, and validators do not receive protocol rewards." },
+  { q: "Who operates XRP Ledger validators?", a: "Validators can be operated by independent individuals and organizations. Each server operator chooses which validators it trusts for consensus, and the public validator landscape can change over time." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How Does XRP Work? Simple Explanation",
     description: "A comprehensive yet accessible explanation of how XRP transactions work, the consensus mechanism, and the technology behind 3-5 second settlement.",
     url: "https://allaboutxrp.com/learn/how-does-xrp-work",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-07-28",
+    citations: [
+      "https://xrpl.org/docs/concepts/transactions/finality-of-results",
+      "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+      "https://xrpl.org/docs/concepts/consensus-protocol",
+    ],
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -44,22 +58,7 @@ const schemas = [
     { name: "How Does XRP Work?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-does-xrp-work" }),
-  buildFAQSchema([
-    { question: "How does XRP work in simple terms?", answer: "XRP works by using a network of independent validators to confirm transactions through consensus. When you send XRP, your transaction is broadcast to the network. Validators agree on which transactions are valid, and the ledger is updated every 3-5 seconds. Unlike Bitcoin, XRP doesn't use mining — validators don't compete for rewards, they cooperate to validate transactions." },
-    { question: "How fast are XRP transactions?", answer: "XRP transactions settle in 3-5 seconds with guaranteed finality. This means once a transaction is confirmed, it cannot be reversed or rolled back. This is dramatically faster than Bitcoin (10-60 minutes), Ethereum (12-15 seconds), or traditional bank transfers (1-5 days)." },
-    { question: "How much does an XRP transaction cost?", answer: "XRP transaction fees are approximately 0.00001 XRP (10 drops), which is a fraction of a cent. Fees are burned (destroyed), not paid to validators. This makes XRP one of the cheapest cryptocurrencies to transact with." },
-    { question: "Does XRP use mining?", answer: "No. XRP does not use mining or proof-of-work. All 100 billion XRP were created at the ledger's inception. Instead of miners competing to solve puzzles, XRP uses a consensus protocol where trusted validators cooperate to validate transactions. This makes XRP far more energy-efficient than Bitcoin." },
-    { question: "What happens to XRP transaction fees?", answer: "XRP transaction fees are permanently burned (destroyed). They are not paid to validators or any entity. This creates a very slight deflationary pressure on XRP's supply over time, though the burn rate is minimal — roughly 10-20 XRP per day at current usage levels." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How does XRP work in simple terms?", a: "XRP uses a network of independent validators to confirm transactions through consensus. When you send XRP, validators agree on which transactions are valid, and the ledger updates every 3-5 seconds. No mining — validators cooperate to validate." },
-  { q: "How fast are XRP transactions?", a: "XRP transactions settle in 3-5 seconds with guaranteed finality. Once confirmed, a transaction cannot be reversed. This is faster than Bitcoin (10-60 min), Ethereum (12-15 sec), or bank transfers (1-5 days)." },
-  { q: "How much does an XRP transaction cost?", a: "About 0.00001 XRP (~$0.00002), which is a fraction of a cent. Fees are burned, not paid to validators." },
-  { q: "Does XRP use mining?", a: "No. All 100 billion XRP were created at inception. XRP uses a consensus protocol where trusted validators cooperate instead of miners competing. This makes XRP far more energy-efficient than Bitcoin." },
-  { q: "What happens to XRP transaction fees?", a: "Fees are permanently burned (destroyed). This creates slight deflationary pressure, though the burn rate is minimal at about 10-20 XRP per day." },
-  { q: "Who are XRP validators?", a: "XRP validators are independent servers run by universities, exchanges, companies, and individuals worldwide. They don't earn rewards — they participate because they use the network. Ripple runs some validators but doesn't control the majority." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowDoesXRPWorkPage() {
@@ -70,27 +69,27 @@ export default function HowDoesXRPWorkPage() {
         <LearnHero
           title="How Does XRP Work?"
           titleAccent="A Simple, Complete Explanation"
-          subtitle="XRP settles payments in 3-5 seconds for a fraction of a cent. But how does it actually work? Here's a clear, jargon-free explanation of the technology behind XRP — from sending a transaction to final settlement."
+          subtitle="The XRP Ledger typically validates new ledger versions every three to five seconds. Here is how transactions move from submission to a final, validated result—and where to verify each technical detail."
           breadcrumbLabel="How Does XRP Work?"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-07-28" />
+            <LastUpdated date="July 28, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP works through a consensus mechanism</strong> — not mining. When you send XRP, your transaction is broadcast to a network of independent <Link href="/learn/xrpl-validators" className="text-xrp-accent underline decoration-xrp-accent/30">validators</Link> who agree on which transactions are valid. The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> closes a new block every 3-5 seconds, confirming transactions with <strong className="text-text-primary">guaranteed finality</strong> (no chargebacks or reversals). Transaction fees cost a fraction of a cent and are <strong className="text-text-primary">burned permanently</strong>, not paid to anyone. All 100 billion XRP were created at the start — there&apos;s no mining.</p>
+          <p><strong className="text-text-primary">XRP works through the XRP Ledger consensus protocol</strong>, not mining. A submitted transaction is relayed to XRPL servers, checked against protocol rules, and becomes final when it is included in a <strong className="text-text-primary">validated ledger</strong>. Ledger versions typically validate every three to five seconds. The minimum transaction cost is normally 10 drops (0.00001 XRP), can rise with load, and is <strong className="text-text-primary">destroyed</strong> rather than paid to a validator.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
-          { label: "Consensus Type", value: "Federated Consensus (UNL)" },
-          { label: "Settlement Time", value: "3-5 seconds" },
-          { label: "Transaction Fee", value: "~0.00001 XRP (~$0.00002)" },
-          { label: "Finality", value: "Guaranteed (irreversible)" },
+          { label: "Consensus", value: "XRPL Consensus Protocol" },
+          { label: "Typical Ledger Close", value: "3-5 seconds" },
+          { label: "Reference Cost", value: "10 drops (0.00001 XRP)" },
+          { label: "Final Result", value: "Included in a validated ledger" },
           { label: "Mining", value: "None — all XRP pre-created" },
-          { label: "Validators", value: "150+ independent nodes" },
-          { label: "TPS Capacity", value: "1,500+ transactions/second" },
+          { label: "Validators", value: "Independent operators" },
+          { label: "Network Load", value: "Can raise open-ledger cost" },
           { label: "Fee Destination", value: "Burned (destroyed)" },
         ]} />
 
@@ -106,9 +105,9 @@ export default function HowDoesXRPWorkPage() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Settlement" value="3-5 sec" delay={0} />
-          <StatPill label="Fee" value="$0.00002" delay={0.06} />
-          <StatPill label="Validators" value="150+" delay={0.12} />
-          <StatPill label="TPS" value="1,500+" delay={0.18} />
+          <StatPill label="Reference Cost" value="10 drops" delay={0.06} />
+          <StatPill label="Mining" value="None" delay={0.12} />
+          <StatPill label="Final Result" value="Validated" delay={0.18} />
         </div>
 
         <div className="cv-auto mt-14 space-y-14">
@@ -118,7 +117,7 @@ export default function HowDoesXRPWorkPage() {
               At its core, XRP is a <strong className="text-text-primary">digital payment protocol</strong>. The XRP Ledger (XRPL) is an open-source, decentralized blockchain that processes and records XRP transactions. Unlike Bitcoin, which uses energy-intensive mining, XRP uses a <strong className="text-text-primary">consensus mechanism</strong> — a system where independent validators agree on the state of the ledger every few seconds.
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Think of it like this: Bitcoin is a competition (miners race to solve puzzles), while XRP is a vote (validators cooperate to agree on truth). This is why XRP is <strong className="text-text-primary">250,000x more energy-efficient</strong> than Bitcoin and settles payments in seconds instead of minutes.
+              A useful shorthand is that proof-of-work networks use mining to order transactions, while XRPL servers exchange proposals and converge on a validated ledger. The protocols make different security and liveness tradeoffs, so the comparison should not be reduced to one speed or energy statistic.
             </p>
 
             <div className="mt-6">
@@ -127,8 +126,8 @@ export default function HowDoesXRPWorkPage() {
                 { title: "Step 2: Broadcast", desc: "Your transaction is broadcast to the network of validators around the world." },
                 { title: "Step 3: Validate", desc: "Validators check: Is the sender's balance sufficient? Is the signature valid? Is this a double-spend?" },
                 { title: "Step 4: Consensus", desc: "Validators propose transactions for the next ledger. When 80%+ agree, the ledger closes." },
-                { title: "Step 5: Settle", desc: "The new ledger version is published. Your transaction is confirmed with finality in 3-5 seconds." },
-                { title: "Step 6: Fee Burn", desc: "The tiny transaction fee (0.00001 XRP) is permanently destroyed. Not paid to anyone." },
+                { title: "Step 5: Validate", desc: "If the transaction is included in a validated ledger, its result is final. A preliminary submission result is not final." },
+                { title: "Step 6: Destroy the Cost", desc: "The transaction cost is deducted and permanently destroyed instead of being paid to a validator." },
               ]} />
             </div>
           </RevealSection>
@@ -145,13 +144,13 @@ export default function HowDoesXRPWorkPage() {
                 { title: "2. Transaction broadcasts to the network", desc: "Your signed transaction is sent to the nearest XRP Ledger node, which relays it to other nodes across the global network within milliseconds." },
                 { title: "3. Validators check validity", desc: "Each validator independently verifies: Does the sender have enough XRP? Is the cryptographic signature valid? Is this transaction properly formatted? Has this XRP already been spent?" },
                 { title: "4. Consensus round occurs", desc: "Validators propose valid transactions for inclusion in the next ledger version. Through iterative voting rounds, they reach 80%+ agreement on which transactions to include." },
-                { title: "5. Ledger closes (3-5 seconds)", desc: "The new ledger version is published with your transaction included. The recipient's balance is updated. The transaction has guaranteed finality — it cannot be reversed." },
+                { title: "5. Check the validated result", desc: "A transaction is final when it appears in a validated ledger. Applications should verify the validated result rather than relying only on the preliminary submission response." },
               ]} variant="zap" />
             </div>
 
             <div className="mt-6">
               <HighlightBox title="What Does 'Finality' Mean?" variant="accent">
-                <p>Unlike Bitcoin where transactions can theoretically be reversed through a 51% attack (which is why exchanges wait for 6 confirmations), XRP transactions have <strong className="text-text-primary">guaranteed finality</strong>. Once a ledger closes, the transactions in it are permanent. No amount of computing power can reverse them. This is why XRP is trusted for <Link href="/learn/cross-border-payments" className="text-xrp-accent underline decoration-xrp-accent/30">high-value institutional payments</Link>.</p>
+                <p>XRPL distinguishes between a transaction being submitted, a preliminary engine result, and a result in a validated ledger. Only the validated result is final. This distinction matters when a wallet, exchange, or payment system decides whether to credit a payment.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -162,15 +161,15 @@ export default function HowDoesXRPWorkPage() {
               XRP&apos;s consensus mechanism is called the <strong className="text-text-primary">XRP Ledger Consensus Protocol</strong> (sometimes called Federated Consensus). It&apos;s fundamentally different from Bitcoin&apos;s Proof-of-Work and Ethereum&apos;s Proof-of-Stake.
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Each validator maintains a <strong className="text-text-primary">Unique Node List (UNL)</strong> — a list of other validators it trusts. To reach consensus, at least <strong className="text-text-primary">80% of a validator&apos;s UNL</strong> must agree on a set of transactions. This process happens through multiple rounds of proposals, with each round narrowing disagreements until supermajority agreement is reached.
+              Each server operator configures a <strong className="text-text-primary">Unique Node List (UNL)</strong>—the validators it listens to for consensus. Validators exchange proposals over several rounds and converge on the transaction set for the next ledger. The protocol&apos;s safety depends on sufficient overlap between operators&apos; trusted lists; no single global list is hard-coded into the ledger.
             </p>
 
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
                 { title: "No Mining Required", desc: "Validators don't solve puzzles or stake coins. They simply verify transactions and vote on the next ledger state." },
                 { title: "No Rewards", desc: "Validators earn nothing for participating. They validate because they use the network (exchanges, institutions, developers)." },
-                { title: "80% Supermajority", desc: "Consensus requires 80%+ agreement among trusted validators, preventing any single entity from controlling the network." },
-                { title: "3-5 Second Rounds", desc: "Each consensus round takes 3-5 seconds, producing a new immutable ledger version with guaranteed finality." },
+                { title: "Quorum and List Overlap", desc: "Servers use quorum among trusted validators, and sufficient overlap between trusted lists is important to network safety." },
+                { title: "Typical 3-5 Second Rounds", desc: "The network usually validates a new ledger version every three to five seconds, though timing can vary." },
               ]} />
             </div>
           </RevealSection>
@@ -178,22 +177,21 @@ export default function HowDoesXRPWorkPage() {
           <RevealSection id="validators" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Who Are XRP Validators?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <Link href="/learn/xrpl-validators" className="text-xrp-accent underline decoration-xrp-accent/30">XRP validators</Link> are independent servers run by a diverse set of organizations and individuals around the world. Unlike Bitcoin miners who are incentivized by block rewards, XRP validators participate because they <strong className="text-text-primary">use the network and want it to function correctly</strong>.
+              <Link href="/learn/xrpl-validators" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger validators</Link> can be run by individuals and organizations. XRPL does not pay block rewards or transaction fees to validators. Operators participate for reasons such as running reliable infrastructure, independently verifying the ledger, supporting applications, or contributing to the network.
             </p>
 
             <div className="mt-6">
               <IconList items={[
-                { title: "Universities", desc: "Academic institutions including some that run validators for research and education purposes." },
-                { title: "Exchanges", desc: "Major crypto exchanges run validators to ensure they can trust the transactions they process." },
-                { title: "Financial institutions", desc: "Banks and payment providers that use RippleNet run validators for direct network participation." },
-                { title: "Infrastructure companies", desc: "Blockchain infrastructure providers run validators as part of their services." },
-                { title: "Individual developers", desc: "Community members who run validators on commodity hardware to support decentralization." },
+                { title: "Infrastructure operators", desc: "Organizations can validate the same ledger data they use for wallets, exchanges, explorers, and applications." },
+                { title: "Universities and nonprofits", desc: "Academic and nonprofit operators may participate for research, education, or public infrastructure." },
+                { title: "Businesses", desc: "Companies that depend on XRPL can run servers and validators to verify network activity independently." },
+                { title: "Individual operators", desc: "Technically capable community members can operate validators and publish their public keys and policies." },
               ]} variant="check" />
             </div>
 
             <div className="mt-6">
               <HighlightBox title="Is XRP Centralized?" variant="info">
-                <p>A common criticism is that XRP is &quot;centralized&quot; because Ripple runs some validators. The reality: Ripple runs only <strong className="text-text-primary">4-5 of 150+ validators</strong> on the default UNL. Even if Ripple&apos;s validators went offline, the network would continue operating. No single entity controls 80% of validators, which is what would be needed to manipulate consensus. See our <Link href="/learn/xrp-myths" className="text-xrp-accent underline decoration-xrp-accent/30">XRP myths page</Link> for more on this topic.</p>
+                <p>There is no single administrator that approves XRPL transactions, but decentralization is not a yes-or-no label. Evaluate who operates validators, how operators choose trusted lists, the overlap between those lists, software-development influence, and what would happen if a major operator went offline. Current validator and UNL data should be checked live rather than reduced to a fixed count.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -204,21 +202,19 @@ export default function HowDoesXRPWorkPage() {
               <DataTable
                 headers={["Feature", "XRP", "Bitcoin"]}
                 rows={[
-                  ["Consensus", "Federated Consensus (voting)", "Proof-of-Work (mining)"],
-                  ["Settlement Time", "3-5 seconds", "10-60 minutes"],
-                  ["Transaction Fee", "~$0.00002", "$1-50+"],
-                  ["Energy Use", "0.0079 kWh/tx", "707 kWh/tx"],
+                  ["Consensus", "XRPL consensus protocol", "Proof-of-Work mining"],
+                  ["Finality", "Final once included in a validated ledger", "Probabilistic; confidence rises with confirmations"],
+                  ["Transaction Cost", "Reference cost in drops; can rise with load", "Fee market denominated in satoshis per virtual byte"],
+                  ["Mining", "No proof-of-work mining", "Proof-of-work mining"],
                   ["Supply Creation", "All pre-created at genesis", "Mined over ~140 years"],
-                  ["Finality", "Guaranteed in 3-5 sec", "Probabilistic (6 confirmations)"],
-                  ["TPS Capacity", "1,500+", "~7"],
-                  ["Validator Incentive", "None (network participation)", "Block rewards + fees"],
+                  ["Protocol Incentive", "No validator reward", "Block subsidy and transaction fees"],
                 ]}
                 highlightCol={1}
               />
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              The key philosophical difference: Bitcoin was designed as <strong className="text-text-primary">digital gold</strong> (store of value), while XRP was designed as <strong className="text-text-primary">digital money</strong> (medium of exchange). Their technical architectures reflect these different goals. For a deeper comparison, see <Link href="/learn/xrp-vs-bitcoin" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs Bitcoin</Link>.
+              The protocols were designed with different transaction-ordering models, issuance schedules, and operating assumptions. Those differences matter more than a single speed or fee snapshot. For a deeper comparison, see <Link href="/learn/xrp-vs-bitcoin" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs Bitcoin</Link>.
             </p>
           </RevealSection>
 
@@ -257,12 +253,19 @@ export default function HowDoesXRPWorkPage() {
               { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
               { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "A risk-aware buying and custody checklist" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />
           </RevealSection>
         </div>
+
+        <SourceList sources={[
+          { label: "XRPL transaction finality", href: "https://xrpl.org/docs/concepts/transactions/finality-of-results", note: "How to distinguish preliminary and validated transaction results" },
+          { label: "XRPL transaction cost", href: "https://xrpl.org/docs/concepts/transactions/transaction-cost", note: "Reference cost, load-based escalation, and cost destruction" },
+          { label: "XRPL consensus protocol", href: "https://xrpl.org/docs/concepts/consensus-protocol", note: "How validators exchange proposals and validate ledgers" },
+          { label: "XRPL consensus principles and rules", href: "https://xrpl.org/docs/concepts/consensus-protocol/consensus-principles-and-rules", note: "Quorum, trusted lists, and validation behavior" },
+        ]} />
 
         <LearnCTA
           title="Dive Deeper into XRP Technology"
@@ -274,7 +277,7 @@ export default function HowDoesXRPWorkPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org, Ripple.com, XRP Ledger documentation.</em>
+          <em>Reviewed July 28, 2026. Published by AllAboutXRP. Network settings and validator lists can change; use the primary sources above for current details.</em>
         </p>
       </div>
     </>

@@ -262,7 +262,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
                   <div className="w-5 h-5 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin" />
                 ) : user ? (
                   <a
-                    href="/subscribe"
+                    href="/pricing"
                     className="rounded-lg bg-[#0085FF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#0070DD] transition-colors"
                   >
                     Subscribe

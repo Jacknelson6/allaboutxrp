@@ -97,7 +97,7 @@ export default function Page() {
 
           <RevealSection id="amm" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRPL AMM Pools</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Earn trading fees on the <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. No middleman, fully on-chain.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Earn trading fees on the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. No middleman, fully on-chain.</p>
             <div className="mt-6"><IconList items={[
               {title:"XRP/RLUSD",desc:"Stablecoin pair. Lower IL. Most popular."},
               {title:"XRP/USD",desc:"Gateway-backed. Established."},

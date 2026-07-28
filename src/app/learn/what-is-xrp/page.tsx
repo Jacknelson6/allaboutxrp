@@ -191,7 +191,7 @@ export default function WhatIsXRPPage() {
           <RevealSection id="tokenomics" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRP Tokenomics: Supply Breakdown</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Approximately 33.9 billion XRP remains in <Link href="/people" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow system</Link>. Here&apos;s how the supply breaks down as of February 2026:
+              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Approximately 33.9 billion XRP remains in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow system</Link>. Here&apos;s how the supply breaks down as of February 2026:
             </p>
 
             <div className="mt-6">
@@ -294,7 +294,7 @@ export default function WhatIsXRPPage() {
               Every month, up to 1 billion XRP unlocks automatically (enforced by the protocol), but Ripple typically re-escrows 60-80% immediately. Only 200-300 million XRP enters potential circulation each month. As of February 2026, approximately <strong className="text-text-primary">33.9 billion XRP</strong> remains in escrow.
             </p>
             <p className="mt-3 text-text-secondary leading-relaxed">
-              Read our comprehensive deep dive: <Link href="/people" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP Escrow: The Complete Guide →</Link>
+              Read our comprehensive deep dive: <Link href="/learn/escrow" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP Escrow: The Complete Guide →</Link>
             </p>
           </RevealSection>
 
@@ -367,7 +367,7 @@ export default function WhatIsXRPPage() {
               { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
               { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "A risk-aware buying and custody checklist" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />
@@ -388,16 +388,16 @@ export default function WhatIsXRPPage() {
 
         {/* Conclusion CTA */}
         <LearnCTA
-          title="Start Your XRP Journey"
-          description="XRP is more than a cryptocurrency — it's the foundation of a new financial infrastructure being built by a $50 billion company with over 300 institutional partners. Ready to get started?"
-          primaryHref="/learn/get-started"
-          primaryLabel="How to Buy XRP →"
+          title="Continue with a practical checklist"
+          description="If you decide to buy XRP, compare current fees and eligibility, plan custody before purchasing, and verify addresses and reserve requirements before withdrawing."
+          primaryHref="/how-to-start"
+          primaryLabel="How to Start with XRP →"
           secondaryHref="/learn/what-is-ripple"
           secondaryLabel="Learn About Ripple"
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: July 27, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, Ripple official announcements, CoinMarketCap, SEC court filings, XRPScan on-chain data.</em>
+          <em>Reviewed July 27, 2026. Published by AllAboutXRP. Use the linked primary sources for current protocol and legal details.</em>
         </p>
       </div>
     </>

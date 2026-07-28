@@ -65,7 +65,7 @@ export default function Page() {
             Start by{" "}
             <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">understanding what XRP is</Link>,
             review the{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">current price and market data</Link>,
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">current price and market data</Link>,
             and read about{" "}
             <Link href="/learn/get-started" className="text-[#0085FF] hover:underline">how to get started</Link>{" "}
             if you decide to proceed.

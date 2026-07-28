@@ -6,6 +6,7 @@ const SITE_URL = "https://allaboutxrp.com";
 
 const publisher = {
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "AllAboutXRP",
   url: SITE_URL,
   logo: {
@@ -18,7 +19,8 @@ const publisher = {
 
 const author = {
   "@type": "Organization",
-  name: "AllAboutXRP Editorial Team",
+  "@id": `${SITE_URL}/#editorial`,
+  name: "AllAboutXRP",
   url: `${SITE_URL}/editorial`,
 };
 
@@ -44,7 +46,8 @@ export function buildArticleSchema(opts: {
     inLanguage: "en-US",
     isAccessibleForFree: true,
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
-    ...(opts.image && { image: opts.image }),
+    image: opts.image || `${SITE_URL}/opengraph-image`,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
     ...(opts.citations?.length && { citation: opts.citations }),
   };
 }

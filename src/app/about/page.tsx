@@ -5,9 +5,9 @@ import SEOSchema from "@/components/shared/SEOSchema";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "About AllAboutXRP — Our Mission & Team",
+  title: "About AllAboutXRP — Mission & Research Process",
   description:
-    "AllAboutXRP is an independent educational resource dedicated to providing accurate, unbiased information about XRP and the XRP Ledger. Learn about our team, mission, and editorial standards.",
+    "AllAboutXRP is an independent educational resource for source-led information about XRP and the XRP Ledger. Learn about our mission and research process.",
   openGraph: {
     title: "About AllAboutXRP | Independent XRP Education",
     description:
@@ -21,11 +21,12 @@ export const metadata: Metadata = {
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://allaboutxrp.com/#organization",
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
   foundingDate: "2026-02",
   description:
-    "Independent educational resource providing comprehensive, unbiased information about XRP and the XRP Ledger.",
+    "Independent educational resource providing source-led information about XRP and the XRP Ledger.",
   sameAs: [],
   contactPoint: {
     "@type": "ContactPoint",
@@ -45,16 +46,15 @@ export default function AboutPage() {
               About AllAboutXRP
             </h1>
             <p className="mt-4 text-lg text-zinc-400 leading-relaxed">
-              Independent XRP education — built by researchers, for the community.
+              Independent, source-led XRP education for readers who want to verify the details.
             </p>
           </header>
 
           <section className="prose-custom space-y-6 text-zinc-300 leading-relaxed">
             <h2 className="text-2xl font-semibold text-white">Our Mission</h2>
             <p>
-              AllAboutXRP exists for one purpose: to be the most comprehensive, accurate,
-              and accessible educational resource about XRP and the XRP Ledger. We believe
-              that clear, unbiased information empowers better decisions — whether you&apos;re
+              AllAboutXRP exists to make XRP and XRP Ledger information clearer, easier to
+              verify, and more useful. We believe that transparent sourcing supports better decisions — whether you&apos;re
               a newcomer learning what XRP is, or an experienced holder tracking on-chain data.
             </p>
             <p>
@@ -64,17 +64,24 @@ export default function AboutPage() {
               or reviews, and we never let partnerships influence our editorial content.
             </p>
 
-            <h2 className="text-2xl font-semibold text-white mt-10">Who We Are</h2>
+            <h2 className="text-2xl font-semibold text-white mt-10">How We Work</h2>
             <p>
-              AllAboutXRP was founded in February 2026 by a team of XRP researchers and
-              cryptocurrency analysts who saw a gap in the market: there was no single,
-              trustworthy resource that covered everything about XRP in one place.
+              AllAboutXRP launched in 2026 as an independent reference for XRP education,
+              live data, and practical tools. Pages are designed to give the answer first,
+              explain the relevant context, and point readers to evidence they can inspect.
             </p>
             <p>
-              Our team includes blockchain researchers, financial writers, and developers
-              who have collectively spent years studying the XRP Ledger, Ripple&apos;s
-              technology, and the broader crypto ecosystem. Every piece of content goes
-              through a multi-step editorial process before publication.
+              For technical and network claims, we prioritize XRP Ledger documentation and
+              ledger data. For legal or company claims, we look for court records, regulatory
+              material, and first-party disclosures. Analysis and scenarios are labeled as
+              such rather than presented as guaranteed outcomes. See our{" "}
+              <Link
+                href="/learn/trusted-sources"
+                className="text-[#0085FF] underline decoration-[#0085FF]/30 hover:decoration-[#0085FF]"
+              >
+                trusted sources directory
+              </Link>
+              .
             </p>
 
             <h2 className="text-2xl font-semibold text-white mt-10">What We Cover</h2>

@@ -25,8 +25,8 @@ export default function Hero() {
           <Link href="/how-to-start" className="btn-primary">
             How to Start with XRP
           </Link>
-          <Link href="/people" className="btn-secondary">
-            View People
+          <Link href="/holders" className="btn-secondary">
+            View Holders
           </Link>
         </div>
 

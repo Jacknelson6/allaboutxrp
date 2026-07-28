@@ -20,7 +20,7 @@ export default function MiniGlobePreview() {
   return (
     <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden group">
       {/* Globe preview - non-interactive */}
-      <Link href="/live">
+      <Link href="/live-chart">
         <div className="relative h-[280px] w-full pointer-events-none">
           <div className="absolute inset-0">
             <Suspense fallback={
@@ -42,7 +42,7 @@ export default function MiniGlobePreview() {
         <p className="text-[13px] text-text-secondary mb-3">
           Visualize live transactions across the XRP Ledger worldwide.
         </p>
-        <Link href="/live" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
+        <Link href="/live-chart" className="flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
           Explore Live
           <ArrowRight className="h-4 w-4" />
         </Link>

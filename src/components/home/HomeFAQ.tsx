@@ -3,15 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
-
-const faqItems = [
-  { q: "What is XRP?", a: "XRP is a digital asset and cryptocurrency native to the XRP Ledger, an open-source blockchain launched in June 2012. It was designed for fast, low-cost cross-border payments, settling transactions in 3–5 seconds with fees under $0.01." },
-  { q: "Is XRP the same as Ripple?", a: "No. Ripple is a private fintech company that builds payment solutions. XRP is an independent digital asset on the open-source XRP Ledger. While Ripple uses XRP in some products, the XRP Ledger operates independently." },
-  { q: "Is XRP a security?", a: "In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security. This was a landmark ruling for the entire crypto industry." },
-  { q: "How fast are XRP transactions?", a: "XRP transactions settle in 3–5 seconds on the XRP Ledger, which can handle approximately 1,500 transactions per second — making it one of the fastest major cryptocurrencies." },
-  { q: "How many XRP exist?", a: "100 billion XRP were created at genesis. No more can ever be minted. Approximately 60 billion are in circulation, ~33.9 billion are in Ripple's escrow, and over 14 million have been permanently burned." },
-  { q: "What is XRP escrow?", a: "Ripple placed 55 billion XRP into cryptographically enforced escrow contracts in 2017. Up to 1 billion unlocks monthly, but 60-80% is typically re-escrowed immediately." },
-];
+import { HOME_FAQ_ITEMS } from "@/data/home-faq";
 
 export default function HomeFAQ() {
   const [open, setOpen] = useState<number | null>(null);
@@ -29,7 +21,7 @@ export default function HomeFAQ() {
       </div>
 
       <div className="space-y-2">
-        {faqItems.map((item, i) => {
+        {HOME_FAQ_ITEMS.map((item, i) => {
           const isOpen = open === i;
           return (
             <div
@@ -42,17 +34,28 @@ export default function HomeFAQ() {
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                 aria-expanded={isOpen}
+                aria-controls={`home-faq-answer-${i}`}
               >
                 <span className={`text-[15px] font-medium ${isOpen ? "text-text-primary" : "text-text-secondary"}`}>
-                  {item.q}
+                  {item.question}
                 </span>
                 <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-xrp-accent" : "text-white/20"}`} />
               </button>
-              {isOpen && (
-                <div className="border-t border-white/[0.04] px-5 py-4">
-                  <p className="text-[14px] text-text-secondary leading-relaxed">{item.a}</p>
+              <div
+                id={`home-faq-answer-${i}`}
+                hidden={!isOpen}
+                className="border-t border-white/[0.04] px-5 py-4"
+              >
+                <p className="text-[14px] text-text-secondary leading-relaxed">{item.answer}</p>
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs">
+                  <Link href={item.guideHref} className="font-medium text-xrp-accent hover:underline">
+                    {item.guideLabel}
+                  </Link>
+                  <a href={item.sourceHref} rel="noopener noreferrer" className="text-text-secondary hover:text-text-primary hover:underline">
+                    {item.sourceLabel}
+                  </a>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

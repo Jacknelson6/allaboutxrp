@@ -80,7 +80,7 @@ export default function Page() {
 
           <RevealSection id="overview">
             <h2 className="text-2xl font-bold text-text-primary">XRPL NFTs</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> NFTs are protocol-level. Cheaper, faster, enforced royalties.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> NFTs are protocol-level. Cheaper, faster, enforced royalties.</p>
             <div className="mt-6"><FeatureGrid columns={3} items={[{title:"<$0.01 Mint",desc:"Fraction of a cent."},{title:"3-Sec",desc:"Instant settlement."},{title:"Royalties",desc:"Protocol-enforced."}]} /></div>
           </RevealSection>
           <RevealSection id="markets" delay={0.05}>
@@ -104,7 +104,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp-ledger", label: "XRPL", desc: "Basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRPL", desc: "Basics" },
               { href: "/learn/xrpl-gaming", label: "Gaming", desc: "XRPL games" },
               { href: "/learn/how-to-store-xrp-safely", label: "Wallets", desc: "Security" },
               { href: "/learn/xrp-micropayments", label: "Micro", desc: "Payments" },
@@ -114,7 +114,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore NFTs" description="Discover XRPL NFTs." primaryHref="/learn/what-is-xrp-ledger" primaryLabel="XRPL →" secondaryHref="/learn/how-to-store-xrp-safely" secondaryLabel="Get Wallet" />
+        <LearnCTA title="Explore NFTs" description="Discover XRPL NFTs." primaryHref="/learn/xrp-ledger-explained" primaryLabel="XRPL →" secondaryHref="/learn/how-to-store-xrp-safely" secondaryLabel="Get Wallet" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

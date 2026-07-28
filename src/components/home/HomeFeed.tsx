@@ -17,8 +17,8 @@ const quickLinks = [
   { href: "/learn/escrow", label: "Escrow", icon: BookOpen },
   { href: "/learn/what-makes-xrp-different", label: "What Makes XRP Different", icon: BookOpen },
   { href: "/learn/history", label: "XRP History", icon: BookOpen },
-  { href: "/best/xrp-exchanges", label: "Best Exchanges", icon: Wallet },
-  { href: "/best/xrp-wallets", label: "Best Wallets", icon: Wallet },
+  { href: "/learn/xrp-wallets", label: "XRP Wallets", icon: Wallet },
+  { href: "/learn/xrpl-reserves-explained", label: "Wallet Reserves", icon: Wallet },
   { href: "/answers", label: "Quick Answers", icon: MessageCircle },
   { href: "/tools", label: "XRP Tools", icon: Wrench },
 ];
@@ -52,8 +52,41 @@ export default function HomeFeed() {
   };
 
   return (
-    <div className="min-h-screen bg-black">
-      <h1 className="sr-only">XRP News, Live Price Data, Tools, and Guides</h1>
+    <div className="bg-black">
+      <section className="border-b border-white/[0.06] bg-[radial-gradient(circle_at_top_left,rgba(0,133,255,0.12),transparent_42%)]">
+        <div className="mx-auto max-w-[1100px] px-4 py-10 sm:px-5 sm:py-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-xrp-accent">
+            Independent XRP research and live data
+          </p>
+          <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-[-0.04em] text-text-primary sm:text-5xl">
+            XRP news, data, tools, and source-led explainers
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-text-secondary sm:text-lg">
+            Understand XRP and the XRP Ledger with practical guides, live market and ledger data,
+            holder analytics, useful tools, and a curated news feed—all in one independent resource.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 text-sm">
+            <Link
+              href="/learn/what-is-xrp"
+              className="rounded-full bg-xrp-accent px-5 py-2.5 font-semibold text-white transition-colors hover:bg-xrp-accent-bright"
+            >
+              Start with XRP
+            </Link>
+            <Link
+              href="/learn/trusted-sources"
+              className="rounded-full border border-white/10 px-5 py-2.5 font-medium text-text-primary transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+            >
+              Review our sources
+            </Link>
+            <Link
+              href="/editorial"
+              className="rounded-full border border-white/10 px-5 py-2.5 font-medium text-text-primary transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+            >
+              How we research
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Quick links bar */}
       <div className="border-b border-[#2F3336] bg-black/50">

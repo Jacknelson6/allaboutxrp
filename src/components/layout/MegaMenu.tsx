@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, Rocket, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight, User, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight, User, LogOut } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 import { useAuth } from "@/lib/supabase/auth-context";
 import AuthModal from "@/components/auth/AuthModal";
@@ -24,7 +24,7 @@ const learnCategories = [
     items: [
       { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
       { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
-      { label: "Partnerships", href: "/learn/partnerships", desc: "Banks & institutions using XRP", icon: Handshake },
+      { label: "Partnerships", href: "/learn/partnerships", desc: "Documented Ripple and XRPL relationships", icon: Handshake },
       { label: "Escrow", href: "/learn/escrow", desc: "How Ripple's monthly unlocks work", icon: Lock },
     ],
   },
@@ -34,16 +34,16 @@ const learnCategories = [
     items: [
       { label: "Acquisitions", href: "/learn/acquisitions", desc: "Strategic acquisitions powering Ripple", icon: Building2 },
       { label: "Key People", href: "/learn/key-people", desc: "Ripple's leadership team", icon: UserCircle },
-      { label: "Trusted Sources", href: "/learn/trusted-sources", desc: "Curated voices from the community", icon: Users },
-      { label: "Riddlers", href: "/learn/riddlers", desc: "The legendary XRP riddle community", icon: Eye },
+      { label: "Trusted Sources", href: "/learn/trusted-sources", desc: "Official docs, records, and live data", icon: Users },
+      { label: "Riddlers", href: "/learn/riddlers", desc: "Community history, claims, and context", icon: Eye },
     ],
   },
   {
     title: "Resources",
     icon: HelpCircle,
     items: [
-      { label: "Best Wallets", href: "/best/xrp-wallets", desc: "Top XRP wallet picks", icon: Lock },
-      { label: "Best Exchanges", href: "/best/xrp-exchanges", desc: "Where to buy XRP", icon: Building2 },
+      { label: "XRP Wallets", href: "/learn/xrp-wallets", desc: "Custody choices and security basics", icon: Lock },
+      { label: "How to Buy XRP", href: "/learn/how-to-buy-xrp", desc: "A risk-aware buying process", icon: Building2 },
       { label: "Tools", href: "/tools", desc: "Calculators & utilities", icon: ScrollText },
       { label: "Answers", href: "/answers", desc: "Quick answers to top questions", icon: HelpCircle },
     ],
@@ -79,12 +79,6 @@ export default function MegaMenu() {
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setLearnOpen(false);
-    setMobileLearnOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -250,7 +244,7 @@ export default function MegaMenu() {
               isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
-            How to Invest in XRP
+            How to Start with XRP
           </Link>
 
           {/* Sign Up / Account */}
@@ -395,7 +389,7 @@ export default function MegaMenu() {
               isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
             }`}
           >
-            How to Invest in XRP
+            How to Start with XRP
           </Link>
 
           <div className="pt-5">

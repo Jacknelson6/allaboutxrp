@@ -114,7 +114,7 @@ export default function Page() {
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Patterns" },
               { href: "/learn/xrp-day-trading-guide", label: "Trading", desc: "Active" },
               { href: "/learn/xrp-portfolio-trackers", label: "Trackers", desc: "Holdings" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRPL", desc: "Basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRPL", desc: "Basics" },
             ]} />
           </RevealSection>
         </div>

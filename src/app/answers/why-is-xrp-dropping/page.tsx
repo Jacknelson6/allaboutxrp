@@ -69,7 +69,7 @@ export default function Page() {
           </p>
           <p>
             Monitor{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">live XRP price data</Link>{" "}
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">live XRP price data</Link>{" "}
             and stay informed with{" "}
             <Link href="/news" className="text-[#0085FF] hover:underline">the latest XRP news</Link>{" "}
             to make decisions based on information rather than emotion.

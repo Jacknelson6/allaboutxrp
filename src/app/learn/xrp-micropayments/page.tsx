@@ -105,7 +105,7 @@ export default function Page() {
 
           <RevealSection id="streaming" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Streaming Payments</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">XRPL Payment Channels enable per-second streaming payments. Pay for a video call by the second, music by the minute. <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL&apos;s architecture</Link> makes this possible.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">XRPL Payment Channels enable per-second streaming payments. Pay for a video call by the second, music by the minute. <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL&apos;s architecture</Link> makes this possible.</p>
           </RevealSection>
 
           <RevealSection id="future" delay={0.05}>
@@ -121,7 +121,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "XRPL basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "XRPL basics" },
               { href: "/learn/xrpl-gaming", label: "XRPL Gaming", desc: "Game payments" },
               { href: "/learn/xrp-insurance-use-cases", label: "Insurance", desc: "Blockchain claims" },
               { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build with XRP" },
@@ -131,7 +131,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore XRP Utility" description="XRP's micropayment capability is a key differentiator." primaryHref="/learn/what-is-xrp-ledger" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-developer-resources" secondaryLabel="Dev Resources" />
+        <LearnCTA title="Explore XRP Utility" description="XRP's micropayment capability is a key differentiator." primaryHref="/learn/xrp-ledger-explained" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-developer-resources" secondaryLabel="Dev Resources" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

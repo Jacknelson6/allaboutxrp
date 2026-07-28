@@ -36,7 +36,7 @@ export default function EditorialPage() {
               Our Research Process
             </h2>
             <p>
-              Every article on AllAboutXRP follows a structured research process:
+              Our editorial workflow is built around the following research process:
             </p>
             <ol className="list-decimal pl-6 mt-3 space-y-2 text-zinc-400">
               <li>
@@ -45,18 +45,19 @@ export default function EditorialPage() {
                 and direct statements from relevant organizations.
               </li>
               <li>
-                <strong className="text-zinc-200">Cross-referencing</strong> — Claims are
-                verified against multiple independent sources. We don&apos;t rely on a single
-                source for factual statements.
+                <strong className="text-zinc-200">Source precedence</strong> — For network,
+                legal, and company claims, we prioritize primary sources over summaries and
+                clearly link the material readers should use to verify important facts.
               </li>
               <li>
-                <strong className="text-zinc-200">Expert review</strong> — Technical content
-                is reviewed by team members with relevant expertise in blockchain technology,
-                cryptography, or financial markets.
+                <strong className="text-zinc-200">Fact and analysis labeling</strong> — We
+                separate documented facts from interpretation, estimates, scenarios, and
+                price-related analysis.
               </li>
               <li>
-                <strong className="text-zinc-200">Editorial review</strong> — A separate
-                editor checks for accuracy, clarity, and completeness before publication.
+                <strong className="text-zinc-200">Material-fact review</strong> — Before
+                publishing or materially updating a page, we check high-impact claims,
+                internal links, source links, dates, and reader-facing disclosures.
               </li>
             </ol>
           </div>
@@ -77,10 +78,6 @@ export default function EditorialPage() {
               <li>
                 Business relationships never influence the content we publish or the products
                 we recommend.
-              </li>
-              <li>
-                Our team members disclose any relevant cryptocurrency holdings that could
-                present a conflict of interest.
               </li>
             </ul>
           </div>
@@ -118,8 +115,8 @@ export default function EditorialPage() {
             </p>
             <ul className="list-disc pl-6 mt-3 space-y-2 text-zinc-400">
               <li>
-                All articles display a &quot;Last updated&quot; date so readers know how
-                recent the information is.
+                Core guides display a review or update date so readers can judge how recent
+                the information is.
               </li>
               <li>
                 Core educational content is reviewed and updated on a regular cycle.

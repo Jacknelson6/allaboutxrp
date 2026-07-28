@@ -3,6 +3,9 @@
  * These are thin, duplicative, or low-value pages that dilute crawl budget.
  */
 export const NOINDEX_PATHS = new Set([
+  // ── Duplicate utility routes ───────────────────────────────────
+  "/learn/get-started",
+
   // ── Buy XRP regional/exchange pages ──────────────────────────────────
   "/learn/buy-xrp-in-australia",
   "/learn/buy-xrp-in-canada",
@@ -87,6 +90,7 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-etf-price-impact",
 
   // ── Best / recommendation pages ───────────────────────────────────────
+  "/best",
   "/best/xrp-exchanges",
   "/best/xrp-wallets",
   "/best/hardware-wallets-for-xrp",
@@ -96,7 +100,35 @@ export const NOINDEX_PATHS = new Set([
   "/privacy-policy",
   "/terms",
   "/extension",
+  "/pricing",
 ]);
+
+/**
+ * Duplicate answer URLs that have a more complete canonical guide.
+ * These are served as permanent redirects so users and ranking signals land on
+ * one page instead of splitting across an answer and a learn article.
+ */
+export const CANONICAL_ALIASES = new Map<string, string>([
+  ["/answers/can-xrp-be-mined", "/learn/can-xrp-be-mined"],
+  ["/answers/how-fast-is-xrp", "/learn/how-does-xrp-work"],
+  ["/answers/how-many-xrp-are-there", "/learn/xrp-supply-explained"],
+  ["/answers/how-to-buy-xrp-safely", "/learn/how-to-store-xrp-safely"],
+  ["/answers/is-it-too-late-to-buy-xrp", "/learn/is-xrp-a-good-investment"],
+  ["/answers/is-xrp-a-good-investment", "/learn/is-xrp-a-good-investment"],
+  ["/answers/is-xrp-a-security", "/learn/is-xrp-a-security"],
+  ["/answers/what-banks-use-xrp", "/learn/how-banks-use-xrp"],
+  ["/answers/what-do-you-need-to-buy-xrp", "/learn/how-to-buy-xrp"],
+  ["/answers/when-should-you-buy-xrp", "/learn/how-to-buy-xrp"],
+  ["/answers/where-can-you-buy-xrp", "/learn/how-to-buy-xrp"],
+  ["/answers/why-is-xrp-dropping", "/learn/xrp-crash-history"],
+  ["/answers/why-should-you-buy-xrp", "/learn/is-xrp-a-good-investment"],
+  ["/answers/will-xrp-reach-10-dollars", "/learn/xrp-price-prediction"],
+  ["/answers/xrp-price-prediction-2026", "/learn/xrp-price-prediction"],
+  ["/answers/xrp-vs-solana", "/learn/xrp-vs-solana"],
+  ["/learn/get-started", "/how-to-start"],
+]);
+
+export const CANONICAL_ALIAS_PATHS = new Set(CANONICAL_ALIASES.keys());
 
 /**
  * Convenience set of just learn slugs (without /learn/ prefix)

@@ -5,6 +5,8 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "AllAboutXRP.com privacy policy — how we collect, use, and protect your data.",
+  alternates: { canonical: "https://allaboutxrp.com/privacy-policy" },
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyPolicyPage() {

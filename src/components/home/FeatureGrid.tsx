@@ -1,38 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, BarChart3, Trophy, FileText, BookOpen, Heart } from "lucide-react";
+import { BarChart3, Trophy, LockKeyhole, Wrench, BookOpen, Heart } from "lucide-react";
 
 const features = [
   {
-    icon: <Globe className="h-5 w-5" />,
-    title: "3D Globe",
-    desc: "Watch XRP transactions flow across the world in real-time on an interactive 3D globe.",
-    href: "/live",
-  },
-  {
     icon: <BarChart3 className="h-5 w-5" />,
-    title: "Live Charts",
-    desc: "TradingView-powered charts with real-time XRP/USD price data and technical indicators.",
-    href: "/charts",
+    title: "Live XRP Chart",
+    desc: "Follow XRP market prices and chart activity without leaving the research hub.",
+    href: "/live-chart",
   },
   {
     icon: <Trophy className="h-5 w-5" />,
-    title: "Holders",
-    desc: "Track whale wallets, supply distribution, and the top XRP holders with live data.",
+    title: "XRP Holders",
+    desc: "Explore major accounts and supply distribution with clear methodology and live data.",
     href: "/holders",
   },
   {
-    icon: <FileText className="h-5 w-5" />,
-    title: "Analysis",
-    desc: "Daily market recaps, macro insights, and community sentiment from vetted voices.",
-    href: "/news/recaps",
+    icon: <LockKeyhole className="h-5 w-5" />,
+    title: "Escrow Tracker",
+    desc: "Review XRP escrow balances, releases, and returned amounts using ledger data.",
+    href: "/tools/escrow-tracker",
   },
   {
     icon: <BookOpen className="h-5 w-5" />,
-    title: "Learn",
-    desc: "Comprehensive guides on XRP, Ripple, escrow, RLUSD, partnerships, and more.",
+    title: "XRP Guides",
+    desc: "Learn the fundamentals, evaluate claims, and follow source links for further reading.",
     href: "/learn",
+  },
+  {
+    icon: <Wrench className="h-5 w-5" />,
+    title: "XRP Tools",
+    desc: "Use calculators, trackers, checks, and planning tools built around XRP and XRPL.",
+    href: "/tools",
   },
   {
     icon: <Heart className="h-5 w-5" />,

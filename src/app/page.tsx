@@ -1,21 +1,24 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import HomeFeed from "@/components/home/HomeFeed";
+import FeatureGrid from "@/components/home/FeatureGrid";
+import HomeFAQ from "@/components/home/HomeFAQ";
+import { HOME_FAQ_ITEMS } from "@/data/home-faq";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "AllAboutXRP — Everything You Need to Know About XRP",
-  description: "Your XRP community hub — latest XRP news with sentiment analysis, live price data, holder analytics, comprehensive education, and more. Stay connected with the XRP ecosystem.",
+  title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
+  description: "Independent, source-led XRP education, live market and ledger data, practical tools, holder analytics, and a curated XRP news feed.",
   openGraph: {
-    title: "AllAboutXRP — XRP News, Analysis & Resources",
-    description: "Latest XRP news with sentiment analysis, education, and live data.",
+    title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
+    description: "Independent XRP education, live data, practical tools, holder analytics, and curated news.",
     url: "https://allaboutxrp.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AllAboutXRP — XRP Community Hub",
-    description: "Latest XRP news with sentiment analysis, education, live data, and comprehensive resources.",
+    title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
+    description: "Independent XRP education, live data, practical tools, holder analytics, and curated news.",
   },
   alternates: { canonical: "https://allaboutxrp.com" },
 };
@@ -23,9 +26,10 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://allaboutxrp.com/#organization",
   name: "AllAboutXRP",
   url: "https://allaboutxrp.com",
-  description: "Comprehensive XRP community hub with news, sentiment analysis, education, and live data.",
+  description: "Independent XRP publisher with source-led education, live data, tools, and news.",
   logo: {
     "@type": "ImageObject",
     url: "https://allaboutxrp.com/logo-full.png",
@@ -37,14 +41,11 @@ const organizationSchema = {
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", name: "What is XRP?", acceptedAnswer: { "@type": "Answer", text: "XRP is a digital asset and cryptocurrency native to the XRP Ledger, an open-source blockchain launched in June 2012. It was designed for fast, low-cost cross-border payments, settling transactions in 3–5 seconds with fees under $0.01." } },
-    { "@type": "Question", name: "Is XRP the same as Ripple?", acceptedAnswer: { "@type": "Answer", text: "No. Ripple is a private fintech company that builds payment solutions. XRP is an independent digital asset on the open-source XRP Ledger." } },
-    { "@type": "Question", name: "Is XRP a security?", acceptedAnswer: { "@type": "Answer", text: "In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security." } },
-    { "@type": "Question", name: "How fast are XRP transactions?", acceptedAnswer: { "@type": "Answer", text: "XRP transactions settle in 3–5 seconds on the XRP Ledger, which can handle approximately 1,500 transactions per second." } },
-    { "@type": "Question", name: "How many XRP exist?", acceptedAnswer: { "@type": "Answer", text: "100 billion XRP were created at genesis. No more can ever be minted. Approximately 60 billion are in circulation, ~33.9 billion are in Ripple's escrow." } },
-    { "@type": "Question", name: "What is XRP escrow?", acceptedAnswer: { "@type": "Answer", text: "Ripple placed 55 billion XRP into cryptographically enforced escrow contracts in 2017. Up to 1 billion unlocks monthly, but 60-80% is typically re-escrowed immediately." } },
-  ],
+  mainEntity: HOME_FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
 };
 
 export default function HomePage() {
@@ -52,7 +53,11 @@ export default function HomePage() {
     <>
       <SEOSchema schema={organizationSchema} />
       <SEOSchema schema={faqSchema} />
-      <HomeFeed />
+      <main id="main-content">
+        <HomeFeed />
+        <FeatureGrid />
+        <HomeFAQ />
+      </main>
     </>
   );
 }

@@ -81,7 +81,7 @@ export default function Page() {
 
           <RevealSection id="overview">
             <h2 className="text-2xl font-bold text-text-primary">XRP in Insurance</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">The insurance industry is plagued by slow claims, high admin costs, and cross-border complexity. <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP and the XRPL</Link> offer solutions.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">The insurance industry is plagued by slow claims, high admin costs, and cross-border complexity. <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP and the XRPL</Link> offer solutions.</p>
           </RevealSection>
 
           <RevealSection id="claims" delay={0.05}>
@@ -114,7 +114,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/xrp-micropayments", label: "Micropayments", desc: "Small payments" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "XRPL basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "XRPL basics" },
               { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build on XRPL" },
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "Origin history" },
               { href: "/learn/xrp-community-explained", label: "Community", desc: "XRP Army" },
@@ -123,7 +123,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore XRP Use Cases" description="Insurance is one of many industries XRP can transform." primaryHref="/learn/what-is-xrp-ledger" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-micropayments" secondaryLabel="Micropayments" />
+        <LearnCTA title="Explore XRP Use Cases" description="Insurance is one of many industries XRP can transform." primaryHref="/learn/xrp-ledger-explained" primaryLabel="Learn XRPL →" secondaryHref="/learn/xrp-micropayments" secondaryLabel="Micropayments" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

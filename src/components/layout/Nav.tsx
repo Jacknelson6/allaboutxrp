@@ -12,7 +12,7 @@ import AuthModal from "@/components/auth/AuthModal";
 const mainLinks = [
   { href: "/", label: "Home" },
   { href: "/live-chart", label: "Live Chart" },
-  { href: "/people", label: "People" },
+  { href: "/holders", label: "Holders" },
 ];
 
 const learnLinks = [
@@ -23,7 +23,7 @@ const learnLinks = [
   { href: "/learn/history", label: "History" },
   { href: "/learn/leadership", label: "Leadership" },
   { href: "/learn/partnerships", label: "Partnerships" },
-  { href: "/learn/get-started", label: "How to Invest in XRP" },
+  { href: "/how-to-start", label: "How to Start with XRP" },
   { href: "/learn/faq", label: "FAQ" },
 ];
 
@@ -154,7 +154,7 @@ export default function Nav() {
               </AnimatePresence>
             </div>
 
-            {/* How to Invest in XRP */}
+            {/* How to Start with XRP */}
             <Link
               href="/how-to-start"
               className={`relative rounded-lg px-3 py-2 min-h-[44px] flex items-center text-sm transition-colors ${
@@ -163,7 +163,7 @@ export default function Nav() {
                   : "text-text-secondary hover:text-text-primary"
               }`}
             >
-              How to Invest in XRP
+              How to Start with XRP
               {pathname === "/how-to-start" && (
                 <motion.div
                   layoutId="nav-indicator"
@@ -313,7 +313,7 @@ export default function Nav() {
                       : "text-text-secondary hover:bg-[#0A0A0B] hover:text-text-primary"
                   }`}
                 >
-                  How to Invest in XRP
+                  How to Start with XRP
                 </Link>
 
                 {/* Mobile Sign Up / Account */}

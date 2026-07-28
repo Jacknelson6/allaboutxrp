@@ -6,12 +6,12 @@ import { buildBreadcrumbSchema } from "@/lib/utils/seo";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "XRP Answers — Your Top Questions About XRP, Answered",
+  title: "XRP Answers — Clear, Source-Led XRP Guides",
   description:
-    "Get clear, authoritative answers to the most common questions about XRP, the native token of the XRP Ledger. Updated for 2026.",
+    "Get clear, source-led answers to common questions about XRP, the XRP Ledger, supply, wallets, transaction speed, risks, and legal history.",
   openGraph: {
     title: "XRP Answers Hub | AllAboutXRP",
-    description: "Definitive answers to every major XRP question — investment, speed, supply, legal status, and more.",
+    description: "Clear XRP answers with supporting context, risk disclosures, and links to primary sources.",
     url: "https://allaboutxrp.com/answers",
     type: "website",
   },
@@ -19,26 +19,37 @@ export const metadata: Metadata = {
 };
 
 const questions = [
-  { slug: "best-cryptocurrency-2026", title: "Best Cryptocurrency to Buy in 2026", snippet: "XRP, Bitcoin, Ethereum, Solana — which is the best crypto to buy? Full comparison." },
-  { slug: "top-10-cryptocurrencies-2026", title: "Top 10 Cryptocurrencies to Watch in 2026", snippet: "Ranked list of the top 10 cryptos with key stats, verdicts, and analysis." },
-  { slug: "xrp-price-prediction-2026", title: "XRP Price Prediction 2026", snippet: "Real analyst predictions from 21Shares, Changelly, Kraken, and more." },
-  { slug: "best-altcoins-2026", title: "Best Altcoins to Buy in 2026", snippet: "Top altcoin picks beyond Bitcoin — XRP, ETH, SOL, LINK, and more." },
-  { slug: "is-xrp-a-good-investment", title: "Is XRP a Good Investment in 2026?", snippet: "XRP offers real utility in cross-border payments, but all crypto carries risk." },
-  { slug: "will-xrp-reach-10-dollars", title: "Will XRP Reach $10?", snippet: "What market cap, adoption, and historical trends suggest about XRP's price ceiling." },
-  { slug: "is-xrp-a-security", title: "Is XRP a Security?", snippet: "The SEC lawsuit outcome and what it means for XRP's legal classification." },
-  { slug: "how-fast-is-xrp", title: "How Fast Is XRP?", snippet: "XRP settles transactions in 3–5 seconds with fees under $0.01." },
-  { slug: "can-xrp-be-mined", title: "Can XRP Be Mined?", snippet: "No — XRP uses a unique consensus protocol, not proof-of-work mining." },
-  { slug: "why-is-xrp-dropping", title: "Why Is XRP Dropping?", snippet: "Common factors behind XRP price declines and what drives volatility." },
-  { slug: "what-banks-use-xrp", title: "What Banks Use XRP?", snippet: "Financial institutions leveraging RippleNet and On-Demand Liquidity with XRP." },
-  { slug: "why-should-you-buy-xrp", title: "Why Should You Buy XRP?", snippet: "Investment thesis — utility, institutional adoption, supply dynamics, and ecosystem growth." },
-  { slug: "when-should-you-buy-xrp", title: "When Should You Buy XRP?", snippet: "DCA vs timing the market — strategies based on historical patterns and market cycles." },
-  { slug: "what-do-you-need-to-buy-xrp", title: "What Do You Need to Buy XRP?", snippet: "Exchange account, KYC, wallet, funding — step-by-step requirements guide." },
-  { slug: "where-can-you-buy-xrp", title: "Where Can You Buy XRP?", snippet: "Best exchanges ranked — Uphold, Coinbase, Kraken, and more by region." },
-  { slug: "how-to-buy-xrp-safely", title: "How to Buy XRP Safely", snippet: "Security best practices, scam avoidance, hardware wallets, and self-custody." },
-  { slug: "is-it-too-late-to-buy-xrp", title: "Is It Too Late to Buy XRP?", snippet: "How current prices compare to historical data and analyst projections." },
-  { slug: "how-many-xrp-are-there", title: "How Many XRP Are There?", snippet: "100 billion XRP were created at genesis — and no more can ever be minted." },
-  { slug: "xrp-vs-solana", title: "XRP vs Solana: Which Is Better?", snippet: "A head-to-head comparison of speed, cost, use cases, and ecosystem." },
+  { href: "/learn/what-is-xrp", title: "What Is XRP?", snippet: "A plain-language introduction to XRP, how it is used, and how it differs from Ripple." },
+  { href: "/learn/how-does-xrp-work", title: "How Does XRP Work?", snippet: "How XRPL transactions, validation, consensus, fees, and finality work." },
+  { href: "/learn/can-xrp-be-mined", title: "Can XRP Be Mined?", snippet: "Why XRP does not use proof-of-work mining and how XRPL consensus differs." },
+  { href: "/learn/xrp-supply-explained", title: "How Many XRP Are There?", snippet: "The fixed genesis supply, circulating supply, escrow, and transaction-cost destruction." },
+  { href: "/learn/how-to-buy-xrp", title: "How Do You Buy XRP?", snippet: "A practical process for choosing an exchange, funding an account, and planning custody." },
+  { href: "/learn/how-to-store-xrp-safely", title: "How Do You Store XRP Safely?", snippet: "Wallet, backup, scam-avoidance, and self-custody practices for XRP holders." },
+  { href: "/learn/is-xrp-a-security", title: "Is XRP a Security?", snippet: "What the U.S. court record says, what it does not say, and why context matters." },
+  { href: "/learn/is-xrp-a-good-investment", title: "Is XRP a Good Investment?", snippet: "A risk-first framework for evaluating XRP without treating forecasts as guarantees." },
+  { href: "/learn/xrp-price-prediction", title: "Can XRP Price Predictions Be Trusted?", snippet: "How to assess scenarios, assumptions, market capitalization, and prediction uncertainty." },
+  { href: "/learn/what-is-ripple", title: "Is XRP the Same as Ripple?", snippet: "Why XRP is a digital asset, Ripple is a company, and the distinction matters." },
+  { href: "/answers/best-cryptocurrency-2026", title: "How Should Cryptocurrencies Be Compared?", snippet: "A framework for comparing networks by design, utility, liquidity, risk, and evidence." },
+  { href: "/answers/top-10-cryptocurrencies-2026", title: "Which Cryptocurrencies Matter in 2026?", snippet: "A current overview with category context instead of a one-size-fits-all ranking." },
+  { href: "/answers/best-altcoins-2026", title: "How Should Altcoins Be Evaluated?", snippet: "A risk-aware comparison of major altcoin networks and their different use cases." },
 ];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://allaboutxrp.com/answers#collection",
+  name: "XRP Answers",
+  url: "https://allaboutxrp.com/answers",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: questions.map((question, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: question.title,
+      url: `https://allaboutxrp.com${question.href}`,
+    })),
+  },
+};
 
 export default function AnswersHub() {
   return (
@@ -47,6 +58,7 @@ export default function AnswersHub() {
         { name: "Home", url: "https://allaboutxrp.com" },
         { name: "Answers" },
       ])} />
+      <SEOSchema schema={collectionSchema} />
 
       <main id="main-content" className="min-h-screen bg-black text-white">
         <section className="max-w-4xl mx-auto px-4 py-16 sm:py-24">
@@ -54,16 +66,16 @@ export default function AnswersHub() {
             XRP Answers
           </h1>
           <p className="text-lg text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Clear, authoritative answers to the most common questions about{" "}
+            Clear, source-led answers to the most common questions about{" "}
             <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">XRP, the native token of the XRP Ledger</Link>.
-            No hype — just facts.
+            We separate documented facts from analysis and link to supporting sources.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {questions.map((q) => (
               <Link
-                key={q.slug}
-                href={`/answers/${q.slug}`}
+                key={q.href}
+                href={q.href}
                 className="group block rounded-xl border border-white/10 bg-white/[0.02] p-6 transition hover:border-[#0085FF]/50 hover:bg-white/[0.04]"
               >
                 <h2 className="text-lg font-semibold text-white group-hover:text-[#0085FF] transition mb-2">
@@ -75,7 +87,7 @@ export default function AnswersHub() {
           </div>
 
           <p className="text-xs text-gray-600 text-center mt-12">
-            Last Updated: February 11, 2026
+            Editorial review: July 28, 2026
           </p>
         </section>
       </main>

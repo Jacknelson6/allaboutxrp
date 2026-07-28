@@ -81,7 +81,7 @@ export default function Page() {
 
           <RevealSection id="how">
             <h2 className="text-2xl font-bold text-text-primary">How the XRPL AMM Works</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">XLS-30 amendment built the AMM into the <Link href="/learn/what-is-xrp-ledger" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> natively. No smart contract risk.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">XLS-30 amendment built the AMM into the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> natively. No smart contract risk.</p>
             <div className="mt-6"><IconList items={[
               {title:"Deposit Pair",desc:"Equal value of two tokens (e.g., XRP + RLUSD)."},
               {title:"Earn Fees",desc:"Every trade pays a fee. Your share is proportional."},
@@ -126,7 +126,7 @@ export default function Page() {
               { href: "/learn/earn-interest-on-xrp", label: "Earn Interest", desc: "All methods" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX", desc: "On-chain trading" },
               { href: "/learn/rlusd-explained", label: "RLUSD", desc: "Stablecoin" },
-              { href: "/learn/what-is-xrp-ledger", label: "XRP Ledger", desc: "Basics" },
+              { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "Basics" },
               { href: "/learn/xrp-block-explorers", label: "Explorers", desc: "Track pools" },
               { href: "/learn/xrp-lending-platforms", label: "Lending", desc: "CeFi alternative" },
             ]} />

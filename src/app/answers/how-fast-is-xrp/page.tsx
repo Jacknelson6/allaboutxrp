@@ -81,7 +81,7 @@ export default function Page() {
             For everyday users, the speed and low cost mean that XRP is practical for transfers of any size — from large institutional settlements to small remittances. Learn more about{" "}
             <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">how the XRP Ledger works</Link>{" "}
             and see{" "}
-            <Link href="/live" className="text-[#0085FF] hover:underline">live transaction data</Link>.
+            <Link href="/live-chart" className="text-[#0085FF] hover:underline">live market data</Link>.
           </p>
         </div>
       }

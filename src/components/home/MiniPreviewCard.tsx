@@ -67,7 +67,7 @@ export default function MiniPreviewCard() {
       <div className="mx-5 border-t border-[#2F3336]" />
 
       {/* ── Bottom half: Globe (independent hover) ── */}
-      <Link href="/live" className="relative block group/globe">
+      <Link href="/live-chart" className="relative block group/globe">
         <div className="absolute inset-0 z-20 bg-white/[0.03] opacity-0 group-hover/globe:opacity-100 transition-opacity rounded-b-2xl pointer-events-none" />
         <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/globe:opacity-100 transition-opacity rounded-b-2xl pointer-events-none z-20" />
         <div className="relative h-[180px] w-full pointer-events-none">

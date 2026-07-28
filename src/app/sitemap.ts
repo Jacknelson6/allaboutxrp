@@ -39,7 +39,11 @@ function getAllAnswerSlugs(): string[] {
     .map((entry) => entry.name);
 }
 
-import { NOINDEX_LEARN_SLUGS } from "@/lib/seo/noindex-pages";
+import {
+  CANONICAL_ALIAS_PATHS,
+  NOINDEX_LEARN_SLUGS,
+  NOINDEX_PATHS,
+} from "@/lib/seo/noindex-pages";
 
 /** Top learn pages get priority 0.9 instead of default 0.75 */
 const TOP_LEARN_SLUGS = new Set([
@@ -97,12 +101,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/tools/xrp-profit-calculator", changeFrequency: "monthly", priority: 0.7 },
     { path: "/tools/xrp-fee-calculator", changeFrequency: "monthly", priority: 0.7 },
 
-    // Extension
-    { path: "/extension", changeFrequency: "monthly", priority: 0.7 },
-
-    // Other
-    { path: "/privacy-policy", changeFrequency: "monthly", priority: 0.3 },
-    { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
   ];
 
   // ── Dynamic: learn pages (filesystem-discovered) ─────────────────────
@@ -112,11 +110,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     // Static pages
-    ...staticPages.map((page) => ({
-      url: `${baseUrl}${page.path}`,
-      changeFrequency: page.changeFrequency,
-      priority: page.priority,
-    })),
+    ...staticPages
+      .filter((page) => !NOINDEX_PATHS.has(page.path))
+      .map((page) => ({
+        url: `${baseUrl}${page.path}`,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+      })),
 
     // All learn pages (auto-discovered, excluding noindexed)
     ...learnSlugs
@@ -128,11 +128,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })),
 
     // All answer pages (auto-discovered)
-    ...answerSlugs.map((slug) => ({
-      url: `${baseUrl}/answers/${slug}`,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
+    ...answerSlugs
+      .filter((slug) => !CANONICAL_ALIAS_PATHS.has(`/answers/${slug}`))
+      .map((slug) => ({
+        url: `${baseUrl}/answers/${slug}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
 
     // News recaps
     {
