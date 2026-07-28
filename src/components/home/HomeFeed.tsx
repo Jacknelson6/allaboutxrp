@@ -53,6 +53,8 @@ export default function HomeFeed() {
 
   return (
     <div className="min-h-screen bg-black">
+      <h1 className="sr-only">XRP News, Live Price Data, Tools, and Guides</h1>
+
       {/* Quick links bar */}
       <div className="border-b border-[#2F3336] bg-black/50">
         <div className="mx-auto max-w-[1100px] px-3 py-2 lg:px-4 lg:py-3 relative">

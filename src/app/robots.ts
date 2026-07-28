@@ -6,63 +6,28 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/static/"],
+        disallow: "/api/",
       },
       {
-        userAgent: "GPTBot",
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "OAI-SearchBot",
+          "PerplexityBot",
+          "ClaudeBot",
+          "anthropic-ai",
+          "Applebot-Extended",
+          "Google-Extended",
+          "cohere-ai",
+          "Googlebot",
+          "Bingbot",
+          "Bytespider",
+          "Meta-ExternalAgent",
+          "YouBot",
+          "CCBot",
+        ],
         allow: "/",
-      },
-      {
-        userAgent: "ChatGPT-User",
-        allow: "/",
-      },
-      {
-        userAgent: "PerplexityBot",
-        allow: "/",
-      },
-      {
-        userAgent: "ClaudeBot",
-        allow: "/",
-      },
-      {
-        userAgent: "Applebot-Extended",
-        allow: "/",
-      },
-      {
-        userAgent: "cohere-ai",
-        allow: "/",
-      },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-      },
-      {
-        userAgent: "Bytespider",
-        allow: "/",
-      },
-      {
-        userAgent: "Meta-ExternalAgent",
-        allow: "/",
-      },
-      {
-        userAgent: "anthropic-ai",
-        allow: "/",
-      },
-      {
-        userAgent: "OAI-SearchBot",
-        allow: "/",
-      },
-      {
-        userAgent: "YouBot",
-        allow: "/",
-      },
-      {
-        userAgent: "CCBot",
-        allow: "/",
+        disallow: "/api/",
       },
     ],
     sitemap: [

@@ -3,8 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const SUPABASE_URL = 'https://qnvplzufnybvfdltamcw.supabase.co';
-const SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFudnBsenVmbnlidmZkbHRhbWN3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDc0NTY4MiwiZXhwIjoyMDg2MzIxNjgyfQ.jwnIXGSEERWX-OXnZIr4j4rr4C77nlcwVGo1Upg3_EQ';
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!SUPABASE_URL || !SERVICE_KEY) {
+  throw new Error(
+    'NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required to import data.'
+  );
+}
 
 async function post(table, data) {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
