@@ -1,432 +1,301 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, BookOpen, Lightbulb, HelpCircle, Coins, Building2, History, Users, Handshake, FileQuestion, ScrollText, Lock, Globe, UserCircle, Eye, ArrowRight, User, LogOut } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  ChevronDown,
+  CircleHelp,
+  LogOut,
+  Menu,
+  ShieldCheck,
+  User,
+  WalletCards,
+  X,
+} from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
 import { useAuth } from "@/lib/supabase/auth-context";
 import AuthModal from "@/components/auth/AuthModal";
 
-const learnCategories = [
+const learnGroups = [
   {
-    title: "Basics",
+    title: "Start here",
     icon: BookOpen,
     items: [
-      { label: "FAQ", href: "/learn/faq", desc: "Answers to common XRP questions", icon: FileQuestion },
-      { label: "What is XRP?", href: "/learn/what-is-xrp", desc: "The digital asset powering global payments", icon: Coins },
-      { label: "What is Ripple?", href: "/learn/what-is-ripple", desc: "The company behind XRP technology", icon: Building2 },
+      { label: "What is XRP?", href: "/learn/what-is-xrp", desc: "The asset and its purpose" },
+      { label: "How XRP works", href: "/learn/how-does-xrp-work", desc: "Transactions and consensus" },
+      { label: "XRP vs Ripple", href: "/learn/what-is-ripple", desc: "Asset, ledger, and company" },
     ],
   },
   {
-    title: "Deep Dives",
-    icon: Lightbulb,
+    title: "Use XRP",
+    icon: WalletCards,
     items: [
-      { label: "History", href: "/learn/history", desc: "XRP's journey from 2012 to today", icon: History },
-      { label: "Leadership", href: "/learn/leadership", desc: "The people steering Ripple & XRPL", icon: Users },
-      { label: "Partnerships", href: "/learn/partnerships", desc: "Documented Ripple and XRPL relationships", icon: Handshake },
-      { label: "Escrow", href: "/learn/escrow", desc: "How Ripple's monthly unlocks work", icon: Lock },
+      { label: "How to buy XRP", href: "/learn/how-to-buy-xrp", desc: "A risk-aware process" },
+      { label: "XRP wallets", href: "/learn/xrp-wallets", desc: "Custody and security" },
+      { label: "Store XRP safely", href: "/learn/how-to-store-xrp-safely", desc: "Protect keys and backups" },
     ],
   },
   {
-    title: "Ecosystem",
-    icon: Globe,
+    title: "Research",
+    icon: ShieldCheck,
     items: [
-      { label: "Acquisitions", href: "/learn/acquisitions", desc: "Strategic acquisitions powering Ripple", icon: Building2 },
-      { label: "Key People", href: "/learn/key-people", desc: "Ripple's leadership team", icon: UserCircle },
-      { label: "Trusted Sources", href: "/learn/trusted-sources", desc: "Official docs, records, and live data", icon: Users },
-      { label: "Riddlers", href: "/learn/riddlers", desc: "Community history, claims, and context", icon: Eye },
-    ],
-  },
-  {
-    title: "Resources",
-    icon: HelpCircle,
-    items: [
-      { label: "XRP Wallets", href: "/learn/xrp-wallets", desc: "Custody choices and security basics", icon: Lock },
-      { label: "How to Buy XRP", href: "/learn/how-to-buy-xrp", desc: "A risk-aware buying process", icon: Building2 },
-      { label: "Tools", href: "/tools", desc: "Calculators & utilities", icon: ScrollText },
-      { label: "Answers", href: "/answers", desc: "Quick answers to top questions", icon: HelpCircle },
+      { label: "XRP Ledger", href: "/learn/xrp-ledger-explained", desc: "Network architecture" },
+      { label: "Supply and escrow", href: "/learn/xrp-supply-explained", desc: "Distribution and mechanics" },
+      { label: "Trusted sources", href: "/learn/trusted-sources", desc: "Where we verify claims" },
     ],
   },
 ];
 
-// Flat list for mobile
-const learnItems = learnCategories.flatMap((cat) => cat.items.map((item) => ({ label: item.label, href: item.href })));
+const primaryLinks = [
+  { href: "/answers", label: "Answers" },
+  { href: "/news", label: "News" },
+  { href: "/live-chart", label: "Live data" },
+  { href: "/tools", label: "Tools" },
+];
 
 export default function MegaMenu() {
   const [learnOpen, setLearnOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLearnOpen, setMobileLearnOpen] = useState(false);
-  const [navHeight, setNavHeight] = useState(0);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const pathname = usePathname();
   const learnRef = useRef<HTMLDivElement>(null);
   const accountRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { user, loading, signOut } = useAuth();
-  const truncatedEmail = user?.email
-    ? user.email.length > 16 ? user.email.slice(0, 16) + "..." : user.email
-    : "";
-
-  // Measure nav height for mobile overlay positioning
-  useEffect(() => {
-    const measure = () => {
-      if (navRef.current) setNavHeight(navRef.current.offsetHeight);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (learnRef.current && !learnRef.current.contains(e.target as Node)) {
-        setLearnOpen(false);
-      }
-      if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
-        setAccountOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    const frame = window.requestAnimationFrame(() => {
+      setLearnOpen(false);
+      setMobileOpen(false);
+      setMobileLearnOpen(false);
+      setAccountOpen(false);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  // Close mobile menu on escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
+    return () => {
+      document.body.style.overflow = "";
     };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
   }, [mobileOpen]);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setLearnOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setLearnOpen(false), 150);
-  };
-
-  const closeMobile = useCallback(() => {
-    setMobileOpen(false);
-    setMobileLearnOpen(false);
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (learnRef.current && !learnRef.current.contains(target)) setLearnOpen(false);
+      if (accountRef.current && !accountRef.current.contains(target)) setAccountOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setLearnOpen(false);
+      setMobileOpen(false);
+      setAccountOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, []);
 
-  const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const navLink = (href: string) =>
+    `flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${
+      isActive(href) ? "bg-white/[0.055] text-text-primary" : "text-text-secondary hover:bg-white/[0.035] hover:text-text-primary"
+    }`;
 
   return (
     <>
-    <nav
-      ref={navRef}
-      className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/90 backdrop-blur-xl"
-      aria-label="Main navigation"
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-1.5 transition-opacity hover:opacity-80">
-          <span className="text-[17px] font-normal text-white/50 uppercase tracking-[0.08em]" style={{ fontFamily: 'var(--font-display)', lineHeight: '1' }}>All About</span>
-          <svg viewBox="0 0 2499.1 698" xmlns="http://www.w3.org/2000/svg" className="inline-block" style={{ height: '1em', width: 'auto', verticalAlign: 'middle', marginTop: '-2px' }}><g fill="#ffffff"><path d="m704.1 0h119.3l-248.3 251c-89.9 90.9-235.5 90.9-325.4 0l-248.2-251h119.3l188.6 190.7c56 56.9 147.6 57.6 204.5 1.6.5-.5 1.1-1.1 1.6-1.6zm-584.8 698h-119.3l249.8-252.6c89.9-90.9 235.5-90.9 325.4 0l249.7 252.6h-119.3l-190.1-192.2c-56-56.9-147.6-57.6-204.5-1.6-.5.5-1.1 1.1-1.6 1.6z"/><path d="m2276.7 0h.1c30.5.6 59.1 6.6 85.7 18 27.1 10.7 50.9 25.6 71.2 44.6 20.5 19.1 36.5 41.6 48 67.4 11.6 25.4 17.4 52.3 17.4 80.7 0 29-6.1 56.6-18.4 82.6-11.5 25.3-27.9 47.7-48.9 67.3-20.4 19-44.6 34.2-72.2 45.5h-.1c-27.3 10.8-56.6 16.2-87.8 16.2h-260.4v273.3h-91.6v-695.6zm-5 338c18.4 0 35.8-3.3 52.3-9.9 16.7-6.6 31.2-15.7 43.6-27.3 12.4-11.5 22.3-25.2 29.3-40.6 7.1-15.3 10.6-31.8 10.6-49.5 0-17.1-3.5-33.3-10.6-48.6-7-15.3-17-29.1-29.3-40.6-12.4-11.6-26.9-20.6-43.6-27.3-16.5-6.6-33.9-9.9-52.3-9.9h-260.4v253.7z"/><path d="m1254.2 423.8c45.9 0 89.4 19.4 118.2 52.8l189.2 219.1h117.8l-258.8-303.7c-28.8-33.8-72.5-53.5-118.8-53.5h-179.3v-253.1h260.4c18.4 0 35.8 3.3 52.3 9.9 16.7 6.7 31.2 15.8 43.6 27.3l.2.2c12.3 10.9 22 24 29.1 39.5 7.1 15.3 10.6 31.8 10.6 49.6 0 17.7-3.6 34.2-10.6 49.5-4.3 8.9-9.5 17.3-15.7 25l59.6 66.5c.7-.8 1.5-1.6 2.2-2.4 17.6-19 31.2-40.1 40.7-63.5 10.2-23.6 15.3-48.7 15.3-75.2 0-28.4-5.8-55.4-17.4-80.8-11.5-25.9-27.5-48.4-48-67.5-20.4-19-44.1-34.1-71.1-45.5-26.7-11.4-55.3-17.4-85.9-18h-311.3c-12.6 0-23.6 4.7-32.6 13.2-8.7 8.1-13.2 18.1-13.2 29.5v652.9h91.6v-271.8z"/></g></svg>
-        </Link>
-
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-0.5 lg:flex">
-          <Link
-            href="/"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              pathname === "/" ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            Home
+      <nav className="sticky top-0 z-50 border-b border-surface-border bg-[#050709]/95 backdrop-blur-md" aria-label="Main navigation">
+        <div className="site-container flex min-h-16 items-center justify-between gap-4">
+          <Link href="/" className="flex min-h-11 items-center gap-2" aria-label="AllAboutXRP home">
+            <span className="font-display text-[1.35rem] font-medium tracking-[-0.025em] text-text-primary">
+              All About <span className="font-semibold text-xrp-accent-bright">XRP</span>
+            </span>
           </Link>
 
-          <Link
-            href="/live-chart"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/live-chart") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            Live Chart
-          </Link>
-
-          <Link
-            href="/digest"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/digest") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            Weekly Digest
-          </Link>
-
-          {/* Learn dropdown */}
-          <div
-            className="relative"
-            ref={learnRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-                learnOpen || pathname.startsWith("/learn")
-                  ? "text-text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-              onClick={() => setLearnOpen(!learnOpen)}
-              aria-expanded={learnOpen}
-            >
-              Learn
-              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${learnOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {learnOpen && (
-              <div
-                className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2 w-[800px] rounded-xl border border-white/[0.08] bg-[#0A0A0B] p-5 shadow-2xl"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <div className="grid grid-cols-4 gap-6">
-                  {learnCategories.map((cat) => (
-                    <div key={cat.title}>
-                      <div className="flex items-center gap-1.5 mb-3">
-                        <cat.icon className="h-3.5 w-3.5 text-xrp-accent" />
-                        <span className="text-[11px] font-semibold uppercase tracking-widest text-white/40">{cat.title}</span>
-                      </div>
-                      <div className="space-y-1">
-                        {cat.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`group block rounded-lg px-2.5 py-2 transition-colors duration-150 ${
-                              isActive(item.href)
-                                ? "bg-xrp-accent/10"
-                                : "hover:bg-white/[0.04]"
-                            }`}
-                            onClick={() => setLearnOpen(false)}
-                          >
-                            <div className="flex items-center gap-2">
-                              <item.icon className={`h-3.5 w-3.5 ${isActive(item.href) ? "text-xrp-accent" : "text-white/30 group-hover:text-white/50"}`} />
-                              <span className={`text-[13px] font-medium ${isActive(item.href) ? "text-xrp-accent" : "text-text-primary"}`}>
-                                {item.label}
-                              </span>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 pt-3 border-t border-white/[0.06] text-center">
-                  <Link
-                    href="/learn"
-                    onClick={() => setLearnOpen(false)}
-                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#0085FF] hover:text-[#0085FF]/80 transition-colors"
-                  >
-                    Explore All Learn Pages
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <Link
-            href="/how-to-start"
-            className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
-              isActive("/how-to-start") ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            How to Start with XRP
-          </Link>
-
-          {/* Sign Up / Account */}
-          {!loading && (
-            user ? (
-              <div ref={accountRef} className="relative ml-3">
-                <button
-                  onClick={() => setAccountOpen(!accountOpen)}
-                  className="flex items-center gap-2 rounded-lg border border-white/[0.08] px-3 py-1.5 text-[13px] text-white transition-colors hover:bg-white/[0.04]"
-                >
-                  <User className="h-3.5 w-3.5 text-[#0085FF]" />
-                  <span className="hidden xl:inline">{truncatedEmail}</span>
-                  <ChevronDown className={`h-3 w-3 transition-transform ${accountOpen ? "rotate-180" : ""}`} />
-                </button>
-                {accountOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-48 rounded-xl border border-white/[0.06] bg-[#0A0A0B] py-2 shadow-xl z-50">
-                    <Link
-                      href="/digest"
-                      onClick={() => setAccountOpen(false)}
-                      className="block px-4 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-colors"
-                    >
-                      My Account
-                    </Link>
-                    <button
-                      onClick={() => { signOut(); setAccountOpen(false); }}
-                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:text-red-400 hover:bg-white/[0.04] transition-colors"
-                    >
-                      <LogOut className="h-3.5 w-3.5" />
-                      Sign Out
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
+          <div className="hidden items-center gap-1 lg:flex">
+            <div ref={learnRef} className="relative">
               <button
-                onClick={() => setShowAuthModal(true)}
-                className="ml-3 rounded-lg bg-[#0085FF] px-3.5 py-1.5 text-[13px] font-medium text-white transition-all duration-200 hover:bg-[#0070DD]"
+                type="button"
+                onClick={() => setLearnOpen((value) => !value)}
+                className={`flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-semibold transition-colors ${
+                  learnOpen || pathname.startsWith("/learn")
+                    ? "bg-white/[0.055] text-text-primary"
+                    : "text-text-secondary hover:bg-white/[0.035] hover:text-text-primary"
+                }`}
+                aria-expanded={learnOpen}
+                aria-controls="desktop-learn-menu"
               >
-                Sign Up
+                Learn
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${learnOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
-            )
-          )}
-          <div className="ml-3">
-            <PriceWidget />
+
+              {learnOpen ? (
+                <div
+                  id="desktop-learn-menu"
+                  className="absolute left-1/2 top-full mt-2 w-[720px] -translate-x-1/2 rounded-xl border border-surface-border bg-surface-card p-5 shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+                >
+                  <div className="grid grid-cols-3 gap-5">
+                    {learnGroups.map((group) => (
+                      <section key={group.title} aria-labelledby={`nav-${group.title.replaceAll(" ", "-").toLowerCase()}`}>
+                        <div className="mb-3 flex items-center gap-2 text-text-primary">
+                          <group.icon className="h-4 w-4 text-xrp-accent" strokeWidth={1.8} aria-hidden="true" />
+                          <h2 id={`nav-${group.title.replaceAll(" ", "-").toLowerCase()}`} className="font-sans text-xs font-semibold uppercase tracking-[0.08em]">
+                            {group.title}
+                          </h2>
+                        </div>
+                        <div className="space-y-1">
+                          {group.items.map((item) => (
+                            <Link key={item.href} href={item.href} className="block min-h-14 rounded-lg px-3 py-2 transition-colors hover:bg-white/[0.04]">
+                              <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
+                              <span className="mt-0.5 block text-xs text-text-secondary">{item.desc}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-surface-border pt-4">
+                    <p className="text-xs text-text-secondary">Source-led education, from fundamentals to XRPL mechanics.</p>
+                    <Link href="/learn" className="text-link text-sm">
+                      Learning center <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            {primaryLinks.map((item) => (
+              <Link key={item.href} href={item.href} className={navLink(item.href)}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <div className="hidden xl:block">
+              <PriceWidget />
+            </div>
+            {!loading &&
+              (user ? (
+                <div ref={accountRef} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setAccountOpen((value) => !value)}
+                    className="flex min-h-11 items-center gap-2 rounded-lg border border-surface-border px-3 text-sm font-semibold text-text-primary transition-colors hover:bg-white/[0.04]"
+                    aria-expanded={accountOpen}
+                    aria-label="Open account menu"
+                  >
+                    <User className="h-4 w-4 text-xrp-accent" aria-hidden="true" />
+                    Account
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform ${accountOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                  </button>
+                  {accountOpen ? (
+                    <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-surface-border bg-surface-card p-2 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
+                      <Link href="/digest" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-text-primary">
+                        My account
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => signOut()}
+                        className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-danger"
+                      >
+                        <LogOut className="h-4 w-4" aria-hidden="true" />
+                        Sign out
+                      </button>
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <button type="button" onClick={() => setShowAuthModal(true)} className="btn-primary px-4">
+                  Sign up
+                </button>
+              ))}
+          </div>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <PriceWidget compact />
+            <button
+              type="button"
+              onClick={() => setMobileOpen((value) => !value)}
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-surface-border text-text-primary transition-colors hover:bg-white/[0.04]"
+              aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+            >
+              {mobileOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile hamburger — 44x44 min touch target */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <PriceWidget compact />
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-text-secondary hover:text-text-primary hover:bg-white/[0.04] transition-colors active:bg-white/[0.08]"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu overlay */}
-      {mobileOpen && (
-      <div
-        className="absolute left-0 right-0 z-[60] overflow-y-auto overscroll-contain bg-black lg:hidden"
-        style={{ top: navHeight || 56, height: `calc(100dvh - ${navHeight || 56}px)` }}
-        aria-hidden={false}
-      >
-        <div className="flex flex-col px-5 py-4 gap-0.5">
-          <Link
-            href="/"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              pathname === "/" ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            Home
-          </Link>
-
-          <Link
-            href="/live-chart"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/live-chart") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            Live Chart
-          </Link>
-
-          <Link
-            href="/digest"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/digest") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            Weekly Digest
-          </Link>
-
-          {/* Learn accordion */}
-          <div className="border-b border-white/[0.04]">
-            <button
-              onClick={() => setMobileLearnOpen(!mobileLearnOpen)}
-              className="flex w-full items-center justify-between min-h-[48px] px-2 text-left active:bg-white/[0.04] transition-colors"
-              aria-expanded={mobileLearnOpen}
-            >
-              <span className={`text-[15px] font-medium ${mobileLearnOpen || pathname.startsWith("/learn") ? "text-xrp-accent" : "text-text-primary"}`}>
-                Learn
-              </span>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileLearnOpen ? "rotate-180 text-xrp-accent" : "text-text-secondary"}`} />
-            </button>
-            <div
-              className={`grid transition-all duration-200 ease-out ${
-                mobileLearnOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-              }`}
-            >
-              <div className="overflow-hidden">
-                <div className="flex flex-col gap-0.5 pb-3 pl-3">
-                  {learnItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={closeMobile}
-                      className={`flex items-center rounded-lg px-3 min-h-[44px] text-[14px] transition-colors active:bg-white/[0.04] ${
-                        isActive(item.href)
-                          ? "text-xrp-accent"
-                          : "text-text-secondary hover:text-text-primary"
-                      }`}
-                    >
-                      {item.label}
+        {mobileOpen ? (
+          <div id="mobile-navigation" className="fixed inset-x-0 bottom-0 top-[101px] z-50 overflow-y-auto bg-surface-primary lg:hidden">
+            <div className="site-container py-4">
+              <Link href="/" className={navLink("/")}>Home</Link>
+              <div className="border-y border-surface-border">
+                <button
+                  type="button"
+                  onClick={() => setMobileLearnOpen((value) => !value)}
+                  className="flex min-h-14 w-full items-center justify-between px-3 text-sm font-semibold text-text-primary"
+                  aria-expanded={mobileLearnOpen}
+                >
+                  Learn
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileLearnOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                </button>
+                {mobileLearnOpen ? (
+                  <div className="grid gap-1 pb-3 sm:grid-cols-2">
+                    {learnGroups.flatMap((group) => group.items).map((item) => (
+                      <Link key={item.href} href={item.href} className="flex min-h-12 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-text-primary">
+                        {item.label}
+                      </Link>
+                    ))}
+                    <Link href="/learn" className="flex min-h-12 items-center rounded-lg px-3 text-sm font-semibold text-xrp-accent-bright">
+                      View all guides
                     </Link>
+                  </div>
+                ) : null}
+              </div>
+              {primaryLinks.map((item) => (
+                <Link key={item.href} href={item.href} className={`${navLink(item.href)} border-b border-surface-border`}>
+                  {item.label}
+                </Link>
+              ))}
+              <Link href="/editorial" className={`${navLink("/editorial")} border-b border-surface-border`}>
+                Editorial standards
+              </Link>
+              <div className="pt-5">
+                {!loading &&
+                  (user ? (
+                    <div className="space-y-1">
+                      <Link href="/digest" className="flex min-h-12 items-center gap-2 rounded-lg px-3 font-semibold text-text-primary">
+                        <User className="h-4 w-4 text-xrp-accent" aria-hidden="true" /> My account
+                      </Link>
+                      <button type="button" onClick={() => signOut()} className="flex min-h-12 w-full items-center gap-2 rounded-lg px-3 text-text-secondary hover:text-danger">
+                        <LogOut className="h-4 w-4" aria-hidden="true" /> Sign out
+                      </button>
+                    </div>
+                  ) : (
+                    <button type="button" onClick={() => setShowAuthModal(true)} className="btn-primary w-full">
+                      Create a free account
+                    </button>
                   ))}
-                </div>
+              </div>
+              <div className="mt-8 flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-4 text-sm text-text-secondary">
+                <CircleHelp className="mt-0.5 h-4 w-4 shrink-0 text-xrp-accent" aria-hidden="true" />
+                AllAboutXRP is independent and is not affiliated with Ripple Labs.
               </div>
             </div>
           </div>
-
-          <Link
-            href="/how-to-start"
-            onClick={closeMobile}
-            className={`flex items-center min-h-[48px] px-2 text-[15px] font-medium border-b border-white/[0.04] transition-colors active:bg-white/[0.04] ${
-              isActive("/how-to-start") ? "text-xrp-accent" : "text-text-primary"
-            }`}
-          >
-            How to Start with XRP
-          </Link>
-
-          <div className="pt-5">
-            {!loading && (
-              user ? (
-                <div className="flex flex-col gap-1">
-                  <Link
-                    href="/digest"
-                    onClick={closeMobile}
-                    className="flex items-center gap-2 min-h-[48px] px-2 text-[15px] font-medium text-text-primary"
-                  >
-                    <User className="h-4 w-4 text-[#0085FF]" />
-                    My Account
-                  </Link>
-                  <button
-                    onClick={() => { signOut(); closeMobile(); }}
-                    className="flex items-center gap-2 min-h-[48px] px-2 text-[15px] font-medium text-text-secondary hover:text-red-400"
-                  >
-                    <LogOut className="h-4 w-4" />
-                    Sign Out
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => { setShowAuthModal(true); closeMobile(); }}
-                  className="btn-primary w-full"
-                >
-                  Sign Up
-                </button>
-              )
-            )}
-          </div>
-        </div>
-      </div>
-      )}
-    </nav>
-    <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+        ) : null}
+      </nav>
+      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
     </>
   );
 }

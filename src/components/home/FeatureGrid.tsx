@@ -1,78 +1,60 @@
-"use client";
-
 import Link from "next/link";
-import { BarChart3, Trophy, LockKeyhole, Wrench, BookOpen, Heart } from "lucide-react";
+import { ArrowUpRight, Database, FileCheck2, RefreshCw } from "lucide-react";
 
-const features = [
+const standards = [
   {
-    icon: <BarChart3 className="h-5 w-5" />,
-    title: "Live XRP Chart",
-    desc: "Follow XRP market prices and chart activity without leaving the research hub.",
-    href: "/live-chart",
+    icon: FileCheck2,
+    title: "Claims you can check",
+    description: "Important factual claims are paired with official documentation, records, or first-party reporting.",
   },
   {
-    icon: <Trophy className="h-5 w-5" />,
-    title: "XRP Holders",
-    desc: "Explore major accounts and supply distribution with clear methodology and live data.",
-    href: "/holders",
+    icon: Database,
+    title: "Data with methodology",
+    description: "Ledger and market views explain their source, timestamp, limitations, and calculation method.",
   },
   {
-    icon: <LockKeyhole className="h-5 w-5" />,
-    title: "Escrow Tracker",
-    desc: "Review XRP escrow balances, releases, and returned amounts using ledger data.",
-    href: "/tools/escrow-tracker",
-  },
-  {
-    icon: <BookOpen className="h-5 w-5" />,
-    title: "XRP Guides",
-    desc: "Learn the fundamentals, evaluate claims, and follow source links for further reading.",
-    href: "/learn",
-  },
-  {
-    icon: <Wrench className="h-5 w-5" />,
-    title: "XRP Tools",
-    desc: "Use calculators, trackers, checks, and planning tools built around XRP and XRPL.",
-    href: "/tools",
-  },
-  {
-    icon: <Heart className="h-5 w-5" />,
-    title: "Weekly Digest",
-    desc: "Get weekly XRP analysis and key developments delivered to your inbox.",
-    href: "/digest",
+    icon: RefreshCw,
+    title: "Updates that are visible",
+    description: "Time-sensitive guides show review dates and distinguish current facts from scenarios or opinion.",
   },
 ];
 
 export default function FeatureGrid() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-20" aria-label="Features">
-      <div className="text-center mb-12">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-xrp-accent/70 mb-3">Platform</p>
-        <h2 className="text-[32px] font-bold tracking-[-0.03em] text-text-primary md:text-[38px]">
-          All the tools you need
-        </h2>
-        <p className="mt-3 text-[15px] text-text-secondary max-w-lg mx-auto">
-          Live data, education, and analytics — everything to track and understand the XRP ecosystem.
-        </p>
-      </div>
+    <section className="border-y border-surface-border bg-surface-card" aria-labelledby="research-standard-heading">
+      <div className="site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="max-w-xl">
+          <p className="editorial-kicker">The AllAboutXRP standard</p>
+          <h2 id="research-standard-heading" className="mt-4 text-4xl leading-tight text-text-primary sm:text-5xl">
+            Useful information should also be verifiable.
+          </h2>
+          <p className="mt-5 text-base leading-7 text-text-secondary">
+            Crypto information moves quickly and often blurs fact, promotion, and speculation. We build every core
+            resource to help readers see what is known, where it came from, and what remains uncertain.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/editorial" className="text-link text-sm">
+              Read our editorial standards <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href="/learn/trusted-sources" className="text-link text-sm text-text-secondary">
+              Browse trusted sources
+            </Link>
+          </div>
+        </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
-          <Link
-            key={f.title}
-            href={f.href}
-            className="group rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6 transition-all duration-300 hover:border-white/[0.12] hover:translate-y-[-2px] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
-          >
-            <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/[0.06] bg-white/[0.02] text-xrp-accent mb-4">
-              {f.icon}
+        <div className="divide-y divide-surface-border border-y border-surface-border">
+          {standards.map((item) => (
+            <div key={item.title} className="grid gap-4 py-6 sm:grid-cols-[44px_1fr] sm:gap-5">
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+                <item.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="text-xl text-text-primary">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-text-secondary">{item.description}</p>
+              </div>
             </div>
-            <h3 className="text-[16px] font-semibold text-text-primary tracking-tight">
-              {f.title}
-            </h3>
-            <p className="mt-2 text-[13px] text-text-secondary leading-relaxed">
-              {f.desc}
-            </p>
-          </Link>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

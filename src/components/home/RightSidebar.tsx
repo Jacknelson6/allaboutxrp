@@ -1,32 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, ArrowRight, Chrome, BookOpen, Wrench, Eye } from "lucide-react";
+import { TrendingUp, TrendingDown, BookOpen, Wrench, Eye } from "lucide-react";
 import { useXRPPrice } from "@/hooks/useXRPPrice";
 import TradeModal from "@/components/shared/TradeModal";
-import NewsletterSignup from "@/components/shared/NewsletterSignup";
+import MiniPreviewCard from "./MiniPreviewCard";
 
 const watchItems = [
   { title: "XRP vs SWIFT", href: "/learn/xrp-vs-swift" },
   { title: "SEC vs Ripple", href: "/learn/sec-vs-ripple-explained" },
   { title: "XRP ETF", href: "/learn/xrp-etf" },
 ];
-import MiniPreviewCard from "./MiniPreviewCard";
 
 function fmtPrice(n: number): string {
   if (n >= 1) return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
   return n.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 });
 }
-
-const trendingTopics = [
-  { category: "XRP Ecosystem", title: "RLUSD hits $1.5B market cap", posts: "12.4K posts" },
-  { category: "Legal", title: "SEC case officially dismissed", posts: "45.2K posts" },
-  { category: "Partnerships", title: "Société Générale x Ripple", posts: "8.7K posts" },
-  { category: "Technology", title: "XRP Ledger AMM goes live", posts: "6.1K posts" },
-  { category: "Market", title: "$XRP breaks $2.50 resistance", posts: "23.8K posts" },
-];
-
 
 function PricePerformance() {
   const { data } = useXRPPrice();
@@ -38,9 +28,10 @@ function PricePerformance() {
   ];
 
   return (
-    <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] p-4">
-      <h3 className="text-[15px] font-bold text-text-primary mb-3">Price Performance</h3>
-      <div className="space-y-2.5">
+    <section className="mt-4 rounded-xl border border-surface-border bg-surface-card p-5" aria-labelledby="price-performance-title">
+      <h3 id="price-performance-title" className="text-lg font-semibold text-text-primary">Price performance</h3>
+      <p className="mt-1 text-xs text-text-secondary">Current change by period</p>
+      <div className="mt-4 space-y-2.5">
         {periods.map(({ label, value }) => {
           const positive = (value ?? 0) >= 0;
           const Icon = positive ? TrendingUp : TrendingDown;
@@ -60,12 +51,12 @@ function PricePerformance() {
         })}
       </div>
       {data && (data.high24h > 0 || data.low24h > 0) && (
-        <div className="mt-3 pt-3 border-t border-[#2F3336] flex justify-between text-[12px] text-text-secondary">
+        <div className="mt-4 flex justify-between border-t border-surface-border pt-3 font-mono text-[11px] text-text-secondary">
           <span>24h High: ${fmtPrice(data.high24h)}</span>
           <span>24h Low: ${fmtPrice(data.low24h)}</span>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
@@ -87,7 +78,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
 
   if (compact) {
     return (
-      <button onClick={() => setModalOpen(true)} className="flex items-center gap-3 text-sm">
+      <button onClick={() => setModalOpen(true)} className="flex min-h-11 items-center gap-3 text-sm" aria-label="Open XRP trade options">
         <span className="text-text-secondary text-[13px]">XRP</span>
         <span className={`font-mono font-bold text-[15px] transition-colors duration-300 ${flashColor}`}>
           ${fmtPrice(data.price)}
@@ -105,7 +96,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
     <>
       <a
         href="/live-chart"
-        className="block w-full rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 text-left hover:bg-[#1D1F23] transition-colors"
+        className="block w-full rounded-xl border border-surface-border bg-surface-card p-5 text-left transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated"
       >
         <div className="flex items-center justify-between mb-2">
           <span className="text-[13px] font-bold text-text-primary">XRP / USDT</span>
@@ -127,10 +118,7 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
             <span>L: ${fmtPrice(data.low24h)}</span>
           </div>
         )}
-        <div className="mt-3 flex items-center gap-2 text-[13px] font-medium text-[#0085FF] hover:gap-3 transition-all">
-          View Live Price
-          <ArrowRight className="h-3.5 w-3.5" />
-        </div>
+        <span className="mt-3 inline-flex min-h-11 items-center text-[13px] font-semibold text-xrp-accent-bright">View live price</span>
       </a>
     </>
   );
@@ -143,7 +131,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
   }
 
   return (
-    <div className="pb-3 px-5 pt-0">
+    <aside className="px-5 pb-3" aria-label="Live XRP data and research links">
       {/* 1. Combined: Price + Globe + Chart */}
       <MiniPreviewCard />
 
@@ -151,54 +139,47 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       <PricePerformance />
 
       {/* 4. What to Watch */}
-      <div className="mt-4 rounded-2xl border border-[#2F3336] bg-[#16181C] p-4">
+      <section className="mt-4 rounded-xl border border-surface-border bg-surface-card p-5" aria-labelledby="watch-title">
         <div className="flex items-center gap-2 mb-1">
-          <Eye className="h-4 w-4 text-[#0085FF]" />
-          <h3 className="text-[15px] font-bold text-text-primary">What to Watch</h3>
+          <Eye className="h-4 w-4 text-xrp-accent-bright" aria-hidden="true" />
+          <h3 id="watch-title" className="text-lg font-semibold text-text-primary">What to watch</h3>
         </div>
-        <p className="text-[12px] text-text-secondary mb-3">Key catalysts for XRP adoption</p>
-        <div className="space-y-0.5">
+        <p className="mb-3 text-xs text-text-secondary">Research topics with active implications</p>
+        <div className="divide-y divide-surface-border">
           {watchItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="relative block rounded-lg px-2 py-2 -mx-2 transition-all group overflow-hidden"
+              className="group flex min-h-11 items-center justify-between py-2 text-[13px] font-semibold text-text-primary transition-colors hover:text-xrp-accent-bright"
             >
-              <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none" />
-              <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none z-0" />
-              <span className="relative z-10 text-[13px] font-semibold text-text-primary group-hover:text-[#0085FF] transition-colors leading-snug block">
-                {item.title}
-              </span>
+              <span>{item.title}</span>
+              <span aria-hidden="true" className="text-text-secondary transition-transform group-hover:translate-x-0.5">→</span>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* 5. Explore: Learn & Tools — horizontal stacked */}
-      <div className="mt-4 space-y-3">
-        <Link href="/learn" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/learn flex items-center gap-4 overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
-          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/learn:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
-          <div className="relative z-10 h-10 w-10 shrink-0 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
-            <BookOpen className="h-5 w-5 text-[#0085FF]" />
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+        <Link href="/learn" className="group flex min-h-20 items-center gap-4 rounded-xl border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10">
+            <BookOpen className="h-5 w-5 text-xrp-accent-bright" aria-hidden="true" />
           </div>
-          <div className="relative z-10">
-            <h3 className="text-[15px] font-bold text-text-primary">Learn</h3>
-            <p className="text-[12px] text-text-secondary leading-snug">Guides, FAQs, and everything XRP</p>
+          <div>
+            <h3 className="text-base font-semibold text-text-primary group-hover:text-xrp-accent-bright">Learn</h3>
+            <p className="text-xs leading-snug text-text-secondary">Source-led XRP guides</p>
           </div>
         </Link>
-        <Link href="/tools" className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] p-4 transition-all group/tools flex items-center gap-4 overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-white/[0.03] opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none" />
-          <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover/tools:opacity-100 transition-opacity rounded-2xl pointer-events-none z-0" />
-          <div className="relative z-10 h-10 w-10 shrink-0 rounded-xl bg-[#0085FF]/10 flex items-center justify-center">
-            <Wrench className="h-5 w-5 text-[#0085FF]" />
+        <Link href="/tools" className="group flex min-h-20 items-center gap-4 rounded-xl border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10">
+            <Wrench className="h-5 w-5 text-xrp-accent-bright" aria-hidden="true" />
           </div>
-          <div className="relative z-10">
-            <h3 className="text-[15px] font-bold text-text-primary">Tools</h3>
-            <p className="text-[12px] text-text-secondary leading-snug">Calculators, converters, and more</p>
+          <div>
+            <h3 className="text-base font-semibold text-text-primary group-hover:text-xrp-accent-bright">Tools</h3>
+            <p className="text-xs leading-snug text-text-secondary">Calculators and live data</p>
           </div>
         </Link>
       </div>
-    </div>
+    </aside>
   );
 }

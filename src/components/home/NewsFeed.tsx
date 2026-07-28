@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@/lib/supabase/auth-context";
 import AuthModal from "@/components/auth/AuthModal";
+import { LockKeyhole } from "lucide-react";
 
 interface Article {
   title: string;
@@ -252,7 +253,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
               {/* Compact paywall CTA */}
               <div className="mt-2 flex items-center justify-between rounded-xl border border-[#0085FF]/20 bg-[#0085FF]/[0.04] px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-base">🔒</span>
+                  <LockKeyhole className="h-4 w-4 shrink-0 text-xrp-accent" aria-hidden="true" />
                   <div>
                     <p className="text-[13px] font-semibold text-white">Unlock with Pro</p>
                     <p className="text-[11px] text-gray-500">$9.99/mo · Full daily recaps</p>
@@ -496,18 +497,6 @@ export default function NewsFeed() {
                       )}
                     </div>
 
-                    {/* Thumbnail */}
-                    {article.og_image && (
-                      <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-[#2F3336]">
-                        <img
-                          src={article.og_image}
-                          alt=""
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

@@ -1,73 +1,46 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HOME_FAQ_ITEMS } from "@/data/home-faq";
 
 export default function HomeFAQ() {
-  const [open, setOpen] = useState<number | null>(null);
-
   return (
-    <section className="mx-auto max-w-3xl px-5 py-16" aria-label="Frequently Asked Questions">
-      <div className="text-center mb-10">
-        <p className="text-[11px] font-medium uppercase tracking-widest text-xrp-accent/70 mb-3">FAQ</p>
-        <h2 className="text-[32px] font-bold tracking-[-0.03em] text-text-primary md:text-[38px]">
-          Frequently asked questions
+    <section className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]" aria-labelledby="home-faq-heading">
+      <div>
+        <p className="editorial-kicker">Popular questions</p>
+        <h2 id="home-faq-heading" className="mt-4 text-4xl text-text-primary sm:text-5xl">
+          Clear answers to XRP fundamentals
         </h2>
-        <p className="mt-3 text-[15px] text-text-secondary">
-          Everything you need to know about XRP.
+        <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">
+          Start with the short answer, then follow the guide and primary source when you need the full context.
         </p>
+        <Link href="/learn/faq" className="text-link mt-5 text-sm">
+          Browse every XRP question <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
       </div>
 
-      <div className="space-y-2">
-        {HOME_FAQ_ITEMS.map((item, i) => {
-          const isOpen = open === i;
-          return (
-            <div
-              key={i}
-              className={`rounded-xl border transition-all duration-200 ${
-                isOpen ? "border-xrp-accent/20 bg-xrp-accent/[0.02]" : "border-white/[0.06] bg-[#0A0A0B]"
-              }`}
-            >
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-                aria-expanded={isOpen}
-                aria-controls={`home-faq-answer-${i}`}
-              >
-                <span className={`text-[15px] font-medium ${isOpen ? "text-text-primary" : "text-text-secondary"}`}>
-                  {item.question}
+      <div className="divide-y divide-surface-border border-y border-surface-border">
+        {HOME_FAQ_ITEMS.map((item, index) => (
+          <details key={item.question} className="group py-1">
+            <summary className="flex min-h-16 list-none items-center justify-between gap-5 py-3 text-left text-base font-semibold text-text-primary marker:content-none">
+              <span className="flex items-start gap-4">
+                <span className="pt-0.5 font-mono text-xs font-medium text-text-secondary">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-                <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-xrp-accent" : "text-white/20"}`} />
-              </button>
-              <div
-                id={`home-faq-answer-${i}`}
-                hidden={!isOpen}
-                className="border-t border-white/[0.04] px-5 py-4"
-              >
-                <p className="text-[14px] text-text-secondary leading-relaxed">{item.answer}</p>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs">
-                  <Link href={item.guideHref} className="font-medium text-xrp-accent hover:underline">
-                    {item.guideLabel}
-                  </Link>
-                  <a href={item.sourceHref} rel="noopener noreferrer" className="text-text-secondary hover:text-text-primary hover:underline">
-                    {item.sourceLabel}
-                  </a>
-                </div>
+                <span>{item.question}</span>
+              </span>
+              <ChevronDown className="h-4 w-4 shrink-0 text-text-secondary transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+            </summary>
+            <div className="pb-5 pl-10 pr-8">
+              <p className="text-[15px] leading-7 text-text-secondary">{item.answer}</p>
+              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                <Link href={item.guideHref} className="text-link text-sm">{item.guideLabel}</Link>
+                <a href={item.sourceHref} rel="noopener noreferrer" className="text-link text-sm text-text-secondary">
+                  {item.sourceLabel}
+                </a>
               </div>
             </div>
-          );
-        })}
-      </div>
-
-      <div className="mt-8 text-center">
-        <Link
-          href="/learn/faq"
-          className="inline-flex items-center gap-1.5 text-[14px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
-        >
-          View all FAQ <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
+          </details>
+        ))}
       </div>
     </section>
   );

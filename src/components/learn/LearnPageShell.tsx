@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Link from "next/link";
 import { ChevronDown, CheckCircle, XCircle, AlertTriangle, Info, Zap } from "lucide-react";
 import ScrollHint from "@/components/shared/ScrollHint";
@@ -10,12 +8,12 @@ import ScrollHint from "@/components/shared/ScrollHint";
  */
 export function TLDRBox({ children }: { children: ReactNode }) {
   return (
-    <div className="summary mt-8 rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5">
+    <div className="summary answer-block mt-8">
       <div className="flex items-center gap-2 mb-3">
-        <Zap className="h-5 w-5 text-xrp-accent" />
-        <span className="font-bold text-text-primary text-[15px] uppercase tracking-wide">TL;DR</span>
+        <Zap className="h-5 w-5 text-xrp-accent" aria-hidden="true" />
+        <span className="font-sans text-[13px] font-bold uppercase tracking-[0.08em] text-text-primary">Answer in brief</span>
       </div>
-      <div className="text-[14px] text-text-secondary leading-relaxed space-y-2">{children}</div>
+      <div className="space-y-2 text-[15px] leading-7 text-text-secondary">{children}</div>
     </div>
   );
 }
@@ -25,18 +23,18 @@ export function TLDRBox({ children }: { children: ReactNode }) {
  */
 export function KeyFactsTable({ facts }: { facts: { label: string; value: string }[] }) {
   return (
-    <ScrollHint className="mt-6 rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+    <ScrollHint className="mt-6 -mx-4 rounded-xl border border-surface-border bg-surface-card sm:mx-0">
       <table className="w-full min-w-[300px] text-left text-sm">
-        <thead className="border-b border-white/[0.06]">
+        <thead className="border-b border-surface-border">
           <tr>
-            <th colSpan={2} className="px-4 py-3 text-xs font-medium uppercase tracking-widest text-white/30">Key Facts</th>
+            <th colSpan={2} className="px-4 py-3 font-sans text-xs font-semibold uppercase tracking-[0.08em] text-text-primary">Key facts</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/[0.04]">
+        <tbody className="divide-y divide-surface-border">
           {facts.map((fact, i) => (
             <tr key={i} className="hover:bg-white/[0.015] transition-colors duration-150">
-              <td className="px-4 py-2.5 text-[13px] font-medium text-text-secondary w-[40%]">{fact.label}</td>
-              <td className="px-4 py-2.5 text-[13px] font-medium text-xrp-accent">{fact.value}</td>
+              <td className="w-[40%] px-4 py-3 text-sm font-medium text-text-secondary">{fact.label}</td>
+              <td className="px-4 py-3 text-sm font-semibold text-text-primary">{fact.value}</td>
             </tr>
           ))}
         </tbody>
@@ -50,8 +48,8 @@ export function KeyFactsTable({ facts }: { facts: { label: string; value: string
  */
 export function LastUpdated({ date }: { date: string }) {
   return (
-    <div className="mt-4 text-[13px] text-text-secondary/70">
-      <span className="font-medium">Last Updated:</span> {date}
+    <div className="mt-4 font-mono text-xs text-text-secondary">
+      <span className="font-semibold text-text-primary">Last reviewed:</span> {date}
     </div>
   );
 }
@@ -88,9 +86,9 @@ export function StatPill({
   delay?: number;
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 text-center transition-all duration-200 hover:border-white/[0.1]">
+    <div className="rounded-xl border border-surface-border bg-surface-card p-4 text-center">
       <div className="font-mono text-xl font-bold text-xrp-accent tracking-tight">{value}</div>
-      <div className="mt-1 text-xs font-medium uppercase tracking-widest text-white/30">{label}</div>
+      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.06em] text-text-secondary">{label}</div>
     </div>
   );
 }
@@ -113,21 +111,21 @@ export function LearnHero({
 }) {
   return (
     <>
-      <nav aria-label="Breadcrumb" className="mb-5 text-[13px] text-text-secondary">
+      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
         <ol className="flex items-center gap-1.5">
-          <li><Link href="/" className="hover:text-text-primary transition-colors duration-200">Home</Link></li>
-          <li className="text-white/15">/</li>
-          <li><Link href="/learn" className="hover:text-text-primary transition-colors duration-200">Learn</Link></li>
-          <li className="text-white/15">/</li>
-          <li className="text-text-primary">{breadcrumbLabel}</li>
+          <li><Link href="/" className="inline-flex min-h-11 items-center transition-colors duration-200 hover:text-text-primary">Home</Link></li>
+          <li aria-hidden="true">/</li>
+          <li><Link href="/learn" className="inline-flex min-h-11 items-center transition-colors duration-200 hover:text-text-primary">Learn</Link></li>
+          <li aria-hidden="true">/</li>
+          <li className="truncate text-text-primary" aria-current="page">{breadcrumbLabel}</li>
         </ol>
       </nav>
 
-      <h1 className="text-[36px] font-bold tracking-[-0.04em] leading-[1.1] text-text-primary md:text-[44px]">
-        {title} <span className="gradient-text">{titleAccent}</span>
+      <h1 className="max-w-4xl text-[clamp(2.8rem,7vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-text-primary">
+        {title} <span className="text-xrp-accent-bright">{titleAccent}</span>
       </h1>
 
-      <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">
+      <p className="mt-6 max-w-2xl text-lg leading-8 text-text-secondary">
         {subtitle}
       </p>
 
@@ -141,12 +139,12 @@ export function LearnHero({
  */
 export function SectionNav({ items }: { items: { id: string; label: string }[] }) {
   return (
-    <nav className="mt-6 flex flex-wrap gap-2" aria-label="Page sections">
+    <nav className="mt-7 flex flex-wrap gap-2" aria-label="On this page">
       {items.map((item) => (
         <a
           key={item.id}
           href={`#${item.id}`}
-          className="rounded-lg border border-white/[0.06] px-3 py-1.5 text-[12px] font-medium text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/20 transition-all duration-200"
+          className="inline-flex min-h-11 items-center rounded-lg border border-surface-border px-3 text-sm font-semibold text-text-secondary transition-colors duration-200 hover:border-xrp-accent/30 hover:text-xrp-accent-bright"
         >
           {item.label}
         </a>
@@ -175,15 +173,15 @@ export function LearnCTA({
 }) {
   return (
     <RevealSection className="mt-14">
-      <div className="relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-8 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,133,255,0.04)_0%,transparent_70%)]" />
+      <div className="relative overflow-hidden rounded-xl border border-surface-border bg-[#07111a] p-7 text-center sm:p-10">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(47,159,255,0.08)_0%,transparent_70%)]" />
         <div className="relative">
-          <h2 className="text-2xl font-bold tracking-tight text-text-primary">{title}</h2>
-          <p className="mx-auto mt-3 max-w-xl text-[14px] text-text-secondary">{description}</p>
+          <h2 className="text-3xl text-text-primary">{title}</h2>
+          <p className="mx-auto mt-3 max-w-xl text-[15px] leading-7 text-text-secondary">{description}</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href={primaryHref} className="btn-primary">{primaryLabel}</Link>
+            <Link href={primaryHref} className="btn-primary px-5">{primaryLabel}</Link>
             {secondaryHref ? (
-              <Link href={secondaryHref} className="btn-secondary">{secondaryLabel}</Link>
+              <Link href={secondaryHref} className="btn-secondary px-5">{secondaryLabel}</Link>
             ) : null}
           </div>
         </div>
@@ -273,13 +271,13 @@ export function FeatureGrid({
       {items.map((item) => (
         <div
           key={item.title}
-          className="linear-card p-4"
+          className="border-t border-surface-border py-5 first:border-t-0"
         >
-          {item.icon ? <div className="mb-2 text-white/30">{item.icon}</div> : null}
-          <div className={`text-sm font-semibold text-text-primary ${item.mono ? "font-mono text-xrp-accent" : ""}`}>
+          {item.icon ? <div className="mb-2 text-xrp-accent">{item.icon}</div> : null}
+          <div className={`text-base font-semibold text-text-primary ${item.mono ? "font-mono text-xrp-accent" : ""}`}>
             {item.title}
           </div>
-          <p className="mt-1 text-xs text-text-secondary leading-relaxed">{item.desc}</p>
+          <p className="mt-1 text-sm leading-6 text-text-secondary">{item.desc}</p>
         </div>
       ))}
     </div>
@@ -299,18 +297,18 @@ export function DataTable({
   highlightCol?: number;
 }) {
   return (
-    <ScrollHint className="rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+    <ScrollHint className="-mx-4 rounded-xl border border-surface-border bg-surface-card sm:mx-0">
       <table className="w-full text-left text-sm">
-        <thead className="border-b border-white/[0.06]">
+        <thead className="border-b border-surface-border">
           <tr>
             {headers.map((h, i) => (
-              <th key={i} className="px-4 py-3 text-xs font-medium uppercase tracking-widest text-white/30">
+              <th key={i} className="px-4 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-text-primary">
                 {h}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/[0.04]">
+        <tbody className="divide-y divide-surface-border">
           {rows.map((row, ri) => (
             <tr key={ri} className="hover:bg-white/[0.015] transition-colors duration-150">
               {row.map((cell, ci) => (
@@ -334,23 +332,16 @@ export function FAQAccordion({
 }: {
   items: { q: string; a: string }[];
 }) {
-  const [open, setOpen] = useState<number | null>(null);
-
   return (
-    <div className="space-y-2">
+    <div className="divide-y divide-surface-border border-y border-surface-border">
       {items.map((item, i) => (
-        <div key={i} className={`rounded-xl border transition-all duration-200 ${open === i ? "border-xrp-accent/20 bg-xrp-accent/[0.02]" : "border-white/[0.06]"}`}>
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left hover:text-xrp-accent transition-colors duration-200"
-          >
-            <span className={`text-[14px] font-medium ${open === i ? "text-xrp-accent" : "text-text-primary"}`}>{item.q}</span>
-            <ChevronDown className={`h-4 w-4 shrink-0 text-text-secondary transition-transform duration-200 ${open === i ? "rotate-180" : ""}`} />
-          </button>
-          {open === i && (
-            <p className="border-t border-white/[0.04] px-4 py-3 text-[14px] text-text-secondary leading-relaxed">{item.a}</p>
-          )}
-        </div>
+        <details key={i} className="group py-1">
+          <summary className="flex min-h-14 list-none items-center justify-between gap-3 py-3 text-left font-semibold text-text-primary marker:content-none">
+            <span>{item.q}</span>
+            <ChevronDown className="h-4 w-4 shrink-0 text-text-secondary transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+          </summary>
+          <p className="pb-5 pr-8 text-[15px] leading-7 text-text-secondary">{item.a}</p>
+        </details>
       ))}
     </div>
   );
@@ -371,8 +362,8 @@ export function GlowCard({
   subtitle?: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-xrp-accent/15 bg-[#0A0A0B] p-5">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,133,255,0.04)_0%,transparent_60%)]" />
+    <div className="relative overflow-hidden rounded-xl border border-xrp-accent/20 bg-[#07111a] p-5">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(47,159,255,0.07)_0%,transparent_60%)]" />
       <div className="relative">
         {icon ? <div className="mb-2">{icon}</div> : null}
         <span className="font-medium text-xrp-accent text-[14px]">{title}</span>
@@ -406,7 +397,7 @@ export function IconList({
   return (
     <div className="space-y-2">
       {items.map((item, i) => (
-        <div key={i} className="flex gap-3 rounded-xl border border-white/[0.06] p-3.5 transition-all duration-200 hover:border-white/[0.1]">
+        <div key={i} className="flex gap-3 border-t border-surface-border py-4 first:border-t-0">
           {usedIcon}
           <div>
             <p className="font-medium text-text-primary text-[14px]">{item.title}</p>

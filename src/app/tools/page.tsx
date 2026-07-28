@@ -1,73 +1,84 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import {
+  Activity,
+  ArrowUpRight,
+  BellRing,
+  Calculator,
+  Clock3,
+  ReceiptText,
+  Users,
+} from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Free XRP Tools — Calculators & Utilities",
-  description:
-    "Free XRP tools: profit/loss calculator, transaction fee calculator, and more. No sign-up required.",
+  title: "Free XRP Tools — Calculators, Trackers & Live Data",
+  description: "Use free XRP calculators, ledger trackers, escrow data, price levels, and holder tools. No sign-up required.",
   openGraph: {
     title: "Free XRP Tools | AllAboutXRP",
-    description: "Free calculators and utilities for XRP investors and users.",
+    description: "Practical XRP calculators, trackers, and live data with clear methodology.",
     url: "https://allaboutxrp.com/tools",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free XRP Tools | AllAboutXRP",
-    description: "Free calculators and utilities for XRP investors and users.",
+    description: "Practical XRP calculators, trackers, and live data with clear methodology.",
   },
   alternates: { canonical: "https://allaboutxrp.com/tools" },
 };
 
-const tools: { href: string; title: string; description: string; badge: string; linkText?: string }[] = [
+const liveTools = [
   {
     href: "/tools/whale-tracker",
-    title: "XRP Whale Tracker",
-    description: "Monitor large XRP transactions in real-time. Track whale movements, exchange flows, and institutional activity on the XRPL.",
-    badge: "Live Data",
+    title: "XRP whale tracker",
+    description: "Monitor large XRP Ledger transactions and inspect known-account context.",
+    label: "Ledger data",
+    icon: Activity,
   },
   {
     href: "/tools/escrow-tracker",
-    title: "XRP Escrow Live Tracker",
-    description: "Track Ripple's monthly 1B XRP escrow releases. Upcoming schedule, historical data, and re-lock amounts.",
-    badge: "Live Data",
+    title: "XRP escrow tracker",
+    description: "Follow scheduled releases, executed escrows, returned amounts, and event status.",
+    label: "Ledger data",
+    icon: Clock3,
   },
   {
     href: "/tools/price-alerts",
-    title: "XRP Price Levels to Watch",
-    description: "Key support and resistance levels for XRP with current price. Technical analysis and price targets updated regularly.",
-    badge: "Live Data",
-  },
-  {
-    href: "/tools/xrp-profit-calculator",
-    title: "XRP Profit Calculator",
-    description: "Calculate your profit or loss on XRP trades. Input buy price, sell price, and amount — see ROI instantly.",
-    badge: "Calculator",
-  },
-  {
-    href: "/tools/xrp-fee-calculator",
-    title: "XRP Transaction Fee Calculator",
-    description: "See how much XRP transactions really cost. Compare fees across hundreds or thousands of transactions.",
-    badge: "Calculator",
+    title: "XRP price levels",
+    description: "Review current support and resistance areas alongside the latest price.",
+    label: "Market data",
+    icon: BellRing,
   },
   {
     href: "/holders",
-    title: "XRP Rich List",
-    description: "See the top XRP holders and wallet distribution. Track whale movements and concentration across the network.",
-    badge: "Data",
-    linkText: "View rich list →",
-  },
-  {
-    href: "/learn",
-    title: "XRP Learn Hub",
-    description: "Everything you need to understand XRP — from basics to advanced topics. Tokenomics, escrow, partnerships, and more.",
-    badge: "Education",
-    linkText: "Start learning →",
+    title: "XRP holder distribution",
+    description: "Explore major balances, known accounts, and concentration methodology.",
+    label: "Ledger data",
+    icon: Users,
   },
 ];
+
+const calculators = [
+  {
+    href: "/tools/xrp-profit-calculator",
+    title: "XRP profit calculator",
+    description: "Model profit, loss, and return using your purchase price, exit price, and XRP amount.",
+    label: "Calculator",
+    icon: Calculator,
+  },
+  {
+    href: "/tools/xrp-fee-calculator",
+    title: "XRP transaction fee calculator",
+    description: "Estimate XRP Ledger fee costs across one transaction or a larger batch.",
+    label: "Calculator",
+    icon: ReceiptText,
+  },
+];
+
+const allTools = [...liveTools, ...calculators];
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -78,52 +89,130 @@ const breadcrumbSchema = {
   ],
 };
 
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://allaboutxrp.com/tools#collection",
+  name: "Free XRP Tools",
+  url: "https://allaboutxrp.com/tools",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: allTools.map((tool, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: tool.title,
+      url: `https://allaboutxrp.com${tool.href}`,
+    })),
+  },
+};
+
 export default function ToolsHubPage() {
   return (
     <>
       <SEOSchema schema={breadcrumbSchema} />
-      <main className="min-h-screen bg-black">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-zinc-300">Tools</span>
-          </nav>
-
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
-            Free XRP Tools
-          </h1>
-          <p className="text-lg text-zinc-400 mb-12 max-w-2xl">
-            Free calculators and utilities for XRP investors. No sign-up required — everything runs in your browser.
-          </p>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {tools.map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all hover:border-[#0085FF]/50 hover:bg-zinc-900/50"
-              >
-                <span className="inline-block rounded-full bg-[#0085FF]/10 px-3 py-1 text-xs font-medium text-[#0085FF] mb-3">
-                  {tool.badge}
-                </span>
-                <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-[#0085FF] transition-colors">
-                  {tool.title}
-                </h2>
-                <p className="text-sm text-zinc-400 leading-relaxed">{tool.description}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-[#0085FF]">
-                  {tool.linkText ?? "Open tool →"}
-                </span>
+      <SEOSchema schema={collectionSchema} />
+      <main id="main-content" className="bg-surface-primary">
+        <header className="border-b border-surface-border">
+          <div className="site-container grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div>
+              <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
+                <Link href="/" className="inline-flex min-h-11 items-center transition-colors hover:text-text-primary">Home</Link>
+                <span className="mx-2" aria-hidden="true">/</span>
+                <span className="text-text-primary">Tools</span>
+              </nav>
+              <p className="editorial-kicker">Practical XRP utilities</p>
+              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary">
+                XRP tools built to show their work.
+              </h1>
+            </div>
+            <div className="max-w-xl">
+              <p className="text-lg leading-8 text-text-secondary">
+                Calculate outcomes, inspect live XRP Ledger activity, and understand the methodology behind each result.
+                Every tool is free to use without creating an account.
+              </p>
+              <Link href="/learn/trusted-sources" className="text-link mt-5 text-sm">
+                Review our data sources <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-            ))}
+            </div>
           </div>
+        </header>
 
-          <div className="mt-12 flex gap-4">
-            <Link href="/learn/what-is-xrp" className="text-sm text-[#0085FF] hover:underline">What is XRP? →</Link>
-            <Link href="/best" className="text-sm text-[#0085FF] hover:underline">Best XRP Products →</Link>
+        <ToolSection
+          id="live-data-tools"
+          kicker="Track what is happening"
+          title="Live data and ledger tools"
+          description="Use current market or XRP Ledger data, with timestamps and context where the source supports it."
+          tools={liveTools}
+        />
+
+        <ToolSection
+          id="xrp-calculators"
+          kicker="Model a scenario"
+          title="XRP calculators"
+          description="Run transparent calculations in your browser and adjust every important input yourself."
+          tools={calculators}
+          muted
+        />
+
+        <section className="border-y border-surface-border bg-[#07111a]">
+          <div className="site-container grid gap-7 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
+            <div>
+              <h2 className="text-3xl text-text-primary">Understand the numbers before using them.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-text-secondary">
+                Our XRP guides explain the network concepts, assumptions, and risks behind these tools.
+              </p>
+            </div>
+            <Link href="/learn" className="btn-primary px-5">Open the learning center</Link>
           </div>
-        </div>
+        </section>
       </main>
     </>
+  );
+}
+
+function ToolSection({
+  id,
+  kicker,
+  title,
+  description,
+  tools,
+  muted = false,
+}: {
+  id: string;
+  kicker: string;
+  title: string;
+  description: string;
+  tools: typeof allTools;
+  muted?: boolean;
+}) {
+  return (
+    <section id={id} className={muted ? "border-t border-surface-border bg-surface-card" : "bg-surface-primary"} aria-labelledby={`${id}-heading`}>
+      <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+        <div>
+          <p className="editorial-kicker">{kicker}</p>
+          <h2 id={`${id}-heading`} className="mt-4 text-4xl text-text-primary">{title}</h2>
+          <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">{description}</p>
+        </div>
+        <ol className="divide-y divide-surface-border border-y border-surface-border">
+          {tools.map((tool, index) => (
+            <li key={tool.href}>
+              <Link href={tool.href} className="group grid min-h-28 gap-4 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[2.5rem_1fr_auto] sm:items-start sm:px-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+                  <tool.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.06em] text-text-secondary">
+                    {String(index + 1).padStart(2, "0")} · {tool.label}
+                  </div>
+                  <h3 className="mt-1 text-xl text-text-primary transition-colors group-hover:text-xrp-accent-bright">{tool.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-text-secondary">{tool.description}</p>
+                </div>
+                <ArrowUpRight className="hidden h-4 w-4 text-text-secondary transition-colors group-hover:text-xrp-accent sm:block" aria-hidden="true" />
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
   );
 }

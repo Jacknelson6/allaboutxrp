@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ChartNoAxesCombined } from "lucide-react";
 
 interface UniqueInsightProps {
   title?: string;
@@ -16,29 +17,25 @@ export default function UniqueInsight({
   verifiedDate,
 }: UniqueInsightProps) {
   return (
-    <aside className="my-10 rounded-xl border border-white/[0.06] bg-gradient-to-br from-[#0a0a1a] to-[#111128] overflow-hidden">
-      {/* Left accent border via gradient */}
-      <div className="flex">
-        <div className="w-1.5 shrink-0 bg-gradient-to-b from-indigo-500 via-purple-500 to-indigo-600" />
-        <div className="flex-1 px-6 py-5">
+    <aside className="my-10 overflow-hidden rounded-xl border border-xrp-accent/20 bg-[#07111a]">
+      <div className="px-6 py-5">
           {/* Header */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-lg" role="img" aria-label="chart">📊</span>
-            <h3 className="text-base font-semibold text-white tracking-tight">
+            <ChartNoAxesCombined className="h-5 w-5 text-xrp-accent" strokeWidth={1.8} aria-hidden="true" />
+            <h3 className="text-lg font-semibold text-text-primary">
               {title}
             </h3>
           </div>
 
           {/* Body */}
-          <div className="text-sm leading-relaxed text-[#c0c0d0] space-y-3 [&>p]:mb-0">
+          <div className="space-y-3 text-[15px] leading-7 text-text-secondary [&>p]:mb-0">
             {children}
           </div>
 
           {/* Footer */}
-          <p className="mt-4 text-xs text-[#666680] border-t border-white/[0.06] pt-3">
+          <p className="mt-4 border-t border-surface-border pt-3 font-mono text-xs text-text-secondary">
             Last verified: {verifiedDate}
           </p>
-        </div>
       </div>
     </aside>
   );
