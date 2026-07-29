@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "XRP ETF Price Impact: What Happens When It's Approved | AllAboutXRP",
   description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.",
   keywords: ["XRP ETF price impact","XRP price after ETF","XRP ETF effect on price","ETF XRP rally"],
-  openGraph: { title: "XRP ETF Price Impact: What Happens When It's Approved", description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.", url: "https://allaboutxrp.com/learn/xrp-etf-price-impact", type: "article" },
+  openGraph: { title: "XRP ETF Price Impact: What Happens When It's Approved", description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.", url: "https://allaboutxrp.com/learn/xrp-etf", type: "article" },
   twitter: { card: "summary_large_image", title: "XRP ETF Price Impact: What Happens When It's Approved", description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf-price-impact" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP ETF Price Impact: What Happens When It's Approved", description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.", url: "https://allaboutxrp.com/learn/xrp-etf-price-impact", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP ETF Price Impact: What Happens When It's Approved", description: "What happens to XRP's price when an ETF is approved? Analysis based on Bitcoin and Ethereum ETF precedents.", url: "https://allaboutxrp.com/learn/xrp-etf", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "ETF Price Impact" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf-price-impact" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf" }),
   buildFAQSchema([
     { question: "How much up?", answer: "30-100%+ over 3-6 months." },
     { question: "Dip?", answer: "Likely ~15%, recover in weeks." },
@@ -110,8 +110,8 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-etf-approval-odds", label: "Odds", desc: "Analysis" },
-              { href: "/learn/xrp-etf-filings", label: "Filings", desc: "Tracker" },
+              { href: "/learn/xrp-etf", label: "Odds", desc: "Analysis" },
+              { href: "/learn/xrp-etf", label: "Filings", desc: "Tracker" },
               { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Tax-free" },
               { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Framework" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
@@ -120,7 +120,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Prepare" description="Position before approval." primaryHref="/learn/xrp-etf-approval-odds" primaryLabel="Odds →" secondaryHref="/learn/xrp-sell-or-hold" secondaryLabel="Sell or Hold?" />
+        <LearnCTA title="Prepare" description="Position before approval." primaryHref="/learn/xrp-etf" primaryLabel="Odds →" secondaryHref="/learn/xrp-sell-or-hold" secondaryLabel="Sell or Hold?" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

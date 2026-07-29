@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Is XRP a Security? The SEC Ruling Explained | AllAboutXRP",
     description: "The definitive breakdown of XRP's legal status after the SEC v. Ripple ruling.",
-    url: "https://allaboutxrp.com/answers/is-xrp-a-security",
+    url: "https://allaboutxrp.com/learn/is-xrp-a-security",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-security" },

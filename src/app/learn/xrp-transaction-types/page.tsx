@@ -327,7 +327,7 @@ export default function XRPTransactionTypesPage() {
         <LearnCTA
           title="Explore the XRP Ledger"
           description="Now that you understand transaction types, explore the XRPL yourself. Send a payment, create a trust line, or browse transactions on XRPScan."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="Get Started →"
           secondaryHref="/learn/xrp-ledger-explained"
           secondaryLabel="Learn About XRPL"

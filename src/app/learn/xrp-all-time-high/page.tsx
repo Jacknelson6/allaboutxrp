@@ -113,7 +113,7 @@ export default function Page() {
               {title:"Post-SEC Clarity",desc:"Regulatory clarity enabling new exchange listings."},
               {title:"Market Cycle",desc:"Bull cycle + altseason could trigger explosive move."},
             ]} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">ETF analysis: <Link href="/learn/xrp-etf-approval-odds" className="text-xrp-accent underline decoration-xrp-accent/30">approval odds</Link>. Cycle timing: <Link href="/learn/xrp-market-cycles" className="text-xrp-accent underline decoration-xrp-accent/30">market cycles</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">ETF analysis: <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">approval odds</Link>. Cycle timing: <Link href="/learn/xrp-market-cycles" className="text-xrp-accent underline decoration-xrp-accent/30">market cycles</Link>.</p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -127,7 +127,7 @@ export default function Page() {
               { href: "/learn/xrp-crash-history", label: "Crash History", desc: "Every major crash" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing patterns" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC Impact", desc: "Lawsuit effect" },
-              { href: "/learn/xrp-etf-price-impact", label: "ETF Impact", desc: "Price projection" },
+              { href: "/learn/xrp-etf", label: "ETF Impact", desc: "Price projection" },
               { href: "/learn/xrp-sell-or-hold", label: "Sell or Hold?", desc: "Decision help" },
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "Origin" },
             ]} />

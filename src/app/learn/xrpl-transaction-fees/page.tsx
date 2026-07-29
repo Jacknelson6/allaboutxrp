@@ -195,7 +195,7 @@ export default function XRPLTransactionFeesPage() {
         <LearnCTA
           title="Experience Low-Cost Transactions"
           description="Ready to use the XRP Ledger? Transactions cost fractions of a penny."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="Get Started →"
           secondaryHref="/learn/xrp-wallets"
           secondaryLabel="Get a Wallet"

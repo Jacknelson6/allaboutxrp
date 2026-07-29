@@ -82,7 +82,7 @@ export default function Page() {
           <RevealSection id="comparison">
             <h2 className="text-2xl font-bold text-text-primary">Tracker Comparison</h2>
             <div className="mt-6"><DataTable headers={["Tracker","Price","Tax Reports","Mobile","XRP Support"]} rows={[["CoinTracker","Free-$199/yr","Yes","Yes","Excellent"],["Koinly","Free-$279/yr","Yes","Yes","Good"],["CoinGecko","Free","No","Yes","Good"],["Delta","Free-$60/yr","No","Yes (best)","Good"],["CoinMarketCap","Free","No","Yes","Basic"]]} highlightCol={0} /></div>
-            <div className="mt-6"><HighlightBox title="💰 Recommended" variant="accent"><p>Tax-focused: <a href="https://allaboutxrp.com/go/cointracker" className="text-xrp-accent underline">CoinTracker</a> | <a href="https://allaboutxrp.com/go/koinly" className="text-xrp-accent underline">Koinly</a>. Free tracking: CoinGecko.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="💰 Recommended" variant="accent"><p>Tax-focused: <a href="https://www.cointracker.io/" className="text-xrp-accent underline">CoinTracker</a> | <a href="https://koinly.io/" className="text-xrp-accent underline">Koinly</a>. Free tracking: CoinGecko.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="cointracker" delay={0.05}>
@@ -132,7 +132,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Track Your XRP" description="Start monitoring your portfolio today." primaryHref="https://allaboutxrp.com/go/cointracker" primaryLabel="Try CoinTracker →" secondaryHref="/learn/xrp-cost-basis-methods" secondaryLabel="Cost Basis" />
+        <LearnCTA title="Track Your XRP" description="Start monitoring your portfolio today." primaryHref="https://www.cointracker.io/" primaryLabel="Try CoinTracker →" secondaryHref="/learn/xrp-cost-basis-methods" secondaryLabel="Cost Basis" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

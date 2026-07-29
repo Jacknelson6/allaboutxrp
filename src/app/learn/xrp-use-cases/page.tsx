@@ -218,7 +218,7 @@ export default function XRPUseCasesPage() {
 
           <div className="mt-4">
             <HighlightBox variant="accent" title="Why RLUSD Matters for XRP">
-              <p>RLUSD is a catalyst for XRP because it drives activity on the XRP Ledger. More RLUSD transactions mean more network usage, more fees burned (deflationary for XRP), and more liquidity on the XRPL&apos;s DEX. It also positions Ripple to compete in the $200B+ stablecoin market. Analysts cite RLUSD growth as a key factor in bullish XRP <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">price predictions for 2026</Link>.</p>
+              <p>RLUSD is a catalyst for XRP because it drives activity on the XRP Ledger. More RLUSD transactions mean more network usage, more fees burned (deflationary for XRP), and more liquidity on the XRPL&apos;s DEX. It also positions Ripple to compete in the $200B+ stablecoin market. Analysts cite RLUSD growth as a key factor in bullish XRP <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">price predictions for 2026</Link>.</p>
             </HighlightBox>
           </div>
         </RevealSection>
@@ -346,7 +346,7 @@ export default function XRPUseCasesPage() {
             Unlike many cryptocurrencies that exist primarily as speculative instruments, XRP has deep real-world utility. Ripple&apos;s On-Demand Liquidity processes real commercial payments across 55+ countries. The XRPL&apos;s native DeFi features, NFT standard, and token issuance capabilities create a growing ecosystem of use cases. And with RLUSD adding stablecoin functionality, the XRP Ledger is becoming a comprehensive financial platform.
           </p>
           <p className="text-[14px] text-text-secondary">
-            For investors evaluating XRP, understanding these use cases is essential. Price is driven by utility and adoption over the long term — and XRP has more real-world utility than most cryptocurrencies in existence. Learn more about <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">what XRP is</Link>, check the <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">2026 price predictions</Link>, or explore <Link href="/learn/xrp-price-history" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s complete price history</Link>.
+            For investors evaluating XRP, understanding these use cases is essential. Price is driven by utility and adoption over the long term — and XRP has more real-world utility than most cryptocurrencies in existence. Learn more about <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">what XRP is</Link>, check the <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">2026 price predictions</Link>, or explore <Link href="/learn/xrp-price-history" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s complete price history</Link>.
           </p>
         </RevealSection>
 
@@ -360,7 +360,7 @@ export default function XRPUseCasesPage() {
               { href: "/learn/acquisitions", label: "Ripple Acquisitions", desc: "Strategic acquisitions" },
               { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
         </RevealSection>
@@ -374,7 +374,7 @@ export default function XRPUseCasesPage() {
         <LearnCTA
           title="Ready to Get Started with XRP?"
           description="Now that you understand XRP's real-world use cases, learn how to buy your first XRP."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP"
           secondaryHref="/answers/best-cryptocurrency-2026"
           secondaryLabel="Best Crypto 2026"

@@ -57,7 +57,7 @@ export default function IsXRPGoodInvestmentPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP has one of the strongest fundamental cases</strong> in crypto for 2026: post-SEC regulatory clarity, 300+ <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partnerships</Link>, pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD stablecoin</Link>, and growing <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL volume</Link>. But it carries real risks — volatility, competition, and execution dependence. <strong className="text-text-primary">Only invest what you can afford to lose. This is not financial advice.</strong></p>
+          <p><strong className="text-text-primary">XRP has one of the strongest fundamental cases</strong> in crypto for 2026: post-SEC regulatory clarity, 300+ <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partnerships</Link>, pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD stablecoin</Link>, and growing <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL volume</Link>. But it carries real risks — volatility, competition, and execution dependence. <strong className="text-text-primary">Only invest what you can afford to lose. This is not financial advice.</strong></p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -152,7 +152,7 @@ export default function IsXRPGoodInvestmentPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Price target analysis" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Price target analysis" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Calculate your number" },
               { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Data-driven analysis" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step guide" },
@@ -160,7 +160,7 @@ export default function IsXRPGoodInvestmentPage() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Ready to Research More?" description="Explore price targets, comparisons, and how to buy." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="How to Buy XRP" />
+        <LearnCTA title="Ready to Research More?" description="Explore price targets, comparisons, and how to buy." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="How to Buy XRP" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Do your own research. Past performance does not predict future results.</em></p>
       </div>

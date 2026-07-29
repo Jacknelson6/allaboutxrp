@@ -113,7 +113,7 @@ export default function XRPPricePotentialPage() {
           <RevealSection id="market-cap-math">
             <h2 className="text-2xl font-bold text-text-primary">The Market Cap Math: No Shortcuts</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The single most important concept in evaluating any crypto price target is <strong className="text-text-primary">market capitalization</strong>. Market cap = price × circulating supply. XRP has approximately <strong className="text-text-primary">58 billion tokens</strong> in circulation (with 100 billion total, the rest largely in <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow</Link>).
+              The single most important concept in evaluating any crypto price target is <strong className="text-text-primary">market capitalization</strong>. Market cap = price × circulating supply. XRP has approximately <strong className="text-text-primary">58 billion tokens</strong> in circulation (with 100 billion total, the rest largely in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow</Link>).
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
               This means every $1 increase in XRP&apos;s price requires roughly <strong className="text-text-primary">$58 billion in market cap</strong>. That&apos;s not $58 billion in new money flowing in (market cap doesn&apos;t work that way), but it does require sufficient demand at that price level.
@@ -264,7 +264,7 @@ export default function XRPPricePotentialPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },

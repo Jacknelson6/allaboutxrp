@@ -79,7 +79,7 @@ export default function XRPPhishingProtectionPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Phishing attacks trick you into entering your credentials on fake websites. The best defenses: use a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a>, bookmark legitimate sites, never click links from emails or DMs, and never enter your seed phrase anywhere online. Learn about <Link href="/learn/xrp-scams" className="text-xrp-accent underline decoration-xrp-accent/30">common XRP scams</Link> and <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody</Link>.</p>
+          <p>Phishing attacks trick you into entering your credentials on fake websites. The best defenses: use an appropriate <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">hardware or software wallet</Link>, bookmark legitimate sites, never click links from emails or DMs, and never enter your seed phrase anywhere online. Learn about <Link href="/learn/xrp-scams" className="text-xrp-accent underline decoration-xrp-accent/30">common XRP scams</Link> and <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -173,7 +173,7 @@ export default function XRPPhishingProtectionPage() {
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Protect your XRP with a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">Ledger hardware wallet</a> — the gold standard in crypto security.
+              Compare <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">wallet custody options</Link> and use a hardware wallet when its security tradeoffs fit your needs.
             </p>
           </RevealSection>
 

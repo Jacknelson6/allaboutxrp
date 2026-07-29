@@ -318,7 +318,7 @@ export default function HowBanksUseXRPPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },

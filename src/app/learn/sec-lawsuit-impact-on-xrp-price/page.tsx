@@ -101,7 +101,7 @@ export default function Page() {
 
           <RevealSection id="recovery" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Recovery & Beyond</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/xrp-sec-settlement" className="text-xrp-accent underline decoration-xrp-accent/30">final settlement</Link> removed remaining uncertainty. ETF filings followed. XRP is now positioned for potential institutional adoption free of regulatory overhang. See <Link href="/learn/xrp-etf-approval-odds" className="text-xrp-accent underline decoration-xrp-accent/30">ETF odds</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/xrp-sec-settlement" className="text-xrp-accent underline decoration-xrp-accent/30">final settlement</Link> removed remaining uncertainty. ETF filings followed. XRP is now positioned for potential institutional adoption free of regulatory overhang. See <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF odds</Link>.</p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -115,14 +115,14 @@ export default function Page() {
               { href: "/learn/xrp-crash-history", label: "Crash History", desc: "All crashes" },
               { href: "/learn/xrp-sec-settlement", label: "SEC Settlement", desc: "Final outcome" },
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Price records" },
-              { href: "/learn/xrp-etf-approval-odds", label: "ETF Odds", desc: "Post-settlement" },
+              { href: "/learn/xrp-etf", label: "ETF Odds", desc: "Post-settlement" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Market patterns" },
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "Company history" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Understand the Impact" description="The lawsuit shaped XRP's trajectory for years." primaryHref="/learn/xrp-sec-settlement" primaryLabel="SEC Settlement →" secondaryHref="/learn/xrp-etf-approval-odds" secondaryLabel="ETF Odds" />
+        <LearnCTA title="Understand the Impact" description="The lawsuit shaped XRP's trajectory for years." primaryHref="/learn/xrp-sec-settlement" primaryLabel="SEC Settlement →" secondaryHref="/learn/xrp-etf" secondaryLabel="ETF Odds" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

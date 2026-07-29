@@ -304,7 +304,7 @@ export default function XRPMythsPage() {
               { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
               { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />

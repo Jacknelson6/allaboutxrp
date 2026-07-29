@@ -120,7 +120,7 @@ export default function Page() {
           <RevealSection id="distribution" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Distribution</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">Distribute via payments, <Link href="/learn/xrp-airdrops" className="text-xrp-accent underline decoration-xrp-accent/30">airdrops</Link>, or the XRPL DEX. Use the <Link href="/learn/xrp-amm" className="text-xrp-accent underline decoration-xrp-accent/30">AMM</Link> to bootstrap liquidity.</p>
-            <div className="mt-6"><HighlightBox title="Bootstrap Liquidity" variant="accent"><p>Create an AMM pool pairing your token with XRP or <Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link>. Gives immediate price discovery and trading.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Bootstrap Liquidity" variant="accent"><p>Create an AMM pool pairing your token with XRP or <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link>. Gives immediate price discovery and trading.</p></HighlightBox></div>
           </RevealSection>
           <RevealSection id="use-cases" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Use Cases</h2>
@@ -143,7 +143,7 @@ export default function Page() {
               { href: "/learn/xrpl-defi", label: "XRPL DeFi", desc: "DeFi on the XRPL" },
               { href: "/learn/xrp-amm", label: "XRP AMM", desc: "Automated market maker" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX Guide", desc: "Decentralized trading" },
-              { href: "/learn/how-to-stake-xrp", label: "How to Stake XRP", desc: "Earn yield on XRP" },
+              { href: "/learn/xrp-staking", label: "How to Stake XRP", desc: "Earn yield on XRP" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Staking options explained" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
               { href: "/learn/xrpl-consensus-mechanism", label: "XRPL Consensus", desc: "Byzantine agreement" },

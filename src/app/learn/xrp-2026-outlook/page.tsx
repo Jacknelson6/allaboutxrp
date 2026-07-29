@@ -88,7 +88,7 @@ export default function Page() {
 
           <RevealSection id="catalysts">
             <h2 className="text-2xl font-bold text-text-primary">Key Catalysts for 2026</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Multiple converging factors make 2026 unique for XRP. The <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETF</Link> process is advancing, <Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is gaining traction, and institutional infrastructure is maturing.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Multiple converging factors make 2026 unique for XRP. The <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETF</Link> process is advancing, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is gaining traction, and institutional infrastructure is maturing.</p>
             <div className="mt-6"><FeatureGrid columns={2} items={[
               { title: "ETF Decisions", desc: "Multiple spot XRP ETF applications under SEC review with potential approval in 2026." },
               { title: "Regulatory Clarity", desc: "SEC case resolution removes the biggest overhang that suppressed institutional participation." },
@@ -151,7 +151,7 @@ export default function Page() {
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },

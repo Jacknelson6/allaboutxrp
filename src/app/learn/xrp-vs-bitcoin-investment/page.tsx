@@ -57,7 +57,7 @@ export default function XRPvsBitcoinInvestmentPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Bitcoin</strong> is the safer, more established choice — &quot;digital gold&quot; with approved ETFs and $1T+ market cap. <strong className="text-text-primary">XRP</strong> has more percentage upside potential from its smaller ~$110B market cap, with strong catalysts (ETF pending, 300+ <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partners</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link>). <strong className="text-text-primary">Many investors hold both</strong> — Bitcoin as the core, XRP as the higher-upside play.</p>
+          <p><strong className="text-text-primary">Bitcoin</strong> is the safer, more established choice — &quot;digital gold&quot; with approved ETFs and $1T+ market cap. <strong className="text-text-primary">XRP</strong> has more percentage upside potential from its smaller ~$110B market cap, with strong catalysts (ETF pending, 300+ <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partners</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link>). <strong className="text-text-primary">Many investors hold both</strong> — Bitcoin as the core, XRP as the higher-upside play.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -177,7 +177,7 @@ export default function XRPvsBitcoinInvestmentPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Technology comparison" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Full analysis" },
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Price target math" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Price target math" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Calculate your number" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Get started" },
@@ -185,7 +185,7 @@ export default function XRPvsBitcoinInvestmentPage() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Ready to Decide?" description="Explore more investment analysis and price targets." primaryHref="/learn/is-xrp-a-good-investment" primaryLabel="Is XRP a Good Investment? →" secondaryHref="/learn/can-xrp-reach-10" secondaryLabel="Can XRP Reach $10?" />
+        <LearnCTA title="Ready to Decide?" description="Explore more investment analysis and price targets." primaryHref="/learn/is-xrp-a-good-investment" primaryLabel="Is XRP a Good Investment? →" secondaryHref="/learn/xrp-price-potential" secondaryLabel="Can XRP Reach $10?" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Past performance does not predict future results.</em></p>
       </div>

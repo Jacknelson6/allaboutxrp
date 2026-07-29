@@ -66,7 +66,11 @@ export default function FAQPage() {
           Frequently Asked <span className="text-xrp-accent">Questions</span>
         </h1>
         <p className="mt-3 text-text-secondary">
-          Everything you need to know about XRP, the XRP Ledger, and Ripple.
+          Concise answers about XRP, the XRP Ledger, Ripple, custody, and risk. Every answer is included in the page HTML so it can be read without JavaScript.
+        </p>
+
+        <p className="mt-4 font-mono text-xs text-text-secondary">
+          Reviewed <time dateTime="2026-07-29">July 29, 2026</time>
         </p>
 
         <FAQAccordion items={items} />
@@ -80,7 +84,7 @@ export default function FAQPage() {
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Choose the right wallet" },
               { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
-              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
                 <div className="flex-1">

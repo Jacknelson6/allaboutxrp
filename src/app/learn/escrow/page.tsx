@@ -34,7 +34,7 @@ const relatedLinks = [
   { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
   { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
   { href: "/learn/rlusd", label: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin" },
-  { href: "/answers/how-many-xrp-are-there", label: "How Many XRP Exist?", desc: "Total supply breakdown" },
+  { href: "/learn/xrp-supply-explained", label: "How Many XRP Exist?", desc: "Total supply breakdown" },
   { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Where to store your XRP" },
 ];
 

@@ -144,7 +144,7 @@ export default function XRPAndTokenizedTreasuriesPage() {
               { href: "/learn/xrp-real-world-assets", label: "Real World Assets", desc: "RWA tokenization on XRPL" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise-grade storage" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "The institutional thesis" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "The institutional thesis" },
               { href: "/learn/xrpl-trust-lines-explained", label: "Trust Lines", desc: "How XRPL tokens work" },
               { href: "/learn/xrp-iso-20022", label: "ISO 20022", desc: "Banking standard compliance" },
             ]} />
@@ -154,7 +154,7 @@ export default function XRPAndTokenizedTreasuriesPage() {
         <LearnCTA
           title="The Tokenization Revolution"
           description="Trillions in assets are moving to blockchain. XRPL is positioning to capture its share."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-real-world-assets"
           secondaryLabel="Explore RWAs"

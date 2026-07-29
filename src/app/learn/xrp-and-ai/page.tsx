@@ -165,7 +165,7 @@ export default function XRPAndAIPage() {
         <LearnCTA
           title="AI Meets Digital Payments"
           description="XRP is positioned to become the payment layer for the autonomous AI economy."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-use-cases"
           secondaryLabel="Explore Use Cases"

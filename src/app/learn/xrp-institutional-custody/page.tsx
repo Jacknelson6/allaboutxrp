@@ -139,7 +139,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },

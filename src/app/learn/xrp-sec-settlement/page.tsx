@@ -68,7 +68,7 @@ export default function XRPSECSettlementPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> ended with a settlement that <strong className="text-text-primary">preserved XRP&apos;s non-security status</strong> on exchanges. Ripple paid a reduced fine for institutional sales but made no admission that XRP is a security. The SEC dropped its appeal. XRP now has the <strong className="text-text-primary">clearest regulatory status</strong> of any major cryptocurrency.</p>
+          <p>The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> ended with a settlement that <strong className="text-text-primary">preserved XRP&apos;s non-security status</strong> on exchanges. Ripple paid a reduced fine for institutional sales but made no admission that XRP is a security. The SEC dropped its appeal. XRP now has the <strong className="text-text-primary">clearest regulatory status</strong> of any major cryptocurrency.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -145,7 +145,7 @@ export default function XRPSECSettlementPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple", desc: "Full case breakdown" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "Full case breakdown" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "The definitive answer" },
               { href: "/learn/xrp-howey-test", label: "XRP & Howey Test", desc: "Legal analysis" },
               { href: "/learn/xrp-regulatory-clarity-impact", label: "Clarity Impact", desc: "Adoption acceleration" },
@@ -158,9 +158,9 @@ export default function XRPSECSettlementPage() {
         <LearnCTA
           title="The Case Is Closed"
           description="After 4+ years, XRP has the clearest legal status in crypto. The path forward is wide open."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
-          secondaryHref="/learn/sec-vs-ripple-explained"
+          secondaryHref="/learn/sec-vs-ripple"
           secondaryLabel="Read the Full Story"
         />
 

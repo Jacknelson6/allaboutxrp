@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Reach $500? The Math Explained",
     description: "An honest look at the $500 XRP claim. The math says a lot.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-500",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "Can XRP Reach $500?", description: "The math explained honestly." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-500" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $500? The Math Explained", description: "Honest analysis of whether XRP can reach $500 — market cap math, common arguments, and reality.", url: "https://allaboutxrp.com/learn/can-xrp-reach-500", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Can XRP Reach $500? The Math Explained", description: "Honest analysis of whether XRP can reach $500 — market cap math, common arguments, and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $500?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-reach-500" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
   buildFAQSchema([
     { question: "Can XRP reach $500?", answer: "Extremely unlikely with current market structures. $500 XRP = ~$28.5 trillion market cap. This exceeds Apple, Microsoft, and Google COMBINED. It would require XRP to be worth more than the entire current crypto market by ~9x. Standard market cap analysis makes this virtually impossible in any foreseeable timeframe." },
     { question: "What about the 'utility value' argument?", answer: "Some argue that if XRP settles trillions in daily payment volume, the 'velocity' creates a higher utility valuation than market cap implies. While there's some economic theory behind this (the equation of exchange), no asset has ever been valued this way in practice. The argument has theoretical merit but no real-world precedent." },
@@ -125,7 +125,7 @@ export default function CanXRPReach500Page() {
             </div>
             <div className="mt-4">
               <HighlightBox title="What Believers Get Right" variant="accent">
-                <p>XRP bears sometimes dismiss ALL price appreciation potential, which is also wrong. XRP&apos;s utility is real, institutional adoption is growing, and the asset is undervalued relative to its network effects. <strong className="text-text-primary">The truth is between $500 hopium and $0 FUD.</strong> Data-driven analysis suggests <Link href="/learn/can-xrp-reach-10" className="text-xrp-accent underline decoration-xrp-accent/30">$10-20</Link> as realistic bull case targets, with <Link href="/learn/can-xrp-reach-50" className="text-xrp-accent underline decoration-xrp-accent/30">$50</Link> as an extreme optimistic outcome.</p>
+                <p>XRP bears sometimes dismiss ALL price appreciation potential, which is also wrong. XRP&apos;s utility is real, institutional adoption is growing, and the asset is undervalued relative to its network effects. <strong className="text-text-primary">The truth is between $500 hopium and $0 FUD.</strong> Data-driven analysis suggests <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$10-20</Link> as realistic bull case targets, with <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$50</Link> as an extreme optimistic outcome.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -156,9 +156,9 @@ export default function CanXRPReach500Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Realistic analysis" },
-              { href: "/learn/can-xrp-reach-50", label: "Can XRP Reach $50?", desc: "What it would take" },
-              { href: "/learn/can-xrp-reach-1000", label: "Can XRP Reach $1,000?", desc: "Breaking down claims" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Realistic analysis" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $50?", desc: "What it would take" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $1,000?", desc: "Breaking down claims" },
               { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Data-driven analysis" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuation" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Honest assessment" },
@@ -166,7 +166,7 @@ export default function CanXRPReach500Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="See Realistic Price Targets" description="Focus on data-driven analysis, not hopium." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
+        <LearnCTA title="See Realistic Price Targets" description="Focus on data-driven analysis, not hopium." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. We analyze claims honestly — even popular ones.</em></p>
       </div>

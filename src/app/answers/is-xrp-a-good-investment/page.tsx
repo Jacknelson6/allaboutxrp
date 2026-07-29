@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Is XRP a Good Investment in 2026? | AllAboutXRP",
     description: "An objective look at XRP's investment case — utility, adoption, risks, and what analysts say.",
-    url: "https://allaboutxrp.com/answers/is-xrp-a-good-investment",
+    url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" },

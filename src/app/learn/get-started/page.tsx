@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How to Buy XRP: Complete Beginner Guide | AllAboutXRP",
     description: "Step-by-step guide to buying XRP — choose an exchange, set up a wallet, and secure your crypto. Updated 2026.",
-    url: "https://allaboutxrp.com/learn/get-started",
+    url: "https://allaboutxrp.com/how-to-start",
     type: "article",
   },
   twitter: {
@@ -34,7 +34,7 @@ const schemas = [
   buildHowToSchema({
     name: "How to Buy XRP",
     description: "A step-by-step guide to purchasing XRP cryptocurrency for beginners.",
-    url: "https://allaboutxrp.com/learn/get-started",
+    url: "https://allaboutxrp.com/how-to-start",
     steps: [
       { name: "Choose an Exchange", text: "Select a reputable cryptocurrency exchange that supports XRP trading, such as Uphold, Coinbase, Kraken, or Bitstamp." },
       { name: "Create & Verify Account", text: "Sign up and complete identity verification (KYC) with a government-issued ID." },
@@ -48,7 +48,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Get Started" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/get-started" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/how-to-start" }),
   buildFAQSchema([
     { question: "What is the best exchange to buy XRP?", answer: "For beginners, Uphold is recommended for simplicity. Coinbase is the largest U.S. exchange. Kraken offers advanced features with low fees." },
     { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. XRP wallets require a 1 XRP reserve to activate." },
@@ -301,7 +301,7 @@ export default function GetStartedPage() {
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
               { href: "/learn/how-to-send-xrp", label: "How to Send XRP", desc: "Transfer XRP quickly" },
-              { href: "/learn/crypto-wallets-for-xrp", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
+              { href: "/learn/xrp-wallets", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Top wallet picks" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },

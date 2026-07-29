@@ -20,7 +20,7 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
     pathname === "/answers/best-altcoins-2026" ||
     pathname === "/answers/best-cryptocurrency-2026" ||
     pathname === "/answers/top-10-cryptocurrencies-2026" ||
-    pathname === "/answers/xrp-price-prediction-2026" ||
+    pathname === "/learn/xrp-price-prediction" ||
     pathname === "/editorial" ||
     pathname === "/get-started" ||
     pathname === "/pricing" ||

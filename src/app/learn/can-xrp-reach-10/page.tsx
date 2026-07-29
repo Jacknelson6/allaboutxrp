@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Reach $10? Realistic Analysis",
     description: "Market cap math, adoption catalysts, and honest timeline for $10 XRP.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-10",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "Can XRP Reach $10?", description: "Realistic analysis with data." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-10" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $10? Realistic Analysis (2026)", description: "Analyzing whether XRP can reach $10 — market cap requirements, catalysts, and realistic timeline.", url: "https://allaboutxrp.com/learn/can-xrp-reach-10", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Can XRP Reach $10? Realistic Analysis (2026)", description: "Analyzing whether XRP can reach $10 — market cap requirements, catalysts, and realistic timeline.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $10?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-reach-10" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
   buildFAQSchema([
     { question: "Can XRP realistically reach $10?", answer: "Yes, $10 XRP is realistic. At ~57 billion circulating supply, $10 XRP = ~$570 billion market cap. This is comparable to where Ethereum has traded and roughly half of Bitcoin's peak market cap. It would require continued institutional adoption, ETF approval, and a strong crypto bull market, but it's within the realm of possibility." },
     { question: "What market cap would XRP need at $10?", answer: "With ~57 billion XRP in circulation, a $10 price would require approximately $570 billion market cap. For context, Bitcoin has exceeded $1.5 trillion, and the entire crypto market has surpassed $3 trillion. $570B is ambitious but not unprecedented." },
@@ -157,7 +157,7 @@ export default function CanXRPReach10Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/can-xrp-reach-50", label: "Can XRP Reach $50?", desc: "What it would take" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $50?", desc: "What it would take" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Full analysis" },
               { href: "/learn/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Honest assessment" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuation" },
@@ -167,7 +167,7 @@ export default function CanXRPReach10Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore Other Price Targets" description="See the analysis for other XRP price targets." primaryHref="/learn/can-xrp-reach-50" primaryLabel="Can XRP Reach $50? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
+        <LearnCTA title="Explore Other Price Targets" description="See the analysis for other XRP price targets." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $50? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Sources: CoinMarketCap, XRPL.org. Past performance does not predict future results.</em></p>
       </div>

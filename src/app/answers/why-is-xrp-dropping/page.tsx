@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Why Is XRP Dropping? Price Decline Factors | AllAboutXRP",
     description: "Understanding the common reasons behind XRP price drops — market cycles, Bitcoin correlation, and macro factors.",
-    url: "https://allaboutxrp.com/answers/why-is-xrp-dropping",
+    url: "https://allaboutxrp.com/learn/xrp-crash-history",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-crash-history" },

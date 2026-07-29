@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "When Should You Buy XRP? | AllAboutXRP",
     description: "DCA vs timing the market — strategies for buying XRP based on historical patterns and market cycles.",
-    url: "https://allaboutxrp.com/answers/when-should-you-buy-xrp",
+    url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/how-to-buy-xrp" },
@@ -26,7 +26,7 @@ export default function Page() {
       shortAnswer={
         <p className="text-gray-300 leading-relaxed">
           The honest answer is that nobody can consistently time the crypto market. Even experienced traders get it wrong more often than they get it right. That&apos;s why most financial educators recommend <strong className="text-white">dollar-cost averaging (DCA)</strong> — investing a set amount (e.g., $50/week) on a regular schedule regardless of price. This removes emotional decision-making and averages out your entry price over time. If you believe in{" "}
-          <Link href="/answers/why-should-you-buy-xrp" className="text-[#0085FF] hover:underline">XRP&apos;s long-term thesis</Link>,
+          <Link href="/learn/is-xrp-a-good-investment" className="text-[#0085FF] hover:underline">XRP&apos;s long-term thesis</Link>,
           the best time to start is when you&apos;re financially ready — not when the chart looks &quot;right.&quot;
         </p>
       }
@@ -71,9 +71,9 @@ export default function Page() {
         <div className="space-y-4 text-gray-300 leading-relaxed">
           <p>
             If you&apos;re new to XRP, start with dollar-cost averaging. Pick an amount you&apos;re comfortable with, set a regular schedule, and stick to it regardless of short-term price movements. Make sure you understand{" "}
-            <Link href="/answers/what-do-you-need-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>{" "}
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>{" "}
             and{" "}
-            <Link href="/answers/how-to-buy-xrp-safely" className="text-[#0085FF] hover:underline">how to buy safely</Link>.
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">how to buy safely</Link>.
           </p>
           <p>
             If you already own XRP and are considering adding more, evaluate your overall portfolio allocation. Most financial advisors suggest keeping crypto at 5-10% of total investments. Never invest money you can&apos;t afford to lose, and always have an emergency fund before investing in volatile assets.

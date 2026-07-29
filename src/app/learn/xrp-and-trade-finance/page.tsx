@@ -67,7 +67,7 @@ export default function XRPAndTradeFinancePage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Trade finance is a <strong className="text-text-primary">$10+ trillion market</strong> with a $2.5T unmet demand gap. It still relies on paper documents and multi-day settlement. XRP&apos;s instant settlement, <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">native escrow</Link> for conditional payments, and <Link href="/learn/cross-border-payments" className="text-xrp-accent underline decoration-xrp-accent/30">cross-border capabilities</Link> make it a natural fit for modernizing trade finance.</p>
+          <p>Trade finance is a <strong className="text-text-primary">$10+ trillion market</strong> with a $2.5T unmet demand gap. It still relies on paper documents and multi-day settlement. XRP&apos;s instant settlement, <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">native escrow</Link> for conditional payments, and <Link href="/learn/cross-border-payments" className="text-xrp-accent underline decoration-xrp-accent/30">cross-border capabilities</Link> make it a natural fit for modernizing trade finance.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -128,7 +128,7 @@ export default function XRPAndTradeFinancePage() {
             <h2 className="text-2xl font-bold text-text-primary">Trade Finance Use Cases</h2>
             <div className="mt-5">
               <HighlightBox title="XRPL Escrow as Digital Letters of Credit" variant="accent" large>
-                <p>XRPL&apos;s <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">native escrow feature</Link> is a game-changer for trade finance. A buyer can lock XRP in escrow, set release conditions (like shipment confirmation), and the seller receives payment automatically when conditions are met. No banks, no paper, no delays.</p>
+                <p>XRPL&apos;s <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">native escrow feature</Link> is a game-changer for trade finance. A buyer can lock XRP in escrow, set release conditions (like shipment confirmation), and the seller receives payment automatically when conditions are met. No banks, no paper, no delays.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -141,9 +141,9 @@ export default function XRPAndTradeFinancePage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-escrow-explained", label: "XRP Escrow", desc: "Conditional payments" },
+              { href: "/learn/escrow", label: "XRP Escrow", desc: "Conditional payments" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Global settlement" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "Institutional adoption" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "Institutional adoption" },
               { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "All applications" },
               { href: "/learn/on-demand-liquidity", label: "ODL", desc: "Bridge currency payments" },
               { href: "/learn/xrp-and-correspondent-banking", label: "Correspondent Banking", desc: "Replacing nostro/vostro" },
@@ -154,7 +154,7 @@ export default function XRPAndTradeFinancePage() {
         <LearnCTA
           title="Modernizing Global Trade"
           description="XRP brings instant settlement and conditional payments to the $10T+ trade finance market."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-use-cases"
           secondaryLabel="Explore Use Cases"

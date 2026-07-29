@@ -148,7 +148,7 @@ export default function XRPAndCBDCBridgePage() {
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Global settlement" },
               { href: "/learn/xrp-global-liquidity-network", label: "Global Liquidity", desc: "The big picture" },
               { href: "/learn/xrp-iso-20022", label: "ISO 20022", desc: "Banking standards" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "Institutional adoption" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "Institutional adoption" },
             ]} />
           </RevealSection>
         </div>
@@ -156,7 +156,7 @@ export default function XRPAndCBDCBridgePage() {
         <LearnCTA
           title="Bridging the World's Currencies"
           description="XRP is positioning to be the settlement layer between 130+ national digital currencies."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/cbdcs-and-xrp"
           secondaryLabel="Learn About CBDCs"

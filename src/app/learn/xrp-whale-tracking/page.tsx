@@ -121,7 +121,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="escrow" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Ripple&apos;s Escrow</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Ripple holds billions in <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link>, releasing up to 1B/month. Most re-escrowed. Track actual sales vs re-escrow for demand signals.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Ripple holds billions in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link>, releasing up to 1B/month. Most re-escrowed. Track actual sales vs re-escrow for demand signals.</p>
             <div className="mt-6"><IconList items={[
               {title:"1B monthly release",desc:"Programmatic and predictable on the 1st of each month."},
               {title:"Mostly re-escrowed",desc:"Only small % actually sold. Rest goes back for future months."},

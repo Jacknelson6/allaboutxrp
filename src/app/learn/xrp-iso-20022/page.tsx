@@ -149,7 +149,7 @@ export default function XRPIso20022Page() {
 
             <div className="mt-6">
               <HighlightBox title="The Key Insight" variant="accent">
-                <p>Any cryptocurrency that wants to be used by <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">banks and financial institutions</Link> for payments <strong className="text-text-primary">must be able to carry ISO 20022 data</strong>. This is not a nice-to-have — it&apos;s a prerequisite. Bitcoin, for example, has no native mechanism for carrying structured ISO 20022 payment data.</p>
+                <p>Any cryptocurrency that wants to be used by <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">banks and financial institutions</Link> for payments <strong className="text-text-primary">must be able to carry ISO 20022 data</strong>. This is not a nice-to-have — it&apos;s a prerequisite. Bitcoin, for example, has no native mechanism for carrying structured ISO 20022 payment data.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -255,7 +255,7 @@ export default function XRPIso20022Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },

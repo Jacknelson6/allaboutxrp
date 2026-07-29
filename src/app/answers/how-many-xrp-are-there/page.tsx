@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How Many XRP Are There? Supply & Tokenomics | AllAboutXRP",
     description: "XRP's total supply, circulating supply, escrow mechanics, and deflationary burn mechanism explained.",
-    url: "https://allaboutxrp.com/answers/how-many-xrp-are-there",
+    url: "https://allaboutxrp.com/learn/xrp-supply-explained",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-escrow-explained" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/escrow" },
 };
 
 export default function Page() {

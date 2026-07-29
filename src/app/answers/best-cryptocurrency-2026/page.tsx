@@ -151,7 +151,7 @@ export default function BestCryptocurrency2026Page() {
 
             <div className="mt-6">
               <HighlightBox variant="info" title="XRP Price Outlook">
-                <p>Analyst projections for XRP in 2026 range from $1.60 (bear case) to $4+ (bull case). 21Shares gives a base case of $2.45 with 50% probability. See our detailed <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">XRP price prediction 2026</Link> analysis.</p>
+                <p>Analyst projections for XRP in 2026 range from $1.60 (bear case) to $4+ (bull case). 21Shares gives a base case of $2.45 with 50% probability. See our detailed <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">XRP price prediction 2026</Link> analysis.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -223,7 +223,7 @@ export default function BestCryptocurrency2026Page() {
             <h3 className="text-lg font-bold text-text-primary mb-3">Related Guides</h3>
             <LearnLinkGrid links={[
               { href: "/answers/top-10-cryptocurrencies-2026", label: "Top 10 Cryptocurrencies 2026", desc: "Complete ranked list of the top 10 cryptos to watch this year." },
-              { href: "/answers/xrp-price-prediction-2026", label: "XRP Price Prediction 2026", desc: "What analysts are really saying about XRP's price trajectory." },
+              { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction 2026", desc: "What analysts are really saying about XRP's price trajectory." },
               { href: "/answers/best-altcoins-2026", label: "Best Altcoins 2026", desc: "Top altcoin picks beyond Bitcoin for growth-oriented investors." },
               { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "How XRP is used in the real world — payments, DeFi, and more." },
             ]} />
@@ -241,7 +241,7 @@ export default function BestCryptocurrency2026Page() {
             description="Dive deeper into the cryptocurrency built for global payments — with 3-5 second settlement and near-zero fees."
             primaryHref="/learn/what-is-xrp"
             primaryLabel="What Is XRP?"
-            secondaryHref="/learn/get-started"
+            secondaryHref="/how-to-start"
             secondaryLabel="How to Buy XRP"
           />
 

@@ -79,7 +79,7 @@ export default function BuyXRPOnUpholdPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Uphold</strong> is the XRP community&apos;s favorite platform — it <strong className="text-text-primary">never delisted XRP</strong> during the SEC lawsuit. Buy XRP instantly with bank transfer, debit card, or even by swapping other crypto. Spread-based fees of <strong className="text-text-primary">0.8-1.2%</strong> are higher than pro platforms but the simplicity is unmatched. Full <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP withdrawal support</Link> to self-custody wallets.</p>
+          <p><strong className="text-text-primary">Uphold</strong> is the XRP community&apos;s favorite platform — it <strong className="text-text-primary">never delisted XRP</strong> during the SEC lawsuit. Buy XRP instantly with bank transfer, debit card, or even by swapping other crypto. Spread-based fees of <strong className="text-text-primary">0.8-1.2%</strong> are higher than pro platforms but the simplicity is unmatched. Full <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">XRP withdrawal support</Link> to self-custody wallets.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -114,7 +114,7 @@ export default function BuyXRPOnUpholdPage() {
           <RevealSection id="why-uphold">
             <h2 className="text-2xl font-bold text-text-primary">Why XRP Holders Trust Uphold</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              When the SEC filed its lawsuit against Ripple in December 2020, most US exchanges — including Coinbase, Kraken, and Binance.US — delisted or suspended XRP trading. Uphold stood firm, continuing to offer XRP throughout the entire multi-year lawsuit. This decision earned them deep loyalty from the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP community</Link>.
+              When the SEC filed its lawsuit against Ripple in December 2020, most US exchanges — including Coinbase, Kraken, and Binance.US — delisted or suspended XRP trading. Uphold stood firm, continuing to offer XRP throughout the entire multi-year lawsuit. This decision earned them deep loyalty from the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">XRP community</Link>.
             </p>
 
             <div className="mt-6">
@@ -141,7 +141,7 @@ export default function BuyXRPOnUpholdPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Uphold" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Uphold account →</a> The platform that never abandoned XRP. Buy XRP in minutes — available in all 50 US states.</p>
+                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Uphold account →</a> The platform that never abandoned XRP. Buy XRP in minutes — available in all 50 US states.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -166,7 +166,7 @@ export default function BuyXRPOnUpholdPage() {
 
             <div className="mt-6">
               <HighlightBox title="🚀 Buy XRP Now" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Uphold →</a> Simple, fast, and available in all 50 states.</p>
+                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Uphold →</a> Simple, fast, and available in all 50 states.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -174,7 +174,7 @@ export default function BuyXRPOnUpholdPage() {
           <RevealSection id="fees" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Uphold Fee Structure</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Uphold doesn&apos;t charge explicit trading commissions. Instead, fees are built into the <strong className="text-text-primary">spread</strong> — the difference between the buy and sell price. Here&apos;s how it compares to <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">other exchanges</Link>:
+              Uphold doesn&apos;t charge explicit trading commissions. Instead, fees are built into the <strong className="text-text-primary">spread</strong> — the difference between the buy and sell price. Here&apos;s how it compares to <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">other exchanges</Link>:
             </p>
 
             <div className="mt-6">
@@ -238,7 +238,7 @@ export default function BuyXRPOnUpholdPage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-coinbase", label: "Buy XRP on Coinbase", desc: "Largest US exchange" },
               { href: "/learn/buy-xrp-on-kraken", label: "Buy XRP on Kraken", desc: "Lowest pro fees" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "All exchanges compared" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "All exchanges compared" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start here" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -249,9 +249,9 @@ export default function BuyXRPOnUpholdPage() {
         <LearnCTA
           title="Join the Platform That Stood by XRP"
           description="Uphold never delisted XRP. Buy your first XRP in minutes with the simplest interface in crypto."
-          primaryHref="https://allaboutxrp.com/go/uphold"
+          primaryHref="https://uphold.com/"
           primaryLabel="Sign Up for Uphold →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

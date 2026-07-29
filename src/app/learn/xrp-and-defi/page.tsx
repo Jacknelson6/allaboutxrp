@@ -187,7 +187,7 @@ export default function XRPAndDeFiPage() {
         <LearnCTA
           title="Explore XRP's DeFi Ecosystem"
           description="From native AMMs to EVM smart contracts — XRPL DeFi is growing fast."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-amm"
           secondaryLabel="Learn About AMMs"

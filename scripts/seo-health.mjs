@@ -110,6 +110,21 @@ const brokenInternalLinks = internalLinks
     (link, index, links) =>
       links.findIndex((candidate) => candidate.file === link.file && candidate.path === link.path) === index,
   );
+const redirectInternalLinks = internalLinks
+  .filter((link) => redirectSources.has(link.path))
+  .filter(
+    (link, index, links) =>
+      links.findIndex((candidate) => candidate.file === link.file && candidate.path === link.path) === index,
+  );
+const noindexInternalLinks = internalLinks
+  .filter((link) => noindexPaths.includes(link.path))
+  .filter(
+    (link, index, links) =>
+      links.findIndex((candidate) => candidate.file === link.file && candidate.path === link.path) === index,
+  );
+const brokenGoLinks = sourceFiles
+  .filter((file) => /https:\/\/allaboutxrp\.com\/go\//.test(fs.readFileSync(file, "utf8")))
+  .map((file) => path.relative(process.cwd(), file));
 
 const policyChecks = {
   noindexHeaderEnforced:
@@ -131,6 +146,9 @@ const report = {
   canonicalAliases: canonicalAliases.length,
   internalLinksChecked: internalLinks.length,
   brokenInternalLinks,
+  redirectInternalLinks,
+  noindexInternalLinks,
+  brokenGoLinks,
   policyChecks,
   staleReserveFiles,
 };
@@ -144,6 +162,16 @@ if (staleReserveFiles.length) {
 
 if (brokenInternalLinks.length) {
   console.error("\nBroken static internal links detected. Point links at an existing route or a declared redirect.");
+  process.exitCode = 1;
+}
+
+if (redirectInternalLinks.length) {
+  console.error("\nInternal links to redirect aliases detected. Link directly to the canonical destination.");
+  process.exitCode = 1;
+}
+
+if (brokenGoLinks.length) {
+  console.error("\nUnconfigured /go/ links detected. Remove them or implement a disclosed, working destination.");
   process.exitCode = 1;
 }
 

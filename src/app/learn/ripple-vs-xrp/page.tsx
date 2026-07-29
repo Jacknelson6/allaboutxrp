@@ -80,7 +80,7 @@ export default function RippleVsXRPPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Ripple</strong> (Ripple Labs Inc.) is a <strong className="text-text-primary">private fintech company</strong> that builds enterprise payment software for banks. <strong className="text-text-primary">XRP</strong> is an <strong className="text-text-primary">independent digital asset</strong> that runs on the open-source <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. Ripple uses XRP in its <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link> product and holds a large amount of XRP in <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link>, but it does <em>not</em> control the XRP Ledger. Buying XRP is not the same as investing in Ripple.</p>
+          <p><strong className="text-text-primary">Ripple</strong> (Ripple Labs Inc.) is a <strong className="text-text-primary">private fintech company</strong> that builds enterprise payment software for banks. <strong className="text-text-primary">XRP</strong> is an <strong className="text-text-primary">independent digital asset</strong> that runs on the open-source <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. Ripple uses XRP in its <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link> product and holds a large amount of XRP in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link>, but it does <em>not</em> control the XRP Ledger. Buying XRP is not the same as investing in Ripple.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -149,7 +149,7 @@ export default function RippleVsXRPPage() {
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              Ripple generates revenue from software licensing, payment processing fees, and XRP sales from its <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">escrow holdings</Link>. The company has been valued at approximately $11 billion and has discussed a potential <Link href="/learn/ripple-ipo" className="text-xrp-accent underline decoration-xrp-accent/30">IPO</Link>.
+              Ripple generates revenue from software licensing, payment processing fees, and XRP sales from its <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">escrow holdings</Link>. The company has been valued at approximately $11 billion and has discussed a potential <Link href="/learn/ripple-ipo" className="text-xrp-accent underline decoration-xrp-accent/30">IPO</Link>.
             </p>
           </RevealSection>
 
@@ -236,7 +236,7 @@ export default function RippleVsXRPPage() {
               { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
               { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />

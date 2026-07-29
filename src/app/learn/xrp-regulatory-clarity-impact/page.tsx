@@ -134,7 +134,7 @@ export default function XRPRegulatoryClarityPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-sec-settlement", label: "SEC Settlement", desc: "Final outcome" },
               { href: "/learn/xrp-etf", label: "XRP ETF", desc: "ETF outlook" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "Institutional thesis" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "Institutional thesis" },
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Institutional brokerage" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/xrp-2026-outlook", label: "2026 Outlook", desc: "What's ahead" },
@@ -145,7 +145,7 @@ export default function XRPRegulatoryClarityPage() {
         <LearnCTA
           title="Clarity Is the Catalyst"
           description="The uncertainty is gone. XRP's adoption flywheel is spinning."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-2026-outlook"
           secondaryLabel="2026 Outlook"

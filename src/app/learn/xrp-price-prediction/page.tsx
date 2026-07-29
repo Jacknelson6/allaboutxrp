@@ -299,7 +299,7 @@ export default function XRPPricePredictionPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },

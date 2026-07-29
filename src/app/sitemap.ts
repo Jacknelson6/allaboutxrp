@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllRecaps } from "@/lib/utils/news";
 import fs from "fs";
 import path from "path";
+import { LEARN_HUBS } from "@/data/learn-hubs";
 
 /**
  * Dynamically discover all learn page slugs by scanning the filesystem.
@@ -16,6 +17,7 @@ function getAllLearnSlugs(): string[] {
     .filter(
       (entry) =>
         entry.isDirectory() &&
+        !entry.name.startsWith("[") &&
         entry.name !== "faq" &&
         fs.existsSync(path.join(learnDir, entry.name, "page.tsx"))
     )
@@ -83,6 +85,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Learn hub
     { path: "/learn", changeFrequency: "weekly", priority: 0.85 },
     { path: "/learn/faq", changeFrequency: "weekly", priority: 0.8 },
+    ...LEARN_HUBS.map((hub) => ({
+      path: `/learn/${hub.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
 
     // Best / recommendations (noindexed — excluded from sitemap)
 
@@ -95,8 +102,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Tools
     { path: "/tools", changeFrequency: "weekly", priority: 0.75 },
-    { path: "/tools/whale-tracker", changeFrequency: "hourly", priority: 0.85 },
-    { path: "/tools/escrow-tracker", changeFrequency: "daily", priority: 0.8 },
     { path: "/tools/price-alerts", changeFrequency: "hourly", priority: 0.8 },
     { path: "/tools/xrp-profit-calculator", changeFrequency: "monthly", priority: 0.7 },
     { path: "/tools/xrp-fee-calculator", changeFrequency: "monthly", priority: 0.7 },
@@ -120,7 +125,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // All learn pages (auto-discovered, excluding noindexed)
     ...learnSlugs
-      .filter((slug) => !NOINDEX_LEARN_SLUGS.has(slug))
+      .filter(
+        (slug) =>
+          !NOINDEX_LEARN_SLUGS.has(slug) &&
+          !CANONICAL_ALIAS_PATHS.has(`/learn/${slug}`),
+      )
       .map((slug) => ({
         url: `${baseUrl}/learn/${slug}`,
         changeFrequency: "weekly" as const,

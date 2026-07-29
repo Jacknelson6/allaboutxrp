@@ -160,7 +160,7 @@ export default function XRPAirdropsPage() {
               { href: "/learn/xrpl-defi", label: "XRPL DeFi", desc: "DeFi on the XRPL" },
               { href: "/learn/xrp-amm", label: "XRP AMM", desc: "Automated market maker" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX Guide", desc: "Decentralized trading" },
-              { href: "/learn/how-to-stake-xrp", label: "How to Stake XRP", desc: "Earn yield on XRP" },
+              { href: "/learn/xrp-staking", label: "How to Stake XRP", desc: "Earn yield on XRP" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Staking options explained" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
               { href: "/learn/xrpl-consensus-mechanism", label: "XRPL Consensus", desc: "Byzantine agreement" },

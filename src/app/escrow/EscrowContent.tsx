@@ -348,7 +348,7 @@ export default function EscrowContent() {
             <h3 className="font-semibold text-text-primary">History & Timeline</h3>
             <p className="mt-1 text-xs text-text-secondary">Every milestone from 2011 to present</p>
           </Link>
-          <Link href="/learn/get-started" className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px]">
+          <Link href="/how-to-start" className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px]">
             <h3 className="font-semibold text-text-primary">How to Buy XRP</h3>
             <p className="mt-1 text-xs text-text-secondary">Step-by-step beginner guide</p>
           </Link>
@@ -362,7 +362,7 @@ export default function EscrowContent() {
           Now that you understand how escrow works, you know XRP&apos;s supply is transparent and predictable. Ready to start accumulating?
         </p>
         <div className="mt-5">
-          <Link href="/learn/get-started" className="btn-primary">
+          <Link href="/how-to-start" className="btn-primary">
             Learn How to Buy XRP →
           </Link>
         </div>

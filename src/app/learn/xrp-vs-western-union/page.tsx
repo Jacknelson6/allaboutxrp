@@ -138,7 +138,7 @@ export default function XRPvsWesternUnionPage() {
           <RevealSection id="disruption" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">The Disruption Case</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Ripple&apos;s <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link> is specifically designed to replace the correspondent banking infrastructure that Western Union depends on. As <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">more financial institutions adopt XRP</Link>, the cost and speed advantages become accessible to mainstream users through familiar apps — without needing to understand crypto.
+              Ripple&apos;s <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link> is specifically designed to replace the correspondent banking infrastructure that Western Union depends on. As <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">more financial institutions adopt XRP</Link>, the cost and speed advantages become accessible to mainstream users through familiar apps — without needing to understand crypto.
             </p>
             <div className="mt-6">
               <FeatureGrid columns={2} items={[

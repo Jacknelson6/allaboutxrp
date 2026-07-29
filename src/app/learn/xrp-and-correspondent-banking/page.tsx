@@ -160,11 +160,11 @@ export default function XRPAndCorrespondentBankingPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "How ODL works" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "The institutional thesis" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "The institutional thesis" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Global settlement" },
               { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "Head-to-head comparison" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Detailed use cases" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete partner list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete partner list" },
             ]} />
           </RevealSection>
         </div>
@@ -172,7 +172,7 @@ export default function XRPAndCorrespondentBankingPage() {
         <LearnCTA
           title="The $27 Trillion Opportunity"
           description="XRP is replacing the world's most capital-intensive payment system."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/on-demand-liquidity"
           secondaryLabel="Learn About ODL"

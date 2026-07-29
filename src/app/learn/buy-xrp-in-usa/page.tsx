@@ -79,7 +79,7 @@ export default function BuyXRPInUSAPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP is legal to buy in all 50 US states.</strong> Best options: <a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Coinbase</a> (easiest, all states), <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (best security), or <a href="https://allaboutxrp.com/go/uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Uphold</a> (never delisted XRP). Use ACH bank transfers for free deposits. The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC lawsuit is resolved</Link> — XRP on exchanges is not a security. Remember: <Link href="/learn/xrp-tax-guide" className="text-xrp-accent underline decoration-xrp-accent/30">crypto gains are taxable</Link>.</p>
+          <p><strong className="text-text-primary">XRP is legal to buy in all 50 US states.</strong> Best options: <a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Coinbase</a> (easiest, all states), <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (best security), or <a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Uphold</a> (never delisted XRP). Use ACH bank transfers for free deposits. The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC lawsuit is resolved</Link> — XRP on exchanges is not a security. Remember: <Link href="/learn/xrp-tax-guide" className="text-xrp-accent underline decoration-xrp-accent/30">crypto gains are taxable</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -114,7 +114,7 @@ export default function BuyXRPInUSAPage() {
           <RevealSection id="legal-status">
             <h2 className="text-2xl font-bold text-text-primary">XRP&apos;s Legal Status in the US</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple lawsuit</Link> was the defining event for XRP in the US. In July 2023, Judge Analisa Torres ruled that <strong className="text-text-primary">XRP sold on exchanges is not a security</strong>. This landmark ruling cleared the way for every major US exchange to relist XRP.
+              The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple lawsuit</Link> was the defining event for XRP in the US. In July 2023, Judge Analisa Torres ruled that <strong className="text-text-primary">XRP sold on exchanges is not a security</strong>. This landmark ruling cleared the way for every major US exchange to relist XRP.
             </p>
 
             <div className="mt-6">
@@ -148,7 +148,7 @@ export default function BuyXRPInUSAPage() {
 
             <div className="mt-6">
               <HighlightBox title="🏆 Our Top Pick for US Users" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Coinbase →</a> Available in all 50 states, easiest for beginners, and Advanced Trade has fees as low as 0.05%. <Link href="/learn/buy-xrp-on-coinbase" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Coinbase guide</Link>.</p>
+                <p><a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Coinbase →</a> Available in all 50 states, easiest for beginners, and Advanced Trade has fees as low as 0.05%. <Link href="/learn/buy-xrp-on-coinbase" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Coinbase guide</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -213,7 +213,7 @@ export default function BuyXRPInUSAPage() {
           <RevealSection id="etf" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRP ETF: Coming to the US?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Multiple asset managers have filed for <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETFs</Link>, which would let Americans buy XRP exposure through their existing brokerage accounts (Fidelity, Schwab, etc.) without needing a crypto exchange. Approval is widely expected in 2026 following the SEC&apos;s pivot to a more crypto-friendly stance. This would also be relevant for <Link href="/learn/xrp-spot-etf-vs-futures-etf" className="text-xrp-accent underline decoration-xrp-accent/30">understanding ETF structures</Link>.
+              Multiple asset managers have filed for <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETFs</Link>, which would let Americans buy XRP exposure through their existing brokerage accounts (Fidelity, Schwab, etc.) without needing a crypto exchange. Approval is widely expected in 2026 following the SEC&apos;s pivot to a more crypto-friendly stance. This would also be relevant for <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">understanding ETF structures</Link>.
             </p>
           </RevealSection>
 
@@ -225,10 +225,10 @@ export default function BuyXRPInUSAPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Full comparison" },
               { href: "/learn/buy-xrp-on-coinbase", label: "Buy on Coinbase", desc: "Step-by-step guide" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "US obligations" },
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC v Ripple", desc: "The lawsuit explained" },
+              { href: "/learn/sec-vs-ripple", label: "SEC v Ripple", desc: "The lawsuit explained" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
             ]} />
@@ -238,9 +238,9 @@ export default function BuyXRPInUSAPage() {
         <LearnCTA
           title="Buy XRP in the USA Today"
           description="XRP is fully legal in all 50 states. Choose your exchange and start buying in minutes."
-          primaryHref="https://allaboutxrp.com/go/coinbase"
+          primaryHref="https://www.coinbase.com/"
           primaryLabel="Start with Coinbase →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

@@ -57,7 +57,7 @@ export default function HowMuchXRPMillionairePage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>At <Link href="/learn/can-xrp-reach-10" className="text-xrp-accent underline decoration-xrp-accent/30">$10 XRP</Link> (realistic bull case), you&apos;d need <strong className="text-text-primary">100,000 XRP</strong> to be a millionaire — costing ~$200K at today&apos;s prices. At <Link href="/learn/can-xrp-reach-50" className="text-xrp-accent underline decoration-xrp-accent/30">$50 XRP</Link> (very optimistic), you&apos;d need <strong className="text-text-primary">20,000 XRP</strong> (~$40K today). Remember: <strong className="text-text-primary">taxes could take 15-37%</strong> of your gains, so you actually need more than $1M in XRP to walk away a millionaire.</p>
+          <p>At <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$10 XRP</Link> (realistic bull case), you&apos;d need <strong className="text-text-primary">100,000 XRP</strong> to be a millionaire — costing ~$200K at today&apos;s prices. At <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$50 XRP</Link> (very optimistic), you&apos;d need <strong className="text-text-primary">20,000 XRP</strong> (~$40K today). Remember: <strong className="text-text-primary">taxes could take 15-37%</strong> of your gains, so you actually need more than $1M in XRP to walk away a millionaire.</p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -161,8 +161,8 @@ export default function HowMuchXRPMillionairePage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Most realistic target" },
-              { href: "/learn/can-xrp-reach-50", label: "Can XRP Reach $50?", desc: "Ambitious analysis" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Most realistic target" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $50?", desc: "Ambitious analysis" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Full analysis" },
               { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
@@ -171,7 +171,7 @@ export default function HowMuchXRPMillionairePage() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore Price Targets" description="Understand what's realistic for XRP's price." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Is XRP a Good Investment?" />
+        <LearnCTA title="Explore Price Targets" description="Understand what's realistic for XRP's price." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Is XRP a Good Investment?" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Tax calculations are simplified — consult a tax professional.</em></p>
       </div>

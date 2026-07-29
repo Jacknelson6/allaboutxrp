@@ -79,7 +79,7 @@ export default function XRPSelfCustodyGuidePage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Self-custody means <em>you</em> hold the keys to your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> — not an exchange. Get a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a>, write down your seed phrase, store it safely in multiple locations, and transfer your XRP from the exchange. You need a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">1 XRP reserve</Link> to activate your wallet.</p>
+          <p>Self-custody means <em>you</em> hold the keys to your <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> — not an exchange. Choose an appropriate <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">software or hardware wallet</Link>, write down your seed phrase, store it safely in multiple locations, and test a small transfer before moving the balance. You need a minimum <Link href="/learn/xrpl-reserves-explained" className="text-xrp-accent underline decoration-xrp-accent/30">1 XRP reserve</Link> to activate your wallet.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[

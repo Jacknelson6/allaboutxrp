@@ -18,17 +18,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How to Stake XRP: Every Way to Earn Yield",
     description: "XRP doesn't use proof-of-stake, but you can still earn. Here's how.",
-    url: "https://allaboutxrp.com/learn/how-to-stake-xrp",
+    url: "https://allaboutxrp.com/learn/xrp-staking",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "How to Stake XRP: Every Way to Earn Yield", description: "XRP doesn't use proof-of-stake, but you can still earn. Here's how." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/how-to-stake-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-staking" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "How to Stake XRP: Earn Yield on Your XRP", description: "Can you stake XRP? Learn every way to earn yield on XRP — from XRPL AMM liquidity to lending platforms and staking alternatives.", url: "https://allaboutxrp.com/learn/how-to-stake-xrp", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "How to Stake XRP: Earn Yield on Your XRP", description: "Can you stake XRP? Learn every way to earn yield on XRP — from XRPL AMM liquidity to lending platforms and staking alternatives.", url: "https://allaboutxrp.com/learn/xrp-staking", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How to Stake XRP" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-stake-xrp" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-staking" }),
   buildFAQSchema([
     {
         "question": "Can you stake XRP?",

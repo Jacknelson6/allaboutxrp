@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best XRP Exchanges in 2026: Compared & Ranked",
     description: "Compare the best exchanges to buy XRP in 2026. Fees, security, features, and withdrawal options ranked.",
-    url: "https://allaboutxrp.com/learn/best-xrp-exchanges",
+    url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     type: "article",
   },
   twitter: {
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     title: "Best XRP Exchanges in 2026",
     description: "Complete comparison of the top exchanges for buying, selling, and trading XRP.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/best-xrp-exchanges" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/how-to-buy-xrp" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "Best XRP Exchanges in 2026: Compared & Ranked",
     description: "Compare the best exchanges to buy XRP in 2026. Fees, security, features, and withdrawal options ranked side by side.",
-    url: "https://allaboutxrp.com/learn/best-xrp-exchanges",
+    url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -43,7 +43,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Best XRP Exchanges" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/best-xrp-exchanges" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-buy-xrp" }),
   buildFAQSchema([
     { question: "What is the best exchange to buy XRP?", answer: "The best exchange depends on your needs. For US users, Coinbase and Kraken are top picks for regulatory compliance and ease of use. For lowest fees, Binance (0.1%) leads globally. For XRP community loyalty, Uphold never delisted XRP during the SEC lawsuit. For European users, Bitstamp offers free SEPA deposits." },
     { question: "Which exchange has the lowest fees for XRP?", answer: "Binance has the lowest standard fees at 0.1% (0.075% with BNB discount). Kraken Pro is close at 0.16% maker / 0.26% taker. For US users specifically, Coinbase Advanced Trade at 0.05-0.60% offers the best value." },
@@ -81,7 +81,7 @@ export default function BestXRPExchangesPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Quick picks:</strong> <a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Coinbase</a> for US beginners, <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> for security, <a href="https://allaboutxrp.com/go/binance" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Binance</a> for lowest fees, <a href="https://allaboutxrp.com/go/uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Uphold</a> for XRP loyalty, <a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> for Europe. All support XRP withdrawals to <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallets</Link>.</p>
+          <p><strong className="text-text-primary">Quick picks:</strong> <a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Coinbase</a> for US beginners, <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> for security, <a href="https://www.binance.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Binance</a> for lowest fees, <a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Uphold</a> for XRP loyalty, <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> for Europe. All support XRP withdrawals to <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallets</Link>.</p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -131,7 +131,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="coinbase" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">🥇 Coinbase — Best for US Beginners</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Coinbase</a> is the largest US exchange with 110M+ users. Its simple interface makes it the easiest entry point for XRP newcomers, while Advanced Trade offers pro-level fees as low as 0.05%. Available in all 50 states.
+              <a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Coinbase</a> is the largest US exchange with 110M+ users. Its simple interface makes it the easiest entry point for XRP newcomers, while Advanced Trade offers pro-level fees as low as 0.05%. Available in all 50 states.
             </p>
             <div className="mt-4">
               <FeatureGrid columns={2} items={[
@@ -145,7 +145,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="binance" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">🥈 Binance — Lowest Fees & Deepest Liquidity</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/binance" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Binance</a> is the world&apos;s #1 exchange by volume. At 0.1% per trade (0.075% with BNB), it has the lowest fees of any major platform. US residents must use Binance.US (limited features). Best for international users who want maximum savings.
+              <a href="https://www.binance.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Binance</a> is the world&apos;s #1 exchange by volume. At 0.1% per trade (0.075% with BNB), it has the lowest fees of any major platform. US residents must use Binance.US (limited features). Best for international users who want maximum savings.
             </p>
             <div className="mt-4">
               <FeatureGrid columns={2} items={[
@@ -159,7 +159,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="kraken" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">🥉 Kraken — Best Security Track Record</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Kraken</a> has operated since 2011 with <strong className="text-text-primary">zero security breaches</strong>. Proof of reserves, competitive fees (0.16% maker), and 24/7 support make it the security-conscious choice. Best for users who prioritize asset safety above all else.
+              <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Kraken</a> has operated since 2011 with <strong className="text-text-primary">zero security breaches</strong>. Proof of reserves, competitive fees (0.16% maker), and 24/7 support make it the security-conscious choice. Best for users who prioritize asset safety above all else.
             </p>
             <div className="mt-4">
               <FeatureGrid columns={2} items={[
@@ -173,7 +173,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="uphold" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Uphold — The XRP Community Favorite</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Uphold</a> earned lasting loyalty by <strong className="text-text-primary">never delisting XRP</strong> during the SEC lawsuit. While its spread-based fees (~1%) are higher than pro platforms, the simplicity and cross-asset trading (crypto, stocks, metals) make it uniquely versatile.
+              <a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Uphold</a> earned lasting loyalty by <strong className="text-text-primary">never delisting XRP</strong> during the SEC lawsuit. While its spread-based fees (~1%) are higher than pro platforms, the simplicity and cross-asset trading (crypto, stocks, metals) make it uniquely versatile.
             </p>
             <p className="mt-4"><Link href="/learn/buy-xrp-on-uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Uphold guide →</Link></p>
           </RevealSection>
@@ -181,7 +181,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="bitstamp" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Bitstamp — Best for European Users</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Bitstamp</a> is Europe&apos;s most established exchange, with free SEPA deposits and a 0.30% flat fee structure. Multi-licensed across the EU, UK, and US, it&apos;s the go-to for European XRP buyers who want regulatory confidence.
+              <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Bitstamp</a> is Europe&apos;s most established exchange, with free SEPA deposits and a 0.30% flat fee structure. Multi-licensed across the EU, UK, and US, it&apos;s the go-to for European XRP buyers who want regulatory confidence.
             </p>
             <p className="mt-4"><Link href="/learn/buy-xrp-on-bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Bitstamp guide →</Link></p>
           </RevealSection>
@@ -189,7 +189,7 @@ export default function BestXRPExchangesPage() {
           <RevealSection id="robinhood" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Robinhood — Convenient But Limited</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://allaboutxrp.com/go/robinhood" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Robinhood</a> is fine if you already use it for stocks, but it&apos;s not the best choice specifically for XRP. The hidden spread is moderate (~0.6%), withdrawals are limited via Robinhood Wallet, and there are no advanced trading features for crypto. <Link href="/learn/buy-xrp-on-robinhood" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full analysis →</Link>
+              <a href="https://robinhood.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Robinhood</a> is fine if you already use it for stocks, but it&apos;s not the best choice specifically for XRP. The hidden spread is moderate (~0.6%), withdrawals are limited via Robinhood Wallet, and there are no advanced trading features for crypto. <Link href="/learn/buy-xrp-on-robinhood" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full analysis →</Link>
             </p>
           </RevealSection>
 
@@ -235,7 +235,7 @@ export default function BestXRPExchangesPage() {
         <LearnCTA
           title="Ready to Buy XRP?"
           description="Pick your exchange and make your first purchase. All the exchanges above support XRP withdrawals to self-custody."
-          primaryHref="https://allaboutxrp.com/go/coinbase"
+          primaryHref="https://www.coinbase.com/"
           primaryLabel="Start with Coinbase →"
           secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Full Buying Guide"

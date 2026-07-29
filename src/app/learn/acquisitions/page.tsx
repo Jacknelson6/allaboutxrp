@@ -9,7 +9,7 @@ const relatedLinks = [
   { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions using XRP" },
   { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
   { href: "/learn/history", label: "XRP History", desc: "Complete timeline since 2011" },
-  { href: "/answers/what-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption" },
+  { href: "/learn/how-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption" },
   { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP" },
 ];
 

@@ -146,7 +146,7 @@ export default function XRPvsRippleBeginnersPage() {
         <LearnCTA
           title="Now You Know the Difference! 🎉"
           description="Ripple is the company. XRP is the currency. Ready to get started?"
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/what-is-xrp"
           secondaryLabel="Learn About XRP"

@@ -283,7 +283,7 @@ export default function XRPStablecoinEcosystemPage() {
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Enterprise brokerage" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -292,7 +292,7 @@ export default function XRPStablecoinEcosystemPage() {
         <LearnCTA
           title="Ready to Explore XRPL Stablecoins?"
           description="RLUSD is transforming the XRP Ledger into a full financial platform. Start by getting your first XRP and exploring the ecosystem."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="Get Started with XRP →"
           secondaryHref="/learn/rlusd"
           secondaryLabel="Learn About RLUSD"

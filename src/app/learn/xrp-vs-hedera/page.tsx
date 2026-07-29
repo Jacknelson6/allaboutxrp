@@ -144,7 +144,7 @@ export default function XRPvsHederaPage() {
           <RevealSection id="adoption" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Adoption Comparison</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              In terms of real-world institutional adoption — particularly for payments — XRP has a <strong className="text-text-primary">commanding lead</strong>. Ripple&apos;s <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">300+ partnerships</Link>, live <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">payment corridors</Link>, and pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link> demonstrate institutional traction that Hedera doesn&apos;t match.
+              In terms of real-world institutional adoption — particularly for payments — XRP has a <strong className="text-text-primary">commanding lead</strong>. Ripple&apos;s <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">300+ partnerships</Link>, live <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">payment corridors</Link>, and pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link> demonstrate institutional traction that Hedera doesn&apos;t match.
             </p>
 
             <div className="mt-6">

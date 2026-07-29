@@ -442,7 +442,7 @@ export default function BestHardwareWalletsPage() {
                 ["/best/xrp-wallets", "All XRP Wallets"],
                 ["/best/xrp-exchanges", "Best XRP Exchanges"],
                 ["/learn/xrp-staking", "XRP Staking"],
-                ["/answers/how-fast-is-xrp", "How Fast is XRP?"],
+                ["/learn/how-does-xrp-work", "How Fast is XRP?"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}

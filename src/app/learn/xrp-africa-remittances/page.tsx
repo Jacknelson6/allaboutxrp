@@ -142,7 +142,7 @@ export default function Page() {
               { href: "/learn/xrp-middle-east-adoption", label: "Middle East Adoption", desc: "Gulf region adoption" },
               { href: "/learn/xrp-southeast-asia", label: "Southeast Asia", desc: "ASEAN adoption" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },

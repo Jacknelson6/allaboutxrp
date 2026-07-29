@@ -267,7 +267,7 @@ export default function XRPETFPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
@@ -287,7 +287,7 @@ export default function XRPETFPage() {
         <LearnCTA
           title="Ready to Invest in XRP?"
           description="Whether you're waiting for the ETF or want to buy XRP directly, we've got you covered with step-by-step guides."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-wallets"
           secondaryLabel="Best XRP Wallets"

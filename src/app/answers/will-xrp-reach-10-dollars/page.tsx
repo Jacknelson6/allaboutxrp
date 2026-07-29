@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Will XRP Reach $10? Price Analysis | AllAboutXRP",
     description: "A data-driven look at what it would take for XRP to reach $10 — market cap math, adoption trends, and analyst projections.",
-    url: "https://allaboutxrp.com/answers/will-xrp-reach-10-dollars",
+    url: "https://allaboutxrp.com/learn/xrp-price-prediction",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-10" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 export default function Page() {

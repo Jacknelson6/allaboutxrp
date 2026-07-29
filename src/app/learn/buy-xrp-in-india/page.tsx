@@ -144,7 +144,7 @@ export default function BuyXRPInIndiaPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇮🇳 Recommendation for Indian Users" variant="accent">
-                <p><strong className="text-text-primary">WazirX</strong> or <strong className="text-text-primary">CoinDCX</strong> are the best choices — both have direct XRP/INR pairs, instant UPI deposits, and automatic TDS handling. CoinDCX edges ahead on fees. Both support full XRP withdrawals to <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallets</Link>.</p>
+                <p><strong className="text-text-primary">WazirX</strong> or <strong className="text-text-primary">CoinDCX</strong> are the best choices — both have direct XRP/INR pairs, instant UPI deposits, and automatic TDS handling. CoinDCX edges ahead on fees. Both support full XRP withdrawals to <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallets</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -218,7 +218,7 @@ export default function BuyXRPInIndiaPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/best-xrp-exchanges", label: "Best Exchanges", desc: "Global comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best Exchanges", desc: "Global comparison" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Global tax rules" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "XRP's core use case" },
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "How ODL works" },
@@ -231,7 +231,7 @@ export default function BuyXRPInIndiaPage() {
         <LearnCTA
           title="Buy XRP in India"
           description="Use UPI for instant, free deposits on Indian exchanges. Be aware of the 30% tax and 1% TDS."
-          primaryHref="/learn/best-xrp-exchanges"
+          primaryHref="/learn/how-to-buy-xrp"
           primaryLabel="Compare Exchanges →"
           secondaryHref="/learn/xrp-tax-guide"
           secondaryLabel="Tax Guide"

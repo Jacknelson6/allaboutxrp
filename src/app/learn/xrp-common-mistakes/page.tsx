@@ -102,7 +102,7 @@ export default function Page() {
               { title: "4. Leaving Large Holdings on Exchanges", desc: "Exchanges get hacked. FTX collapsed. Move significant holdings to a hardware wallet. Not your keys, not your crypto." },
               { title: "5. Falling for Scams", desc: "'Send 1000 XRP, get 5000 back!' — scams are everywhere. No legitimate giveaway asks you to send crypto first. Ever." },
             ]} variant="warn" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">See our guides on <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">safe storage</Link> and <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">best XRP wallets</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">See our guides on <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">safe storage</Link> and <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">best XRP wallets</Link>.</p>
           </RevealSection>
 
           <RevealSection id="strategy" delay={0.05}>
@@ -142,11 +142,11 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
               { href: "/learn/how-to-send-xrp", label: "How to Send XRP", desc: "Transfer XRP quickly" },
-              { href: "/learn/crypto-wallets-for-xrp", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
+              { href: "/learn/xrp-wallets", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
               { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },

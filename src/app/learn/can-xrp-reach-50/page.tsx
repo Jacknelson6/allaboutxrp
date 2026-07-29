@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Reach $50? What It Would Take",
     description: "The math and catalysts required for $50 XRP. Honest analysis.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-50",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "Can XRP Reach $50?", description: "What it would take." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-50" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $50? What It Would Take", description: "Analyzing whether XRP can reach $50 — market cap math, required conditions, and honest assessment.", url: "https://allaboutxrp.com/learn/can-xrp-reach-50", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Can XRP Reach $50? What It Would Take", description: "Analyzing whether XRP can reach $50 — market cap math, required conditions, and honest assessment.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $50?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-reach-50" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
   buildFAQSchema([
     { question: "Can XRP realistically reach $50?", answer: "Possible but very ambitious. $50 XRP = ~$2.85 trillion market cap. This exceeds Bitcoin's all-time high market cap (~$1.5T). It would require XRP to become the dominant asset in crypto alongside massive growth in the overall crypto market, potentially requiring a $10T+ total crypto market." },
     { question: "What market cap would XRP need at $50?", answer: "Approximately $2.85 trillion with ~57 billion circulating supply. For perspective, this exceeds the market cap of nearly every public company except Apple and Microsoft. It would make XRP larger than Bitcoin has ever been." },
@@ -128,7 +128,7 @@ export default function CanXRPReach50Page() {
             <h2 className="text-2xl font-bold text-text-primary">Reality Check</h2>
             <div className="mt-4">
               <HighlightBox title="Honest Assessment" variant="warning">
-                <p><strong className="text-text-primary">$50 XRP is at the extreme end of optimistic scenarios.</strong> While not mathematically impossible (especially if crypto grows 3-5x as an asset class), it requires everything to go right simultaneously. Most realistic price analyses place XRP&apos;s near-term ceiling closer to $10-20. $50 would be a long-term, best-case outcome over many years. Consider <Link href="/learn/can-xrp-reach-10" className="text-xrp-accent underline decoration-xrp-accent/30">$10 XRP</Link> as the more realistic near-term target. This is not financial advice.</p>
+                <p><strong className="text-text-primary">$50 XRP is at the extreme end of optimistic scenarios.</strong> While not mathematically impossible (especially if crypto grows 3-5x as an asset class), it requires everything to go right simultaneously. Most realistic price analyses place XRP&apos;s near-term ceiling closer to $10-20. $50 would be a long-term, best-case outcome over many years. Consider <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$10 XRP</Link> as the more realistic near-term target. This is not financial advice.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -141,8 +141,8 @@ export default function CanXRPReach50Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "More realistic target" },
-              { href: "/learn/can-xrp-reach-500", label: "Can XRP Reach $500?", desc: "The math explained" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "More realistic target" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $500?", desc: "The math explained" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Full analysis" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Honest analysis" },
@@ -151,7 +151,7 @@ export default function CanXRPReach50Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore Other Price Targets" description="See analysis for different XRP price scenarios." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/can-xrp-reach-500" secondaryLabel="Can XRP Reach $500?" />
+        <LearnCTA title="Explore Other Price Targets" description="See analysis for different XRP price scenarios." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/xrp-price-potential" secondaryLabel="Can XRP Reach $500?" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Past performance does not predict future results.</em></p>
       </div>

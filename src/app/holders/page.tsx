@@ -403,7 +403,7 @@ export default function HoldersPage() {
         <div className="mt-8 rounded-xl border border-xrp-accent/20 bg-gradient-to-r from-xrp-accent/[0.04] to-transparent p-6 text-center">
           <h3 className="text-lg font-bold text-text-primary">Want to Level Up Your Rank?</h3>
           <p className="mt-2 text-sm text-text-secondary">See where you stand among XRP holders — and learn how to start accumulating.</p>
-          <a href="/learn/get-started" className="mt-4 inline-block rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-xrp-accent-bright transition-colors">
+          <a href="/how-to-start" className="mt-4 inline-block rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-xrp-accent-bright transition-colors">
             Get Started Buying XRP →
           </a>
         </div>

@@ -3,9 +3,6 @@
  * These are thin, duplicative, or low-value pages that dilute crawl budget.
  */
 export const NOINDEX_PATHS = new Set([
-  // ── Duplicate utility routes ───────────────────────────────────
-  "/learn/get-started",
-
   // ── Buy XRP regional/exchange pages ──────────────────────────────────
   "/learn/buy-xrp-in-australia",
   "/learn/buy-xrp-in-canada",
@@ -39,23 +36,8 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-vs-swift",
   "/learn/xrp-vs-tron",
   "/learn/xrp-vs-western-union",
-  "/learn/xrp-vs-ripple-for-beginners",
 
-  // ── Can XRP reach * pages ────────────────────────────────────────────
-  "/learn/can-xrp-reach-10",
-  "/learn/can-xrp-reach-50",
-  "/learn/can-xrp-reach-100",
-  "/learn/can-xrp-reach-500",
-  "/learn/can-xrp-reach-1000",
-
-  // ── Duplicate pages (canonical exists elsewhere) ─────────────────────
-  "/learn/rlusd-explained",
-  "/learn/sec-vs-ripple-explained",
-  "/learn/banks-using-xrp",
-  "/learn/xrp-and-banks",
-  "/learn/crypto-wallets-for-xrp",
-  "/learn/best-xrp-exchanges",
-  "/learn/xrp-escrow-explained",
+  // ── Low-value page without a distinct canonical destination ──────────
   "/learn/best-xrp-trading-pairs",
 
   // ── Low-value deep cuts ──────────────────────────────────────────────
@@ -73,7 +55,6 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-in-retirement-accounts",
   "/learn/xrp-futures-trading",
   "/learn/xrp-day-trading-guide",
-  "/learn/xrp-spot-etf-vs-futures-etf",
   "/learn/xrp-on-chain-analysis",
   "/learn/xrp-community-explained",
   "/learn/xrp-sell-or-hold",
@@ -82,12 +63,7 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-institutional-custody",
   "/learn/xrpl-gaming",
   "/learn/xrpl-nft-marketplaces",
-  "/learn/xrp-amm-yield-guide",
   "/learn/xrp-and-correspondent-banking",
-  "/learn/xrp-and-cbdc-bridge",
-  "/learn/xrp-etf-approval-odds",
-  "/learn/xrp-etf-filings",
-  "/learn/xrp-etf-price-impact",
 
   // ── Best / recommendation pages ───────────────────────────────────────
   "/best",
@@ -97,6 +73,8 @@ export const NOINDEX_PATHS = new Set([
   "/best/xrp-staking-platforms",
 
   // ── Utility pages ────────────────────────────────────────────────────
+  "/tools/whale-tracker",
+  "/tools/escrow-tracker",
   "/privacy-policy",
   "/terms",
   "/extension",
@@ -126,6 +104,27 @@ export const CANONICAL_ALIASES = new Map<string, string>([
   ["/answers/xrp-price-prediction-2026", "/learn/xrp-price-prediction"],
   ["/answers/xrp-vs-solana", "/learn/xrp-vs-solana"],
   ["/learn/get-started", "/how-to-start"],
+  ["/learn/rlusd-explained", "/learn/rlusd"],
+  ["/learn/sec-vs-ripple-explained", "/learn/sec-vs-ripple"],
+  ["/learn/banks-using-xrp", "/learn/how-banks-use-xrp"],
+  ["/learn/xrp-and-banks", "/learn/how-banks-use-xrp"],
+  ["/learn/crypto-wallets-for-xrp", "/learn/xrp-wallets"],
+  ["/learn/best-xrp-exchanges", "/learn/how-to-buy-xrp"],
+  ["/learn/xrp-escrow-explained", "/learn/escrow"],
+  ["/learn/xrp-vs-ripple-for-beginners", "/learn/ripple-vs-xrp"],
+  ["/learn/xrp-and-cbdc-bridge", "/learn/cbdcs-and-xrp"],
+  ["/learn/xrp-amm-yield-guide", "/learn/xrpl-amm-liquidity-pools"],
+  ["/learn/xrp-and-defi", "/learn/xrpl-defi"],
+  ["/learn/how-to-stake-xrp", "/learn/xrp-staking"],
+  ["/learn/can-xrp-reach-10", "/learn/xrp-price-potential"],
+  ["/learn/can-xrp-reach-50", "/learn/xrp-price-potential"],
+  ["/learn/can-xrp-reach-100", "/learn/xrp-price-potential"],
+  ["/learn/can-xrp-reach-500", "/learn/xrp-price-potential"],
+  ["/learn/can-xrp-reach-1000", "/learn/xrp-price-potential"],
+  ["/learn/xrp-etf-approval-odds", "/learn/xrp-etf"],
+  ["/learn/xrp-etf-filings", "/learn/xrp-etf"],
+  ["/learn/xrp-etf-price-impact", "/learn/xrp-etf"],
+  ["/learn/xrp-spot-etf-vs-futures-etf", "/learn/xrp-etf"],
 ]);
 
 export const CANONICAL_ALIAS_PATHS = new Set(CANONICAL_ALIASES.keys());

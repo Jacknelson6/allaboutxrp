@@ -483,8 +483,8 @@ export default function BestXRPExchangesPage() {
                 ["/best/xrp-wallets", "Best XRP Wallets"],
                 ["/best/hardware-wallets-for-xrp", "Best Hardware Wallets"],
                 ["/learn/xrp-staking", "XRP Staking Guide"],
-                ["/answers/is-it-too-late-to-buy-xrp", "Is It Too Late to Buy XRP?"],
-                ["/answers/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
+                ["/learn/is-xrp-a-good-investment", "Is It Too Late to Buy XRP?"],
+                ["/learn/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}

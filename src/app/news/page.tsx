@@ -26,10 +26,10 @@ export default function NewsPage() {
             </div>
             <div>
               <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl">
-                XRP News Feed
+                XRP News and Recaps
               </h1>
               <p className="mt-1 text-text-secondary">
-                Real-time updates from the XRP ecosystem
+                A source-led archive of XRP ecosystem coverage
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function NewsPage() {
                   Daily XRP Recaps
                 </h2>
                 <p className="text-sm text-text-secondary">
-                  AI-powered daily summaries of everything XRP
+                  Dated summaries with links back to original reporting
                 </p>
               </div>
             </div>
@@ -72,11 +72,11 @@ export default function NewsPage() {
             <div className="rounded-2xl bg-xrp-accent/10 p-5 mb-6">
               <Rss className="h-10 w-10 text-xrp-accent" />
             </div>
-            <h2 className="text-xl font-bold text-text-primary">Curated News Feed</h2>
+            <h2 className="text-xl font-bold text-text-primary">News feed status</h2>
             <p className="mt-3 max-w-md text-sm text-text-secondary leading-relaxed">
-              We aggregate and AI-score news from 10+ reputable crypto publications, filtering for XRP-relevant stories rated 7+ importance.
-              Check the homepage for the latest articles or browse our{" "}
-              <Link href="/news/recaps" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">daily recaps</Link>.
+              No current stories are available in the feed. Browse the{" "}
+              <Link href="/news/recaps" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors">recap archive</Link>{" "}
+              and verify time-sensitive claims with the original source linked from each entry.
             </p>
           </div>
         </motion.div>

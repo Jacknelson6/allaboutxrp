@@ -186,9 +186,9 @@ export default function RipplePrimePage() {
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
               { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
-              { href: "/learn/rlusd-explained", label: "RLUSD Explained", desc: "Deep dive into RLUSD" },
+              { href: "/learn/rlusd", label: "RLUSD Explained", desc: "Deep dive into RLUSD" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -197,7 +197,7 @@ export default function RipplePrimePage() {
         <LearnCTA
           title="Institutional-Grade Infrastructure"
           description="Ripple Prime brings Wall Street-level brokerage to crypto — with settlement on the XRP Ledger."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/acquisitions"
           secondaryLabel="Explore Acquisitions"

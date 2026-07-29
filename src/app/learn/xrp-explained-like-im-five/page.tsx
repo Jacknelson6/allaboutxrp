@@ -129,7 +129,7 @@ export default function XRPExplainedSimplyPage() {
             <div className="mt-5">
               <HighlightBox title="The #1 thing people get confused about" variant="info">
                 <p className="text-lg"><strong>Ripple</strong> is a company. <strong>XRP</strong> is a digital currency. They&apos;re related but they&apos;re not the same thing. Ripple uses XRP in its products to help banks send money. But XRP exists on its own — even if Ripple disappeared tomorrow, XRP would keep working.</p>
-                <p className="mt-2">Learn more: <Link href="/learn/xrp-vs-ripple-for-beginners" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs Ripple for Beginners</Link></p>
+                <p className="mt-2">Learn more: <Link href="/learn/ripple-vs-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs Ripple for Beginners</Link></p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -145,7 +145,7 @@ export default function XRPExplainedSimplyPage() {
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "More detail" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Beginner guide" },
               { href: "/learn/what-makes-xrp-different", label: "What's Different", desc: "XRP vs others" },
-              { href: "/learn/xrp-vs-ripple-for-beginners", label: "XRP vs Ripple", desc: "Key difference" },
+              { href: "/learn/ripple-vs-xrp", label: "XRP vs Ripple", desc: "Key difference" },
               { href: "/learn/how-does-xrp-work", label: "How XRP Works", desc: "A bit more detail" },
               { href: "/learn/first-time-buying-crypto-xrp", label: "Buy XRP", desc: "Your first purchase" },
             ]} />
@@ -155,7 +155,7 @@ export default function XRPExplainedSimplyPage() {
         <LearnCTA
           title="Make Sense? 😊"
           description="XRP is fast, cheap, and used by real banks. Ready to get some?"
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/what-is-xrp"
           secondaryLabel="Learn More About XRP"

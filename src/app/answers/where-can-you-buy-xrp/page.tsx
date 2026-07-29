@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Where Can You Buy XRP? Best Exchanges | AllAboutXRP",
     description: "The best cryptocurrency exchanges for buying XRP — ranked by reliability, fees, and features.",
-    url: "https://allaboutxrp.com/answers/where-can-you-buy-xrp",
+    url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/best-xrp-exchanges" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/how-to-buy-xrp" },
 };
 
 export default function Page() {
@@ -26,7 +26,7 @@ export default function Page() {
       shortAnswer={
         <p className="text-gray-300 leading-relaxed">
           XRP is widely available on most major cryptocurrency exchanges. Our top recommendation is <strong className="text-white">Uphold</strong>, which maintained XRP trading throughout the entire SEC lawsuit — never delisting the asset when many other exchanges did. Other solid options include Coinbase, Kraken, Bitstamp, and Binance. The best exchange for you depends on your location, preferred payment method, and whether you want a simple interface or advanced trading features. See{" "}
-          <Link href="/answers/what-do-you-need-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>.
+          <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>.
         </p>
       }
       fullExplanation={
@@ -92,9 +92,9 @@ export default function Page() {
           </p>
           <p>
             Once you&apos;ve chosen an exchange, check our{" "}
-            <Link href="/answers/what-do-you-need-to-buy-xrp" className="text-[#0085FF] hover:underline">step-by-step buying guide</Link>{" "}
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">step-by-step buying guide</Link>{" "}
             and{" "}
-            <Link href="/answers/how-to-buy-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
             to protect your investment. For long-term storage, consider moving your XRP to a{" "}
             <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
           </p>

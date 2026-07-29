@@ -142,7 +142,7 @@ export default function XRPvsStellarPage() {
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              Both networks support <strong className="text-text-primary">token issuance</strong>, allowing anyone to create custom assets on their ledgers. Ripple has used this for <Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> (its USD stablecoin), while Stellar hosts USDC and various fiat-backed tokens through its anchor system.
+              Both networks support <strong className="text-text-primary">token issuance</strong>, allowing anyone to create custom assets on their ledgers. Ripple has used this for <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> (its USD stablecoin), while Stellar hosts USDC and various fiat-backed tokens through its anchor system.
             </p>
           </RevealSection>
 

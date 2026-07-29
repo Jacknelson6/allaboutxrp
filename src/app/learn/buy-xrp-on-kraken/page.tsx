@@ -114,7 +114,7 @@ export default function BuyXRPOnKrakenPage() {
           <RevealSection id="why-kraken">
             <h2 className="text-2xl font-bold text-text-primary">Why Choose Kraken for XRP?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Kraken stands out among <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">XRP exchanges</Link> for its unmatched security track record, competitive fees, and full proof-of-reserves audits. If security is your top priority, Kraken is hard to beat.
+              Kraken stands out among <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP exchanges</Link> for its unmatched security track record, competitive fees, and full proof-of-reserves audits. If security is your top priority, Kraken is hard to beat.
             </p>
 
             <div className="mt-6">
@@ -142,7 +142,7 @@ export default function BuyXRPOnKrakenPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Kraken" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Kraken account →</a> One of the most trusted exchanges in crypto, with 15+ years and zero security breaches.</p>
+                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Kraken account →</a> One of the most trusted exchanges in crypto, with 15+ years and zero security breaches.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -192,7 +192,7 @@ export default function BuyXRPOnKrakenPage() {
 
             <div className="mt-6">
               <HighlightBox title="🚀 Ready to Buy?" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Kraken now →</a> Use Kraken Pro for the lowest fees in the industry.</p>
+                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Kraken now →</a> Use Kraken Pro for the lowest fees in the industry.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -220,7 +220,7 @@ export default function BuyXRPOnKrakenPage() {
           <RevealSection id="withdraw" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Withdrawing XRP from Kraken</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Kraken charges just <strong className="text-text-primary">0.02 XRP</strong> (less than $0.01) for withdrawals — one of the cheapest in the industry. Consider moving XRP to a <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link> for long-term storage.
+              Kraken charges just <strong className="text-text-primary">0.02 XRP</strong> (less than $0.01) for withdrawals — one of the cheapest in the industry. Consider moving XRP to a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link> for long-term storage.
             </p>
 
             <div className="mt-6">
@@ -243,7 +243,7 @@ export default function BuyXRPOnKrakenPage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-coinbase", label: "Buy XRP on Coinbase", desc: "Largest US exchange" },
               { href: "/learn/buy-xrp-on-uphold", label: "Buy XRP on Uphold", desc: "Fast & simple" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Full comparison" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start here" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -254,9 +254,9 @@ export default function BuyXRPOnKrakenPage() {
         <LearnCTA
           title="Buy XRP on Kraken Today"
           description="Join one of the most secure exchanges in crypto. Zero hacks in 15+ years of operation."
-          primaryHref="https://allaboutxrp.com/go/kraken"
+          primaryHref="https://www.kraken.com/"
           primaryLabel="Sign Up for Kraken →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

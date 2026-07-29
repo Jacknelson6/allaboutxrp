@@ -56,7 +56,7 @@ export default function Page() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Europe&apos;s <strong className="text-text-primary">MiCA regulation</strong> provides the world&apos;s first comprehensive crypto framework. XRP benefits as a <strong className="text-text-primary">utility token with clear classification</strong>. <Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is positioned as a MiCA-compliant stablecoin. Regulatory clarity drives institutional adoption across the EU.</p>
+          <p>Europe&apos;s <strong className="text-text-primary">MiCA regulation</strong> provides the world&apos;s first comprehensive crypto framework. XRP benefits as a <strong className="text-text-primary">utility token with clear classification</strong>. <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is positioned as a MiCA-compliant stablecoin. Regulatory clarity drives institutional adoption across the EU.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -108,7 +108,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="rlusd" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">RLUSD in Europe</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is designed to comply with MiCA&apos;s strict stablecoin requirements, positioning it as a <strong className="text-text-primary">premier euro-denominated stablecoin</strong> in the EU market.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> is designed to comply with MiCA&apos;s strict stablecoin requirements, positioning it as a <strong className="text-text-primary">premier euro-denominated stablecoin</strong> in the EU market.</p>
             <div className="mt-6"><HighlightBox title="RLUSD Advantage" variant="accent"><p>While competitors like USDT face MiCA compliance challenges, RLUSD was built with regulation in mind from day one. This gives Ripple a first-mover advantage in the EU stablecoin market.</p></HighlightBox></div>
           </RevealSection>
           <RevealSection id="exchanges" delay={0.05}>
@@ -139,18 +139,18 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "Lawsuit timeline" },
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "SEC ruling explained" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Crypto Regulation Impact", desc: "Laws shaping XRP" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Regulatory Clarity Drives Adoption" description="Europe's MiCA framework is a game-changer for XRP." primaryHref="/learn/rlusd-explained" primaryLabel="RLUSD →" secondaryHref="/learn/partnerships" secondaryLabel="Partnerships" />
+        <LearnCTA title="Regulatory Clarity Drives Adoption" description="Europe's MiCA framework is a game-changer for XRP." primaryHref="/learn/rlusd" primaryLabel="RLUSD →" secondaryHref="/learn/partnerships" secondaryLabel="Partnerships" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>

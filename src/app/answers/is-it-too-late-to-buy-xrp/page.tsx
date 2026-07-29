@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Is It Too Late to Buy XRP? 2026 Analysis | AllAboutXRP",
     description: "Is XRP's upside priced in, or is there still opportunity? An objective analysis of price, adoption, and market position.",
-    url: "https://allaboutxrp.com/answers/is-it-too-late-to-buy-xrp",
+    url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" },
@@ -67,7 +67,7 @@ export default function Page() {
             review the{" "}
             <Link href="/live-chart" className="text-[#0085FF] hover:underline">current price and market data</Link>,
             and read about{" "}
-            <Link href="/learn/get-started" className="text-[#0085FF] hover:underline">how to get started</Link>{" "}
+            <Link href="/how-to-start" className="text-[#0085FF] hover:underline">how to get started</Link>{" "}
             if you decide to proceed.
           </p>
         </div>

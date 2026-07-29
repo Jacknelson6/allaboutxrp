@@ -58,7 +58,7 @@ const faqItems = [
   { q: "Who owns Ripple?", a: "Ripple is a privately held company. Co-founder Chris Larsen serves as Executive Chairman. Key investors include Fortress Investment Group, Citadel Securities, Pantera Capital, and Galaxy Digital. Valued at approximately $50 billion." },
   { q: "Is Ripple a bank?", a: "No. Ripple is a technology company that provides payment infrastructure to banks and financial institutions. It holds various regulatory licenses but is not itself a bank." },
   { q: "Did Ripple win the SEC lawsuit?", a: "Largely, yes. In July 2023, Judge Torres ruled that XRP sold on public exchanges is not a security. Ripple paid a $125 million penalty — far less than the SEC's $2 billion demand." },
-  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, and Kraken. Check our step-by-step guide at /learn/get-started for everything you need to know." },
+  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, and Kraken. Check our step-by-step guide at /how-to-start for everything you need to know." },
 ];
 
 export default function WhatIsRipplePage() {
@@ -308,7 +308,7 @@ export default function WhatIsRipplePage() {
               { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start your XRP journey" },
               { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />
@@ -318,7 +318,7 @@ export default function WhatIsRipplePage() {
         <LearnCTA
           title="Bullish on Ripple's Vision?"
           description="Ripple is building the future of finance with $3.7B in acquisitions, 55+ countries, and growing institutional adoption. Ready to start your XRP journey?"
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/partnerships"
           secondaryLabel="Explore Partnerships"

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Banks Using XRP: The Complete List for 2026",
     description: "300+ financial institutions use RippleNet. Dozens use XRP directly via ODL. Here's the full list.",
-    url: "https://allaboutxrp.com/learn/banks-using-xrp",
+    url: "https://allaboutxrp.com/learn/how-banks-use-xrp",
     type: "article",
   },
   twitter: {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "Which Banks Use XRP? Complete 2026 List | AllAboutXRP",
     description: "SBI, Santander, Standard Chartered and more. The definitive list of banks using XRP.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/banks-using-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/how-banks-use-xrp" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "How Banks Are Secretly Testing XRP",
     description: "A comprehensive list of banks and financial institutions using XRP and RippleNet for cross-border payments, with details on which use XRP directly.",
-    url: "https://allaboutxrp.com/learn/banks-using-xrp",
+    url: "https://allaboutxrp.com/learn/how-banks-use-xrp",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -44,7 +44,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Banks Using XRP" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/banks-using-xrp" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-banks-use-xrp" }),
   buildFAQSchema([
     { question: "Which banks use XRP directly?", answer: "Banks and financial institutions confirmed to use XRP directly through On-Demand Liquidity (ODL) include SBI Remit, Tranglo, Modulr, Azimo (now Papaya Global), FlashFX, and several others. Major banks like SBI Holdings and Santander use RippleNet, with some corridors leveraging XRP for liquidity." },
     { question: "How many banks use RippleNet?", answer: "Over 300 financial institutions across 55+ countries are connected to RippleNet. This includes banks, payment providers, money transfer operators, and central banks. Not all of them use XRP directly — some use RippleNet's messaging capabilities without the ODL/XRP component." },

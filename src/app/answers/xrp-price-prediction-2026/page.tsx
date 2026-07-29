@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "XRP Price Prediction 2026 | AllAboutXRP",
     description: "Real analyst predictions for XRP in 2026 — 21Shares, Changelly, Kraken forecasts with bear/base/bull scenarios.",
-    url: "https://allaboutxrp.com/answers/xrp-price-prediction-2026",
+    url: "https://allaboutxrp.com/learn/xrp-price-prediction",
     type: "article",
   },
   twitter: {
@@ -32,7 +32,7 @@ const schemas = [
   buildArticleSchema({
     headline: "XRP Price Prediction 2026: What Analysts Are Saying",
     description: "A compilation of real analyst predictions for XRP price in 2026, including 21Shares, Changelly, Kraken, and Google Gemini forecasts.",
-    url: "https://allaboutxrp.com/answers/xrp-price-prediction-2026",
+    url: "https://allaboutxrp.com/learn/xrp-price-prediction",
     datePublished: "2026-02-11",
     dateModified: "2026-02-11",
   }),
@@ -41,7 +41,7 @@ const schemas = [
     { name: "Answers", url: "https://allaboutxrp.com/answers" },
     { name: "XRP Price Prediction 2026" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/answers/xrp-price-prediction-2026" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-prediction" }),
   buildFAQSchema([
     { question: "What will XRP be worth in 2026?", answer: "Analyst predictions for XRP in 2026 range from $1.60 (bear case by 21Shares) to $4+ (bull case with ETF inflows). The consensus base case is around $2.25-$2.45. These are probabilistic estimates, not guarantees." },
     { question: "Can XRP reach $5 in 2026?", answer: "Most credible analysts consider $5 XRP unlikely in 2026. Google Gemini sets a 'realistic ceiling' at $3-$4 requiring $5-8 billion in ETF inflows. Reaching $5 would require a market cap of approximately $290 billion — roughly 2.3x current levels." },
@@ -275,7 +275,7 @@ export default function XRPPricePrediction2026Page() {
             description="The best investment decisions start with education. Learn what XRP is, how it works, and what makes it unique."
             primaryHref="/learn/what-is-xrp"
             primaryLabel="What Is XRP?"
-            secondaryHref="/learn/get-started"
+            secondaryHref="/how-to-start"
             secondaryLabel="How to Buy XRP"
           />
 

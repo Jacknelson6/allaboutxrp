@@ -68,7 +68,7 @@ const faqItems = [
   { q: "How many XRP tokens exist?", a: "100 billion XRP were created at genesis. No more can ever be minted. Approximately 60 billion are in circulation, ~33.9 billion are in Ripple's escrow, and over 14 million have been permanently burned through transaction fees." },
   { q: "Is XRP a good investment?", a: "XRP has real utility in cross-border payments, growing institutional adoption, regulatory clarity, and potential ETF products. However, all cryptocurrency investments carry risk. Do your own research and never invest more than you can afford to lose." },
   { q: "What makes XRP different from Bitcoin?", a: "XRP settles in 3-5 seconds vs. Bitcoin's 10+ minutes, costs fractions of a cent vs. dollars, handles 1,500+ TPS vs. ~7, and uses an energy-efficient consensus protocol instead of proof-of-work mining. Bitcoin is designed as a store of value; XRP is designed for payments." },
-  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, Kraken, and Bitstamp. Check our beginner's guide to buying XRP at /learn/get-started for step-by-step instructions." },
+  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, Kraken, and Bitstamp. Check our beginner's guide to buying XRP at /how-to-start for step-by-step instructions." },
 ];
 
 export default function WhatIsXRPPage() {

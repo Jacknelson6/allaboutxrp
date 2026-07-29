@@ -79,7 +79,7 @@ export default function RecoverLostXRPPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Recovery depends on <em>how</em> you lost access. Exchange password forgotten? Usually recoverable. Lost seed phrase with no backup? Likely gone forever. Missing <Link href="/learn/xrp-destination-tag-guide" className="text-xrp-accent underline decoration-xrp-accent/30">destination tag</Link>? Contact the exchange. The best strategy is prevention — use a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a> and keep multiple secure backups of your seed phrase.</p>
+          <p>Recovery depends on <em>how</em> you lost access. Exchange password forgotten? Usually recoverable. Lost seed phrase with no backup? Likely gone forever. Missing <Link href="/learn/xrp-destination-tag-guide" className="text-xrp-accent underline decoration-xrp-accent/30">destination tag</Link>? Contact the exchange. The best strategy is prevention — understand <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">wallet custody</Link> and keep multiple secure backups of your seed phrase.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[

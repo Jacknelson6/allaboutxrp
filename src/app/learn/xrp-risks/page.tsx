@@ -178,7 +178,7 @@ export default function XRPRisksPage() {
         <LearnCTA
           title="Informed Investing Is Smart Investing"
           description="Understanding risks doesn't mean avoiding them — it means managing them. Make your decision with full knowledge."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-portfolio-allocation"
           secondaryLabel="Portfolio Guide"

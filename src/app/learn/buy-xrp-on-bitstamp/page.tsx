@@ -142,7 +142,7 @@ export default function BuyXRPOnBitstampPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Bitstamp" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Bitstamp account →</a> Europe&apos;s most trusted exchange since 2011. Free SEPA deposits and competitive XRP trading fees.</p>
+                <p><a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Bitstamp account →</a> Europe&apos;s most trusted exchange since 2011. Free SEPA deposits and competitive XRP trading fees.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -164,7 +164,7 @@ export default function BuyXRPOnBitstampPage() {
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              For European users, SEPA is the clear winner — free and reliable. The 5% credit card fee is steep; avoid it unless you need XRP immediately. For broader options, compare with <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">other XRP exchanges</Link>.
+              For European users, SEPA is the clear winner — free and reliable. The 5% credit card fee is steep; avoid it unless you need XRP immediately. For broader options, compare with <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">other XRP exchanges</Link>.
             </p>
           </RevealSection>
 
@@ -184,7 +184,7 @@ export default function BuyXRPOnBitstampPage() {
 
             <div className="mt-6">
               <HighlightBox title="🚀 Buy XRP on Bitstamp" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Bitstamp now →</a> Free SEPA deposits + 0.30% trading fees.</p>
+                <p><a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Bitstamp now →</a> Free SEPA deposits + 0.30% trading fees.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -214,7 +214,7 @@ export default function BuyXRPOnBitstampPage() {
           <RevealSection id="withdraw" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Withdrawing XRP from Bitstamp</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Bitstamp supports full XRP withdrawals. Move your XRP to a <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallet</Link> for long-term security.
+              Bitstamp supports full XRP withdrawals. Move your XRP to a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallet</Link> for long-term security.
             </p>
 
             <div className="mt-6">
@@ -236,7 +236,7 @@ export default function BuyXRPOnBitstampPage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-in-uk", label: "Buy XRP in UK", desc: "GBP deposit guide" },
               { href: "/learn/buy-xrp-on-kraken", label: "Buy XRP on Kraken", desc: "Security-focused exchange" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Full comparison" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-european-regulation", label: "XRP EU Regulation", desc: "MiCA & compliance" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -247,9 +247,9 @@ export default function BuyXRPOnBitstampPage() {
         <LearnCTA
           title="Buy XRP on Bitstamp"
           description="Europe's most trusted exchange since 2011. Free SEPA deposits and straightforward trading."
-          primaryHref="https://allaboutxrp.com/go/bitstamp"
+          primaryHref="https://www.bitstamp.net/"
           primaryLabel="Sign Up for Bitstamp →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

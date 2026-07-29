@@ -66,7 +66,7 @@ const faqItems = [
   { q: "What was XRP's all-time high price?", a: "XRP reached $3.84 on January 4, 2018, during the 2017-2018 crypto bull run. It briefly became the second-largest cryptocurrency by market capitalization." },
   { q: "Who created XRP?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined to co-found the company." },
   { q: "When did the SEC sue Ripple?", a: "The SEC filed suit on December 22, 2020. Judge Torres issued the landmark ruling on July 13, 2023, that XRP on exchanges is not a security. Ripple paid a $125M penalty in August 2024." },
-  { q: "How can I buy XRP today?", a: "XRP is available on all major exchanges including Coinbase, Uphold, and Kraken. See our step-by-step beginner guide at /learn/get-started." },
+  { q: "How can I buy XRP today?", a: "XRP is available on all major exchanges including Coinbase, Uphold, and Kraken. See our step-by-step beginner guide at /how-to-start." },
 ];
 
 const eventsByYear = timelineData.reduce((acc: Record<number, typeof timelineData>, event) => {
@@ -297,7 +297,7 @@ export default function HistoryPage() {
               { href: "/learn/acquisitions", label: "Ripple Acquisitions", desc: "Strategic acquisitions" },
               { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -312,7 +312,7 @@ export default function HistoryPage() {
         <LearnCTA
           title="Ready to Be Part of the Story?"
           description="From a 2011 whiteboard concept to a $50 billion financial infrastructure company — XRP's story is still being written. Start your journey today."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/what-is-xrp"
           secondaryLabel="What is XRP?"

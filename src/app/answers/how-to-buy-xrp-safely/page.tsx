@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How to Buy XRP Safely | AllAboutXRP",
     description: "Security best practices for buying, storing, and protecting your XRP investment.",
-    url: "https://allaboutxrp.com/answers/how-to-buy-xrp-safely",
+    url: "https://allaboutxrp.com/learn/how-to-store-xrp-safely",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/how-to-store-xrp-safely" },
@@ -26,7 +26,7 @@ export default function Page() {
       shortAnswer={
         <p className="text-gray-300 leading-relaxed">
           The crypto space has its share of scams, hacks, and pitfalls. The good news: protecting yourself is straightforward if you follow basic security practices. Use{" "}
-          <Link href="/answers/where-can-you-buy-xrp" className="text-[#0085FF] hover:underline">reputable exchanges</Link>,
+          <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">reputable exchanges</Link>,
           enable 2FA, never share private keys, and move significant holdings to a{" "}
           <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
           Here&apos;s everything you need to know to buy and hold XRP safely.
@@ -113,12 +113,12 @@ export default function Page() {
         <div className="space-y-4 text-gray-300 leading-relaxed">
           <p>
             Security doesn&apos;t have to be complicated. Start with a{" "}
-            <Link href="/answers/where-can-you-buy-xrp" className="text-[#0085FF] hover:underline">trusted exchange</Link>,
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">trusted exchange</Link>,
             enable 2FA with an authenticator app, use a unique password, and never share your seed phrase. If you&apos;re holding more than a few hundred dollars in XRP, invest $60-80 in a hardware wallet — it&apos;s the best insurance you can buy.
           </p>
           <p>
             Remember: <strong className="text-white">not your keys, not your coins</strong>. Exchanges can be hacked, frozen, or go bankrupt. Self-custody with a hardware wallet gives you full control. Ready to get started? Check{" "}
-            <Link href="/answers/what-do-you-need-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to buy XRP</Link>.
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to buy XRP</Link>.
           </p>
         </div>
       }

@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "XRP Spot ETF vs Futures ETF: Key Differences Explained",
     description: "XRP spot ETF vs futures ETF — how each works, price impact, and which matters more.",
-    url: "https://allaboutxrp.com/learn/xrp-spot-etf-vs-futures-etf",
+    url: "https://allaboutxrp.com/learn/xrp-etf",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "XRP Spot ETF vs Futures ETF: Key Differences", description: "Spot vs futures ETF for XRP — which matters more?" },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-spot-etf-vs-futures-etf" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP Spot ETF vs Futures ETF: Key Differences Explained", description: "XRP spot ETF vs futures ETF comparison covering mechanics, price impact, and investor access.", url: "https://allaboutxrp.com/learn/xrp-spot-etf-vs-futures-etf", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP Spot ETF vs Futures ETF: Key Differences Explained", description: "XRP spot ETF vs futures ETF comparison covering mechanics, price impact, and investor access.", url: "https://allaboutxrp.com/learn/xrp-etf", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Spot ETF vs Futures ETF" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-spot-etf-vs-futures-etf" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf" }),
   buildFAQSchema([
     { question: "What's the difference between a spot and futures XRP ETF?", answer: "A spot ETF holds actual XRP, directly impacting supply/demand. A futures ETF holds XRP futures contracts, providing price exposure without buying real XRP." },
     { question: "Which is better for XRP price?", answer: "Spot ETFs have much larger price impact because they require buying and holding real XRP, creating direct demand pressure." },
@@ -148,7 +148,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },

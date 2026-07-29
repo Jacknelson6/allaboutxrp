@@ -70,7 +70,7 @@ export default function XRPAndBanksPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Banks are adopting XRP because it solves a <strong className="text-text-primary">$27 trillion problem</strong> in cross-border payments. Traditional correspondent banking requires pre-funded accounts, takes days, and costs a fortune. XRP settles in 3-5 seconds for fractions of a cent, freeing up trapped capital and slashing costs by up to 60%. With <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">regulatory clarity post-SEC settlement</Link>, institutional adoption is accelerating faster than ever.</p>
+          <p>Banks are adopting XRP because it solves a <strong className="text-text-primary">$27 trillion problem</strong> in cross-border payments. Traditional correspondent banking requires pre-funded accounts, takes days, and costs a fortune. XRP settles in 3-5 seconds for fractions of a cent, freeing up trapped capital and slashing costs by up to 60%. With <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">regulatory clarity post-SEC settlement</Link>, institutional adoption is accelerating faster than ever.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -139,7 +139,7 @@ export default function XRPAndBanksPage() {
           <RevealSection id="adoption" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Banks and Institutions Using XRP</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Adoption has accelerated dramatically since the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple settlement</Link>. Here are some of the key institutional partners:
+              Adoption has accelerated dramatically since the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple settlement</Link>. Here are some of the key institutional partners:
             </p>
             <div className="mt-6">
               <DataTable
@@ -155,7 +155,7 @@ export default function XRPAndBanksPage() {
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              For the complete list, see our <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Banks Using XRP</Link> page.
+              For the complete list, see our <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Banks Using XRP</Link> page.
             </p>
           </RevealSection>
 
@@ -185,7 +185,7 @@ export default function XRPAndBanksPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Detailed bank use cases" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge payments" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "The bigger picture" },
               { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "Head-to-head comparison" },
@@ -199,9 +199,9 @@ export default function XRPAndBanksPage() {
         <LearnCTA
           title="The Institutional Era Has Begun"
           description="Banks are adopting XRP for cross-border payments. Learn how to position yourself."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
-          secondaryHref="/learn/banks-using-xrp"
+          secondaryHref="/learn/how-banks-use-xrp"
           secondaryLabel="See All Bank Partners"
         />
 

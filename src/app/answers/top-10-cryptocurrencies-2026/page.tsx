@@ -274,7 +274,7 @@ export default function Top10Cryptocurrencies2026Page() {
                       <span className="text-sm font-semibold text-text-primary">XRP Use Cases →</span>
                       <span className="mt-1 block text-xs text-text-secondary">How XRP is used in the real world</span>
                     </Link>
-                    <Link href="/answers/xrp-price-prediction-2026" className="linear-card p-4">
+                    <Link href="/learn/xrp-price-prediction" className="linear-card p-4">
                       <span className="text-sm font-semibold text-text-primary">XRP Price Prediction →</span>
                       <span className="mt-1 block text-xs text-text-secondary">What analysts forecast for 2026</span>
                     </Link>
@@ -310,7 +310,7 @@ export default function Top10Cryptocurrencies2026Page() {
             description="Learn why XRP is one of the top cryptocurrencies for 2026 — from its lightning-fast settlement to growing institutional adoption."
             primaryHref="/learn/what-is-xrp"
             primaryLabel="What Is XRP?"
-            secondaryHref="/learn/get-started"
+            secondaryHref="/how-to-start"
             secondaryLabel="Buy XRP"
           />
 

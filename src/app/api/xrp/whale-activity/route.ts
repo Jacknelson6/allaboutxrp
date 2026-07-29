@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // Cache whale data for 5 minutes
-let cache: { data: any; ts: number } | null = null;
+let cache: { data: WhaleData; ts: number } | null = null;
 const CACHE_MS = 5 * 60 * 1000;
 const WHALE_THRESHOLD = 1_000_000; // 1M XRP
 
@@ -10,12 +10,16 @@ interface WhaleTx {
   amount: number;
   from: string;
   to: string;
-  time: string;
+  timestamp: string;
   fromLabel?: string;
   toLabel?: string;
 }
 
 interface WhaleData {
+  available: boolean;
+  source: string | null;
+  updatedAt: string;
+  error?: string;
   transactions: WhaleTx[];
   totalMoved: number;
   count: number;
@@ -27,6 +31,8 @@ async function fetchWhaleData(): Promise<WhaleData> {
   // Use Bithomp API for recent large XRP transactions
   // Fallback: use XRPL websocket for recent transactions
   const transactions: WhaleTx[] = [];
+  let providerResponded = false;
+  let source: string | null = null;
 
   try {
     // Try XRPScan API for recent payments
@@ -36,12 +42,15 @@ async function fetchWhaleData(): Promise<WhaleData> {
     });
 
     if (res.ok) {
+      providerResponded = true;
+      source = "XRPScan";
       const payments = await res.json();
       const now = Date.now();
       const oneDayAgo = now - 24 * 60 * 60 * 1000;
 
       for (const p of payments) {
         const time = new Date(p.time || p.date || p.executed_time).getTime();
+        if (!Number.isFinite(time)) continue;
         if (time < oneDayAgo) continue;
 
         const amount = parseFloat(p.amount) || (parseFloat(p.delivered_amount) / 1_000_000) || 0;
@@ -51,7 +60,7 @@ async function fetchWhaleData(): Promise<WhaleData> {
             amount,
             from: p.source || p.account || p.sender,
             to: p.destination || p.recipient,
-            time: new Date(time).toISOString(),
+            timestamp: new Date(time).toISOString(),
             fromLabel: p.source_tag_name || p.source_name || undefined,
             toLabel: p.destination_tag_name || p.destination_name || undefined,
           });
@@ -70,6 +79,8 @@ async function fetchWhaleData(): Promise<WhaleData> {
         signal: AbortSignal.timeout(10000),
       });
       if (res.ok) {
+        providerResponded = true;
+        source = "Bithomp";
         const data = await res.json();
         const txs = data.transactions || data.payments || data || [];
         for (const t of (Array.isArray(txs) ? txs : [])) {
@@ -80,7 +91,7 @@ async function fetchWhaleData(): Promise<WhaleData> {
               amount,
               from: t.account || t.source,
               to: t.destination,
-              time: t.date || t.time || new Date().toISOString(),
+              timestamp: t.date || t.time || new Date().toISOString(),
             });
           }
         }
@@ -90,35 +101,8 @@ async function fetchWhaleData(): Promise<WhaleData> {
     }
   }
 
-  // If APIs fail, generate realistic sample data based on typical XRPL whale activity
-  if (transactions.length === 0) {
-    const now = Date.now();
-    const sampleWhales = [
-      { from: "rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh", fromLabel: "Binance", to: "rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh", toLabel: "Unknown" },
-      { from: "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", fromLabel: "Uphold", to: "rPT1Sjq2YGrBMTttX4GZHjKu9dyfzbpAYe", toLabel: "Bitstamp" },
-      { from: "rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh", fromLabel: "Unknown", to: "rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh", toLabel: "Binance" },
-      { from: "rDsbeomae4FXwgQTJp9Rs64Qg9vDiTCdBv", fromLabel: "Ripple", to: "rKveEyR1SrkWbJX214xcfH43AySRsMfiLr", toLabel: "Unknown" },
-      { from: "rN7n3473SaZBCG4dFL83w7p1W9cgPB8boc", fromLabel: "Coinbase", to: "rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh", toLabel: "Binance" },
-    ];
-
-    for (let i = 0; i < 12; i++) {
-      const whale = sampleWhales[i % sampleWhales.length];
-      const hoursAgo = Math.random() * 24;
-      const amount = Math.round((1_000_000 + Math.random() * 49_000_000) / 1000) * 1000;
-      transactions.push({
-        hash: `SAMPLE${i.toString().padStart(4, "0")}${"ABCDEF0123456789".split("").sort(() => Math.random() - 0.5).join("")}`.slice(0, 64),
-        amount,
-        from: whale.from,
-        to: whale.to,
-        time: new Date(now - hoursAgo * 3600000).toISOString(),
-        fromLabel: whale.fromLabel,
-        toLabel: whale.toLabel,
-      });
-    }
-  }
-
   // Sort by time descending
-  transactions.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+  transactions.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
   // Calculate hourly volume for chart
   const hourlyMap = new Map<number, number>();
@@ -126,7 +110,7 @@ async function fetchWhaleData(): Promise<WhaleData> {
   
   const now = Date.now();
   for (const tx of transactions) {
-    const hoursAgo = Math.floor((now - new Date(tx.time).getTime()) / 3600000);
+    const hoursAgo = Math.floor((now - new Date(tx.timestamp).getTime()) / 3600000);
     if (hoursAgo >= 0 && hoursAgo < 24) {
       hourlyMap.set(hoursAgo, (hourlyMap.get(hoursAgo) || 0) + tx.amount);
     }
@@ -140,6 +124,10 @@ async function fetchWhaleData(): Promise<WhaleData> {
   const largest = transactions.reduce((m, t) => Math.max(m, t.amount), 0);
 
   return {
+    available: providerResponded,
+    source,
+    updatedAt: new Date().toISOString(),
+    ...(!providerResponded ? { error: "Live transaction providers are temporarily unavailable." } : {}),
     transactions: transactions.slice(0, 20),
     totalMoved,
     count: transactions.length,

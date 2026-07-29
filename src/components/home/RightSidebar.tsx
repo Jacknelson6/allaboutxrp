@@ -9,7 +9,7 @@ import MiniPreviewCard from "./MiniPreviewCard";
 
 const watchItems = [
   { title: "XRP vs SWIFT", href: "/learn/xrp-vs-swift" },
-  { title: "SEC vs Ripple", href: "/learn/sec-vs-ripple-explained" },
+  { title: "SEC vs Ripple", href: "/learn/sec-vs-ripple" },
   { title: "XRP ETF", href: "/learn/xrp-etf" },
 ];
 

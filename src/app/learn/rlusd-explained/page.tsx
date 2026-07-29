@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RLUSD Explained: Ripple's Stablecoin That Could Flip USDC",
     description: "RLUSD is Ripple's NY DFS-approved stablecoin on XRPL and Ethereum. Here's everything you need to know.",
-    url: "https://allaboutxrp.com/learn/rlusd-explained",
+    url: "https://allaboutxrp.com/learn/rlusd",
     type: "article",
   },
   twitter: {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "RLUSD: Ripple's Stablecoin Explained | AllAboutXRP",
     description: "NY DFS approved, dual-chain, institutional-grade. Why RLUSD could challenge USDC and USDT.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/rlusd-explained" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/rlusd" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "RLUSD: Ripple's Stablecoin That Could Flip USDC",
     description: "A comprehensive guide to RLUSD — Ripple's USD stablecoin, how it works on XRPL and Ethereum, regulatory advantages, and growth trajectory.",
-    url: "https://allaboutxrp.com/learn/rlusd-explained",
+    url: "https://allaboutxrp.com/learn/rlusd",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -44,7 +44,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "RLUSD Explained" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/rlusd-explained" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/rlusd" }),
   buildFAQSchema([
     { question: "What is RLUSD?", answer: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services (NY DFS). It runs on both the XRP Ledger and Ethereum, backed 1:1 by USD deposits and US Treasury bills. It's designed for institutional cross-border payments and DeFi." },
     { question: "Is RLUSD safe?", answer: "RLUSD is one of the most regulated stablecoins in the market. It's approved by the NY DFS (the same regulator that oversees major US banks), backed 1:1 by USD and US Treasuries with regular attestations, and issued by Ripple — a company valued at $11B+." },
@@ -231,7 +231,7 @@ export default function RLUSDExplainedPage() {
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Enterprise brokerage" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -240,7 +240,7 @@ export default function RLUSDExplainedPage() {
         <LearnCTA
           title="The Stablecoin Revolution"
           description="RLUSD is just one piece of Ripple's ecosystem. Explore how XRP, RLUSD, and institutional partnerships are creating a new financial infrastructure."
-          primaryHref="/learn/banks-using-xrp"
+          primaryHref="/learn/how-banks-use-xrp"
           primaryLabel="Banks Using XRP →"
           secondaryHref="/learn/xrpl-defi"
           secondaryLabel="XRPL DeFi"

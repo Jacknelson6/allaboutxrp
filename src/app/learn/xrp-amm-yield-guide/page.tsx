@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider | AllAboutXRP",
   description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.",
   keywords: ["XRPL AMM yield","XRPL LP yield","earn fees XRP AMM","XRPL liquidity provider income"],
-  openGraph: { title: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider", description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.", url: "https://allaboutxrp.com/learn/xrp-amm-yield-guide", type: "article" },
+  openGraph: { title: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider", description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.", url: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools", type: "article" },
   twitter: { card: "summary_large_image", title: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider", description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-amm-yield-guide" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider", description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.", url: "https://allaboutxrp.com/learn/xrp-amm-yield-guide", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRPL AMM Yield Guide: Earn Fees as a Liquidity Provider", description: "How much can you earn as an XRPL AMM liquidity provider? Yield calculations, pool selection, and impermanent loss management.", url: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "AMM Yield Guide" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-amm-yield-guide" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools" }),
   buildFAQSchema([
     { question: "How much can I earn?", answer: "3-8% APY depending on pool volume. Stablecoin pairs: 4-6%." },
     { question: "What is impermanent loss?", answer: "Loss vs holding when price ratios change. Fees can offset it." },
@@ -125,7 +125,7 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/earn-interest-on-xrp", label: "Earn Interest", desc: "All methods" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX", desc: "On-chain trading" },
-              { href: "/learn/rlusd-explained", label: "RLUSD", desc: "Stablecoin" },
+              { href: "/learn/rlusd", label: "RLUSD", desc: "Stablecoin" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "Basics" },
               { href: "/learn/xrp-block-explorers", label: "Explorers", desc: "Track pools" },
               { href: "/learn/xrp-lending-platforms", label: "Lending", desc: "CeFi alternative" },

@@ -127,7 +127,7 @@ export default function BestHubPage() {
               <Link href="/learn/what-is-xrp" className="text-sm text-[#0085FF] hover:underline">
                 What is XRP? →
               </Link>
-              <Link href="/learn/get-started" className="text-sm text-[#0085FF] hover:underline">
+              <Link href="/how-to-start" className="text-sm text-[#0085FF] hover:underline">
                 Get Started →
               </Link>
             </div>

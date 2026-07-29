@@ -69,7 +69,7 @@ export default function WhatMakesXRPDifferentPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>XRP is different because it was <strong className="text-text-primary">built specifically for payments</strong>. While Bitcoin is &quot;digital gold&quot; and Ethereum is a &quot;world computer,&quot; XRP was designed to move money across borders in seconds for almost nothing. It&apos;s the only major crypto with <Link href="/learn/xrp-and-banks" className="text-xrp-accent underline decoration-xrp-accent/30">100+ bank partners</Link>, <Link href="/learn/xrp-sec-settlement" className="text-xrp-accent underline decoration-xrp-accent/30">full regulatory clarity</Link>, and a specific real-world job: replacing the $27 trillion correspondent banking system.</p>
+          <p>XRP is different because it was <strong className="text-text-primary">built specifically for payments</strong>. While Bitcoin is &quot;digital gold&quot; and Ethereum is a &quot;world computer,&quot; XRP was designed to move money across borders in seconds for almost nothing. It&apos;s the only major crypto with <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">100+ bank partners</Link>, <Link href="/learn/xrp-sec-settlement" className="text-xrp-accent underline decoration-xrp-accent/30">full regulatory clarity</Link>, and a specific real-world job: replacing the $27 trillion correspondent banking system.</p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -167,7 +167,7 @@ export default function WhatMakesXRPDifferentPage() {
         <LearnCTA
           title="Ready to Get Started?"
           description="XRP is different because it's built for real-world payments. Learn how to buy your first XRP."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/what-is-xrp"
           secondaryLabel="What is XRP?"

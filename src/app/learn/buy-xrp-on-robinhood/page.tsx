@@ -79,7 +79,7 @@ export default function BuyXRPOnRobinhoodPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Robinhood</strong> offers XRP trading with no explicit commissions, but charges a <strong className="text-text-primary">0.4-0.8% spread</strong>. It&apos;s the most convenient option if you already use Robinhood for stocks, but dedicated <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">crypto exchanges</Link> offer lower costs, better features, and superior withdrawal options. Robinhood now supports crypto withdrawals via Robinhood Wallet.</p>
+          <p><strong className="text-text-primary">Robinhood</strong> offers XRP trading with no explicit commissions, but charges a <strong className="text-text-primary">0.4-0.8% spread</strong>. It&apos;s the most convenient option if you already use Robinhood for stocks, but dedicated <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">crypto exchanges</Link> offer lower costs, better features, and superior withdrawal options. Robinhood now supports crypto withdrawals via Robinhood Wallet.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -128,7 +128,7 @@ export default function BuyXRPOnRobinhoodPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Get Started on Robinhood" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/robinhood" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Open a Robinhood account →</a> Buy XRP alongside your stocks and ETFs — all in one app.</p>
+                <p><a href="https://robinhood.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Open a Robinhood account →</a> Buy XRP alongside your stocks and ETFs — all in one app.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -154,7 +154,7 @@ export default function BuyXRPOnRobinhoodPage() {
           <RevealSection id="fees" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">The True Cost of Buying XRP on Robinhood</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Robinhood markets itself as &quot;commission-free,&quot; but you&apos;re still paying through the spread. Here&apos;s how it actually compares to <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">dedicated exchanges</Link>:
+              Robinhood markets itself as &quot;commission-free,&quot; but you&apos;re still paying through the spread. Here&apos;s how it actually compares to <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">dedicated exchanges</Link>:
             </p>
 
             <div className="mt-6">
@@ -224,7 +224,7 @@ export default function BuyXRPOnRobinhoodPage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-coinbase", label: "Buy XRP on Coinbase", desc: "Better fees & features" },
               { href: "/learn/buy-xrp-on-uphold", label: "Buy XRP on Uphold", desc: "XRP community favorite" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Full comparison" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start here" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -235,9 +235,9 @@ export default function BuyXRPOnRobinhoodPage() {
         <LearnCTA
           title="Buy XRP on Robinhood"
           description="Already use Robinhood? Add XRP to your portfolio in under a minute. Or compare dedicated exchanges for lower fees."
-          primaryHref="https://allaboutxrp.com/go/robinhood"
+          primaryHref="https://robinhood.com/"
           primaryLabel="Open Robinhood →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

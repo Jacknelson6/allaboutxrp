@@ -302,7 +302,7 @@ export default function CrossBorderPaymentsPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
@@ -318,7 +318,7 @@ export default function CrossBorderPaymentsPage() {
           description="XRP is already transforming cross-border payments across 55+ countries. Ready to learn more about the technology powering the future of global finance?"
           primaryHref="/learn/on-demand-liquidity"
           primaryLabel="Explore ODL →"
-          secondaryHref="/learn/get-started"
+          secondaryHref="/how-to-start"
           secondaryLabel="Get Started with XRP"
         />
 

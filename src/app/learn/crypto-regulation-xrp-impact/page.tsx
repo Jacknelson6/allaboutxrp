@@ -88,7 +88,7 @@ export default function Page() {
 
           <RevealSection id="sec">
             <h2 className="text-2xl font-bold text-text-primary">The SEC Case & Its Impact</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> was the defining regulatory battle. The ruling that secondary market XRP sales aren't securities was a watershed moment.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> was the defining regulatory battle. The ruling that secondary market XRP sales aren't securities was a watershed moment.</p>
             <div className="mt-6"><DataTable headers={["Event","Impact on XRP","Date"]} rows={[
               ["SEC files lawsuit","Exchanges delist, price drops 60%","Dec 2020"],
               ["Hinman documents","Showed SEC inconsistency, price rallied","Jun 2023"],
@@ -131,7 +131,7 @@ export default function Page() {
 
           <RevealSection id="future" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">What's Next</h2>
-            <div className="mt-6"><HighlightBox title="2026 Regulatory Outlook" variant="info"><p>Expect US stablecoin legislation, potential <Link href="/learn/xrp-spot-etf-vs-futures-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP spot ETF</Link> decisions, and expanding MiCA enforcement. Ripple's compliance-first approach positions XRP ahead of most crypto assets.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="2026 Regulatory Outlook" variant="info"><p>Expect US stablecoin legislation, potential <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP spot ETF</Link> decisions, and expanding MiCA enforcement. Ripple's compliance-first approach positions XRP ahead of most crypto assets.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -143,12 +143,12 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "Lawsuit timeline" },
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "SEC ruling explained" },
               { href: "/learn/xrp-european-regulation", label: "European Regulation", desc: "MiCA & EU framework" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>

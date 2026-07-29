@@ -81,7 +81,7 @@ export default function IsXRPASecurityPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP is not a security</strong> when sold on public exchanges to retail buyers — that was the landmark ruling from Judge Analisa Torres in July 2023. The court applied the <strong className="text-text-primary">Howey Test</strong> and found that buying XRP on an exchange doesn&apos;t constitute an investment contract. However, Ripple&apos;s direct sales to institutional investors <em>were</em> found to be unregistered securities offerings. The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> settled in 2025, clearing the path for <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETF approval</Link> and broader institutional adoption.</p>
+          <p><strong className="text-text-primary">XRP is not a security</strong> when sold on public exchanges to retail buyers — that was the landmark ruling from Judge Analisa Torres in July 2023. The court applied the <strong className="text-text-primary">Howey Test</strong> and found that buying XRP on an exchange doesn&apos;t constitute an investment contract. However, Ripple&apos;s direct sales to institutional investors <em>were</em> found to be unregistered securities offerings. The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link> settled in 2025, clearing the path for <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">XRP ETF approval</Link> and broader institutional adoption.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -136,7 +136,7 @@ export default function IsXRPASecurityPage() {
           <RevealSection id="court-ruling" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">The Landmark Court Ruling</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              On July 13, 2023, Judge Analisa Torres of the Southern District of New York issued a ruling that sent shockwaves through the crypto industry. The decision in <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v. Ripple Labs</Link> was nuanced — neither a complete win nor loss for either side.
+              On July 13, 2023, Judge Analisa Torres of the Southern District of New York issued a ruling that sent shockwaves through the crypto industry. The decision in <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v. Ripple Labs</Link> was nuanced — neither a complete win nor loss for either side.
             </p>
 
             <div className="mt-6">
@@ -270,12 +270,12 @@ export default function IsXRPASecurityPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "Lawsuit timeline" },
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Crypto Regulation Impact", desc: "Laws shaping XRP" },
               { href: "/learn/xrp-european-regulation", label: "European Regulation", desc: "MiCA & EU framework" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -284,7 +284,7 @@ export default function IsXRPASecurityPage() {
         <LearnCTA
           title="Understand XRP's Legal Standing"
           description="Now you know XRP isn't a security. Explore the full SEC vs Ripple case timeline or learn about the upcoming XRP ETF."
-          primaryHref="/learn/sec-vs-ripple-explained"
+          primaryHref="/learn/sec-vs-ripple"
           primaryLabel="SEC vs Ripple Deep Dive →"
           secondaryHref="/learn/xrp-etf"
           secondaryLabel="XRP ETF Guide"

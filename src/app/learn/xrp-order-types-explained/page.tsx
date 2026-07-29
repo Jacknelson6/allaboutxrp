@@ -113,14 +113,14 @@ export default function Page() {
               { href: "/learn/xrp-day-trading-guide", label: "Day Trading", desc: "Strategies" },
               { href: "/learn/xrp-futures-trading", label: "Futures", desc: "Leverage" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX", desc: "On-chain" },
-              { href: "/learn/best-xrp-exchanges", label: "Exchanges", desc: "Compare" },
+              { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Compare" },
               { href: "/learn/xrp-technical-analysis-guide", label: "TA", desc: "Charts" },
               { href: "/learn/best-xrp-trading-pairs", label: "Pairs", desc: "Selection" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Master Orders" description="Right order for every situation." primaryHref="/learn/xrp-day-trading-guide" primaryLabel="Day Trading →" secondaryHref="/learn/best-xrp-exchanges" secondaryLabel="Exchanges" />
+        <LearnCTA title="Master Orders" description="Right order for every situation." primaryHref="/learn/xrp-day-trading-guide" primaryLabel="Day Trading →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="Exchanges" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

@@ -198,7 +198,7 @@ export default function WhyIsXRPSoCheapPage() {
 
             <div className="mt-6">
               <HighlightBox title="Most of These Factors Have Resolved" variant="success">
-                <p>The SEC case is <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">settled</Link>. XRP is <Link href="/learn/is-xrp-a-security" className="text-xrp-accent underline decoration-xrp-accent/30">not a security</Link>. Exchanges have re-listed XRP. <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link> are pending. The historical headwinds are becoming tailwinds — which is why XRP reached a new all-time high of $3.65 in early 2025.</p>
+                <p>The SEC case is <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">settled</Link>. XRP is <Link href="/learn/is-xrp-a-security" className="text-xrp-accent underline decoration-xrp-accent/30">not a security</Link>. Exchanges have re-listed XRP. <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link> are pending. The historical headwinds are becoming tailwinds — which is why XRP reached a new all-time high of $3.65 in early 2025.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -207,7 +207,7 @@ export default function WhyIsXRPSoCheapPage() {
             <h2 className="text-2xl font-bold text-text-primary">Common Misconceptions About XRP&apos;s Price</h2>
             <div className="mt-6 space-y-4">
               <HighlightBox title="'XRP is cheap, so I can get rich if it reaches Bitcoin's price'" variant="danger">
-                <p><strong className="text-text-primary">Wrong.</strong> XRP will never reach Bitcoin&apos;s unit price because it has 5,000x more tokens. Even reaching $10 would give XRP a $580 billion market cap. See our <Link href="/learn/can-xrp-reach-100" className="text-xrp-accent underline decoration-xrp-accent/30">Can XRP reach $100?</Link> analysis.</p>
+                <p><strong className="text-text-primary">Wrong.</strong> XRP will never reach Bitcoin&apos;s unit price because it has 5,000x more tokens. Even reaching $10 would give XRP a $580 billion market cap. See our <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">Can XRP reach $100?</Link> analysis.</p>
               </HighlightBox>
               <HighlightBox title="'Low price means XRP is a bad investment'" variant="danger">
                 <p><strong className="text-text-primary">Also wrong.</strong> Price per unit says nothing about investment potential. A 2x gain on XRP ($1.93 → $3.86) doubles your money just as effectively as a 2x gain on Bitcoin ($50,000 → $100,000). It&apos;s about <em>percentage returns</em>, not unit price.</p>
@@ -229,7 +229,7 @@ export default function WhyIsXRPSoCheapPage() {
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },

@@ -328,7 +328,7 @@ export default function XRPLValidatorsPage() {
         <LearnCTA
           title="Explore the XRPL Network"
           description="The XRPL's validator network has been securing transactions since 2012 with zero downtime. Explore the network, check validator stats, or start your own XRP journey."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="Get Started with XRP →"
           secondaryHref="/learn/xrp-ledger-explained"
           secondaryLabel="Learn About XRPL"

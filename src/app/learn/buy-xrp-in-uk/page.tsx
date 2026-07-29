@@ -79,7 +79,7 @@ export default function BuyXRPInUKPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">UK residents</strong> can buy XRP easily using GBP via <strong className="text-text-primary">Faster Payments</strong> (free, instant). Best options: <a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> (FCA-registered, free GBP deposits, 0.30% fees) or <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (never hacked, 0.16% maker fees). Capital Gains Tax applies on profits above the <strong className="text-text-primary">£3,000 allowance</strong>. Always use an <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">FCA-registered exchange</Link>.</p>
+          <p><strong className="text-text-primary">UK residents</strong> can buy XRP easily using GBP via <strong className="text-text-primary">Faster Payments</strong> (free, instant). Best options: <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> (FCA-registered, free GBP deposits, 0.30% fees) or <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (never hacked, 0.16% maker fees). Capital Gains Tax applies on profits above the <strong className="text-text-primary">£3,000 allowance</strong>. Always use an <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">FCA-registered exchange</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -129,7 +129,7 @@ export default function BuyXRPInUKPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇬🇧 Our Top Pick for UK Users" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Bitstamp →</a> FCA-registered since 2020, free Faster Payments, direct XRP/GBP pair, and 15+ years of operation. <Link href="/learn/buy-xrp-on-bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Bitstamp guide</Link>.</p>
+                <p><a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Bitstamp →</a> FCA-registered since 2020, free Faster Payments, direct XRP/GBP pair, and 15+ years of operation. <Link href="/learn/buy-xrp-on-bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Bitstamp guide</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -215,7 +215,7 @@ export default function BuyXRPInUKPage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-bitstamp", label: "Buy on Bitstamp", desc: "Best for UK users" },
               { href: "/learn/buy-xrp-on-kraken", label: "Buy on Kraken", desc: "Security-focused" },
-              { href: "/learn/best-xrp-exchanges", label: "Best Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best Exchanges", desc: "Full comparison" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "UK & global taxes" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -226,9 +226,9 @@ export default function BuyXRPInUKPage() {
         <LearnCTA
           title="Buy XRP in the UK Today"
           description="Use Faster Payments for free, instant deposits on FCA-registered exchanges."
-          primaryHref="https://allaboutxrp.com/go/bitstamp"
+          primaryHref="https://www.bitstamp.net/"
           primaryLabel="Start with Bitstamp →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

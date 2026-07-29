@@ -78,7 +78,7 @@ export default function RippleIPOPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Ripple</strong> is valued at ~$11 billion privately and could command $15-50B+ in a public listing. The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC case resolution</Link> removed the biggest obstacle. An IPO would bring massive attention to XRP, validate Ripple&apos;s business model, and likely create a &quot;Coinbase effect&quot; — where the listing drives crypto buying. However, Ripple stock and XRP are <strong className="text-text-primary">separate investments</strong> with an indirect relationship.</p>
+          <p><strong className="text-text-primary">Ripple</strong> is valued at ~$11 billion privately and could command $15-50B+ in a public listing. The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC case resolution</Link> removed the biggest obstacle. An IPO would bring massive attention to XRP, validate Ripple&apos;s business model, and likely create a &quot;Coinbase effect&quot; — where the listing drives crypto buying. However, Ripple stock and XRP are <strong className="text-text-primary">separate investments</strong> with an indirect relationship.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -127,7 +127,7 @@ export default function RippleIPOPage() {
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              Brad Garlinghouse and other Ripple executives have repeatedly stated that an IPO was contingent on resolving the SEC lawsuit. With the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">case settled in 2025</Link>, the path to public markets is clear.
+              Brad Garlinghouse and other Ripple executives have repeatedly stated that an IPO was contingent on resolving the SEC lawsuit. With the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">case settled in 2025</Link>, the path to public markets is clear.
             </p>
           </RevealSection>
 
@@ -271,7 +271,7 @@ export default function RippleIPOPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
@@ -285,7 +285,7 @@ export default function RippleIPOPage() {
         <LearnCTA
           title="Stay Ahead of the IPO"
           description="The Ripple IPO could be the biggest crypto event since Coinbase went public. Understand the full picture — the SEC case, XRP's tokenomics, and what drives price."
-          primaryHref="/learn/sec-vs-ripple-explained"
+          primaryHref="/learn/sec-vs-ripple"
           primaryLabel="SEC Case Explained →"
           secondaryHref="/learn/xrp-price-potential"
           secondaryLabel="XRP Price Potential"

@@ -78,7 +78,7 @@ export default function XRPLegalStatusPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP is legal in 95%+ of countries.</strong> The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> confirmed XRP on exchanges is <strong className="text-text-primary">not a security</strong> in the US. The EU&apos;s <Link href="/learn/xrp-european-regulation" className="text-xrp-accent underline decoration-xrp-accent/30">MiCA framework</Link> provides clear rules. Japan treats XRP as a payment method. Only countries with blanket crypto bans (China trading, Bangladesh, etc.) restrict XRP. No country has <em>specifically</em> banned XRP.</p>
+          <p><strong className="text-text-primary">XRP is legal in 95%+ of countries.</strong> The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> confirmed XRP on exchanges is <strong className="text-text-primary">not a security</strong> in the US. The EU&apos;s <Link href="/learn/xrp-european-regulation" className="text-xrp-accent underline decoration-xrp-accent/30">MiCA framework</Link> provides clear rules. Japan treats XRP as a payment method. Only countries with blanket crypto bans (China trading, Bangladesh, etc.) restrict XRP. No country has <em>specifically</em> banned XRP.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -113,7 +113,7 @@ export default function XRPLegalStatusPage() {
           <RevealSection id="overview">
             <h2 className="text-2xl font-bold text-text-primary">Global XRP Legal Status Overview</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              XRP&apos;s legal standing improved dramatically after the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> in 2023. No country has ever specifically banned XRP — restrictions come only from countries that ban all cryptocurrency trading. Here&apos;s the full picture.
+              XRP&apos;s legal standing improved dramatically after the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> in 2023. No country has ever specifically banned XRP — restrictions come only from countries that ban all cryptocurrency trading. Here&apos;s the full picture.
             </p>
 
             <div className="mt-6">
@@ -231,7 +231,7 @@ export default function XRPLegalStatusPage() {
           <RevealSection id="sec-ruling" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">The SEC Ruling&apos;s Global Impact</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> had implications far beyond the US. It established a legal framework that other jurisdictions have referenced, and it removed the biggest cloud of uncertainty hanging over XRP globally.
+              The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> had implications far beyond the US. It established a legal framework that other jurisdictions have referenced, and it removed the biggest cloud of uncertainty hanging over XRP globally.
             </p>
 
             <div className="mt-6">
@@ -253,7 +253,7 @@ export default function XRPLegalStatusPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC v Ripple", desc: "The lawsuit explained" },
+              { href: "/learn/sec-vs-ripple", label: "SEC v Ripple", desc: "The lawsuit explained" },
               { href: "/learn/buy-xrp-in-usa", label: "Buy XRP in USA", desc: "US buying guide" },
               { href: "/learn/buy-xrp-in-uk", label: "Buy XRP in UK", desc: "UK buying guide" },
               { href: "/learn/xrp-european-regulation", label: "EU Regulation", desc: "MiCA framework" },
@@ -266,7 +266,7 @@ export default function XRPLegalStatusPage() {
         <LearnCTA
           title="XRP Is Legal Almost Everywhere"
           description="Ready to buy XRP? Check our country-specific guides or compare the best exchanges."
-          primaryHref="/learn/best-xrp-exchanges"
+          primaryHref="/learn/how-to-buy-xrp"
           primaryLabel="Best Exchanges →"
           secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="How to Buy XRP"

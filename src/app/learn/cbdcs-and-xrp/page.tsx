@@ -262,7 +262,7 @@ export default function CBDCsAndXRPPage() {
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Enterprise brokerage" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -273,7 +273,7 @@ export default function CBDCsAndXRPPage() {
           description="CBDCs represent the biggest shift in monetary infrastructure since the invention of electronic banking. Understand how XRP fits into this future."
           primaryHref="/learn/xrp-vs-swift"
           primaryLabel="XRP vs SWIFT →"
-          secondaryHref="/learn/banks-using-xrp"
+          secondaryHref="/learn/how-banks-use-xrp"
           secondaryLabel="Banks Using XRP"
         />
 

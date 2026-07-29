@@ -79,7 +79,7 @@ export default function XRPScamsPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Never send XRP to &quot;get more back&quot; — it&apos;s always a scam. Use a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</a> to protect your assets, verify URLs before connecting, and never share your secret key or seed phrase. The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> itself is secure — scams target <em>people</em>, not the protocol. Learn about <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody</Link> and <Link href="/learn/xrp-phishing-protection" className="text-xrp-accent underline decoration-xrp-accent/30">phishing protection</Link>.</p>
+          <p>Never send XRP to &quot;get more back&quot; — it&apos;s always a scam. Use a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</Link> to protect your assets, verify URLs before connecting, and never share your secret key or seed phrase. The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> itself is secure — scams target <em>people</em>, not the protocol. Learn about <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody</Link> and <Link href="/learn/xrp-phishing-protection" className="text-xrp-accent underline decoration-xrp-accent/30">phishing protection</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -206,7 +206,7 @@ export default function XRPScamsPage() {
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Ready to secure your XRP? Check out our <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody guide</Link> and consider a <a href="https://allaboutxrp.com/go/ledger" className="text-xrp-accent underline decoration-xrp-accent/30">Ledger hardware wallet</a> for maximum security.
+              Ready to secure your XRP? Check out our <Link href="/learn/xrp-self-custody-guide" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody guide</Link> and compare <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">hardware-wallet custody</Link> before choosing a device.
             </p>
           </RevealSection>
 

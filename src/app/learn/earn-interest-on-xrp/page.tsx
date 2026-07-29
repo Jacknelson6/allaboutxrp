@@ -51,7 +51,7 @@ export default function Page() {
           <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
         </LearnHero>
 
-        <TLDRBox><p>Earn 2-8% APY on XRP via lending platforms, <Link href="/learn/xrp-amm-yield-guide" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL AMM pools</Link>, or DeFi. CeFi lending (easiest, 2-5%), AMM (3-8%, on-chain), DeFi (highest risk/reward). Always diversify.</p></TLDRBox>
+        <TLDRBox><p>Earn 2-8% APY on XRP via lending platforms, <Link href="/learn/xrpl-amm-liquidity-pools" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL AMM pools</Link>, or DeFi. CeFi lending (easiest, 2-5%), AMM (3-8%, on-chain), DeFi (highest risk/reward). Always diversify.</p></TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Typical APY", value: "2-8%" },
@@ -81,7 +81,7 @@ export default function Page() {
 
           <RevealSection id="overview">
             <h2 className="text-2xl font-bold text-text-primary">Ways to Earn Interest on XRP</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Three main approaches: <Link href="/learn/xrp-lending-platforms" className="text-xrp-accent underline decoration-xrp-accent/30">CeFi lending</Link>, <Link href="/learn/xrp-amm-yield-guide" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL AMM pools</Link>, and DeFi protocols.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Three main approaches: <Link href="/learn/xrp-lending-platforms" className="text-xrp-accent underline decoration-xrp-accent/30">CeFi lending</Link>, <Link href="/learn/xrpl-amm-liquidity-pools" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL AMM pools</Link>, and DeFi protocols.</p>
             <div className="mt-6"><FeatureGrid columns={3} items={[
               {title:"CeFi Lending",desc:"Deposit on Nexo/YouHodler. Easiest, 2-5% APY."},
               {title:"XRPL AMM",desc:"Provide liquidity on native AMM. 3-8% APY."},
@@ -92,7 +92,7 @@ export default function Page() {
           <RevealSection id="cefi" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">CeFi Lending Platforms</h2>
             <div className="mt-6"><DataTable headers={["Platform","APY","Min","Lockup"]} rows={[["Nexo","2-5%","None","Flexible"],["YouHodler","3-4%","$100","Flexible"],["CoinLoan","3-5%","None","30 days"]]} highlightCol={1} /></div>
-            <div className="mt-6"><HighlightBox title="💰 Bonus Rates" variant="accent"><p><a href="https://allaboutxrp.com/go/nexo" className="text-xrp-accent underline">Nexo</a> | <a href="https://allaboutxrp.com/go/youhodler" className="text-xrp-accent underline">YouHodler</a></p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="💰 Bonus Rates" variant="accent"><p><a href="https://nexo.com/" className="text-xrp-accent underline">Nexo</a> | <a href="https://www.youhodler.com/" className="text-xrp-accent underline">YouHodler</a></p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="amm" delay={0.05}>
@@ -125,7 +125,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-amm-yield-guide", label: "AMM Yield Guide", desc: "Earn LP fees" },
+              { href: "/learn/xrpl-amm-liquidity-pools", label: "AMM Yield Guide", desc: "Earn LP fees" },
               { href: "/learn/xrp-lending-platforms", label: "Lending Platforms", desc: "Compare lenders" },
               { href: "/learn/xrp-airdrop-taxes", label: "Airdrop Taxes", desc: "Tax on income" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP", desc: "Security guide" },
@@ -135,7 +135,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Start Earning" description="Choose the right method for your risk tolerance." primaryHref="/learn/xrp-lending-platforms" primaryLabel="Compare Platforms →" secondaryHref="/learn/xrp-amm-yield-guide" secondaryLabel="AMM Guide" />
+        <LearnCTA title="Start Earning" description="Choose the right method for your risk tolerance." primaryHref="/learn/xrp-lending-platforms" primaryLabel="Compare Platforms →" secondaryHref="/learn/xrpl-amm-liquidity-pools" secondaryLabel="AMM Guide" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

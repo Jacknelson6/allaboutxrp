@@ -126,7 +126,7 @@ export default function Page() {
               ["Hardware Wallet","Excellent","Moderate","Long-term, large holdings"],
               ["Paper Wallet","Excellent","Complex","Cold storage experts"],
             ]} highlightCol={1} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">Learn more: <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">How to Store XRP Safely</Link> and <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Best Wallets for XRP</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Learn more: <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">How to Store XRP Safely</Link> and <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">Best Wallets for XRP</Link>.</p>
           </RevealSection>
 
           <RevealSection id="why" delay={0.05}>
@@ -163,7 +163,7 @@ export default function Page() {
               { href: "/learn/how-does-xrp-work", label: "How Does XRP Work?", desc: "Technology explained simply" },
               { href: "/learn/ripple-vs-xrp", label: "Ripple vs XRP", desc: "Key differences explained" },
               { href: "/learn/faq", label: "XRP FAQ", desc: "Common questions answered" },
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
             ]} />

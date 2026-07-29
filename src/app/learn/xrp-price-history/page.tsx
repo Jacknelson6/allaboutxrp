@@ -97,7 +97,7 @@ export default function XRPPriceHistoryPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP</strong> was created in 2012 and first traded around $0.003 in 2013. It surged to an all-time high of <strong className="text-text-primary">$3.84 in January 2018</strong>, crashed 93%, survived the <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">SEC lawsuit</Link> (2020-2023), and rallied 580% in late 2024 to reach ~$3.40. As of February 2026, XRP trades around <strong className="text-text-primary">$2.00</strong> with analyst targets of <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">$2.45 (base case)</Link> for the year.</p>
+          <p><strong className="text-text-primary">XRP</strong> was created in 2012 and first traded around $0.003 in 2013. It surged to an all-time high of <strong className="text-text-primary">$3.84 in January 2018</strong>, crashed 93%, survived the <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">SEC lawsuit</Link> (2020-2023), and rallied 580% in late 2024 to reach ~$3.40. As of February 2026, XRP trades around <strong className="text-text-primary">$2.00</strong> with analyst targets of <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">$2.45 (base case)</Link> for the year.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -213,7 +213,7 @@ export default function XRPPriceHistoryPage() {
           />
 
           <p className="text-[14px] text-text-secondary mt-4">
-            For our complete analysis of 2026 predictions from these and other sources, see our dedicated <Link href="/answers/xrp-price-prediction-2026" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Price Prediction 2026</Link> page. To understand the <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">real-world use cases</Link> driving XRP&apos;s value, see our use cases guide.
+            For our complete analysis of 2026 predictions from these and other sources, see our dedicated <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Price Prediction 2026</Link> page. To understand the <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">real-world use cases</Link> driving XRP&apos;s value, see our use cases guide.
           </p>
         </RevealSection>
 
@@ -223,7 +223,7 @@ export default function XRPPriceHistoryPage() {
           <LearnLinkGrid links={[
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
               { href: "/learn/xrp-market-cap-explained", label: "Market Cap Explained", desc: "Understanding valuations" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
@@ -243,7 +243,7 @@ export default function XRPPriceHistoryPage() {
           description="Now that you understand XRP's price history, learn about the real-world use cases that drive its value."
           primaryHref="/learn/xrp-use-cases"
           primaryLabel="XRP Use Cases"
-          secondaryHref="/learn/get-started"
+          secondaryHref="/how-to-start"
           secondaryLabel="How to Buy XRP"
         />
 

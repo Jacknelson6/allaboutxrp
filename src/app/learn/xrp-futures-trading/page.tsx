@@ -113,7 +113,7 @@ export default function Page() {
               { href: "/learn/xrp-day-trading-guide", label: "Day Trading", desc: "Strategies" },
               { href: "/learn/xrp-order-types-explained", label: "Orders", desc: "Types" },
               { href: "/learn/xrp-technical-analysis-guide", label: "TA", desc: "Charts" },
-              { href: "/learn/best-xrp-exchanges", label: "Exchanges", desc: "Compare" },
+              { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Compare" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
               { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Framework" },
             ]} />

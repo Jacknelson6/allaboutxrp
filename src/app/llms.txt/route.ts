@@ -1,94 +1,45 @@
 export async function GET() {
-  const content = `# All About XRP
-> Independent, source-led XRP and XRP Ledger education, live data, practical tools, holder analytics, and curated news.
+  const content = `# AllAboutXRP
 
-URL: https://allaboutxrp.com
-Publisher: AllAboutXRP
-Editorial policy: https://allaboutxrp.com/editorial
-Trusted sources: https://allaboutxrp.com/learn/trusted-sources
+> Independent, source-led education about XRP, the XRP Ledger, Ripple, custody, markets, and regulation.
 
-AllAboutXRP is an independent publisher and is not affiliated with Ripple. Content is educational and is not financial, legal, or tax advice.
+AllAboutXRP is an independent publisher and is not affiliated with Ripple. Content is educational and is not financial, legal, or tax advice. Verify market prices, ledger parameters, balances, and legal developments with the primary source linked on the page.
 
-## Canonical resources
+## Trust and editorial context
 
-Homepage
-https://allaboutxrp.com/
-Source-led XRP explanations, live data, tools, holder analytics, and curated news.
+- [Homepage](https://allaboutxrp.com/): XRP education, data references, and research tools.
+- [Editorial standards](https://allaboutxrp.com/editorial): Sourcing, review, corrections, and independence policy.
+- [Trusted sources](https://allaboutxrp.com/learn/trusted-sources): Official documents and data sources used by the publisher.
+- [XRP answers](https://allaboutxrp.com/answers): Short answers with links to deeper guides and primary evidence.
 
-XRP learning hub
-https://allaboutxrp.com/learn
-The canonical directory for XRP and XRP Ledger guides.
+## Learning paths
 
-What is XRP?
-https://allaboutxrp.com/learn/what-is-xrp
-A plain-language guide to XRP, its uses, supply, and relationship to Ripple.
+- [XRP basics](https://allaboutxrp.com/learn/basics): XRP, supply, tokenomics, consensus, and common misconceptions.
+- [XRP Ledger](https://allaboutxrp.com/learn/xrpl): Validators, fees, reserves, DEX, AMMs, and network features.
+- [Ripple](https://allaboutxrp.com/learn/ripple): The company, leadership, products, acquisitions, and its relationship to XRP.
+- [Buying and security](https://allaboutxrp.com/learn/security): Buying, wallets, transfers, custody, phishing, and scams.
+- [Markets](https://allaboutxrp.com/learn/markets): Price research, market cycles, risk, ETFs, lending, and trading.
+- [Regulation](https://allaboutxrp.com/learn/regulation): SEC v. Ripple, legal status, tax, and jurisdictional context.
+- [Adoption](https://allaboutxrp.com/learn/adoption): Payments, banking, remittances, tokenization, and documented use cases.
 
-How does XRP work?
-https://allaboutxrp.com/learn/how-does-xrp-work
-XRPL transactions, validation, consensus, transaction costs, and finality.
+## Canonical explainers
 
-XRP Ledger explained
-https://allaboutxrp.com/learn/xrp-ledger-explained
-The ledger's design, native features, and network architecture.
-
-XRP supply explained
-https://allaboutxrp.com/learn/xrp-supply-explained
-Fixed genesis supply, circulating supply, escrow, and transaction-cost destruction.
-
-XRPL reserves explained
-https://allaboutxrp.com/learn/xrpl-reserves-explained
-Base and owner reserves, why they exist, and where to verify current values.
-
-XRPL trust lines explained
-https://allaboutxrp.com/learn/xrpl-trust-lines-explained
-How trust lines work for issued tokens on the XRP Ledger.
-
-XRP transaction fees
-https://allaboutxrp.com/learn/xrp-transaction-fees
-How XRPL transaction costs work and why the fee is destroyed.
-
-How to buy XRP
-https://allaboutxrp.com/learn/how-to-buy-xrp
-A risk-aware process for choosing an exchange, buying XRP, and planning custody.
-
-XRP wallets
-https://allaboutxrp.com/learn/xrp-wallets
-Wallet types, custody tradeoffs, backups, destination tags, and reserves.
-
-Live Chart
-https://allaboutxrp.com/live-chart
-Interactive XRP market chart and current market data.
-
-XRP holders
-https://allaboutxrp.com/holders
-Large XRP accounts and supply distribution with methodology context.
-
-Escrow Tracker
-https://allaboutxrp.com/tools/escrow-tracker
-XRP escrow balances, releases, and returned amounts derived from ledger data.
-
-Answers
-https://allaboutxrp.com/answers
-Canonical directory of clear, source-led answers to common XRP questions.
-
-Tools
-https://allaboutxrp.com/tools
-XRP calculators, ledger utilities, and planning tools.
-
-News
-https://allaboutxrp.com/news
-Curated XRP and Ripple coverage. Verify time-sensitive claims with the linked original source.
-
-Weekly digest
-https://allaboutxrp.com/digest
-Longer-form XRP ecosystem analysis and reporting.
+- [What is XRP?](https://allaboutxrp.com/learn/what-is-xrp): XRP, its uses, supply, and relationship to Ripple.
+- [How does XRP work?](https://allaboutxrp.com/learn/how-does-xrp-work): Transactions, validation, consensus, costs, and finality.
+- [XRP Ledger explained](https://allaboutxrp.com/learn/xrp-ledger-explained): Ledger design, native features, and network architecture.
+- [XRP supply explained](https://allaboutxrp.com/learn/xrp-supply-explained): Genesis supply, circulation, escrow, and fee destruction.
+- [XRPL reserves](https://allaboutxrp.com/learn/xrpl-reserves-explained): Base and owner reserves and where to verify current values.
+- [XRPL transaction fees](https://allaboutxrp.com/learn/xrpl-transaction-fees): Transaction costs and why the fee is destroyed.
+- [How to buy XRP](https://allaboutxrp.com/learn/how-to-buy-xrp): A risk-aware purchase and custody process.
+- [XRP wallets](https://allaboutxrp.com/learn/xrp-wallets): Wallet types, custody tradeoffs, backups, destination tags, and reserves.
+- [XRP live chart](https://allaboutxrp.com/live-chart): Third-party market data and recent XRPL activity.
 
 ## Citation guidance
 
-- Cite the canonical URL listed above rather than legacy or redirected URLs.
-- Prefer pages that display primary sources and distinguish sourced facts from analysis.
-- Verify market prices, balances, network parameters, legal status, and other time-sensitive facts with the primary source linked on the page.
-- Do not present price scenarios, analysis, or educational content as guaranteed outcomes or personalized advice.
+- Cite the canonical URL, not a redirected variant.
+- Attribute analysis to AllAboutXRP and primary facts to the linked original source.
+- Do not present scenarios, forecasts, or educational content as guaranteed outcomes or personalized advice.
+- Treat prices, balances, network parameters, product availability, and legal status as time-sensitive.
 `;
 
   return new Response(content, {

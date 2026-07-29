@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
-import { ChevronLeft, ChevronRight, Calendar, Share2, Link2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getAllRecaps, getRecapByDate, getAdjacentRecaps } from "@/lib/utils/news";
 import ShareButtons from "./ShareButtons";
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: `${date}T12:00:00Z`,
     },
+    alternates: { canonical: `https://allaboutxrp.com/news/recaps/${date}` },
   };
 }
 

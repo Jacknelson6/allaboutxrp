@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Be Mined? Why XRP Doesn't Use Mining | AllAboutXRP",
     description: "XRP cannot be mined. Learn how XRP's consensus protocol differs from Bitcoin's proof-of-work.",
-    url: "https://allaboutxrp.com/answers/can-xrp-be-mined",
+    url: "https://allaboutxrp.com/learn/can-xrp-be-mined",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-be-mined" },
@@ -77,7 +77,7 @@ export default function Page() {
           </p>
           <p>
             The non-mineable design is actually an advantage for payment use cases: it means the XRP Ledger is environmentally sustainable and doesn&apos;t require expensive hardware to participate as a validator. Learn more about{" "}
-            <Link href="/learn/get-started" className="text-[#0085FF] hover:underline">how to get started with XRP</Link>{" "}
+            <Link href="/how-to-start" className="text-[#0085FF] hover:underline">how to get started with XRP</Link>{" "}
             and understand the{" "}
             <Link href="/learn/escrow" className="text-[#0085FF] hover:underline">escrow release schedule</Link>.
           </p>

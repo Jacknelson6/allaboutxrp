@@ -81,7 +81,7 @@ export default function Page() {
           <RevealSection id="compare">
             <h2 className="text-2xl font-bold text-text-primary">Platform Comparison</h2>
             <div className="mt-6"><DataTable headers={["Platform","APY","Lockup","Insurance"]} rows={[["Nexo","2-5%","Flexible","$375M"],["YouHodler","3-4.5%","Flexible","Ledger Vault"],["CoinLoan","3-5%","30-90d","BitGo"],["Ledn","2-4%","Flexible","Proof of reserves"]]} highlightCol={1} /></div>
-            <div className="mt-6"><HighlightBox title="💰 Sign Up" variant="accent"><p><a href="https://allaboutxrp.com/go/nexo" className="text-xrp-accent underline">Nexo</a> | <a href="https://allaboutxrp.com/go/youhodler" className="text-xrp-accent underline">YouHodler</a> | <a href="https://allaboutxrp.com/go/coinloan" className="text-xrp-accent underline">CoinLoan</a></p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Verify before depositing" variant="accent"><p>Availability, custody terms, yields, and withdrawal conditions change. Verify each provider in your jurisdiction and understand counterparty risk before transferring XRP.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="nexo" delay={0.05}>
@@ -117,7 +117,7 @@ export default function Page() {
               {title:"Monitor",desc:"Follow platform news."},
               {title:"Consider AMM",desc:"Non-custodial alternative."},
             ]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-amm-yield-guide" className="text-xrp-accent underline decoration-xrp-accent/30">AMM guide</Link> | <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">store XRP safely</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrpl-amm-liquidity-pools" className="text-xrp-accent underline decoration-xrp-accent/30">AMM guide</Link> | <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">store XRP safely</Link></p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -129,16 +129,16 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/earn-interest-on-xrp", label: "Earn Interest", desc: "All methods" },
-              { href: "/learn/xrp-amm-yield-guide", label: "AMM Guide", desc: "Non-custodial" },
+              { href: "/learn/xrpl-amm-liquidity-pools", label: "AMM Guide", desc: "Non-custodial" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP", desc: "Security" },
               { href: "/learn/xrp-tax-loss-harvesting", label: "Tax Harvest", desc: "Save taxes" },
               { href: "/learn/xrp-cost-basis-methods", label: "Cost Basis", desc: "Tax calc" },
-              { href: "/learn/best-xrp-exchanges", label: "Exchanges", desc: "Buy XRP" },
+              { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Buy XRP" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Start Lending" description="Compare platforms and earn yield." primaryHref="/learn/earn-interest-on-xrp" primaryLabel="All Methods →" secondaryHref="https://allaboutxrp.com/go/nexo" secondaryLabel="Try Nexo" />
+        <LearnCTA title="Start Lending" description="Compare platforms and earn yield." primaryHref="/learn/earn-interest-on-xrp" primaryLabel="All Methods →" secondaryHref="https://nexo.com/" secondaryLabel="Try Nexo" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

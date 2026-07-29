@@ -156,7 +156,7 @@ export default function HowXRPMakesMoneyPage() {
         <LearnCTA
           title="Supply and Demand — That's the Secret"
           description="XRP gains value from real utility, growing adoption, and limited supply. Ready to own some?"
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-tokenomics"
           secondaryLabel="Explore Tokenomics"

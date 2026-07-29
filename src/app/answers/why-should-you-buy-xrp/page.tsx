@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Why Should You Buy XRP? | AllAboutXRP",
     description: "The bull case for XRP — utility, adoption, tokenomics, and institutional momentum.",
-    url: "https://allaboutxrp.com/answers/why-should-you-buy-xrp",
+    url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" },
@@ -59,7 +59,7 @@ export default function Page() {
           <h3 className="text-xl font-semibold text-white">4. Regulatory Clarity</h3>
           <p>
             The{" "}
-            <Link href="/answers/is-xrp-a-security" className="text-[#0085FF] hover:underline">SEC v. Ripple lawsuit</Link>{" "}
+            <Link href="/learn/is-xrp-a-security" className="text-[#0085FF] hover:underline">SEC v. Ripple lawsuit</Link>{" "}
             concluded with Judge Torres ruling that XRP sold on public exchanges is not a security. This removed the biggest overhang on XRP and set a positive precedent for the entire crypto industry. Multiple XRP ETF filings are now in progress.
           </p>
 
@@ -83,11 +83,11 @@ export default function Page() {
           </p>
           <p>
             However, always do your own research. Consider your risk tolerance, investment timeline, and financial situation. Many investors use{" "}
-            <Link href="/answers/when-should-you-buy-xrp" className="text-[#0085FF] hover:underline">dollar-cost averaging</Link>{" "}
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">dollar-cost averaging</Link>{" "}
             to reduce timing risk. Make sure you understand{" "}
-            <Link href="/answers/what-do-you-need-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>{" "}
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">what you need to get started</Link>{" "}
             and{" "}
-            <Link href="/answers/how-to-buy-xrp-safely" className="text-[#0085FF] hover:underline">how to buy safely</Link>.
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">how to buy safely</Link>.
           </p>
         </div>
       }

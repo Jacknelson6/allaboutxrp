@@ -150,7 +150,7 @@ export default function XRPUSRegulationPage() {
         <LearnCTA
           title="XRP Is Legal and Regulated"
           description="Clear legal status. Clear tax rules. XRP is ready for mainstream US adoption."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-tax-guide"
           secondaryLabel="Tax Guide"

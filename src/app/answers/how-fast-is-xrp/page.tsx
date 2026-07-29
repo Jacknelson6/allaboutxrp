@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How Fast Is XRP? Transaction Speed Explained | AllAboutXRP",
     description: "XRP settles in 3-5 seconds at near-zero cost. See how it compares to Bitcoin, Ethereum, and SWIFT.",
-    url: "https://allaboutxrp.com/answers/how-fast-is-xrp",
+    url: "https://allaboutxrp.com/learn/how-does-xrp-work",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/how-does-xrp-work" },

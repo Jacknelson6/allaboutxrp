@@ -117,7 +117,7 @@ export default function BuyXRPOnCoinbasePage() {
           <RevealSection id="create-account">
             <h2 className="text-2xl font-bold text-text-primary">Step 1: Create Your Coinbase Account</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Getting started with Coinbase takes just a few minutes. Head to <a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Coinbase.com</a> and click &quot;Get Started.&quot; You&apos;ll need an email address, a strong password, and a phone number for two-factor authentication.
+              Getting started with Coinbase takes just a few minutes. Head to <a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Coinbase.com</a> and click &quot;Get Started.&quot; You&apos;ll need an email address, a strong password, and a phone number for two-factor authentication.
             </p>
 
             <div className="mt-6">
@@ -132,7 +132,7 @@ export default function BuyXRPOnCoinbasePage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Coinbase" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Sign up for Coinbase →</a> Create your free account and buy XRP in minutes. Available in all 50 US states and 100+ countries worldwide.</p>
+                <p><a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Sign up for Coinbase →</a> Create your free account and buy XRP in minutes. Available in all 50 US states and 100+ countries worldwide.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -197,7 +197,7 @@ export default function BuyXRPOnCoinbasePage() {
 
             <div className="mt-6">
               <HighlightBox title="🚀 Ready to Buy?" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Coinbase now →</a> Takes under 5 minutes from start to finish.</p>
+                <p><a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Coinbase now →</a> Takes under 5 minutes from start to finish.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -223,7 +223,7 @@ export default function BuyXRPOnCoinbasePage() {
             </div>
 
             <p className="mt-4 text-text-secondary leading-relaxed">
-              For any purchase over $50, switching to Coinbase Advanced Trade saves you serious money. Compare this to <Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">other XRP exchanges</Link> to find the lowest fees for your situation.
+              For any purchase over $50, switching to Coinbase Advanced Trade saves you serious money. Compare this to <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">other XRP exchanges</Link> to find the lowest fees for your situation.
             </p>
           </RevealSection>
 
@@ -263,7 +263,7 @@ export default function BuyXRPOnCoinbasePage() {
 
             <div className="mt-6">
               <HighlightBox title="⚠️ Destination Tags Matter" variant="info">
-                <p>If you&apos;re sending XRP to another exchange, you <strong className="text-text-primary">must include the destination tag</strong>. Forgetting it can result in lost funds. Self-custody wallets like Ledger and XUMM don&apos;t require destination tags. Learn more about <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP wallets</Link>.</p>
+                <p>If you&apos;re sending XRP to another exchange, you <strong className="text-text-primary">must include the destination tag</strong>. Forgetting it can result in lost funds. Self-custody wallets like Ledger and XUMM don&apos;t require destination tags. Learn more about <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">XRP wallets</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -278,7 +278,7 @@ export default function BuyXRPOnCoinbasePage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-binance", label: "Buy XRP on Binance", desc: "Alternative exchange guide" },
               { href: "/learn/buy-xrp-on-kraken", label: "Buy XRP on Kraken", desc: "Lower fees, pro features" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "All exchanges compared" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "All exchanges compared" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Know your obligations" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner guide" },
@@ -289,9 +289,9 @@ export default function BuyXRPOnCoinbasePage() {
         <LearnCTA
           title="Start Buying XRP on Coinbase"
           description="You now know exactly how to buy XRP on Coinbase. Create your account and make your first purchase in under 5 minutes."
-          primaryHref="https://allaboutxrp.com/go/coinbase"
+          primaryHref="https://www.coinbase.com/"
           primaryLabel="Sign Up for Coinbase →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

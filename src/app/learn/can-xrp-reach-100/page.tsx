@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Reach $100? The Math Behind the Dream",
     description: "XRP at $100 would mean a $5.8 trillion market cap. Here's what would need to happen — and whether it's realistic.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-100",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     type: "article",
   },
   twitter: {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "Can XRP Reach $100? Realistic Analysis",
     description: "Market cap math, adoption scenarios, and honest assessment.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-100" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "Can XRP Reach $100? Realistic Price Analysis",
     description: "An honest, math-based analysis of whether XRP can reach $100, examining market cap requirements, adoption scenarios, and realistic timelines.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-100",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -44,7 +44,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Can XRP Reach $100?" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-reach-100" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
   buildFAQSchema([
     { question: "Can XRP realistically reach $100?", answer: "At current circulating supply (~58 billion tokens), XRP at $100 would require a market cap of approximately $5.8 trillion — larger than any single company or cryptocurrency has ever achieved. While not mathematically impossible in a future where crypto captures trillions in payment flow value, it would require extraordinary adoption over many years. It's not realistic in the near to medium term." },
     { question: "What market cap would XRP need to reach $100?", answer: "With approximately 58 billion XRP in circulation, a $100 price would mean a market cap of ~$5.8 trillion. For context, Bitcoin's all-time high market cap was ~$2 trillion, Apple peaked at ~$3.5 trillion, and the entire crypto market cap peaked at ~$3 trillion." },

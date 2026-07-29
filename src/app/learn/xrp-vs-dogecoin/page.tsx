@@ -125,7 +125,7 @@ export default function XRPvsDogecoinPage() {
           <RevealSection id="adoption" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Adoption: Institutions vs Retail</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              This is where the two diverge most dramatically. XRP has deep <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> through Ripple&apos;s partnerships. Dogecoin has powerful retail adoption driven by community enthusiasm and celebrity endorsement.
+              This is where the two diverge most dramatically. XRP has deep <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> through Ripple&apos;s partnerships. Dogecoin has powerful retail adoption driven by community enthusiasm and celebrity endorsement.
             </p>
             <div className="mt-6">
               <IconList items={[

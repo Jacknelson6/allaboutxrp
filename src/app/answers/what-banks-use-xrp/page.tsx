@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "What Banks Use XRP? Financial Institution Partners | AllAboutXRP",
     description: "Banks and financial institutions using XRP for cross-border payments through RippleNet and On-Demand Liquidity.",
-    url: "https://allaboutxrp.com/answers/what-banks-use-xrp",
+    url: "https://allaboutxrp.com/learn/how-banks-use-xrp",
     type: "article",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/banks-using-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/how-banks-use-xrp" },
 };
 
 export default function Page() {

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The 1 Billion XRP Escrow: Why It Matters Every Month",
     description: "Ripple unlocks 1B XRP monthly from escrow. Here's what happens to it, why it exists, and how it affects XRP's price.",
-    url: "https://allaboutxrp.com/learn/xrp-escrow-explained",
+    url: "https://allaboutxrp.com/learn/escrow",
     type: "article",
   },
   twitter: {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "XRP Escrow Explained: 1 Billion XRP/Month | AllAboutXRP",
     description: "How Ripple's escrow system works and why it matters for XRP's price and supply.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-escrow-explained" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/escrow" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "The 1 Billion XRP Escrow: Why It Matters Every Month",
     description: "A complete guide to Ripple's XRP escrow system — how it works, what gets released, historical data, and impact on price.",
-    url: "https://allaboutxrp.com/learn/xrp-escrow-explained",
+    url: "https://allaboutxrp.com/learn/escrow",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -44,7 +44,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP Escrow Explained" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-escrow-explained" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/escrow" }),
   buildFAQSchema([
     { question: "How does Ripple's XRP escrow work?", answer: "In 2017, Ripple locked 55 billion XRP into a series of cryptographic escrow accounts on the XRP Ledger. Each month, 1 billion XRP is unlocked automatically. Ripple can use or sell the unlocked XRP. Any unused portion is re-locked into new escrow contracts at the back of the queue." },
     { question: "Does the escrow release hurt XRP's price?", answer: "The impact is minimal in practice. Ripple typically re-locks 80-90% of each monthly release. The predictable, transparent schedule means the market has already priced in the releases. Sudden large sales would hurt, but Ripple has maintained disciplined release patterns." },
@@ -227,7 +227,7 @@ export default function XRPEscrowExplainedPage() {
               At current release rates (~150-200M net per month), the escrow will take <strong className="text-text-primary">approximately 15-20 years</strong> to fully deplete. However, if adoption accelerates and Ripple needs more XRP for institutional sales, the release rate could increase (up to the 1B/month maximum).
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The escrow system has become one of XRP&apos;s <strong className="text-text-primary">most important trust mechanisms</strong>. It demonstrates that Ripple is committed to responsible, transparent management of its XRP holdings — a key factor in <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>.
+              The escrow system has become one of XRP&apos;s <strong className="text-text-primary">most important trust mechanisms</strong>. It demonstrates that Ripple is committed to responsible, transparent management of its XRP holdings — a key factor in <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>.
             </p>
           </RevealSection>
 
@@ -246,7 +246,7 @@ export default function XRPEscrowExplainedPage() {
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
             ]} />
           </RevealSection>
         </div>

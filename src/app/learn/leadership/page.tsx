@@ -280,7 +280,7 @@ export default function LeadershipPage() {
               { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Community voices" },
               { href: "/learn/riddlers", label: "XRP Riddlers", desc: "XRP riddle community" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -289,7 +289,7 @@ export default function LeadershipPage() {
         <LearnCTA
           title="Convinced by the Team?"
           description="This leadership team has assembled $3.7B+ in acquisitions and built partnerships across 55+ countries. Ready to start accumulating XRP?"
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/acquisitions"
           secondaryLabel="Acquisition Strategy"

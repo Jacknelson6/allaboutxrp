@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Can XRP Reach $1,000? Breaking Down the Claims",
     description: "The viral $1,000 XRP claim examined with math and honesty.",
-    url: "https://allaboutxrp.com/learn/can-xrp-reach-1000",
+    url: "https://allaboutxrp.com/learn/xrp-price-potential",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "Can XRP Reach $1,000?", description: "Breaking down the claims." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-reach-1000" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $1,000? Breaking Down the Claims", description: "Honest analysis of the $1,000 XRP price target — market cap math and reality.", url: "https://allaboutxrp.com/learn/can-xrp-reach-1000", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Can XRP Reach $1,000? Breaking Down the Claims", description: "Honest analysis of the $1,000 XRP price target — market cap math and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $1,000?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-reach-1000" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
   buildFAQSchema([
     { question: "Can XRP reach $1,000?", answer: "No, not with any realistic market structure. $1,000 XRP = ~$57 trillion market cap. This is roughly equal to the ENTIRE US stock market and more than half of global GDP. No single asset has ever approached this valuation. The math simply doesn't support this target." },
     { question: "Why do people predict $1,000 XRP?", answer: "These claims typically come from misunderstanding how market cap works, conflating payment volume with token price, or citing conspiracy theories about secret government adoption. Some viral social media posts also confuse XRP with being the 'global reserve currency' — a fundamental misunderstanding of monetary systems." },
@@ -57,7 +57,7 @@ export default function CanXRPReach1000Page() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">$1,000 XRP is not realistic.</strong> It would require a ~$57 trillion <Link href="/learn/xrp-market-cap-explained" className="text-xrp-accent underline decoration-xrp-accent/30">market cap</Link> — roughly equal to the entire US stock market. No single asset in history has come close. We&apos;re bullish on XRP, but honest analysis matters more than hopium. <strong className="text-text-primary">Realistic targets: <Link href="/learn/can-xrp-reach-10" className="text-xrp-accent underline decoration-xrp-accent/30">$10</Link> (achievable), <Link href="/learn/can-xrp-reach-50" className="text-xrp-accent underline decoration-xrp-accent/30">$50</Link> (very optimistic).</strong></p>
+          <p><strong className="text-text-primary">$1,000 XRP is not realistic.</strong> It would require a ~$57 trillion <Link href="/learn/xrp-market-cap-explained" className="text-xrp-accent underline decoration-xrp-accent/30">market cap</Link> — roughly equal to the entire US stock market. No single asset in history has come close. We&apos;re bullish on XRP, but honest analysis matters more than hopium. <strong className="text-text-primary">Realistic targets: <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$10</Link> (achievable), <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$50</Link> (very optimistic).</strong></p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -156,9 +156,9 @@ export default function CanXRPReach1000Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Realistic analysis" },
-              { href: "/learn/can-xrp-reach-50", label: "Can XRP Reach $50?", desc: "Ambitious but possible" },
-              { href: "/learn/can-xrp-reach-500", label: "Can XRP Reach $500?", desc: "Math explained" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Realistic analysis" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $50?", desc: "Ambitious but possible" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $500?", desc: "Math explained" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Honest pros & cons" },
               { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Data-driven analysis" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Realistic calculations" },
@@ -166,7 +166,7 @@ export default function CanXRPReach1000Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Get Realistic Price Analysis" description="Data-driven targets based on market cap math." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
+        <LearnCTA title="Get Realistic Price Analysis" description="Data-driven targets based on market cap math." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/xrp-price-prediction" secondaryLabel="Full Price Analysis" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. We analyze claims honestly because credibility matters.</em></p>
       </div>

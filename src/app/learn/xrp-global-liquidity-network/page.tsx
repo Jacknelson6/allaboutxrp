@@ -67,7 +67,7 @@ export default function XRPGlobalLiquidityPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>XRP is being built as the <strong className="text-text-primary">global liquidity layer</strong> — a 24/7 network where any currency can be converted to any other currency in seconds. <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL</Link> provides the bridge, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> provides stability, and growing <Link href="/learn/xrp-and-banks" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> provides the volume. This is the &quot;Internet of Value.&quot;</p>
+          <p>XRP is being built as the <strong className="text-text-primary">global liquidity layer</strong> — a 24/7 network where any currency can be converted to any other currency in seconds. <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL</Link> provides the bridge, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> provides stability, and growing <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> provides the volume. This is the &quot;Internet of Value.&quot;</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -143,7 +143,7 @@ export default function XRPGlobalLiquidityPage() {
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "How ODL works" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
               { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
-              { href: "/learn/xrp-and-banks", label: "XRP & Banks", desc: "Institutional adoption" },
+              { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "Institutional adoption" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "The bigger picture" },
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Institutional brokerage" },
             ]} />
@@ -153,7 +153,7 @@ export default function XRPGlobalLiquidityPage() {
         <LearnCTA
           title="The Future of Global Payments"
           description="XRP is building the liquidity layer for the Internet of Value."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/on-demand-liquidity"
           secondaryLabel="Learn About ODL"

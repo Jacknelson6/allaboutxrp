@@ -151,14 +151,14 @@ export default function XRPMarketCapExplainedPage() {
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              This table is essential for evaluating <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">price predictions</Link>. When someone says &quot;XRP to $10,&quot; they&apos;re really saying &quot;XRP&apos;s total value should be $580 billion.&quot; That&apos;s the question worth evaluating. For a detailed analysis of higher targets, see <Link href="/learn/can-xrp-reach-100" className="text-xrp-accent underline decoration-xrp-accent/30">Can XRP reach $100?</Link>
+              This table is essential for evaluating <Link href="/learn/xrp-price-prediction" className="text-xrp-accent underline decoration-xrp-accent/30">price predictions</Link>. When someone says &quot;XRP to $10,&quot; they&apos;re really saying &quot;XRP&apos;s total value should be $580 billion.&quot; That&apos;s the question worth evaluating. For a detailed analysis of higher targets, see <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">Can XRP reach $100?</Link>
             </p>
           </RevealSection>
 
           <RevealSection id="fdv" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Fully Diluted Valuation and the Escrow Factor</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              XRP&apos;s fully diluted valuation (FDV) is notably higher than its circulating market cap because approximately <strong className="text-text-primary">42 billion XRP remains locked in Ripple&apos;s <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link></strong>.
+              XRP&apos;s fully diluted valuation (FDV) is notably higher than its circulating market cap because approximately <strong className="text-text-primary">42 billion XRP remains locked in Ripple&apos;s <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">escrow</Link></strong>.
             </p>
 
             <div className="mt-6">
@@ -202,7 +202,7 @@ export default function XRPMarketCapExplainedPage() {
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete price timeline" },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction", desc: "Analyst forecasts" },
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
-              { href: "/learn/can-xrp-reach-100", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
               { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },

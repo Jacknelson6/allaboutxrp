@@ -56,7 +56,7 @@ export default function XRPLongTermPotentialPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP&apos;s long-term setup is arguably the strongest it&apos;s ever been.</strong> Post-SEC clarity, 300+ <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partners</Link>, pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD growth</Link>, and expanding <Link href="/learn/xrpl-defi" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DeFi</Link>. Realistic 5-year scenarios range from <Link href="/learn/can-xrp-reach-10" className="text-xrp-accent underline decoration-xrp-accent/30">$10</Link> (achievable) to $20+ (optimistic). Key risk: competition from stablecoins and CBDCs.</p>
+          <p><strong className="text-text-primary">XRP&apos;s long-term setup is arguably the strongest it&apos;s ever been.</strong> Post-SEC clarity, 300+ <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partners</Link>, pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD growth</Link>, and expanding <Link href="/learn/xrpl-defi" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DeFi</Link>. Realistic 5-year scenarios range from <Link href="/learn/xrp-price-potential" className="text-xrp-accent underline decoration-xrp-accent/30">$10</Link> (achievable) to $20+ (optimistic). Key risk: competition from stablecoins and CBDCs.</p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -149,7 +149,7 @@ export default function XRPLongTermPotentialPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Pros & cons analysis" },
-              { href: "/learn/can-xrp-reach-10", label: "Can XRP Reach $10?", desc: "Near-term target" },
+              { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Near-term target" },
               { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Calculate your number" },
               { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Full analysis" },
@@ -158,7 +158,7 @@ export default function XRPLongTermPotentialPage() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Explore Price Targets" description="Data-driven analysis for specific price levels." primaryHref="/learn/can-xrp-reach-10" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Is XRP a Good Investment?" />
+        <LearnCTA title="Explore Price Targets" description="Data-driven analysis for specific price levels." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Is XRP a Good Investment?" />
 
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Scenarios are illustrative, not predictions.</em></p>
       </div>

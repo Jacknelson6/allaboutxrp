@@ -266,13 +266,13 @@ export default function SECvsRipplePage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple Explained", desc: "Case that changed crypto" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "SEC ruling explained" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Crypto Regulation Impact", desc: "Laws shaping XRP" },
               { href: "/learn/xrp-european-regulation", label: "European Regulation", desc: "MiCA & EU framework" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -287,7 +287,7 @@ export default function SECvsRipplePage() {
         <LearnCTA
           title="XRP Has Regulatory Clarity"
           description="With the SEC case resolved, XRP is entering a new era of institutional adoption. Learn how to get started."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-etf"
           secondaryLabel="XRP ETF Guide"

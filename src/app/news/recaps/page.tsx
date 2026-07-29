@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     url: "https://allaboutxrp.com/news/recaps",
     type: "website",
   },
+  alternates: { canonical: "https://allaboutxrp.com/news/recaps" },
 };
 
 const breadcrumbSchema = {

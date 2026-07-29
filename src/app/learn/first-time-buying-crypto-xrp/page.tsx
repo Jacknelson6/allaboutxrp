@@ -185,7 +185,7 @@ export default function FirstTimeBuyingCryptoPage() {
               { href: "/learn/xrp-risks", label: "XRP Risks", desc: "Honest risk assessment" },
               { href: "/learn/xrp-dollar-cost-averaging", label: "Dollar Cost Averaging", desc: "Smart buying strategy" },
               { href: "/learn/xrp-common-mistakes", label: "Common Mistakes", desc: "Avoid these errors" },
-              { href: "/learn/crypto-wallets-for-xrp", label: "XRP Wallets", desc: "Wallet options" },
+              { href: "/learn/xrp-wallets", label: "XRP Wallets", desc: "Wallet options" },
               { href: "/learn/xrp-tax-guide", label: "Tax Guide", desc: "Stay legal" },
             ]} />
           </RevealSection>

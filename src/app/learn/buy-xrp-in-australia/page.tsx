@@ -79,7 +79,7 @@ export default function BuyXRPInAustraliaPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Australians</strong> can buy XRP easily using <strong className="text-text-primary">PayID</strong> for free, instant AUD deposits. Top exchanges: <strong className="text-text-primary">CoinSpot</strong> (most popular Australian exchange), <strong className="text-text-primary">Swyftx</strong> (competitive fees), or <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (lowest pro fees). Hold 12+ months for a <strong className="text-text-primary">50% CGT discount</strong>. Store long-term in a <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallet</Link>.</p>
+          <p><strong className="text-text-primary">Australians</strong> can buy XRP easily using <strong className="text-text-primary">PayID</strong> for free, instant AUD deposits. Top exchanges: <strong className="text-text-primary">CoinSpot</strong> (most popular Australian exchange), <strong className="text-text-primary">Swyftx</strong> (competitive fees), or <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (lowest pro fees). Hold 12+ months for a <strong className="text-text-primary">50% CGT discount</strong>. Store long-term in a <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody wallet</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -128,7 +128,7 @@ export default function BuyXRPInAustraliaPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇦🇺 Our Top Pick for Australians" variant="accent">
-                <p><strong className="text-text-primary">CoinSpot</strong> — Australia&apos;s most popular exchange with 2.5M+ users, free PayID deposits, and 0.1% trading fees. AUSTRAC-registered with an excellent track record. For lowest pro fees, <a href="https://allaboutxrp.com/go/kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken</a> at 0.16% is hard to beat.</p>
+                <p><strong className="text-text-primary">CoinSpot</strong> — Australia&apos;s most popular exchange with 2.5M+ users, free PayID deposits, and 0.1% trading fees. AUSTRAC-registered with an excellent track record. For lowest pro fees, <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken</a> at 0.16% is hard to beat.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -215,7 +215,7 @@ export default function BuyXRPInAustraliaPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-kraken", label: "Buy on Kraken", desc: "Lowest pro fees" },
-              { href: "/learn/best-xrp-exchanges", label: "Best Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best Exchanges", desc: "Full comparison" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax obligations" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-southeast-asia", label: "XRP in Asia-Pacific", desc: "Regional adoption" },
@@ -227,9 +227,9 @@ export default function BuyXRPInAustraliaPage() {
         <LearnCTA
           title="Buy XRP in Australia Today"
           description="Free PayID deposits, AUSTRAC-regulated exchanges, and 50% CGT discount for long-term holders."
-          primaryHref="https://allaboutxrp.com/go/kraken"
+          primaryHref="https://www.kraken.com/"
           primaryLabel="Start with Kraken →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

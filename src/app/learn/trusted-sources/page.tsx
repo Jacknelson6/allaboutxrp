@@ -169,7 +169,7 @@ export default function TrustedSourcesPage() {
               { href: "/learn/key-people", label: "Key People", desc: "XRP ecosystem leaders" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
               { href: "/learn/history", label: "XRP History", desc: "Timeline from 2012 to today" },
-              { href: "/answers/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
               { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Top wallet picks" },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">

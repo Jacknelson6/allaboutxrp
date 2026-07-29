@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "XRP ETF Filings Tracker: Every Application (2026) | AllAboutXRP",
   description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.",
   keywords: ["XRP ETF filings","XRP ETF applications","who filed XRP ETF","XRP ETF tracker"],
-  openGraph: { title: "XRP ETF Filings Tracker: Every Application (2026)", description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.", url: "https://allaboutxrp.com/learn/xrp-etf-filings", type: "article" },
+  openGraph: { title: "XRP ETF Filings Tracker: Every Application (2026)", description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.", url: "https://allaboutxrp.com/learn/xrp-etf", type: "article" },
   twitter: { card: "summary_large_image", title: "XRP ETF Filings Tracker: Every Application (2026)", description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf-filings" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP ETF Filings Tracker: Every Application (2026)", description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.", url: "https://allaboutxrp.com/learn/xrp-etf-filings", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP ETF Filings Tracker: Every Application (2026)", description: "Track every XRP ETF filing. Grayscale, 21Shares, and more — status, deadlines, and what each filing means.", url: "https://allaboutxrp.com/learn/xrp-etf", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "ETF Filings" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf-filings" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf" }),
   buildFAQSchema([
     { question: "How many?", answer: "5+ as of Feb 2026." },
     { question: "First approved?", answer: "Grayscale or 21Shares (furthest along)." },
@@ -88,7 +88,7 @@ export default function Page() {
           <RevealSection id="process" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Process</h2>
             <div className="mt-6"><IconList items={[{title:"S-1",desc:"Registration statement."},{title:"Comments",desc:"SEC feedback + amendments."},{title:"19b-4",desc:"240-day clock."},{title:"Public",desc:"Comment period."},{title:"Decision",desc:"Approve/deny."}]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-etf-approval-odds" className="text-xrp-accent underline decoration-xrp-accent/30">Odds</Link> | <Link href="/learn/xrp-etf-price-impact" className="text-xrp-accent underline decoration-xrp-accent/30">Price impact</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">Odds</Link> | <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">Price impact</Link></p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -99,8 +99,8 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-etf-approval-odds", label: "Odds", desc: "Analysis" },
-              { href: "/learn/xrp-etf-price-impact", label: "Impact", desc: "Price" },
+              { href: "/learn/xrp-etf", label: "Odds", desc: "Analysis" },
+              { href: "/learn/xrp-etf", label: "Impact", desc: "Price" },
               { href: "/learn/xrp-sec-settlement", label: "Settlement", desc: "Legal" },
               { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Access" },
               { href: "/learn/xrp-regulatory-clarity-impact", label: "Clarity", desc: "Adoption" },
@@ -109,7 +109,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Track Filings" description="Stay updated." primaryHref="/learn/xrp-etf-approval-odds" primaryLabel="Odds →" secondaryHref="/learn/xrp-etf-price-impact" secondaryLabel="Impact" />
+        <LearnCTA title="Track Filings" description="Stay updated." primaryHref="/learn/xrp-etf" primaryLabel="Odds →" secondaryHref="/learn/xrp-etf" secondaryLabel="Impact" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

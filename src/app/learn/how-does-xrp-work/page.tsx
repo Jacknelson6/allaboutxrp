@@ -236,7 +236,7 @@ export default function HowDoesXRPWorkPage() {
             </div>
 
             <p className="mt-6 text-text-secondary leading-relaxed">
-              Learn more about these features in our guides on <Link href="/learn/xrp-transaction-types" className="text-xrp-accent underline decoration-xrp-accent/30">XRP transaction types</Link>, <Link href="/learn/xrpl-defi" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DeFi</Link>, and the <Link href="/learn/xrp-escrow-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP escrow system</Link>.
+              Learn more about these features in our guides on <Link href="/learn/xrp-transaction-types" className="text-xrp-accent underline decoration-xrp-accent/30">XRP transaction types</Link>, <Link href="/learn/xrpl-defi" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DeFi</Link>, and the <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">XRP escrow system</Link>.
             </p>
           </RevealSection>
 

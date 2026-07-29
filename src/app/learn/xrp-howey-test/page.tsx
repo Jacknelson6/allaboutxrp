@@ -68,7 +68,7 @@ export default function XRPHoweyTestPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>The <strong className="text-text-primary">Howey Test</strong> is the legal framework that determines if something is a security. In the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link>, Judge Torres ruled that XRP sold on public exchanges <strong className="text-text-primary">does not meet the Howey Test</strong> — meaning XRP is not a security when traded on exchanges. This was the most important legal ruling in crypto history.</p>
+          <p>The <strong className="text-text-primary">Howey Test</strong> is the legal framework that determines if something is a security. In the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple case</Link>, Judge Torres ruled that XRP sold on public exchanges <strong className="text-text-primary">does not meet the Howey Test</strong> — meaning XRP is not a security when traded on exchanges. This was the most important legal ruling in crypto history.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -141,7 +141,7 @@ export default function XRPHoweyTestPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple", desc: "The full case" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "The full case" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "Definitive answer" },
               { href: "/learn/xrp-sec-settlement", label: "SEC Settlement", desc: "Final outcome" },
               { href: "/learn/xrp-clarity-act", label: "CLARITY Act", desc: "From precedent to law" },
@@ -154,9 +154,9 @@ export default function XRPHoweyTestPage() {
         <LearnCTA
           title="The Legal Clarity Is Here"
           description="XRP passed the Howey Test. The path to mainstream adoption is clear."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
-          secondaryHref="/learn/sec-vs-ripple-explained"
+          secondaryHref="/learn/sec-vs-ripple"
           secondaryLabel="Read the Full Case"
         />
 

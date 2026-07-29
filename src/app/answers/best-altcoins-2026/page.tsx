@@ -264,7 +264,7 @@ export default function BestAltcoins2026Page() {
                         <span className="text-sm font-semibold text-text-primary">XRP Use Cases →</span>
                         <span className="mt-1 block text-xs text-text-secondary">How XRP is used in the real world</span>
                       </Link>
-                      <Link href="/answers/xrp-price-prediction-2026" className="linear-card p-4">
+                      <Link href="/learn/xrp-price-prediction" className="linear-card p-4">
                         <span className="text-sm font-semibold text-text-primary">XRP Price Prediction 2026 →</span>
                         <span className="mt-1 block text-xs text-text-secondary">What analysts forecast for XRP</span>
                       </Link>
@@ -319,7 +319,7 @@ export default function BestAltcoins2026Page() {
             description="Understand why XRP is the top altcoin for 2026 with its unmatched payments utility and regulatory clarity."
             primaryHref="/learn/what-is-xrp"
             primaryLabel="What Is XRP?"
-            secondaryHref="/learn/get-started"
+            secondaryHref="/how-to-start"
             secondaryLabel="Buy XRP"
           />
 

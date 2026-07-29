@@ -128,7 +128,7 @@ export default function XRPvsChainlinkPage() {
             </p>
             <div className="mt-4">
               <HighlightBox title="Key Difference: Utility Drivers" variant="accent">
-                <p>XRP demand is driven by payment volume — more <Link href="/learn/banks-using-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> means more XRP needed as bridge liquidity. LINK demand is driven by oracle usage — more DeFi protocols needing data means more LINK paid to node operators. Both have clear utility loops.</p>
+                <p>XRP demand is driven by payment volume — more <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link> means more XRP needed as bridge liquidity. LINK demand is driven by oracle usage — more DeFi protocols needing data means more LINK paid to node operators. Both have clear utility loops.</p>
               </HighlightBox>
             </div>
           </RevealSection>

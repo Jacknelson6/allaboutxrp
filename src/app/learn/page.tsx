@@ -9,6 +9,7 @@ import {
   WalletCards,
 } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
+import { LEARN_HUBS } from "@/data/learn-hubs";
 
 type Guide = {
   href: string;
@@ -87,7 +88,13 @@ const clusters: GuideCluster[] = [
   },
 ];
 
-const allGuides = [...foundations, ...clusters.flatMap((cluster) => cluster.guides)];
+const topicHubs: Guide[] = LEARN_HUBS.map((hub) => ({
+  href: `/learn/${hub.slug}`,
+  title: hub.title,
+  description: hub.description,
+}));
+
+const allGuides = [...topicHubs, ...foundations, ...clusters.flatMap((cluster) => cluster.guides)];
 
 const collectionSchema = {
   "@context": "https://schema.org",
@@ -138,6 +145,19 @@ export default function LearnPage() {
             </div>
           </div>
         </header>
+
+        <section className="border-b border-surface-border bg-surface-card" aria-labelledby="paths-heading">
+          <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+            <div>
+              <p className="editorial-kicker">Complete library</p>
+              <h2 id="paths-heading" className="mt-5 text-4xl text-text-primary sm:text-5xl">Choose a learning path</h2>
+              <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">
+                Seven topic hubs organize every indexable guide, giving readers and search crawlers a direct route through the full library.
+              </p>
+            </div>
+            <GuideList guides={topicHubs} />
+          </div>
+        </section>
 
         <section className="site-container section-shell" aria-labelledby="foundations-heading">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">

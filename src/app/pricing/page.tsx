@@ -126,7 +126,7 @@ export default function PricingPage() {
               </ul>
 
               <Link
-                href="/subscribe"
+                href="/pricing"
                 className={`block w-full py-3 rounded-xl text-sm font-semibold text-center transition-colors ${
                   tier.popular
                     ? "bg-[#0085FF] text-white hover:bg-[#0070DD]"

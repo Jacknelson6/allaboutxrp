@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "XRP vs Solana: Complete Comparison | AllAboutXRP",
     description: "A head-to-head comparison of XRP and Solana across speed, cost, use cases, ecosystem, and investment thesis.",
-    url: "https://allaboutxrp.com/answers/xrp-vs-solana",
+    url: "https://allaboutxrp.com/learn/xrp-vs-solana",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-solana" },

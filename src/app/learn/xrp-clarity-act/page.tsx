@@ -68,7 +68,7 @@ export default function XRPClarityActPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>The <strong className="text-text-primary">CLARITY Act</strong> is proposed legislation that would formally define when digital assets are securities vs commodities. For XRP, this codifies the <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple court ruling</Link> into statutory law — providing permanent regulatory clarity that encourages <Link href="/learn/xrp-and-banks" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>, exchange listings, and ETF approvals.</p>
+          <p>The <strong className="text-text-primary">CLARITY Act</strong> is proposed legislation that would formally define when digital assets are securities vs commodities. For XRP, this codifies the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple court ruling</Link> into statutory law — providing permanent regulatory clarity that encourages <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional adoption</Link>, exchange listings, and ETF approvals.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -108,7 +108,7 @@ export default function XRPClarityActPage() {
             <h2 className="text-2xl font-bold text-text-primary">Impact on XRP</h2>
             <div className="mt-5">
               <HighlightBox title="From Precedent to Law" variant="accent" large>
-                <p>The <Link href="/learn/sec-vs-ripple-explained" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple ruling</Link> established that XRP is not a security on secondary markets. But that&apos;s a judicial precedent — it could theoretically be challenged. The CLARITY Act would make this protection <strong>statutory law</strong>, providing permanent certainty.</p>
+                <p>The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC vs Ripple ruling</Link> established that XRP is not a security on secondary markets. But that&apos;s a judicial precedent — it could theoretically be challenged. The CLARITY Act would make this protection <strong>statutory law</strong>, providing permanent certainty.</p>
               </HighlightBox>
             </div>
             <div className="mt-6">
@@ -141,7 +141,7 @@ export default function XRPClarityActPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple-explained", label: "SEC vs Ripple", desc: "The landmark case" },
+              { href: "/learn/sec-vs-ripple", label: "SEC vs Ripple", desc: "The landmark case" },
               { href: "/learn/is-xrp-a-security", label: "Is XRP a Security?", desc: "Legal classification" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Regulation & XRP", desc: "How rules affect XRP" },
               { href: "/learn/xrp-etf", label: "XRP ETF", desc: "ETF outlook" },
@@ -154,9 +154,9 @@ export default function XRPClarityActPage() {
         <LearnCTA
           title="Regulation Is Coming — And It's Bullish"
           description="Clear crypto legislation is the catalyst XRP has been waiting for."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
-          secondaryHref="/learn/sec-vs-ripple-explained"
+          secondaryHref="/learn/sec-vs-ripple"
           secondaryLabel="Read the SEC Case"
         />
 

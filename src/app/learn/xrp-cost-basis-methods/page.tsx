@@ -123,7 +123,7 @@ export default function Page() {
               { href: "/learn/xrp-sell-or-hold", label: "Sell or Hold?", desc: "Decision framework" },
               { href: "/learn/xrp-portfolio-trackers", label: "Trackers", desc: "Track cost basis" },
               { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Tax-free growth" },
-              { href: "/learn/best-xrp-exchanges", label: "Exchanges", desc: "Trade records" },
+              { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Trade records" },
             ]} />
           </RevealSection>
         </div>

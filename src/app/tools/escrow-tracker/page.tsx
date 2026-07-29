@@ -1,268 +1,136 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { Lock, Calendar, TrendingUp, ArrowRight } from "lucide-react";
+import { CalendarClock, ExternalLink, LockKeyhole, ShieldAlert } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 
-const FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How much XRP is released from escrow each month?",
-      acceptedAnswer: { "@type": "Answer", text: "Ripple unlocks 1 billion XRP from escrow on the 1st of each month, split across multiple escrow accounts. Most is typically re-locked, with Ripple releasing only 100-300 million XRP net per month." },
-    },
-    {
-      "@type": "Question",
-      name: "How much XRP remains in escrow?",
-      acceptedAnswer: { "@type": "Answer", text: "As of early 2026, approximately 39.2 billion XRP remains in escrow. The total decreases slowly each month as Ripple retains a portion of each release." },
-    },
-    {
-      "@type": "Question",
-      name: "When is the next XRP escrow release?",
-      acceptedAnswer: { "@type": "Answer", text: "Escrow releases happen on the 1st of every month. The next release will unlock 1 billion XRP from Ripple's escrow accounts on the XRPL." },
-    },
-    {
-      "@type": "Question",
-      name: "Does XRP escrow affect the price?",
-      acceptedAnswer: { "@type": "Answer", text: "The market has largely priced in the predictable monthly releases. However, if Ripple significantly changes its release/re-lock pattern, it could impact market sentiment and price." },
-    },
-    {
-      "@type": "Question",
-      name: "Why did Ripple create the XRP escrow?",
-      acceptedAnswer: { "@type": "Answer", text: "Ripple locked 55 billion XRP in escrow in December 2017 to provide transparency and predictability about XRP supply. It ensures Ripple cannot flood the market with XRP — maximum 1 billion can be released per month." },
-    },
-  ],
-};
+const URL = "https://allaboutxrp.com/tools/escrow-tracker";
 
-const BREADCRUMB_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
-    { "@type": "ListItem", position: 2, name: "Tools", item: "https://allaboutxrp.com/tools" },
-    { "@type": "ListItem", position: 3, name: "Escrow Tracker", item: "https://allaboutxrp.com/tools/escrow-tracker" },
-  ],
-};
-
-// Historical escrow data (monthly)
-const escrowHistory = [
-  { month: "Jan 2026", released: 1000, relocked: 800, net: 200, remaining: 39400 },
-  { month: "Dec 2025", released: 1000, relocked: 850, net: 150, remaining: 39600 },
-  { month: "Nov 2025", released: 1000, relocked: 800, net: 200, remaining: 39750 },
-  { month: "Oct 2025", released: 1000, relocked: 900, net: 100, remaining: 39950 },
-  { month: "Sep 2025", released: 1000, relocked: 800, net: 200, remaining: 40050 },
-  { month: "Aug 2025", released: 1000, relocked: 850, net: 150, remaining: 40250 },
-  { month: "Jul 2025", released: 1000, relocked: 800, net: 200, remaining: 40400 },
-  { month: "Jun 2025", released: 1000, relocked: 750, net: 250, remaining: 40600 },
-  { month: "May 2025", released: 1000, relocked: 850, net: 150, remaining: 40850 },
-  { month: "Apr 2025", released: 1000, relocked: 800, net: 200, remaining: 41000 },
-  { month: "Mar 2025", released: 1000, relocked: 900, net: 100, remaining: 41200 },
-  { month: "Feb 2025", released: 1000, relocked: 800, net: 200, remaining: 41300 },
+const FAQ_ITEMS = [
+  {
+    question: "Is this a live XRP escrow balance?",
+    answer: "No. This page explains Ripple’s published monthly escrow schedule. It does not currently query every escrow object on the XRP Ledger, so it intentionally does not display a live remaining balance.",
+  },
+  {
+    question: "What happens to XRP that Ripple does not use?",
+    answer: "Ripple has stated that unused XRP from a monthly release is returned to new escrow contracts. The exact amounts should be verified from ledger transactions or Ripple’s current reporting rather than assumed from a historical average.",
+  },
+  {
+    question: "Does an escrow release automatically enter the market?",
+    answer: "No. An escrow finishing makes XRP available to its destination, but that event alone does not show whether the XRP was sold, transferred, held, or placed into another escrow.",
+  },
 ];
 
-// Upcoming schedule
-const upcomingReleases = [
-  { date: "Mar 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
-  { date: "Apr 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
-  { date: "May 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
-  { date: "Jun 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
-  { date: "Jul 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
-  { date: "Aug 1, 2026", amount: "1,000,000,000 XRP", status: "Scheduled" },
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
+      { "@type": "ListItem", position: 2, name: "Tools", item: "https://allaboutxrp.com/tools" },
+      { "@type": "ListItem", position: 3, name: "Escrow schedule reference", item: URL },
+    ],
+  },
 ];
 
-function getNextRelease(): { date: string; daysUntil: number } {
+function getNextMonthStart() {
   const now = new Date();
-  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const diff = Math.ceil((nextMonth.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-  return {
-    date: nextMonth.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),
-    daysUntil: diff,
-  };
+  const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+  return next.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 }
 
 export default function EscrowTrackerPage() {
-  const next = getNextRelease();
-  const [showAll, setShowAll] = useState(false);
-  const visibleHistory = showAll ? escrowHistory : escrowHistory.slice(0, 6);
+  const nextMonthStart = getNextMonthStart();
 
   return (
     <>
-      <SEOSchema schema={FAQ_SCHEMA} />
-      <SEOSchema schema={BREADCRUMB_SCHEMA} />
-      <main className="min-h-screen bg-black">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/tools" className="hover:text-white transition-colors">Tools</Link>
-            <span className="mx-2">/</span>
-            <span className="text-zinc-300">Escrow Tracker</span>
-          </nav>
-
-          <div className="flex items-center gap-3 mb-2">
-            <div className="rounded-lg bg-xrp-accent/10 p-2.5">
-              <Lock className="h-6 w-6 text-xrp-accent" />
+      {schemas.map((schema, index) => <SEOSchema key={index} schema={schema} />)}
+      <main className="min-h-screen bg-surface-primary">
+        <header className="border-b border-surface-border">
+          <div className="site-container py-14 sm:py-20">
+            <nav aria-label="Breadcrumb" className="mb-7 text-sm text-text-secondary">
+              <Link href="/" className="py-3 transition-colors hover:text-text-primary">Home</Link>
+              <span className="mx-2" aria-hidden="true">/</span>
+              <Link href="/tools" className="py-3 transition-colors hover:text-text-primary">Tools</Link>
+              <span className="mx-2" aria-hidden="true">/</span>
+              <span className="text-text-primary">Escrow reference</span>
+            </nav>
+            <div className="flex items-center gap-3 text-xrp-accent-bright">
+              <LockKeyhole className="h-5 w-5" aria-hidden="true" />
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em]">Source verification required</p>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              XRP Escrow Live Tracker
+            <h1 className="mt-5 max-w-4xl text-[clamp(3rem,7vw,5.5rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-text-primary">
+              XRP escrow schedule reference
             </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-text-secondary">
+              Ripple’s original escrow program was structured to finish up to 1 billion XRP each month. This page explains that schedule without presenting estimates as live ledger data.
+            </p>
           </div>
-          <p className="text-zinc-400 max-w-2xl mb-8">
-            Track Ripple&apos;s monthly XRP escrow releases. 1 billion XRP unlocks on the 1st of each month — see what gets released, re-locked, and the impact on circulating supply.
-          </p>
+        </header>
 
-          <div className="flex items-center gap-4 text-sm text-zinc-500 mb-10">
-            <span>AllAboutXRP Editorial</span>
-            <span className="text-white/15">·</span>
-            <span>Updated February 2026</span>
-          </div>
-
-          {/* Key stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1">Next Release</p>
-              <p className="text-2xl font-bold text-white">{next.date}</p>
-              <p className="text-sm text-xrp-accent mt-1">{next.daysUntil} days away</p>
-            </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1">Remaining in Escrow</p>
-              <p className="text-2xl font-bold text-white">~39.2B XRP</p>
-              <p className="text-sm text-zinc-500 mt-1">of 55B originally locked</p>
-            </div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1">Avg Monthly Net Release</p>
-              <p className="text-2xl font-bold text-white">~175M XRP</p>
-              <p className="text-sm text-zinc-500 mt-1">~80-90% typically re-locked</p>
-            </div>
-          </div>
-
-          {/* Upcoming schedule */}
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            <Calendar className="h-5 w-5 text-xrp-accent" />
-            Upcoming Releases
-          </h2>
-          <div className="rounded-xl border border-white/[0.06] overflow-hidden mb-12">
-            <table className="w-full text-sm">
-              <thead className="border-b border-white/[0.06] bg-white/[0.02]">
-                <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500">Date</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500">Amount</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/[0.04]">
-                {upcomingReleases.map((r, i) => (
-                  <tr key={i} className="hover:bg-white/[0.015] transition-colors">
-                    <td className="px-4 py-3 text-white font-medium">{r.date}</td>
-                    <td className="px-4 py-3 font-mono text-xrp-accent">{r.amount}</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-400">
-                        {r.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Historical data */}
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-xrp-accent" />
-            Historical Releases (Millions XRP)
-          </h2>
-          <div className="rounded-xl border border-white/[0.06] overflow-hidden mb-4">
-            <table className="w-full text-sm">
-              <thead className="border-b border-white/[0.06] bg-white/[0.02]">
-                <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500">Month</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-zinc-500">Released</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-zinc-500">Re-locked</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-zinc-500">Net Release</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-zinc-500">Remaining</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/[0.04]">
-                {visibleHistory.map((r, i) => (
-                  <tr key={i} className="hover:bg-white/[0.015] transition-colors">
-                    <td className="px-4 py-3 text-white font-medium">{r.month}</td>
-                    <td className="px-4 py-3 text-right font-mono text-zinc-400">{r.released.toLocaleString()}M</td>
-                    <td className="px-4 py-3 text-right font-mono text-green-400">{r.relocked.toLocaleString()}M</td>
-                    <td className="px-4 py-3 text-right font-mono text-xrp-accent">{r.net.toLocaleString()}M</td>
-                    <td className="px-4 py-3 text-right font-mono text-zinc-500">{r.remaining.toLocaleString()}M</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          {!showAll && (
-            <button
-              onClick={() => setShowAll(true)}
-              className="text-sm text-xrp-accent hover:text-white transition-colors mb-12"
-            >
-              Show all months →
-            </button>
-          )}
-
-          {/* Editorial content */}
-          <section className="prose prose-invert max-w-none mb-12 mt-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Understanding Ripple&apos;s XRP Escrow</h2>
-            <div className="space-y-4 text-zinc-400 leading-relaxed">
-              <p>
-                In December 2017, Ripple locked 55 billion XRP — over half the total supply — into cryptographic
-                escrow contracts on the XRP Ledger. This was designed to provide transparency and predictability
-                about XRP&apos;s circulating supply.
-              </p>
-              <p>
-                Each month, 1 billion XRP is automatically unlocked. Ripple can use these tokens for institutional
-                sales, partnerships, and operational expenses. Any unused portion — typically 80-90% — gets re-locked
-                into new escrow contracts at the back of the queue.
-              </p>
-              <p>
-                The escrow mechanism is enforced at the protocol level on the XRPL. Even Ripple cannot override
-                the monthly release schedule — it&apos;s cryptographically guaranteed. This makes XRP&apos;s supply
-                schedule more predictable than most cryptocurrencies.
+        <section className="site-container border-b border-surface-border py-10 sm:py-14" aria-labelledby="status-heading">
+          <div className="grid gap-6 lg:grid-cols-[0.34fr_1fr]">
+            <h2 id="status-heading" className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-xrp-accent-bright">Data status</h2>
+            <div className="max-w-3xl border-l-2 border-amber-400/70 pl-5">
+              <div className="flex items-center gap-2 text-amber-300">
+                <ShieldAlert className="h-5 w-5" aria-hidden="true" />
+                <p className="font-semibold">This is not a live balance tracker.</p>
+              </div>
+              <p className="mt-3 leading-7 text-text-secondary">
+                The previous version relied on a hard-coded 2025–2026 table and an unverified balance. Those figures have been removed. This route remains excluded from search until a reproducible ledger-backed data pipeline is available.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Internal links */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-            <Link href="/learn/xrp-escrow-explained" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
-              <h3 className="font-semibold text-white mb-1">XRP Escrow Deep Dive →</h3>
-              <p className="text-sm text-zinc-500">Complete guide to how escrow works</p>
-            </Link>
-            <Link href="/tools/whale-tracker" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
-              <h3 className="font-semibold text-white mb-1">Whale Tracker →</h3>
-              <p className="text-sm text-zinc-500">Monitor large XRP transactions live</p>
-            </Link>
-          </section>
+        <section className="site-container section-shell" aria-labelledby="schedule-heading">
+          <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">
+            <div>
+              <CalendarClock className="h-6 w-6 text-xrp-accent" aria-hidden="true" />
+              <h2 id="schedule-heading" className="mt-5 text-3xl text-text-primary">How the schedule works</h2>
+            </div>
+            <div className="max-w-3xl space-y-5 text-base leading-8 text-text-secondary">
+              <p>
+                Ripple placed 55 billion XRP into on-ledger escrow in 2017. The published structure used monthly escrow expirations, with up to 1 billion XRP becoming available at the start of a month. Unused amounts could be placed into new escrows at the end of the queue.
+              </p>
+              <p>
+                The next calendar month starts on <strong className="text-text-primary">{nextMonthStart}</strong>. That date is a schedule reference, not confirmation of a particular transaction or net release. Verify actual escrow finishes and subsequent transfers on the ledger.
+              </p>
+              <p>
+                An escrow finishing is not the same as XRP entering circulating supply or being sold. Establishing that requires tracing the destination and later transactions; a monthly unlock figure alone cannot support the claim.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a href="https://xrpl.org/docs/concepts/payment-types/escrow" target="_blank" rel="noopener noreferrer" className="btn-primary px-5">
+                  XRPL escrow documentation <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+                </a>
+                <a href="https://ripple.com/insights/explanation-ripples-xrp-escrow/" target="_blank" rel="noopener noreferrer" className="btn-secondary px-5">
+                  Ripple’s escrow explanation <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          {/* FAQ */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {[
-                { q: "How much XRP is released from escrow each month?", a: "Ripple unlocks 1 billion XRP from escrow on the 1st of each month. Most is typically re-locked, with Ripple releasing only 100-300 million XRP net per month." },
-                { q: "How much XRP remains in escrow?", a: "As of early 2026, approximately 39.2 billion XRP remains in escrow out of the original 55 billion locked in December 2017." },
-                { q: "When is the next XRP escrow release?", a: `The next release is on ${next.date} — ${next.daysUntil} days from now. 1 billion XRP will be unlocked.` },
-                { q: "Does the escrow release affect XRP's price?", a: "The predictable monthly schedule means markets have largely priced it in. However, changes in Ripple's release/re-lock pattern could impact sentiment." },
-                { q: "Why did Ripple create the escrow?", a: "To provide transparency about XRP supply. Before escrow, critics argued Ripple could dump XRP at will. The cryptographic escrow guarantees a maximum release of 1 billion per month." },
-              ].map((item, i) => (
-                <details key={i} className="group rounded-xl border border-white/[0.06] bg-white/[0.02]">
-                  <summary className="cursor-pointer px-5 py-4 font-medium text-white flex items-center justify-between">
-                    {item.q}
-                    <span className="text-zinc-500 group-open:rotate-180 transition-transform">▾</span>
-                  </summary>
-                  <div className="px-5 pb-4 text-sm text-zinc-400 leading-relaxed">{item.a}</div>
+        <section className="border-y border-surface-border bg-surface-card" aria-labelledby="faq-heading">
+          <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.34fr_1fr]">
+            <h2 id="faq-heading" className="text-3xl text-text-primary">Escrow questions</h2>
+            <div className="divide-y divide-surface-border border-y border-surface-border">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="group py-5">
+                  <summary className="cursor-pointer list-none pr-6 font-semibold text-text-primary marker:content-none">{item.question}</summary>
+                  <p className="mt-3 max-w-3xl leading-7 text-text-secondary">{item.answer}</p>
                 </details>
               ))}
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
     </>
   );

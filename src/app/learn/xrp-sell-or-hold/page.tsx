@@ -86,7 +86,7 @@ export default function Page() {
           <RevealSection id="hold" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Reasons to Hold</h2>
             <div className="mt-6"><FeatureGrid columns={2} items={[{title:"ETF Pending",desc:"Institutional inflows potential."},{title:"Regulatory Clarity",desc:"Post-SEC advantage."},{title:"RLUSD",desc:"Growing utility."},{title:"Cycle Position",desc:"Biggest gains come later."}]} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-etf-approval-odds" className="text-xrp-accent underline decoration-xrp-accent/30">ETF odds</Link> | <Link href="/learn/xrp-market-cycles" className="text-xrp-accent underline decoration-xrp-accent/30">Cycles</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF odds</Link> | <Link href="/learn/xrp-market-cycles" className="text-xrp-accent underline decoration-xrp-accent/30">Cycles</Link></p>
           </RevealSection>
           <RevealSection id="sell" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Reasons to Sell</h2>
@@ -112,7 +112,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
-              { href: "/learn/xrp-etf-approval-odds", label: "ETF", desc: "Odds" },
+              { href: "/learn/xrp-etf", label: "ETF", desc: "Odds" },
               { href: "/learn/xrp-cost-basis-methods", label: "Cost Basis", desc: "Tax" },
               { href: "/learn/xrp-tax-loss-harvesting", label: "Harvest", desc: "Save" },
               { href: "/learn/xrp-crash-history", label: "Crashes", desc: "Past" },

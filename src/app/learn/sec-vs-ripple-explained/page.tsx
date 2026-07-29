@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SEC vs Ripple Explained: The Case That Changed Crypto Forever",
     description: "Full timeline of the SEC vs Ripple case, key rulings, settlement details, and what it means for crypto regulation.",
-    url: "https://allaboutxrp.com/learn/sec-vs-ripple-explained",
+    url: "https://allaboutxrp.com/learn/sec-vs-ripple",
     type: "article",
   },
   twitter: {
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "SEC vs Ripple: The Complete Story | AllAboutXRP",
     description: "How Ripple fought the SEC and changed crypto regulation forever.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/learn/sec-vs-ripple-explained" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/sec-vs-ripple" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "The SEC Case That Changed Crypto Forever",
     description: "A comprehensive analysis of SEC vs Ripple — the landmark case that defined when a cryptocurrency is (and isn't) a security.",
-    url: "https://allaboutxrp.com/learn/sec-vs-ripple-explained",
+    url: "https://allaboutxrp.com/learn/sec-vs-ripple",
     datePublished: "2026-02-15",
     dateModified: "2026-02-15",
   }),
@@ -44,7 +44,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "SEC vs Ripple Explained" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/sec-vs-ripple-explained" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/sec-vs-ripple" }),
   buildFAQSchema([
     { question: "Is XRP a security?", answer: "No. Judge Analisa Torres ruled in July 2023 that programmatic sales of XRP on exchanges do not constitute securities transactions. Institutional direct sales were found to be securities offerings, but the token itself is not a security. The SEC's subsequent settlement effectively accepted this framework." },
     { question: "What was the SEC vs Ripple case about?", answer: "The SEC filed suit in December 2020 alleging Ripple raised $1.3 billion through unregistered securities sales of XRP. Ripple argued XRP is a digital currency, not a security. The case lasted over four years and resulted in a landmark ruling distinguishing between institutional and retail crypto sales." },
@@ -231,7 +231,7 @@ export default function SECvsRipplePage() {
               { href: "/learn/xrp-european-regulation", label: "European Regulation", desc: "MiCA & EU framework" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting guide" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>

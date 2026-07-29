@@ -90,7 +90,7 @@ export default function Page() {
           <RevealSection id="platforms" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Platforms</h2>
             <div className="mt-6"><DataTable headers={["Platform","Fee","Min"]} rows={[["iTrustCapital","1%","$1,000"],["BitcoinIRA","Varies","$3,000"],["Alto","1%+$10/mo","$10"]]} highlightCol={0} /></div>
-            <div className="mt-6"><HighlightBox title="💰 Start" variant="accent"><p><a href="https://allaboutxrp.com/go/itrustcapital" className="text-xrp-accent underline">iTrustCapital</a> | <a href="https://allaboutxrp.com/go/bitcoinira" className="text-xrp-accent underline">BitcoinIRA</a> | <a href="https://allaboutxrp.com/go/altoira" className="text-xrp-accent underline">Alto</a></p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="💰 Start" variant="accent"><p><a href="https://itrustcapital.com/" className="text-xrp-accent underline">iTrustCapital</a> | <a href="https://bitcoinira.com/" className="text-xrp-accent underline">BitcoinIRA</a> | <a href="https://www.altoira.com/" className="text-xrp-accent underline">Alto</a></p></HighlightBox></div>
           </RevealSection>
           <RevealSection id="roth" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Roth Strategy</h2>
@@ -98,7 +98,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="etf" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">ETF Alternative</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">After <Link href="/learn/xrp-etf-approval-odds" className="text-xrp-accent underline decoration-xrp-accent/30">ETF approval</Link>, hold XRP in any Fidelity/Schwab/Vanguard IRA. Track at <Link href="/learn/xrp-etf-filings" className="text-xrp-accent underline decoration-xrp-accent/30">ETF tracker</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">After <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF approval</Link>, hold XRP in any Fidelity/Schwab/Vanguard IRA. Track at <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF tracker</Link>.</p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -109,9 +109,9 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-etf-approval-odds", label: "ETF Odds", desc: "Analysis" },
-              { href: "/learn/xrp-etf-filings", label: "Filings", desc: "Tracker" },
-              { href: "/learn/xrp-etf-price-impact", label: "Impact", desc: "Price" },
+              { href: "/learn/xrp-etf", label: "ETF Odds", desc: "Analysis" },
+              { href: "/learn/xrp-etf", label: "Filings", desc: "Tracker" },
+              { href: "/learn/xrp-etf", label: "Impact", desc: "Price" },
               { href: "/learn/xrp-cost-basis-methods", label: "Cost Basis", desc: "Tax" },
               { href: "/learn/xrp-tax-loss-harvesting", label: "Harvest", desc: "Save" },
               { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Framework" },
@@ -119,7 +119,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Open a Crypto IRA" description="Tax-free XRP growth." primaryHref="https://allaboutxrp.com/go/itrustcapital" primaryLabel="iTrustCapital →" secondaryHref="/learn/xrp-etf-approval-odds" secondaryLabel="ETF Odds" />
+        <LearnCTA title="Open a Crypto IRA" description="Tax-free XRP growth." primaryHref="https://itrustcapital.com/" primaryLabel="iTrustCapital →" secondaryHref="/learn/xrp-etf" secondaryLabel="ETF Odds" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

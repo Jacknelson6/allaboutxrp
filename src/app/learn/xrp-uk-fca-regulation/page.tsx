@@ -137,7 +137,7 @@ export default function XRPUKFCAPage() {
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax reporting help" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Regulation Impact", desc: "How rules affect XRP" },
               { href: "/learn/xrp-sec-settlement", label: "SEC Settlement", desc: "US legal resolution" },
-              { href: "/learn/get-started", label: "Buy XRP", desc: "Getting started guide" },
+              { href: "/how-to-start", label: "Buy XRP", desc: "Getting started guide" },
             ]} />
           </RevealSection>
         </div>
@@ -145,7 +145,7 @@ export default function XRPUKFCAPage() {
         <LearnCTA
           title="XRP Is Legal in the UK"
           description="Clear regulatory status. FCA-registered platforms. Start your XRP journey."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/xrp-european-regulation"
           secondaryLabel="European Rules"

@@ -19,17 +19,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Crypto Wallets for XRP in 2026: Complete Guide",
     description: "Hardware, software, and mobile wallet reviews for XRP with security ratings and setup guides.",
-    url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp",
+    url: "https://allaboutxrp.com/learn/xrp-wallets",
     type: "article",
   },
   twitter: { card: "summary_large_image", title: "Best Crypto Wallets for XRP in 2026", description: "Complete guide to the best wallets for storing XRP safely." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-wallets" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Best Crypto Wallets for XRP in 2026: Complete Guide", description: "Best crypto wallets for XRP — hardware, software, and mobile reviews with security ratings.", url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
+  buildArticleSchema({ headline: "Best Crypto Wallets for XRP in 2026: Complete Guide", description: "Best crypto wallets for XRP — hardware, software, and mobile reviews with security ratings.", url: "https://allaboutxrp.com/learn/xrp-wallets", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Wallets for XRP" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/crypto-wallets-for-xrp" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-wallets" }),
   buildFAQSchema([
     { question: "What's the best wallet for XRP?", answer: "For maximum security: Ledger Nano X or Trezor Safe 3 (hardware). For convenience: Xaman (XUMM) or Trust Wallet (mobile). For XRPL features: Xaman." },
     { question: "Do I need a special wallet for XRP?", answer: "No, but the wallet must support XRP/XRPL. Not all wallets do. Major hardware and software wallets support XRP." },
@@ -152,7 +152,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
               { href: "/learn/how-to-send-xrp", label: "How to Send XRP", desc: "Transfer XRP quickly" },

@@ -442,7 +442,7 @@ export default function BestXRPWalletsPage() {
               mobile wallet like Xaman for daily XRPL interactions. Learn more about XRP fundamentals in our{" "}
               <Link href="/learn/what-is-xrp" className="text-[#0085FF] hover:underline">What is XRP?</Link> guide,
               or get started with our{" "}
-              <Link href="/learn/get-started" className="text-[#0085FF] hover:underline">beginner&apos;s guide</Link>.
+              <Link href="/how-to-start" className="text-[#0085FF] hover:underline">beginner&apos;s guide</Link>.
             </p>
           </section>
 
@@ -475,8 +475,8 @@ export default function BestXRPWalletsPage() {
                 ["/learn/how-to-buy-xrp", "How to Buy XRP"],
                 ["/best/xrp-exchanges", "Best XRP Exchanges"],
                 ["/best/hardware-wallets-for-xrp", "Best Hardware Wallets"],
-                ["/answers/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
-                ["/answers/how-fast-is-xrp", "How Fast is XRP?"],
+                ["/learn/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
+                ["/learn/how-does-xrp-work", "How Fast is XRP?"],
               ].map(([href, label]) => (
                 <Link
                   key={href}

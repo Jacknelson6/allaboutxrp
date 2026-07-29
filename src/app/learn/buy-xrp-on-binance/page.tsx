@@ -115,7 +115,7 @@ export default function BuyXRPOnBinancePage() {
           <RevealSection id="create-account">
             <h2 className="text-2xl font-bold text-text-primary">Step 1: Create Your Binance Account</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Head to <a href="https://allaboutxrp.com/go/binance" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Binance.com</a> (or Binance.US if you&apos;re in the United States) and register with your email or phone number.
+              Head to <a href="https://www.binance.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Binance.com</a> (or Binance.US if you&apos;re in the United States) and register with your email or phone number.
             </p>
 
             <div className="mt-6">
@@ -128,7 +128,7 @@ export default function BuyXRPOnBinancePage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Binance" variant="accent">
-                <p><a href="https://allaboutxrp.com/go/binance" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Binance account →</a> The world&apos;s largest exchange with the deepest XRP liquidity and lowest fees.</p>
+                <p><a href="https://www.binance.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Binance account →</a> The world&apos;s largest exchange with the deepest XRP liquidity and lowest fees.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -239,7 +239,7 @@ export default function BuyXRPOnBinancePage() {
           <RevealSection id="withdraw" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Withdrawing XRP from Binance</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              For long-term holding, move your XRP to a <Link href="/learn/crypto-wallets-for-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link>. Binance charges a small flat withdrawal fee for XRP.
+              For long-term holding, move your XRP to a <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">personal wallet</Link>. Binance charges a small flat withdrawal fee for XRP.
             </p>
 
             <div className="mt-6">
@@ -262,7 +262,7 @@ export default function BuyXRPOnBinancePage() {
             <LearnLinkGrid links={[
               { href: "/learn/buy-xrp-on-coinbase", label: "Buy XRP on Coinbase", desc: "Best for US users" },
               { href: "/learn/buy-xrp-on-kraken", label: "Buy XRP on Kraken", desc: "Security-focused exchange" },
-              { href: "/learn/best-xrp-exchanges", label: "Best XRP Exchanges", desc: "Full comparison" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Full comparison" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax obligations" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
@@ -273,9 +273,9 @@ export default function BuyXRPOnBinancePage() {
         <LearnCTA
           title="Start Trading XRP on Binance"
           description="Join the world's largest crypto exchange and buy XRP with the lowest fees in the industry."
-          primaryHref="https://allaboutxrp.com/go/binance"
+          primaryHref="https://www.binance.com/"
           primaryLabel="Sign Up for Binance →"
-          secondaryHref="/learn/best-xrp-exchanges"
+          secondaryHref="/learn/how-to-buy-xrp"
           secondaryLabel="Compare All Exchanges"
         />
 

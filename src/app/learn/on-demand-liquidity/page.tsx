@@ -236,9 +236,9 @@ export default function OnDemandLiquidityPage() {
               { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
               { href: "/learn/ripple-prime", label: "Ripple Prime", desc: "Enterprise brokerage" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
-              { href: "/learn/rlusd-explained", label: "RLUSD Explained", desc: "Deep dive into RLUSD" },
+              { href: "/learn/rlusd", label: "RLUSD Explained", desc: "Deep dive into RLUSD" },
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
             ]} />
           </RevealSection>
@@ -247,7 +247,7 @@ export default function OnDemandLiquidityPage() {
         <LearnCTA
           title="XRP Powers Global Payments"
           description="On-Demand Liquidity is why XRP exists — real utility in the $150 trillion cross-border payments market."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"
           secondaryHref="/learn/ripplenet"
           secondaryLabel="Explore RippleNet"

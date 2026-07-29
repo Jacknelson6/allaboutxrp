@@ -435,7 +435,7 @@ export default function BestXRPStakingPage() {
                 ["/best/xrp-wallets", "Best XRP Wallets"],
                 ["/best/xrp-exchanges", "Best XRP Exchanges"],
                 ["/learn/rlusd", "What is RLUSD?"],
-                ["/answers/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
+                ["/learn/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}

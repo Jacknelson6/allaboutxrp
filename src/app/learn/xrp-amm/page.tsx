@@ -171,7 +171,7 @@ export default function XRPAMMPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrpl-defi", label: "XRPL DeFi", desc: "DeFi on the XRPL" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX Guide", desc: "Decentralized trading" },
-              { href: "/learn/how-to-stake-xrp", label: "How to Stake XRP", desc: "Earn yield on XRP" },
+              { href: "/learn/xrp-staking", label: "How to Stake XRP", desc: "Earn yield on XRP" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Staking options explained" },
               { href: "/learn/xrp-nfts", label: "XRP NFTs", desc: "NFTs on the XRPL" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },

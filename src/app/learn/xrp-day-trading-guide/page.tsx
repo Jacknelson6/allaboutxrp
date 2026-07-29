@@ -96,7 +96,7 @@ export default function Page() {
           <RevealSection id="exchanges" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Best Exchanges</h2>
             <div className="mt-6"><DataTable headers={["Exchange","Maker","Taker","Vol"]} rows={[["Binance","0.02%","0.04%","Highest"],["Bybit","0.02%","0.055%","High"],["Kraken","0.16%","0.26%","Med"]]} highlightCol={0} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/best-xrp-exchanges" className="text-xrp-accent underline decoration-xrp-accent/30">Full comparison</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Full comparison</Link></p>
           </RevealSection>
           <RevealSection id="mistakes" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Mistakes</h2>
@@ -114,14 +114,14 @@ export default function Page() {
               { href: "/learn/xrp-technical-analysis-guide", label: "TA Guide", desc: "Charts" },
               { href: "/learn/xrp-order-types-explained", label: "Orders", desc: "Types" },
               { href: "/learn/xrp-futures-trading", label: "Futures", desc: "Leverage" },
-              { href: "/learn/best-xrp-exchanges", label: "Exchanges", desc: "Compare" },
+              { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Compare" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
               { href: "/learn/xrp-on-chain-analysis", label: "On-Chain", desc: "Data" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Start Trading" description="Choose a low-fee exchange." primaryHref="/learn/best-xrp-exchanges" primaryLabel="Exchanges →" secondaryHref="/learn/xrp-technical-analysis-guide" secondaryLabel="Learn TA" />
+        <LearnCTA title="Start Trading" description="Choose a low-fee exchange." primaryHref="/learn/how-to-buy-xrp" primaryLabel="Exchanges →" secondaryHref="/learn/xrp-technical-analysis-guide" secondaryLabel="Learn TA" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

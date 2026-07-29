@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   title: "XRP ETF Approval Odds: Will It Get Approved? (2026) | AllAboutXRP",
   description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.",
   keywords: ["XRP ETF approval odds","will XRP ETF be approved","XRP ETF probability","XRP ETF 2026"],
-  openGraph: { title: "XRP ETF Approval Odds: Will It Get Approved? (2026)", description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.", url: "https://allaboutxrp.com/learn/xrp-etf-approval-odds", type: "article" },
+  openGraph: { title: "XRP ETF Approval Odds: Will It Get Approved? (2026)", description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.", url: "https://allaboutxrp.com/learn/xrp-etf", type: "article" },
   twitter: { card: "summary_large_image", title: "XRP ETF Approval Odds: Will It Get Approved? (2026)", description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines." },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf-approval-odds" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-etf" },
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "XRP ETF Approval Odds: Will It Get Approved? (2026)", description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.", url: "https://allaboutxrp.com/learn/xrp-etf-approval-odds", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "XRP ETF Approval Odds: Will It Get Approved? (2026)", description: "What are the chances an XRP ETF gets approved in 2026? Filing status, SEC posture, and comparison to Bitcoin/Ethereum ETF timelines.", url: "https://allaboutxrp.com/learn/xrp-etf", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "ETF Odds" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf-approval-odds" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf" }),
   buildFAQSchema([
     { question: "Approved in 2026?", answer: "65-80% probability per Bloomberg." },
     { question: "Who filed?", answer: "Grayscale, 21Shares, Bitwise, Franklin Templeton, Canary." },
@@ -86,7 +86,7 @@ export default function Page() {
           <RevealSection id="filings" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Filings</h2>
             <div className="mt-6"><IconList items={[{title:"Grayscale",desc:"Trust → ETF. Largest AUM."},{title:"21Shares",desc:"S-1 filed."},{title:"Bitwise",desc:"Strong institutional."},{title:"Franklin Templeton",desc:"Major TradFi."}]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">Full tracker: <Link href="/learn/xrp-etf-filings" className="text-xrp-accent underline decoration-xrp-accent/30">ETF filings</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Full tracker: <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF filings</Link>.</p>
           </RevealSection>
           <RevealSection id="sec" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">SEC Shift</h2>
@@ -95,7 +95,7 @@ export default function Page() {
           <RevealSection id="precedent" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Precedents</h2>
             <div className="mt-6"><DataTable headers={["ETF","Filed","Approved","Time"]} rows={[["BTC","2013","Jan 2024","~10yr"],["ETH","2023","May 2024","~1yr"],["XRP","2024","Pending","TBD"]]} highlightCol={3} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">Price impact: <Link href="/learn/xrp-etf-price-impact" className="text-xrp-accent underline decoration-xrp-accent/30">analysis</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Price impact: <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">analysis</Link>.</p>
           </RevealSection>
           <RevealSection id="timeline" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Timeline</h2>
@@ -110,8 +110,8 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-etf-filings", label: "Filings", desc: "Tracker" },
-              { href: "/learn/xrp-etf-price-impact", label: "Impact", desc: "Price" },
+              { href: "/learn/xrp-etf", label: "Filings", desc: "Tracker" },
+              { href: "/learn/xrp-etf", label: "Impact", desc: "Price" },
               { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Tax-free" },
               { href: "/learn/xrp-sec-settlement", label: "Settlement", desc: "Legal" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
@@ -120,7 +120,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Stay Updated" description="Track ETF progress." primaryHref="/learn/xrp-etf-filings" primaryLabel="Filings →" secondaryHref="/learn/xrp-etf-price-impact" secondaryLabel="Price Impact" />
+        <LearnCTA title="Stay Updated" description="Track ETF progress." primaryHref="/learn/xrp-etf" primaryLabel="Filings →" secondaryHref="/learn/xrp-etf" secondaryLabel="Price Impact" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

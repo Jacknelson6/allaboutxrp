@@ -113,7 +113,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="dex" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRPL DEX Pairs</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/how-to-use-xrpl-dex" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DEX</Link> offers no-KYC native trading. <Link href="/learn/rlusd-explained" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> stablecoin creating high-quality pairs.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/how-to-use-xrpl-dex" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL DEX</Link> offers no-KYC native trading. <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD</Link> stablecoin creating high-quality pairs.</p>
             <div className="mt-6"><IconList items={[
               {title:"XRP/RLUSD",desc:"Growing liquidity as RLUSD adoption increases."},
               {title:"XRP/USD (Bitstamp)",desc:"USD tokens via Bitstamp gateway. One of the oldest pairs."},

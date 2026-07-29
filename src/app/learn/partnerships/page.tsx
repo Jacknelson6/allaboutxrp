@@ -259,7 +259,7 @@ export default function PartnershipsPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/banks-using-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
@@ -281,7 +281,7 @@ export default function PartnershipsPage() {
           description="Every new partner increases the value for all existing participants. With 55+ countries and $90B+ processed, the network effect is accelerating."
           primaryHref="/learn/what-is-xrp"
           primaryLabel="Understand XRP →"
-          secondaryHref="/learn/get-started"
+          secondaryHref="/how-to-start"
           secondaryLabel="How to Buy XRP"
         />
 

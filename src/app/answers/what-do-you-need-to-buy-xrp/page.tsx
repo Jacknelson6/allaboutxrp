@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "What Do You Need to Buy XRP? | AllAboutXRP",
     description: "Requirements and step-by-step guide to buying XRP — from exchange signup to secure storage.",
-    url: "https://allaboutxrp.com/answers/what-do-you-need-to-buy-xrp",
+    url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     type: "article",
   },
   alternates: { canonical: "https://allaboutxrp.com/learn/first-time-buying-crypto-xrp" },
@@ -26,7 +26,7 @@ export default function Page() {
       shortAnswer={
         <p className="text-gray-300 leading-relaxed">
           Buying XRP is straightforward. You&apos;ll need a{" "}
-          <Link href="/answers/where-can-you-buy-xrp" className="text-[#0085FF] hover:underline">cryptocurrency exchange account</Link>,
+          <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">cryptocurrency exchange account</Link>,
           identity verification, and a way to deposit funds. Optionally, you&apos;ll want a personal{" "}
           <Link href="/learn/xrp-wallets" className="text-[#0085FF] hover:underline">XRP wallet</Link>{" "}
           for secure long-term storage. Most people can go from zero to owning XRP in under 30 minutes. Here&apos;s exactly what you need and how to do it.
@@ -46,7 +46,7 @@ export default function Page() {
             <li><strong className="text-white">Binance</strong> — Largest global exchange (not available in all US states).</li>
           </ul>
           <p>
-            See our full <Link href="/answers/where-can-you-buy-xrp" className="text-[#0085FF] hover:underline">exchange comparison</Link> for detailed rankings.
+            See our full <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">exchange comparison</Link> for detailed rankings.
           </p>
 
           <h3 className="text-xl font-semibold text-white">Step 2: Complete Identity Verification (KYC)</h3>
@@ -102,11 +102,11 @@ export default function Page() {
           </p>
           <p>
             Our recommendation: Start with{" "}
-            <Link href="/answers/where-can-you-buy-xrp" className="text-[#0085FF] hover:underline">Uphold</Link>{" "}
+            <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">Uphold</Link>{" "}
             for the simplest experience, complete KYC, fund via bank transfer (lowest fees), buy your XRP, and consider transferring to a{" "}
             <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>{" "}
             if you&apos;re holding a significant amount. Read our{" "}
-            <Link href="/answers/how-to-buy-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
             before your first purchase.
           </p>
         </div>

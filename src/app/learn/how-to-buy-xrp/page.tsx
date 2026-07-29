@@ -337,10 +337,10 @@ export default function HowToBuyXRPPage() {
           <RevealSection>
             <h2 className="text-2xl font-bold text-text-primary">Related Resources</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/get-started", label: "Get Started with XRP", desc: "Buy your first XRP" },
+              { href: "/how-to-start", label: "Get Started with XRP", desc: "Buy your first XRP" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Security best practices" },
               { href: "/learn/how-to-send-xrp", label: "How to Send XRP", desc: "Transfer XRP quickly" },
-              { href: "/learn/crypto-wallets-for-xrp", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
+              { href: "/learn/xrp-wallets", label: "Crypto Wallets for XRP", desc: "Best wallet comparison" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Top wallet picks" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide to XRP" },
               { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },

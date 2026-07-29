@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "XRP News — Latest Updates & Community Feed",
+  title: "XRP News and Recap Archive | AllAboutXRP",
   description:
-    "Stay updated with the latest XRP and Ripple news. Daily recaps, community updates, and breaking stories from the XRP ecosystem.",
+    "Browse dated XRP and Ripple news recaps with links to original reporting. Verify time-sensitive claims with the cited source.",
   openGraph: {
-    title: "XRP News Feed | AllAboutXRP",
-    description: "Latest XRP news, daily recaps, and community updates from the XRP ecosystem.",
+    title: "XRP News and Recap Archive | AllAboutXRP",
+    description: "Dated XRP and Ripple news recaps with original-source links.",
     url: "https://allaboutxrp.com/news",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "XRP News Feed | AllAboutXRP",
-    description: "Latest XRP and Ripple news, daily recaps, and ecosystem updates.",
+    title: "XRP News and Recap Archive | AllAboutXRP",
+    description: "Dated XRP and Ripple news recaps with original-source links.",
   },
   alternates: { canonical: "https://allaboutxrp.com/news" },
 };

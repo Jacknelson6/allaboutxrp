@@ -279,7 +279,7 @@ export default function XRPLDeFiPage() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-amm", label: "XRP AMM", desc: "Automated market maker" },
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX Guide", desc: "Decentralized trading" },
-              { href: "/learn/how-to-stake-xrp", label: "How to Stake XRP", desc: "Earn yield on XRP" },
+              { href: "/learn/xrp-staking", label: "How to Stake XRP", desc: "Earn yield on XRP" },
               { href: "/learn/xrp-staking", label: "XRP Staking", desc: "Staking options explained" },
               { href: "/learn/xrp-nfts", label: "XRP NFTs", desc: "NFTs on the XRPL" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger Explained", desc: "How XRPL works" },
@@ -292,7 +292,7 @@ export default function XRPLDeFiPage() {
         <LearnCTA
           title="Explore XRPL DeFi"
           description="Ready to dive into the XRPL DeFi ecosystem? Start by setting up a wallet and exploring the native DEX."
-          primaryHref="/learn/get-started"
+          primaryHref="/how-to-start"
           primaryLabel="Get Started with XRP →"
           secondaryHref="/learn/xrp-wallets"
           secondaryLabel="Best XRP Wallets"
