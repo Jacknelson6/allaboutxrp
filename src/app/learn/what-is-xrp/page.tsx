@@ -22,12 +22,14 @@ export const metadata: Metadata = {
       "Everything you need to know about XRP — the digital asset built for fast, low-cost global payments on the XRP Ledger.",
     url: "https://allaboutxrp.com/learn/what-is-xrp",
     type: "article",
+    images: [{ url: "https://allaboutxrp.com/opengraph-image", width: 1200, height: 630, alt: "AllAboutXRP guide to XRP" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "What is XRP? Complete Guide | AllAboutXRP",
     description:
       "Learn what XRP is, how it works, and why it matters. Comprehensive guide covering XRP explained simply.",
+    images: ["https://allaboutxrp.com/opengraph-image"],
   },
   alternates: {
     canonical: "https://allaboutxrp.com/learn/what-is-xrp",
@@ -40,11 +42,13 @@ const schemas = [
     description: "A comprehensive guide explaining what XRP is, how it works, its tokenomics, use cases, and role in the future of global payments.",
     url: "https://allaboutxrp.com/learn/what-is-xrp",
     datePublished: "2026-02-10",
-    dateModified: "2026-07-27",
+    dateModified: "2026-07-29",
     citations: [
       "https://xrpl.org/about/xrp",
       "https://xrpl.org/docs/concepts/consensus-protocol",
+      "https://xrpl.org/docs/concepts/transactions/transaction-cost",
       "https://xrpl.org/docs/concepts/accounts/reserves",
+      "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369",
     ],
   }),
   buildBreadcrumbSchema([
@@ -54,21 +58,21 @@ const schemas = [
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/what-is-xrp" }),
   buildFAQSchema([
-    { question: "What is XRP in simple terms?", answer: "XRP is a digital currency designed for fast, low-cost global payments. It settles transactions in 3-5 seconds with near-zero fees on the XRP Ledger, a decentralized blockchain." },
-    { question: "Is XRP the same as Ripple?", answer: "No. XRP is a decentralized digital asset on the XRP Ledger. Ripple is a private company that uses XRP in its products. XRP would continue to exist even if Ripple ceased operations." },
+    { question: "What is XRP in simple terms?", answer: "XRP is the native digital asset of the XRP Ledger. It pays transaction costs and can be used directly in payments or as a bridge between assets. The network usually closes a new ledger version in three to five seconds." },
+    { question: "Is XRP the same as Ripple?", answer: "No. XRP is an asset native to the open-source XRP Ledger. Ripple is a private company that builds products and holds XRP. The asset, ledger, and company are related but distinct." },
     { question: "How many XRP tokens exist?", answer: "100 billion XRP were created at genesis. No more can ever be minted. XRP is slightly deflationary because small amounts are burned with every transaction." },
-    { question: "Is XRP a good investment?", answer: "XRP has real utility in cross-border payments, growing institutional adoption, and regulatory clarity after the SEC case. However, all cryptocurrency investments carry risk. Do your own research." },
-    { question: "What makes XRP different from Bitcoin?", answer: "XRP settles in 3-5 seconds vs. Bitcoin's 10+ minutes, costs fractions of a cent vs. dollars, handles 1,500+ TPS vs. Bitcoin's ~7, and uses an energy-efficient consensus protocol instead of proof-of-work mining." },
+    { question: "Is XRP a good investment?", answer: "XRP is a volatile crypto asset and is not suitable for everyone. Evaluate its use case, supply, custody, liquidity, regulation, competition, and your capacity for loss instead of relying on price forecasts or promotional claims." },
+    { question: "What makes XRP different from Bitcoin?", answer: "The XRP Ledger uses a validator-based consensus process instead of proof-of-work mining, usually closes ledgers in three to five seconds, and includes native exchange and issued-asset functions. Bitcoin uses proof of work and has a different monetary policy and design goal." },
   ]),
 ];
 
 const faqItems = [
-  { q: "What is XRP in simple terms?", a: "XRP is a digital currency designed for fast, low-cost global payments. It settles transactions in 3-5 seconds with near-zero fees on the XRP Ledger, a decentralized blockchain. Think of it as the \"email of money\" — making value transfer as easy and fast as sending an email." },
-  { q: "Is XRP the same as Ripple?", a: "No. XRP is a decentralized digital asset on the XRP Ledger. Ripple is a private company that uses XRP in its products. XRP would continue to exist even if Ripple ceased operations." },
-  { q: "How many XRP tokens exist?", a: "100 billion XRP were created at genesis. No more can ever be minted. Approximately 60 billion are in circulation, ~33.9 billion are in Ripple's escrow, and over 14 million have been permanently burned through transaction fees." },
-  { q: "Is XRP a good investment?", a: "XRP has real utility in cross-border payments, growing institutional adoption, regulatory clarity, and potential ETF products. However, all cryptocurrency investments carry risk. Do your own research and never invest more than you can afford to lose." },
-  { q: "What makes XRP different from Bitcoin?", a: "XRP settles in 3-5 seconds vs. Bitcoin's 10+ minutes, costs fractions of a cent vs. dollars, handles 1,500+ TPS vs. ~7, and uses an energy-efficient consensus protocol instead of proof-of-work mining. Bitcoin is designed as a store of value; XRP is designed for payments." },
-  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, Kraken, and Bitstamp. Check our beginner's guide to buying XRP at /how-to-start for step-by-step instructions." },
+  { q: "What is XRP in simple terms?", a: "XRP is the native digital asset of the XRP Ledger. It pays transaction costs and can be used directly in payments or as a bridge between assets. The network usually closes a new ledger version in three to five seconds." },
+  { q: "Is XRP the same as Ripple?", a: "No. XRP is an asset native to the open-source XRP Ledger. Ripple is a private company that builds products and holds XRP. The asset, ledger, and company are related but distinct." },
+  { q: "How many XRP tokens exist?", a: "100 billion XRP were created at genesis and no additional XRP can be minted. The total supply gradually declines because transaction costs are destroyed. Circulating-supply estimates vary by provider and over time, so check the methodology and date behind any current figure." },
+  { q: "Is XRP a good investment?", a: "XRP is a volatile crypto asset and is not suitable for everyone. Evaluate its use case, supply, custody, liquidity, regulation, competition, and your capacity for loss instead of relying on price forecasts or promotional claims." },
+  { q: "What makes XRP different from Bitcoin?", a: "The XRP Ledger uses a validator-based consensus process instead of proof-of-work mining, usually closes ledgers in three to five seconds, and includes native exchange and issued-asset functions. Bitcoin uses proof of work and has a different monetary policy and design goal." },
+  { q: "How do I buy XRP?", a: "Choose a venue that serves your jurisdiction and supports XRP withdrawals, complete its identity checks, fund the account, and compare the total order cost before confirming. Plan whether you will use exchange custody or a self-custody wallet before purchasing." },
 ];
 
 export default function WhatIsXRPPage() {
@@ -83,13 +87,13 @@ export default function WhatIsXRPPage() {
           breadcrumbLabel="What is XRP?"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" modified="2026-07-27" />
-            <LastUpdated date="July 27, 2026" />
+            <AuthorByline date="2026-02-11" modified="2026-07-29" />
+            <LastUpdated date="July 29, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP</strong> is a cryptocurrency built for fast, low-cost global payments on the <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. It settles in 3-5 seconds, costs less than $0.01 per transaction, and handles 1,500+ TPS. All 100 billion XRP were created at launch — no more can ever be minted. <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> uses XRP as a bridge currency for cross-border payments across 55+ countries.</p>
+          <p><strong className="text-text-primary">XRP</strong> is the native digital asset of the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>, an open-source network that usually closes ledgers in three to five seconds. XRP pays transaction costs and can bridge value between assets. All 100 billion XRP were created at launch; no additional XRP can be minted. <a href="https://xrpl.org/about/xrp" data-source-link="true" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30">Verify the protocol facts on XRPL.org</a>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -100,7 +104,7 @@ export default function WhatIsXRPPage() {
           { label: "Consensus", value: "Federated Consensus Protocol" },
           { label: "Throughput", value: "1,500+ TPS" },
           { label: "Creators", value: "David Schwartz, Jed McCaleb, Arthur Britto" },
-          { label: "Legal Status", value: "Not a security (Torres ruling, 2023)" },
+          { label: "U.S. Court Context", value: "Treatment depends on the transaction" },
         ]} />
 
         <SectionNav items={[
@@ -135,12 +139,12 @@ export default function WhatIsXRPPage() {
               XRP is a <strong className="text-text-primary">cryptocurrency</strong> — a digital asset that uses cryptography and blockchain technology to enable secure, peer-to-peer transactions without intermediaries. But XRP isn&apos;t just another cryptocurrency. It was specifically engineered to solve one of the biggest problems in global finance: moving money across borders quickly and cheaply.
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Today&apos;s international payment system relies on infrastructure built decades ago. Sending money from the United States to Japan through traditional banking channels can take 3-5 business days and cost $25-50 in fees. XRP completes the same transfer in 3-5 <em>seconds</em> for less than a fraction of a cent.
+              XRP can be transferred on the ledger without a proof-of-work miner or a correspondent-bank chain. The network usually validates a new ledger in three to five seconds, while the minimum cost for a standard transaction is currently 0.00001 XRP and can rise when the network is under load.
             </p>
 
             <div className="mt-6">
               <HighlightBox title="Key Insight" variant="accent">
-                <p>The XRP Ledger processes approximately <strong className="text-text-primary">1,500 transactions per second</strong> — compared to Bitcoin&apos;s ~7 TPS and Ethereum&apos;s ~30 TPS. This throughput makes XRP practical for real-world payment applications at scale.</p>
+                <p>Performance figures describe the network&apos;s technical capacity, not guaranteed end-to-end payment speed. Exchange processing, compliance checks, liquidity, and the off-ledger steps on either side of a transfer can take longer than an XRPL ledger close.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -157,9 +161,9 @@ export default function WhatIsXRPPage() {
             <div className="mt-5">
               <IconList items={[
                 { title: "Fast", desc: "Transactions confirm in 3-5 seconds, not minutes or hours" },
-                { title: "Energy-efficient", desc: "No mining required — the XRPL uses 120,000x less energy than Bitcoin" },
-                { title: "Decentralized", desc: "Over 150 validators globally, with Ripple operating only ~6% of them" },
-                { title: "Reliable", desc: "The XRPL has operated continuously since 2012 with zero downtime, closing over 90 million ledgers" },
+                { title: "Energy-efficient", desc: "Consensus does not require proof-of-work mining" },
+                { title: "Open participation", desc: "Anyone can run validator software, while each server chooses which validators it trusts" },
+                { title: "Deterministic", desc: "Transactions either succeed or fail under the shared ledger rules" },
               ]} variant="zap" />
             </div>
 
@@ -191,7 +195,7 @@ export default function WhatIsXRPPage() {
           <RevealSection id="tokenomics" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">XRP Tokenomics: Supply Breakdown</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed, hard-capped supply — no new XRP can ever be minted. Approximately 33.9 billion XRP remains in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow system</Link>. Here&apos;s how the supply breaks down as of February 2026:
+              <strong className="text-text-primary">100 billion XRP</strong> were created when the XRP Ledger launched in 2012. This is a fixed supply: no additional XRP can be minted. Some XRP is held in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">time-based escrow</Link>, and the amount considered circulating varies with the data provider&apos;s classification method.
             </p>
 
             <div className="mt-6">
@@ -199,9 +203,9 @@ export default function WhatIsXRPPage() {
                 headers={["Category", "Amount", "Details"]}
                 rows={[
                   ["Total Supply", "100B XRP", "Fixed forever — no inflation"],
-                  ["Circulating Supply", "~60B XRP", "Available on the open market"],
-                  ["In Escrow", "~33.9B XRP", "Ripple's escrow system"],
-                  ["Burned (Fees)", "~14.26M XRP", "Permanently destroyed"],
+                  ["Circulating Supply", "Changes over time", "Check the provider's method and date"],
+                  ["Time-based Escrow", "Changes monthly", "Verify with ledger records"],
+                  ["Transaction Costs", "Destroyed", "Total supply gradually declines"],
                 ]}
                 highlightCol={1}
               />
@@ -209,7 +213,7 @@ export default function WhatIsXRPPage() {
 
             <div className="mt-6">
               <HighlightBox title="Deflationary by Design" variant="success">
-                <p>Every transaction on the XRPL burns a small amount of XRP (typically 0.00001 XRP) as a fee. These burned tokens are <strong className="text-text-primary">permanently destroyed</strong>, gradually reducing the total supply over time. Over 14 million XRP have been burned to date.</p>
+                <p>Every validated transaction destroys the exact XRP amount specified in its Fee field. The current minimum for a standard transaction is 0.00001 XRP, but the required cost can rise under load and can be changed through the network&apos;s fee-voting process.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -237,10 +241,10 @@ export default function WhatIsXRPPage() {
               <HighlightBox title="How Is XRP Different?" variant="info">
                 <ol className="list-decimal pl-4 space-y-2">
                   <li><strong className="text-text-primary">Purpose-built for payments:</strong> While Bitcoin was designed as &quot;digital gold&quot; and Ethereum as a smart contract platform, XRP was engineered specifically for fast, low-cost value transfer.</li>
-                  <li><strong className="text-text-primary">No mining:</strong> XRP uses Federated Consensus instead of energy-intensive proof-of-work mining — 120,000x less energy than Bitcoin.</li>
+                  <li><strong className="text-text-primary">No mining:</strong> XRPL consensus does not use proof-of-work mining or pay block rewards.</li>
                   <li><strong className="text-text-primary">Pre-mined fixed supply:</strong> All 100 billion XRP existed from day one. Combined with the deflationary burn mechanism, XRP&apos;s supply only decreases over time.</li>
-                  <li><strong className="text-text-primary">Enterprise adoption:</strong> <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Hundreds of financial institution partnerships</Link> and a company valued at $50 billion.</li>
-                  <li><strong className="text-text-primary">Regulatory clarity:</strong> The 2023 Torres ruling established that XRP on exchanges is not a security — paving the way for <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">ETF filings and institutional products</Link>.</li>
+                  <li><strong className="text-text-primary">Built-in exchange:</strong> The ledger includes a decentralized exchange and pathfinding between issued assets.</li>
+                  <li><strong className="text-text-primary">Transaction-specific legal context:</strong> The U.S. court distinguished categories of Ripple&apos;s XRP sales; it did not create one worldwide rule for every transaction.</li>
                 </ol>
               </HighlightBox>
             </div>
@@ -251,12 +255,12 @@ export default function WhatIsXRPPage() {
             <h2 className="text-2xl font-bold text-text-primary">What Are XRP&apos;s Use Cases?</h2>
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
-                { title: "Cross-Border Payments", desc: "Ripple's partner network spans 55+ countries. Through ODL, XRP serves as the bridge currency — eliminating the need for pre-funded accounts in destination currencies." },
-                { title: "Institutional Settlement", desc: "With Ripple's acquisition of Hidden Road (now Ripple Prime), over $3 trillion in annual clearing volume could eventually settle on the XRPL." },
-                { title: "Stablecoin Infrastructure", desc: "Ripple's RLUSD stablecoin (launched Dec 2024) operates on XRPL. Learn more about how RLUSD helps XRP in our dedicated guide." },
-                { title: "Tokenized Assets", desc: "The XRPL supports tokenization of real-world assets — real estate, gold, treasury bills. Partners like Archax, Meld Gold, and Zoniqx are building on XRPL." },
-                { title: "Central Bank Digital Currencies", desc: "Ripple is working with 20+ central banks globally on CBDC pilot programs. The XRPL's speed, low cost, and compliance features make it a natural platform." },
-                { title: "Everyday Payments", desc: "With 3-5 second settlement and fees under $0.01, XRP is one of the most practical cryptocurrencies for daily use via the Xaman wallet." },
+                { title: "Native Payments", desc: "XRP can move directly between accounts and can bridge paths between assets on the ledger." },
+                { title: "Issued Assets", desc: "Organizations can issue fungible tokens while users manage trust lines and transfer rules." },
+                { title: "Decentralized Exchange", desc: "Order books and automated market makers are built into the protocol rather than added through a separate smart contract." },
+                { title: "Escrow and Payment Channels", desc: "Protocol-native primitives support time-based releases and high-volume off-ledger payment flows." },
+                { title: "Tokenization", desc: "The ledger supports fungible tokens, NFTs, and multi-purpose tokens with issuer controls." },
+                { title: "Bridge Liquidity", desc: "Pathfinding can combine order books and liquidity pools to route value between available assets." },
               ]} />
             </div>
           </RevealSection>
@@ -291,7 +295,7 @@ export default function WhatIsXRPPage() {
             </div>
 
             <p className="mt-5 text-text-secondary leading-relaxed">
-              Every month, up to 1 billion XRP unlocks automatically (enforced by the protocol), but Ripple typically re-escrows 60-80% immediately. Only 200-300 million XRP enters potential circulation each month. As of February 2026, approximately <strong className="text-text-primary">33.9 billion XRP</strong> remains in escrow.
+              The original escrow schedule releases time-based tranches on the ledger. A release does not by itself show that XRP entered the open market: the receiving account can transfer, hold, use, or place XRP into a new escrow. Current balances and subsequent transactions should be checked against ledger records rather than inferred from the scheduled amount alone.
             </p>
             <p className="mt-3 text-text-secondary leading-relaxed">
               Read our comprehensive deep dive: <Link href="/learn/escrow" className="text-xrp-accent hover:text-xrp-accent-bright transition-colors underline decoration-xrp-accent/30">XRP Escrow: The Complete Guide →</Link>
@@ -302,29 +306,29 @@ export default function WhatIsXRPPage() {
           <RevealSection id="sec-case" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">The SEC Case and Regulatory Clarity</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              In December 2020, the SEC sued Ripple Labs, alleging that XRP was an unregistered security. After years of litigation, <strong className="text-text-primary">Judge Analisa Torres ruled in July 2023</strong> that XRP sold on public exchanges to retail investors is <strong className="text-text-primary">not a security</strong>. This was a landmark decision for the entire cryptocurrency industry.
+              In December 2020, the SEC sued Ripple Labs and two executives over offers and sales of XRP. The district court&apos;s 2023 summary-judgment decision distinguished Ripple&apos;s institutional sales from programmatic sales and other distributions. That transaction-specific analysis should not be compressed into a claim that every XRP transaction has one legal status in every jurisdiction.
             </p>
             <p className="mt-3 text-text-secondary leading-relaxed">
-              In August 2024, Ripple was ordered to pay $125 million in civil penalties — far less than the SEC&apos;s original demand of nearly $2 billion. Following this clarity, major U.S. exchanges relisted XRP, and multiple firms filed for spot XRP ETFs.
+              The August 2024 final judgment imposed a $125,035,150 civil penalty and an injunction. In August 2025, the SEC and Ripple dismissed their appeals, leaving that final judgment in effect. <a href="https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369" data-source-link="true" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30">Read the SEC&apos;s case-resolution notice</a>.
             </p>
             <p className="mt-3 text-sm text-text-secondary">
               Learn more in our <Link href="/learn/history" className="text-xrp-accent underline decoration-xrp-accent/30">complete history and timeline</Link>.
             </p>
           </RevealSection>
 
-          {/* ===== 2026 AND BEYOND ===== */}
+          {/* ===== WHAT TO MONITOR ===== */}
           <RevealSection delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">XRP in 2026 and Beyond</h2>
+            <h2 className="text-2xl font-bold text-text-primary">What Should XRP Readers Monitor?</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              With the SEC case largely resolved, XRP is entering a new chapter. Key developments to watch:
+              Separate changes to the public ledger from announcements about Ripple, exchanges, funds, or regulation. Each evidence type answers a different question:
             </p>
             <div className="mt-5">
               <IconList items={[
-                { title: "XRP Spot ETFs", desc: "Multiple applications filed by Bitwise, Canary Capital, 21Shares, and WisdomTree" },
-                { title: "XRP Futures", desc: "Listed on CME with futures-based ETFs already trading" },
-                { title: "Institutional Adoption", desc: "Ripple's acquisition strategy creating full-stack financial infrastructure" },
-                { title: "RLUSD Growth", desc: "Stablecoin market cap surpassing $1.26 billion" },
-                { title: "Global Regulatory Clarity", desc: "Favorable regulations in the US, UK, Singapore, UAE, and beyond" },
+                { title: "Protocol changes", desc: "Use XRPL amendment and release documentation to verify what the network can do." },
+                { title: "Ledger activity", desc: "Use reproducible on-chain queries, timestamps, and methodology instead of social-media screenshots." },
+                { title: "Regulatory status", desc: "Read regulator notices, court records, and jurisdiction-specific rules before drawing conclusions." },
+                { title: "Product availability", desc: "Verify exchange, custody, and fund availability in the provider's current official disclosures." },
+                { title: "Commercial adoption", desc: "Distinguish a pilot, partnership, integration, and production transaction volume." },
               ]} variant="zap" />
             </div>
           </RevealSection>
@@ -333,9 +337,9 @@ export default function WhatIsXRPPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Why Does XRP Matter?</h2>
             <div className="mt-5">
-              <HighlightBox title="$150 Trillion Opportunity" variant="accent" large>
-                <p>The global cross-border payments market moves over <strong className="text-text-primary">$150 trillion annually</strong>, yet the infrastructure behind it is decades old. International wire transfers still take 3-5 business days, cost $25-50 in fees, and require trillions locked in pre-funded accounts. XRP was designed to fix this — offering settlement in seconds for fractions of a cent.</p>
-                <p className="mt-3">Beyond payments, XRP represents a shift toward an &quot;Internet of Value&quot; — a world where money moves as easily as information. With <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> growing institutional infrastructure, RLUSD stablecoin, and potential ETF products, XRP is positioned at the intersection of traditional finance and blockchain technology.</p>
+              <HighlightBox title="A purpose-built settlement asset" variant="accent" large>
+                <p>XRP matters because it is native liquidity inside a public ledger designed around payments, exchange, and issued assets. Its relevance depends on whether people and institutions actually use those functions—not on a price target or a company announcement.</p>
+                <p className="mt-3">Evaluate the XRP Ledger as public infrastructure, <Link href="/learn/what-is-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple</Link> as a separate company, and XRP as a volatile asset with its own liquidity, custody, concentration, and regulatory risks.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -346,9 +350,9 @@ export default function WhatIsXRPPage() {
             <div className="mt-5 space-y-3">
               <MisconceptionCard myth="Ripple and XRP are the same thing" reality="Ripple is a company; XRP is a decentralized digital asset. They are related but distinct. XRP would continue to exist even if Ripple ceased operations." />
               <MisconceptionCard myth="XRP has unlimited supply" reality="XRP has a fixed supply of 100 billion. No more can ever be created. It's actually deflationary — transaction fees permanently burn XRP." />
-              <MisconceptionCard myth="Escrow unlocks crash the price" reality="Monthly escrow unlocks are fully predictable and priced in. 60-80% is re-escrowed immediately. Only 200-300M enters potential circulation." />
-              <MisconceptionCard myth="You should store XRP only on exchanges" reality="For long-term holding, use a self-custody wallet like Xaman. 'Not your keys, not your crypto.'" />
-              <MisconceptionCard myth="I can use all my XRP — the wallet reserve doesn't matter" reality="XRPL accounts require a 1 XRP reserve to activate. Factor this in when setting up a new wallet." />
+              <MisconceptionCard myth="A scheduled escrow release proves selling" reality="A release changes who can move the XRP; it does not by itself show where the XRP went. Follow the resulting ledger transactions." />
+              <MisconceptionCard myth="Self-custody is automatically safer" reality="Self-custody removes exchange custody risk but adds key-management and recovery risk. The safer choice depends on your controls and capability." />
+              <MisconceptionCard myth="The wallet reserve never changes" reality="The base reserve is a network setting that validators can change. Verify the current value before funding a new account." />
             </div>
           </RevealSection>
 
@@ -383,7 +387,9 @@ export default function WhatIsXRPPage() {
         <SourceList sources={[
           { label: "XRPL.org: XRP overview", href: "https://xrpl.org/about/xrp", note: "XRP purpose, supply, settlement, and its relationship to Ripple" },
           { label: "XRPL consensus protocol", href: "https://xrpl.org/docs/concepts/consensus-protocol", note: "How transactions are validated without mining" },
+          { label: "XRPL transaction cost", href: "https://xrpl.org/docs/concepts/transactions/transaction-cost", note: "Current minimum fee, load scaling, and fee destruction" },
           { label: "XRPL account reserves", href: "https://xrpl.org/docs/concepts/accounts/reserves", note: "Current base and owner reserve settings" },
+          { label: "SEC: Ripple case resolution", href: "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369", note: "Final judgment, civil penalty, injunction, and dismissal of appeals" },
         ]} />
 
         {/* Conclusion CTA */}
@@ -397,7 +403,7 @@ export default function WhatIsXRPPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Reviewed July 27, 2026. Published by AllAboutXRP. Use the linked primary sources for current protocol and legal details.</em>
+          <em>Reviewed July 29, 2026. Published by AllAboutXRP. Use the linked primary sources for current protocol and legal details.</em>
         </p>
       </div>
     </>

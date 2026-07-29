@@ -8,7 +8,7 @@ Decision rule: improve evidence, information architecture, and measurement befor
 
 AllAboutXRP does not need another large batch of generic XRP pages. It already has broad topical coverage. The highest-leverage move is to turn the existing library into a smaller, better-connected, more defensible body of work and then let verified Search Console demand guide each refresh or expansion.
 
-The release accompanying this plan consolidates 38 duplicate or legacy URLs, adds seven crawlable topic hubs, exposes answer content in initial HTML, removes unsupported live-data claims, repairs internal redirect hops and broken `/go/*` links, and expands the sitemap from 149 to 152 intentional canonical URLs. It does not create speculative programmatic pages.
+The releases accompanying this plan consolidate 38 duplicate or legacy URLs, add seven crawlable topic hubs, expose answer content in initial HTML, remove unsupported live-data claims, repair internal redirect hops and broken `/go/*` links, and expand the sitemap from 149 to 152 intentional canonical URLs. The second pass strengthens primary evidence and legal precision on two flagship guides, defers below-fold homepage modules, instruments source and guide clicks, and limits sitemap freshness dates to pages actually reviewed. It does not create speculative programmatic pages.
 
 ## Measurement constraint
 
@@ -33,8 +33,9 @@ The domain has a Google verification DNS record, but the signed-in Search Consol
 | P0 | Build a crawlable topic hierarchy | Moves important articles out of isolated cycles and gives users a coherent path | Implemented: seven hubs covering every sitemap learn guide |
 | P0 | Make answers extractable | Answer engines need concise visible answers, semantic questions, evidence, and stable URLs | Implemented on `/answers` and `/learn/faq` |
 | P0 | Remove false freshness and fake fallbacks | Unsupported “live,” “AI-powered,” and sample data claims damage trust | Implemented on news, whale, and escrow surfaces |
-| P1 | Add visible primary evidence to core guides | Only a minority of learn templates expose a clearly labeled source section | Start with GSC winners and YMYL pages |
-| P1 | Improve mobile LCP and JS cost | Audit snapshot measured roughly 6.7 s mobile LCP and substantial unused JavaScript | Profile homepage and live chart, then lazy-load below-fold interactive modules |
+| P1 | Add visible primary evidence to core guides | Only a minority of learn templates expose a clearly labeled source section | Implemented on `what-is-xrp` and `how-to-buy-xrp`; continue from verified GSC winners |
+| P1 | Improve mobile LCP and JS cost | Audit snapshot measured roughly 6.7 s mobile LCP and substantial unused JavaScript | Homepage news/sidebar modules now load near the viewport with reserved space; remeasure production and profile live chart next |
+| P1 | Measure content journeys | Source use and guide-to-guide movement reveal whether pages build trust and continue sessions | `source_clicked` and `guide_clicked` implemented; dormant until the GA4 ID is configured |
 | P1 | Repair social-image inheritance | Most nested pages replace root Open Graph metadata without defining an image | Add a shared page-image helper or merge images in metadata builders |
 | P1 | Prune links to `noindex` pages | Indexable guides still send users and crawlers into thin comparison/recommendation clusters | Audit now reports every occurrence; remove from highest-authority pages first |
 | P2 | Recover defensible news history | Search results include old news URLs that now return 404, while the current feed is empty | Restore only when original content and source record are available; otherwise keep honest 404/410 responses |
@@ -85,7 +86,7 @@ After the tag is live, treat the first 28 complete days as the clean baseline. T
 - `page_view` by landing page and default channel group.
 - Engaged sessions and average engagement time by canonical guide.
 - `newsletter_signup_completed`, already implemented, by page and placement.
-- Outbound primary-source clicks, guide-to-guide clicks, and tool starts as future named events.
+- `source_clicked` and `guide_clicked` events, now implemented, plus tool starts as the next named event.
 - Organic landing pages that attract traffic but do not lead to a second guide, a source click, or a signup.
 
 Do not compare post-install GA4 metrics with a period that had no tag as if it were a traffic increase.
@@ -130,15 +131,15 @@ Best future candidates are validator profiles, network fee/reserve history, an e
 
 ### Days 8–30
 
-- Refresh the top 10 non-branded opportunity pages with primary sources and answer-first openings.
+- Continue the source-led refresh from the two completed flagship guides to the top 10 verified non-branded opportunity pages.
 - Remove links from those pages to `noindex` recommendations/comparisons.
 - Add an Open Graph image to the shared metadata path.
-- Profile and reduce homepage/live-chart JavaScript and LCP.
+- Remeasure the deferred homepage modules in production, then profile and reduce live-chart JavaScript and LCP.
 
 ### Days 31–60
 
 - Consolidate any additional GSC-confirmed cannibalization.
-- Add source-click and guide-click analytics events.
+- Validate the implemented source-click and guide-click events after GA4 is connected.
 - Publish one original methodology page and one small source-backed dataset prototype.
 - Request reindexing only for materially updated canonical pages.
 

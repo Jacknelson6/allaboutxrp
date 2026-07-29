@@ -206,7 +206,7 @@ export default function AnswersHub() {
                             </Link>
                           </h3>
                           <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">{answer.snippet}</p>
-                          <a href={answer.source.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-xs font-semibold text-xrp-accent-bright underline decoration-xrp-accent/30 underline-offset-4 hover:decoration-xrp-accent-bright">
+                          <a href={answer.source.href} data-source-link="true" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-xs font-semibold text-xrp-accent-bright underline decoration-xrp-accent/30 underline-offset-4 hover:decoration-xrp-accent-bright">
                             Source: {answer.source.label}
                           </a>
                         </div>

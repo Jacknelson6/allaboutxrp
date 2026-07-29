@@ -1,4 +1,5 @@
 import Script from "next/script";
+import AnalyticsInteractions from "./AnalyticsInteractions";
 
 interface GoogleAnalyticsProps {
   measurementId: string;
@@ -20,6 +21,7 @@ export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps)
           gtag('config', '${measurementId}');
         `}
       </Script>
+      <AnalyticsInteractions />
     </>
   );
 }

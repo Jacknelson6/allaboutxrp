@@ -8,8 +8,7 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
-import RightSidebar from "./RightSidebar";
-import NewsFeed from "./NewsFeed";
+import DeferredHomeContent from "./DeferredHomeContent";
 
 const startingPoints = [
   {
@@ -92,6 +91,7 @@ export default function HomeFeed() {
                 </Link>
                 <a
                   href="https://xrpl.org/about/xrp"
+                  data-source-link="true"
                   rel="noopener noreferrer"
                   className="text-link text-sm text-text-secondary"
                 >
@@ -184,16 +184,7 @@ export default function HomeFeed() {
           </div>
         </div>
 
-        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="min-w-0 overflow-hidden">
-            <NewsFeed />
-          </div>
-          <div className="hidden lg:block">
-            <div className="sticky top-24">
-              <RightSidebar />
-            </div>
-          </div>
-        </div>
+        <DeferredHomeContent />
       </section>
     </div>
   );
