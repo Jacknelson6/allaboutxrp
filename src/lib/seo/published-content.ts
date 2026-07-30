@@ -116,7 +116,7 @@ export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntr
 
     if (error) {
       console.error("Unable to load published news for sitemap:", error.message);
-      return [];
+      return getPublicNewsEntries();
     }
 
     return (data ?? [])
@@ -131,12 +131,16 @@ export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntr
       "Unable to load published news for sitemap:",
       error instanceof Error ? error.message : "Unknown error",
     );
-    return [];
+    return getPublicNewsEntries();
   }
 });
 
-export const getPublishedDigestEntries = cache(async (): Promise<PublishedDigestEntry[]> => {
-  if (!isSupabaseServiceConfigured()) return getPublicDigestEntries();
+export const getPublishedDigestEntries = cache(async (
+  allowPublicFallback = true,
+): Promise<PublishedDigestEntry[]> => {
+  if (!isSupabaseServiceConfigured()) {
+    return allowPublicFallback ? getPublicDigestEntries() : [];
+  }
 
   try {
     const supabase = createServiceClient();
@@ -149,7 +153,7 @@ export const getPublishedDigestEntries = cache(async (): Promise<PublishedDigest
 
     if (error) {
       console.error("Unable to load published digests for sitemap:", error.message);
-      return [];
+      return allowPublicFallback ? getPublicDigestEntries() : [];
     }
 
     return (data ?? [])
@@ -167,7 +171,7 @@ export const getPublishedDigestEntries = cache(async (): Promise<PublishedDigest
       "Unable to load published digests for sitemap:",
       error instanceof Error ? error.message : "Unknown error",
     );
-    return [];
+    return allowPublicFallback ? getPublicDigestEntries() : [];
   }
 });
 
@@ -190,7 +194,8 @@ export const getPublishedDigestEntry = cache(
         .single();
 
       if (error || !data || !isValidPublishedEntry(data.slug, data.published_at)) {
-        return null;
+        const digests = await getPublicDigestEntries();
+        return digests.find((digest) => digest.slug === slug) ?? null;
       }
 
       return {
@@ -202,7 +207,8 @@ export const getPublishedDigestEntry = cache(
         publishedAt: data.published_at,
       };
     } catch {
-      return null;
+      const digests = await getPublicDigestEntries();
+      return digests.find((digest) => digest.slug === slug) ?? null;
     }
   },
 );
