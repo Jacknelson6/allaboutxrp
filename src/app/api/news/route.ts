@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   // Primary: read from "news" table (populated by N8N, enriched by /api/news/enrich)
   const { data, error } = await supabase
     .from("news")
-    .select("title, simple_title, url, source, summary, og_image, published_at, importance_score, sentiment, slug")
+    .select("title, simple_title, url, source, summary, blog_content, og_image, published_at, importance_score, sentiment, slug")
     .gte("importance_score", 6)
     .order("published_at", { ascending: false })
     .range(offset, offset + limit - 1);
@@ -37,13 +37,16 @@ export async function GET(request: NextRequest) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const normalized = (fallback ?? []).map((a: any) => ({
-      ...a, simple_title: null, og_image: null, importance_score: 8, sentiment: null,
+      ...a, simple_title: null, og_image: null, importance_score: 8, sentiment: null, has_blog_content: false,
     }));
     return NextResponse.json(normalized);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let articles = (data ?? []).map((a: any) => ({ ...a }));
+  let articles = (data ?? []).map((a: any) => {
+    const { blog_content: blogContent, ...article } = a;
+    return { ...article, has_blog_content: Boolean(blogContent) };
+  });
 
   // Client-side op-ed filter
   articles = articles.filter((a: { title: string }) => {

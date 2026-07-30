@@ -5,6 +5,11 @@ import {
 } from "@/lib/supabase/server";
 
 const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const PUBLIC_SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  "https://allaboutxrp.com"
+).replace(/\/$/, "");
 
 export interface PublishedNewsEntry {
   slug: string;
@@ -30,13 +35,71 @@ function isValidPublishedEntry(slug: unknown, publishedAt: unknown): slug is str
   );
 }
 
+async function getPublicNewsEntries(): Promise<PublishedNewsEntry[]> {
+  try {
+    const response = await fetch(`${PUBLIC_SITE_URL}/api/news?limit=50`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+
+    const rows: unknown = await response.json();
+    if (!Array.isArray(rows)) return [];
+
+    return rows
+      .filter(
+        (row): row is Record<string, unknown> =>
+          Boolean(row) &&
+          typeof row === "object" &&
+          row.has_blog_content === true &&
+          isValidPublishedEntry(row.slug, row.published_at),
+      )
+      .map((row) => ({
+        slug: row.slug as string,
+        title: String(row.simple_title || row.title || "XRP News Update"),
+        publishedAt: row.published_at as string,
+      }));
+  } catch {
+    return [];
+  }
+}
+
+async function getPublicDigestEntries(): Promise<PublishedDigestEntry[]> {
+  try {
+    const response = await fetch(`${PUBLIC_SITE_URL}/api/digests`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+
+    const rows: unknown = await response.json();
+    if (!Array.isArray(rows)) return [];
+
+    return rows
+      .filter(
+        (row): row is Record<string, unknown> =>
+          Boolean(row) &&
+          typeof row === "object" &&
+          isValidPublishedEntry(row.slug, row.published_at),
+      )
+      .map((row) => ({
+        id: String(row.id),
+        title: String(row.title || "Weekly XRP Digest"),
+        slug: row.slug as string,
+        weekStart: String(row.week_start),
+        weekEnd: String(row.week_end),
+        publishedAt: row.published_at as string,
+      }));
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Returns only article pages with substantial first-party content. Wire stories
  * that have only an outbound summary remain out of the sitemap to avoid thin or
  * duplicative search results.
  */
 export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntry[]> => {
-  if (!isSupabaseServiceConfigured()) return [];
+  if (!isSupabaseServiceConfigured()) return getPublicNewsEntries();
 
   try {
     const supabase = createServiceClient();
@@ -73,7 +136,7 @@ export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntr
 });
 
 export const getPublishedDigestEntries = cache(async (): Promise<PublishedDigestEntry[]> => {
-  if (!isSupabaseServiceConfigured()) return [];
+  if (!isSupabaseServiceConfigured()) return getPublicDigestEntries();
 
   try {
     const supabase = createServiceClient();
@@ -110,7 +173,11 @@ export const getPublishedDigestEntries = cache(async (): Promise<PublishedDigest
 
 export const getPublishedDigestEntry = cache(
   async (slug: string): Promise<PublishedDigestEntry | null> => {
-    if (!isSupabaseServiceConfigured() || !SAFE_SLUG.test(slug)) return null;
+    if (!SAFE_SLUG.test(slug)) return null;
+    if (!isSupabaseServiceConfigured()) {
+      const digests = await getPublicDigestEntries();
+      return digests.find((digest) => digest.slug === slug) ?? null;
+    }
 
     try {
       const supabase = createServiceClient();
