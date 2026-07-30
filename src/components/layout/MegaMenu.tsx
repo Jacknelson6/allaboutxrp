@@ -111,6 +111,7 @@ export default function MegaMenu() {
               width={1299}
               height={138}
               priority
+              unoptimized
               className="h-auto w-[166px] sm:w-[184px]"
             />
           </Link>

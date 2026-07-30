@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <div className="max-w-md">
             <Link href="/" className="inline-flex min-h-11 items-center" aria-label="AllAboutXRP home">
-              <Image src="/aaxrp-logo.png" alt="All About XRP" width={1299} height={138} className="h-auto w-[218px]" />
+              <Image src="/aaxrp-logo.png" alt="All About XRP" width={1299} height={138} unoptimized className="h-auto w-[218px]" />
             </Link>
             <p className="mt-4 text-sm leading-7 text-text-secondary">
               Independent, source-led education, reporting, data, and tools for understanding XRP and the XRP Ledger.
