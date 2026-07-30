@@ -119,16 +119,15 @@ export default function LearnPage() {
     <>
       <SEOSchema schema={collectionSchema} />
       <div className="bg-surface-primary">
-        <header className="relative overflow-hidden border-b border-surface-border">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_20%,rgba(47,159,255,0.12),transparent_30%)]" />
-          <div className="site-container relative grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <header className="homepage-hero overflow-hidden border-b border-surface-border">
+          <div className="site-container grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
                 <Link href="/" className="min-h-11 py-3 transition-colors hover:text-text-primary">Home</Link>
                 <span className="mx-2" aria-hidden="true">/</span>
                 <span className="text-text-primary">Learn</span>
               </nav>
-              <p className="editorial-kicker">XRP learning center</p>
+              <p className="text-sm font-semibold text-xrp-accent-bright">XRP learning center</p>
               <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary">
                 Understand XRP from first principles.
               </h1>
@@ -149,7 +148,7 @@ export default function LearnPage() {
         <section className="border-b border-surface-border bg-surface-card" aria-labelledby="paths-heading">
           <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <p className="editorial-kicker">Complete library</p>
+              <p className="text-sm font-semibold text-xrp-accent-bright">Complete library</p>
               <h2 id="paths-heading" className="mt-5 text-4xl text-text-primary sm:text-5xl">Choose a learning path</h2>
               <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">
                 Seven topic hubs organize every indexable guide, giving readers and search crawlers a direct route through the full library.
@@ -194,10 +193,7 @@ export default function LearnPage() {
         <section className="border-y border-surface-border bg-[#07111a]">
           <div className="site-container grid gap-8 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-2 text-xrp-accent-bright">
-                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-                <span className="font-mono text-xs font-semibold">VERIFY, THEN DECIDE</span>
-              </div>
+              <ShieldCheck className="h-6 w-6 text-xrp-accent" aria-hidden="true" />
               <h2 className="mt-4 text-3xl text-text-primary">See the evidence behind the explanation.</h2>
               <p className="mt-3 text-sm leading-6 text-text-secondary">
                 Review the primary sources, editorial process, and correction standards used across AllAboutXRP.
@@ -216,11 +212,10 @@ export default function LearnPage() {
 
 function GuideList({ guides }: { guides: Guide[] }) {
   return (
-    <ol className="divide-y divide-surface-border border-y border-surface-border">
-      {guides.map((guide, index) => (
+    <ul className="divide-y divide-surface-border border-y border-surface-border">
+      {guides.map((guide) => (
         <li key={guide.href}>
-          <Link href={guide.href} className="group grid min-h-24 gap-3 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[2rem_1fr_auto] sm:items-start sm:gap-4 sm:px-3">
-            <span className="pt-1 font-mono text-xs text-text-secondary">{String(index + 1).padStart(2, "0")}</span>
+          <Link href={guide.href} className="group grid min-h-24 gap-3 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[1fr_auto] sm:items-start sm:gap-4 sm:px-3">
             <span>
               <span className="block text-lg font-semibold text-text-primary transition-colors group-hover:text-xrp-accent-bright">{guide.title}</span>
               <span className="mt-1 block text-sm leading-6 text-text-secondary">{guide.description}</span>
@@ -229,6 +224,6 @@ function GuideList({ guides }: { guides: Guide[] }) {
           </Link>
         </li>
       ))}
-    </ol>
+    </ul>
   );
 }

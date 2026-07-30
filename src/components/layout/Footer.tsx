@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 const footerSections = [
@@ -40,8 +41,8 @@ export default function Footer() {
       <div className="site-container py-14 sm:py-18">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <div className="max-w-md">
-            <Link href="/" className="inline-flex min-h-11 items-center font-display text-2xl font-medium text-text-primary">
-              All About <span className="ml-1.5 font-semibold text-xrp-accent-bright">XRP</span>
+            <Link href="/" className="inline-flex min-h-11 items-center" aria-label="AllAboutXRP home">
+              <Image src="/aaxrp-logo.png" alt="All About XRP" width={1299} height={138} className="h-auto w-[218px]" />
             </Link>
             <p className="mt-4 text-sm leading-7 text-text-secondary">
               Independent, source-led education, reporting, data, and tools for understanding XRP and the XRP Ledger.
@@ -54,7 +55,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
             {footerSections.map((section) => (
               <nav key={section.title} aria-label={`${section.title} links`}>
-                <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.08em] text-text-primary">{section.title}</h2>
+                <h2 className="font-sans text-sm font-semibold text-text-primary">{section.title}</h2>
                 <ul className="mt-4 space-y-2">
                   {section.links.map((link) => (
                     <li key={link.href}>

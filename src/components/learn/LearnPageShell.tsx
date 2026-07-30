@@ -8,12 +8,12 @@ import ScrollHint from "@/components/shared/ScrollHint";
  */
 export function TLDRBox({ children }: { children: ReactNode }) {
   return (
-    <div className="summary answer-block mt-8">
+    <div className="summary mt-8 rounded-xl bg-[#65b9ff] p-5 text-[#03111e] sm:p-6">
       <div className="flex items-center gap-2 mb-3">
-        <Zap className="h-5 w-5 text-xrp-accent" aria-hidden="true" />
-        <span className="font-sans text-[13px] font-bold uppercase tracking-[0.08em] text-text-primary">Answer in brief</span>
+        <Zap className="h-5 w-5" aria-hidden="true" />
+        <span className="font-sans text-sm font-bold">Answer in brief</span>
       </div>
-      <div className="space-y-2 text-[15px] leading-7 text-text-secondary">{children}</div>
+      <div className="space-y-2 text-[15px] leading-7 text-[#0b3558] [&_a]:font-semibold [&_a]:text-[#03111e] [&_a]:underline [&_a]:decoration-[#07365e]/40 [&_a]:underline-offset-4 [&_strong]:text-[#03111e]">{children}</div>
     </div>
   );
 }
@@ -173,9 +173,8 @@ export function LearnCTA({
 }) {
   return (
     <RevealSection className="mt-14">
-      <div className="relative overflow-hidden rounded-xl border border-surface-border bg-[#07111a] p-7 text-center sm:p-10">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(47,159,255,0.08)_0%,transparent_70%)]" />
-        <div className="relative">
+      <div className="rounded-xl bg-[#0b1a27] p-7 text-center sm:p-10">
+        <div>
           <h2 className="text-3xl text-text-primary">{title}</h2>
           <p className="mx-auto mt-3 max-w-xl text-[15px] leading-7 text-text-secondary">{description}</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

@@ -19,8 +19,9 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
 
   if (!data) {
     return (
-      <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-1.5 text-sm">
-        <span className="font-mono text-text-secondary shimmer">XRP $--.--</span>
+      <div className="flex min-h-11 items-center gap-2 px-1 text-sm" role="status" aria-label="Loading live XRP price">
+        <span className="status-dot" aria-hidden="true" />
+        <span className="font-mono text-xs font-semibold text-text-secondary">XRP · live</span>
       </div>
     );
   }
@@ -33,7 +34,8 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
     return (
       <Link
         href="/live-chart"
-        className="flex items-center gap-1.5 text-sm"
+        className="flex min-h-11 items-center gap-1.5 text-sm"
+        aria-label={`XRP price $${fmtPrice(data.price)}, view live chart`}
       >
         <span className={`font-mono font-semibold transition-colors duration-300 ${flashColor}`}>
           ${fmtPrice(data.price)}
@@ -47,6 +49,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
     <Link
       href="/live-chart"
       className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200"
+      aria-label={`XRP price $${fmtPrice(data.price)}, view live chart`}
     >
       <div className="flex items-center gap-1.5">
         <span className="h-1.5 w-1.5 rounded-full bg-success" />

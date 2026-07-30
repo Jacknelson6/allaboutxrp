@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -102,14 +103,19 @@ export default function MegaMenu() {
   return (
     <>
       <nav className="sticky top-0 z-50 border-b border-surface-border bg-[#050709]/95 backdrop-blur-md" aria-label="Main navigation">
-        <div className="site-container flex min-h-16 items-center justify-between gap-4">
-          <Link href="/" className="flex min-h-11 items-center gap-2" aria-label="AllAboutXRP home">
-            <span className="font-display text-[1.35rem] font-medium tracking-[-0.025em] text-text-primary">
-              All About <span className="font-semibold text-xrp-accent-bright">XRP</span>
-            </span>
+        <div className="site-container flex min-h-[4.25rem] items-center justify-between gap-4">
+          <Link href="/" className="flex min-h-11 shrink-0 items-center" aria-label="AllAboutXRP home">
+            <Image
+              src="/aaxrp-logo.png"
+              alt="All About XRP"
+              width={1299}
+              height={138}
+              priority
+              className="h-auto w-[166px] sm:w-[184px]"
+            />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-0.5 lg:flex">
             <div ref={learnRef} className="relative">
               <button
                 type="button"
@@ -168,12 +174,12 @@ export default function MegaMenu() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <PriceWidget />
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <PriceWidget compact />
+            <div className="hidden min-[350px]:block"><PriceWidget compact /></div>
             <button
               type="button"
               onClick={() => setMobileOpen((value) => !value)}
@@ -188,7 +194,7 @@ export default function MegaMenu() {
         </div>
 
         {mobileOpen ? (
-          <div id="mobile-navigation" className="fixed inset-x-0 bottom-0 top-[101px] z-50 overflow-y-auto bg-surface-primary lg:hidden">
+          <div id="mobile-navigation" className="fixed inset-x-0 bottom-0 top-[105px] z-50 overflow-y-auto bg-surface-primary lg:hidden">
             <div className="site-container py-4">
               <Link href="/" className={navLink("/")}>Home</Link>
               <div className="border-y border-surface-border">

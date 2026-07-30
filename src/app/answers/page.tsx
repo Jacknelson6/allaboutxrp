@@ -162,21 +162,21 @@ export default function AnswersHub() {
                 <span className="mx-2" aria-hidden="true">/</span>
                 <span className="text-text-primary">Answers</span>
               </nav>
-              <p className="editorial-kicker">The XRP answer desk</p>
+              <p className="text-sm font-semibold text-xrp-accent-bright">The XRP answer desk</p>
               <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary">
                 The answer first. The evidence next.
               </h1>
             </div>
-            <div className="answer-block max-w-xl">
-              <div className="flex items-center gap-2 text-sm font-semibold text-text-primary">
-                <ShieldCheck className="h-4 w-4 text-xrp-accent" aria-hidden="true" />
+            <div className="max-w-xl rounded-xl bg-[#65b9ff] p-6 text-[#03111e] sm:p-7">
+              <div className="flex items-center gap-2 text-sm font-semibold">
+                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
                 How these answers work
               </div>
-              <p className="mt-3 text-[15px] leading-7 text-text-secondary">
+              <p className="mt-3 text-[15px] leading-7 text-[#0b3558]">
                 Each answer is written to stand on its own, then connects to a deeper guide, visible sources, and the
                 uncertainty or limitations that matter.
               </p>
-              <p className="mt-4 font-mono text-xs text-text-secondary">
+              <p className="mt-4 font-mono text-xs text-[#0b3558]">
                 Reviewed <time dateTime="2026-07-29">July 29, 2026</time>
               </p>
             </div>
@@ -194,10 +194,9 @@ export default function AnswersHub() {
                   <h2 id={`answers-${groupIndex}`} className="mt-5 text-4xl text-text-primary">{group.title}</h2>
                   <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">{group.description}</p>
                 </div>
-                <ol className="divide-y divide-surface-border border-y border-surface-border">
-                  {group.answers.map((answer, index) => (
-                    <li key={answer.href} className="grid gap-3 py-6 sm:grid-cols-[2rem_1fr] sm:px-3">
-                        <span className="pt-1 font-mono text-xs text-text-secondary">{String(index + 1).padStart(2, "0")}</span>
+                <ul className="divide-y divide-surface-border border-y border-surface-border">
+                  {group.answers.map((answer) => (
+                    <li key={answer.href} className="py-6 sm:px-3">
                         <div>
                           <h3 className="font-sans text-lg font-semibold text-text-primary">
                             <Link href={answer.href} className="inline-flex items-center gap-2 transition-colors hover:text-xrp-accent-bright">
@@ -212,7 +211,7 @@ export default function AnswersHub() {
                         </div>
                     </li>
                   ))}
-                </ol>
+                </ul>
               </div>
             </section>
           ))}
