@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seo:audit": "node scripts/seo-health.mjs"
+    "seo:audit": "node scripts/seo-health.mjs",
+    "seo:sitemap": "node scripts/sitemap-health.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.7",

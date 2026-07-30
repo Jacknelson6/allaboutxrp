@@ -69,10 +69,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${title} | AllAboutXRP`,
     description,
+    alternates: {
+      canonical: `https://allaboutxrp.com/news/${article.slug}`,
+    },
+    robots: article.blog_content
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
     openGraph: {
       title,
       description,
       type: "article",
+      url: `https://allaboutxrp.com/news/${article.slug}`,
       publishedTime: article.published_at,
       siteName: "AllAboutXRP",
       ...(article.og_image ? { images: [{ url: article.og_image }] } : {}),

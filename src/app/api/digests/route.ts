@@ -1,24 +1,18 @@
 import { NextResponse } from "next/server";
-import { createServiceClient, isSupabaseServiceConfigured } from "@/lib/supabase/server";
+import { getPublishedDigestEntries } from "@/lib/seo/published-content";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  if (!isSupabaseServiceConfigured()) {
-    return NextResponse.json([]);
-  }
-
-  const supabase = createServiceClient();
-
-  const { data, error } = await supabase
-    .from("digests")
-    .select("id, title, slug, week_start, week_end, published_at")
-    .not("published_at", "is", null)
-    .order("week_end", { ascending: false });
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-
-  return NextResponse.json(data ?? []);
+  const digests = await getPublishedDigestEntries();
+  return NextResponse.json(
+    digests.map((digest) => ({
+      id: digest.id,
+      title: digest.title,
+      slug: digest.slug,
+      week_start: digest.weekStart,
+      week_end: digest.weekEnd,
+      published_at: digest.publishedAt,
+    })),
+  );
 }

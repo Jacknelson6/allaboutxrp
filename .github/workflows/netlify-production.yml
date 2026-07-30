@@ -47,3 +47,6 @@ jobs:
           --dir .netlify/static
           --functions .netlify/functions
           --message "GitHub ${GITHUB_SHA}"
+
+      - name: Validate production sitemap
+        run: npm run seo:sitemap

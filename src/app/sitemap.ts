@@ -3,6 +3,21 @@ import { getAllRecaps } from "@/lib/utils/news";
 import fs from "fs";
 import path from "path";
 import { LEARN_HUBS } from "@/data/learn-hubs";
+import {
+  getPublishedDigestEntries,
+  getPublishedNewsEntries,
+} from "@/lib/seo/published-content";
+import {
+  CANONICAL_ALIAS_PATHS,
+  NOINDEX_LEARN_SLUGS,
+  NOINDEX_PATHS,
+} from "@/lib/seo/noindex-pages";
+
+export const revalidate = 3600;
+
+const BASE_URL = "https://allaboutxrp.com";
+const JULY_29_REVIEW = new Date("2026-07-29T12:00:00Z");
+type SitemapEntry = MetadataRoute.Sitemap[number];
 
 /**
  * Dynamically discover all learn page slugs by scanning the filesystem.
@@ -21,7 +36,8 @@ function getAllLearnSlugs(): string[] {
         entry.name !== "faq" &&
         fs.existsSync(path.join(learnDir, entry.name, "page.tsx"))
     )
-    .map((entry) => entry.name);
+    .map((entry) => entry.name)
+    .sort();
 }
 
 /**
@@ -38,16 +54,37 @@ function getAllAnswerSlugs(): string[] {
         entry.isDirectory() &&
         fs.existsSync(path.join(answersDir, entry.name, "page.tsx"))
     )
-    .map((entry) => entry.name);
+    .map((entry) => entry.name)
+    .sort();
 }
 
-import {
-  CANONICAL_ALIAS_PATHS,
-  NOINDEX_LEARN_SLUGS,
-  NOINDEX_PATHS,
-} from "@/lib/seo/noindex-pages";
+function getSourceLastModified(relativeFile: string): Date | undefined {
+  const absoluteFile = path.join(process.cwd(), relativeFile);
+  if (!fs.existsSync(absoluteFile)) return undefined;
 
-const JULY_29_REVIEW = new Date("2026-07-29T12:00:00Z");
+  const source = fs.readFileSync(absoluteFile, "utf8");
+  const literalDate = source.match(
+    /dateModified\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/,
+  )?.[1];
+
+  if (literalDate) return new Date(`${literalDate}T12:00:00Z`);
+
+  const variableName = source.match(/dateModified\s*:\s*([A-Za-z_$][\w$]*)/)?.[1];
+  if (variableName) {
+    const escapedName = variableName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const variableDate = source.match(
+      new RegExp(`(?:const|let)\\s+${escapedName}\\s*=\\s*["'](\\d{4}-\\d{2}-\\d{2})["']`),
+    )?.[1];
+    if (variableDate) return new Date(`${variableDate}T12:00:00Z`);
+  }
+
+  return undefined;
+}
+
+function getLatestDate(values: string[]): Date | undefined {
+  const timestamps = values.map(Date.parse).filter((value) => !Number.isNaN(value));
+  return timestamps.length ? new Date(Math.max(...timestamps)) : undefined;
+}
 
 const reviewedStaticPaths = new Set([
   "",
@@ -58,9 +95,7 @@ const reviewedStaticPaths = new Set([
 
 const reviewedLearnSlugs = new Set(["what-is-xrp", "how-to-buy-xrp"]);
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://allaboutxrp.com";
-
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Core / static pages ──────────────────────────────────────────────
   const staticPages: string[] = [
     "",
@@ -96,14 +131,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const learnSlugs = getAllLearnSlugs();
   const answerSlugs = getAllAnswerSlugs();
   const recaps = getAllRecaps();
+  const [publishedNews, publishedDigests] = await Promise.all([
+    getPublishedNewsEntries(),
+    getPublishedDigestEntries(),
+  ]);
+  const latestRecap = getLatestDate(recaps.map((recap) => `${recap.date}T12:00:00Z`));
+  const latestDigest = getLatestDate(publishedDigests.map((digest) => digest.publishedAt));
+  const latestNewsHub = getLatestDate([
+    ...recaps.map((recap) => `${recap.date}T12:00:00Z`),
+    ...publishedNews.map((article) => article.publishedAt),
+  ]);
+  const contentHubDates = new Map<string, Date | undefined>([
+    ["/digest", latestDigest],
+    ["/news", latestNewsHub],
+  ]);
 
-  return [
+  const entries: SitemapEntry[] = [
     // Static pages
     ...staticPages
       .filter((pagePath) => !NOINDEX_PATHS.has(pagePath))
       .map((pagePath) => ({
-        url: `${baseUrl}${pagePath}`,
-        ...(reviewedStaticPaths.has(pagePath) && { lastModified: JULY_29_REVIEW }),
+        url: `${BASE_URL}${pagePath}`,
+        lastModified:
+          (reviewedStaticPaths.has(pagePath) && JULY_29_REVIEW) ||
+          contentHubDates.get(pagePath),
       })),
 
     // All learn pages (auto-discovered, excluding noindexed)
@@ -114,26 +165,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
           !CANONICAL_ALIAS_PATHS.has(`/learn/${slug}`),
       )
       .map((slug) => ({
-        url: `${baseUrl}/learn/${slug}`,
-        ...(reviewedLearnSlugs.has(slug) && { lastModified: JULY_29_REVIEW }),
+        url: `${BASE_URL}/learn/${slug}`,
+        lastModified:
+          (reviewedLearnSlugs.has(slug) && JULY_29_REVIEW) ||
+          getSourceLastModified(`src/app/learn/${slug}/page.tsx`),
       })),
 
     // All answer pages (auto-discovered)
     ...answerSlugs
       .filter((slug) => !CANONICAL_ALIAS_PATHS.has(`/answers/${slug}`))
       .map((slug) => ({
-        url: `${baseUrl}/answers/${slug}`,
+        url: `${BASE_URL}/answers/${slug}`,
+        lastModified: getSourceLastModified(`src/app/answers/${slug}/page.tsx`),
       })),
 
     // News recaps
     {
-      url: `${baseUrl}/news/recaps`,
+      url: `${BASE_URL}/news/recaps`,
+      lastModified: latestRecap,
     },
     ...recaps.map((r) => ({
-      url: `${baseUrl}/news/recaps/${r.date}`,
+      url: `${BASE_URL}/news/recaps/${r.date}`,
       lastModified: new Date(r.date + "T12:00:00Z"),
+    })),
+
+    // Substantial first-party news articles remain in the standard sitemap
+    // after they age out of the two-day Google News sitemap window.
+    ...publishedNews.map((article) => ({
+      url: `${BASE_URL}/news/${article.slug}`,
+      lastModified: new Date(article.publishedAt),
+    })),
+
+    // Published weekly research has a unique canonical and belongs in search.
+    ...publishedDigests.map((digest) => ({
+      url: `${BASE_URL}/digest/${digest.slug}`,
+      lastModified: new Date(digest.publishedAt),
     })),
 
     // FAQ individual pages excluded — thin content, FAQ hub is canonical
   ];
+
+  // Keep output stable and guarantee that accidental overlaps never create
+  // duplicate <loc> entries.
+  return [...new Map(entries.map((entry) => [entry.url, entry])).values()].sort(
+    (a, b) => a.url.localeCompare(b.url),
+  );
 }
