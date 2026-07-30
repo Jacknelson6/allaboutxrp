@@ -24,7 +24,7 @@ export default function FeatureGrid() {
     <section className="border-y border-surface-border bg-surface-card" aria-labelledby="research-standard-heading">
       <div className="site-container grid gap-12 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="max-w-xl">
-          <p className="editorial-kicker">The AllAboutXRP standard</p>
+          <p className="editorial-kicker">Our research standard</p>
           <h2 id="research-standard-heading" className="mt-4 text-4xl leading-tight text-text-primary sm:text-5xl">
             Useful information should also be verifiable.
           </h2>

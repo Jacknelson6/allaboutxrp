@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import NewsletterSignup from "@/components/shared/NewsletterSignup";
 import NoIndexHead from "@/components/learn/NoIndexHead";
 
 export const metadata: Metadata = {
@@ -27,9 +26,6 @@ export default function LearnLayout({ children }: { children: React.ReactNode })
       <NoIndexHead />
       <main id="main-content">
         {children}
-        <div className="mx-auto max-w-3xl px-4 py-8">
-          <NewsletterSignup variant="full" />
-        </div>
       </main>
     </>
   );

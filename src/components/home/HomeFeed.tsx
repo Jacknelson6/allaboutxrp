@@ -50,38 +50,38 @@ export default function HomeFeed() {
   return (
     <div className="bg-surface-primary">
       <section className="relative overflow-hidden border-b border-surface-border">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_74%_18%,rgba(47,159,255,0.13),transparent_32%)]" />
-        <div className="site-container relative grid gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] lg:items-end lg:py-24">
-          <div>
-            <p className="editorial-kicker">Independent XRP intelligence</p>
-            <h1 className="mt-5 max-w-4xl text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.94] tracking-[-0.035em] text-text-primary">
-              XRP, explained without the noise.
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(47,159,255,0.11),transparent_34%)]" />
+        <div className="site-container relative grid gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:items-center lg:gap-16 lg:py-20">
+          <div className="max-w-3xl">
+            <p className="editorial-kicker">Independent, source-led XRP research</p>
+            <h1 className="mt-4 max-w-[15ch] text-[clamp(2.75rem,6.4vw,5rem)] leading-[1.01] tracking-[-0.04em] text-text-primary">
+              Understand XRP without the noise.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-text-secondary sm:text-xl">
-              AllAboutXRP is a source-led guide to XRP and the XRP Ledger, combining clear education,
-              live data, practical tools, and independent reporting.
+            <p className="mt-6 max-w-[62ch] text-lg leading-8 text-text-secondary">
+              Clear answers about XRP and the XRP Ledger, backed by primary sources, live data,
+              practical tools, and independent reporting.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/learn/what-is-xrp" className="btn-primary px-6 py-3">
-                Start with XRP
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/learn/what-is-xrp" className="btn-primary px-6">
+                What is XRP?
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/editorial" className="btn-secondary px-6 py-3">
-                See how we research
+              <Link href="/learn" className="btn-secondary px-6">
+                Browse XRP guides
               </Link>
             </div>
           </div>
 
-          <aside className="surface-panel overflow-hidden" aria-label="XRP quick definition">
-            <div className="border-b border-surface-border px-5 py-4">
+          <aside className="surface-panel overflow-hidden" aria-labelledby="xrp-short-answer">
+            <div className="border-b border-surface-border px-5 py-3.5">
               <div className="flex items-center gap-2 text-sm font-semibold text-text-primary">
                 <CircleHelp className="h-4 w-4 text-xrp-accent" aria-hidden="true" />
                 The short answer
               </div>
             </div>
-            <div className="p-5 sm:p-6">
-              <h2 className="text-2xl leading-tight text-text-primary">What is XRP?</h2>
-              <p className="mt-3 text-[15px] leading-7 text-text-secondary">
+            <div className="p-5 sm:p-6 lg:p-7">
+              <h2 id="xrp-short-answer" className="text-2xl text-text-primary">What is XRP?</h2>
+              <p className="mt-3 text-base leading-7 text-text-secondary">
                 XRP is the native digital asset of the open-source XRP Ledger. It pays network fees and
                 can move or bridge value. XRP is separate from Ripple, the private technology company.
               </p>
@@ -101,13 +101,29 @@ export default function HomeFeed() {
             </div>
           </aside>
         </div>
+        <div className="site-container relative border-t border-surface-border">
+          <ul className="grid py-4 text-sm text-text-secondary sm:grid-cols-3 sm:divide-x sm:divide-surface-border">
+            <li className="py-2 sm:pr-6">
+              <strong className="text-text-primary">Primary sources</strong>
+              <span className="mt-0.5 block">Official records linked in context</span>
+            </li>
+            <li className="py-2 sm:px-6">
+              <strong className="text-text-primary">Independent coverage</strong>
+              <span className="mt-0.5 block">Not affiliated with Ripple Labs</span>
+            </li>
+            <li className="py-2 sm:pl-6">
+              <strong className="text-text-primary">Visible review dates</strong>
+              <span className="mt-0.5 block">Time-sensitive facts are labeled</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section className="border-b border-surface-border" aria-labelledby="start-here-heading">
         <div className="site-container py-10 sm:py-12">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="editorial-kicker">Choose your path</p>
+              <p className="editorial-kicker">Explore by intent</p>
               <h2 id="start-here-heading" className="mt-3 text-3xl text-text-primary sm:text-4xl">
                 Start where your question begins
               </h2>

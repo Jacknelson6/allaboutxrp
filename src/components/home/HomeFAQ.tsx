@@ -6,7 +6,7 @@ export default function HomeFAQ() {
   return (
     <section className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]" aria-labelledby="home-faq-heading">
       <div>
-        <p className="editorial-kicker">Popular questions</p>
+        <p className="editorial-kicker">XRP questions</p>
         <h2 id="home-faq-heading" className="mt-4 text-4xl text-text-primary sm:text-5xl">
           Clear answers to XRP fundamentals
         </h2>

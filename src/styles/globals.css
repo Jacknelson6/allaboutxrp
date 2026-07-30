@@ -19,9 +19,9 @@
   --color-warning: #f2b84b;
   --color-danger: #ff6673;
 
-  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Azeret Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
   /* Animations */
   --animate-fade-in: fade-in 0.4s ease;
@@ -66,8 +66,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   max-width: 100vw;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  font-kerning: normal;
+  font-optical-sizing: auto;
 }
 
 ::selection {
@@ -125,12 +127,13 @@ summary,
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  letter-spacing: -0.025em;
-  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
-h1 { font-weight: 700; }
+h1 { font-weight: 780; }
 
 /* ==========================================
    BUTTON SYSTEM — Clean, rounded, Linear-style
@@ -286,9 +289,9 @@ h1 { font-weight: 700; }
    ========================================== */
 
 .prose-editorial {
-  max-width: 72ch;
-  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
-  line-height: 1.78;
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.76;
   color: var(--color-text-secondary);
 }
 
@@ -354,12 +357,12 @@ h1 { font-weight: 700; }
    ========================================== */
 
 .site-container {
-  width: min(100% - 2rem, 76rem);
+  width: min(100% - 2rem, 80rem);
   margin-inline: auto;
 }
 
 .reading-container {
-  width: min(100% - 2rem, 72ch);
+  width: min(100% - 2rem, 68ch);
   margin-inline: auto;
 }
 
@@ -370,19 +373,11 @@ h1 { font-weight: 700; }
 .editorial-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
   color: var(--color-xrp-accent-bright);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.editorial-kicker::before {
-  content: "";
-  width: 1.4rem;
-  height: 1px;
-  background: currentColor;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .trust-bar {
@@ -429,11 +424,11 @@ h1 { font-weight: 700; }
 @media (min-width: 640px) {
   .site-container,
   .reading-container {
-    width: min(100% - 3rem, 76rem);
+    width: min(100% - 3rem, 80rem);
   }
 
   .reading-container {
-    width: min(100% - 3rem, 72ch);
+    width: min(100% - 3rem, 68ch);
   }
 }
 

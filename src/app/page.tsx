@@ -8,17 +8,17 @@ import { HOME_FAQ_ITEMS } from "@/data/home-faq";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
-  description: "Independent, source-led XRP education, live market and ledger data, practical tools, holder analytics, and a curated XRP news feed.",
+  title: "XRP Explained: Guides, Live Data & News | AllAboutXRP",
+  description: "Learn what XRP is and how the XRP Ledger works with source-led guides, direct answers, live data, practical tools, holder analytics, and XRP news.",
   openGraph: {
-    title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
-    description: "Independent XRP education, live data, practical tools, holder analytics, and curated news.",
+    title: "XRP Explained: Guides, Live Data & News | AllAboutXRP",
+    description: "Source-led XRP guides, direct answers, live data, practical tools, holder analytics, and independent news.",
     url: "https://allaboutxrp.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AllAboutXRP — XRP News, Live Data, Tools & Guides",
-    description: "Independent XRP education, live data, practical tools, holder analytics, and curated news.",
+    title: "XRP Explained: Guides, Live Data & News | AllAboutXRP",
+    description: "Source-led XRP guides, direct answers, live data, practical tools, holder analytics, and independent news.",
   },
   alternates: { canonical: "https://allaboutxrp.com" },
 };

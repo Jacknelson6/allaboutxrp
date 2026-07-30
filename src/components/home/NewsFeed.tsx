@@ -1,9 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "@/lib/supabase/auth-context";
-import AuthModal from "@/components/auth/AuthModal";
-import { LockKeyhole } from "lucide-react";
 
 interface Article {
   title: string;
@@ -97,8 +94,6 @@ const DIGEST_SENTIMENT = {
 
 function DailyDigestCard({ digest }: { digest: DailyDigest }) {
   const [expanded, setExpanded] = useState(false);
-  const [showAuth, setShowAuth] = useState(false);
-  const { user, isPro, proLoading } = useAuth();
 
   const dateLabel = new Date(digest.date + "T00:00:00").toLocaleDateString("en-US", {
     weekday: "long",
@@ -155,9 +150,7 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
             </div>
           )}
 
-          {/* === PRO USERS: full content === */}
-          {isPro ? (
-            <>
+          <>
               {/* Key Takeaways — full */}
               {parsed.keyTakeaways.length > 0 && (
                 <div className="mb-3">
@@ -215,78 +208,9 @@ function DailyDigestCard({ digest }: { digest: DailyDigest }) {
                   {expanded ? "Show less" : "Read full recap →"}
                 </button>
               )}
-            </>
-          ) : (
-            /* === FREE USERS: preview + paywall === */
-            <>
-              {/* Key Takeaways — first 2 only, rest blurred */}
-              {parsed.keyTakeaways.length > 0 && (
-                <div className="mb-3">
-                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Key Takeaways</h4>
-                  <ul className="space-y-1">
-                    {parsed.keyTakeaways.slice(0, 2).map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[13px] text-gray-300">
-                        <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                    {parsed.keyTakeaways.length > 2 && (
-                      <li className="flex items-start gap-2 text-[13px] text-gray-300 blur-[6px] select-none pointer-events-none" aria-hidden="true">
-                        <span className="text-[#0085FF] mt-0.5 flex-shrink-0">•</span>
-                        <span>{parsed.keyTakeaways[2]}</span>
-                      </li>
-                    )}
-                  </ul>
-                </div>
-              )}
-
-              {/* Summary — ~100 chars with fade */}
-              {parsed.summary.length > 0 && (
-                <div className="relative mb-3">
-                  <div className="text-[13px] text-gray-400 leading-relaxed">
-                    {parsed.summary.slice(0, 100)}
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#0A0F1A] to-transparent" />
-                </div>
-              )}
-
-              {/* Compact paywall CTA */}
-              <div className="mt-2 flex items-center justify-between rounded-xl border border-[#0085FF]/20 bg-[#0085FF]/[0.04] px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <LockKeyhole className="h-4 w-4 shrink-0 text-xrp-accent" aria-hidden="true" />
-                  <div>
-                    <p className="text-[13px] font-semibold text-white">Unlock with Pro</p>
-                    <p className="text-[11px] text-gray-500">$9.99/mo · Full daily recaps</p>
-                  </div>
-                </div>
-                {proLoading ? (
-                  <div className="w-5 h-5 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin" />
-                ) : user ? (
-                  <a
-                    href="/pricing"
-                    className="rounded-lg bg-[#0085FF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#0070DD] transition-colors"
-                  >
-                    Subscribe
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => setShowAuth(true)}
-                    className="rounded-lg bg-[#0085FF] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#0070DD] transition-colors"
-                  >
-                    Sign In
-                  </button>
-                )}
-              </div>
-            </>
-          )}
+          </>
         </div>
       </div>
-
-      <AuthModal
-        isOpen={showAuth}
-        onClose={() => setShowAuth(false)}
-        redirectAfterAuth={`/`}
-      />
     </div>
   );
 }

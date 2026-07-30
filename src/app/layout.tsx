@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
+import { Azeret_Mono, Public_Sans } from "next/font/google";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
@@ -7,30 +7,21 @@ import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import SEOSchema from "@/components/shared/SEOSchema";
 import LayoutShell from "@/components/layout/LayoutShell";
 import { XRPPriceProvider } from "@/contexts/XRPPriceContext";
-import { AuthProvider } from "@/lib/supabase/auth-context";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
-const instrumentSans = Instrument_Sans({
+const publicSans = Public_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const azeretMono = Azeret_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const newsreader = Newsreader({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const viewport: Viewport = {
@@ -100,21 +91,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} ${ibmPlexMono.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${publicSans.variable} ${azeretMono.variable}`}>
       <body className="min-h-screen antialiased">
         {GA_ID ? <GoogleAnalytics measurementId={GA_ID} /> : null}
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
         <SEOSchema schema={websiteSchema} />
-        <AuthProvider>
         <XRPPriceProvider>
         <AnnouncementBar />
         <LayoutShell megaMenu={<MegaMenu />} footer={<Footer />}>
           {children}
         </LayoutShell>
         </XRPPriceProvider>
-        </AuthProvider>
       </body>
     </html>
   );

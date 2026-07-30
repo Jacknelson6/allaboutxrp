@@ -8,16 +8,12 @@ import {
   BookOpen,
   ChevronDown,
   CircleHelp,
-  LogOut,
   Menu,
   ShieldCheck,
-  User,
   WalletCards,
   X,
 } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
-import { useAuth } from "@/lib/supabase/auth-context";
-import AuthModal from "@/components/auth/AuthModal";
 
 const learnGroups = [
   {
@@ -60,19 +56,14 @@ export default function MegaMenu() {
   const [learnOpen, setLearnOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLearnOpen, setMobileLearnOpen] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
   const pathname = usePathname();
   const learnRef = useRef<HTMLDivElement>(null);
-  const accountRef = useRef<HTMLDivElement>(null);
-  const { user, loading, signOut } = useAuth();
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       setLearnOpen(false);
       setMobileOpen(false);
       setMobileLearnOpen(false);
-      setAccountOpen(false);
     });
     return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
@@ -88,13 +79,11 @@ export default function MegaMenu() {
     const onPointerDown = (event: MouseEvent) => {
       const target = event.target as Node;
       if (learnRef.current && !learnRef.current.contains(target)) setLearnOpen(false);
-      if (accountRef.current && !accountRef.current.contains(target)) setAccountOpen(false);
     };
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       setLearnOpen(false);
       setMobileOpen(false);
-      setAccountOpen(false);
     };
     document.addEventListener("mousedown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
@@ -180,44 +169,7 @@ export default function MegaMenu() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <div className="hidden xl:block">
-              <PriceWidget />
-            </div>
-            {!loading &&
-              (user ? (
-                <div ref={accountRef} className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setAccountOpen((value) => !value)}
-                    className="flex min-h-11 items-center gap-2 rounded-lg border border-surface-border px-3 text-sm font-semibold text-text-primary transition-colors hover:bg-white/[0.04]"
-                    aria-expanded={accountOpen}
-                    aria-label="Open account menu"
-                  >
-                    <User className="h-4 w-4 text-xrp-accent" aria-hidden="true" />
-                    Account
-                    <ChevronDown className={`h-3.5 w-3.5 transition-transform ${accountOpen ? "rotate-180" : ""}`} aria-hidden="true" />
-                  </button>
-                  {accountOpen ? (
-                    <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-surface-border bg-surface-card p-2 shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
-                      <Link href="/digest" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-text-primary">
-                        My account
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => signOut()}
-                        className="flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-danger"
-                      >
-                        <LogOut className="h-4 w-4" aria-hidden="true" />
-                        Sign out
-                      </button>
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <button type="button" onClick={() => setShowAuthModal(true)} className="btn-primary px-4">
-                  Sign up
-                </button>
-              ))}
+            <PriceWidget />
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
@@ -270,23 +222,6 @@ export default function MegaMenu() {
               <Link href="/editorial" className={`${navLink("/editorial")} border-b border-surface-border`}>
                 Editorial standards
               </Link>
-              <div className="pt-5">
-                {!loading &&
-                  (user ? (
-                    <div className="space-y-1">
-                      <Link href="/digest" className="flex min-h-12 items-center gap-2 rounded-lg px-3 font-semibold text-text-primary">
-                        <User className="h-4 w-4 text-xrp-accent" aria-hidden="true" /> My account
-                      </Link>
-                      <button type="button" onClick={() => signOut()} className="flex min-h-12 w-full items-center gap-2 rounded-lg px-3 text-text-secondary hover:text-danger">
-                        <LogOut className="h-4 w-4" aria-hidden="true" /> Sign out
-                      </button>
-                    </div>
-                  ) : (
-                    <button type="button" onClick={() => setShowAuthModal(true)} className="btn-primary w-full">
-                      Create a free account
-                    </button>
-                  ))}
-              </div>
               <div className="mt-8 flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-4 text-sm text-text-secondary">
                 <CircleHelp className="mt-0.5 h-4 w-4 shrink-0 text-xrp-accent" aria-hidden="true" />
                 AllAboutXRP is independent and is not affiliated with Ripple Labs.
@@ -295,7 +230,6 @@ export default function MegaMenu() {
           </div>
         ) : null}
       </nav>
-      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
     </>
   );
 }

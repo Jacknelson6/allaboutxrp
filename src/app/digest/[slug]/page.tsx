@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { useParams } from "next/navigation";
-import { useAuth } from "@/lib/supabase/auth-context";
-import DigestPaywall from "@/components/digest/DigestPaywall";
 
 interface DigestContent {
   title?: string;
@@ -46,40 +44,6 @@ function formatDate(d: string) {
 function formatPrice(n: number | undefined | null): string {
   if (n == null || n === 0) return "";
   return `$${n.toFixed(4)}`;
-}
-
-/** Convert digest content object to readable text for paywall preview */
-function contentToText(content: DigestContent): string {
-  const parts: string[] = [];
-  if (content.raw_text) {
-    // Strip markdown formatting for clean preview text
-    const clean = content.raw_text
-      .replace(/^#{1,6}\s+/gm, "") // headers
-      .replace(/\*\*(.+?)\*\*/g, "$1") // bold
-      .replace(/\*(.+?)\*/g, "$1") // italic
-      .replace(/^>\s*/gm, "") // blockquotes
-      .replace(/^-{3,}$/gm, "") // horizontal rules
-      .replace(/\|[^|]*\|/g, "") // table rows
-      .replace(/\n{3,}/g, "\n\n") // excess newlines
-      .trim();
-    parts.push(clean.slice(0, 500));
-  } else {
-    if (content.key_news) {
-      content.key_news.forEach((n) => {
-        parts.push(`${n.title}: ${n.summary}`);
-      });
-    }
-    if (content.price_changes?.notes) {
-      parts.push(content.price_changes.notes);
-    }
-    if (content.price_prediction?.reasoning) {
-      parts.push(content.price_prediction.reasoning);
-    }
-    if (content.macro_analysis) {
-      parts.push(...content.macro_analysis);
-    }
-  }
-  return parts.join(" ");
 }
 
 /** Extract key takeaways from HTML content */
@@ -135,7 +99,6 @@ function SentimentBadge({ sentiment }: { sentiment?: string }) {
 
 export default function DigestDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { user, isPro, loading: authLoading, proLoading } = useAuth();
   const [digest, setDigest] = useState<Digest | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -159,7 +122,7 @@ export default function DigestDetailPage() {
       .finally(() => setLoading(false));
   }, [slug]);
 
-  if (loading || authLoading) {
+  if (loading) {
     return (
       <main className="min-h-screen bg-black flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#0085FF] border-t-transparent rounded-full animate-spin" />
@@ -176,29 +139,6 @@ export default function DigestDetailPage() {
           <Link href="/digest" className="text-[#0085FF] hover:underline">
             ← Back to Digests
           </Link>
-        </div>
-      </main>
-    );
-  }
-
-  // Show paywall if not pro
-  const isSubscribed = isPro && !proLoading;
-
-  if (!isSubscribed && !proLoading) {
-    return (
-      <main className="min-h-screen bg-black px-4 py-16">
-        <div className="max-w-3xl mx-auto">
-          <Link href="/digest" className="text-[#0085FF] text-sm hover:underline mb-6 inline-block">
-            ← All Digests
-          </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{digest.title || "Weekly Digest"}</h1>
-          <p className="text-gray-500 mb-8">
-            {formatDate(digest.week_start)} – {formatDate(digest.week_end)}
-          </p>
-          <DigestPaywall
-            contentHtml={contentToText(digest.content)}
-            slug={slug}
-          />
         </div>
       </main>
     );
@@ -519,18 +459,6 @@ export default function DigestDetailPage() {
           >
             Share this digest
           </button>
-          {isPro && (
-            <button
-              onClick={async () => {
-                const res = await fetch("/api/stripe/portal", { method: "POST" });
-                const data = await res.json();
-                if (data.url) window.location.href = data.url;
-              }}
-              className="px-4 py-2 rounded-lg bg-white/[0.05] border border-white/[0.1] text-gray-400 text-sm hover:bg-white/[0.1] transition-colors"
-            >
-              Manage subscription
-            </button>
-          )}
         </div>
 
         {/* Navigation */}
