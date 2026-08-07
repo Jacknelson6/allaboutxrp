@@ -69,7 +69,7 @@ export const LEARN_HUBS: LearnHub[] = [
     description: "Evaluate XRP market cycles, price claims, chart signals, portfolio risk, ETFs, lending, and trading without treating forecasts as facts.",
     answer: "XRP market research should start with supply, liquidity, market capitalization, and downside risk—not a target price. Historical performance and technical indicators can describe conditions, but they cannot guarantee future returns. These guides use scenario analysis and clearly label uncertainty.",
     guides: [
-      "earn-interest-on-xrp", "how-much-xrp-to-be-a-millionaire", "how-to-read-xrp-charts", "is-xrp-a-good-investment",
+      "altcoins-2026", "earn-interest-on-xrp", "how-much-xrp-to-be-a-millionaire", "how-to-read-xrp-charts", "is-xrp-a-good-investment",
       "why-is-xrp-so-cheap", "xrp-2026-outlook", "xrp-accumulation-zones", "xrp-all-time-high",
       "xrp-altseason-guide", "xrp-bull-run-indicators", "xrp-crash-history", "xrp-dollar-cost-averaging", "xrp-etf",
       "xrp-exit-strategy", "xrp-lending-platforms", "xrp-long-term-potential", "xrp-market-cycles",

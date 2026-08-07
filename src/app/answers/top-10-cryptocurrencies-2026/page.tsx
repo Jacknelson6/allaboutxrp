@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Top 10 Cryptocurrencies 2026 | AllAboutXRP",
     description: "Complete ranked list of the top 10 cryptocurrencies for 2026 with key stats, verdicts, and why each matters.",
-    url: "https://allaboutxrp.com/answers/top-10-cryptocurrencies-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     type: "article",
   },
   twitter: {
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     title: "Top 10 Cryptocurrencies 2026 | AllAboutXRP",
     description: "Bitcoin, XRP, Ethereum, Solana — the definitive top 10 crypto list for 2026.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/top-10-cryptocurrencies-2026" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/altcoins-2026" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "Top 10 Cryptocurrencies to Watch in 2026",
     description: "A ranked list of the top 10 cryptocurrencies for 2026, including Bitcoin, XRP, Ethereum, Solana, and more — with key stats and analysis.",
-    url: "https://allaboutxrp.com/answers/top-10-cryptocurrencies-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     datePublished: "2026-02-11",
     dateModified: "2026-02-11",
   }),
@@ -41,7 +41,7 @@ const schemas = [
     { name: "Answers", url: "https://allaboutxrp.com/answers" },
     { name: "Top 10 Cryptocurrencies 2026" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/answers/top-10-cryptocurrencies-2026" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/altcoins-2026" }),
   buildFAQSchema([
     { question: "What are the top 10 cryptocurrencies in 2026?", answer: "By market cap: Bitcoin (BTC), Ethereum (ETH), Tether (USDT), XRP, BNB, USDC, Solana (SOL), TRON (TRX), Dogecoin (DOGE), and Cardano (ADA). By investment potential, analysts highlight BTC, XRP, ETH, SOL, and LINK." },
     { question: "Is XRP a top 10 cryptocurrency?", answer: "Yes. XRP is the 4th largest cryptocurrency by market cap at approximately $127 billion. It has maintained top-5 status throughout most of its history and is widely held by both retail and institutional investors." },
@@ -215,7 +215,7 @@ export default function Top10Cryptocurrencies2026Page() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">
-            From <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s payments revolution</Link> to Bitcoin&apos;s march toward $200K, here are the top 10 cryptocurrencies every investor should watch in 2026. See also our guide to the <Link href="/answers/best-cryptocurrency-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency to buy in 2026</Link> and the <Link href="/answers/best-altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best altcoins for 2026</Link>.
+            From <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s payments revolution</Link> to Bitcoin&apos;s march toward $200K, here are the top 10 cryptocurrencies every investor should watch in 2026. See also our guide to the <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency to buy in 2026</Link> and the <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best altcoins for 2026</Link>.
           </p>
 
           <div className="mt-5">

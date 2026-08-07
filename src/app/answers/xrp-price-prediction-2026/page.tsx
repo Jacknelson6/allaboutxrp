@@ -83,7 +83,7 @@ export default function XRPPricePrediction2026Page() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">
-            What will <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> be worth in 2026? We compiled real predictions from institutional analysts and crypto research firms — no made-up numbers. For context, see <Link href="/learn/xrp-price-history" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s complete price history</Link> and our <Link href="/answers/best-cryptocurrency-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency for 2026</Link> analysis.
+            What will <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> be worth in 2026? We compiled real predictions from institutional analysts and crypto research firms, with no made-up numbers. For context, see <Link href="/learn/xrp-price-history" className="text-xrp-accent underline decoration-xrp-accent/30">XRP&apos;s complete price history</Link> and our <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency for 2026</Link> analysis.
           </p>
 
           <div className="mt-5">
@@ -258,7 +258,7 @@ export default function XRPPricePrediction2026Page() {
             <h3 className="text-lg font-bold text-text-primary mb-3">Related Analysis</h3>
             <LearnLinkGrid links={[
               { href: "/learn/xrp-price-history", label: "XRP Price History", desc: "Complete timeline from 2012 to 2026." },
-              { href: "/answers/best-cryptocurrency-2026", label: "Best Cryptocurrency 2026", desc: "How XRP compares to BTC, ETH, SOL." },
+              { href: "/learn/altcoins-2026", label: "Best Cryptocurrency 2026", desc: "How XRP compares to BTC, ETH, SOL." },
               { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "Real-world applications driving demand." },
               { href: "/learn/rlusd", label: "RLUSD Stablecoin", desc: "Ripple's USD stablecoin on XRPL." },
             ]} />

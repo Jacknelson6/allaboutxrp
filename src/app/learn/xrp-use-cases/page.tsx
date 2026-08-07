@@ -376,7 +376,7 @@ export default function XRPUseCasesPage() {
           description="Now that you understand XRP's real-world use cases, learn how to buy your first XRP."
           primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP"
-          secondaryHref="/answers/best-cryptocurrency-2026"
+          secondaryHref="/learn/altcoins-2026"
           secondaryLabel="Best Crypto 2026"
         />
 

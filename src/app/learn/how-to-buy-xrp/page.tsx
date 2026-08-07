@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
 import SourceList from "@/components/shared/SourceList";
+import { XRPPurchaseCostCalculator } from "@/components/guides/UltimateGuideTools";
 import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildHowToSchema } from "@/lib/utils/seo";
 import {
@@ -13,11 +14,11 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "How to Buy XRP: Step-by-Step Guide (2026)",
+  title: "The Ultimate Guide to Buying XRP in 2026",
   description:
     "Learn how to buy XRP in 2026. Compare venue eligibility, total order costs, withdrawal support, custody, and security before following five practical steps.",
   openGraph: {
-    title: "How to Buy XRP: Complete Guide | AllAboutXRP",
+    title: "The Ultimate Guide to Buying XRP in 2026 | AllAboutXRP",
     description:
       "A vendor-neutral guide to checking eligibility, fees, withdrawal support, custody, and security before buying XRP.",
     url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
@@ -41,7 +42,7 @@ const schemas = [
     description: "A comprehensive step-by-step guide to buying XRP cryptocurrency in 2026, covering exchanges, wallets, verification, and security best practices.",
     url: "https://allaboutxrp.com/learn/how-to-buy-xrp",
     datePublished: "2026-02-11",
-    dateModified: "2026-07-29",
+    dateModified: "2026-08-07",
     citations: [
       "https://xrpl.org/about/xrp",
       "https://xrpl.org/docs/concepts/accounts/reserves",
@@ -50,6 +51,7 @@ const schemas = [
       "https://www.kraken.com/buy/xrp",
       "https://www.kraken.com/features/fee-schedule",
       "https://www.investor.gov/introduction-investing/investing-basics/investment-products/crypto-assets",
+      "https://www.irs.gov/filing/digital-assets",
     ],
   }),
   buildHowToSchema({
@@ -94,14 +96,14 @@ export default function HowToBuyXRPPage() {
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero
-          title="How to Buy"
-          titleAccent="XRP"
-          subtitle="To buy XRP, choose a venue available in your jurisdiction, complete its identity checks, review the full order cost, and decide how you will store the asset before you fund the account."
+          title="The Ultimate Guide to Buying"
+          titleAccent="XRP in 2026"
+          subtitle="A platform-neutral playbook for comparing the real cost of an order, choosing custody, keeping tax records, and transferring XRP without a preventable destination-tag mistake."
           breadcrumbLabel="How to Buy XRP"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-11" modified="2026-07-29" />
-            <LastUpdated date="July 29, 2026" />
+            <AuthorByline date="2026-02-11" modified="2026-08-07" />
+            <LastUpdated date="August 7, 2026" />
           </div>
         </LearnHero>
 
@@ -119,6 +121,7 @@ export default function HowToBuyXRPPage() {
           { id: "steps", label: "Step-by-Step" },
           { id: "payment", label: "Payment Methods" },
           { id: "fees", label: "Fees" },
+          { id: "true-cost", label: "Cost Calculator" },
           { id: "security", label: "Security" },
           { id: "storage", label: "Storage" },
           { id: "mistakes", label: "Common Mistakes" },
@@ -279,6 +282,21 @@ export default function HowToBuyXRPPage() {
             </div>
           </RevealSection>
 
+          <RevealSection id="true-cost">
+            <h2 className="text-2xl font-bold text-text-primary">Calculate the XRP That Will Actually Arrive</h2>
+            <p className="mt-4 text-text-secondary leading-relaxed">
+              The cheapest-looking app is not always the cheapest route. A zero-commission screen can still include a spread, while a lower quoted price may come with a funding or withdrawal charge. Compare venues using the same cash budget and the final amount of withdrawable XRP, not a marketing label.
+            </p>
+            <div className="mt-6">
+              <XRPPurchaseCostCalculator />
+            </div>
+            <div className="mt-6">
+              <HighlightBox title="Save the order evidence" variant="info">
+                <p>Before confirming, record the timestamp, order type, reference price, quoted price, trading fee, cash charged, and XRP received. After a withdrawal, record the transaction hash and destination. This creates a cost-basis trail and makes provider comparisons repeatable.</p>
+              </HighlightBox>
+            </div>
+          </RevealSection>
+
           {/* ===== SECURITY ===== */}
           <RevealSection id="security">
             <h2 className="text-2xl font-bold text-text-primary">Security Best Practices</h2>
@@ -366,6 +384,7 @@ export default function HowToBuyXRPPage() {
           { label: "Kraken XRP buying instructions", href: "https://www.kraken.com/buy/xrp", note: "Check current availability and order steps" },
           { label: "Kraken fee schedule", href: "https://www.kraken.com/features/fee-schedule", note: "Current instant-buy, spot, funding, and withdrawal fee structures" },
           { label: "Investor.gov: crypto asset risks", href: "https://www.investor.gov/introduction-investing/investing-basics/investment-products/crypto-assets", note: "Investor-protection and crypto-risk context" },
+          { label: "IRS digital asset guidance", href: "https://www.irs.gov/filing/digital-assets", note: "Current U.S. reporting and basis guidance, including Form 1099-DA" },
         ]} />
 
         <LearnCTA
@@ -378,7 +397,7 @@ export default function HowToBuyXRPPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Reviewed July 29, 2026 by the AllAboutXRP Editorial Team using the linked XRPL, exchange, and investor-protection sources. This is educational information, not financial advice.</em>
+          <em>Reviewed August 7, 2026 by the AllAboutXRP Editorial Team using the linked XRPL, exchange, tax, and investor-protection sources. This is educational information, not financial advice.</em>
         </p>
       </div>
     </>

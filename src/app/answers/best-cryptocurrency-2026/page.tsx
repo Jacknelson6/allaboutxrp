@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Cryptocurrency to Buy in 2026 | AllAboutXRP",
     description: "Expert comparison of the best cryptocurrencies to buy in 2026 — XRP, BTC, ETH, SOL ranked by utility, speed, and potential.",
-    url: "https://allaboutxrp.com/answers/best-cryptocurrency-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     type: "article",
   },
   twitter: {
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     title: "Best Cryptocurrency to Buy in 2026 | AllAboutXRP",
     description: "XRP, Bitcoin, Ethereum, Solana — which is the best crypto to buy in 2026? Full comparison inside.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/best-cryptocurrency-2026" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/altcoins-2026" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "What Is the Best Cryptocurrency to Buy in 2026?",
     description: "A comprehensive comparison of the best cryptocurrencies to buy in 2026, including XRP, Bitcoin, Ethereum, Solana, and top altcoins.",
-    url: "https://allaboutxrp.com/answers/best-cryptocurrency-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     datePublished: "2026-02-11",
     dateModified: "2026-02-11",
   }),
@@ -41,7 +41,7 @@ const schemas = [
     { name: "Answers", url: "https://allaboutxrp.com/answers" },
     { name: "Best Cryptocurrency 2026" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/answers/best-cryptocurrency-2026" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/altcoins-2026" }),
   buildFAQSchema([
     { question: "What is the best cryptocurrency to buy in 2026?", answer: "There is no single 'best' cryptocurrency. Bitcoin (BTC) is the safest long-term hold, XRP offers the best utility for payments with 3-5 second settlement and near-zero fees, Ethereum leads in smart contracts, and Solana excels in speed. Your best choice depends on your investment goals and risk tolerance." },
     { question: "Is XRP a good investment in 2026?", answer: "XRP has strong fundamentals in 2026: regulatory clarity after the SEC case, growing institutional adoption via RippleNet, the RLUSD stablecoin launch, and potential ETF approval. Analyst price targets range from $2 to $4 for 2026. However, all crypto investments carry risk." },
@@ -81,7 +81,7 @@ export default function BestCryptocurrency2026Page() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">
-            With thousands of cryptocurrencies available, choosing the best one to buy in 2026 depends on your goals. Whether you want a <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">fast payments asset like XRP</Link>, a store of value like Bitcoin, or smart contract exposure through Ethereum — here&apos;s our honest breakdown. See also our <Link href="/answers/top-10-cryptocurrencies-2026" className="text-xrp-accent underline decoration-xrp-accent/30">top 10 cryptocurrencies for 2026</Link> and <Link href="/answers/best-altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best altcoins guide</Link>.
+            With thousands of cryptocurrencies available, choosing the best one to buy in 2026 depends on your goals. Whether you want a <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">fast payments asset like XRP</Link>, a store of value like Bitcoin, or smart contract exposure through Ethereum, here&apos;s our honest breakdown. See also our <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">top 10 cryptocurrencies for 2026</Link> and <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best altcoins guide</Link>.
           </p>
 
           <div className="mt-5">
@@ -222,9 +222,9 @@ export default function BestCryptocurrency2026Page() {
           <RevealSection className="mt-10">
             <h3 className="text-lg font-bold text-text-primary mb-3">Related Guides</h3>
             <LearnLinkGrid links={[
-              { href: "/answers/top-10-cryptocurrencies-2026", label: "Top 10 Cryptocurrencies 2026", desc: "Complete ranked list of the top 10 cryptos to watch this year." },
+              { href: "/learn/altcoins-2026", label: "Top 10 Cryptocurrencies 2026", desc: "Complete ranked list of the top 10 cryptos to watch this year." },
               { href: "/learn/xrp-price-prediction", label: "XRP Price Prediction 2026", desc: "What analysts are really saying about XRP's price trajectory." },
-              { href: "/answers/best-altcoins-2026", label: "Best Altcoins 2026", desc: "Top altcoin picks beyond Bitcoin for growth-oriented investors." },
+              { href: "/learn/altcoins-2026", label: "Best Altcoins 2026", desc: "Top altcoin picks beyond Bitcoin for growth-oriented investors." },
               { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "How XRP is used in the real world — payments, DeFi, and more." },
             ]} />
           </RevealSection>

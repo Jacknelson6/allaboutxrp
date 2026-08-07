@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Altcoins 2026 | AllAboutXRP",
     description: "Expert picks for the best altcoins in 2026 — XRP, ETH, SOL, LINK, and more ranked by utility and potential.",
-    url: "https://allaboutxrp.com/answers/best-altcoins-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     type: "article",
   },
   twitter: {
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     title: "Best Altcoins 2026 | AllAboutXRP",
     description: "Top altcoin picks for 2026 with honest analysis — XRP, ETH, SOL, LINK, and more.",
   },
-  alternates: { canonical: "https://allaboutxrp.com/answers/best-altcoins-2026" },
+  alternates: { canonical: "https://allaboutxrp.com/learn/altcoins-2026" },
 };
 
 const schemas = [
   buildArticleSchema({
     headline: "Best Altcoins to Buy in 2026",
     description: "A curated list of the best altcoins to buy in 2026 based on utility, institutional adoption, and growth catalysts.",
-    url: "https://allaboutxrp.com/answers/best-altcoins-2026",
+    url: "https://allaboutxrp.com/learn/altcoins-2026",
     datePublished: "2026-02-11",
     dateModified: "2026-02-11",
   }),
@@ -41,7 +41,7 @@ const schemas = [
     { name: "Answers", url: "https://allaboutxrp.com/answers" },
     { name: "Best Altcoins 2026" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/answers/best-altcoins-2026" }),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/altcoins-2026" }),
   buildFAQSchema([
     { question: "What are the best altcoins to buy in 2026?", answer: "Top altcoin picks for 2026 include XRP (payments leader with regulatory clarity), Ethereum (smart contracts), Solana (high-speed DeFi), Chainlink (oracle infrastructure), Cardano (research-driven), and TRON (stablecoin transfers). Each serves different investment goals." },
     { question: "What is an altcoin?", answer: "An altcoin is any cryptocurrency other than Bitcoin. The term 'alternative coin' covers everything from Ethereum and XRP to smaller tokens. Altcoins often offer specific utility beyond Bitcoin's store-of-value proposition." },
@@ -185,7 +185,7 @@ export default function BestAltcoins2026Page() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-text-secondary">
-            Looking beyond Bitcoin? These are the best altcoins for 2026 based on real utility, institutional adoption, and growth catalysts. <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> leads our picks for its <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">real-world payment utility</Link> and regulatory clarity. See our <Link href="/answers/best-cryptocurrency-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency 2026</Link> guide for Bitcoin inclusion.
+            Looking beyond Bitcoin? These are the best altcoins for 2026 based on real utility, institutional adoption, and growth catalysts. <Link href="/learn/what-is-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP</Link> leads our picks for its <Link href="/learn/xrp-use-cases" className="text-xrp-accent underline decoration-xrp-accent/30">real-world payment utility</Link> and regulatory clarity. See our <Link href="/learn/altcoins-2026" className="text-xrp-accent underline decoration-xrp-accent/30">best cryptocurrency 2026</Link> guide for Bitcoin inclusion.
           </p>
 
           <div className="mt-5">

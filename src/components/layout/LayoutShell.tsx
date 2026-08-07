@@ -17,9 +17,6 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
     pathname === "/" ||
     pathname === "/about" ||
     pathname === "/answers" ||
-    pathname === "/answers/best-altcoins-2026" ||
-    pathname === "/answers/best-cryptocurrency-2026" ||
-    pathname === "/answers/top-10-cryptocurrencies-2026" ||
     pathname === "/learn/xrp-price-prediction" ||
     pathname === "/editorial" ||
     pathname === "/get-started" ||

@@ -65,6 +65,9 @@ export const NOINDEX_PATHS = new Set([
  * one page instead of splitting across an answer and a learn article.
  */
 export const CANONICAL_ALIASES = new Map<string, string>([
+  ["/answers/best-altcoins-2026", "/learn/altcoins-2026"],
+  ["/answers/best-cryptocurrency-2026", "/learn/altcoins-2026"],
+  ["/answers/top-10-cryptocurrencies-2026", "/learn/altcoins-2026"],
   ["/answers/can-xrp-be-mined", "/learn/can-xrp-be-mined"],
   ["/answers/how-fast-is-xrp", "/learn/how-does-xrp-work"],
   ["/answers/how-many-xrp-are-there", "/learn/xrp-supply-explained"],
