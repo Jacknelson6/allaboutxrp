@@ -17,35 +17,14 @@ export const NOINDEX_PATHS = new Set([
   "/learn/buy-xrp-on-uphold",
 
   // ── XRP vs * comparison pages ────────────────────────────────────────
-  "/learn/xrp-vs-avalanche",
-  "/learn/xrp-vs-bitcoin",
   "/learn/xrp-vs-bitcoin-investment",
-  "/learn/xrp-vs-cardano",
-  "/learn/xrp-vs-chainlink",
-  "/learn/xrp-vs-dogecoin",
-  "/learn/xrp-vs-ethereum",
-  "/learn/xrp-vs-hedera",
-  "/learn/xrp-vs-litecoin",
-  "/learn/xrp-vs-paypal",
-  "/learn/xrp-vs-polygon",
-  "/learn/xrp-vs-solana",
-  "/learn/xrp-vs-stablecoins",
-  "/learn/xrp-vs-stellar",
   "/learn/xrp-vs-stocks",
-  "/learn/xrp-vs-sui",
-  "/learn/xrp-vs-swift",
-  "/learn/xrp-vs-tron",
-  "/learn/xrp-vs-western-union",
 
   // ── Low-value page without a distinct canonical destination ──────────
   "/learn/best-xrp-trading-pairs",
 
   // ── Low-value deep cuts ──────────────────────────────────────────────
-  "/learn/xrp-glossary",
   "/learn/xrp-developer-resources",
-  "/learn/xrp-addresses-and-keys",
-  "/learn/xrp-destination-tag-guide",
-  "/learn/xrp-transaction-types",
   "/learn/xrp-block-explorers",
   "/learn/xrp-portfolio-trackers",
   "/learn/xrp-order-types-explained",
@@ -56,7 +35,6 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-futures-trading",
   "/learn/xrp-day-trading-guide",
   "/learn/xrp-on-chain-analysis",
-  "/learn/xrp-community-explained",
   "/learn/xrp-sell-or-hold",
   "/learn/xrp-micropayments",
   "/learn/xrp-insurance-use-cases",

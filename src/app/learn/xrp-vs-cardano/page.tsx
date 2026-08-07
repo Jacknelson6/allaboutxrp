@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP vs Cardano (ADA): Complete Comparison | AllAboutXRP",
   description:
     "Compare XRP vs Cardano (ADA) — speed, fees, use cases, smart contracts, and market position. Which blockchain is better for what?",

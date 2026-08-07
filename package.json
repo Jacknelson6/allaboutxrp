@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "seo:audit": "node scripts/seo-health.mjs",
+    "seo:indexnow": "node scripts/ping-indexnow.mjs",
     "seo:sitemap": "node scripts/sitemap-health.mjs"
   },
   "dependencies": {

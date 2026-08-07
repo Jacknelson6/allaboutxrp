@@ -11,7 +11,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP Glossary: A-Z of XRP & XRPL Terms",
   description:
     "Complete glossary of XRP and XRPL terms — from AMM to X-address. Every key concept explained simply for beginners and experts.",

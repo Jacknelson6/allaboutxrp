@@ -17,8 +17,8 @@ export const LEARN_HUBS: LearnHub[] = [
     guides: [
       "faq", "can-xrp-be-mined", "how-does-xrp-work", "how-xrp-makes-money", "ripple-vs-xrp",
       "trusted-sources", "what-is-xrp", "what-makes-xrp-different", "xrp-energy-consumption",
-      "xrp-explained-like-im-five", "xrp-for-beginners", "xrp-market-cap-explained", "xrp-myths",
-      "xrp-supply-explained", "xrp-tokenomics",
+      "xrp-explained-like-im-five", "xrp-for-beginners", "xrp-glossary", "xrp-market-cap-explained",
+      "xrp-myths", "xrp-supply-explained", "xrp-tokenomics",
     ],
   },
   {
@@ -28,8 +28,9 @@ export const LEARN_HUBS: LearnHub[] = [
     description: "Explore the XRP Ledger’s consensus, validators, DEX, AMMs, fees, reserves, identity features, and developer capabilities.",
     answer: "The XRP Ledger is a public, open-source blockchain built for payments and tokenized value. It uses a validator-based consensus process instead of proof-of-work and includes native features such as a decentralized exchange, escrow, payment channels, issued assets, and automated market makers.",
     guides: [
-      "how-to-create-xrpl-token", "how-to-run-xrpl-validator", "how-to-use-xrpl-dex", "xrp-airdrops", "xrp-amm",
-      "xrp-burn-rate", "xrp-interledger-protocol", "xrp-ledger-explained", "xrp-nfts", "xrp-real-world-assets",
+      "how-to-create-xrpl-token", "how-to-run-xrpl-validator", "how-to-use-xrpl-dex", "xrp-addresses-and-keys",
+      "xrp-airdrops", "xrp-amm", "xrp-burn-rate", "xrp-destination-tag-guide", "xrp-interledger-protocol",
+      "xrp-ledger-explained", "xrp-nfts", "xrp-real-world-assets", "xrp-transaction-types",
       "xrp-smart-contracts", "xrpl-amm-liquidity-pools", "xrpl-clawback-feature", "xrpl-consensus-mechanism",
       "xrpl-credentials-did", "xrpl-decentralization", "xrpl-defi", "xrpl-dex-vs-centralized-exchange",
       "xrpl-hooks-explained", "xrpl-multi-purpose-tokens", "xrpl-oracles", "xrpl-payment-channels",
@@ -73,7 +74,11 @@ export const LEARN_HUBS: LearnHub[] = [
       "xrp-altseason-guide", "xrp-bull-run-indicators", "xrp-crash-history", "xrp-dollar-cost-averaging", "xrp-etf",
       "xrp-exit-strategy", "xrp-lending-platforms", "xrp-long-term-potential", "xrp-market-cycles",
       "xrp-portfolio-allocation", "xrp-price-history", "xrp-price-potential", "xrp-price-prediction", "xrp-staking",
-      "xrp-swing-trading-guide", "xrp-technical-analysis-guide", "xrp-whale-tracking",
+      "xrp-swing-trading-guide", "xrp-technical-analysis-guide", "xrp-vs-avalanche", "xrp-vs-bitcoin",
+      "xrp-vs-cardano", "xrp-vs-chainlink", "xrp-vs-dogecoin", "xrp-vs-ethereum", "xrp-vs-hedera",
+      "xrp-vs-litecoin", "xrp-vs-paypal", "xrp-vs-polygon", "xrp-vs-solana", "xrp-vs-stablecoins",
+      "xrp-vs-stellar", "xrp-vs-sui", "xrp-vs-swift", "xrp-vs-tron", "xrp-vs-western-union",
+      "xrp-whale-tracking",
     ],
   },
   {
@@ -96,7 +101,7 @@ export const LEARN_HUBS: LearnHub[] = [
     answer: "XRP adoption claims need a precise distinction between pilots, partnerships, production products, and direct XRP use. This path examines how bridge assets can support settlement while separating documented deployments from theoretical use cases and company announcements.",
     guides: [
       "cbdcs-and-xrp", "cross-border-payments", "how-banks-use-xrp", "on-demand-liquidity", "xrp-africa-remittances",
-      "xrp-and-ai", "xrp-and-tokenized-treasuries", "xrp-and-trade-finance", "xrp-global-liquidity-network",
+      "xrp-and-ai", "xrp-and-tokenized-treasuries", "xrp-and-trade-finance", "xrp-community-explained", "xrp-global-liquidity-network",
       "xrp-iso-20022", "xrp-japan-sbi", "xrp-middle-east-adoption", "xrp-southeast-asia", "xrp-use-cases",
     ],
   },

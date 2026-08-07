@@ -87,6 +87,15 @@ const redirectSources = new Set([
   ...canonicalAliases.map((alias) => alias.source),
   ...configuredRedirects,
 ]);
+const undeclaredNoindexRoutes = pages
+  .filter((file) => /robots\s*:\s*\{[\s\S]{0,160}?index\s*:\s*false/.test(fs.readFileSync(file, "utf8")))
+  .map(appFileToRoute)
+  .filter(
+    (route) =>
+      !noindexPaths.includes(route) &&
+      !redirectSources.has(route) &&
+      route !== "/learn/faq/[slug]",
+  );
 
 const sourceFiles = walk(srcDir).filter((file) => /\.(?:ts|tsx)$/.test(file));
 const internalLinks = [];
@@ -143,6 +152,7 @@ const report = {
   withSchema: count("schema"),
   withVisibleSources: count("visibleSources"),
   noindexPaths: noindexPaths.length,
+  undeclaredNoindexRoutes,
   canonicalAliases: canonicalAliases.length,
   internalLinksChecked: internalLinks.length,
   brokenInternalLinks,
@@ -172,6 +182,11 @@ if (redirectInternalLinks.length) {
 
 if (brokenGoLinks.length) {
   console.error("\nUnconfigured /go/ links detected. Remove them or implement a disclosed, working destination.");
+  process.exitCode = 1;
+}
+
+if (undeclaredNoindexRoutes.length) {
+  console.error("\nPages with noindex metadata must be declared in the SEO policy, redirected to a canonical page, or intentionally handled as thin dynamic content.");
   process.exitCode = 1;
 }
 
