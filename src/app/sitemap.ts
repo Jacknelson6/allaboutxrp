@@ -67,7 +67,7 @@ function getSourceLastModified(relativeFile: string): Date | undefined {
     /dateModified\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/,
   )?.[1];
 
-  if (literalDate) return new Date(`${literalDate}T12:00:00Z`);
+  if (literalDate) return new Date(`${literalDate}T00:00:00Z`);
 
   const variableName = source.match(/dateModified\s*:\s*([A-Za-z_$][\w$]*)/)?.[1];
   if (variableName) {
@@ -75,7 +75,7 @@ function getSourceLastModified(relativeFile: string): Date | undefined {
     const variableDate = source.match(
       new RegExp(`(?:const|let)\\s+${escapedName}\\s*=\\s*["'](\\d{4}-\\d{2}-\\d{2})["']`),
     )?.[1];
-    if (variableDate) return new Date(`${variableDate}T12:00:00Z`);
+    if (variableDate) return new Date(`${variableDate}T00:00:00Z`);
   }
 
   return undefined;
