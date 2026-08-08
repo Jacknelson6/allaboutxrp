@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
-import Link from "next/link";
+import SourceList from "@/components/shared/SourceList";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
   HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
-  TLDRBox, KeyFactsTable, LastUpdated,
+  TLDRBox, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 
 export const dynamic = "force-static";
@@ -26,25 +26,25 @@ export const metadata: Metadata = {
 };
 
 const schemas = [
-  buildArticleSchema({ headline: "Is XRP a Good Investment in 2026? Honest Analysis", description: "Comprehensive analysis of XRP as an investment — pros, cons, risks, catalysts, and honest assessment.", url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildArticleSchema({ headline: "Is XRP a Good Investment in 2026? A Decision Framework", description: "A source-led framework for evaluating XRP's utility, market risks, concentration, opportunity cost, and fit with an investor's own circumstances.", url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment", datePublished: "2026-02-15", dateModified: "2026-08-08", citations: ["https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset", "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm", "https://xrpl.org/docs/concepts/transactions/transaction-cost", "https://ripple.com/solutions/stablecoin/"] }),
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Is XRP a Good Investment?" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" }),
   buildFAQSchema([
-    { question: "Is XRP a good investment in 2026?", answer: "XRP has several strong investment catalysts in 2026: regulatory clarity post-SEC settlement, pending ETF applications, growing institutional adoption (300+ partners), and RLUSD stablecoin. However, it carries risks including market volatility, competition, and dependence on Ripple's execution. Whether it's 'good' depends on your risk tolerance, time horizon, and portfolio allocation. Not financial advice." },
-    { question: "What are the biggest risks of investing in XRP?", answer: "Key risks: 1) Market-wide crypto volatility, 2) Competition from stablecoins and CBDCs, 3) Slower-than-expected institutional adoption, 4) Ripple's escrow releases creating sell pressure, 5) Regulatory changes in key markets. No investment is risk-free." },
-    { question: "What makes XRP different from other crypto investments?", answer: "XRP has unique advantages: clear regulatory status (post-SEC), 300+ institutional partnerships, specific real-world utility (cross-border payments), deflationary tokenomics, pending ETF applications, and the RLUSD stablecoin ecosystem. Most altcoins lack this combination." },
-    { question: "How much should I invest in XRP?", answer: "Only invest what you can afford to lose entirely. Most financial advisors suggest keeping crypto at 1-10% of your portfolio depending on risk tolerance. Never invest emergency funds, rent money, or money you'll need short-term. Dollar-cost averaging reduces timing risk." },
-    { question: "Should I buy XRP or Bitcoin?", answer: "Different risk/reward profiles. Bitcoin is the safer, more established choice with institutional adoption and ETF inflows. XRP has more potential upside from a smaller market cap but more risk. Many investors hold both. See our dedicated comparison for detailed analysis." },
+    { question: "Is XRP a good investment in 2026?", answer: "There is no universal answer. XRP offers exposure to a volatile digital asset and the XRP Ledger ecosystem, but price performance is not guaranteed by network utility, Ripple announcements, ETF availability, or RLUSD growth. The decision depends on your objectives, loss capacity, time horizon, liquidity needs, and alternatives." },
+    { question: "What are the biggest risks of investing in XRP?", answer: "Key risks include crypto-market volatility, uncertain demand, competition, custody or exchange failure, liquidity changes, regulation, concentration of holdings, and the possibility that network activity does not translate into asset returns." },
+    { question: "What makes XRP different from other crypto investments?", answer: "XRP is the native asset of the XRP Ledger and can be used for transaction fees, reserves, transfers, and liquidity paths. Those functions are observable, but they do not establish a fair price or guarantee that adoption produces investment returns." },
+    { question: "How much should I invest in XRP?", answer: "A general article cannot determine an appropriate amount. Consider whether a total loss would affect housing, debt payments, emergency savings, taxes, or near-term goals. A qualified financial adviser can evaluate your full circumstances." },
+    { question: "Should I buy XRP or Bitcoin?", answer: "A general article cannot recommend either asset. They have different designs, market histories, supply rules, custody considerations, and risk drivers. Compare those factors with your objectives and alternatives rather than assuming that a smaller market capitalization guarantees more upside." },
   ]),
 ];
 
 const faqItems = [
-  { q: "Is XRP a good investment in 2026?", a: "Strong catalysts (regulatory clarity, ETF, 300+ partners, RLUSD) but real risks (volatility, competition, adoption pace). Depends on your risk tolerance." },
-  { q: "Biggest risks?", a: "Crypto volatility, stablecoin/CBDC competition, slow adoption, Ripple escrow sell pressure, regulatory changes." },
-  { q: "What makes XRP different?", a: "Clear regulatory status, 300+ institutional partners, real utility, deflationary supply, ETF filings, RLUSD ecosystem." },
-  { q: "How much should I invest?", a: "Only what you can afford to lose. 1-10% of portfolio. Never emergency funds. Dollar-cost average to reduce timing risk." },
-  { q: "XRP or Bitcoin?", a: "Bitcoin: safer, established. XRP: more upside potential, more risk. Many hold both for diversification." },
-  { q: "When should I sell?", a: "Set targets in advance. Take profits along the way. Never sell in panic. Have a strategy before you need one." },
+  { q: "Is XRP a good investment in 2026?", a: "There is no universal answer. Utility, product announcements, ETFs, and ecosystem growth do not guarantee investment returns." },
+  { q: "Biggest risks?", a: "Volatility, uncertain demand, custody or exchange failure, liquidity changes, competition, regulation, concentration, and weak linkage between network activity and returns." },
+  { q: "What makes XRP different?", a: "It is the XRP Ledger's native asset and is used for fees, reserves, transfers, and some liquidity paths. Utility is not a price guarantee." },
+  { q: "How much should I invest?", a: "A general article cannot set an allocation. Evaluate loss capacity, liquidity needs, taxes, debt, and alternatives, or consult a qualified adviser." },
+  { q: "XRP or Bitcoin?", a: "Neither is universally appropriate. Compare design, market history, custody, liquidity, supply, and the evidence behind each thesis." },
+  { q: "When should I sell?", a: "A general page cannot choose a sale point. Define what would invalidate your thesis and account for taxes, liquidity needs, and execution risk." },
 ];
 
 export default function IsXRPGoodInvestmentPage() {
@@ -52,12 +52,12 @@ export default function IsXRPGoodInvestmentPage() {
     <>
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
-        <LearnHero title="Is XRP a Good Investment?" titleAccent="Honest Analysis for 2026" subtitle="No hype, no FUD — just an honest breakdown of the bull case, bear case, risks, and catalysts for XRP as an investment. You make the decision." breadcrumbLabel="Is XRP a Good Investment?">
-          <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
+        <LearnHero title="Is XRP a Good Investment?" titleAccent="A Decision Framework for 2026" subtitle="There is no universal yes or no. This guide separates observable facts from investment assumptions so you can evaluate utility, risk, concentration, liquidity, and opportunity cost." breadcrumbLabel="Is XRP a Good Investment?">
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-08-08" /><LastUpdated date="August 8, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP has one of the strongest fundamental cases</strong> in crypto for 2026: post-SEC regulatory clarity, 300+ <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">institutional partnerships</Link>, pending <Link href="/learn/xrp-etf" className="text-xrp-accent underline decoration-xrp-accent/30">ETF applications</Link>, <Link href="/learn/rlusd" className="text-xrp-accent underline decoration-xrp-accent/30">RLUSD stablecoin</Link>, and growing <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL volume</Link>. But it carries real risks — volatility, competition, and execution dependence. <strong className="text-text-primary">Only invest what you can afford to lose. This is not financial advice.</strong></p>
+          <p><strong className="text-text-primary">XRP is a high-volatility asset, not a guaranteed claim on Ripple&apos;s business or the XRP Ledger&apos;s future activity.</strong> U.S.-listed XRP investment products, RLUSD growth, and network utility are relevant facts, but none alone establishes fair value or future returns. Evaluate the loss you could absorb, the evidence that would change your thesis, custody risk, taxes, and what you would own instead. This is education, not financial advice.</p>
         </TLDRBox>
 
         <SectionNav items={[
@@ -74,12 +74,12 @@ export default function IsXRPGoodInvestmentPage() {
             <h2 className="text-2xl font-bold text-text-primary">The Bull Case for XRP</h2>
             <div className="mt-6">
               <IconList items={[
-                { title: "Regulatory clarity", desc: "The SEC lawsuit is resolved. XRP has one of the clearest regulatory positions of any crypto asset. Institutions can invest with confidence." },
-                { title: "300+ institutional partnerships", desc: "Ripple has partnerships with 300+ banks and payment providers. Real institutional adoption, not just promises." },
-                { title: "ETF applications pending", desc: "Multiple spot XRP ETF filings are under SEC review. If approved, institutional inflows could be massive (see Bitcoin ETF precedent)." },
-                { title: "RLUSD stablecoin", desc: "Ripple's NYDFS-approved stablecoin creates additional demand for XRP as a bridge currency in the Ripple ecosystem." },
-                { title: "Real utility", desc: "XRP serves a specific, measurable purpose — cross-border payment settlement. Not a meme, not speculation." },
-                { title: "Deflationary supply", desc: "Transaction fees are burned permanently. Slow but real supply reduction over time." },
+                { title: "A more developed U.S. record", desc: "Court and agency records provide more context than they did before the SEC case, but treatment still depends on the transaction, product, jurisdiction, and later legal developments." },
+                { title: "Observable network utility", desc: "XRP has defined roles in fees, reserves, transfers, and some liquidity paths on the XRP Ledger. Utility is measurable, but price impact is not automatic." },
+                { title: "U.S.-listed investment products", desc: "SEC filings show multiple listed products providing XRP exposure. Product availability can broaden access, but flows, fees, tracking differences, and investor demand determine actual impact." },
+                { title: "RLUSD activity", desc: "RLUSD can add XRP Ledger transactions and liquidity paths. Whether that creates material XRP demand depends on which network is used and how trades are routed." },
+                { title: "Open-ledger evidence", desc: "Transactions, balances, fees, amendments, and validator data can be inspected directly instead of relying only on promotional claims." },
+                { title: "Fee destruction", desc: "XRPL transaction fees are destroyed. The amount is normally very small, so it should be measured rather than assumed to create material scarcity." },
               ]} variant="zap" />
             </div>
           </RevealSection>
@@ -91,7 +91,7 @@ export default function IsXRPGoodInvestmentPage() {
                 { title: "Stablecoin competition", desc: "USDT/USDC handle billions in transfers daily. Some argue stablecoins could replace XRP's bridge currency function." },
                 { title: "CBDC threat", desc: "Central banks developing CBDCs could reduce demand for private payment networks." },
                 { title: "Ripple dependency", desc: "XRP's adoption is heavily driven by Ripple (a single company). Concentrated execution risk." },
-                { title: "Escrow releases", desc: "Ripple releases up to 1 billion XRP monthly from escrow. This creates ongoing sell pressure." },
+                { title: "Escrow and holder concentration", desc: "Scheduled escrow releases can increase available supply, but an unlock is not automatically a market sale. Follow actual transfers and exchange flows." },
                 { title: "Market volatility", desc: "XRP can drop 50-80% in bear markets. Not suitable for risk-averse investors." },
                 { title: "Opportunity cost", desc: "Capital in XRP could be in Bitcoin, Ethereum, stocks, or bonds. What you don't buy matters too." },
               ]} variant="warn" />
@@ -102,16 +102,15 @@ export default function IsXRPGoodInvestmentPage() {
             <h2 className="text-2xl font-bold text-text-primary">2026 Specific Catalysts</h2>
             <div className="mt-6">
               <DataTable
-                headers={["Catalyst", "Impact", "Timeline", "Probability"]}
+                headers={["Claim to monitor", "Evidence that would strengthen it", "Evidence that would weaken it", "Source type"]}
                 rows={[
-                  ["Spot XRP ETF approval", "Very High", "2026", "Moderate-High"],
-                  ["Expanded ODL corridors", "High", "Ongoing", "High"],
-                  ["RLUSD institutional adoption", "High", "2026", "High"],
-                  ["Tokenized assets on XRPL", "Medium-High", "2026-2027", "Moderate"],
-                  ["Crypto bull market cycle", "Very High", "2025-2027", "Moderate"],
-                  ["More exchange listings", "Medium", "Ongoing", "High"],
+                  ["Investment-product demand", "Sustained net assets and trading liquidity", "Persistent outflows or poor tracking", "SEC filings and issuer reports"],
+                  ["Payment adoption", "Named production corridors with measurable volume", "Pilot announcements without usage data", "Company and counterparty disclosures"],
+                  ["RLUSD activity", "Supply and transaction growth on XRPL", "Growth concentrated on other networks", "Issuer attestations and ledger data"],
+                  ["Tokenized assets", "Live issuance, holders, and settlement activity", "Announcements without deployed assets", "XRPL data and issuer records"],
+                  ["Network resilience", "Stable validation and amendment participation", "Concentration or repeated operational failures", "XRPL validator and ledger data"],
                 ]}
-                highlightCol={1}
+                highlightCol={0}
               />
             </div>
           </RevealSection>
@@ -120,10 +119,10 @@ export default function IsXRPGoodInvestmentPage() {
             <h2 className="text-2xl font-bold text-text-primary">Risk Assessment</h2>
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
-                { title: "Volatility Risk: HIGH", desc: "XRP can swing 10-30% in a week. Only invest what you can afford to lose entirely. Set stop-losses if needed." },
-                { title: "Regulatory Risk: LOW-MEDIUM", desc: "Post-SEC clarity helps, but regulations can change. International regulatory landscape still evolving." },
-                { title: "Competition Risk: MEDIUM", desc: "Stablecoins, CBDCs, and other payment networks compete for market share. XRP's institutional moat helps." },
-                { title: "Execution Risk: MEDIUM", desc: "Dependent on Ripple continuing to execute. If Ripple stumbles, XRP's adoption could slow." },
+                { title: "Market and execution risk", desc: "XRP can move sharply in either direction. Order types do not guarantee a sale at a chosen price during fast markets." },
+                { title: "Legal and regulatory risk", desc: "Rules differ by jurisdiction and product, and later statutes, agency actions, or court decisions can change the analysis." },
+                { title: "Competition risk", desc: "Stablecoins, bank rails, other networks, and future payment systems compete for liquidity and usage. Announcements do not establish durable share." },
+                { title: "Adoption linkage risk", desc: "Ripple product growth or XRPL activity may not require XRP, may occur on another network, or may be too small to affect market demand." },
               ]} />
             </div>
           </RevealSection>
@@ -132,7 +131,7 @@ export default function IsXRPGoodInvestmentPage() {
             <h2 className="text-2xl font-bold text-text-primary">How to Invest Responsibly</h2>
             <div className="mt-4">
               <HighlightBox title="Investment Best Practices" variant="accent">
-                <p><strong className="text-text-primary">1.</strong> Only invest what you can afford to lose. <strong className="text-text-primary">2.</strong> Dollar-cost average — buy regularly, not all at once. <strong className="text-text-primary">3.</strong> Keep crypto at 1-10% of your portfolio. <strong className="text-text-primary">4.</strong> Use secure storage (<Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet recommended</Link>). <strong className="text-text-primary">5.</strong> Have exit targets before you need them. <strong className="text-text-primary">6.</strong> Never invest emergency funds.</p>
+                <p><strong className="text-text-primary">1.</strong> Write down the evidence for and against the thesis. <strong className="text-text-primary">2.</strong> Decide what result would invalidate it. <strong className="text-text-primary">3.</strong> Include exchange, spread, custody, and tax costs. <strong className="text-text-primary">4.</strong> Compare direct custody with listed-product exposure. <strong className="text-text-primary">5.</strong> Stress-test the effect of a total loss on essential obligations. <strong className="text-text-primary">6.</strong> Use a qualified adviser for recommendations based on your circumstances.</p>
               </HighlightBox>
             </div>
             <div className="mt-4">
@@ -162,7 +161,14 @@ export default function IsXRPGoodInvestmentPage() {
 
         <LearnCTA title="Ready to Research More?" description="Explore price targets, comparisons, and how to buy." primaryHref="/learn/xrp-price-potential" primaryLabel="Can XRP Reach $10? →" secondaryHref="/learn/how-to-buy-xrp" secondaryLabel="How to Buy XRP" />
 
-        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Not financial advice. Do your own research. Past performance does not predict future results.</em></p>
+        <SourceList sources={[
+          { label: "SEC crypto fraud investor alert", href: "https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset", note: "Official risk guidance for evaluating crypto promotions and guaranteed-return claims." },
+          { label: "REX-Osprey XRP ETF prospectus", href: "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm", note: "Current SEC-filed product structure, fees, strategy, and risk disclosures." },
+          { label: "XRPL transaction cost documentation", href: "https://xrpl.org/docs/concepts/transactions/transaction-cost", note: "Primary documentation for fee mechanics and XRP destruction." },
+          { label: "Ripple RLUSD information", href: "https://ripple.com/solutions/stablecoin/", note: "First-party product and reserve disclosures. Ripple's claims should be read as issuer claims." },
+        ]} />
+
+        <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: August 8, 2026. Editorial review only, not review by a financial adviser. Past performance does not predict future results.</em></p>
       </div>
     </>
   );

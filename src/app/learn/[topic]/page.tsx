@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getLearnHub, LEARN_HUBS, titleFromSlug } from "@/data/learn-hubs";
+import AuthorByline from "@/components/shared/AuthorByline";
 
 type Props = { params: Promise<{ topic: string }> };
 
@@ -82,6 +83,7 @@ export default async function LearnTopicPage({ params }: Props) {
               {hub.title}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-text-secondary">{hub.description}</p>
+            <div className="mt-6"><AuthorByline date="2026-07-29" modified="2026-08-08" /></div>
           </div>
         </header>
 

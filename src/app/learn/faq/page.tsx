@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import FAQAccordion from "./FAQAccordion";
 import SEOSchema from "@/components/shared/SEOSchema";
+import AuthorByline from "@/components/shared/AuthorByline";
 import { getAllFAQItems } from "@/lib/utils/faq";
+import { buildArticleSchema } from "@/lib/utils/seo";
 
 export const dynamic = "force-static";
 
@@ -51,7 +53,7 @@ export default function FAQPage() {
 
   return (
     <>
-      <SEOSchema schema={[faqSchema, breadcrumbSchema]} />
+      <SEOSchema schema={[buildArticleSchema({ headline: "XRP Frequently Asked Questions", description: "Concise answers about XRP, the XRP Ledger, Ripple, custody, and risk.", url: "https://allaboutxrp.com/learn/faq", datePublished: "2026-02-10", dateModified: "2026-08-08" }), faqSchema, breadcrumbSchema]} />
       <div className="mx-auto max-w-4xl px-4 py-16">
         {/* Breadcrumb */}
         <nav className="mb-8 flex items-center gap-2 text-xs text-text-secondary" aria-label="Breadcrumb">
@@ -69,9 +71,7 @@ export default function FAQPage() {
           Concise answers about XRP, the XRP Ledger, Ripple, custody, and risk. Every answer is included in the page HTML so it can be read without JavaScript.
         </p>
 
-        <p className="mt-4 font-mono text-xs text-text-secondary">
-          Reviewed <time dateTime="2026-07-29">July 29, 2026</time>
-        </p>
+        <div className="mt-5"><AuthorByline date="2026-02-10" modified="2026-08-08" /></div>
 
         <FAQAccordion items={items} />
 

@@ -2,7 +2,7 @@
  * Shared SEO schema builders for consistent E-E-A-T signals across all pages.
  */
 
-const SITE_URL = "https://allaboutxrp.com";
+import { accountablePublisher, getEditorialProfile, SITE_URL } from "@/lib/editorial";
 
 const publisher = {
   "@type": "Organization",
@@ -24,6 +24,13 @@ const author = {
   url: `${SITE_URL}/editorial`,
 };
 
+const editorialReview = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#editorial`,
+  name: "AllAboutXRP Editorial",
+  url: `${SITE_URL}/editorial`,
+};
+
 export function buildArticleSchema(opts: {
   headline: string;
   description: string;
@@ -33,6 +40,10 @@ export function buildArticleSchema(opts: {
   image?: string;
   citations?: string[];
 }) {
+  const pathname = new URL(opts.url).pathname;
+  const profile = getEditorialProfile(pathname);
+  const citations = [...new Set([...(opts.citations ?? []), ...profile.sources.map((source) => source.href)])];
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -42,13 +53,17 @@ export function buildArticleSchema(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     author,
+    accountablePerson: accountablePublisher,
+    editor: editorialReview,
+    reviewedBy: editorialReview,
     publisher,
     inLanguage: "en-US",
     isAccessibleForFree: true,
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
     image: opts.image || `${SITE_URL}/opengraph-image`,
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    ...(opts.citations?.length && { citation: opts.citations }),
+    publishingPrinciples: `${SITE_URL}/editorial`,
+    citation: citations,
   };
 }
 
@@ -65,6 +80,8 @@ export function buildHowToSchema(opts: {
     description: opts.description,
     url: opts.url,
     author,
+    accountablePerson: accountablePublisher,
+    reviewedBy: editorialReview,
     publisher,
     step: opts.steps.map((s, i) => ({
       "@type": "HowToStep",

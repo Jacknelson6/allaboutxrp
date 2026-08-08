@@ -84,6 +84,15 @@ export default function EditorialPage() {
 
           <div>
             <h2 className="text-2xl font-semibold text-white mb-3">
+              Accountability and Review Levels
+            </h2>
+            <p>
+              <Link href="/authors/jack-nelson" className="text-[#0085FF] underline decoration-[#0085FF]/30 hover:decoration-[#0085FF]">Jack Nelson</Link> is the accountable publisher. Every research page displays its review level. An editorial review checks sourcing, context, uncertainty, disclosures, and presentation. It is not a substitute for professional legal, tax, financial, security, or engineering review, and pages say so when that distinction matters.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-white mb-3">
               How We Evaluate Products
             </h2>
             <p>
@@ -102,6 +111,15 @@ export default function EditorialPage() {
             <p className="mt-3">
               Rankings reflect our honest assessment based on these criteria. No company can
               pay for a higher ranking.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-white mb-3">
+              Tools, Automation, and AI Assistance
+            </h2>
+            <p>
+              Research, drafting, calculations, link checks, and formatting may use software automation or AI assistance. These tools do not have credentials, personal experience, or editorial accountability. The publishing desk remains responsible for scope, disclosures, source selection, corrections, and the final published result. We do not treat generated text as evidence and do not cite an AI response as a primary source.
             </p>
           </div>
 
@@ -146,6 +164,9 @@ export default function EditorialPage() {
                 team@allaboutxrp.com
               </a>
               .
+            </p>
+            <p className="mt-3">
+              Material corrections are recorded in the public <Link href="/corrections" className="text-[#0085FF] underline decoration-[#0085FF]/30 hover:decoration-[#0085FF]">corrections log</Link>.
             </p>
           </div>
 

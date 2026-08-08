@@ -7,6 +7,8 @@ import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getAllRecaps, getRecapByDate, getAdjacentRecaps } from "@/lib/utils/news";
 import ShareButtons from "./ShareButtons";
+import AuthorByline from "@/components/shared/AuthorByline";
+import { buildArticleSchema } from "@/lib/utils/seo";
 
 interface Props {
   params: Promise<{ date: string }>;
@@ -43,17 +45,13 @@ export default async function RecapPage({ params }: Props) {
   const processed = await remark().use(remarkHtml).process(recap.content);
   const html = processed.toString();
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+  const articleSchema = buildArticleSchema({
     headline: recap.title,
     description: recap.description || recap.excerpt,
-    datePublished: `${date}T12:00:00Z`,
-    dateModified: `${date}T12:00:00Z`,
-    author: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
-    publisher: { "@type": "Organization", name: "AllAboutXRP", url: "https://allaboutxrp.com" },
-    mainEntityOfPage: `https://allaboutxrp.com/news/recaps/${date}`,
-  };
+    datePublished: date,
+    dateModified: date,
+    url: `https://allaboutxrp.com/news/recaps/${date}`,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -98,6 +96,7 @@ export default async function RecapPage({ params }: Props) {
           {recap.description && (
             <p className="mt-3 text-lg text-text-secondary">{recap.description}</p>
           )}
+          <div className="mt-5"><AuthorByline date={date} /></div>
         </header>
 
         {/* Share */}

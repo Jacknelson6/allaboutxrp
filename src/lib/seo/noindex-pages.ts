@@ -32,6 +32,7 @@ export const NOINDEX_PATHS = new Set([
   "/learn/xrp-airdrop-taxes",
   "/learn/xrp-tax-loss-harvesting",
   "/learn/xrp-in-retirement-accounts",
+  "/learn/xrp-legal-status-by-country",
   "/learn/xrp-futures-trading",
   "/learn/xrp-day-trading-guide",
   "/learn/xrp-on-chain-analysis",

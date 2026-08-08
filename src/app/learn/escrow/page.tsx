@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import EscrowContent from "@/app/escrow/EscrowContent";
 import SEOSchema from "@/components/shared/SEOSchema";
+import AuthorByline from "@/components/shared/AuthorByline";
 import { buildArticleSchema, buildBreadcrumbSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 
 export const dynamic = "force-static";
@@ -43,6 +44,9 @@ export default function EscrowLearnPage() {
     <div className="min-h-screen bg-black">
       <SEOSchema schema={schemas} />
       <div className="mx-auto max-w-7xl px-4 pt-10 pb-20">
+        <div className="mx-auto max-w-4xl pb-6">
+          <AuthorByline date="2026-02-10" modified="2026-08-08" />
+        </div>
         <EscrowContent />
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">

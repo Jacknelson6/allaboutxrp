@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Users, ExternalLink, ArrowRight, Globe, Scale, Code, BarChart3, Newspaper } from "lucide-react";
+import AuthorByline from "@/components/shared/AuthorByline";
 
 interface Source {
   name: string;
@@ -90,6 +91,7 @@ export default function TrustedSourcesPage() {
             </div>
           </div>
         </motion.div>
+        <div className="mt-5"><AuthorByline date="2026-02-10" modified="2026-08-08" /></div>
 
         <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
           {categoryList.map((cat) => (

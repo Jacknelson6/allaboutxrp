@@ -28,6 +28,8 @@ const footerSections = [
     links: [
       { href: "/about", label: "Our mission" },
       { href: "/editorial", label: "Editorial standards" },
+      { href: "/authors/jack-nelson", label: "Accountable publisher" },
+      { href: "/corrections", label: "Corrections" },
       { href: "/learn/trusted-sources", label: "Trusted sources" },
       { href: "/privacy-policy", label: "Privacy" },
       { href: "/terms", label: "Terms" },

@@ -13,10 +13,17 @@ export default function AuthorByline({ date, modified }: AuthorBylineProps) {
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-xrp-accent/10 text-[10px] font-bold text-xrp-accent">
           AA
         </div>
-        <Link href="/editorial" rel="author" className="font-medium text-text-primary hover:text-xrp-accent transition-colors">
+        <Link href="/editorial" className="font-medium text-text-primary hover:text-xrp-accent transition-colors">
           AllAboutXRP Editorial
         </Link>
       </div>
+      <span className="text-white/15">·</span>
+      <span>
+        Accountable publisher{" "}
+        <Link href="/authors/jack-nelson" rel="author" className="font-medium text-text-primary hover:text-xrp-accent transition-colors">
+          Jack Nelson
+        </Link>
+      </span>
       <span className="text-white/15">·</span>
       <time dateTime={date}>Published {new Date(date + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
       {showModified ? (

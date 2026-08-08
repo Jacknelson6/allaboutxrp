@@ -35,7 +35,7 @@ const schemas = [
     description: "Complete breakdown of XRP's legal status across 50+ countries.",
     url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country",
     datePublished: "2026-02-15",
-    dateModified: "2026-02-15",
+    dateModified: "2026-08-08",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -72,13 +72,13 @@ export default function XRPLegalStatusPage() {
           breadcrumbLabel="XRP Legal Status by Country"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-15" />
-            <LastUpdated date="February 15, 2026" />
+            <AuthorByline date="2026-02-15" modified="2026-08-08" />
+            <LastUpdated date="August 8, 2026" />
           </div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">XRP is legal in 95%+ of countries.</strong> The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> confirmed XRP on exchanges is <strong className="text-text-primary">not a security</strong> in the US. The EU&apos;s <Link href="/learn/xrp-european-regulation" className="text-xrp-accent underline decoration-xrp-accent/30">MiCA framework</Link> provides clear rules. Japan treats XRP as a payment method. Only countries with blanket crypto bans (China trading, Bangladesh, etc.) restrict XRP. No country has <em>specifically</em> banned XRP.</p>
+          <p><strong className="text-text-primary">There is no single worldwide legal status for XRP.</strong> Treatment can differ by activity, product, customer type, regulator, and date. The country table below is an editorial orientation tool, not a verified legal database or legal opinion. This page is temporarily excluded from search indexing while each jurisdiction is rechecked against current regulator records.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -273,7 +273,7 @@ export default function XRPLegalStatusPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 15, 2026. Legal status may change. Always verify current regulations in your jurisdiction. This is not legal advice.</em>
+          <em>Last updated: August 8, 2026. Temporarily excluded from indexing pending jurisdiction-by-jurisdiction primary-source review. This page has not been reviewed by an attorney and is not legal advice.</em>
         </p>
       </div>
     </>

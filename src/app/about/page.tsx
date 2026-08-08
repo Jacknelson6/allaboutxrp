@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { BookOpenText, Mail, SearchCheck, ShieldCheck } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
+import { accountablePublisher } from "@/lib/editorial";
 
 export const dynamic = "force-static";
 
@@ -28,6 +29,7 @@ const orgSchema = {
   foundingDate: "2026-02",
   description:
     "Independent educational resource providing source-led information about XRP and the XRP Ledger.",
+  founder: accountablePublisher,
   sameAs: [],
   contactPoint: {
     "@type": "ContactPoint",
@@ -86,6 +88,11 @@ export default function AboutPage() {
               live data, and practical tools. Pages are designed to give the answer first,
               explain the relevant context, and point readers to evidence they can inspect.
             </p>
+
+            <h2>Who is accountable</h2>
+            <p>
+              <Link href="/authors/jack-nelson">Jack Nelson</Link> is the accountable publisher for AllAboutXRP. The role covers editorial standards, independence, disclosures, and corrections. It does not imply professional credentials in financial advice, law, tax, accounting, or blockchain engineering. Pages identify the level and limitations of the review they received.
+            </p>
             <p>
               For technical and network claims, we prioritize XRP Ledger documentation and
               ledger data. For legal or company claims, we look for court records, regulatory
@@ -137,6 +144,9 @@ export default function AboutPage() {
                 Editorial Standards
               </Link>{" "}
               for details on how we research and fact-check our content.
+            </p>
+            <p>
+              Material errors are documented in our public <Link href="/corrections">corrections log</Link>.
             </p>
 
             <h2>Contact</h2>

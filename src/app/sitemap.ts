@@ -115,6 +115,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Trust / E-E-A-T pages
     "/about",
     "/editorial",
+    "/authors/jack-nelson",
+    "/corrections",
 
     // Answers hub
     "/answers",

@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import BackToTop from "@/components/shared/BackToTop";
+import EditorialReviewPanel from "@/components/shared/EditorialReviewPanel";
 
 interface LayoutShellProps {
   megaMenu: ReactNode;
@@ -16,6 +17,8 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
   const pageOwnsMain =
     pathname === "/" ||
     pathname === "/about" ||
+    pathname === "/corrections" ||
+    pathname.startsWith("/authors/") ||
     pathname === "/answers" ||
     pathname === "/learn/xrp-price-prediction" ||
     pathname === "/editorial" ||
@@ -40,6 +43,7 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
       ) : (
         <main id="main-content" className="min-h-[80vh]">{children}</main>
       )}
+      <EditorialReviewPanel pathname={pathname} />
       {footer}
       <BackToTop />
     </>

@@ -6,6 +6,7 @@ const srcDir = path.join(process.cwd(), "src");
 const nextConfigFile = path.join(process.cwd(), "next.config.ts");
 const sitemapFile = path.join(appDir, "sitemap.ts");
 const noindexFile = path.join(srcDir, "lib", "seo", "noindex-pages.ts");
+const editorialReviewFile = path.join(srcDir, "components", "shared", "EditorialReviewPanel.tsx");
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -142,6 +143,9 @@ const policyChecks = {
   noindexExcludedFromSitemap:
     sitemapSource.includes("NOINDEX_PATHS") && sitemapSource.includes("NOINDEX_LEARN_SLUGS"),
   aliasesExcludedFromSitemap: sitemapSource.includes("CANONICAL_ALIAS_PATHS"),
+  sitewideEditorialReview:
+    fs.existsSync(editorialReviewFile) &&
+    fs.readFileSync(editorialReviewFile, "utf8").includes('data-editorial-review="true"'),
 };
 
 const count = (key) => records.filter((record) => record[key]).length;
