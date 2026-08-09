@@ -32,14 +32,14 @@ export const metadata: Metadata = {
 
 const liveTools = [
   {
-    href: "/tools/whale-tracker",
+    href: "/holders",
     title: "XRP whale tracker",
     description: "Monitor large XRP Ledger transactions and inspect known-account context.",
     label: "Ledger data",
     icon: Activity,
   },
   {
-    href: "/tools/escrow-tracker",
+    href: "/learn/escrow",
     title: "XRP escrow tracker",
     description: "Follow scheduled releases, executed escrows, returned amounts, and event status.",
     label: "Ledger data",

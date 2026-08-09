@@ -91,7 +91,7 @@ export default function Page() {
           </ul>
           <p>
             See our <Link href="/learn/xrp-wallets" className="text-[#0085FF] hover:underline">XRP wallets guide</Link> and{" "}
-            <Link href="/best/xrp-wallets" className="text-[#0085FF] hover:underline">best wallets rankings</Link> for detailed recommendations.
+            <Link href="/learn/xrp-wallets" className="text-[#0085FF] hover:underline">best wallets rankings</Link> for detailed recommendations.
           </p>
         </div>
       }
@@ -104,7 +104,7 @@ export default function Page() {
             Our recommendation: Start with{" "}
             <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">Uphold</Link>{" "}
             for the simplest experience, complete KYC, fund via bank transfer (lowest fees), buy your XRP, and consider transferring to a{" "}
-            <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>{" "}
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">hardware wallet</Link>{" "}
             if you&apos;re holding a significant amount. Read our{" "}
             <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
             before your first purchase.

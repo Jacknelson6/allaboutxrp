@@ -112,10 +112,10 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-etf", label: "Filings", desc: "Tracker" },
               { href: "/learn/xrp-etf", label: "Impact", desc: "Price" },
-              { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Tax-free" },
+              { href: "/learn/xrp-taxes", label: "IRAs", desc: "Tax-free" },
               { href: "/learn/xrp-sec-settlement", label: "Settlement", desc: "Legal" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
-              { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Decision" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Sell/Hold", desc: "Decision" },
             ]} />
           </RevealSection>
         </div>

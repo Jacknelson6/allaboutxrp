@@ -134,7 +134,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/learn-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
               { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
               { href: "/learn/xrp-technical-analysis-guide", label: "Technical Analysis", desc: "Advanced TA for XRP" },

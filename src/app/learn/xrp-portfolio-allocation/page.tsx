@@ -106,7 +106,7 @@ export default function Page() {
               ["Aggressive","60%","5%","15-20%","10-15%"],
               ["Crypto Native","30%","5%","50-60%","5-10%"],
             ]} highlightCol={3} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">Compare how XRP fits alongside traditional assets in our <Link href="/learn/xrp-vs-stocks" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs stocks</Link> guide.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Compare how XRP fits alongside traditional assets in our <Link href="/learn/is-xrp-a-good-investment" className="text-xrp-accent underline decoration-xrp-accent/30">XRP vs stocks</Link> guide.</p>
           </RevealSection>
 
           <RevealSection id="within-crypto" delay={0.05}>
@@ -150,7 +150,7 @@ export default function Page() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/learn-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
               { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
               { href: "/learn/xrp-technical-analysis-guide", label: "Technical Analysis", desc: "Advanced TA for XRP" },

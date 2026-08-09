@@ -191,7 +191,7 @@ export default function XRPAndBanksPage() {
               { href: "/learn/xrp-vs-swift", label: "XRP vs SWIFT", desc: "Head-to-head comparison" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Banking standard compliance" },
               { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
-              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise-grade storage" },
+              { href: "/learn/xrp-wallets", label: "Institutional Custody", desc: "Enterprise-grade storage" },
             ]} />
           </RevealSection>
         </div>

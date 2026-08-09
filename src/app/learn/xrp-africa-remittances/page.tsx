@@ -145,7 +145,7 @@ export default function Page() {
               { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
-              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/xrp-wallets", label: "Institutional Custody", desc: "Enterprise storage" },
             ]} />
           </RevealSection>
         </div>

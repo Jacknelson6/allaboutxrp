@@ -13,7 +13,7 @@ const relatedLinks = [
   { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
   { href: "/learn/key-people", label: "Key People", desc: "XRP ecosystem leaders" },
   { href: "/learn/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
-  { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Store your XRP safely" },
+  { href: "/learn/xrp-wallets", label: "Best XRP Wallets", desc: "Store your XRP safely" },
 ];
 
 const schemas = [

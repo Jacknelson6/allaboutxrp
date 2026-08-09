@@ -110,7 +110,7 @@ export default function Page() {
 
           <RevealSection id="institutional" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Institutional Adoption</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-institutional-custody" className="text-xrp-accent underline decoration-xrp-accent/30">Institutional custody</Link> solutions are expanding rapidly. Banks exploring <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP for payments</Link> can now operate with legal certainty.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">Institutional custody</Link> solutions are expanding rapidly. Banks exploring <Link href="/learn/how-banks-use-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">XRP for payments</Link> can now operate with legal certainty.</p>
             <div className="mt-6"><IconList items={[
               { title: "Custody Infrastructure", desc: "Major custodians like BitGo, Fireblocks now fully supporting XRP." },
               { title: "Banking Integration", desc: "Post-clarity, banks can integrate XRP without regulatory risk." },
@@ -153,7 +153,7 @@ export default function Page() {
               { href: "/learn/xrp-price-potential", label: "XRP Price Potential", desc: "Realistic price analysis" },
               { href: "/learn/xrp-price-potential", label: "Can XRP Reach $100?", desc: "Math behind $100 XRP" },
               { href: "/learn/why-is-xrp-so-cheap", label: "Why Is XRP So Cheap?", desc: "Price vs value" },
-              { href: "/learn/best-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
+              { href: "/learn/learn-xrp-trading-pairs", label: "Best Trading Pairs", desc: "Optimize your trades" },
               { href: "/learn/how-to-read-xrp-charts", label: "How to Read XRP Charts", desc: "Chart reading basics" },
               { href: "/learn/xrp-swing-trading-guide", label: "Swing Trading Guide", desc: "Medium-term strategy" },
             ]} />

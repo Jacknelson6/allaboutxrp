@@ -17,6 +17,7 @@ export const revalidate = 3600;
 
 const BASE_URL = "https://allaboutxrp.com";
 const JULY_29_REVIEW = new Date("2026-07-29T12:00:00Z");
+const AUGUST_8_REVIEW = new Date("2026-08-08T12:00:00Z");
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
 /**
@@ -93,7 +94,14 @@ const reviewedStaticPaths = new Set([
   ...LEARN_HUBS.map((hub) => `/learn/${hub.slug}`),
 ]);
 
-const reviewedLearnSlugs = new Set(["what-is-xrp", "how-to-buy-xrp"]);
+const augustTrustReviewPaths = new Set([
+  "/about",
+  "/editorial",
+  "/authors/jack-nelson",
+  "/corrections",
+  "/learn/faq",
+  "/learn/trusted-sources",
+]);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Core / static pages ──────────────────────────────────────────────
@@ -155,8 +163,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map((pagePath) => ({
         url: `${BASE_URL}${pagePath}`,
         lastModified:
+          contentHubDates.get(pagePath) ||
+          (augustTrustReviewPaths.has(pagePath) && AUGUST_8_REVIEW) ||
           (reviewedStaticPaths.has(pagePath) && JULY_29_REVIEW) ||
-          contentHubDates.get(pagePath),
+          getSourceLastModified(
+            pagePath === "" ? "src/app/page.tsx" : `src/app${pagePath}/page.tsx`,
+          ),
       })),
 
     // All learn pages (auto-discovered, excluding noindexed)
@@ -169,7 +181,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map((slug) => ({
         url: `${BASE_URL}/learn/${slug}`,
         lastModified:
-          (reviewedLearnSlugs.has(slug) && JULY_29_REVIEW) ||
+          (augustTrustReviewPaths.has(`/learn/${slug}`) && AUGUST_8_REVIEW) ||
           getSourceLastModified(`src/app/learn/${slug}/page.tsx`),
       })),
 

@@ -96,7 +96,7 @@ export default function Page() {
             and{" "}
             <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">safety guide</Link>{" "}
             to protect your investment. For long-term storage, consider moving your XRP to a{" "}
-            <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
+            <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
           </p>
         </div>
       }

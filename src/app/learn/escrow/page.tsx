@@ -36,7 +36,7 @@ const relatedLinks = [
   { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
   { href: "/learn/rlusd", label: "RLUSD Stablecoin", desc: "Ripple's USD-backed stablecoin" },
   { href: "/learn/xrp-supply-explained", label: "How Many XRP Exist?", desc: "Total supply breakdown" },
-  { href: "/best/xrp-wallets", label: "Best XRP Wallets", desc: "Where to store your XRP" },
+  { href: "/learn/xrp-wallets", label: "Best XRP Wallets", desc: "Where to store your XRP" },
 ];
 
 export default function EscrowLearnPage() {
@@ -51,7 +51,7 @@ export default function EscrowLearnPage() {
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">
             <h2 className="text-xl font-bold text-text-primary">How to evaluate an escrow release</h2>
-            <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/tools/escrow-tracker" className="text-xrp-accent underline decoration-xrp-accent/30">live escrow tracker</Link> is designed to make those on-ledger events inspectable without presenting an unsupported price-correlation claim.</p>
+            <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">live escrow tracker</Link> is designed to make those on-ledger events inspectable without presenting an unsupported price-correlation claim.</p>
           </div>
         </div>
 

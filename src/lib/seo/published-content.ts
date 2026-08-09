@@ -3,6 +3,7 @@ import {
   createServiceClient,
   isSupabaseServiceConfigured,
 } from "@/lib/supabase/server";
+import { getAllNewsArticles } from "@/lib/news-content";
 
 const SAFE_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const PUBLIC_SITE_URL = (
@@ -33,34 +34,6 @@ function isValidPublishedEntry(slug: unknown, publishedAt: unknown): slug is str
     typeof publishedAt === "string" &&
     !Number.isNaN(Date.parse(publishedAt))
   );
-}
-
-async function getPublicNewsEntries(): Promise<PublishedNewsEntry[]> {
-  try {
-    const response = await fetch(`${PUBLIC_SITE_URL}/api/news?limit=50`, {
-      next: { revalidate: 3600 },
-    });
-    if (!response.ok) return [];
-
-    const rows: unknown = await response.json();
-    if (!Array.isArray(rows)) return [];
-
-    return rows
-      .filter(
-        (row): row is Record<string, unknown> =>
-          Boolean(row) &&
-          typeof row === "object" &&
-          row.has_blog_content === true &&
-          isValidPublishedEntry(row.slug, row.published_at),
-      )
-      .map((row) => ({
-        slug: row.slug as string,
-        title: String(row.simple_title || row.title || "XRP News Update"),
-        publishedAt: row.published_at as string,
-      }));
-  } catch {
-    return [];
-  }
 }
 
 async function getPublicDigestEntries(): Promise<PublishedDigestEntry[]> {
@@ -99,40 +72,11 @@ async function getPublicDigestEntries(): Promise<PublishedDigestEntry[]> {
  * duplicative search results.
  */
 export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntry[]> => {
-  if (!isSupabaseServiceConfigured()) return getPublicNewsEntries();
-
-  try {
-    const supabase = createServiceClient();
-    const { data, error } = await supabase
-      .from("news")
-      .select("slug, title, simple_title, published_at")
-      .not("slug", "is", null)
-      .not("blog_content", "is", null)
-      .neq("blog_content", "")
-      .gte("importance_score", 6)
-      .lte("published_at", new Date().toISOString())
-      .order("published_at", { ascending: false })
-      .limit(1000);
-
-    if (error) {
-      console.error("Unable to load published news for sitemap:", error.message);
-      return getPublicNewsEntries();
-    }
-
-    return (data ?? [])
-      .filter((row) => isValidPublishedEntry(row.slug, row.published_at))
-      .map((row) => ({
-        slug: row.slug as string,
-        title: row.simple_title || row.title,
-        publishedAt: row.published_at as string,
-      }));
-  } catch (error) {
-    console.error(
-      "Unable to load published news for sitemap:",
-      error instanceof Error ? error.message : "Unknown error",
-    );
-    return getPublicNewsEntries();
-  }
+  return getAllNewsArticles().map((article) => ({
+    slug: article.slug,
+    title: article.title,
+    publishedAt: article.publishedAt,
+  }));
 });
 
 export const getPublishedDigestEntries = cache(async (

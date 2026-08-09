@@ -1,252 +1,94 @@
-import { createServiceClient } from "@/lib/supabase/server";
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { ExternalLink, Eye, ListChecks } from "lucide-react";
+import { notFound } from "next/navigation";
+import { accountablePublisher } from "@/lib/editorial";
+import { getAllNewsArticles, getNewsArticle } from "@/lib/news-content";
 
-interface Article {
-  id: string;
-  title: string;
-  simple_title: string | null;
-  url: string;
-  source: string;
-  summary: string | null;
-  blog_content: string | null;
-  og_image: string | null;
-  published_at: string;
-  sentiment: string | null;
-  slug: string;
-  related_article_id: string | null;
-  related_article_context: string | null;
+const SITE_URL = "https://allaboutxrp.com";
+
+type PageProps = { params: Promise<{ slug: string }> };
+
+export function generateStaticParams() {
+  return getAllNewsArticles().map(({ slug }) => ({ slug }));
 }
-
-interface RelatedArticle {
-  id: string;
-  simple_title: string | null;
-  title: string;
-  slug: string;
-  summary: string | null;
-  published_at: string;
-  sentiment: string | null;
-  source: string;
-}
-
-async function getArticle(slug: string): Promise<Article | null> {
-  const supabase = createServiceClient();
-  const { data } = await supabase
-    .from("news")
-    .select("*")
-    .eq("slug", slug)
-    .single();
-  return data;
-}
-
-async function getRelatedArticles(articleId: string, relatedId: string | null): Promise<RelatedArticle[]> {
-  const supabase = createServiceClient();
-  const { data } = await supabase
-    .from("news")
-    .select("id, simple_title, title, slug, summary, published_at, sentiment, source")
-    .neq("id", articleId)
-    .not("slug", "is", null)
-    .not("summary", "is", null)
-    .gte("importance_score", 6)
-    .order("published_at", { ascending: false })
-    .limit(5);
-  return (data || []).filter((a) => a.id !== relatedId);
-}
-
-type PageProps = {
-  params: Promise<{ slug: string }>;
-};
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const article = await getArticle(slug);
+  const article = getNewsArticle((await params).slug);
   if (!article) return { title: "Article Not Found" };
-
-  const title = article.simple_title || article.title;
-  const description = article.summary || `Read about ${title} on AllAboutXRP`;
+  const url = `${SITE_URL}/news/${article.slug}`;
+  const image = article.image || `${url}/opengraph-image`;
 
   return {
-    title: `${title} | AllAboutXRP`,
-    description,
-    alternates: {
-      canonical: `https://allaboutxrp.com/news/${article.slug}`,
-    },
-    robots: article.blog_content
-      ? { index: true, follow: true }
-      : { index: false, follow: true },
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      url: `https://allaboutxrp.com/news/${article.slug}`,
-      publishedTime: article.published_at,
-      siteName: "AllAboutXRP",
-      ...(article.og_image ? { images: [{ url: article.og_image }] } : {}),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-    },
+    title: article.title,
+    description: article.description,
+    keywords: article.keywords,
+    alternates: { canonical: url },
+    authors: [{ name: article.author, url: `${SITE_URL}/authors/jack-nelson` }],
+    openGraph: { title: article.title, description: article.description, type: "article", url, siteName: "AllAboutXRP", publishedTime: article.publishedAt, modifiedTime: article.modifiedAt, images: [{ url: image, alt: article.imageAlt || article.title }] },
+    twitter: { card: "summary_large_image", title: article.title, description: article.description, images: [image] },
   };
 }
 
-const SENTIMENT_STYLES = {
-  bullish: { label: "Bullish", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-  bearish: { label: "Bearish", color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/20" },
-  neutral: { label: "Neutral", color: "text-gray-400", bg: "bg-gray-500/10", border: "border-gray-500/20" },
-} as const;
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+function formatDate(value: string) {
+  return new Date(value).toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
 }
 
 export default async function ArticlePage({ params }: PageProps) {
-  const { slug } = await params;
-  const article = await getArticle(slug);
-
+  const article = getNewsArticle((await params).slug);
   if (!article) notFound();
-
-  const relatedArticles = await getRelatedArticles(article.id, article.related_article_id);
-  const title = article.simple_title || article.title;
-  const sentiment = SENTIMENT_STYLES[(article.sentiment as keyof typeof SENTIMENT_STYLES) || "neutral"] || SENTIMENT_STYLES.neutral;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    headline: title,
-    description: article.summary,
-    datePublished: article.published_at,
-    publisher: {
-      "@type": "Organization",
-      name: "AllAboutXRP",
-      url: "https://allaboutxrp.com",
-    },
-    mainEntityOfPage: `https://allaboutxrp.com/news/${article.slug}`,
-    ...(article.og_image ? { image: article.og_image } : {}),
+  const url = `${SITE_URL}/news/${article.slug}`;
+  const image = article.image || `${url}/opengraph-image`;
+  const articleSchema = {
+    "@context": "https://schema.org", "@type": "NewsArticle", "@id": `${url}#article`, headline: article.title, description: article.description,
+    image: [image], datePublished: article.publishedAt, dateModified: article.modifiedAt, author: accountablePublisher,
+    publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "AllAboutXRP", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/aaxrp-logo.png` } },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url }, articleSection: article.category, keywords: article.keywords.join(", "),
+    citation: article.sources.map((source) => source.url), isAccessibleForFree: true,
   };
+  const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL }, { "@type": "ListItem", position: 2, name: "News", item: `${SITE_URL}/news` }, { "@type": "ListItem", position: 3, name: article.title, item: url },
+  ] };
 
   return (
-    <div className="min-h-screen bg-black">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <article className="max-w-[720px] mx-auto px-4 py-8 sm:py-12">
-        {/* Back link */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#0085FF] transition-colors mb-6"
-        >
-          ← Back to news
-        </Link>
-
-        {/* Header */}
-        <header className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-4">
-            {title}
-          </h1>
-
-          <div className="flex items-center gap-3 text-sm flex-wrap">
-            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${sentiment.bg} border ${sentiment.border} ${sentiment.color} font-medium text-xs`}>
-              {sentiment.label}
-            </span>
-            <span className="text-gray-500">{article.source}</span>
-            <span className="text-gray-600">·</span>
-            <time className="text-gray-500" dateTime={article.published_at}>
-              {formatDate(article.published_at)}
-            </time>
+    <main id="main-content" className="min-h-screen bg-surface-primary">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <article className="reading-container py-12 sm:py-16">
+        <Link href="/news" className="text-link">← All XRP news</Link>
+        <header className="mt-7 border-b border-surface-border pb-8">
+          <p className="editorial-kicker">{article.category}</p>
+          <h1 className="mt-3 text-4xl font-bold leading-tight text-text-primary sm:text-5xl">{article.title}</h1>
+          <p className="mt-5 text-lg leading-8 text-text-secondary">{article.description}</p>
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-text-secondary">
+            <span>By <Link href="/authors/jack-nelson" rel="author" className="font-semibold text-text-primary hover:text-xrp-accent-bright">{article.author}</Link></span>
+            <time dateTime={article.publishedAt}>Published {formatDate(article.publishedAt)}</time>
+            {article.modifiedAt !== article.publishedAt && <time dateTime={article.modifiedAt}>Updated {formatDate(article.modifiedAt)}</time>}
           </div>
         </header>
 
-        {/* Content */}
-        {article.blog_content ? (
-          <div
-            className="prose prose-invert prose-lg max-w-none
-              prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
-              prose-a:text-[#0085FF] prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-white"
-            dangerouslySetInnerHTML={{ __html: article.blog_content }}
-          />
-        ) : (
-          <div className="text-gray-300 text-lg leading-relaxed">
-            {article.summary && <p>{article.summary}</p>}
-          </div>
-        )}
+        <aside className="mt-8 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/[0.06] p-6" aria-labelledby="takeaways-heading">
+          <div className="flex items-center gap-2"><ListChecks className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="takeaways-heading" className="text-xl font-bold text-text-primary">Key takeaways</h2></div>
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.keyTakeaways.map((item) => <li key={item} className="flex gap-3"><span className="text-xrp-accent">•</span><span>{item}</span></li>)}</ul>
+        </aside>
 
-        {/* Original source */}
-        <div className="mt-10 pt-6 border-t border-[#2F3336]">
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-300 transition-colors"
-          >
-            Read original source at {article.source} →
-          </a>
+        <div className="prose prose-invert mt-10 max-w-none prose-headings:text-text-primary prose-p:leading-8 prose-p:text-text-secondary prose-strong:text-text-primary">
+          {article.sections.map((section) => (
+            <section key={section.heading}>
+              <h2>{section.heading}</h2>
+              {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {section.bullets?.length ? <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
+              {section.table ? <div className="not-prose my-7 overflow-x-auto rounded-xl border border-surface-border"><table className="w-full min-w-[560px] text-left text-sm"><caption className="bg-surface-elevated px-4 py-3 text-left font-semibold text-text-primary">{section.table.caption}</caption><thead className="bg-black/30 text-text-primary"><tr>{section.table.headers.map((header) => <th key={header} className="px-4 py-3">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index} className="border-t border-surface-border">{row.map((cell, cellIndex) => <td key={cellIndex} className="px-4 py-3 text-text-secondary">{cell}</td>)}</tr>)}</tbody><tfoot><tr><td colSpan={section.table.headers.length} className="border-t border-surface-border px-4 py-3 text-xs text-text-secondary">{section.table.sourceNote}</td></tr></tfoot></table></div> : null}
+            </section>
+          ))}
         </div>
 
-        {/* CTAs */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <Link
-            href="/digest"
-            className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#0085FF]/20 bg-[#0085FF]/5 text-[#0085FF] text-sm font-medium hover:bg-[#0085FF]/10 transition-colors"
-          >
-            📊 Daily Analysis
-          </Link>
-          <Link
-            href="/learn/what-is-xrp"
-            className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#2F3336] bg-[#16181C] text-gray-300 text-sm font-medium hover:border-[#0085FF]/30 transition-colors"
-          >
-            📚 Learn About XRP
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#2F3336] bg-[#16181C] text-gray-300 text-sm font-medium hover:border-[#0085FF]/30 transition-colors"
-          >
-            📰 More XRP News
-          </Link>
-        </div>
+        <section className="mt-10 rounded-2xl border border-surface-border bg-surface-card p-6" aria-labelledby="watch-heading"><div className="flex items-center gap-2"><Eye className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="watch-heading" className="text-xl font-bold text-text-primary">What to watch next</h2></div><ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.whatToWatch.map((item) => <li key={item}>• {item}</li>)}</ul></section>
 
-        {/* Related Articles */}
-        {relatedArticles.length > 0 && (
-          <section className="mt-12">
-            <h2 className="text-lg font-bold text-white mb-4">Related Articles</h2>
-            <div className="space-y-3">
-              {relatedArticles.slice(0, 4).map((related) => {
-                const rs = SENTIMENT_STYLES[(related.sentiment as keyof typeof SENTIMENT_STYLES) || "neutral"] || SENTIMENT_STYLES.neutral;
-                return (
-                  <Link
-                    key={related.id}
-                    href={`/news/${related.slug}`}
-                    className="block rounded-xl border border-[#2F3336] bg-[#16181C] p-4 hover:border-[#0085FF]/30 transition-colors group"
-                  >
-                    <div className="flex items-center gap-2 mb-1 text-xs">
-                      <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full ${rs.bg} border ${rs.border} ${rs.color} font-medium`}>
-                        {rs.label}
-                      </span>
-                      <span className="text-gray-500">{related.source}</span>
-                    </div>
-                    <h3 className="text-sm font-semibold text-white group-hover:text-[#0085FF] transition-colors">
-                      {related.simple_title || related.title}
-                    </h3>
-                    {related.summary && (
-                      <p className="mt-1 text-xs text-gray-500 line-clamp-2">{related.summary}</p>
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
+        <section className="mt-10 border-t border-surface-border pt-8" aria-labelledby="sources-heading"><h2 id="sources-heading" className="text-2xl font-bold text-text-primary">Sources and verification</h2><p className="mt-3 text-sm leading-7 text-text-secondary">We prioritize primary records and label supporting coverage. Dates reflect each source’s publication record.</p><ol className="mt-5 space-y-3">{article.sources.map((source) => <li key={source.url}><a href={source.url} rel="noopener noreferrer" className="text-link" data-source-link="true">{source.name} <span className="rounded-full border border-surface-border px-2 py-0.5 text-[11px] uppercase text-text-secondary">{source.type}</span><ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /></a></li>)}</ol></section>
+        <nav className="mt-10 border-t border-surface-border pt-8" aria-label="Related XRP guides"><h2 className="text-xl font-bold text-text-primary">Build the context</h2><div className="mt-4 flex flex-wrap gap-3">{article.relatedLinks.map((link) => <Link key={link.href} href={link.href} className="rounded-full border border-surface-border bg-surface-card px-4 py-2 text-sm text-text-primary hover:border-xrp-accent/40">{link.label}</Link>)}</div></nav>
+        <aside className="mt-10 text-xs leading-6 text-text-secondary">This report was created with a Codex-assisted research workflow and published under the <Link href="/editorial" className="text-link">AllAboutXRP editorial standards</Link>. Automation does not replace source verification. Corrections are logged through our <Link href="/corrections" className="text-link">corrections policy</Link>.</aside>
       </article>
-    </div>
+    </main>
   );
 }

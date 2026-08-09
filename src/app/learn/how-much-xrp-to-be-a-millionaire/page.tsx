@@ -164,7 +164,7 @@ export default function HowMuchXRPMillionairePage() {
               { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Most realistic target" },
               { href: "/learn/xrp-price-potential", label: "Can XRP Reach $50?", desc: "Ambitious analysis" },
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Full analysis" },
-              { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Get started" },
             ]} />

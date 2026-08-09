@@ -128,7 +128,7 @@ export default function BuyXRPInCanadaPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇨🇦 Our Top Pick for Canadians" variant="accent">
-                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken →</a> OSC-registered, never hacked, 0.16% maker fees. Supports Interac e-Transfer and wire for CAD deposits. <Link href="/learn/buy-xrp-on-kraken" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Kraken guide</Link>.</p>
+                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken →</a> OSC-registered, never hacked, 0.16% maker fees. Supports Interac e-Transfer and wire for CAD deposits. <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Kraken guide</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -214,9 +214,9 @@ export default function BuyXRPInCanadaPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/buy-xrp-on-kraken", label: "Buy on Kraken", desc: "Best for Canadians" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy on Kraken", desc: "Best for Canadians" },
               { href: "/learn/how-to-buy-xrp", label: "Best Exchanges", desc: "Full comparison" },
-              { href: "/learn/buy-xrp-in-usa", label: "Buy XRP in USA", desc: "US guide" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in USA", desc: "US guide" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax obligations" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },

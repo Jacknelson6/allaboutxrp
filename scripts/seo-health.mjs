@@ -100,9 +100,17 @@ const undeclaredNoindexRoutes = pages
 
 const sourceFiles = walk(srcDir).filter((file) => /\.(?:ts|tsx)$/.test(file));
 const internalLinks = [];
+const intentionalNoindexNavigation = new Set(["/privacy-policy", "/terms"]);
+const noindexSourceFiles = new Set(
+  noindexPaths.flatMap((route) => [
+    `src/app${route}/page.tsx`,
+    `src/app${route}/layout.tsx`,
+  ]),
+);
 const linkPattern = /(?:href|primaryHref|secondaryHref)\s*(?:=|:)\s*["'](\/[^"'#?\n]*)/g;
 
 for (const file of sourceFiles) {
+  if (noindexSourceFiles.has(path.relative(process.cwd(), file))) continue;
   const source = fs.readFileSync(file, "utf8");
   for (const match of source.matchAll(linkPattern)) {
     internalLinks.push({
@@ -127,7 +135,11 @@ const redirectInternalLinks = internalLinks
       links.findIndex((candidate) => candidate.file === link.file && candidate.path === link.path) === index,
   );
 const noindexInternalLinks = internalLinks
-  .filter((link) => noindexPaths.includes(link.path))
+  .filter(
+    (link) =>
+      noindexPaths.includes(link.path) &&
+      !intentionalNoindexNavigation.has(link.path),
+  )
   .filter(
     (link, index, links) =>
       links.findIndex((candidate) => candidate.file === link.file && candidate.path === link.path) === index,
@@ -181,6 +193,11 @@ if (brokenInternalLinks.length) {
 
 if (redirectInternalLinks.length) {
   console.error("\nInternal links to redirect aliases detected. Link directly to the canonical destination.");
+  process.exitCode = 1;
+}
+
+if (noindexInternalLinks.length) {
+  console.error("\nInternal links to noindex content detected. Link to the strongest indexable destination instead.");
   process.exitCode = 1;
 }
 

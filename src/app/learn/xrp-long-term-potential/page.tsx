@@ -150,7 +150,7 @@ export default function XRPLongTermPotentialPage() {
             <LearnLinkGrid links={[
               { href: "/learn/is-xrp-a-good-investment", label: "Good Investment?", desc: "Pros & cons analysis" },
               { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Near-term target" },
-              { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Calculate your number" },
               { href: "/learn/xrp-price-prediction", label: "Price Prediction", desc: "Full analysis" },
               { href: "/learn/xrp-etf", label: "XRP ETF", desc: "Latest on filings" },

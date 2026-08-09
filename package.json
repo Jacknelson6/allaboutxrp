@@ -12,7 +12,8 @@
     "lint": "eslint",
     "seo:audit": "node scripts/seo-health.mjs",
     "seo:indexnow": "node scripts/ping-indexnow.mjs",
-    "seo:sitemap": "node scripts/sitemap-health.mjs"
+    "seo:sitemap": "node scripts/sitemap-health.mjs",
+    "news:validate": "node scripts/validate-news.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.7",

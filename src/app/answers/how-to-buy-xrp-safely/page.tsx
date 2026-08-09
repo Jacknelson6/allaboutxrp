@@ -28,7 +28,7 @@ export default function Page() {
           The crypto space has its share of scams, hacks, and pitfalls. The good news: protecting yourself is straightforward if you follow basic security practices. Use{" "}
           <Link href="/learn/how-to-buy-xrp" className="text-[#0085FF] hover:underline">reputable exchanges</Link>,
           enable 2FA, never share private keys, and move significant holdings to a{" "}
-          <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
+          <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">hardware wallet</Link>.
           Here&apos;s everything you need to know to buy and hold XRP safely.
         </p>
       }
@@ -81,7 +81,7 @@ export default function Page() {
             <strong className="text-white">Important:</strong> Only buy hardware wallets directly from the manufacturer — never from third-party sellers on Amazon/eBay, as they may be tampered with.
           </p>
           <p>
-            See our <Link href="/best/hardware-wallets-for-xrp" className="text-[#0085FF] hover:underline">best hardware wallets for XRP</Link> guide.
+            See our <Link href="/learn/how-to-store-xrp-safely" className="text-[#0085FF] hover:underline">best hardware wallets for XRP</Link> guide.
           </p>
 
           <h3 className="text-xl font-semibold text-white">5. Recognize and Avoid Common Scams</h3>

@@ -9,6 +9,7 @@ const footerSections = [
       { href: "/learn", label: "Learning center" },
       { href: "/answers", label: "XRP answers" },
       { href: "/news", label: "Latest news" },
+      { href: "/digest", label: "Weekly digest" },
       { href: "/live-chart", label: "Live XRP data" },
       { href: "/tools", label: "XRP tools" },
     ],

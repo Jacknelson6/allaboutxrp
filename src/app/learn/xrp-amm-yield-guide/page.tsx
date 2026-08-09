@@ -96,7 +96,7 @@ export default function Page() {
 
           <RevealSection id="yield" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Yield Calculation</h2>
-            <div className="mt-6"><HighlightBox title="Formula" variant="accent"><p><strong>Daily Yield = Pool Daily Fees × Your Share %</strong><br/>Annual = Daily × 365. Track on <Link href="/learn/xrp-block-explorers" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL explorers</Link>.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Formula" variant="accent"><p><strong>Daily Yield = Pool Daily Fees × Your Share %</strong><br/>Annual = Daily × 365. Track on <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRPL explorers</Link>.</p></HighlightBox></div>
           </RevealSection>
 
           <RevealSection id="il" delay={0.05}>
@@ -127,7 +127,7 @@ export default function Page() {
               { href: "/learn/how-to-use-xrpl-dex", label: "XRPL DEX", desc: "On-chain trading" },
               { href: "/learn/rlusd", label: "RLUSD", desc: "Stablecoin" },
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "Basics" },
-              { href: "/learn/xrp-block-explorers", label: "Explorers", desc: "Track pools" },
+              { href: "/learn/xrp-ledger-explained", label: "Explorers", desc: "Track pools" },
               { href: "/learn/xrp-lending-platforms", label: "Lending", desc: "CeFi alternative" },
             ]} />
           </RevealSection>

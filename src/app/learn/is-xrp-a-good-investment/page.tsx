@@ -149,7 +149,7 @@ export default function IsXRPGoodInvestmentPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/xrp-vs-bitcoin-investment", label: "XRP vs Bitcoin", desc: "Investment comparison" },
+              { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Investment comparison" },
               { href: "/learn/xrp-long-term-potential", label: "Long-Term Potential", desc: "5-year outlook" },
               { href: "/learn/xrp-price-potential", label: "Can XRP Reach $10?", desc: "Price target analysis" },
               { href: "/learn/how-much-xrp-to-be-a-millionaire", label: "XRP Millionaire?", desc: "Calculate your number" },

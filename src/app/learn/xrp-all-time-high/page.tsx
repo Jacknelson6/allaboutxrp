@@ -128,7 +128,7 @@ export default function Page() {
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing patterns" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC Impact", desc: "Lawsuit effect" },
               { href: "/learn/xrp-etf", label: "ETF Impact", desc: "Price projection" },
-              { href: "/learn/xrp-sell-or-hold", label: "Sell or Hold?", desc: "Decision help" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Sell or Hold?", desc: "Decision help" },
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "Origin" },
             ]} />
           </RevealSection>

@@ -146,7 +146,7 @@ export default function XRPAndTradeFinancePage() {
               { href: "/learn/how-banks-use-xrp", label: "XRP & Banks", desc: "Institutional adoption" },
               { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "All applications" },
               { href: "/learn/on-demand-liquidity", label: "ODL", desc: "Bridge currency payments" },
-              { href: "/learn/xrp-and-correspondent-banking", label: "Correspondent Banking", desc: "Replacing nostro/vostro" },
+              { href: "/learn/cross-border-payments", label: "Correspondent Banking", desc: "Replacing nostro/vostro" },
             ]} />
           </RevealSection>
         </div>

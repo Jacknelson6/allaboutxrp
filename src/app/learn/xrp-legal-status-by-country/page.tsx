@@ -195,7 +195,7 @@ export default function XRPLegalStatusPage() {
               />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              Learn more about <Link href="/learn/buy-xrp-in-india" className="text-xrp-accent underline decoration-xrp-accent/30">buying XRP in India</Link> — the most notable restricted market.
+              Learn more about <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">buying XRP in India</Link> — the most notable restricted market.
             </p>
           </RevealSection>
 
@@ -254,8 +254,8 @@ export default function XRPLegalStatusPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/sec-vs-ripple", label: "SEC v Ripple", desc: "The lawsuit explained" },
-              { href: "/learn/buy-xrp-in-usa", label: "Buy XRP in USA", desc: "US buying guide" },
-              { href: "/learn/buy-xrp-in-uk", label: "Buy XRP in UK", desc: "UK buying guide" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in USA", desc: "US buying guide" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in UK", desc: "UK buying guide" },
               { href: "/learn/xrp-european-regulation", label: "EU Regulation", desc: "MiCA framework" },
               { href: "/learn/crypto-regulation-xrp-impact", label: "Regulation Impact", desc: "How rules affect XRP" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },

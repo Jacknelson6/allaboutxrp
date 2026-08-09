@@ -321,7 +321,7 @@ export default function HowBanksUseXRPPage() {
               { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
               { href: "/learn/partnerships", label: "Ripple Partnerships", desc: "Banks & institutions" },
-              { href: "/learn/xrp-institutional-custody", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/xrp-wallets", label: "Institutional Custody", desc: "Enterprise storage" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
               { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },

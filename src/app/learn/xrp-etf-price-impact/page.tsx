@@ -90,7 +90,7 @@ export default function Page() {
           <RevealSection id="inflows" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Inflow Sources</h2>
             <div className="mt-6"><IconList items={[{title:"Wealth Mgmt",desc:"$30T+ AUM. 0.1% = $30B."},{title:"Pensions",desc:"Already in BTC ETFs."},{title:"Retail IRAs",desc:"Brokerage access."}]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-in-retirement-accounts" className="text-xrp-accent underline decoration-xrp-accent/30">IRA guide</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-taxes" className="text-xrp-accent underline decoration-xrp-accent/30">IRA guide</Link></p>
           </RevealSection>
           <RevealSection id="risk" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Sell-the-News</h2>
@@ -99,7 +99,7 @@ export default function Page() {
           <RevealSection id="position" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Positioning</h2>
             <div className="mt-6"><IconList items={[{title:"Buy Before",desc:"Anticipation > news."},{title:"Have a Plan",desc:"Pre-decide actions."},{title:"Don't FOMO",desc:"Wait for dip."},{title:"Long-Term",desc:"Full impact: 6-12mo."}]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-sell-or-hold" className="text-xrp-accent underline decoration-xrp-accent/30">Sell or hold?</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/is-xrp-a-good-investment" className="text-xrp-accent underline decoration-xrp-accent/30">Sell or hold?</Link></p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -112,15 +112,15 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-etf", label: "Odds", desc: "Analysis" },
               { href: "/learn/xrp-etf", label: "Filings", desc: "Tracker" },
-              { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Tax-free" },
-              { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Framework" },
+              { href: "/learn/xrp-taxes", label: "IRAs", desc: "Tax-free" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Sell/Hold", desc: "Framework" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Records" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Prepare" description="Position before approval." primaryHref="/learn/xrp-etf" primaryLabel="Odds →" secondaryHref="/learn/xrp-sell-or-hold" secondaryLabel="Sell or Hold?" />
+        <LearnCTA title="Prepare" description="Position before approval." primaryHref="/learn/xrp-etf" primaryLabel="Odds →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Sell or Hold?" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

@@ -94,12 +94,12 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="btc" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">BTC Correlation</h2>
-            <div className="mt-6"><HighlightBox title="Signal" variant="accent"><p>Watch <Link href="/learn/best-xrp-trading-pairs" className="text-xrp-accent underline decoration-xrp-accent/30">XRP/BTC pair</Link>. Rising = altseason starting.</p></HighlightBox></div>
+            <div className="mt-6"><HighlightBox title="Signal" variant="accent"><p>Watch <Link href="/learn/learn-xrp-trading-pairs" className="text-xrp-accent underline decoration-xrp-accent/30">XRP/BTC pair</Link>. Rising = altseason starting.</p></HighlightBox></div>
           </RevealSection>
           <RevealSection id="timing" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Timing</h2>
             <div className="mt-6"><IconList items={[{title:"DCA in Accumulation",desc:"Max pain = max opportunity."},{title:"Add During Lag",desc:"Frustrating but setup for gains."},{title:"Profit in Euphoria",desc:"When everyone buys — sell."},{title:"Scale In/Out",desc:"Never all-in or all-out."}]} variant="check" /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/xrp-sell-or-hold" className="text-xrp-accent underline decoration-xrp-accent/30">Sell or hold?</Link> | <Link href="/learn/xrp-crash-history" className="text-xrp-accent underline decoration-xrp-accent/30">Crash history</Link></p>
+            <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/is-xrp-a-good-investment" className="text-xrp-accent underline decoration-xrp-accent/30">Sell or hold?</Link> | <Link href="/learn/xrp-crash-history" className="text-xrp-accent underline decoration-xrp-accent/30">Crash history</Link></p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -112,15 +112,15 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Records" },
               { href: "/learn/xrp-crash-history", label: "Crashes", desc: "Every crash" },
-              { href: "/learn/xrp-sell-or-hold", label: "Sell/Hold", desc: "Framework" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Sell/Hold", desc: "Framework" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC", desc: "Impact" },
               { href: "/learn/xrp-technical-analysis-guide", label: "TA", desc: "Charts" },
-              { href: "/learn/xrp-on-chain-analysis", label: "On-Chain", desc: "Data" },
+              { href: "/learn/xrp-ledger-explained", label: "On-Chain", desc: "Data" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Understand the Cycle" description="History guides strategy." primaryHref="/learn/xrp-sell-or-hold" primaryLabel="Sell or Hold? →" secondaryHref="/learn/xrp-all-time-high" secondaryLabel="ATH" />
+        <LearnCTA title="Understand the Cycle" description="History guides strategy." primaryHref="/learn/is-xrp-a-good-investment" primaryLabel="Sell or Hold? →" secondaryHref="/learn/xrp-all-time-high" secondaryLabel="ATH" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

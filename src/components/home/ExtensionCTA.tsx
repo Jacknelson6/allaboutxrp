@@ -21,7 +21,7 @@ export default function ExtensionCTA() {
               Track XRP price, charts, and live XRPL transactions right from your browser. Our Chrome extension gives you a persistent trading dashboard that stays open while you work.
             </p>
             <Link
-              href="/extension"
+              href="/tools"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0085FF] px-6 py-2.5 text-[14px] font-bold text-white hover:bg-[#0070DD] transition-all hover:shadow-[0_0_20px_rgba(0,133,255,0.3)] hover:gap-3"
             >
               Learn More

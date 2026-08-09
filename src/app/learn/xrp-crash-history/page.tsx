@@ -121,14 +121,14 @@ export default function Page() {
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Price records" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC Impact", desc: "Lawsuit analysis" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Bull/bear patterns" },
-              { href: "/learn/xrp-sell-or-hold", label: "Sell or Hold?", desc: "Decision help" },
+              { href: "/learn/is-xrp-a-good-investment", label: "Sell or Hold?", desc: "Decision help" },
               { href: "/learn/xrp-technical-analysis-guide", label: "TA Guide", desc: "Chart analysis" },
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "History" },
             ]} />
           </RevealSection>
         </div>
 
-        <LearnCTA title="Learn From History" description="Understanding past crashes helps you survive future ones." primaryHref="/learn/xrp-market-cycles" primaryLabel="Market Cycles →" secondaryHref="/learn/xrp-sell-or-hold" secondaryLabel="Sell or Hold?" />
+        <LearnCTA title="Learn From History" description="Understanding past crashes helps you survive future ones." primaryHref="/learn/xrp-market-cycles" primaryLabel="Market Cycles →" secondaryHref="/learn/is-xrp-a-good-investment" secondaryLabel="Sell or Hold?" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

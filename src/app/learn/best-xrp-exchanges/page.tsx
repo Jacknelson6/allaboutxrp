@@ -139,7 +139,7 @@ export default function BestXRPExchangesPage() {
                 { title: "Cons", desc: "High basic fees (1.5-4%), spread on simple trades, customer support can be slow" },
               ]} />
             </div>
-            <p className="mt-4"><Link href="/learn/buy-xrp-on-coinbase" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Coinbase guide →</Link></p>
+            <p className="mt-4"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Coinbase guide →</Link></p>
           </RevealSection>
 
           <RevealSection id="binance" delay={0.05}>
@@ -153,7 +153,7 @@ export default function BestXRPExchangesPage() {
                 { title: "Cons", desc: "US restrictions (Binance.US only), regulatory concerns, complex for beginners" },
               ]} />
             </div>
-            <p className="mt-4"><Link href="/learn/buy-xrp-on-binance" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Binance guide →</Link></p>
+            <p className="mt-4"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Binance guide →</Link></p>
           </RevealSection>
 
           <RevealSection id="kraken" delay={0.05}>
@@ -167,7 +167,7 @@ export default function BestXRPExchangesPage() {
                 { title: "Cons", desc: "Not available in NY/WA, Instant Buy is expensive (1.5%), learning curve for Pro" },
               ]} />
             </div>
-            <p className="mt-4"><Link href="/learn/buy-xrp-on-kraken" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Kraken guide →</Link></p>
+            <p className="mt-4"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Kraken guide →</Link></p>
           </RevealSection>
 
           <RevealSection id="uphold" delay={0.05}>
@@ -175,7 +175,7 @@ export default function BestXRPExchangesPage() {
             <p className="mt-4 text-text-secondary leading-relaxed">
               <a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Uphold</a> earned lasting loyalty by <strong className="text-text-primary">never delisting XRP</strong> during the SEC lawsuit. While its spread-based fees (~1%) are higher than pro platforms, the simplicity and cross-asset trading (crypto, stocks, metals) make it uniquely versatile.
             </p>
-            <p className="mt-4"><Link href="/learn/buy-xrp-on-uphold" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Uphold guide →</Link></p>
+            <p className="mt-4"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Uphold guide →</Link></p>
           </RevealSection>
 
           <RevealSection id="bitstamp" delay={0.05}>
@@ -183,13 +183,13 @@ export default function BestXRPExchangesPage() {
             <p className="mt-4 text-text-secondary leading-relaxed">
               <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Bitstamp</a> is Europe&apos;s most established exchange, with free SEPA deposits and a 0.30% flat fee structure. Multi-licensed across the EU, UK, and US, it&apos;s the go-to for European XRP buyers who want regulatory confidence.
             </p>
-            <p className="mt-4"><Link href="/learn/buy-xrp-on-bitstamp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Bitstamp guide →</Link></p>
+            <p className="mt-4"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Read our full Bitstamp guide →</Link></p>
           </RevealSection>
 
           <RevealSection id="robinhood" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Robinhood — Convenient But Limited</h2>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              <a href="https://robinhood.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Robinhood</a> is fine if you already use it for stocks, but it&apos;s not the best choice specifically for XRP. The hidden spread is moderate (~0.6%), withdrawals are limited via Robinhood Wallet, and there are no advanced trading features for crypto. <Link href="/learn/buy-xrp-on-robinhood" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full analysis →</Link>
+              <a href="https://robinhood.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold" target="_blank" rel="noopener noreferrer">Robinhood</a> is fine if you already use it for stocks, but it&apos;s not the best choice specifically for XRP. The hidden spread is moderate (~0.6%), withdrawals are limited via Robinhood Wallet, and there are no advanced trading features for crypto. <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full analysis →</Link>
             </p>
           </RevealSection>
 
@@ -225,8 +225,8 @@ export default function BestXRPExchangesPage() {
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Complete buying guide" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },
               { href: "/learn/xrp-for-beginners", label: "XRP for Beginners", desc: "Start here" },
-              { href: "/learn/buy-xrp-in-usa", label: "Buy XRP in USA", desc: "US-specific guide" },
-              { href: "/learn/buy-xrp-in-uk", label: "Buy XRP in UK", desc: "UK-specific guide" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in USA", desc: "US-specific guide" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in UK", desc: "UK-specific guide" },
               { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete XRP guide" },
             ]} />
           </RevealSection>

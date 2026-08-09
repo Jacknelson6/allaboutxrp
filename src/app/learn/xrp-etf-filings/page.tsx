@@ -102,7 +102,7 @@ export default function Page() {
               { href: "/learn/xrp-etf", label: "Odds", desc: "Analysis" },
               { href: "/learn/xrp-etf", label: "Impact", desc: "Price" },
               { href: "/learn/xrp-sec-settlement", label: "Settlement", desc: "Legal" },
-              { href: "/learn/xrp-in-retirement-accounts", label: "IRAs", desc: "Access" },
+              { href: "/learn/xrp-taxes", label: "IRAs", desc: "Access" },
               { href: "/learn/xrp-regulatory-clarity-impact", label: "Clarity", desc: "Adoption" },
               { href: "/learn/xrp-market-cycles", label: "Cycles", desc: "Timing" },
             ]} />

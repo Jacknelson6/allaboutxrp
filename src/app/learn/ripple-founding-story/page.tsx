@@ -130,7 +130,7 @@ export default function Page() {
               { href: "/learn/xrp-ledger-explained", label: "XRP Ledger", desc: "How it works" },
               { href: "/learn/xrp-crash-history", label: "Crashes", desc: "Price drops" },
               { href: "/learn/xrp-community-explained", label: "Community", desc: "XRP Army" },
-              { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build on XRPL" },
+              { href: "/learn/xrp-ledger-explained", label: "Dev Resources", desc: "Build on XRPL" },
             ]} />
           </RevealSection>
         </div>

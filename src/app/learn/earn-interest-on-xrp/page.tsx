@@ -114,7 +114,7 @@ export default function Page() {
           <RevealSection id="risks" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Risk Comparison</h2>
             <div className="mt-6"><DataTable headers={["Method","Return","Risk","Custody"]} rows={[["CeFi","2-5%","Medium","Platform"],["AMM","3-8%","Medium","On-chain"],["DeFi","5-15%+","High","Contract"]]} highlightCol={2} /></div>
-            <p className="mt-4 text-text-secondary leading-relaxed">Interest = <Link href="/learn/xrp-airdrop-taxes" className="text-xrp-accent underline decoration-xrp-accent/30">taxable income</Link>.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">Interest = <Link href="/learn/xrp-taxes" className="text-xrp-accent underline decoration-xrp-accent/30">taxable income</Link>.</p>
           </RevealSection>
 
           <RevealSection id="faq" delay={0.05}>
@@ -127,10 +127,10 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/xrpl-amm-liquidity-pools", label: "AMM Yield Guide", desc: "Earn LP fees" },
               { href: "/learn/xrp-lending-platforms", label: "Lending Platforms", desc: "Compare lenders" },
-              { href: "/learn/xrp-airdrop-taxes", label: "Airdrop Taxes", desc: "Tax on income" },
+              { href: "/learn/xrp-taxes", label: "Airdrop Taxes", desc: "Tax on income" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP", desc: "Security guide" },
-              { href: "/learn/xrp-tax-loss-harvesting", label: "Tax Harvesting", desc: "Save on taxes" },
-              { href: "/learn/xrp-portfolio-trackers", label: "Trackers", desc: "Track holdings" },
+              { href: "/learn/xrp-taxes", label: "Tax Harvesting", desc: "Save on taxes" },
+              { href: "/learn/xrp-portfolio-allocation", label: "Trackers", desc: "Track holdings" },
             ]} />
           </RevealSection>
         </div>

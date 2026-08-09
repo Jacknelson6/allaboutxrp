@@ -13,7 +13,7 @@ const relatedLinks = [
   { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
   { href: "/learn/history", label: "XRP History", desc: "Complete timeline since 2011" },
   { href: "/learn/how-banks-use-xrp", label: "What Banks Use XRP?", desc: "Institutional adoption" },
-  { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP" },
+  { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Where to buy XRP" },
 ];
 
 const schemas = [

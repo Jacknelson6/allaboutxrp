@@ -1,59 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServiceClient, isSupabaseServiceConfigured } from "@/lib/supabase/server";
+import { getAllNewsArticles } from "@/lib/news-content";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  if (!isSupabaseServiceConfigured()) {
-    return NextResponse.json([]);
-  }
-
-  const { searchParams } = request.nextUrl;
-  const limit = Math.min(Number(searchParams.get("limit") ?? 20), 50);
-  const offset = Number(searchParams.get("offset") ?? 0);
-
-  const supabase = createServiceClient();
-
-  // Op-ed / opinion filter keywords applied at query level
-  const OP_ED_KEYWORDS = ["opinion:", "op-ed:", "editorial:", "column:", "commentary:"];
-
-  // Primary: read from "news" table (populated by N8N, enriched by /api/news/enrich)
-  const { data, error } = await supabase
-    .from("news")
-    .select("title, simple_title, url, source, summary, blog_content, og_image, published_at, importance_score, sentiment, slug")
-    .gte("importance_score", 6)
-    .order("published_at", { ascending: false })
-    .range(offset, offset + limit - 1);
-
-  if (error) {
-    // Fallback if columns don't exist yet
-    const { data: fallback, error: fbErr } = await supabase
-      .from("news")
-      .select("title, url, source, summary, published_at")
-      .order("published_at", { ascending: false })
-      .range(offset, offset + limit - 1);
-
-    if (fbErr) return NextResponse.json({ error: fbErr.message }, { status: 500 });
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const normalized = (fallback ?? []).map((a: any) => ({
-      ...a, simple_title: null, og_image: null, importance_score: 8, sentiment: null, has_blog_content: false,
-    }));
-    return NextResponse.json(normalized);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let articles = (data ?? []).map((a: any) => {
-    const { blog_content: blogContent, ...article } = a;
-    return { ...article, has_blog_content: Boolean(blogContent) };
-  });
-
-  // Client-side op-ed filter
-  articles = articles.filter((a: { title: string }) => {
-    const t = a.title.toLowerCase();
-    return !OP_ED_KEYWORDS.some((kw) => t.startsWith(kw)) &&
-      !t.includes("opinion:") && !t.includes("editorial:");
-  });
-
+  const limit = Math.min(Math.max(Number(request.nextUrl.searchParams.get("limit") || 20), 1), 50);
+  const offset = Math.max(Number(request.nextUrl.searchParams.get("offset") || 0), 0);
+  const articles = getAllNewsArticles().slice(offset, offset + limit).map((article) => ({
+    title: article.title,
+    simple_title: article.title,
+    url: `/news/${article.slug}`,
+    source: "AllAboutXRP Research Desk",
+    summary: article.description,
+    og_image: article.image || `/news/${article.slug}/opengraph-image`,
+    published_at: article.publishedAt,
+    importance_score: 10,
+    sentiment: "neutral",
+    slug: article.slug,
+    has_blog_content: true,
+  }));
   return NextResponse.json(articles);
 }

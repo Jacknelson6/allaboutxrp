@@ -248,7 +248,7 @@ export default function PriceAlertsPage() {
               <h3 className="font-semibold text-white mb-1">How to Read XRP Charts →</h3>
               <p className="text-sm text-zinc-500">Learn chart reading basics</p>
             </Link>
-            <Link href="/tools/whale-tracker" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
+            <Link href="/holders" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
               <h3 className="font-semibold text-white mb-1">Whale Tracker →</h3>
               <p className="text-sm text-zinc-500">Monitor large XRP movements</p>
             </Link>

@@ -131,8 +131,8 @@ export default function Page() {
               { href: "/learn/earn-interest-on-xrp", label: "Earn Interest", desc: "All methods" },
               { href: "/learn/xrpl-amm-liquidity-pools", label: "AMM Guide", desc: "Non-custodial" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP", desc: "Security" },
-              { href: "/learn/xrp-tax-loss-harvesting", label: "Tax Harvest", desc: "Save taxes" },
-              { href: "/learn/xrp-cost-basis-methods", label: "Cost Basis", desc: "Tax calc" },
+              { href: "/learn/xrp-taxes", label: "Tax Harvest", desc: "Save taxes" },
+              { href: "/learn/xrp-taxes", label: "Cost Basis", desc: "Tax calc" },
               { href: "/learn/how-to-buy-xrp", label: "Exchanges", desc: "Buy XRP" },
             ]} />
           </RevealSection>

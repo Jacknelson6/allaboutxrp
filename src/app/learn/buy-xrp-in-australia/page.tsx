@@ -214,7 +214,7 @@ export default function BuyXRPInAustraliaPage() {
           <RevealSection delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
-              { href: "/learn/buy-xrp-on-kraken", label: "Buy on Kraken", desc: "Lowest pro fees" },
+              { href: "/learn/how-to-buy-xrp", label: "Buy on Kraken", desc: "Lowest pro fees" },
               { href: "/learn/how-to-buy-xrp", label: "Best Exchanges", desc: "Full comparison" },
               { href: "/learn/xrp-tax-guide", label: "XRP Tax Guide", desc: "Tax obligations" },
               { href: "/learn/how-to-store-xrp-safely", label: "Store XRP Safely", desc: "Self-custody guide" },

@@ -266,7 +266,7 @@ export default function XRPFeeCalculator() {
             {[
               ["/tools/xrp-profit-calculator", "Profit Calculator"],
               ["/learn/what-is-xrp", "What is XRP?"],
-              ["/best/xrp-exchanges", "Best Exchanges"],
+              ["/learn/how-to-buy-xrp", "Best Exchanges"],
               ["/how-to-start", "Get Started"],
             ].map(([href, label]) => (
               <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">

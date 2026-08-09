@@ -83,7 +83,7 @@ export default function FAQPage() {
               { href: "/learn/how-to-buy-xrp", label: "How to Buy XRP", desc: "Step-by-step buying guide" },
               { href: "/learn/xrp-vs-bitcoin", label: "XRP vs Bitcoin", desc: "Side-by-side comparison" },
               { href: "/learn/xrp-wallets", label: "XRP Wallets Guide", desc: "Choose the right wallet" },
-              { href: "/best/xrp-exchanges", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
+              { href: "/learn/how-to-buy-xrp", label: "Best XRP Exchanges", desc: "Where to buy XRP safely" },
               { href: "/learn/is-xrp-a-good-investment", label: "Is XRP a Good Investment?", desc: "Analysis and considerations" },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">

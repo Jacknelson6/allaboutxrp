@@ -145,11 +145,11 @@ export default function AnswerPageLayout({
                 <span className="text-sm font-medium text-white">How to Buy XRP</span>
                 <p className="text-xs text-gray-400 mt-0.5">Step-by-step buying guide</p>
               </Link>
-              <Link href="/best/xrp-exchanges" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+              <Link href="/learn/how-to-buy-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
                 <span className="text-sm font-medium text-white">Best XRP Exchanges</span>
                 <p className="text-xs text-gray-400 mt-0.5">Where to buy XRP safely</p>
               </Link>
-              <Link href="/best/xrp-wallets" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
+              <Link href="/learn/xrp-wallets" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
                 <span className="text-sm font-medium text-white">Best XRP Wallets</span>
                 <p className="text-xs text-gray-400 mt-0.5">Top wallet picks for 2026</p>
               </Link>

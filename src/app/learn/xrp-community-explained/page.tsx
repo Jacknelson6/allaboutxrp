@@ -123,10 +123,10 @@ export default function Page() {
             <LearnLinkGrid links={[
               { href: "/learn/ripple-founding-story", label: "Ripple Story", desc: "Origin history" },
               { href: "/learn/sec-lawsuit-impact-on-xrp-price", label: "SEC Impact", desc: "Community catalyst" },
-              { href: "/learn/xrp-developer-resources", label: "Dev Resources", desc: "Build on XRPL" },
+              { href: "/learn/xrp-ledger-explained", label: "Dev Resources", desc: "Build on XRPL" },
               { href: "/learn/xrp-all-time-high", label: "ATH", desc: "Price history" },
               { href: "/learn/trusted-sources", label: "Trusted Sources", desc: "Reliable info" },
-              { href: "/learn/xrp-block-explorers", label: "Explorers", desc: "Verify data" },
+              { href: "/learn/xrp-ledger-explained", label: "Explorers", desc: "Verify data" },
             ]} />
           </RevealSection>
         </div>

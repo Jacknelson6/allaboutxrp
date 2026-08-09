@@ -10,6 +10,13 @@ function getLocs(xml) {
   );
 }
 
+function getEntries(xml) {
+  return [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => ({
+    loc: match[1].match(/<loc>([^<]+)<\/loc>/)?.[1]?.replace(/&amp;/g, "&"),
+    lastmod: match[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? null,
+  })).filter((entry) => entry.loc);
+}
+
 function normalizeUrl(value) {
   const url = new URL(value);
   url.hash = "";
@@ -50,9 +57,15 @@ async function fetchXml(pathname) {
 }
 
 const failures = [];
+const warnings = [];
 const { xml: sitemapXml, urls } = await fetchXml("/sitemap.xml");
 const { urls: newsUrls } = await fetchXml("/news-sitemap.xml");
 const urlSet = new Set(urls);
+const sitemapEntries = getEntries(sitemapXml);
+const lastmodByUrl = new Map(sitemapEntries.map((entry) => [normalizeUrl(entry.loc), entry.lastmod]));
+
+const missingLastmod = sitemapEntries.filter((entry) => !entry.lastmod).map((entry) => entry.loc);
+if (missingLastmod.length) warnings.push(`${missingLastmod.length} sitemap URLs do not declare lastmod.`);
 
 if (urls.length === 0) failures.push("The standard sitemap contains no URLs.");
 if (urlSet.size !== urls.length) failures.push("The standard sitemap contains duplicate <loc> entries.");
@@ -119,6 +132,12 @@ async function validatePage() {
     } else if (normalizeUrl(canonical) !== normalizeUrl(value)) {
       failures.push(`${value} canonicalizes to ${canonical}.`);
     }
+
+    const schemaModified = html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2}(?:T[^"]+)?)"/)?.[1];
+    const sitemapModified = lastmodByUrl.get(normalizeUrl(value));
+    if (schemaModified && sitemapModified && Date.parse(schemaModified) > Date.parse(sitemapModified) + 86400000) {
+      failures.push(`${value} schema dateModified (${schemaModified}) is newer than sitemap lastmod (${sitemapModified}).`);
+    }
   }
 }
 
@@ -128,6 +147,8 @@ const report = {
   siteUrl,
   sitemapUrls: urls.length,
   newsSitemapUrls: newsUrls.length,
+  missingLastmod,
+  warnings,
   failures,
 };
 
