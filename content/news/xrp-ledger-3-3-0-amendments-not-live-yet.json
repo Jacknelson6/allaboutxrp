@@ -4,8 +4,12 @@
   "description": "XRP Ledger server version 3.3.0 is available with private MPT transfers, atomic batches and sponsored fees, but validator approval still separates code from mainnet use.",
   "category": "XRP Ledger",
   "publishedAt": "2026-08-09T06:05:00-05:00",
-  "modifiedAt": "2026-08-09T06:05:00-05:00",
+  "modifiedAt": "2026-08-09T10:45:00-05:00",
   "author": "Jack Nelson",
+  "image": "/news/xrp-ledger-3-3-0-amendments-editorial.png",
+  "imageAlt": "Six illuminated XRP Ledger amendment modules connected around a protected ledger core",
+  "imageWidth": 1731,
+  "imageHeight": 909,
   "keywords": ["XRP Ledger 3.3.0", "xrpld 3.3.0", "XRPL amendments", "ConfidentialTransfer", "BatchV1_1", "sponsored fees", "XRP Ledger news"],
   "keyTakeaways": [
     "The XRP Ledger Foundation released xrpld 3.3.0 on August 6, 2026 with six amendment packages spanning private token transfers, atomic batches, dynamic token controls, permission delegation, sponsored fees and protocol fixes.",
@@ -15,6 +19,7 @@
   "sections": [
     {
       "heading": "What XRP Ledger 3.3.0 changes, and what it does not",
+      "sourceUrls": ["https://xrpl.org/blog/2026/xrpld-3.3.0", "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "https://xrpl.org/resources/known-amendments"],
       "paragraphs": [
         "XRP Ledger server version 3.3.0 is now available, but its headline features are not yet active on the XRP Ledger mainnet. The August 6 release puts six amendments into stable server software: BatchV1_1, ConfidentialTransfer, DynamicMPT, PermissionDelegationV1_1, Sponsor and fixCleanup3_3_0. That is an important engineering milestone because validators and node operators can now run code that understands the proposed rules. It is not the same as the network adopting those rules.",
         "That distinction is the direct answer for XRP holders wondering whether private transfers or sponsored fees suddenly went live. They did not. In a live feature query to Ripple's public XRP Ledger server at approximately 6:00 a.m. Central Time on August 9, all six amendments were reported as supported and enabled: false. The result was tied to a validated mainnet ledger, so it is a dated status check rather than a prediction about what validators will do next.",
@@ -23,6 +28,7 @@
     },
     {
       "heading": "The six amendments included in xrpld 3.3.0",
+      "sourceUrls": ["https://xrpl.org/blog/2026/xrpld-3.3.0", "https://github.com/XRPLF/rippled/releases/tag/3.3.0"],
       "paragraphs": [
         "The six packages solve different problems, but together they point toward more programmable and institution-friendly token activity. The official release notes say BatchV1_1 can place as many as eight inner transactions into one batch, including patterns such as atomic swaps. ConfidentialTransfer shields Multi-Purpose Token balances and transfer amounts while keeping them cryptographically verifiable. Sponsor separates who controls an account from who pays certain fees and reserves.",
         "DynamicMPT gives issuers controlled flexibility over selected Multi-Purpose Token settings, including on-chain metadata, transfer fees and issuance capability flags. The release notes describe those properties as mutable by default, with an option to make them permanently immutable. PermissionDelegationV1_1 allows an account to grant limited authority to another account instead of handing over its master credentials. fixCleanup3_3_0 bundles a longer list of safety and correctness fixes affecting areas such as automated market makers, permissioned order books, pseudo-accounts, vaults and lending components.",
@@ -44,6 +50,7 @@
     },
     {
       "heading": "Why BatchV1_1 and PermissionDelegationV1_1 are a security test",
+      "sourceUrls": ["https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026", "https://xrpl.org/blog/2025/vulnerabilitydisclosurereport-bug-sep2025", "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs"],
       "paragraphs": [
         "Two of the most useful amendments also carry important history. They are revised versions of features stopped before mainnet activation after severe bugs were discovered. That makes 3.3.0 a test of the XRP Ledger's security process as much as a feature release. The strongest positive signal is not that the original code was flawless. It is that researchers found the problems before the affected rules became active, validators were told to vote no, and replacement amendments received new names so the unsafe versions could not quietly become the final standard.",
         "The original Batch amendment contained a critical signature-validation flaw disclosed in February 2026. According to the XRPL vulnerability report, the bug could have allowed unauthorized inner transactions on behalf of victim accounts if the amendment had activated. The report explicitly says the feature had not activated on mainnet and no funds were at risk. Version 3.1.1 then marked the original Batch code unsupported. BatchV1_1 in 3.3.0 is the corrected replacement, not a reactivation of the same amendment identifier.",
@@ -53,6 +60,7 @@
     },
     {
       "heading": "Why ConfidentialTransfer and Sponsor matter for institutions",
+      "sourceUrls": ["https://xrpl.org/blog/2026/xrpld-3.3.0", "https://github.com/XRPLF/rippled/releases/tag/3.3.0"],
       "paragraphs": [
         "ConfidentialTransfer addresses a basic conflict in public-market infrastructure. Institutions may need a shared settlement record, but they often cannot expose positions, customer balances or transaction sizes to every observer. The amendment is designed for Multi-Purpose Tokens and uses EC-ElGamal encryption plus zero-knowledge proofs to shield amounts while preserving verifiability. The official known-amendments record also describes mechanisms for authorized parties such as issuers, auditors or designated entities to verify information needed for supply and compliance checks.",
         "That design could be relevant to tokenized funds, private credit, collateral and other issued assets where public transparency can reveal commercially sensitive activity. The meaningful word is could. XRPL 3.3.0 does not announce a bank, asset manager or regulator approving the feature. It provides infrastructure that an issuer may evaluate after activation. Legal permission, disclosure rules, custody design and the institution's own controls remain separate requirements.",
@@ -62,6 +70,7 @@
     },
     {
       "heading": "Concrete implications for operators, developers and XRP users",
+      "sourceUrls": ["https://xrpl.org/docs/concepts/networks-and-servers/amendments", "https://xrpl.org/resources/known-amendments", "https://github.com/XRPLF/rippled/releases/tag/3.3.0"],
       "paragraphs": [
         "For server operators, the immediate action is operational. The official 3.3.0 release asks operators to upgrade as soon as possible for service continuity. An older server can become amendment blocked if the network activates rules its software does not understand. Operators should verify the signed release, use the published package checksums, monitor amendment support and follow their normal backup and rollback procedures.",
         "For developers, the release is a planning signal rather than permission to ship mainnet-dependent behavior. Wallets can prototype sponsored onboarding, issuers can test confidential MPT workflows, and trading or settlement applications can evaluate atomic batches. Production code should still feature-detect the relevant amendment and fail safely while it is disabled. Client libraries may also need matching transaction types and serialization support before an application has an end-to-end path.",
@@ -71,6 +80,7 @@
     },
     {
       "heading": "Uncertainties that determine whether the upgrade matters",
+      "sourceUrls": ["https://xrpl.org/docs/concepts/networks-and-servers/amendments", "https://xrpl.org/resources/known-amendments"],
       "paragraphs": [
         "The first uncertainty is validator support. The six amendments were not enabled in the August 9 status check, and the official known-amendments page warns that some status information is manually maintained. The mainnet ledger and validator votes are the decisive records. A future majority date would start the two-week window, but support must remain above the required threshold for activation.",
         "The second uncertainty is adoption after activation. Protocol availability is only the bottom layer of the stack. Issuers need production policies, wallets need interfaces, analytics providers need indexing support, and auditors need procedures for confidential data. For BatchV1_1 and PermissionDelegationV1_1, security reviews will be especially important because their predecessors were withdrawn before activation.",

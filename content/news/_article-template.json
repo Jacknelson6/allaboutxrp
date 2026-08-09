@@ -6,12 +6,17 @@
   "publishedAt": "2026-08-09T12:00:00-05:00",
   "modifiedAt": "2026-08-09T12:00:00-05:00",
   "author": "Jack Nelson",
+  "image": "/news/replace-with-unique-editorial-image.png",
+  "imageAlt": "Specific, factual description of the original editorial illustration",
+  "imageWidth": 1200,
+  "imageHeight": 630,
   "keywords": ["XRP news", "XRP Ledger"],
   "keyTakeaways": ["One verified fact", "A second verified fact", "The practical implication"],
   "sections": [
     {
       "heading": "What happened",
-      "paragraphs": ["Explain the announcement using attributed, verifiable facts.", "Add original analysis that helps the reader understand the significance."]
+      "paragraphs": ["Explain the announcement using attributed, verifiable facts.", "Add original analysis that helps the reader understand the significance."],
+      "sourceUrls": ["https://example.com/primary", "https://example.org/supporting"]
     }
   ],
   "whatToWatch": ["The next dated milestone", "The metric or primary record that would confirm progress"],

@@ -24,6 +24,7 @@ export interface NewsSection {
   paragraphs: string[];
   bullets?: string[];
   table?: NewsTable;
+  sourceUrls: string[];
 }
 
 export interface NewsArticle {
@@ -36,6 +37,8 @@ export interface NewsArticle {
   author: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   keywords: string[];
   keyTakeaways: string[];
   sections: NewsSection[];

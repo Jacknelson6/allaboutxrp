@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import sharp from "sharp";
 
 const newsDir = path.join(process.cwd(), "content", "news");
 const files = fs.existsSync(newsDir)
@@ -27,11 +28,33 @@ for (const file of files) {
   if (!Array.isArray(article.keyTakeaways) || article.keyTakeaways.length < 3) failures.push(`${prefix} at least 3 key takeaways required`);
   if (!Array.isArray(article.sections) || article.sections.length < 3) failures.push(`${prefix} at least 3 substantive sections required`);
   const bodyWords = (article.sections || []).flatMap((section) => section.paragraphs || []).join(" ").trim().split(/\s+/).filter(Boolean).length;
-  if (bodyWords < 650) failures.push(`${prefix} body must contain at least 650 words, found ${bodyWords}`);
-  if (!Array.isArray(article.sources) || article.sources.length < 2) failures.push(`${prefix} at least 2 sources required`);
+  if (bodyWords < 900) failures.push(`${prefix} body must contain at least 900 words, found ${bodyWords}`);
+  if (!Array.isArray(article.sources) || article.sources.length < 3) failures.push(`${prefix} at least 3 sources required`);
   if (!(article.sources || []).some((source) => source.type === "primary")) failures.push(`${prefix} at least 1 primary source required`);
+  if (!(article.sources || []).some((source) => source.type === "supporting")) failures.push(`${prefix} at least 1 supporting source required`);
   for (const source of article.sources || []) {
     try { new URL(source.url); } catch { failures.push(`${prefix} invalid source URL ${source.url}`); }
+  }
+  const sourceUrls = new Set((article.sources || []).map((source) => source.url));
+  for (const section of article.sections || []) {
+    if (!Array.isArray(section.sourceUrls) || section.sourceUrls.length < 1) failures.push(`${prefix} section "${section.heading}" needs at least 1 claim-adjacent source`);
+    for (const sourceUrl of section.sourceUrls || []) {
+      if (!sourceUrls.has(sourceUrl)) failures.push(`${prefix} section source must match a listed source: ${sourceUrl}`);
+    }
+  }
+  if (!/^\/news\/[a-z0-9-]+\.(?:avif|jpe?g|png|webp)$/.test(article.image || "")) failures.push(`${prefix} image must be a unique file under /news`);
+  if ((article.imageAlt || "").length < 40 || article.imageAlt.length > 180) failures.push(`${prefix} imageAlt must be 40 to 180 characters`);
+  if (article.image) {
+    const imagePath = path.join(process.cwd(), "public", article.image.replace(/^\//, ""));
+    if (!fs.existsSync(imagePath)) {
+      failures.push(`${prefix} image file does not exist: ${article.image}`);
+    } else {
+      const metadata = await sharp(imagePath).metadata();
+      const aspectRatio = metadata.width && metadata.height ? metadata.width / metadata.height : 0;
+      if (!metadata.width || metadata.width < 1200) failures.push(`${prefix} image must be at least 1200 pixels wide`);
+      if (aspectRatio < 1.7 || aspectRatio > 2.0) failures.push(`${prefix} image aspect ratio must be between 1.7:1 and 2:1`);
+      if (article.imageWidth !== metadata.width || article.imageHeight !== metadata.height) failures.push(`${prefix} imageWidth and imageHeight must match the image file`);
+    }
   }
   if (!Array.isArray(article.relatedLinks) || article.relatedLinks.length < 2) failures.push(`${prefix} at least 2 relevant internal links required`);
   if (Number.isNaN(Date.parse(article.publishedAt)) || Number.isNaN(Date.parse(article.modifiedAt))) failures.push(`${prefix} invalid publication dates`);
