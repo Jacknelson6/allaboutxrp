@@ -107,19 +107,6 @@ for (const match of sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
   }
 }
 
-try {
-  const digestResponse = await fetchWithRetry(`${siteUrl}/api/digests`);
-  const digests = await digestResponse.json();
-  if (digestResponse.ok && Array.isArray(digests)) {
-    for (const digest of digests) {
-      const url = `${siteUrl}/digest/${digest.slug}`;
-      if (!urlSet.has(url)) failures.push(`Published digest missing from sitemap: ${url}.`);
-    }
-  }
-} catch (error) {
-  failures.push(`Could not verify published digest coverage: ${error.message}`);
-}
-
 let cursor = 0;
 async function validatePage() {
   while (cursor < urls.length) {

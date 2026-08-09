@@ -190,7 +190,6 @@ export function shouldShowEditorialReview(pathname: string) {
     pathname.startsWith("/answers/") ||
     pathname.startsWith("/best/") ||
     pathname.startsWith("/news/") ||
-    pathname.startsWith("/digest/") ||
     pathname.startsWith("/tools/")
   );
 }

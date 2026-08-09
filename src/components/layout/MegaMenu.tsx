@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
+import ThemeToggle from "./ThemeToggle";
 
 const learnGroups = [
   {
@@ -102,7 +103,7 @@ export default function MegaMenu() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-surface-border bg-[#fbfaf7]/95 backdrop-blur-md" aria-label="Main navigation">
+      <nav className="site-nav sticky top-0 z-50 border-b border-surface-border backdrop-blur-md" aria-label="Main navigation">
         <div className="site-container flex min-h-[4.25rem] items-center justify-between gap-4">
           <Link href="/" className="flex min-h-11 shrink-0 items-center" aria-label="AllAboutXRP home">
             <Image
@@ -177,10 +178,12 @@ export default function MegaMenu() {
 
           <div className="hidden items-center gap-3 xl:flex">
             <PriceWidget />
+            <ThemeToggle />
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
             <div className="hidden min-[350px]:block"><PriceWidget compact /></div>
+            <ThemeToggle />
             <button
               type="button"
               onClick={() => setMobileOpen((value) => !value)}

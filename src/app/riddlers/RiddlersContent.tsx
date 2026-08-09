@@ -62,7 +62,7 @@ export default function RiddlersContent() {
   return (
     <div className="relative">
       {/* Atmospheric background */}
-      <div className="pointer-events-none absolute inset-0 bg-black" />
+      <div className="pointer-events-none absolute inset-0 bg-surface-primary" />
       <div className="pointer-events-none absolute inset-0 " />
       <div className="pointer-events-none absolute inset-0 " />
 

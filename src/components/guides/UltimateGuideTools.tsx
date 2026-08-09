@@ -197,7 +197,7 @@ export function AltcoinResearchScorecard() {
 
 function GuideTool({ title, description, children }: { title: string; description: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-xrp-accent/25 bg-[#07111a] p-5 shadow-[0_18px_55px_rgba(0,133,255,0.08)] sm:p-6">
+    <div className="rounded-sm border border-xrp-accent/25 bg-surface-card p-5 sm:p-6">
       <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-xrp-accent">Interactive tool</p>
       <h3 className="mt-2 text-xl font-bold text-text-primary">{title}</h3>
       <p className="mt-2 mb-5 text-sm leading-6 text-text-secondary">{description}</p>

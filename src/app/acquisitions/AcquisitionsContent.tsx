@@ -156,7 +156,7 @@ const xrpConnections = [
 export default function AcquisitionsContent() {
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-0 bg-black" />
+      <div className="pointer-events-none absolute inset-0 bg-surface-primary" />
       <div className="pointer-events-none absolute inset-0 " />
       <div className="pointer-events-none absolute inset-0 " />
       <div className="relative mx-auto max-w-5xl px-4 py-16">

@@ -190,7 +190,7 @@ export default function LearnPage() {
           ))}
         </div>
 
-        <section className="border-y border-surface-border bg-[#07111a]">
+        <section className="border-y border-surface-border bg-surface-elevated">
           <div className="site-container grid gap-8 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
             <div className="max-w-2xl">
               <ShieldCheck className="h-6 w-6 text-xrp-accent" aria-hidden="true" />

@@ -189,7 +189,7 @@ export default function LeadershipPage() {
                   className={`rounded-xl border p-6  transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
                     leader.highlight
                       ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
-                      : "border-white/[0.06]/60 bg-black hover:border-xrp-accent/20"
+                      : "border-surface-border bg-surface-card hover:border-xrp-accent/30"
                   }`}
                 >
                   <div className="flex flex-wrap items-center gap-3">

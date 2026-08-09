@@ -27,6 +27,16 @@ const redirects = [
 ];
 const redirectSources = new Set(redirects.map((rule) => rule.source));
 const failures = [];
+const retiredPaths = [
+  "/donate",
+  "/pricing",
+  "/digest",
+  "/digest/retired-example",
+  "/api/digests",
+  "/api/newsletter",
+  "/api/subscribe",
+  "/subscribe",
+];
 
 for (const rule of redirects) {
   if (rule.source === rule.destination) failures.push(`${rule.source} redirects to itself.`);
@@ -98,9 +108,23 @@ async function validateRedirect() {
 
 await Promise.all(Array.from({ length: 8 }, () => validateRedirect()));
 
+for (const retiredPath of retiredPaths) {
+  const response = await fetchWithRetry(`${siteUrl}${retiredPath}`, {
+    redirect: "manual",
+    headers: { "user-agent": "AllAboutXRP-Redirect-Audit/1.0" },
+  });
+  if (response.status !== 410) {
+    failures.push(`${retiredPath} returned ${response.status}; expected 410.`);
+  }
+  if (response.headers.get("location")) {
+    failures.push(`${retiredPath} unexpectedly redirects to ${response.headers.get("location")}.`);
+  }
+}
+
 const report = {
   siteUrl,
   redirectsChecked: redirects.length,
+  retiredPathsChecked: retiredPaths.length,
   redirectChains: failures.filter((failure) => failure.includes("another redirect")),
   failures,
 };

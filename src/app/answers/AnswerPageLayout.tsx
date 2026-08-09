@@ -67,66 +67,66 @@ export default function AnswerPageLayout({
   return (
     <>
       <SEOSchema schema={schemas} />
-      <main id="main-content" className="min-h-screen bg-black text-white">
-        <article className="max-w-3xl mx-auto px-4 py-16 sm:py-24">
-          <p className="text-xs text-gray-500 mb-6">
-            <Link href="/" className="hover:text-[#0085FF]">Home</Link>
+      <main id="main-content" className="min-h-screen bg-surface-primary text-text-primary">
+        <article className="reading-container py-16 sm:py-24">
+          <p className="mb-6 font-mono text-xs text-text-secondary">
+            <Link href="/" className="hover:text-xrp-accent">Home</Link>
             {" / "}
-            <Link href="/answers" className="hover:text-[#0085FF]">Answers</Link>
+            <Link href="/answers" className="hover:text-xrp-accent">Answers</Link>
             {" / "}
-            <span className="text-gray-400">{title}</span>
+            <span>{title}</span>
           </p>
 
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-tight">{title}</h1>
+          <h1 className="mb-6 text-4xl leading-tight sm:text-6xl">{title}</h1>
 
-          <p className="text-xs text-gray-500 mb-8">Last Updated: February 11, 2026</p>
+          <p className="mb-8 font-mono text-xs text-text-secondary">Last reviewed: February 11, 2026</p>
 
           {/* Direct Answer Box — the most critical AEO element */}
-          <div className="direct-answer rounded-xl border border-[#0085FF]/30 bg-[#0085FF]/[0.06] p-6 mb-10">
-            <p className="text-lg text-white leading-relaxed font-medium">{directAnswer}</p>
+          <div className="direct-answer mb-10 border border-xrp-accent/30 bg-xrp-accent/[0.06] p-6">
+            <p className="text-lg font-medium leading-relaxed text-text-primary">{directAnswer}</p>
           </div>
 
           {disclaimer && (
-            <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/[0.04] px-4 py-3 mb-8 text-sm text-yellow-200/80">
+            <div className="mb-8 border border-warning/30 bg-warning/[0.06] px-4 py-3 text-sm text-text-primary">
               <strong>Disclaimer:</strong> This content is for educational purposes only and does not constitute financial advice. Always do your own research before making investment decisions.
             </div>
           )}
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">The Short Answer</h2>
+            <h2 className="mb-4 text-3xl text-text-primary">The short answer</h2>
             {shortAnswer}
           </section>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">The Full Explanation</h2>
+            <h2 className="mb-4 text-3xl text-text-primary">The full explanation</h2>
             {fullExplanation}
           </section>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">What This Means for You</h2>
+            <h2 className="mb-4 text-3xl text-text-primary">What this means for you</h2>
             {whatThisMeans}
           </section>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">Related Questions</h2>
+            <h2 className="mb-4 text-3xl text-text-primary">Related questions</h2>
             <div className="space-y-4">
               {relatedQuestions.map((rq) => (
-                <div key={rq.slug} className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <Link href={`/answers/${rq.slug}`} className="text-[#0085FF] font-semibold hover:underline">
+                <div key={rq.slug} className="border border-surface-border bg-surface-card p-4">
+                  <Link href={`/answers/${rq.slug}`} className="font-semibold text-xrp-accent hover:underline">
                     {rq.question}
                   </Link>
-                  <p className="text-sm text-gray-400 mt-1">{rq.answer}</p>
+                  <p className="mt-1 text-sm text-text-secondary">{rq.answer}</p>
                 </div>
               ))}
             </div>
           </section>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">Sources</h2>
+            <h2 className="mb-4 text-3xl text-text-primary">Sources</h2>
             <ul className="space-y-2">
               {sources.map((s) => (
                 <li key={s.url} className="text-sm">
-                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0085FF] underline">
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-text-secondary underline hover:text-xrp-accent">
                     {s.name}
                   </a>
                 </li>
@@ -134,24 +134,24 @@ export default function AnswerPageLayout({
             </ul>
           </section>
 
-          <section className="pt-8 border-t border-white/[0.06]">
-            <h2 className="text-2xl font-bold mb-4 text-[#0085FF]">Keep Learning</h2>
+          <section className="border-t border-surface-border pt-8">
+            <h2 className="mb-4 text-3xl text-text-primary">Keep learning</h2>
             <div className="grid gap-3 sm:grid-cols-2">
-              <Link href="/learn/what-is-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
-                <span className="text-sm font-medium text-white">What is XRP?</span>
-                <p className="text-xs text-gray-400 mt-0.5">Complete beginner&apos;s guide</p>
+              <Link href="/learn/what-is-xrp" className="border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent/50 hover:bg-surface-elevated">
+                <span className="text-sm font-medium text-text-primary">What is XRP?</span>
+                <p className="mt-0.5 text-xs text-text-secondary">Complete beginner&apos;s guide</p>
               </Link>
-              <Link href="/learn/how-to-buy-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
-                <span className="text-sm font-medium text-white">How to Buy XRP</span>
-                <p className="text-xs text-gray-400 mt-0.5">Step-by-step buying guide</p>
+              <Link href="/learn/how-to-buy-xrp" className="border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent/50 hover:bg-surface-elevated">
+                <span className="text-sm font-medium text-text-primary">How to buy XRP</span>
+                <p className="mt-0.5 text-xs text-text-secondary">Step-by-step buying guide</p>
               </Link>
-              <Link href="/learn/how-to-buy-xrp" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
-                <span className="text-sm font-medium text-white">Best XRP Exchanges</span>
-                <p className="text-xs text-gray-400 mt-0.5">Where to buy XRP safely</p>
+              <Link href="/learn/how-to-buy-xrp" className="border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent/50 hover:bg-surface-elevated">
+                <span className="text-sm font-medium text-text-primary">Best XRP exchanges</span>
+                <p className="mt-0.5 text-xs text-text-secondary">Where to buy XRP safely</p>
               </Link>
-              <Link href="/learn/xrp-wallets" className="rounded-lg border border-white/10 bg-white/[0.02] p-4 hover:border-[#0085FF]/30 hover:bg-white/[0.04] transition-all">
-                <span className="text-sm font-medium text-white">Best XRP Wallets</span>
-                <p className="text-xs text-gray-400 mt-0.5">Top wallet picks for 2026</p>
+              <Link href="/learn/xrp-wallets" className="border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent/50 hover:bg-surface-elevated">
+                <span className="text-sm font-medium text-text-primary">Best XRP wallets</span>
+                <p className="mt-0.5 text-xs text-text-secondary">Top wallet picks for 2026</p>
               </Link>
             </div>
           </section>

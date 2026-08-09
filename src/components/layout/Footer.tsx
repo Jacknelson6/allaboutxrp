@@ -9,7 +9,6 @@ const footerSections = [
       { href: "/learn", label: "Learning center" },
       { href: "/answers", label: "XRP answers" },
       { href: "/news", label: "Latest news" },
-      { href: "/digest", label: "Weekly digest" },
       { href: "/live-chart", label: "Live XRP data" },
       { href: "/tools", label: "XRP tools" },
     ],
@@ -40,7 +39,7 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-[#fbfaf7] pb-[env(safe-area-inset-bottom)]" role="contentinfo">
+    <footer className="border-t border-surface-border bg-surface-primary pb-[env(safe-area-inset-bottom)]" role="contentinfo">
       <div className="site-container py-14 sm:py-18">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <div className="max-w-md">

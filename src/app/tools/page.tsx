@@ -154,7 +154,7 @@ export default function ToolsHubPage() {
           muted
         />
 
-        <section className="border-y border-surface-border bg-[#07111a]">
+        <section className="border-y border-surface-border bg-surface-elevated">
           <div className="site-container grid gap-7 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
             <div>
               <h2 className="text-3xl text-text-primary">Understand the numbers before using them.</h2>

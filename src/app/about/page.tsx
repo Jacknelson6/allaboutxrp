@@ -42,7 +42,7 @@ export default function AboutPage() {
   return (
     <>
       <SEOSchema schema={orgSchema} />
-      <main id="main-content" className="min-h-screen bg-black">
+      <main id="main-content" className="min-h-screen bg-surface-primary">
         <article className="reading-container py-16 sm:py-24">
           <header className="border-b border-surface-border pb-10">
             <p className="editorial-kicker">About AllAboutXRP</p>
@@ -122,7 +122,7 @@ export default function AboutPage() {
                 estimators, and portfolio tracking
               </li>
               <li>
-                <strong>News</strong> — Weekly digests and analysis
+                <strong>News</strong>: Dated reporting and analysis
                 of the latest XRP developments
               </li>
               <li>

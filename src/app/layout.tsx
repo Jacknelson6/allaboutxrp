@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Azeret_Mono, Cormorant_Garamond, Public_Sans } from "next/font/google";
+import { Azeret_Mono, Libre_Baskerville, Public_Sans } from "next/font/google";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
@@ -24,10 +24,10 @@ const azeretMono = Azeret_Mono({
   display: "swap",
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const libreBaskerville = Libre_Baskerville({
   variable: "--font-editorial",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -98,7 +98,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${publicSans.variable} ${azeretMono.variable} ${cormorantGaramond.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${publicSans.variable} ${azeretMono.variable} ${libreBaskerville.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var saved=localStorage.getItem('aaxrp-theme');var theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=theme;}catch(e){document.documentElement.dataset.theme='light';}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         {GA_ID ? <GoogleAnalytics measurementId={GA_ID} /> : null}
         <a href="#main-content" className="skip-to-content">

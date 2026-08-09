@@ -1,126 +1,93 @@
-# AllAboutXRP Design System
+# AllAboutXRP design system
 
-**Project:** AllAboutXRP
+This file is the only visual source of truth for every public page. Page-level visual overrides are not permitted. A page may choose the components it needs, but it may not introduce its own palette, type system, card style, radius, shadow language, or theme behavior.
 
-**Direction:** Independent editorial reference with live XRP data
+## Direction
 
-**Last updated:** 2026-07-28
+AllAboutXRP is an independent research publication with live data and practical tools. The interface should feel rigorous, calm, compact, and legible. It takes its structural cues from high-quality benchmark publications: clear hierarchy, thin rules, dense but readable data, visible methodology, and minimal decoration.
 
-## Experience principles
+The Greek bank artwork is the single expressive visual moment. Everything around it is restrained.
 
-1. **Answer first.** Lead important pages with a concise, citable answer before supporting detail.
-2. **Evidence stays visible.** Put sources, reviewed dates, methodology, and uncertainty near the claims they support.
-3. **Editorial before promotional.** The site should feel like a trusted financial publication and research library, not a token dashboard or exchange landing page.
-4. **One clear hierarchy.** Avoid walls of equal cards. Use a strong lead story or answer, grouped supporting paths, and quiet utility surfaces.
-5. **Progressive complexity.** Help newcomers begin quickly while keeping deeper ledger, legal, and market research easy to reach.
-
-## Visual language
+## Foundations
 
 ### Color
 
-| Role | Value | Tailwind token |
-|---|---:|---|
-| Deep ink background | `#050709` | `bg-surface-primary` / `bg-black` |
-| Card surface | `#0B0F14` | `bg-surface-card` |
-| Elevated surface | `#111821` | `bg-surface-elevated` |
-| Border | `rgba(179, 209, 234, 0.14)` | `border-surface-border` |
-| Primary text | `#F4F7FA` | `text-text-primary` |
-| Secondary text | `#A6B1BD` | `text-text-secondary` |
-| Cobalt action | `#2F9FFF` | `text-xrp-accent` / `bg-xrp-accent` |
-| Bright link/focus | `#6CBBFF` | `text-xrp-accent-bright` |
-| Success | `#33C58E` | `text-success` |
-| Warning | `#F2B84B` | `text-warning` |
-| Danger | `#FF6673` | `text-danger` |
+| Role | Light | Dark | Token |
+| --- | --- | --- | --- |
+| Canvas | `#FFFFFF` | `#090B10` | `--color-surface-primary` |
+| Surface | `#FFFFFF` | `#10141B` | `--color-surface-card` |
+| Raised surface | `#F6F7F8` | `#171C24` | `--color-surface-elevated` |
+| Rule | `#D9D9D9` | `#2B3038` | `--color-surface-border` |
+| Primary text | `#090B10` | `#F4F6F8` | `--color-text-primary` |
+| Secondary text | `#5C626B` | `#ABB2BD` | `--color-text-secondary` |
+| Link and data accent | `#1769AA` | `#86C9FB` | `--color-xrp-accent` |
 
-Use cobalt for links, active states, live indicators, and the primary action. Do not use decorative gradients or crypto-neon purple. Large cobalt backgrounds need deep-ink text for contrast.
+Use blue for links, selected data, focus, and meaningful state. Do not use decorative gradients, purple, neon, or crypto-casino color.
 
 ### Typography
 
-- **Display and editorial headings:** Newsreader, semibold or bold.
-- **Body and interface:** Instrument Sans, regular through semibold.
-- **Prices, addresses, timestamps, and ledger data:** IBM Plex Mono.
-- Body copy is at least 16px with a 1.6–1.7 line height.
-- Long-form reading width is 68–72 characters.
-- Use sentence case. Avoid all-caps headings; compact eyebrow labels may use uppercase tracking.
+- Editorial headings: Libre Baskerville, weight 400. Use sentence case.
+- Interface and body: Public Sans, weights 400 to 700.
+- Data labels and compact metadata: Azeret Mono.
+- H1 and H2 letter spacing: `-0.035em` maximum.
+- Body copy: 16 to 18 pixels with a 1.65 to 1.75 line height.
+- Keep paragraphs around 68 characters per line.
 
-### Shape and depth
+### Geometry
 
-- Radius: 8px for controls, 12px for panels, full pill only for small status labels.
-- Prefer borders and small surface shifts over shadows.
-- Do not float every section in a card. Use dividers and whitespace to group editorial content.
-- Hover states may change border, background, or text color; they must not shift layout.
+- Default corner radius: 4 pixels.
+- Buttons may use 2 to 4 pixels.
+- Avoid shadows on content surfaces. Use a thin border or whitespace.
+- Use an 80rem site container and a 68ch reading container.
+- Minimum interactive target: 44 by 44 pixels.
 
-### Spacing
+## Components
 
-- Base grid: 4px.
-- Control gaps: 8–12px.
-- Panel padding: 20–24px.
-- Content-group spacing: 32–48px.
-- Section spacing: 72–112px desktop, 48–72px mobile.
-- Site container: max 1200px with 20px mobile gutters and 32px desktop gutters.
+### Navigation
 
-## Page patterns
+The navigation is sticky, translucent in the current theme, and separated by one rule. Active and hover states use a quiet surface fill. The theme control is always available on desktop and mobile.
 
-### Homepage
+### Hero
 
-1. Direct category promise and one primary action.
-2. Short answer to “What is XRP?” with a first-party source.
-3. Three intent paths: learn, use, research.
-4. Answer desk with canonical question links.
-5. Latest coverage and live data.
-6. Editorial standards and frequently asked questions.
+The homepage hero is full width and responsive. Day and night artwork share the same composition. Dark mode uses the night artwork with three warm period street lamps and an illuminated entrance. Text stays separate from the image treatment. The hover distortion is image-only, subtle, pointer-dependent, and disabled with reduced motion.
 
-### Topic hub
+### Data surfaces
 
-1. Clear H1 and one-sentence scope.
-2. Curated, canonical paths grouped by search intent.
-3. Descriptive link text and short answer snippets.
-4. CollectionPage and ItemList schema that match visible links.
-5. No thin, duplicate, or noindex pages promoted from the hub.
+Tables and chart shells use square or 4-pixel corners, one-pixel rules, compact labels, clear units, and visible source or methodology links. Tables scroll horizontally when needed instead of compressing columns below readability.
 
-### Article or guide
+### Editorial surfaces
 
-1. Breadcrumbs.
-2. Specific H1 and concise answer-in-brief.
-3. Key facts and jump links when useful.
-4. Source-backed sections with semantic headings.
-5. Reviewed date, editorial note, related canonical guides, and FAQ.
+Every guide and answer follows the same sequence when applicable: direct answer, key facts, explanation, evidence, limitations, sources, and related reading. Callouts use a tinted accent background with a rule, not a floating card.
 
-### Live data or tool
+### Buttons and links
 
-1. Name the data source, timestamp, assumptions, and units.
-2. Make the current answer or output the strongest element.
-3. Keep controls labeled and keyboard accessible.
-4. Explain methodology below the interactive surface.
+- Primary actions use primary text as the fill and the canvas color as text.
+- Secondary actions use a one-pixel border.
+- Inline links are destination-specific and underline on hover.
+- Button labels start with a verb and use sentence case.
 
-## Component rules
+## Theme contract
 
-- Interactive targets are at least 44 by 44px.
-- Every input has a persistent visible label and an associated error message.
-- Use Lucide icons; icons supplement text and never replace an accessible label.
-- Native disclosure elements are preferred for crawlable FAQs.
-- All keyboard focus uses the bright cobalt 3px focus ring.
-- External sources are labeled as sources; sponsored and affiliate relationships must be disclosed.
-- Respect `prefers-reduced-motion` and never make content depend on animation.
+All colors must use semantic tokens. Components may not hardcode a light or dark page background. The selected theme is stored locally, defaults to the operating-system preference, and is applied before first paint. Both themes must meet WCAG AA contrast.
 
-## Prohibited patterns
+## Forbidden patterns
 
-- Emoji used as interface icons.
-- Purple/pink or multicolor decorative gradients.
-- Generic “crypto dashboard” styling, glassmorphism, or speculative hype copy.
-- Large grids of visually identical cards.
-- Low-contrast metadata or body text.
-- Answer text hidden behind client-only accordions or animation.
-- Vague links such as “click here” when a descriptive label is available.
-- Unsourced market, legal, adoption, or partnership claims.
+- Page-specific visual systems
+- Glassmorphism, purple gradients, neon glows, or casino styling
+- Large rounded card walls
+- Decorative shadows on ordinary content
+- Text placed over visually busy areas without reliable contrast
+- Hover effects that move layout
+- Hidden focus states
+- Conversion-first newsletter, donation, affiliate, or sales patterns
 
-## Delivery checklist
+## Release checks
 
-- [ ] H1, title, description, canonical, and visible answer agree on intent.
-- [ ] Source and review information is visible where relevant.
-- [ ] Schema matches the visible page content.
-- [ ] 375px, 768px, 1024px, and 1440px layouts have no horizontal overflow.
-- [ ] Keyboard order, focus, dialog behavior, and native disclosures work.
-- [ ] Text contrast meets WCAG AA.
-- [ ] Motion is optional and reduced-motion content remains visible.
-- [ ] No duplicate/noindex page is linked as a primary canonical guide.
+- Test 375, 768, 1024, and 1440 pixel widths.
+- Test light and dark mode.
+- Verify no horizontal page overflow.
+- Verify every page has one visible H1.
+- Verify images load and retain an intentional crop.
+- Verify keyboard focus and 44-pixel controls.
+- Verify motion respects `prefers-reduced-motion`.
+- Verify both text and non-text contrast.

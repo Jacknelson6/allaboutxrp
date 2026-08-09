@@ -61,7 +61,6 @@ const nextConfig: NextConfig = {
       { source: '/blog', destination: '/news', permanent: true },
       { source: '/rlusd', destination: '/learn/rlusd', permanent: true },
       { source: '/learn/what-is-xrp-ledger', destination: '/learn/xrp-ledger-explained', permanent: true },
-      { source: '/subscribe', destination: '/digest', permanent: true },
     ];
   },
 };

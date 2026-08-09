@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import DeferredHomeContent from "./DeferredHomeContent";
+import HeroArtwork from "./HeroArtwork";
 
 const pathways = [
   { code: "LEARN", href: "/learn/what-is-xrp", title: "Understand XRP", text: "Asset, ledger, supply, and real use cases." },
@@ -23,29 +23,19 @@ export default function HomeFeed() {
   return (
     <div className="ascii-home premium-home bg-surface-primary">
       <section className="premium-hero" aria-labelledby="home-hero-heading">
-        <div className="site-container premium-hero-frame">
-          <div className="premium-hero-canvas">
-            <Image
-              src="/images/xrp-ascii-bank-hero.webp"
-              alt=""
-              fill
-              priority
-              unoptimized
-              sizes="(max-width: 768px) 100vw, 1280px"
-              className="premium-hero-art"
-            />
+        <div className="premium-hero-canvas">
+            <HeroArtwork />
             <div className="premium-hero-copy">
               <p className="premium-eyebrow">AllAboutXRP / Independent reference</p>
               <h1 id="home-hero-heading">The independent guide to XRP.</h1>
-              <p className="premium-answer">XRP is the native digital asset of the XRP Ledger, an open-source network designed to settle value in seconds. AllAboutXRP explains how it works, what Ripple’s role is, and what the evidence actually shows through primary sources, live data, and transparent methodology.</p>
               <div className="premium-hero-actions">
                 <Link href="/learn/what-is-xrp" className="premium-primary-action">Read the XRP guide <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
                 <Link href="/learn" className="premium-text-action">Explore every guide <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
             <p className="premium-art-caption" aria-hidden="true">OPEN LEDGER / OPEN RECORD / INDEPENDENT ANALYSIS</p>
-          </div>
-
+        </div>
+        <div className="site-container">
           <dl className="ascii-proof-grid">
             <div><dt>Source policy</dt><dd>Primary records first</dd></div>
             <div><dt>Ownership</dt><dd>Independent of Ripple</dd></div>

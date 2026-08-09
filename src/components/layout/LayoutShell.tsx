@@ -26,7 +26,6 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
     pathname === "/privacy-policy" ||
     pathname === "/terms" ||
     pathname.startsWith("/best") ||
-    pathname.startsWith("/digest") ||
     pathname.startsWith("/learn") ||
     pathname.startsWith("/tools");
 

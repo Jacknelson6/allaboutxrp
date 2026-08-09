@@ -3,10 +3,7 @@ import { getAllRecaps } from "@/lib/utils/news";
 import fs from "fs";
 import path from "path";
 import { LEARN_HUBS } from "@/data/learn-hubs";
-import {
-  getPublishedDigestEntries,
-  getPublishedNewsEntries,
-} from "@/lib/seo/published-content";
+import { getPublishedNewsEntries } from "@/lib/seo/published-content";
 import {
   CANONICAL_ALIAS_PATHS,
   NOINDEX_LEARN_SLUGS,
@@ -117,7 +114,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/live-chart",
     "/news",
     "/holders",
-    "/digest",
     "/how-to-start",
 
     // Learn hub
@@ -148,18 +144,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const learnSlugs = getAllLearnSlugs();
   const answerSlugs = getAllAnswerSlugs();
   const recaps = getAllRecaps();
-  const [publishedNews, publishedDigests] = await Promise.all([
-    getPublishedNewsEntries(),
-    getPublishedDigestEntries(),
-  ]);
+  const publishedNews = await getPublishedNewsEntries();
   const latestRecap = getLatestDate(recaps.map((recap) => `${recap.date}T12:00:00Z`));
-  const latestDigest = getLatestDate(publishedDigests.map((digest) => digest.publishedAt));
   const latestNewsHub = getLatestDate([
     ...recaps.map((recap) => `${recap.date}T12:00:00Z`),
     ...publishedNews.map((article) => article.publishedAt),
   ]);
   const contentHubDates = new Map<string, Date | undefined>([
-    ["/digest", latestDigest],
     ["/news", latestNewsHub],
   ]);
 
@@ -215,12 +206,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...publishedNews.map((article) => ({
       url: `${BASE_URL}/news/${article.slug}`,
       lastModified: new Date(article.publishedAt),
-    })),
-
-    // Published weekly research has a unique canonical and belongs in search.
-    ...publishedDigests.map((digest) => ({
-      url: `${BASE_URL}/digest/${digest.slug}`,
-      lastModified: new Date(digest.publishedAt),
     })),
 
     // FAQ individual pages excluded — thin content, FAQ hub is canonical
