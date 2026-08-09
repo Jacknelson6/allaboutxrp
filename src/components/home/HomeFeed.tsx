@@ -30,6 +30,7 @@ export default function HomeFeed() {
               alt=""
               fill
               priority
+              unoptimized
               sizes="(max-width: 768px) 100vw, 1280px"
               className="premium-hero-art"
             />
