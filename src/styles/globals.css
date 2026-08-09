@@ -498,13 +498,25 @@ h1 { font-weight: 780; }
   text-transform: uppercase;
 }
 
-.premium-hero-copy h1 {
+.premium-display-headline {
   max-width: 11ch;
   margin-top: 1.2rem;
   color: #1c1b18;
+  font-family: var(--font-editorial);
   font-size: clamp(3.6rem, 6.5vw, 6.25rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
   line-height: 0.88;
   text-wrap: balance;
+}
+
+.premium-hero-deck {
+  max-width: 48ch;
+  margin-top: 1.5rem;
+  color: #514d45;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .premium-answer {
@@ -810,7 +822,7 @@ h1 { font-weight: 780; }
     padding: 3rem 1.5rem 0;
   }
 
-  .premium-hero-copy h1 {
+  .premium-display-headline {
     max-width: 11ch;
     font-size: clamp(3rem, 13vw, 3.65rem);
   }
@@ -1063,8 +1075,6 @@ h6 {
 }
 
 .hero-artwork {
-  --hero-x: 0;
-  --hero-y: 0;
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -1073,18 +1083,15 @@ h6 {
 .hero-image {
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.012) translate(calc(var(--hero-x) * -3px), calc(var(--hero-y) * -2px));
-  transition: opacity 260ms ease, transform 500ms cubic-bezier(.2,.8,.2,1), filter 500ms ease;
-  will-change: transform;
+  transition: opacity 260ms ease;
 }
 
-.hero-image-night,
-.hero-image-glitch-night {
+.hero-image-night {
   opacity: 0;
 }
 
 html[data-theme="dark"] .hero-image-day,
-html[data-theme="dark"] .hero-image-glitch-day {
+html[data-theme="dark"] .hero-dither-day {
   opacity: 0;
 }
 
@@ -1092,15 +1099,25 @@ html[data-theme="dark"] .hero-image-night {
   opacity: 1;
 }
 
-.hero-image-glitch {
-  opacity: 0;
-  clip-path: polygon(0 43%, 100% 39%, 100% 61%, 0 64%);
-  filter: saturate(1.15) contrast(1.04);
-  transform: scale(1.02) translate(calc(var(--hero-x) * 8px), calc(var(--hero-y) * 5px));
+.hero-dither {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.14;
+  image-rendering: pixelated;
   mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 220ms ease;
 }
 
-html[data-theme="dark"] .hero-image-glitch {
+.hero-dither.hero-dither-night {
+  opacity: 0;
+}
+
+html[data-theme="dark"] .hero-dither-night {
+  opacity: 0.16;
   mix-blend-mode: screen;
 }
 
@@ -1127,15 +1144,24 @@ html[data-theme="dark"] .hero-image-glitch {
 
 .premium-eyebrow {
   color: var(--color-hero-muted);
+  font-size: clamp(0.82rem, 0.9vw, 0.92rem);
+  letter-spacing: 0.1em;
+  line-height: 1.35;
 }
 
-.premium-hero-copy h1 {
+.premium-display-headline {
   max-width: 12ch;
   margin-top: 1.25rem;
   color: var(--color-hero-copy);
-  font-size: clamp(3.5rem, 6.2vw, 6.75rem);
-  line-height: 0.98;
+  font-size: clamp(4rem, 7vw, 6rem);
+  letter-spacing: -0.035em;
+  line-height: 0.94;
   text-shadow: 0 1px 16px var(--hero-copy-scrim);
+}
+
+.premium-hero-deck {
+  color: var(--color-hero-copy);
+  text-shadow: 0 1px 12px var(--hero-copy-scrim);
 }
 
 .premium-primary-action {
@@ -1172,20 +1198,16 @@ html[data-theme="dark"] .hero-image-glitch {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .hero-artwork:hover .hero-image:not(.hero-image-glitch) {
-    filter: saturate(1.035) contrast(1.015);
+  .hero-artwork:hover .hero-dither-day {
+    opacity: 0.88;
   }
 
-  .hero-artwork:hover .hero-image-glitch-day {
-    opacity: 0.12;
-  }
-
-  html[data-theme="dark"] .hero-artwork:hover .hero-image-glitch-day {
+  html[data-theme="dark"] .hero-artwork:hover .hero-dither-day {
     opacity: 0;
   }
 
-  html[data-theme="dark"] .hero-artwork:hover .hero-image-glitch-night {
-    opacity: 0.14;
+  html[data-theme="dark"] .hero-artwork:hover .hero-dither-night {
+    opacity: 0.9;
   }
 }
 
@@ -1203,9 +1225,17 @@ html[data-theme="dark"] .hero-image-glitch {
     padding: 4.5rem 0 0;
   }
 
-  .premium-hero-copy h1 {
+  .premium-display-headline {
     max-width: 10ch;
-    font-size: clamp(2.9rem, 13vw, 4rem);
+    font-size: clamp(3.25rem, 15vw, 4.5rem);
+    line-height: 0.96;
+  }
+
+  .premium-hero-deck {
+    max-width: 31ch;
+    margin-top: 1.25rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
   }
 
   .premium-hero-copy::before {
@@ -1217,12 +1247,7 @@ html[data-theme="dark"] .hero-image-glitch {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-image,
-  .hero-image-glitch {
-    transform: none !important;
-  }
-
-  .hero-image-glitch {
-    display: none;
+  .hero-dither {
+    transition: none;
   }
 }

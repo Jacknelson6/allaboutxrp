@@ -26,8 +26,9 @@ export default function HomeFeed() {
         <div className="premium-hero-canvas">
             <HeroArtwork />
             <div className="premium-hero-copy">
-              <p className="premium-eyebrow">AllAboutXRP / Independent reference</p>
-              <h1 id="home-hero-heading">The independent guide to XRP.</h1>
+              <h1 id="home-hero-heading" className="premium-eyebrow">XRP News &amp; Analysis</h1>
+              <p className="premium-display-headline">Follow the Money.</p>
+              <p className="premium-hero-deck">News, markets, policy, and intelligence shaping XRP and the future of global finance.</p>
               <div className="premium-hero-actions">
                 <Link href="/learn/what-is-xrp" className="premium-primary-action">Read the XRP guide <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
                 <Link href="/learn" className="premium-text-action">Explore every guide <span aria-hidden="true">↗</span></Link>
