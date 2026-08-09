@@ -89,8 +89,15 @@ function getLatestDate(values: string[]): Date | undefined {
 
 const reviewedStaticPaths = new Set([
   "",
+  "/holders",
+  "/how-to-start",
+  "/live-chart",
   "/learn",
   "/answers",
+  "/tools",
+  "/tools/price-alerts",
+  "/tools/xrp-fee-calculator",
+  "/tools/xrp-profit-calculator",
   ...LEARN_HUBS.map((hub) => `/learn/${hub.slug}`),
 ]);
 
