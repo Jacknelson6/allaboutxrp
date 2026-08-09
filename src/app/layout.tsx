@@ -9,7 +9,7 @@ import LayoutShell from "@/components/layout/LayoutShell";
 import { XRPPriceProvider } from "@/contexts/XRPPriceContext";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-2BWKVQT4L5";
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
 const publicSans = Public_Sans({

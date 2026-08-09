@@ -258,7 +258,7 @@ export default function NewsFeed() {
     return (
       <div className="py-8 space-y-4">
         {[...Array(5)].map((_, i) => (
-          <div key={i} className="h-24 rounded-2xl bg-[#16181C] animate-pulse" />
+          <div key={i} className="h-24 border-b border-surface-border bg-white/[0.02] animate-pulse" />
         ))}
       </div>
     );
@@ -273,15 +273,17 @@ export default function NewsFeed() {
     ];
 
     return (
-      <section className="px-4 py-8" aria-labelledby="essential-guides-heading">
-        <h2 id="essential-guides-heading" className="text-lg font-bold text-text-primary">Essential XRP guides</h2>
+      <section className="py-5" aria-labelledby="essential-guides-heading">
+        <p className="font-mono text-[11px] font-semibold text-xrp-accent-bright">WIRE STATUS // AWAITING NEXT REPORT</p>
+        <h2 id="essential-guides-heading" className="mt-3 text-xl font-bold text-text-primary">Essential XRP guides</h2>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-text-secondary">Start with clear answers, primary sources, and practical next steps.</p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          {essentialGuides.map((guide) => (
-            <a key={guide.href} href={guide.href} className="rounded-2xl border border-white/[0.08] bg-[#16181C] p-5 transition-colors hover:border-xrp-accent/30">
+        <div className="mt-5 border-t border-surface-border">
+          {essentialGuides.map((guide, index) => (
+            <a key={guide.href} href={guide.href} className="grid min-h-24 grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-4 border-b border-surface-border py-4 transition-colors hover:bg-xrp-accent/[0.045] sm:grid-cols-[3rem_minmax(10rem,0.4fr)_minmax(0,1fr)_auto]">
+              <span className="font-mono text-[11px] text-text-secondary">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="font-semibold text-text-primary">{guide.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-text-secondary">{guide.description}</p>
-              <span className="mt-4 inline-block text-sm font-medium text-xrp-accent">Read guide →</span>
+              <p className="hidden text-sm leading-6 text-text-secondary sm:block">{guide.description}</p>
+              <span className="font-mono text-xs font-medium text-xrp-accent">OPEN ↗</span>
             </a>
           ))}
         </div>
