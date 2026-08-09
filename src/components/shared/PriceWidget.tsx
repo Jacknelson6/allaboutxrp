@@ -48,7 +48,7 @@ export default function PriceWidget({ compact = false }: PriceWidgetProps) {
   return (
     <Link
       href="/live-chart"
-      className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-200"
+      className="flex items-center gap-3 rounded-lg border border-black/[0.08] bg-black/[0.025] px-4 py-2 text-sm transition-all duration-200 hover:border-black/[0.14] hover:bg-black/[0.045]"
       aria-label={`XRP price $${fmtPrice(data.price)}, view live chart`}
     >
       <div className="flex items-center gap-1.5">

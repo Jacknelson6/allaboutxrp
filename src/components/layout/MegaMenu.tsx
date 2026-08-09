@@ -97,12 +97,12 @@ export default function MegaMenu() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const navLink = (href: string) =>
     `flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${
-      isActive(href) ? "bg-white/[0.055] text-text-primary" : "text-text-secondary hover:bg-white/[0.035] hover:text-text-primary"
+      isActive(href) ? "bg-black/[0.055] text-text-primary" : "text-text-secondary hover:bg-black/[0.035] hover:text-text-primary"
     }`;
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-surface-border bg-[#050709]/95 backdrop-blur-md" aria-label="Main navigation">
+      <nav className="sticky top-0 z-50 border-b border-surface-border bg-[#fbfaf7]/95 backdrop-blur-md" aria-label="Main navigation">
         <div className="site-container flex min-h-[4.25rem] items-center justify-between gap-4">
           <Link href="/" className="flex min-h-11 shrink-0 items-center" aria-label="AllAboutXRP home">
             <Image
@@ -112,7 +112,7 @@ export default function MegaMenu() {
               height={138}
               priority
               unoptimized
-              className="h-auto w-[166px] sm:w-[184px]"
+              className="site-logo h-auto w-[166px] sm:w-[184px]"
             />
           </Link>
 
@@ -123,8 +123,8 @@ export default function MegaMenu() {
                 onClick={() => setLearnOpen((value) => !value)}
                 className={`flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-semibold transition-colors ${
                   learnOpen || pathname.startsWith("/learn")
-                    ? "bg-white/[0.055] text-text-primary"
-                    : "text-text-secondary hover:bg-white/[0.035] hover:text-text-primary"
+                    ? "bg-black/[0.055] text-text-primary"
+                    : "text-text-secondary hover:bg-black/[0.035] hover:text-text-primary"
                 }`}
                 aria-expanded={learnOpen}
                 aria-controls="desktop-learn-menu"
@@ -149,7 +149,7 @@ export default function MegaMenu() {
                         </div>
                         <div className="space-y-1">
                           {group.items.map((item) => (
-                            <Link key={item.href} href={item.href} className="block min-h-14 rounded-lg px-3 py-2 transition-colors hover:bg-white/[0.04]">
+                            <Link key={item.href} href={item.href} className="block min-h-14 rounded-lg px-3 py-2 transition-colors hover:bg-black/[0.04]">
                               <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
                               <span className="mt-0.5 block text-xs text-text-secondary">{item.desc}</span>
                             </Link>
@@ -184,7 +184,7 @@ export default function MegaMenu() {
             <button
               type="button"
               onClick={() => setMobileOpen((value) => !value)}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-surface-border text-text-primary transition-colors hover:bg-white/[0.04]"
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-surface-border text-text-primary transition-colors hover:bg-black/[0.04]"
               aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-navigation"
@@ -211,7 +211,7 @@ export default function MegaMenu() {
                 {mobileLearnOpen ? (
                   <div className="grid gap-1 pb-3 sm:grid-cols-2">
                     {learnGroups.flatMap((group) => group.items).map((item) => (
-                      <Link key={item.href} href={item.href} className="flex min-h-12 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-white/[0.04] hover:text-text-primary">
+                      <Link key={item.href} href={item.href} className="flex min-h-12 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-black/[0.04] hover:text-text-primary">
                         {item.label}
                       </Link>
                     ))}

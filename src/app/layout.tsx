@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Azeret_Mono, Public_Sans } from "next/font/google";
+import { Azeret_Mono, Cormorant_Garamond, Public_Sans } from "next/font/google";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
@@ -21,6 +21,13 @@ const publicSans = Public_Sans({
 const azeretMono = Azeret_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-editorial",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -91,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${publicSans.variable} ${azeretMono.variable}`}>
+    <html lang="en" className={`${publicSans.variable} ${azeretMono.variable} ${cormorantGaramond.variable}`}>
       <body className="min-h-screen antialiased">
         {GA_ID ? <GoogleAnalytics measurementId={GA_ID} /> : null}
         <a href="#main-content" className="skip-to-content">

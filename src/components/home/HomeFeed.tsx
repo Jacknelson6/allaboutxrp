@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import AsciiLedger from "./AsciiLedger";
 import DeferredHomeContent from "./DeferredHomeContent";
 
 const pathways = [
@@ -21,28 +21,31 @@ const answerLinks = [
 
 export default function HomeFeed() {
   return (
-    <div className="ascii-home bg-surface-primary">
-      <section className="ascii-hero border-b border-surface-border">
-        <div className="site-container py-10 sm:py-14 lg:py-20">
-          <div className="ascii-masthead" aria-hidden="true">
-            <span>ALLABOUTXRP // INDEPENDENT REFERENCE</span>
-            <span>SOURCES / DATA / CONTEXT</span>
-          </div>
-
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(31rem,1.12fr)] lg:items-end lg:gap-14">
-            <div>
-              <p className="ascii-signal-label"><span aria-hidden="true">[●]</span> Evidence before opinion</p>
-              <h1 className="mt-5 max-w-[11ch] text-[clamp(3.25rem,7.4vw,5.8rem)] leading-[0.95] tracking-[-0.035em] text-text-primary">XRP, without the noise.</h1>
-              <p className="mt-7 max-w-[60ch] text-lg leading-8 text-text-secondary sm:text-xl">Plain-English answers, transparent data, and source-led reporting for anyone trying to understand XRP and the XRP Ledger.</p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/learn/what-is-xrp" className="btn-primary px-6">Start with XRP <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-                <Link href="/learn" className="ascii-link-button">Open the guide index <span aria-hidden="true">↗</span></Link>
+    <div className="ascii-home premium-home bg-surface-primary">
+      <section className="premium-hero" aria-labelledby="home-hero-heading">
+        <div className="site-container premium-hero-frame">
+          <div className="premium-hero-canvas">
+            <Image
+              src="/images/xrp-ascii-bank-hero.webp"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 1280px"
+              className="premium-hero-art"
+            />
+            <div className="premium-hero-copy">
+              <p className="premium-eyebrow">AllAboutXRP / Independent reference</p>
+              <h1 id="home-hero-heading">The independent guide to XRP.</h1>
+              <p className="premium-answer">XRP is the native digital asset of the XRP Ledger, an open-source network designed to settle value in seconds. AllAboutXRP explains how it works, what Ripple’s role is, and what the evidence actually shows through primary sources, live data, and transparent methodology.</p>
+              <div className="premium-hero-actions">
+                <Link href="/learn/what-is-xrp" className="premium-primary-action">Read the XRP guide <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <Link href="/learn" className="premium-text-action">Explore every guide <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
-            <AsciiLedger />
+            <p className="premium-art-caption" aria-hidden="true">OPEN LEDGER / OPEN RECORD / INDEPENDENT ANALYSIS</p>
           </div>
 
-          <dl className="ascii-proof-grid mt-12 lg:mt-16">
+          <dl className="ascii-proof-grid">
             <div><dt>Source policy</dt><dd>Primary records first</dd></div>
             <div><dt>Ownership</dt><dd>Independent of Ripple</dd></div>
             <div><dt>Review state</dt><dd><span className="ascii-status" aria-hidden="true" />Dates shown in context</dd></div>
@@ -51,7 +54,7 @@ export default function HomeFeed() {
         </div>
       </section>
 
-      <section className="border-b border-surface-border" aria-labelledby="pathways-heading">
+      <section className="premium-section" aria-labelledby="pathways-heading">
         <div className="site-container py-14 sm:py-20">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div><p className="ascii-section-label">SELECT A RESEARCH PATH</p><h2 id="pathways-heading" className="mt-3 max-w-2xl text-3xl text-text-primary sm:text-5xl">What are you trying to find out?</h2></div>
@@ -69,7 +72,7 @@ export default function HomeFeed() {
         </div>
       </section>
 
-      <section className="ascii-answer-index border-b border-surface-border" aria-labelledby="answer-index-heading">
+      <section className="ascii-answer-index premium-section" aria-labelledby="answer-index-heading">
         <div className="site-container grid gap-10 py-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20 lg:py-20">
           <div>
             <p className="ascii-section-label">ANSWER INDEX / CORE RECORDS</p>

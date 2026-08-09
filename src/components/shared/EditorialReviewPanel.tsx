@@ -8,7 +8,7 @@ export default function EditorialReviewPanel({ pathname }: { pathname: string })
   const profile = getEditorialProfile(pathname);
 
   return (
-    <aside className="border-t border-surface-border bg-[#070b10]" aria-labelledby="editorial-review-heading" data-editorial-review="true">
+    <aside className="border-t border-surface-border bg-[#fbfaf7]" aria-labelledby="editorial-review-heading" data-editorial-review="true">
       <div className="reading-container py-10 sm:py-12">
         <div className="rounded-2xl border border-surface-border bg-surface-card p-6 shadow-[0_18px_60px_rgba(0,0,0,0.24)] sm:p-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -43,7 +43,7 @@ export default function EditorialReviewPanel({ pathname }: { pathname: string })
               <ul className="mt-3 space-y-3">
                 {profile.sources.map((source) => (
                   <li key={source.href}>
-                    <a href={source.href} rel="noopener noreferrer" data-source-link="true" className="group block rounded-xl border border-surface-border bg-black/20 p-3 transition-colors hover:border-xrp-accent/30">
+                    <a href={source.href} rel="noopener noreferrer" data-source-link="true" className="group block rounded-xl border border-surface-border bg-black/[0.025] p-3 transition-colors hover:border-xrp-accent/30">
                       <span className="flex items-center gap-2 text-sm font-semibold text-xrp-accent-bright">
                         {source.label}
                         <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
