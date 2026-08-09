@@ -23,7 +23,6 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
     pathname === "/learn/xrp-price-prediction" ||
     pathname === "/editorial" ||
     pathname === "/get-started" ||
-    pathname === "/pricing" ||
     pathname === "/privacy-policy" ||
     pathname === "/terms" ||
     pathname.startsWith("/best") ||

@@ -12,6 +12,7 @@
     "lint": "eslint",
     "seo:audit": "node scripts/seo-health.mjs",
     "seo:indexnow": "node scripts/ping-indexnow.mjs",
+    "seo:redirects": "node scripts/redirect-health.mjs",
     "seo:sitemap": "node scripts/sitemap-health.mjs",
     "news:validate": "node scripts/validate-news.mjs"
   },
@@ -39,7 +40,6 @@
     "remark-html": "^16.0.1",
     "resend": "^6.9.2",
     "sharp": "^0.34.5",
-    "stripe": "^20.3.1",
     "three": "^0.182.0"
   },
   "devDependencies": {

@@ -51,5 +51,8 @@ jobs:
       - name: Validate production sitemap
         run: npm run seo:sitemap
 
+      - name: Validate production redirects
+        run: npm run seo:redirects
+
       - name: Notify IndexNow of indexable URLs
         run: npm run seo:indexnow

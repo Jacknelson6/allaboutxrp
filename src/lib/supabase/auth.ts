@@ -41,21 +41,3 @@ export async function getUser() {
   } = await supabase.auth.getUser();
   return user;
 }
-
-const ADMIN_EMAILS = ["jack@nativz.io", "cole@nativz.io", "trevor@nativz.io"];
-
-export async function checkProSubscription(email: string): Promise<boolean> {
-  if (ADMIN_EMAILS.includes(email.toLowerCase())) return true;
-
-  const supabase = await createSupabaseServerClient();
-  const { data } = await supabase
-    .from("pro_subscriptions")
-    .select("status, current_period_end")
-    .eq("email", email)
-    .eq("status", "active")
-    .single();
-
-  if (!data) return false;
-  if (data.current_period_end && new Date(data.current_period_end) < new Date()) return false;
-  return true;
-}

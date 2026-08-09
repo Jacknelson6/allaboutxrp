@@ -57,7 +57,6 @@ export const NOINDEX_PATHS = new Set([
   "/privacy-policy",
   "/terms",
   "/extension",
-  "/pricing",
 ]);
 
 /**
