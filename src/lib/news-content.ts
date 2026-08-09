@@ -44,7 +44,7 @@ export interface NewsArticle {
   sections: NewsSection[];
   whatToWatch: string[];
   sources: NewsSource[];
-  relatedLinks: { href: string; label: string }[];
+  relatedLinks: { href: string; label: string; topic?: string; description?: string }[];
 }
 
 function isArticle(value: unknown): value is NewsArticle {

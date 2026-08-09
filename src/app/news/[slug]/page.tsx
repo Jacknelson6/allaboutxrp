@@ -79,7 +79,7 @@ export default async function ArticlePage({ params }: PageProps) {
     <main id="main-content" className="min-h-screen bg-surface-primary">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <article className="reading-container py-12 sm:py-16">
+      <article className="news-reading-container py-12 sm:py-16">
         <Link href="/news" className="text-link">← All XRP news</Link>
         <header className="mt-7 border-b border-surface-border pb-8">
           <p className="editorial-kicker">{article.category}</p>
@@ -94,8 +94,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {article.image ? (
           <figure className="mt-8 overflow-hidden rounded-2xl border border-surface-border bg-surface-card shadow-2xl shadow-black/20">
-            <Image src={article.image} alt={article.imageAlt || article.title} width={imageWidth} height={imageHeight} priority sizes="(min-width: 1024px) 896px, calc(100vw - 2rem)" className="h-auto w-full" />
-            <figcaption className="border-t border-surface-border px-4 py-3 text-xs leading-5 text-text-secondary">Original AllAboutXRP editorial illustration.</figcaption>
+            <Image src={article.image} alt={article.imageAlt || article.title} width={imageWidth} height={imageHeight} priority unoptimized sizes="(min-width: 1024px) 960px, calc(100vw - 2rem)" className="h-auto w-full" />
           </figure>
         ) : null}
 
@@ -104,7 +103,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.keyTakeaways.map((item) => <li key={item} className="flex gap-3"><span className="text-xrp-accent">•</span><span>{item}</span></li>)}</ul>
         </aside>
 
-        <div className="prose prose-invert mt-10 max-w-none prose-headings:text-text-primary prose-p:leading-8 prose-p:text-text-secondary prose-strong:text-text-primary">
+        <div className="news-article-prose prose prose-invert mt-10 prose-headings:text-text-primary prose-p:leading-8 prose-p:text-text-secondary prose-strong:text-text-primary">
           {article.sections.map((section) => (
             <section key={section.heading}>
               <h2>{section.heading}</h2>
@@ -125,8 +124,27 @@ export default async function ArticlePage({ params }: PageProps) {
         <section className="mt-10 rounded-2xl border border-surface-border bg-surface-card p-6" aria-labelledby="watch-heading"><div className="flex items-center gap-2"><Eye className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="watch-heading" className="text-xl font-bold text-text-primary">What to watch next</h2></div><ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.whatToWatch.map((item) => <li key={item}>• {item}</li>)}</ul></section>
 
         <section className="mt-10 border-t border-surface-border pt-8" aria-labelledby="sources-heading"><h2 id="sources-heading" className="text-2xl font-bold text-text-primary">Sources and verification</h2><p className="mt-3 text-sm leading-7 text-text-secondary">We prioritize primary records and label supporting coverage. Dates reflect each source’s publication record.</p><ol className="mt-5 space-y-3">{article.sources.map((source, index) => <li key={source.url} className="flex flex-wrap items-center gap-x-2 gap-y-1"><span className="text-xs font-semibold text-text-secondary">[{index + 1}]</span><a href={source.url} rel="noopener noreferrer" className="text-link" data-source-link="true">{source.name}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /></a><span className="rounded-full border border-surface-border px-2 py-0.5 text-[11px] uppercase text-text-secondary">{source.type}</span>{source.publishedAt ? <time dateTime={source.publishedAt} className="text-xs text-text-secondary">{formatSourceDate(source.publishedAt)}</time> : <span className="text-xs text-text-secondary">Undated reference</span>}</li>)}</ol></section>
-        <nav className="mt-10 border-t border-surface-border pt-8" aria-label="Related XRP guides"><h2 className="text-xl font-bold text-text-primary">Build the context</h2><div className="mt-4 flex flex-wrap gap-3">{article.relatedLinks.map((link) => <Link key={link.href} href={link.href} className="rounded-full border border-surface-border bg-surface-card px-4 py-2 text-sm text-text-primary hover:border-xrp-accent/40">{link.label}</Link>)}</div></nav>
-        <aside className="mt-10 text-xs leading-6 text-text-secondary">This report was created with a Codex-assisted research workflow and published under the <Link href="/editorial" className="text-link">AllAboutXRP editorial standards</Link>. Automation does not replace source verification. Corrections are logged through our <Link href="/corrections" className="text-link">corrections policy</Link>.</aside>
+        <nav className="related-topic-map mt-12 border-t border-surface-border pt-9" aria-labelledby="related-topics-heading">
+          <div className="max-w-2xl">
+            <p className="editorial-kicker">Related coverage</p>
+            <h2 id="related-topics-heading" className="mt-2 text-2xl font-bold text-text-primary">Continue the research</h2>
+            <p className="mt-3 text-sm leading-7 text-text-secondary">Follow the legal, regulatory, and risk concepts connected to this report.</p>
+          </div>
+          <ul className="mt-6 grid gap-x-8 md:grid-cols-2">
+            {article.relatedLinks.map((link) => (
+              <li key={link.href} className="border-t border-surface-border">
+                <Link href={link.href} className="group grid min-h-32 grid-cols-[1fr_auto] gap-4 py-5">
+                  <span>
+                    {link.topic ? <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-xrp-accent-bright">{link.topic}</span> : null}
+                    <span className="mt-1.5 block text-lg font-bold leading-6 text-text-primary group-hover:text-xrp-accent-bright">{link.label}</span>
+                    {link.description ? <span className="mt-2 block text-sm leading-6 text-text-secondary">{link.description}</span> : null}
+                  </span>
+                  <span className="pt-5 text-text-secondary transition-transform group-hover:translate-x-1" aria-hidden="true">↗</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </article>
     </main>
   );

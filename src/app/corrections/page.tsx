@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CorrectionsPage() {
   return (
-    <main id="main-content" className="min-h-screen bg-black">
+    <main id="main-content" className="min-h-screen bg-surface-primary">
       <article className="reading-container py-16 sm:py-24">
         <header className="border-b border-surface-border pb-10">
           <p className="editorial-kicker">Trust and accountability</p>
@@ -24,8 +24,49 @@ export default function CorrectionsPage() {
         <section className="prose-custom mt-12">
           <h2>Report an issue</h2>
           <p>
-            Email <a href="mailto:team@allaboutxrp.com">team@allaboutxrp.com</a> with the page URL, the statement you believe is incorrect, and a primary source when available. We review factual errors, broken sources, outdated legal or tax information, calculation problems, and missing disclosures.
+            Send the exact page and disputed claim. A primary source is helpful when one is available. We review factual errors, broken sources, outdated legal or tax information, calculation problems, and missing disclosures.
           </p>
+
+          <form
+            name="corrections"
+            method="POST"
+            action="/corrections/thanks"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            className="not-prose mt-8 border border-surface-border bg-surface-card p-6 sm:p-8"
+          >
+            <input type="hidden" name="form-name" value="corrections" />
+            <p className="hidden"><label>Do not fill out this field<input name="bot-field" /></label></p>
+            <div className="grid gap-6">
+              <label className="grid gap-2 text-sm font-semibold text-text-primary">
+                Page URL
+                <input className="min-h-12 border border-surface-border bg-surface-primary px-4 py-3 font-normal text-text-primary" type="url" name="page-url" required placeholder="https://allaboutxrp.com/..." />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-text-primary">
+                Statement that may be incorrect
+                <textarea className="min-h-32 border border-surface-border bg-surface-primary px-4 py-3 font-normal text-text-primary" name="disputed-claim" required placeholder="Quote or describe the exact claim." />
+              </label>
+              <label className="grid gap-2 text-sm font-semibold text-text-primary">
+                Proposed correction
+                <textarea className="min-h-32 border border-surface-border bg-surface-primary px-4 py-3 font-normal text-text-primary" name="proposed-correction" required placeholder="Explain what should change and why." />
+              </label>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="grid gap-2 text-sm font-semibold text-text-primary">
+                  Supporting source URL <span className="font-normal text-text-secondary">(optional)</span>
+                  <input className="min-h-12 border border-surface-border bg-surface-primary px-4 py-3 font-normal text-text-primary" type="url" name="source-url" placeholder="https://..." />
+                </label>
+                <label className="grid gap-2 text-sm font-semibold text-text-primary">
+                  Your email <span className="font-normal text-text-secondary">(optional)</span>
+                  <input className="min-h-12 border border-surface-border bg-surface-primary px-4 py-3 font-normal text-text-primary" type="email" name="email" autoComplete="email" placeholder="name@example.com" />
+                </label>
+              </div>
+              <div>
+                <button type="submit" className="btn-primary">Submit correction</button>
+              </div>
+            </div>
+          </form>
+
+          <p className="text-sm text-text-secondary">If the form does not work, email <a href="mailto:team@allaboutxrp.com">team@allaboutxrp.com</a> with the same information.</p>
 
           <h2>What gets logged</h2>
           <p>
@@ -41,7 +82,7 @@ export default function CorrectionsPage() {
           </ol>
 
           <h2>Public correction log</h2>
-          <div className="not-prose mt-5 rounded-xl border border-surface-border bg-surface-card p-5">
+          <div className="not-prose mt-5 border border-surface-border bg-surface-card p-5">
             <p className="text-sm font-semibold text-text-primary">Log launched August 8, 2026</p>
             <p className="mt-2 text-sm leading-6 text-text-secondary">No material corrections have been recorded since the launch of this public log.</p>
           </div>

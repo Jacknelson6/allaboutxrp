@@ -28,7 +28,9 @@ for (const file of files) {
   if (!Array.isArray(article.keyTakeaways) || article.keyTakeaways.length < 3) failures.push(`${prefix} at least 3 key takeaways required`);
   if (!Array.isArray(article.sections) || article.sections.length < 3) failures.push(`${prefix} at least 3 substantive sections required`);
   const bodyWords = (article.sections || []).flatMap((section) => section.paragraphs || []).join(" ").trim().split(/\s+/).filter(Boolean).length;
-  if (bodyWords < 900) failures.push(`${prefix} body must contain at least 900 words, found ${bodyWords}`);
+  // News should answer the query quickly. Depth is also enforced through section,
+  // source, takeaway, and internal-link requirements rather than padded word count.
+  if (bodyWords < 450) failures.push(`${prefix} body must contain at least 450 words, found ${bodyWords}`);
   if (!Array.isArray(article.sources) || article.sources.length < 3) failures.push(`${prefix} at least 3 sources required`);
   if (!(article.sources || []).some((source) => source.type === "primary")) failures.push(`${prefix} at least 1 primary source required`);
   if (!(article.sources || []).some((source) => source.type === "supporting")) failures.push(`${prefix} at least 1 supporting source required`);
