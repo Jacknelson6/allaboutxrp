@@ -208,7 +208,7 @@ export default function TradeModal({ isOpen, onClose, priceInfo }: TradeModalPro
       <div className="fixed inset-0 z-[100] bg-black/80" onClick={onClose} />
 
       {/* Modal */}
-      <div className="fixed inset-x-4 top-[3vh] bottom-[3vh] z-[101] mx-auto flex max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-black md:inset-x-auto">
+      <div className="fixed inset-x-4 top-[3vh] bottom-[3vh] z-[101] mx-auto flex max-w-5xl flex-col overflow-hidden  border border-white/[0.06] bg-black md:inset-x-auto">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3">
           <div className="flex items-center gap-4">
@@ -237,7 +237,7 @@ export default function TradeModal({ isOpen, onClose, priceInfo }: TradeModalPro
             <button
               key={range.label}
               onClick={() => handleRangeChange(range.label)}
-              className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+              className={` px-3 py-1 text-xs font-medium transition-colors ${
                 activeRange === range.label
                   ? "bg-xrp-accent text-white"
                   : "text-text-secondary hover:text-text-primary hover:bg-white/[0.03]"
@@ -257,7 +257,7 @@ export default function TradeModal({ isOpen, onClose, priceInfo }: TradeModalPro
           <div ref={chartContainerRef} className="h-full w-full" />
           {loading && !chartRef.current && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-6 w-6 rounded-full border-2 border-xrp-accent border-t-transparent animate-spin" />
+              <div className="h-6 w-6  border-2 border-xrp-accent border-t-transparent animate-spin" />
             </div>
           )}
         </div>
@@ -288,7 +288,7 @@ export default function TradeModal({ isOpen, onClose, priceInfo }: TradeModalPro
 
 function MetricItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-white/[0.06] px-3 py-2">
+    <div className=" border border-white/[0.06] px-3 py-2">
       <div className="flex items-center gap-1 text-text-secondary mb-0.5">
         {icon}
         <span className="text-[10px] font-medium uppercase tracking-wider">{label}</span>

@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { getAllRecaps } from "@/lib/utils/news";
 import fs from "fs";
 import path from "path";
 import { LEARN_HUBS } from "@/data/learn-hubs";
@@ -143,13 +142,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Dynamic: learn pages (filesystem-discovered) ─────────────────────
   const learnSlugs = getAllLearnSlugs();
   const answerSlugs = getAllAnswerSlugs();
-  const recaps = getAllRecaps();
   const publishedNews = await getPublishedNewsEntries();
-  const latestRecap = getLatestDate(recaps.map((recap) => `${recap.date}T12:00:00Z`));
-  const latestNewsHub = getLatestDate([
-    ...recaps.map((recap) => `${recap.date}T12:00:00Z`),
-    ...publishedNews.map((article) => article.publishedAt),
-  ]);
+  const latestNewsHub = getLatestDate(publishedNews.map((article) => article.publishedAt));
   const contentHubDates = new Map<string, Date | undefined>([
     ["/news", latestNewsHub],
   ]);
@@ -190,16 +184,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${BASE_URL}/answers/${slug}`,
         lastModified: getSourceLastModified(`src/app/answers/${slug}/page.tsx`),
       })),
-
-    // News recaps
-    {
-      url: `${BASE_URL}/news/recaps`,
-      lastModified: latestRecap,
-    },
-    ...recaps.map((r) => ({
-      url: `${BASE_URL}/news/recaps/${r.date}`,
-      lastModified: new Date(r.date + "T12:00:00Z"),
-    })),
 
     // Substantial first-party news articles remain in the standard sitemap
     // after they age out of the two-day Google News sitemap window.

@@ -268,7 +268,7 @@ export default function XRPTransactionTypesPage() {
             <p className="mt-4 text-text-secondary leading-relaxed">
               Every transaction on the XRPL gets a unique <strong className="text-text-primary">transaction hash</strong> — a 64-character hexadecimal string generated using SHA-512Half. Here&apos;s an example:
             </p>
-            <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 font-mono text-sm text-text-primary break-all">
+            <div className="mt-4  border border-white/[0.06] bg-white/[0.02] p-4 font-mono text-sm text-text-primary break-all">
               E08D6E9754025BA2534A78707605E0601F03ACE063687A0CA1BDDACFCD1698C7
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">

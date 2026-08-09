@@ -15,7 +15,8 @@
     "seo:redirects": "node scripts/redirect-health.mjs",
     "seo:sitemap": "node scripts/sitemap-health.mjs",
     "news:validate": "node scripts/validate-news.mjs",
-    "art:validate": "node scripts/validate-editorial-art.mjs"
+    "art:validate": "node scripts/validate-editorial-art.mjs",
+    "design:audit": "node scripts/design-health.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

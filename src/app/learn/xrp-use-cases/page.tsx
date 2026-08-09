@@ -161,27 +161,27 @@ export default function XRPUseCasesPage() {
             The ODL flow works in three simple steps:
           </p>
           <div className="space-y-3">
-            <div className="rounded-xl border border-white/[0.06] p-4">
+            <div className=" border border-white/[0.06] p-4">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10 text-sm font-bold text-xrp-accent">1</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center  bg-xrp-accent/10 text-sm font-bold text-xrp-accent">1</span>
                 <div>
                   <p className="font-medium text-text-primary text-[14px]">Fiat → XRP Conversion</p>
                   <p className="text-xs text-text-secondary mt-0.5">The sending institution converts local currency (e.g., USD) into XRP on a local exchange.</p>
                 </div>
               </div>
             </div>
-            <div className="rounded-xl border border-white/[0.06] p-4">
+            <div className=" border border-white/[0.06] p-4">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10 text-sm font-bold text-xrp-accent">2</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center  bg-xrp-accent/10 text-sm font-bold text-xrp-accent">2</span>
                 <div>
                   <p className="font-medium text-text-primary text-[14px]">XRP Transfer (3-5 seconds)</p>
                   <p className="text-xs text-text-secondary mt-0.5">XRP is transferred across the XRP Ledger to the destination country in seconds.</p>
                 </div>
               </div>
             </div>
-            <div className="rounded-xl border border-white/[0.06] p-4">
+            <div className=" border border-white/[0.06] p-4">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10 text-sm font-bold text-xrp-accent">3</span>
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center  bg-xrp-accent/10 text-sm font-bold text-xrp-accent">3</span>
                 <div>
                   <p className="font-medium text-text-primary text-[14px]">XRP → Fiat Conversion</p>
                   <p className="text-xs text-text-secondary mt-0.5">The receiving exchange converts XRP back into the local currency (e.g., PHP) and delivers it to the recipient bank.</p>

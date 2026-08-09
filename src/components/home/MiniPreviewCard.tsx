@@ -11,7 +11,7 @@ const Globe = dynamic(() => import("@/components/globe/Globe"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center h-full">
-      <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+      <div className="h-6 w-6 animate-spin  border-2 border-white/10 border-t-xrp-accent" />
     </div>
   ),
 });
@@ -51,7 +51,7 @@ export default function MiniPreviewCard() {
   const TrendIcon = positive ? TrendingUp : TrendingDown;
 
   return (
-    <section className="overflow-hidden rounded-xl border border-surface-border bg-surface-card" aria-labelledby="live-xrp-data-title">
+    <section className="overflow-hidden  border border-surface-border bg-surface-card" aria-labelledby="live-xrp-data-title">
       <div className="flex items-start justify-between gap-4 border-b border-surface-border p-5">
         <div>
           <div className="flex items-center gap-2">
@@ -76,7 +76,7 @@ export default function MiniPreviewCard() {
       <Link href="/live-chart" className="group block border-b border-surface-border" aria-label="Open the live XRP price chart">
         <div className="relative h-[200px] w-full overflow-hidden pointer-events-none" ref={widgetRef}>
           <div className="flex items-center justify-center h-full">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+            <div className="h-5 w-5 animate-spin  border-2 border-white/10 border-t-xrp-accent" />
           </div>
         </div>
         <span className="flex min-h-11 items-center justify-between px-5 text-xs font-semibold text-text-secondary transition-colors group-hover:text-xrp-accent-bright">
@@ -90,7 +90,7 @@ export default function MiniPreviewCard() {
           <div className="absolute inset-0">
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                <div className="h-6 w-6 animate-spin  border-2 border-white/10 border-t-xrp-accent" />
               </div>
             }>
               <Globe arcs={arcs} onArcComplete={removeArc} />

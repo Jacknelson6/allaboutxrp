@@ -3,9 +3,9 @@
 import { useMemo, useState } from "react";
 
 const inputClass =
-  "mt-2 w-full rounded-lg border border-surface-border bg-surface px-3 py-2.5 font-mono text-sm text-text-primary outline-none transition focus:border-xrp-accent/60 focus:ring-2 focus:ring-xrp-accent/15";
+  "mt-2 w-full  border border-surface-border bg-surface px-3 py-2.5 font-mono text-sm text-text-primary outline-none transition focus:border-xrp-accent/60 focus:ring-2 focus:ring-xrp-accent/15";
 
-const cardClass = "rounded-xl border border-surface-border bg-surface-elevated p-4";
+const cardClass = " border border-surface-border bg-surface-elevated p-4";
 
 function number(value: string) {
   const parsed = Number(value);
@@ -148,7 +148,7 @@ export function WalletDecisionTool() {
         <Select label="Can you secure and test a recovery backup?" value={recovery} onChange={setRecovery} options={[["ready", "Yes"], ["not-ready", "Not yet"]]} />
         <Select label="Do you need native XRPL features?" value={features} onChange={setFeatures} options={[["basic", "Only send and receive"], ["xrpl", "DEX, tokens, signing, or xApps"]]} />
       </div>
-      <div className="mt-5 rounded-xl border border-xrp-accent/30 bg-xrp-accent/[0.06] p-5" aria-live="polite">
+      <div className="mt-5  border border-xrp-accent/30 bg-xrp-accent/[0.06] p-5" aria-live="polite">
         <p className="font-semibold text-text-primary">{recommendation.title}</p>
         <p className="mt-2 text-sm leading-6 text-text-secondary">{recommendation.detail}</p>
       </div>
@@ -175,9 +175,9 @@ export function AltcoinResearchScorecard() {
     <GuideTool title="Altcoin evidence scorecard" description="Score the evidence you can verify, not the story you hope will be true. A high score earns more research, not an automatic purchase.">
       <div className="space-y-3">
         {criteria.map(([key, label]) => (
-          <label key={key} className="grid items-center gap-2 rounded-lg border border-surface-border bg-surface p-3 sm:grid-cols-[1fr_90px]">
+          <label key={key} className="grid items-center gap-2  border border-surface-border bg-surface p-3 sm:grid-cols-[1fr_90px]">
             <span className="text-sm font-medium text-text-secondary">{label}</span>
-            <select className="rounded-md border border-surface-border bg-surface-elevated px-2 py-2 text-sm text-text-primary" value={scores[key]} onChange={(event) => setScores((current) => ({ ...current, [key]: Number(event.target.value) }))}>
+            <select className=" border border-surface-border bg-surface-elevated px-2 py-2 text-sm text-text-primary" value={scores[key]} onChange={(event) => setScores((current) => ({ ...current, [key]: Number(event.target.value) }))}>
               {[0, 1, 2, 3, 4, 5].map((score) => <option key={score} value={score}>{score} / 5</option>)}
             </select>
           </label>
@@ -197,7 +197,7 @@ export function AltcoinResearchScorecard() {
 
 function GuideTool({ title, description, children }: { title: string; description: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-sm border border-xrp-accent/25 bg-surface-card p-5 sm:p-6">
+    <div className=" border border-xrp-accent/25 bg-surface-card p-5 sm:p-6">
       <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-xrp-accent">Interactive tool</p>
       <h3 className="mt-2 text-xl font-bold text-text-primary">{title}</h3>
       <p className="mt-2 mb-5 text-sm leading-6 text-text-secondary">{description}</p>

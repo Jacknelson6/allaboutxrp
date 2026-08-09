@@ -135,8 +135,8 @@ export default function GetStartedPage() {
                 { num: "4", title: "Buy XRP", desc: "Search for 'XRP', enter the amount, and place your order at market price or set a limit order." },
                 { num: "5", title: "Secure Your XRP", desc: "Transfer to a self-custody wallet like Xaman for long-term storage. 'Not your keys, not your crypto.'" },
               ].map((step) => (
-                <div key={step.num} className="flex gap-5 rounded-xl border border-white/[0.06]/60 bg-black p-6  transition-all duration-300 hover:border-xrp-accent/20 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)]">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-xrp-accent/10">
+                <div key={step.num} className="flex gap-5  border border-white/[0.06]/60 bg-black p-6  transition-all duration-300 hover:border-xrp-accent/20 hover:">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center  bg-xrp-accent/10">
                     <span className="font-mono text-lg font-bold text-xrp-accent">{step.num}</span>
                   </div>
                   <div>
@@ -161,7 +161,7 @@ export default function GetStartedPage() {
                   href={ex.url}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
-                  className={`flex flex-col rounded-xl border p-5  transition-colors ${
+                  className={`flex flex-col  border p-5  transition-colors ${
                     ex.recommended
                       ? "border-xrp-accent/30 bg-gradient-to-br from-xrp-accent/5 to-transparent sm:col-span-2"
                       : "border-white/[0.06]/60 bg-black"
@@ -170,7 +170,7 @@ export default function GetStartedPage() {
                   <div className="flex items-center gap-3">
                     <h3 className="text-lg font-bold text-text-primary">{ex.name}</h3>
                     {ex.recommended ? (
-                      <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-2.5 py-0.5 text-xs font-semibold text-xrp-accent">★ Recommended</span>
+                      <span className=" border border-xrp-accent/20 bg-xrp-accent/10 px-2.5 py-0.5 text-xs font-semibold text-xrp-accent">★ Recommended</span>
                     ) : null}
                     <span className="ml-auto text-xs text-text-secondary">↗</span>
                   </div>
@@ -213,10 +213,10 @@ export default function GetStartedPage() {
 
             <div className="mt-6 space-y-3">
               {wallets.map((w) => (
-                <div key={w.name} className="rounded-xl border border-white/[0.06]/60 bg-black p-5  transition-all duration-300 hover:border-xrp-accent/20">
+                <div key={w.name} className=" border border-white/[0.06]/60 bg-black p-5  transition-all duration-300 hover:border-xrp-accent/20">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-semibold text-text-primary">{w.name}</h3>
-                    <span className="rounded-full border border-white/[0.06] bg-[#111113] px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{w.type}</span>
+                    <span className=" border border-white/[0.06] bg-[#111113] px-2 py-0.5 text-[10px] font-semibold text-text-secondary">{w.type}</span>
                     <span className="ml-auto text-xs font-medium text-xrp-accent">{w.best}</span>
                   </div>
                   <p className="mt-2 text-sm text-text-secondary leading-relaxed">{w.desc}</p>

@@ -17,16 +17,16 @@ export default function CommunityFeed() {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
+      <div className=" border border-white/[0.06] bg-[#0A0A0B] overflow-hidden">
         <NewsFeed />
       </div>
 
       <div className="mt-6 text-center">
         <Link
-          href="/news/recaps"
+          href="/news"
           className="inline-flex items-center gap-1.5 text-[14px] font-medium text-xrp-accent hover:text-xrp-accent-bright transition-colors"
         >
-          View daily analysis <ArrowRight className="h-3.5 w-3.5" />
+          View XRP reporting <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
     </section>

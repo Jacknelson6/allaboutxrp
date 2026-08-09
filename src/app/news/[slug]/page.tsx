@@ -93,12 +93,12 @@ export default async function ArticlePage({ params }: PageProps) {
         </header>
 
         {article.image ? (
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-surface-border bg-surface-card shadow-2xl shadow-black/20">
+          <figure className="mt-8 overflow-hidden  border border-surface-border bg-surface-card  shadow-black/20">
             <Image src={article.image} alt={article.imageAlt || article.title} width={imageWidth} height={imageHeight} priority unoptimized sizes="(min-width: 1024px) 960px, calc(100vw - 2rem)" className="h-auto w-full" />
           </figure>
         ) : null}
 
-        <aside className="mt-8 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/[0.06] p-6" aria-labelledby="takeaways-heading">
+        <aside className="mt-8  border border-xrp-accent/20 bg-xrp-accent/[0.06] p-6" aria-labelledby="takeaways-heading">
           <div className="flex items-center gap-2"><ListChecks className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="takeaways-heading" className="text-xl font-bold text-text-primary">Key takeaways</h2></div>
           <ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.keyTakeaways.map((item) => <li key={item} className="flex gap-3"><span className="text-xrp-accent">•</span><span>{item}</span></li>)}</ul>
         </aside>
@@ -109,21 +109,21 @@ export default async function ArticlePage({ params }: PageProps) {
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.bullets?.length ? <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
-              {section.table ? <div className="not-prose my-7 overflow-x-auto rounded-xl border border-surface-border"><table className="w-full min-w-[560px] text-left text-sm"><caption className="bg-surface-elevated px-4 py-3 text-left font-semibold text-text-primary">{section.table.caption}</caption><thead className="bg-black/30 text-text-primary"><tr>{section.table.headers.map((header) => <th key={header} className="px-4 py-3">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index} className="border-t border-surface-border">{row.map((cell, cellIndex) => <td key={cellIndex} className="px-4 py-3 text-text-secondary">{cell}</td>)}</tr>)}</tbody><tfoot><tr><td colSpan={section.table.headers.length} className="border-t border-surface-border px-4 py-3 text-xs text-text-secondary">{section.table.sourceNote}</td></tr></tfoot></table></div> : null}
+              {section.table ? <div className="not-prose my-7 overflow-x-auto  border border-surface-border"><table className="w-full min-w-[560px] text-left text-sm"><caption className="bg-surface-elevated px-4 py-3 text-left font-semibold text-text-primary">{section.table.caption}</caption><thead className="bg-black/30 text-text-primary"><tr>{section.table.headers.map((header) => <th key={header} className="px-4 py-3">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index} className="border-t border-surface-border">{row.map((cell, cellIndex) => <td key={cellIndex} className="px-4 py-3 text-text-secondary">{cell}</td>)}</tr>)}</tbody><tfoot><tr><td colSpan={section.table.headers.length} className="border-t border-surface-border px-4 py-3 text-xs text-text-secondary">{section.table.sourceNote}</td></tr></tfoot></table></div> : null}
               <p className="not-prose mt-5 flex flex-wrap items-center gap-2 text-xs text-text-secondary" aria-label={`Sources for ${section.heading}`}>
                 <span className="font-semibold uppercase tracking-wide">Section sources</span>
                 {section.sourceUrls.map((sourceUrl) => {
                   const sourceIndex = article.sources.findIndex((source) => source.url === sourceUrl);
-                  return <a key={sourceUrl} href={sourceUrl} rel="noopener noreferrer" className="rounded-full border border-surface-border px-2.5 py-1 text-link" data-source-link="true">[{sourceIndex + 1}]</a>;
+                  return <a key={sourceUrl} href={sourceUrl} rel="noopener noreferrer" className=" border border-surface-border px-2.5 py-1 text-link" data-source-link="true">[{sourceIndex + 1}]</a>;
                 })}
               </p>
             </section>
           ))}
         </div>
 
-        <section className="mt-10 rounded-2xl border border-surface-border bg-surface-card p-6" aria-labelledby="watch-heading"><div className="flex items-center gap-2"><Eye className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="watch-heading" className="text-xl font-bold text-text-primary">What to watch next</h2></div><ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.whatToWatch.map((item) => <li key={item}>• {item}</li>)}</ul></section>
+        <section className="mt-10  border border-surface-border bg-surface-card p-6" aria-labelledby="watch-heading"><div className="flex items-center gap-2"><Eye className="h-5 w-5 text-xrp-accent" aria-hidden="true" /><h2 id="watch-heading" className="text-xl font-bold text-text-primary">What to watch next</h2></div><ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.whatToWatch.map((item) => <li key={item}>• {item}</li>)}</ul></section>
 
-        <section className="mt-10 border-t border-surface-border pt-8" aria-labelledby="sources-heading"><h2 id="sources-heading" className="text-2xl font-bold text-text-primary">Sources and verification</h2><p className="mt-3 text-sm leading-7 text-text-secondary">We prioritize primary records and label supporting coverage. Dates reflect each source’s publication record.</p><ol className="mt-5 space-y-3">{article.sources.map((source, index) => <li key={source.url} className="flex flex-wrap items-center gap-x-2 gap-y-1"><span className="text-xs font-semibold text-text-secondary">[{index + 1}]</span><a href={source.url} rel="noopener noreferrer" className="text-link" data-source-link="true">{source.name}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /></a><span className="rounded-full border border-surface-border px-2 py-0.5 text-[11px] uppercase text-text-secondary">{source.type}</span>{source.publishedAt ? <time dateTime={source.publishedAt} className="text-xs text-text-secondary">{formatSourceDate(source.publishedAt)}</time> : <span className="text-xs text-text-secondary">Undated reference</span>}</li>)}</ol></section>
+        <section className="mt-10 border-t border-surface-border pt-8" aria-labelledby="sources-heading"><h2 id="sources-heading" className="text-2xl font-bold text-text-primary">Sources and verification</h2><p className="mt-3 text-sm leading-7 text-text-secondary">We prioritize primary records and label supporting coverage. Dates reflect each source’s publication record.</p><ol className="mt-5 space-y-3">{article.sources.map((source, index) => <li key={source.url} className="flex flex-wrap items-center gap-x-2 gap-y-1"><span className="text-xs font-semibold text-text-secondary">[{index + 1}]</span><a href={source.url} rel="noopener noreferrer" className="text-link" data-source-link="true">{source.name}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /></a><span className=" border border-surface-border px-2 py-0.5 text-[11px] uppercase text-text-secondary">{source.type}</span>{source.publishedAt ? <time dateTime={source.publishedAt} className="text-xs text-text-secondary">{formatSourceDate(source.publishedAt)}</time> : <span className="text-xs text-text-secondary">Undated reference</span>}</li>)}</ol></section>
         <nav className="related-topic-map mt-12 border-t border-surface-border pt-9" aria-labelledby="related-topics-heading">
           <div className="max-w-2xl">
             <p className="editorial-kicker">Related coverage</p>

@@ -25,7 +25,7 @@ function timeAgo(ts: string): string {
 
 export default function NewsFeedCard({ item }: { item: NewsFeedItem }) {
   return (
-    <article className="group rounded-xl border border-[#2F3336] bg-[#0D1117]/60 backdrop-blur-sm overflow-hidden hover:border-[#0085FF]/30 transition-all duration-200">
+    <article className="group  border border-[#2F3336] bg-[#0D1117]/60 backdrop-blur-sm overflow-hidden hover:border-[#0085FF]/30 transition-all duration-200">
       {/* OG Image */}
       <div className="relative aspect-[2/1] w-full bg-[#161B22] overflow-hidden">
         {item.imageUrl ? (

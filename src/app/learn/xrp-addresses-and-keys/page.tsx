@@ -126,7 +126,7 @@ export default function XRPAddressesAndKeysPage() {
             <p className="mt-4 text-text-secondary leading-relaxed">
               Every account on the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> has a unique address that starts with the letter <strong className="text-text-primary">&quot;r&quot;</strong>, followed by 25-34 alphanumeric characters. This is called a <strong className="text-text-primary">classic address</strong>. For example:
             </p>
-            <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 font-mono text-sm text-text-primary break-all">
+            <div className="mt-4  border border-white/[0.06] bg-white/[0.02] p-4 font-mono text-sm text-text-primary break-all">
               rN7n3473SaZBCG4dFL83w7p1W9cgZw7Gj9
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">

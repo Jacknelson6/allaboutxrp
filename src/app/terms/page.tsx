@@ -44,7 +44,7 @@ export default function TermsOfServicePage() {
           </section>
 
           <section>
-            <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 p-5">
+            <div className=" border border-yellow-500/20 bg-yellow-500/5 p-5">
               <h2 className="text-lg font-bold text-yellow-400 mb-3">⚠️ NOT FINANCIAL ADVICE</h2>
               <p>
                 <strong className="text-white/90">

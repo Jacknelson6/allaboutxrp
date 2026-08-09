@@ -37,7 +37,7 @@ export default function TierCalculator() {
   const xrpNeeded = nextTier ? nextTier.min - balance : 0;
 
   return (
-    <section className="mt-6 rounded-xl border border-white/[0.06] p-6" aria-label="XRP Tier Calculator">
+    <section className="mt-6  border border-white/[0.06] p-6" aria-label="XRP Tier Calculator">
       <h2 className="text-xl font-bold text-text-primary mb-1">Find Your Rank</h2>
       <p className="text-sm text-text-secondary mb-5">Enter your XRP balance to discover your tier</p>
 
@@ -51,19 +51,19 @@ export default function TierCalculator() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter XRP balance"
             aria-label="XRP balance amount"
-            className="w-full rounded-full border border-white/[0.06] bg-black px-4 py-2.5 min-h-[44px] text-base text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
+            className="w-full  border border-white/[0.06] bg-black px-4 py-2.5 min-h-[44px] text-base text-text-primary placeholder:text-text-secondary/40 font-mono focus:outline-none focus:border-xrp-accent transition-colors"
           />
         </div>
         <button
           type="submit"
-          className="rounded-full bg-xrp-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-xrp-accent-bright transition-colors shrink-0"
+          className=" bg-xrp-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-xrp-accent-bright transition-colors shrink-0"
         >
           Check
         </button>
       </form>
 
       {result && (
-        <div className="mt-5 rounded-lg border border-white/[0.06] p-5">
+        <div className="mt-5  border border-white/[0.06] p-5">
           <div className="flex items-center gap-3">
             <span className="text-4xl">{result.tier.emoji}</span>
             <div>
@@ -78,9 +78,9 @@ export default function TierCalculator() {
             </div>
           </div>
           {nextTier && (
-            <div className="mt-3 h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+            <div className="mt-3 h-1.5  bg-white/[0.06] overflow-hidden">
               <div
-                className="h-full rounded-full bg-xrp-accent"
+                className="h-full  bg-xrp-accent"
                 style={{ width: `${Math.min(((balance - result.tier.min) / (nextTier.min - result.tier.min)) * 100, 100)}%` }}
               />
             </div>

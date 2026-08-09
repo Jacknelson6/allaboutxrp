@@ -26,7 +26,7 @@ export default function Error({
       </p>
       <button
         onClick={reset}
-        className="mt-8 rounded-lg bg-xrp-accent px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-90"
+        className="mt-8  bg-xrp-accent px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-90"
       >
         Try again
       </button>

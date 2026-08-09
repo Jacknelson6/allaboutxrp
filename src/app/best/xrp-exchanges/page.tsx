@@ -285,7 +285,7 @@ export default function BestXRPExchangesPage() {
           {/* Quick Picks */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6">⚡ Quick Picks</h2>
-            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+            <div className="overflow-x-auto  border border-zinc-800">
               <table className="w-full text-sm text-left">
                 <thead className="bg-zinc-900 text-zinc-400 uppercase text-xs">
                   <tr>
@@ -302,7 +302,7 @@ export default function BestXRPExchangesPage() {
                       <td className="px-4 py-3 text-zinc-400">{e.bestFor}</td>
                       <td className="px-4 py-3 text-zinc-400">{e.keyFeature}</td>
                       <td className="px-4 py-3 text-center">
-                        <span className="inline-block rounded-full bg-[#0085FF]/10 px-2 py-0.5 font-mono text-[#0085FF] font-semibold">
+                        <span className="inline-block  bg-[#0085FF]/10 px-2 py-0.5 font-mono text-[#0085FF] font-semibold">
                           {e.rating}/10
                         </span>
                       </td>
@@ -327,7 +327,7 @@ export default function BestXRPExchangesPage() {
                 ["Ease of Use (15%)", "Onboarding, interface quality, and payment method variety."],
                 ["Availability (10%)", "Countries served, regulatory status, and KYC requirements."],
               ].map(([title, desc]) => (
-                <div key={title} className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div key={title} className=" border border-zinc-800 bg-zinc-950 p-4">
                   <h3 className="font-semibold text-white text-sm mb-1">{title}</h3>
                   <p className="text-xs text-zinc-500">{desc}</p>
                 </div>
@@ -341,12 +341,12 @@ export default function BestXRPExchangesPage() {
               <h2 className="text-2xl font-bold text-white mb-2">
                 {idx + 1}. {e.name}
               </h2>
-              <div className="rounded-lg border-l-4 border-[#0085FF] bg-[#0085FF]/5 px-4 py-3 mb-6">
+              <div className=" border-l-4 border-[#0085FF] bg-[#0085FF]/5 px-4 py-3 mb-6">
                 <p className="text-sm font-medium text-[#0085FF]">🏆 Verdict: {e.verdict}</p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 mb-6">
-                <div className="rounded-lg border border-green-900/30 bg-green-950/10 p-4">
+                <div className=" border border-green-900/30 bg-green-950/10 p-4">
                   <h3 className="text-sm font-semibold text-green-400 mb-2">✅ Pros</h3>
                   <ul className="space-y-1">
                     {e.pros.map((p) => (
@@ -354,7 +354,7 @@ export default function BestXRPExchangesPage() {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-lg border border-red-900/30 bg-red-950/10 p-4">
+                <div className=" border border-red-900/30 bg-red-950/10 p-4">
                   <h3 className="text-sm font-semibold text-red-400 mb-2">❌ Cons</h3>
                   <ul className="space-y-1">
                     {e.cons.map((c) => (
@@ -364,7 +364,7 @@ export default function BestXRPExchangesPage() {
                 </div>
               </div>
 
-              <div className="overflow-x-auto rounded-lg border border-zinc-800 mb-6">
+              <div className="overflow-x-auto  border border-zinc-800 mb-6">
                 <table className="w-full text-sm">
                   <tbody className="divide-y divide-zinc-800">
                     {[
@@ -391,7 +391,7 @@ export default function BestXRPExchangesPage() {
                 href={e.url}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex items-center rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
+                className="inline-flex items-center  bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
               >
                 Visit {e.name} →
               </a>
@@ -401,7 +401,7 @@ export default function BestXRPExchangesPage() {
           {/* Full Comparison Table */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6">Full Comparison Table</h2>
-            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+            <div className="overflow-x-auto  border border-zinc-800">
               <table className="w-full text-xs text-left">
                 <thead className="bg-zinc-900 text-zinc-400 uppercase">
                   <tr>
@@ -444,7 +444,7 @@ export default function BestXRPExchangesPage() {
                 ["🔄 Want recurring purchases?", "Uphold or Coinbase both offer automatic DCA schedules."],
                 ["👥 Want social trading?", "eToro is the only option with copy trading for XRP."],
               ].map(([title, desc]) => (
-                <div key={title} className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div key={title} className=" border border-zinc-800 bg-zinc-950 p-4">
                   <h3 className="font-semibold text-white text-sm mb-1">{title}</h3>
                   <p className="text-sm text-zinc-400">{desc}</p>
                 </div>
@@ -463,7 +463,7 @@ export default function BestXRPExchangesPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {faqItems.map((f) => (
-                <details key={f.q} className="group rounded-lg border border-zinc-800 bg-zinc-950 overflow-hidden">
+                <details key={f.q} className="group  border border-zinc-800 bg-zinc-950 overflow-hidden">
                   <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-white hover:bg-zinc-900/50 transition-colors">
                     {f.q}
                     <span className="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
@@ -474,7 +474,7 @@ export default function BestXRPExchangesPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-8">
+          <section className=" border border-zinc-800 bg-zinc-950 p-8">
             <h2 className="text-lg font-semibold text-white mb-4">Continue Learning</h2>
             <div className="flex flex-wrap gap-3">
               {[
@@ -486,7 +486,7 @@ export default function BestXRPExchangesPage() {
                 ["/learn/is-xrp-a-good-investment", "Is It Too Late to Buy XRP?"],
                 ["/learn/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
               ].map(([href, label]) => (
-                <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
+                <Link key={href} href={href} className=" border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}
                 </Link>
               ))}

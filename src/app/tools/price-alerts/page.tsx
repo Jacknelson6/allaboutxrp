@@ -107,7 +107,7 @@ export default function PriceAlertsPage() {
           </nav>
 
           <div className="flex items-center gap-3 mb-2">
-            <div className="rounded-lg bg-xrp-accent/10 p-2.5">
+            <div className=" bg-xrp-accent/10 p-2.5">
               <Target className="h-6 w-6 text-xrp-accent" />
             </div>
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -127,7 +127,7 @@ export default function PriceAlertsPage() {
           </div>
 
           {/* Current price card */}
-          <div className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-6 mb-10">
+          <div className=" border border-xrp-accent/20 bg-xrp-accent/[0.03] p-6 mb-10">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
                 <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-1">Current XRP Price</p>
@@ -171,7 +171,7 @@ export default function PriceAlertsPage() {
             <ArrowUpDown className="h-5 w-5 text-xrp-accent" />
             Key Levels
           </h2>
-          <div className="rounded-xl border border-white/[0.06] overflow-hidden mb-12">
+          <div className=" border border-white/[0.06] overflow-hidden mb-12">
             <table className="w-full text-sm">
               <thead className="border-b border-white/[0.06] bg-white/[0.02]">
                 <tr>
@@ -188,7 +188,7 @@ export default function PriceAlertsPage() {
                     <tr key={i} className={`hover:bg-white/[0.015] transition-colors ${isNear ? "bg-xrp-accent/[0.03]" : ""}`}>
                       <td className="px-4 py-3 font-mono font-semibold text-white">${level.price.toFixed(2)}</td>
                       <td className="px-4 py-3">
-                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                        <span className={`inline-flex items-center  px-2.5 py-0.5 text-xs font-medium ${
                           level.type === "support"
                             ? "bg-green-500/10 text-green-400"
                             : "bg-red-500/10 text-red-400"
@@ -240,19 +240,19 @@ export default function PriceAlertsPage() {
 
           {/* Internal links */}
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-            <Link href="/live-chart" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
+            <Link href="/live-chart" className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
               <h3 className="font-semibold text-white mb-1">Live XRP Chart →</h3>
               <p className="text-sm text-zinc-500">Full interactive price chart</p>
             </Link>
-            <Link href="/learn/how-to-read-xrp-charts" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
+            <Link href="/learn/how-to-read-xrp-charts" className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
               <h3 className="font-semibold text-white mb-1">How to Read XRP Charts →</h3>
               <p className="text-sm text-zinc-500">Learn chart reading basics</p>
             </Link>
-            <Link href="/holders" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
+            <Link href="/holders" className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
               <h3 className="font-semibold text-white mb-1">Whale Tracker →</h3>
               <p className="text-sm text-zinc-500">Monitor large XRP movements</p>
             </Link>
-            <Link href="/learn/xrp-price-prediction" className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
+            <Link href="/learn/xrp-price-prediction" className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors">
               <h3 className="font-semibold text-white mb-1">XRP Price Prediction →</h3>
               <p className="text-sm text-zinc-500">Analysis of XRP&apos;s price potential</p>
             </Link>
@@ -268,7 +268,7 @@ export default function PriceAlertsPage() {
                 { q: "How do support and resistance work?", a: "Support is where buying pressure exceeds selling, creating a floor. Resistance is where selling exceeds buying, creating a ceiling. These levels are identified through historical price action and volume." },
                 { q: "Should I trade based on these levels?", a: "These levels are informational only — not financial advice. No technical analysis is guaranteed. Always do your own research, consider risk tolerance, and never invest more than you can afford to lose." },
               ].map((item, i) => (
-                <details key={i} className="group rounded-xl border border-white/[0.06] bg-white/[0.02]">
+                <details key={i} className="group  border border-white/[0.06] bg-white/[0.02]">
                   <summary className="cursor-pointer px-5 py-4 font-medium text-white flex items-center justify-between">
                     {item.q}
                     <span className="text-zinc-500 group-open:rotate-180 transition-transform">▾</span>

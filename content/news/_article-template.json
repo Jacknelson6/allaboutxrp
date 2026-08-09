@@ -10,8 +10,11 @@
   "imageAlt": "Specific, factual description of the original editorial illustration",
   "imageWidth": 1200,
   "imageHeight": 630,
-  "imageStyle": "aaxrp-classical-ascii-v1",
-  "imagePrompt": "Describe a subject-specific ancient Greek editorial scene using warm ivory architecture, cobalt Mediterranean color, pale gold light, and fine 1, 0, x ASCII contour fields. Explain what the visual metaphor means for this exact story.",
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "unique-setting-and-composition-key",
+  "imageSetting": "A setting not used by any existing guide or news image",
+  "imageMetaphor": "The primary object, action, or symbol that explains this exact story",
+  "imagePrompt": "Describe a subject-specific ancient Greek scene with a unique setting, viewpoint, light, primary object, and metaphor. Reuse only the luminous oil palette and fine 1, 0, x ASCII treatment. Explicitly prohibit every setting already present in content/editorial-art.json and content/news.",
   "keywords": ["XRP news", "XRP Ledger"],
   "keyTakeaways": ["One verified fact", "A second verified fact", "The practical implication"],
   "sections": [

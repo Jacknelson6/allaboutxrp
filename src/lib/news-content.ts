@@ -40,6 +40,9 @@ export interface NewsArticle {
   imageWidth?: number;
   imageHeight?: number;
   imageStyle: string;
+  imageSceneKey: string;
+  imageSetting: string;
+  imageMetaphor: string;
   imagePrompt?: string;
   keywords: string[];
   keyTakeaways: string[];
@@ -62,6 +65,9 @@ function isArticle(value: unknown): value is NewsArticle {
       typeof item.modifiedAt === "string" &&
       !Number.isNaN(Date.parse(item.modifiedAt)) &&
       typeof item.imageStyle === "string" &&
+      typeof item.imageSceneKey === "string" &&
+      typeof item.imageSetting === "string" &&
+      typeof item.imageMetaphor === "string" &&
       Array.isArray(item.sections) &&
       Array.isArray(item.sources) &&
       item.sources.length >= 2,

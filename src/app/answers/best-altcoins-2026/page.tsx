@@ -231,11 +231,11 @@ export default function BestAltcoins2026Page() {
             return (
               <RevealSection key={alt.rank} id={sectionId} className="mt-14">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className={`flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold ${alt.isTop ? "bg-xrp-accent/20 text-xrp-accent" : "bg-white/5 text-white/60"}`}>
+                  <span className={`flex h-8 w-8 items-center justify-center  text-sm font-bold ${alt.isTop ? "bg-xrp-accent/20 text-xrp-accent" : "bg-white/5 text-white/60"}`}>
                     {alt.rank}
                   </span>
                   <h2 className="text-2xl font-bold text-text-primary">{alt.name}</h2>
-                  <span className="rounded-full border border-white/10 px-2 py-0.5 text-[11px] text-text-secondary">{alt.category}</span>
+                  <span className=" border border-white/10 px-2 py-0.5 text-[11px] text-text-secondary">{alt.category}</span>
                 </div>
                 <p className={`text-[15px] mb-4 ${alt.isTop ? "text-xrp-accent font-medium" : "text-text-secondary italic"}`}>
                   {alt.verdict}

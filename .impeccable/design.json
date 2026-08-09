@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-09T22:00:00-05:00",
+  "title": "Design System: AllAboutXRP",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Archive Ink", "canonical": "#090B10", "tonalRamp": ["#090B10", "#1D2026", "#343840", "#565B64", "#7C828B", "#A7ACB3", "#D3D6DA", "#F4F6F8"] },
+      "paper": { "role": "neutral", "displayName": "Open Paper", "canonical": "#FFFFFF", "tonalRamp": ["#202020", "#404040", "#606060", "#808080", "#A0A0A0", "#C0C0C0", "#E0E0E0", "#FFFFFF"] },
+      "cobalt": { "role": "primary", "displayName": "Civic Cobalt", "canonical": "#1769AA", "tonalRamp": ["#08233A", "#0D3A60", "#125187", "#1769AA", "#3A83BD", "#73A9D1", "#B1D0E6", "#EDF6FC"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Editorial Display", "purpose": "One dominant statement per page." },
+      "body": { "displayName": "Research Body", "purpose": "Navigation, prose, controls, and data." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "state", "value": "160ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Hover, focus, and disclosure state changes only." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single high-emphasis action on a surface.",
+      "html": "<button class=\"ds-btn-primary\">READ THE GUIDE</button>",
+      "css": ".ds-btn-primary{min-height:44px;border:0;border-radius:0;background:#090B10;color:#fff;padding:12px 20px;font:650 14px Public Sans,system-ui,sans-serif;transition:background 160ms cubic-bezier(.22,1,.36,1)}.ds-btn-primary:hover{background:#1769AA}.ds-btn-primary:focus-visible{outline:2px solid #1769AA;outline-offset:3px}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "description": "A sharp category filter with a binary selected state.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"false\">OFFICIAL SOURCES</button>",
+      "css": ".ds-filter{min-height:44px;border:1px solid #D9D9D9;border-radius:0;background:#fff;color:#090B10;padding:9px 14px;font:650 12px Public Sans,system-ui,sans-serif}.ds-filter:hover,.ds-filter[aria-pressed=true]{border-color:#090B10;background:#090B10;color:#fff}.ds-filter:focus-visible{outline:2px solid #1769AA;outline-offset:3px}"
+    },
+    {
+      "name": "Article Row",
+      "kind": "card",
+      "description": "A ruled editorial record, not a floating card.",
+      "html": "<article class=\"ds-article\"><small>POLICY · AUG 9</small><h3>Article headline</h3><p>A concise evidence-led description.</p></article>",
+      "css": ".ds-article{border-top:1px solid #D9D9D9;border-radius:0;background:#fff;padding:24px 0;color:#090B10;font-family:Public Sans,system-ui,sans-serif}.ds-article small{color:#5C626B;font-size:12px}.ds-article h3{margin:10px 0 6px;font:400 24px/1.2 Libre Baskerville,Georgia,serif}.ds-article p{max-width:68ch;margin:0;color:#5C626B;line-height:1.6}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Digital Agora",
+    "overview": "A bright civic research space where XRP reporting, ledger data, and evidence are placed in public view. Classical imagery carries the identity while a quiet contemporary interface keeps the record readable.",
+    "keyCharacteristics": ["White space and black ink", "One cobalt accent", "Distinct story-specific artwork", "Sharp corners", "Flat ruled information architecture"],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Cobalt is the only decorative interface color.", "section": "colors" },
+      { "name": "The Two-Family Rule", "body": "Use only Libre Baskerville and Public Sans.", "section": "typography" },
+      { "name": "The Flat Record Rule", "body": "Use spacing and rules before containers and shadows.", "section": "elevation" }
+    ],
+    "dos": ["Use strong left alignment and generous white space.", "Use a different scene and metaphor for every editorial image."],
+    "donts": ["Do not use rounded corners or soft floating cards.", "Do not repeat Greek coastal settings.", "Do not use decorative scroll-driven text motion."]
+  }
+}

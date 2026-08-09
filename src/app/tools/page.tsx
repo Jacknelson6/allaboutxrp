@@ -197,7 +197,7 @@ function ToolSection({
           {tools.map((tool, index) => (
             <li key={tool.href}>
               <Link href={tool.href} className="group grid min-h-28 gap-4 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[2.5rem_1fr_auto] sm:items-start sm:px-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+                <div className="flex h-10 w-10 items-center justify-center  bg-xrp-accent/10 text-xrp-accent">
                   <tool.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
                 </div>
                 <div>

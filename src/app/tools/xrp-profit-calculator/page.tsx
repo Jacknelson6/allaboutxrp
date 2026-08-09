@@ -84,7 +84,7 @@ export default function XRPProfitCalculator() {
           </p>
 
           {/* Calculator */}
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 mb-10">
+          <div className=" border border-zinc-800 bg-zinc-950 p-6 sm:p-8 mb-10">
             <div className="grid gap-6">
               {/* Buy Price */}
               <div>
@@ -101,7 +101,7 @@ export default function XRPProfitCalculator() {
                     placeholder="0.50"
                     value={buyPrice}
                     onChange={(e) => setBuyPrice(e.target.value)}
-                    className="w-full rounded-lg border border-zinc-700 bg-black pl-8 pr-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
+                    className="w-full  border border-zinc-700 bg-black pl-8 pr-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
                   />
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function XRPProfitCalculator() {
                     placeholder="2.50"
                     value={sellPrice}
                     onChange={(e) => setSellPrice(e.target.value)}
-                    className="w-full rounded-lg border border-zinc-700 bg-black pl-8 pr-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
+                    className="w-full  border border-zinc-700 bg-black pl-8 pr-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
                   />
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function XRPProfitCalculator() {
                   placeholder="10,000"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  className="w-full rounded-lg border border-zinc-700 bg-black px-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
+                  className="w-full  border border-zinc-700 bg-black px-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
                 />
               </div>
             </div>
@@ -147,21 +147,21 @@ export default function XRPProfitCalculator() {
             {/* Results */}
             {result && (
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-lg border border-zinc-800 bg-black p-4">
+                <div className=" border border-zinc-800 bg-black p-4">
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Total Cost</p>
                   <p className="text-xl font-mono font-semibold text-white">{formatUSD(result.totalCost)}</p>
                 </div>
-                <div className="rounded-lg border border-zinc-800 bg-black p-4">
+                <div className=" border border-zinc-800 bg-black p-4">
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Total Value</p>
                   <p className="text-xl font-mono font-semibold text-white">{formatUSD(result.totalValue)}</p>
                 </div>
-                <div className={`rounded-lg border p-4 ${result.profitLoss >= 0 ? "border-green-900/50 bg-green-950/10" : "border-red-900/50 bg-red-950/10"}`}>
+                <div className={` border p-4 ${result.profitLoss >= 0 ? "border-green-900/50 bg-green-950/10" : "border-red-900/50 bg-red-950/10"}`}>
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Profit / Loss</p>
                   <p className={`text-2xl font-mono font-bold ${result.profitLoss >= 0 ? "text-green-400" : "text-red-400"}`}>
                     {result.profitLoss >= 0 ? "+" : ""}{formatUSD(result.profitLoss)}
                   </p>
                 </div>
-                <div className={`rounded-lg border p-4 ${result.roi >= 0 ? "border-green-900/50 bg-green-950/10" : "border-red-900/50 bg-red-950/10"}`}>
+                <div className={` border p-4 ${result.roi >= 0 ? "border-green-900/50 bg-green-950/10" : "border-red-900/50 bg-red-950/10"}`}>
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">ROI</p>
                   <p className={`text-2xl font-mono font-bold ${result.roi >= 0 ? "text-green-400" : "text-red-400"}`}>
                     {result.roi >= 0 ? "+" : ""}{formatPercent(result.roi)}
@@ -171,7 +171,7 @@ export default function XRPProfitCalculator() {
             )}
 
             {!result && (
-              <div className="mt-8 rounded-lg border border-zinc-800 bg-black p-6 text-center">
+              <div className="mt-8  border border-zinc-800 bg-black p-6 text-center">
                 <p className="text-zinc-500">Enter values above to see your results</p>
               </div>
             )}
@@ -197,7 +197,7 @@ export default function XRPProfitCalculator() {
                 ["What is ROI?", "Return on Investment measures your percentage gain or loss. An ROI of 100% means you doubled your money. A negative ROI means you lost money on the trade."],
                 ["Does this include fees?", "This calculator shows raw profit/loss before exchange fees and taxes. Factor in your exchange's trading fees (typically 0.1%–0.6%) and any applicable capital gains tax for a complete picture."],
               ].map(([q, a]) => (
-                <details key={q} className="group rounded-lg border border-zinc-800 bg-zinc-950 overflow-hidden">
+                <details key={q} className="group  border border-zinc-800 bg-zinc-950 overflow-hidden">
                   <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-white hover:bg-zinc-900/50 transition-colors">
                     {q}
                     <span className="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
@@ -215,7 +215,7 @@ export default function XRPProfitCalculator() {
               ["/learn/how-to-buy-xrp", "Best Exchanges"],
               ["/how-to-start", "Get Started"],
             ].map(([href, label]) => (
-              <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
+              <Link key={href} href={href} className=" border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                 {label}
               </Link>
             ))}

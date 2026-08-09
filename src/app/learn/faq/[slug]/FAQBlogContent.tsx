@@ -70,7 +70,7 @@ export default function FAQBlogContent({ content }: { content: string }) {
             const headers = rows[0].split("|").filter(Boolean).map((h) => h.trim());
             const dataRows = rows.slice(1).map((r) => r.split("|").filter(Boolean).map((c) => c.trim()));
             return (
-              <div key={i} className="overflow-x-auto mt-4 mb-4 rounded-xl border border-white/[0.06]">
+              <div key={i} className="overflow-x-auto mt-4 mb-4  border border-white/[0.06]">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/[0.06] bg-black">

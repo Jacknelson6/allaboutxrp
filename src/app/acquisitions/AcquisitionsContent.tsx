@@ -172,7 +172,7 @@ export default function AcquisitionsContent() {
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-xrp-accent/10 p-2.5">
+            <div className=" bg-xrp-accent/10 p-2.5">
               <Building2 className="h-6 w-6 text-xrp-accent" />
             </div>
             <div>
@@ -188,7 +188,7 @@ export default function AcquisitionsContent() {
 
         <nav className="mt-8 flex gap-2 overflow-x-auto scrollbar-hide pb-2" aria-label="Page sections">
           {sections.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className="rounded-lg border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
+            <a key={s.id} href={`#${s.id}`} className=" border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-xrp-accent/30 hover:text-xrp-accent">
               {s.label}
             </a>
           ))}
@@ -223,10 +223,10 @@ export default function AcquisitionsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className={`rounded-xl border p-5 ${a.color}`}
+                className={` border p-5 ${a.color}`}
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 rounded-lg bg-black p-2">{a.icon}</div>
+                  <div className="shrink-0  bg-black p-2">{a.icon}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-xs text-text-secondary">{a.year}</span>
@@ -238,7 +238,7 @@ export default function AcquisitionsContent() {
                         <h3 className="text-lg font-bold text-text-primary">{a.name}</h3>
                       )}
                       {a.price !== "Undisclosed" && (
-                        <span className="rounded-full border border-success/20 bg-success/10 px-2.5 py-0.5 font-mono text-xs text-success">
+                        <span className=" border border-success/20 bg-success/10 px-2.5 py-0.5 font-mono text-xs text-success">
                           {a.price}
                         </span>
                       )}
@@ -247,11 +247,11 @@ export default function AcquisitionsContent() {
                     <p className="mt-3 text-sm text-text-secondary leading-relaxed">{a.what}</p>
 
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-lg bg-black p-3">
+                      <div className=" bg-black p-3">
                         <p className="text-xs font-semibold uppercase tracking-wider text-text-secondary">Why Ripple Acquired</p>
                         <p className="mt-1 text-xs text-text-secondary leading-relaxed">{a.why}</p>
                       </div>
-                      <div className="rounded-lg bg-black p-3">
+                      <div className=" bg-black p-3">
                         <p className="text-xs font-semibold uppercase tracking-wider text-xrp-accent">XRP Impact</p>
                         <p className="mt-1 text-xs text-text-secondary leading-relaxed">{a.xrpImpact}</p>
                       </div>
@@ -266,12 +266,12 @@ export default function AcquisitionsContent() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-xl border border-danger/20 bg-danger/[0.03] p-5 opacity-60"
+              className=" border border-danger/20 bg-danger/[0.03] p-5 opacity-60"
             >
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-text-secondary">2023</span>
                 <h3 className="font-bold text-text-primary">Fortress Trust</h3>
-                <span className="rounded-full border border-danger/20 bg-danger/10 px-2.5 py-0.5 text-xs text-danger">Abandoned</span>
+                <span className=" border border-danger/20 bg-danger/10 px-2.5 py-0.5 text-xs text-danger">Abandoned</span>
               </div>
               <p className="mt-2 text-xs text-text-secondary">
                 Pulled out after a phishing attack via third-party vendor caused $12-15M in customer losses. Ripple compensated affected customers but walked away. Lesson: Ripple doesn&apos;t cut corners on security.
@@ -285,7 +285,7 @@ export default function AcquisitionsContent() {
           <p className="text-text-secondary text-sm leading-relaxed mb-6">
             Each acquisition maps to a specific layer of Ripple&apos;s financial infrastructure. <strong className="text-text-primary">No other crypto company has assembled this stack.</strong>
           </p>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+          <div className="overflow-x-auto  border border-white/[0.06] -mx-4 sm:mx-0">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
@@ -315,7 +315,7 @@ export default function AcquisitionsContent() {
               { period: "2023–2024", desc: "Payments + custody (Metaco, Standard)" },
               { period: "2025+", desc: "Full financial infrastructure" },
             ].map((e) => (
-              <div key={e.period} className="flex items-center gap-3 rounded-lg bg-black px-4 py-3">
+              <div key={e.period} className="flex items-center gap-3  bg-black px-4 py-3">
                 <span className="font-mono text-xs text-xrp-accent whitespace-nowrap">{e.period}</span>
                 <ArrowRight className="h-3 w-3 text-text-secondary shrink-0" />
                 <span className="text-xs text-text-secondary">{e.desc}</span>
@@ -337,7 +337,7 @@ export default function AcquisitionsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-white/[0.06] bg-black p-4"
+                className=" border border-white/[0.06] bg-black p-4"
               >
                 <p className="font-bold text-text-primary text-sm">{l.name}</p>
                 <p className="text-xs text-xrp-accent">{l.role}</p>
@@ -360,9 +360,9 @@ export default function AcquisitionsContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="flex gap-4 rounded-xl border border-xrp-accent/10 bg-xrp-accent/[0.02] p-4"
+                className="flex gap-4  border border-xrp-accent/10 bg-xrp-accent/[0.02] p-4"
               >
-                <div className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-xrp-accent/10 flex items-center justify-center">
+                <div className="mt-0.5 h-6 w-6 shrink-0  bg-xrp-accent/10 flex items-center justify-center">
                   <span className="font-mono text-xs text-xrp-accent font-bold">{i + 1}</span>
                 </div>
                 <div>
@@ -376,7 +376,7 @@ export default function AcquisitionsContent() {
 
         {/* By the Numbers */}
         <Section id="numbers" title="Ripple by the Numbers" index={6} total={6}>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+          <div className="overflow-x-auto  border border-white/[0.06] -mx-4 sm:mx-0">
             <table className="w-full text-left text-sm">
               <tbody className="divide-y divide-white/[0.04]">
                 {[
@@ -413,19 +413,19 @@ export default function AcquisitionsContent() {
           <div className="section-divider mb-10" />
           <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">Continue Reading</h2>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
-            <Link href="/learn/leadership" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <Link href="/learn/leadership" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">Ripple Leadership</h3>
               <p className="mt-1 text-xs text-text-secondary">The team driving these acquisitions</p>
             </Link>
-            <Link href="/learn/partnerships" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <Link href="/learn/partnerships" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">Partnerships</h3>
               <p className="mt-1 text-xs text-text-secondary">Banks & institutions in the Ripple network</p>
             </Link>
-            <Link href="/learn/rlusd" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+            <Link href="/learn/rlusd" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">RLUSD & XRP</h3>
               <p className="mt-1 text-xs text-text-secondary">How the stablecoin fits the strategy</p>
             </Link>
-            <Link href="/how-to-start" className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px] sm:col-span-3">
+            <Link href="/how-to-start" className=" border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px] sm:col-span-3">
               <h3 className="font-semibold text-text-primary">Bullish on Ripple&apos;s Growth? Here&apos;s How to Get XRP →</h3>
               <p className="mt-1 text-xs text-text-secondary">Step-by-step beginner guide to buying XRP</p>
             </Link>
@@ -437,7 +437,7 @@ export default function AcquisitionsContent() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-xrp-accent/20 bg-gradient-to-br from-xrp-accent/[0.04] to-transparent p-8"
+          className="mt-16  border border-xrp-accent/20 bg-gradient-to-br from-xrp-accent/[0.04] to-transparent p-8"
         >
           <h2 className="text-xl font-bold text-text-primary">The Bottom Line</h2>
           <p className="mt-3 text-sm text-text-secondary leading-relaxed">

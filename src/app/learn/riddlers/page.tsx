@@ -49,7 +49,7 @@ export default function RiddlersPage() {
           <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
+              <Link key={link.href} href={link.href} className="group flex items-center gap-3  border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
                 <div className="flex-1">
                   <span className="text-sm font-medium text-white group-hover:text-[#0085FF] transition-colors">{link.label}</span>
                   <p className="text-xs text-[#888] mt-0.5">{link.desc}</p>

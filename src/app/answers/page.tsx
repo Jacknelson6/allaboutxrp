@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, CircleHelp, Scale, ShieldCheck, WalletCards } from "lucide-react";
+import { ArrowUpRight, CircleHelp, Scale, WalletCards } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { buildBreadcrumbSchema } from "@/lib/utils/seo";
 
@@ -155,7 +155,7 @@ export default function AnswersHub() {
 
       <main id="main-content" className="bg-surface-primary">
         <header className="border-b border-surface-border">
-          <div className="site-container grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+          <div className="site-container grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
               <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
                 <Link href="/" className="inline-flex min-h-11 items-center transition-colors hover:text-text-primary">Home</Link>
@@ -163,23 +163,16 @@ export default function AnswersHub() {
                 <span className="text-text-primary">Answers</span>
               </nav>
               <p className="text-sm font-semibold text-xrp-accent-bright">The XRP answer desk</p>
-              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary">
+              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98] text-text-primary">
                 The answer first. The evidence next.
               </h1>
             </div>
-            <div className="max-w-xl rounded-xl bg-[#65b9ff] p-6 text-[#03111e] sm:p-7">
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                How these answers work
-              </div>
-              <p className="mt-3 text-[15px] leading-7 text-[#0b3558]">
-                Each answer is written to stand on its own, then connects to a deeper guide, visible sources, and the
-                uncertainty or limitations that matter.
-              </p>
-              <p className="mt-4 font-mono text-xs text-[#0b3558]">
-                Reviewed <time dateTime="2026-07-29">July 29, 2026</time>
-              </p>
-            </div>
+            <dl className="answer-method max-w-xl border-y border-surface-border text-sm">
+              <div><dt>01</dt><dd>Direct answer</dd></div>
+              <div><dt>02</dt><dd>Primary evidence</dd></div>
+              <div><dt>03</dt><dd>Limits and uncertainty</dd></div>
+              <div><dt>Reviewed</dt><dd><time dateTime="2026-07-29">July 29, 2026</time></dd></div>
+            </dl>
           </div>
         </header>
 
@@ -188,7 +181,7 @@ export default function AnswersHub() {
             <section key={group.title} className={groupIndex % 2 === 1 ? "border-y border-surface-border bg-surface-card" : "bg-surface-primary"} aria-labelledby={`answers-${groupIndex}`}>
               <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+                  <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
                     <group.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
                   </div>
                   <h2 id={`answers-${groupIndex}`} className="mt-5 text-4xl text-text-primary">{group.title}</h2>

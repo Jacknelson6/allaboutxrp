@@ -83,7 +83,7 @@ export default function XRPPricePredictionPage() {
         </LearnHero>
 
         {/* TOP DISCLAIMER */}
-        <div className="mt-8 rounded-xl border-2 border-red-500/40 bg-red-500/10 p-6">
+        <div className="mt-8  border-2 border-red-500/40 bg-red-500/10 p-6">
           <h3 className="text-lg font-bold text-red-400">⚠️ Important Disclaimer</h3>
           <p className="mt-2 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">This content is for educational and informational purposes only. It is NOT financial advice.</strong> Cryptocurrency investments are highly volatile and carry significant risk. You could lose your entire investment. The predictions compiled below represent analyst opinions — not guarantees. Always do your own research (DYOR) and consult a qualified financial advisor before making investment decisions. Never invest more than you can afford to lose.
@@ -285,7 +285,7 @@ export default function XRPPricePredictionPage() {
 
           {/* BOTTOM DISCLAIMER */}
           <RevealSection delay={0.05}>
-            <div className="rounded-xl border-2 border-red-500/40 bg-red-500/10 p-6">
+            <div className=" border-2 border-red-500/40 bg-red-500/10 p-6">
               <h3 className="text-lg font-bold text-red-400">⚠️ Disclaimer — Not Financial Advice</h3>
               <p className="mt-2 text-text-secondary leading-relaxed">
                 <strong className="text-text-primary">This article is for educational and informational purposes only.</strong> Nothing in this content constitutes financial advice, investment advice, or a recommendation to buy, sell, or hold any cryptocurrency including XRP. Cryptocurrency investments are speculative and carry substantial risk, including the potential for total loss. Past performance does not indicate future results. All predictions represent analyst opinions — not guarantees. Always conduct your own research and consult with a licensed financial advisor before making any investment decisions. Never invest more than you can afford to lose.

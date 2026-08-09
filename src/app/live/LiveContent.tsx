@@ -43,7 +43,7 @@ export default function LiveContent() {
           {/* Back to site link */}
           <a
             href="/"
-            className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-xs font-mono text-[#888888] hover:text-[#F0F0F0] hover:border-[#0085FF]/50 transition-colors"
+            className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)]  text-xs font-mono text-[#888888] hover:text-[#F0F0F0] hover:border-[#0085FF]/50 transition-colors"
           >
             ← Back to Site
           </a>
@@ -51,7 +51,7 @@ export default function LiveContent() {
           {/* Mobile toggle */}
           <button
             onClick={() => setShowFeed(!showFeed)}
-            className="absolute bottom-4 right-4 z-10 md:hidden px-4 py-2.5 min-h-[44px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)] rounded-lg text-sm font-mono text-[#888888]"
+            className="absolute bottom-4 right-4 z-10 md:hidden px-4 py-2.5 min-h-[44px] bg-[#0A0A0B] border border-[rgba(255,255,255,0.08)]  text-sm font-mono text-[#888888]"
           >
             {showFeed ? 'Hide Feed' : 'Show Feed'}
           </button>

@@ -74,7 +74,7 @@ export default function AboutPage() {
                 { icon: BookOpenText, title: "Answer first", text: "Pages lead with the useful answer, then explain context and limitations." },
                 { icon: ShieldCheck, title: "Show uncertainty", text: "Analysis and scenarios are labeled instead of presented as guarantees." },
               ].map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-xl border border-surface-border bg-surface-card p-5">
+                <div key={title} className=" border border-surface-border bg-surface-card p-5">
                   <Icon className="h-5 w-5 text-xrp-accent-bright" aria-hidden="true" />
                   <h3 className="mt-4 text-lg font-semibold text-text-primary">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{text}</p>
@@ -163,7 +163,7 @@ export default function AboutPage() {
               </a>
             </p>
 
-            <div className="not-prose mt-12 rounded-xl border border-surface-border bg-surface-card p-6">
+            <div className="not-prose mt-12  border border-surface-border bg-surface-card p-6">
               <p className="text-sm leading-relaxed text-text-secondary">
                 AllAboutXRP is for informational and educational purposes only. Nothing on
                 this site constitutes financial, legal, or investment advice. Cryptocurrency

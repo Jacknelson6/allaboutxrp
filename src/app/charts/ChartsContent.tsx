@@ -73,11 +73,11 @@ export default function ChartsContent() {
         </div>
 
         {/* TradingView Chart */}
-        <div className="rounded-xl border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative">
+        <div className=" border border-white/[0.06] overflow-hidden bg-[#0A0A0B] relative">
           {!tvReady && (
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <div className="flex flex-col items-center gap-3">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                <div className="h-6 w-6 animate-spin  border-2 border-white/10 border-t-xrp-accent" />
                 <span className="text-sm text-text-secondary">Loading chart…</span>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function ChartsContent() {
 
 function ChartStatCard({ label, value, color }: { label: string; value: string; color?: string }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-4 transition-all duration-200 hover:border-white/[0.1]">
+    <div className=" border border-white/[0.06] bg-[#0A0A0B] p-4 transition-all duration-200 hover:border-white/[0.1]">
       <p className="text-[11px] text-white/50 font-medium uppercase tracking-widest mb-1">{label}</p>
       <p className="text-lg font-bold font-mono tracking-tight" style={{ color: color || '#F0F0F0' }}>{value}</p>
     </div>

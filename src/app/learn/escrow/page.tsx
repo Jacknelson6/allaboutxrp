@@ -49,7 +49,7 @@ export default function EscrowLearnPage() {
         </div>
         <EscrowContent />
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">
+          <div className=" border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">
             <h2 className="text-xl font-bold text-text-primary">How to evaluate an escrow release</h2>
             <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">live escrow tracker</Link> is designed to make those on-ledger events inspectable without presenting an unsupported price-correlation claim.</p>
           </div>
@@ -59,7 +59,7 @@ export default function EscrowLearnPage() {
           <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
+              <Link key={link.href} href={link.href} className="group flex items-center gap-3  border border-white/[0.06] bg-white/[0.02] p-4 transition-all hover:border-[#0085FF]/30 hover:bg-white/[0.04]">
                 <div className="flex-1">
                   <span className="text-sm font-medium text-white group-hover:text-[#0085FF] transition-colors">{link.label}</span>
                   <p className="text-xs text-[#888] mt-0.5">{link.desc}</p>

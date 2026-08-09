@@ -255,7 +255,7 @@ export default function Top10Cryptocurrencies2026Page() {
             return (
               <RevealSection key={crypto.rank} id={sectionId} className="mt-14">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-xrp-accent/10 text-sm font-bold text-xrp-accent">
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/10 text-sm font-bold text-xrp-accent">
                     {crypto.rank}
                   </span>
                   <h2 className="text-2xl font-bold text-text-primary">{crypto.name}</h2>

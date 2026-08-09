@@ -28,7 +28,7 @@ function PricePerformance() {
   ];
 
   return (
-    <section className="mt-4 rounded-xl border border-surface-border bg-surface-card p-5" aria-labelledby="price-performance-title">
+    <section className="mt-4  border border-surface-border bg-surface-card p-5" aria-labelledby="price-performance-title">
       <h3 id="price-performance-title" className="text-lg font-semibold text-text-primary">Price performance</h3>
       <p className="mt-1 text-xs text-text-secondary">Current change by period</p>
       <div className="mt-4 space-y-2.5">
@@ -96,11 +96,11 @@ function LivePriceWidget({ compact = false }: { compact?: boolean }) {
     <>
       <a
         href="/live-chart"
-        className="block w-full rounded-xl border border-surface-border bg-surface-card p-5 text-left transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated"
+        className="block w-full  border border-surface-border bg-surface-card p-5 text-left transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated"
       >
         <div className="flex items-center justify-between mb-2">
           <span className="text-[13px] font-bold text-text-primary">XRP / USDT</span>
-          <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
+          <span className="h-2 w-2  bg-success animate-pulse" />
         </div>
         <div className={`font-mono text-[28px] font-bold transition-colors duration-300 ${flashColor}`}>
           ${fmtPrice(data.price)}
@@ -139,7 +139,7 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
       <PricePerformance />
 
       {/* 4. What to Watch */}
-      <section className="mt-4 rounded-xl border border-surface-border bg-surface-card p-5" aria-labelledby="watch-title">
+      <section className="mt-4  border border-surface-border bg-surface-card p-5" aria-labelledby="watch-title">
         <div className="flex items-center gap-2 mb-1">
           <Eye className="h-4 w-4 text-xrp-accent-bright" aria-hidden="true" />
           <h3 id="watch-title" className="text-lg font-semibold text-text-primary">What to watch</h3>
@@ -161,8 +161,8 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
 
       {/* 5. Explore: Learn & Tools — horizontal stacked */}
       <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
-        <Link href="/learn" className="group flex min-h-20 items-center gap-4 rounded-xl border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10">
+        <Link href="/learn" className="group flex min-h-20 items-center gap-4  border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center  bg-xrp-accent/10">
             <BookOpen className="h-5 w-5 text-xrp-accent-bright" aria-hidden="true" />
           </div>
           <div>
@@ -170,8 +170,8 @@ export default function RightSidebar({ mobilePrice = false }: { mobilePrice?: bo
             <p className="text-xs leading-snug text-text-secondary">Source-led XRP guides</p>
           </div>
         </Link>
-        <Link href="/tools" className="group flex min-h-20 items-center gap-4 rounded-xl border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-xrp-accent/10">
+        <Link href="/tools" className="group flex min-h-20 items-center gap-4  border border-surface-border bg-surface-card p-4 transition-colors hover:border-xrp-accent-bright/40 hover:bg-surface-elevated">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center  bg-xrp-accent/10">
             <Wrench className="h-5 w-5 text-xrp-accent-bright" aria-hidden="true" />
           </div>
           <div>

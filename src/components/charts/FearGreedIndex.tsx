@@ -70,7 +70,7 @@ export default function FearGreedIndex() {
   const label = value !== null ? getLabel(score) : '—';
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+    <div className=" border border-white/[0.06] bg-[#0A0A0B] p-5">
       <p className="text-xs text-white/40 uppercase tracking-widest mb-4">
         XRP Fear &amp; Greed
       </p>
@@ -91,10 +91,10 @@ export default function FearGreedIndex() {
 
         {/* Bar gauge */}
         <div className="flex-1">
-          <div className="relative h-3 rounded-full overflow-hidden bg-white/[0.06]">
+          <div className="relative h-3  overflow-hidden bg-white/[0.06]">
             {/* Gradient background */}
             <div
-              className="absolute inset-0 rounded-full"
+              className="absolute inset-0 "
               style={{
                 background: 'linear-gradient(to right, #ea3943, #f5a623, #f5d100, #6ccf59, #16c784)',
                 opacity: 0.2,
@@ -102,7 +102,7 @@ export default function FearGreedIndex() {
             />
             {/* Fill */}
             <div
-              className="absolute top-0 left-0 h-full rounded-full transition-all duration-1000 ease-out"
+              className="absolute top-0 left-0 h-full  transition-all duration-1000 ease-out"
               style={{
                 width: `${score}%`,
                 background: `linear-gradient(to right, #ea3943, ${color})`,

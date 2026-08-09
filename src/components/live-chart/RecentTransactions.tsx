@@ -104,13 +104,13 @@ export default function RecentTransactions() {
   }, []);
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+    <div className=" border border-white/[0.06] bg-[#0A0A0B] p-5">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold">
           Recent <span className="text-[#0085FF]">Transactions</span>
         </h2>
         <span className={`flex items-center gap-1.5 text-xs ${connected ? 'text-green-400' : 'text-red-400'}`}>
-          <span className={`h-1.5 w-1.5 rounded-full ${connected ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
+          <span className={`h-1.5 w-1.5  ${connected ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
           {connected ? 'Live' : 'Connecting…'}
         </span>
       </div>
@@ -137,7 +137,7 @@ export default function RecentTransactions() {
                     <td colSpan={5} className="py-8 text-center text-white/30">
                       {connected ? (
                         <>
-                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
+                          <div className="h-4 w-4 animate-spin  border-2 border-white/10 border-t-[#0085FF] mx-auto mb-2" />
                           Waiting for transactions…
                         </>
                       ) : (

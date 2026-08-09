@@ -79,7 +79,7 @@ export default function RiddlersContent() {
         {/* Hero */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-purple-500/10 p-2.5">
+            <div className=" bg-purple-500/10 p-2.5">
               <Eye className="h-6 w-6 text-purple-400" />
             </div>
             <div>
@@ -99,7 +99,7 @@ export default function RiddlersContent() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="rounded-lg border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
+              className=" border border-white/[0.06] bg-black px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-purple-400/30 hover:text-purple-400"
             >
               {s.label}
             </a>
@@ -116,7 +116,7 @@ export default function RiddlersContent() {
           </p>
 
           {/* Why XRP box */}
-          <div className="mt-8 rounded-xl border border-purple-400/20 bg-purple-500/[0.03] p-6">
+          <div className="mt-8  border border-purple-400/20 bg-purple-500/[0.03] p-6">
             <h3 className="font-semibold text-purple-400 flex items-center gap-2">
               <Sparkles className="h-4 w-4" /> Why This Only Exists in XRP
             </h3>
@@ -127,7 +127,7 @@ export default function RiddlersContent() {
                 { title: "Institutional Use Case", desc: "Real utility gives Riddler narratives more surface area to work with" },
                 { title: "Company Behind the Coin", desc: "Real executives on social media create opportunities for pattern matching" },
               ].map((item) => (
-                <div key={item.title} className="rounded-lg bg-black p-3">
+                <div key={item.title} className=" bg-black p-3">
                   <p className="font-semibold text-text-primary text-sm">{item.title}</p>
                   <p className="text-xs text-text-secondary mt-1">{item.desc}</p>
                 </div>
@@ -151,7 +151,7 @@ export default function RiddlersContent() {
             </p>
 
             <h4 className="mt-6 font-semibold text-text-primary text-sm">The Famous $589 Prediction</h4>
-            <div className="mt-2 rounded-lg border border-warning/20 bg-warning/[0.03] p-4">
+            <div className="mt-2  border border-warning/20 bg-warning/[0.03] p-4">
               <p className="font-mono text-3xl font-bold text-warning">$589</p>
               <p className="mt-1 text-xs text-text-secondary">
                 Derived from decoded visual symbolism — sequences reading &ldquo;5-8-9.&rdquo; Originally tied to December 31, 2018. Despite the timing miss, it became a cultural totem for the entire XRP community.
@@ -168,8 +168,8 @@ export default function RiddlersContent() {
                 "The Triskelion — cycles and transformation",
                 "Purple beret — perseverance and identity",
               ].map((s) => (
-                <div key={s} className="flex items-center gap-2 rounded-lg bg-black px-3 py-2 text-xs text-text-secondary">
-                  <span className="h-1.5 w-1.5 rounded-full bg-purple-400 shrink-0" />
+                <div key={s} className="flex items-center gap-2  bg-black px-3 py-2 text-xs text-text-secondary">
+                  <span className="h-1.5 w-1.5  bg-purple-400 shrink-0" />
                   {s}
                 </div>
               ))}
@@ -217,8 +217,8 @@ export default function RiddlersContent() {
                 "Timeline predictions (44 days, 77 days, Plan B)",
                 "Minimal or no text — images speak for themselves",
               ].map((s) => (
-                <div key={s} className="flex items-center gap-2 rounded-lg bg-black px-3 py-2 text-xs text-text-secondary">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
+                <div key={s} className="flex items-center gap-2  bg-black px-3 py-2 text-xs text-text-secondary">
+                  <span className="h-1.5 w-1.5  bg-blue-400 shrink-0" />
                   {s}
                 </div>
               ))}
@@ -229,7 +229,7 @@ export default function RiddlersContent() {
               Community decodings suggest phased price surges: double digits ($10+) → triple digits ($100+) → quadruple digits ($1,000+) → five-digit levels. Smiling faces signal upcoming pumps. Clock times match Ripple executive posts.
             </p>
 
-            <div className="mt-4 rounded-lg border border-blue-400/20 bg-blue-500/[0.03] p-4">
+            <div className="mt-4  border border-blue-400/20 bg-blue-500/[0.03] p-4">
               <h4 className="text-sm font-semibold text-blue-400">Connections to Ripple</h4>
               <ul className="mt-2 space-y-1 text-xs text-text-secondary">
                 <li>• Ripple&apos;s X account imagery mirrors Mr. Pool&apos;s visual language</li>
@@ -270,7 +270,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.03 }}
-                className="flex gap-4 rounded-xl border border-white/[0.06] bg-black p-4"
+                className="flex gap-4  border border-white/[0.06] bg-black p-4"
               >
                 <Hash className="h-4 w-4 shrink-0 text-warning mt-0.5" />
                 <div>
@@ -281,7 +281,7 @@ export default function RiddlersContent() {
             ))}
           </div>
 
-          <div className="mt-6 rounded-lg border border-white/[0.06] bg-black p-4">
+          <div className="mt-6  border border-white/[0.06] bg-black p-4">
             <p className="text-xs text-text-secondary">
               <strong className="text-text-primary">Note:</strong> A purported <em>Simpsons</em> screenshot showing $589 XRP has been <strong className="text-danger">debunked as a forgery</strong>, though it contributed to the cultural momentum.
             </p>
@@ -294,7 +294,7 @@ export default function RiddlersContent() {
             <Link href="/learn/leadership" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s</Link> former CTO (now CTO Emeritus) has become integral to Riddler lore through cryptic tweets. He typically responds to community decodings with humor and denial — which, of course, the community interprets as further confirmation.
           </p>
 
-          <div className="mt-6 overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+          <div className="mt-6 overflow-x-auto  border border-white/[0.06] -mx-4 sm:mx-0">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
@@ -316,7 +316,7 @@ export default function RiddlersContent() {
 
         {/* Garlinghouse */}
         <Section id="garlinghouse" title="Brad Garlinghouse: The 589 Connection" index={6} total={8}>
-          <div className="rounded-xl border border-warning/20 bg-warning/[0.03] p-6 text-center">
+          <div className=" border border-warning/20 bg-warning/[0.03] p-6 text-center">
             <p className="text-xs uppercase tracking-wider text-text-secondary">Twitter/X Follow Count</p>
             <p className="mt-2 font-mono text-5xl font-bold text-warning">589</p>
             <p className="mt-2 text-xs text-text-secondary">Maintained for an extended period — considered deliberately chosen by the community</p>
@@ -328,7 +328,7 @@ export default function RiddlersContent() {
               { quote: "Be fearful when others are greedy and greedy when others are fearful", interpretation: "Buy signal during XRP volatility" },
               { quote: "We're firing on all cylinders. It's happening.", interpretation: "Confirmation of community's timeline expectations" },
             ].map((q) => (
-              <div key={q.quote} className="rounded-xl border border-white/[0.06] bg-black p-4">
+              <div key={q.quote} className=" border border-white/[0.06] bg-black p-4">
                 <p className="text-sm text-text-primary italic">&ldquo;{q.quote}&rdquo;</p>
                 <p className="mt-2 text-xs text-text-secondary">→ {q.interpretation}</p>
               </div>
@@ -338,7 +338,7 @@ export default function RiddlersContent() {
 
         {/* Symbols Reference */}
         <Section id="symbols" title="Symbol Reference Guide" index={7} total={8}>
-          <div className="overflow-x-auto rounded-xl border border-white/[0.06] -mx-4 sm:mx-0">
+          <div className="overflow-x-auto  border border-white/[0.06] -mx-4 sm:mx-0">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-white/[0.06] bg-[#0A0A0B]">
                 <tr>
@@ -368,7 +368,7 @@ export default function RiddlersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="rounded-xl border border-white/[0.06] bg-black p-4"
+                className=" border border-white/[0.06] bg-black p-4"
               >
                 <p className="font-mono text-2xl font-bold text-xrp-accent">{n.num}</p>
                 <p className="mt-1 text-xs text-text-secondary">{n.meaning}</p>
@@ -389,15 +389,15 @@ export default function RiddlersContent() {
           <div className="section-divider mb-10" />
           <h2 className="text-[26px] font-bold tracking-[-0.03em] text-text-primary md:text-[30px]">Continue Reading</h2>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
-            <Link href="/learn/history" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+            <Link href="/learn/history" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">History & Timeline</h3>
               <p className="mt-1 text-xs text-text-secondary">The full story from 2011 to present</p>
             </Link>
-            <Link href="/learn/what-is-xrp" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+            <Link href="/learn/what-is-xrp" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">What is XRP?</h3>
               <p className="mt-1 text-xs text-text-secondary">Complete guide to XRP and the XRPL</p>
             </Link>
-            <Link href="/learn/leadership" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
+            <Link href="/learn/leadership" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-purple-400/30 hover:translate-y-[-2px]">
               <h3 className="font-semibold text-text-primary">Ripple Leadership</h3>
               <p className="mt-1 text-xs text-text-secondary">The people behind the cryptic posts</p>
             </Link>
@@ -409,7 +409,7 @@ export default function RiddlersContent() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-purple-400/20 bg-gradient-to-br from-purple-500/[0.04] to-transparent p-8"
+          className="mt-16  border border-purple-400/20 bg-gradient-to-br from-purple-500/[0.04] to-transparent p-8"
         >
           <h2 className="text-xl font-bold text-text-primary">A Note on Interpretation</h2>
           <p className="mt-3 text-sm text-text-secondary leading-relaxed">
@@ -459,9 +459,9 @@ function RiddlerCard({ name, alias, icon, tagline, isOpen, onToggle, children }:
   isOpen: boolean; onToggle: () => void; children: React.ReactNode;
 }) {
   return (
-    <div className={`rounded-xl border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-white/[0.06] bg-black"}`}>
+    <div className={` border transition-colors ${isOpen ? "border-purple-400/30 bg-purple-500/[0.02]" : "border-white/[0.06] bg-black"}`}>
       <button onClick={onToggle} className="flex w-full items-center gap-4 p-5 text-left">
-        <div className="rounded-lg bg-black p-2">{icon}</div>
+        <div className=" bg-black p-2">{icon}</div>
         <div className="flex-1">
           <p className="font-bold text-text-primary">{name}</p>
           <p className="text-xs text-text-secondary">{alias} — {tagline}</p>

@@ -85,7 +85,7 @@ export default function XRPFeeCalculator() {
 
           {/* Live Price Badge */}
           <div className="flex items-center gap-2 mb-8">
-            <span className={`inline-block h-2 w-2 rounded-full ${xrpPrice > 0 ? "bg-green-400 animate-pulse" : "bg-zinc-600"}`} />
+            <span className={`inline-block h-2 w-2  ${xrpPrice > 0 ? "bg-green-400 animate-pulse" : "bg-zinc-600"}`} />
             <span className="text-sm text-zinc-400">
               XRP Price:{" "}
               <span className="font-mono text-white">
@@ -95,7 +95,7 @@ export default function XRPFeeCalculator() {
           </div>
 
           {/* Calculator */}
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 mb-10">
+          <div className=" border border-zinc-800 bg-zinc-950 p-6 sm:p-8 mb-10">
             <div>
               <label htmlFor="tx-count" className="block text-sm font-medium text-zinc-400 mb-2">
                 Number of Transactions
@@ -108,7 +108,7 @@ export default function XRPFeeCalculator() {
                 placeholder="100"
                 value={transactions}
                 onChange={(e) => setTransactions(e.target.value)}
-                className="w-full rounded-lg border border-zinc-700 bg-black px-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
+                className="w-full  border border-zinc-700 bg-black px-4 py-3 font-mono text-white placeholder-zinc-600 focus:border-[#0085FF] focus:outline-none focus:ring-1 focus:ring-[#0085FF] transition-colors"
               />
             </div>
 
@@ -118,7 +118,7 @@ export default function XRPFeeCalculator() {
                 <button
                   key={val}
                   onClick={() => setTransactions(val)}
-                  className={`rounded-full border px-3 py-1 text-xs font-mono transition-colors ${
+                  className={` border px-3 py-1 text-xs font-mono transition-colors ${
                     transactions === val
                       ? "border-[#0085FF] bg-[#0085FF]/10 text-[#0085FF]"
                       : "border-zinc-700 text-zinc-400 hover:border-zinc-500"
@@ -132,11 +132,11 @@ export default function XRPFeeCalculator() {
             {/* Results */}
             {result && (
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-lg border border-zinc-800 bg-black p-4">
+                <div className=" border border-zinc-800 bg-black p-4">
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Transactions</p>
                   <p className="text-xl font-mono font-semibold text-white">{result.count.toLocaleString()}</p>
                 </div>
-                <div className="rounded-lg border border-zinc-800 bg-black p-4">
+                <div className=" border border-zinc-800 bg-black p-4">
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Total Fee (XRP)</p>
                   <p className="text-xl font-mono font-semibold text-[#0085FF]">
                     {result.totalFeeXRP < 0.01
@@ -145,7 +145,7 @@ export default function XRPFeeCalculator() {
                     XRP
                   </p>
                 </div>
-                <div className="rounded-lg border border-[#0085FF]/30 bg-[#0085FF]/5 p-4">
+                <div className=" border border-[#0085FF]/30 bg-[#0085FF]/5 p-4">
                   <p className="text-xs text-zinc-500 uppercase tracking-wider mb-1">Total Fee (USD)</p>
                   <p className="text-xl font-mono font-bold text-[#0085FF]">
                     {xrpPrice > 0
@@ -160,7 +160,7 @@ export default function XRPFeeCalculator() {
 
             {/* Per-tx breakdown */}
             {result && xrpPrice > 0 && (
-              <div className="mt-4 rounded-lg border border-zinc-800 bg-black p-4">
+              <div className="mt-4  border border-zinc-800 bg-black p-4">
                 <p className="text-sm text-zinc-400">
                   Cost per transaction:{" "}
                   <span className="font-mono text-white">{XRP_FEE_PER_TX} XRP</span>
@@ -176,7 +176,7 @@ export default function XRPFeeCalculator() {
           {/* Fee Comparison */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-white mb-4">How XRP Fees Compare</h2>
-            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+            <div className="overflow-x-auto  border border-zinc-800">
               <table className="w-full text-sm text-left">
                 <thead className="bg-zinc-900 text-zinc-400 uppercase text-xs">
                   <tr>
@@ -251,7 +251,7 @@ export default function XRPFeeCalculator() {
                 ["Can XRP fees increase?", "The base fee is set by network validators and can theoretically change. During network congestion, an automatic fee escalation mechanism may temporarily increase fees. Even at elevated levels, XRP fees remain extremely low."],
                 ["How do XRP fees compare to Ethereum?", "XRP fees are roughly 250,000x cheaper than Ethereum gas fees. An Ethereum transaction typically costs $2-50+ depending on congestion, while an XRP transaction costs a fraction of a cent."],
               ].map(([q, a]) => (
-                <details key={q} className="group rounded-lg border border-zinc-800 bg-zinc-950 overflow-hidden">
+                <details key={q} className="group  border border-zinc-800 bg-zinc-950 overflow-hidden">
                   <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-white hover:bg-zinc-900/50 transition-colors">
                     {q}
                     <span className="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
@@ -269,7 +269,7 @@ export default function XRPFeeCalculator() {
               ["/learn/how-to-buy-xrp", "Best Exchanges"],
               ["/how-to-start", "Get Started"],
             ].map(([href, label]) => (
-              <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
+              <Link key={href} href={href} className=" border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                 {label}
               </Link>
             ))}

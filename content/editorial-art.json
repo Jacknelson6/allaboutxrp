@@ -1,51 +1,66 @@
 {
-  "styleVersion": "aaxrp-classical-ascii-v1",
+  "styleVersion": "aaxrp-classical-ascii-v2",
   "aspectRatio": "16:9",
   "guides": [
     {
       "route": "/learn/what-is-xrp",
       "breadcrumbLabel": "What is XRP?",
       "src": "/guides/ultimate-guide-xrp-2026.webp",
-      "alt": "Ancient Greek archive temple above a cobalt sea with an open ledger and luminous paths connecting distant ports",
+      "alt": "Colored mountain streams converge through an ancient Greek aqueduct before separating toward distant valleys",
       "width": 1672,
       "height": 941,
-      "promptConcept": "An open Greek archive and ledger sending verified channels toward global ports"
+      "sceneKey": "mountain-river-aqueduct",
+      "setting": "A high inland river gorge at sunrise",
+      "primarySymbol": "Converging streams crossing one aqueduct",
+      "promptConcept": "A mountain water system explains how a bridge asset can connect distinct flows without becoming their destination"
     },
     {
       "route": "/learn/how-to-buy-xrp",
       "breadcrumbLabel": "How to Buy XRP",
       "src": "/guides/ultimate-guide-buying-xrp-2026.webp",
-      "alt": "Five ivory steps cross a cobalt channel toward a secure ancient Greek treasury overlooking the Mediterranean",
+      "alt": "A buyer completes five careful purchase and custody steps across the counter of an ancient Greek civic market",
       "width": 1672,
       "height": 941,
-      "promptConcept": "A five-step path through a Greek financial agora toward secure custody"
+      "sceneKey": "indoor-civic-market",
+      "setting": "An enclosed civic marketplace at midday",
+      "primarySymbol": "Five due-diligence objects ending with a custody key",
+      "promptConcept": "A five-object exchange ritual turns buying XRP into a visible process of comparison, execution, and custody"
     },
     {
       "route": "/learn/xrp-2026-outlook",
       "breadcrumbLabel": "XRP 2026 Outlook",
       "src": "/guides/xrp-2026-outlook.webp",
-      "alt": "Ancient Greek observers study an armillary sphere as several luminous paths cross a cobalt sea toward the horizon",
+      "alt": "An ancient Greek astronomer measures three possible paths through a cobalt night sky with a bronze armillary sphere",
       "width": 1672,
       "height": 941,
-      "promptConcept": "A Greek observatory comparing several possible paths across a luminous horizon"
+      "sceneKey": "night-hilltop-observatory",
+      "setting": "A remote hilltop observatory at night",
+      "primarySymbol": "Three measured scenario arcs",
+      "promptConcept": "A night observatory distinguishes baseline, upside, and downside scenarios without presenting prophecy as evidence"
     },
     {
       "route": "/learn/altcoins-2026",
       "breadcrumbLabel": "Altcoins in 2026",
       "src": "/guides/ultimate-guide-altcoins-2026.webp",
-      "alt": "Different ancient trading vessels follow distinct routes through a cobalt Greek harbor beneath an ivory lighthouse",
+      "alt": "Five distinct mechanisms are compared across worktables in an ancient Greek inventor's workshop",
       "width": 1672,
       "height": 941,
-      "promptConcept": "A Greek harbor of distinct vessels and trade routes used to compare competing networks"
+      "sceneKey": "inventors-mechanical-workshop",
+      "setting": "A skylit mechanical workshop interior",
+      "primarySymbol": "Five machines built for different tasks",
+      "promptConcept": "A workshop compares different network designs by showing five mechanisms solving different problems"
     },
     {
       "route": "/learn/is-xrp-a-good-investment",
       "breadcrumbLabel": "Is XRP a Good Investment?",
       "src": "/guides/is-xrp-good-investment-2026.webp",
-      "alt": "A nearly level golden balance weighs a cobalt vessel against dark risk stones on an ancient Greek coastal terrace",
+      "alt": "A traveler weighs a blue bridge against four risks before choosing among three ancient Greek mountain roads",
       "width": 1672,
       "height": 941,
-      "promptConcept": "A level Greek balance weighing opportunity against distinct investment risks"
+      "sceneKey": "highland-three-road-crossroads",
+      "setting": "An inland highland crossroads at dawn",
+      "primarySymbol": "Three paths beside a balanced opportunity and risk scale",
+      "promptConcept": "A crossroads and evidence scale frame investment as a time-bound decision with several defensible outcomes"
     }
   ]
 }

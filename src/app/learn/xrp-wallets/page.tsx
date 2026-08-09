@@ -87,7 +87,7 @@ export default function XRPWalletsPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">The short answer:</strong> An XRP wallet manages the keys that authorize your ledger account; the XRP remains recorded on the <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link>. Custody is a choice between provider risk and personal recovery risk. A new self-custody account currently requires a 1 XRP reserve, and no legitimate support agent needs your secret.

@@ -15,7 +15,7 @@ export default function TierFAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="mt-6 rounded-xl border border-white/[0.06] p-5" aria-label="FAQ">
+    <section className="mt-6  border border-white/[0.06] p-5" aria-label="FAQ">
       <h2 className="text-lg font-bold text-text-primary mb-4">Frequently Asked Questions</h2>
       <div className="space-y-2">
         {faqs.map((faq, i) => (

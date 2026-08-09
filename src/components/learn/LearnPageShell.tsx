@@ -146,7 +146,7 @@ export function SectionNav({ items }: { items: { id: string; label: string }[] }
         <a
           key={item.id}
           href={`#${item.id}`}
-          className="inline-flex min-h-11 items-center rounded-sm border border-surface-border px-3 text-sm font-semibold text-text-secondary transition-colors duration-200 hover:border-xrp-accent/50 hover:text-xrp-accent-bright"
+          className="inline-flex min-h-11 items-center  border border-surface-border px-3 text-sm font-semibold text-text-secondary transition-colors duration-200 hover:border-xrp-accent/50 hover:text-xrp-accent-bright"
         >
           {item.label}
         </a>
@@ -244,7 +244,7 @@ export function HighlightBox({
   large?: boolean;
 }) {
   return (
-    <div className={`rounded-sm border ${variantStyles[variant]} ${large ? "p-6" : "p-4"}`}>
+    <div className={` border ${variantStyles[variant]} ${large ? "p-6" : "p-4"}`}>
       {title ? (
         <div className="flex items-center gap-2 mb-2">
           {icon ? icon : variantIcons[variant]}
@@ -363,7 +363,7 @@ export function GlowCard({
   subtitle?: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-sm border border-xrp-accent/20 bg-surface-card p-5">
+    <div className="relative overflow-hidden  border border-xrp-accent/20 bg-surface-card p-5">
       <div className="relative">
         {icon ? <div className="mb-2">{icon}</div> : null}
         <span className="font-medium text-xrp-accent text-[14px]">{title}</span>
@@ -420,7 +420,7 @@ export function MisconceptionCard({
   reality: string;
 }) {
   return (
-    <div className="rounded-sm border border-danger/20 bg-danger/[0.04] p-4">
+    <div className=" border border-danger/20 bg-danger/[0.04] p-4">
       <div className="flex items-start gap-3">
         <XCircle className="h-5 w-5 shrink-0 text-danger mt-0.5" />
         <div>

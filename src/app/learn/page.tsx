@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -96,6 +97,12 @@ const topicHubs: Guide[] = LEARN_HUBS.map((hub) => ({
 
 const allGuides = [...topicHubs, ...foundations, ...clusters.flatMap((cluster) => cluster.guides)];
 
+const featuredGuides = [
+  { href: "/learn/what-is-xrp", title: "The complete guide to XRP", image: "/guides/ultimate-guide-xrp-2026.webp", alt: "Classical oil and ASCII illustration of waterways converging through an aqueduct" },
+  { href: "/learn/how-to-buy-xrp", title: "How to buy XRP safely", image: "/guides/ultimate-guide-buying-xrp-2026.webp", alt: "Classical oil and ASCII illustration of a civic market for comparing XRP purchase routes" },
+  { href: "/learn/altcoins-2026", title: "The 2026 guide to altcoins", image: "/guides/ultimate-guide-altcoins-2026.webp", alt: "Classical oil and ASCII illustration of an inventor's workshop filled with distinct machines" },
+];
+
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -128,7 +135,7 @@ export default function LearnPage() {
                 <span className="text-text-primary">Learn</span>
               </nav>
               <p className="text-sm font-semibold text-xrp-accent-bright">XRP learning center</p>
-              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-text-primary">
+              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98] text-text-primary">
                 Understand XRP from first principles.
               </h1>
             </div>
@@ -144,6 +151,13 @@ export default function LearnPage() {
             </div>
           </div>
         </header>
+
+        <section className="site-container py-12 sm:py-16" aria-labelledby="featured-guides-heading">
+          <div className="flex items-end justify-between gap-6 border-b border-surface-border pb-5"><h2 id="featured-guides-heading" className="text-3xl text-text-primary">Essential guides</h2><span className="text-xs text-text-secondary">Built for a complete first read</span></div>
+          <div className="editorial-cover-grid mt-8">
+            {featuredGuides.map((guide) => <Link key={guide.href} href={guide.href} className="editorial-cover group"><span className="editorial-cover-image"><Image src={guide.image} alt={guide.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" /></span><span className="editorial-cover-meta"><span>ULTIMATE GUIDE</span><strong>{guide.title}</strong></span></Link>)}
+          </div>
+        </section>
 
         <section className="border-b border-surface-border bg-surface-card" aria-labelledby="paths-heading">
           <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
@@ -161,7 +175,7 @@ export default function LearnPage() {
         <section className="site-container section-shell" aria-labelledby="foundations-heading">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+              <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
                 <BookOpen className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
               </div>
               <h2 id="foundations-heading" className="mt-5 text-4xl text-text-primary sm:text-5xl">XRP foundations</h2>
@@ -178,7 +192,7 @@ export default function LearnPage() {
             <section key={cluster.id} id={cluster.id} className={index % 2 === 0 ? "bg-surface-card" : "bg-surface-primary"} aria-labelledby={`${cluster.id}-heading`}>
               <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-xrp-accent/10 text-xrp-accent">
+                  <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
                     <cluster.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
                   </div>
                   <h2 id={`${cluster.id}-heading`} className="mt-5 text-3xl text-text-primary sm:text-4xl">{cluster.title}</h2>

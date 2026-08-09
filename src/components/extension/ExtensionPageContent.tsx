@@ -63,9 +63,9 @@ export default function ExtensionPageContent() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0085FF]/[0.06] to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0085FF]/[0.04] rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0085FF]/[0.04]  blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-5 py-20 sm:py-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#0085FF]/20 bg-[#0085FF]/[0.06] px-4 py-1.5 text-[13px] font-medium text-[#0085FF] mb-6">
+          <div className="inline-flex items-center gap-2  border border-[#0085FF]/20 bg-[#0085FF]/[0.06] px-4 py-1.5 text-[13px] font-medium text-[#0085FF] mb-6">
             <Chrome className="h-4 w-4" />
             Chrome Extension
           </div>
@@ -81,7 +81,7 @@ export default function ExtensionPageContent() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover:shadow-[0_0_24px_rgba(0,133,255,0.35)] hover:gap-3"
+              className="inline-flex items-center gap-2  bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover: hover:gap-3"
             >
               <Chrome className="h-4.5 w-4.5" />
               Install Extension
@@ -109,9 +109,9 @@ export default function ExtensionPageContent() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-2xl border border-white/[0.06] bg-[#0A0A0B] p-6 hover:border-[#0085FF]/20 transition-colors group"
+              className=" border border-white/[0.06] bg-[#0A0A0B] p-6 hover:border-[#0085FF]/20 transition-colors group"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-white/[0.06] bg-white/[0.02] text-[#0085FF] mb-4 group-hover:bg-[#0085FF]/10 group-hover:border-[#0085FF]/20 transition-colors">
+              <div className="inline-flex items-center justify-center w-10 h-10  border border-white/[0.06] bg-white/[0.02] text-[#0085FF] mb-4 group-hover:bg-[#0085FF]/10 group-hover:border-[#0085FF]/20 transition-colors">
                 <feature.icon className="h-5 w-5" />
               </div>
               <h3 className="text-[17px] font-bold text-text-primary mb-2">
@@ -127,7 +127,7 @@ export default function ExtensionPageContent() {
 
       {/* Bottom CTA */}
       <section className="mx-auto max-w-3xl px-5 pb-20">
-        <div className="rounded-2xl border border-[#0085FF]/20 bg-gradient-to-b from-[#0085FF]/[0.04] to-transparent p-10 sm:p-14 text-center">
+        <div className=" border border-[#0085FF]/20 bg-gradient-to-b from-[#0085FF]/[0.04] to-transparent p-10 sm:p-14 text-center">
           <h2 className="text-[26px] sm:text-[32px] font-bold tracking-[-0.03em] text-text-primary">
             Ready to trade smarter?
           </h2>
@@ -136,7 +136,7 @@ export default function ExtensionPageContent() {
           </p>
           <a
             href="#"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover:shadow-[0_0_24px_rgba(0,133,255,0.35)] hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2  bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover: hover:gap-3"
           >
             <Chrome className="h-4.5 w-4.5" />
             Install Extension

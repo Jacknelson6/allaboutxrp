@@ -20,7 +20,7 @@ export default function GlobalError({
           </p>
           <button
             onClick={reset}
-            className="mt-6 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white"
+            className="mt-6  bg-blue-600 px-5 py-2.5 text-sm font-medium text-white"
           >
             Try again
           </button>

@@ -111,10 +111,10 @@ export default function LiveTrades() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-black rounded-xl border border-white/[0.06] overflow-hidden">
+    <div className="h-full flex flex-col bg-black  border border-white/[0.06] overflow-hidden">
       <div className="px-3 py-2.5 border-b border-white/[0.06] flex items-center justify-between shrink-0">
         <span className="text-xs font-semibold text-white/60 uppercase tracking-widest">Live Trades</span>
-        <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+        <span className="h-2 w-2  bg-green-400 animate-pulse" />
       </div>
       <div className="grid grid-cols-[1fr_1fr_auto_auto] gap-x-3 px-3 py-1.5 text-[10px] text-white/30 uppercase tracking-wider border-b border-white/[0.04] shrink-0">
         <span>Price</span>
@@ -142,7 +142,7 @@ export default function LiveTrades() {
                 <span className="text-right text-white/30">
                   {formatTime(trade.time)}
                 </span>
-                <span className={`w-1 h-1 rounded-full self-center ${trade.isBuy ? 'bg-green-400' : 'bg-red-400'}`} />
+                <span className={`w-1 h-1  self-center ${trade.isBuy ? 'bg-green-400' : 'bg-red-400'}`} />
               </motion.div>
             ))}
           </AnimatePresence>

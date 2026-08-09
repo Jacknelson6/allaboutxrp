@@ -17,7 +17,7 @@ export default function UniqueInsight({
   verifiedDate,
 }: UniqueInsightProps) {
   return (
-    <aside className="my-10 overflow-hidden rounded-sm border border-xrp-accent/20 bg-surface-card">
+    <aside className="my-10 overflow-hidden  border border-xrp-accent/20 bg-surface-card">
       <div className="px-6 py-5">
           {/* Header */}
           <div className="flex items-center gap-2 mb-3">

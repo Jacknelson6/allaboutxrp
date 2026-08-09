@@ -16,11 +16,14 @@
     "CFTC"
   ],
   "image": "/news/clarity-act-senate-cloture-editorial.webp",
-  "imageAlt": "Ancient Greek civic assembly at dusk facing an open procedural gate with a second closed gate beyond",
+  "imageAlt": "An open-air Greek tribunal votes beside two procedural gates, with the first open and the second still closed",
   "imageWidth": 1672,
   "imageHeight": 941,
-  "imageStyle": "aaxrp-classical-ascii-v1",
-  "imagePrompt": "An ancient Greek senate chamber at dusk, with legislative tablets, branching vote paths, cobalt shadows, pale gold light, and fine 1, 0, x ASCII contours representing the digital-asset network.",
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "inland-open-air-tribunal",
+  "imageSetting": "A dry inland civic amphitheater at midday",
+  "imageMetaphor": "The first procedural gate is open while the second gate remains closed",
+  "imagePrompt": "An elevated view across an ancient Greek open-air tribunal where voting stones, a water clock, and two sequential gates explain cloture as a procedural step. The first gate is open and the second remains closed. Use the AllAboutXRP oil palette and fine 1, 0, x ASCII treatment without repeating a coast, market, observatory, workshop, river, or bank.",
   "keyTakeaways": [
     "The Senate record confirms a September 15 cloture vote on the motion to proceed to H.R. 3633, the Digital Asset Market Clarity Act.",
     "Cloture would clear only an early 60-vote procedural hurdle. It would not pass the bill, make it law, or complete Senate consideration.",

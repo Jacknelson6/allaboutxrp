@@ -15,7 +15,7 @@ interface DataTableProps<T> {
 
 export default function DataTable<T>({ data, columns, keyExtractor }: DataTableProps<T>) {
   return (
-    <ScrollHint className="rounded-xl border border-white/[0.06]">
+    <ScrollHint className=" border border-white/[0.06]">
       <table className="w-full text-left text-sm">
         <thead className="border-b border-white/[0.06]">
           <tr>

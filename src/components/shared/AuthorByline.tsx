@@ -10,7 +10,7 @@ export default function AuthorByline({ date, modified }: AuthorBylineProps) {
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-text-secondary">
       <div className="flex items-center gap-2">
-        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-xrp-accent/10 text-[10px] font-bold text-xrp-accent">
+        <div className="flex h-7 w-7 items-center justify-center  bg-xrp-accent/10 text-[10px] font-bold text-xrp-accent">
           AA
         </div>
         <Link href="/editorial" className="font-medium text-text-primary hover:text-xrp-accent transition-colors">

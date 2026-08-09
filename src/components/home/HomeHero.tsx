@@ -95,7 +95,7 @@ function StatPill({
   }
 
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
+    <div className="flex items-center gap-3  border border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
       <div>
         <div className={`font-mono text-[18px] font-bold tracking-tight transition-colors duration-300 ${valueColor}`}>
           {value}

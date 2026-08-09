@@ -60,8 +60,8 @@ export default function JackNelsonAuthorPage() {
             </ul>
 
             <div className="not-prose mt-10 flex flex-wrap gap-4">
-              <Link href="/editorial" className="inline-flex min-h-11 items-center rounded-lg bg-xrp-accent px-5 text-sm font-semibold text-white hover:bg-xrp-accent-bright">Read editorial standards</Link>
-              <Link href="/corrections" className="inline-flex min-h-11 items-center rounded-lg border border-surface-border px-5 text-sm font-semibold text-text-primary hover:border-xrp-accent/40">View corrections</Link>
+              <Link href="/editorial" className="inline-flex min-h-11 items-center  bg-xrp-accent px-5 text-sm font-semibold text-white hover:bg-xrp-accent-bright">Read editorial standards</Link>
+              <Link href="/corrections" className="inline-flex min-h-11 items-center  border border-surface-border px-5 text-sm font-semibold text-text-primary hover:border-xrp-accent/40">View corrections</Link>
               <a href="mailto:team@allaboutxrp.com" className="inline-flex min-h-11 items-center px-2 text-sm font-semibold text-xrp-accent-bright underline decoration-xrp-accent/30 underline-offset-4">Contact the editorial desk</a>
             </div>
           </section>

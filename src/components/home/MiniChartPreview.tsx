@@ -52,7 +52,7 @@ export default function MiniChartPreview() {
   }, []);
 
   return (
-    <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden group">
+    <div className="relative  border border-[#2F3336] bg-[#16181C] overflow-hidden group">
       {/* TradingView Mini Chart */}
       <div className="relative h-[200px] w-full overflow-hidden" ref={containerRef} />
 
@@ -72,7 +72,7 @@ export default function MiniChartPreview() {
       </div>
 
       {/* Blue glow effect */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10 rounded-full blur-3xl -z-0" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10  blur-3xl -z-0" />
     </div>
   );
 }

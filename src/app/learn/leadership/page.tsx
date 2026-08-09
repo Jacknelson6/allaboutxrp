@@ -186,7 +186,7 @@ export default function LeadershipPage() {
               {executiveTeam.map((leader, i) => (
                 <div
                   key={leader.name}
-                  className={`rounded-xl border p-6  transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,180,255,0.04)] ${
+                  className={` border p-6  transition-all duration-300 hover: ${
                     leader.highlight
                       ? "border-xrp-accent/30 bg-gradient-to-r from-xrp-accent/5 to-transparent"
                       : "border-surface-border bg-surface-card hover:border-xrp-accent/30"
@@ -194,7 +194,7 @@ export default function LeadershipPage() {
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="text-xl font-bold text-text-primary">{leader.name}</h3>
-                    <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/10 px-3 py-0.5 text-xs font-semibold text-xrp-accent">
+                    <span className=" border border-xrp-accent/20 bg-xrp-accent/10 px-3 py-0.5 text-xs font-semibold text-xrp-accent">
                       {leader.title}
                     </span>
                     {leader.xHandle ? (
@@ -224,10 +224,10 @@ export default function LeadershipPage() {
             <p className="mt-2 text-text-secondary">The original architects of the XRP Ledger</p>
             <div className="mt-6 space-y-4">
               {founders.map((f) => (
-                <div key={f.name} className="rounded-xl border border-purple-400/20 bg-purple-500/[0.03] p-6 ">
+                <div key={f.name} className=" border border-purple-400/20 bg-purple-500/[0.03] p-6 ">
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="text-lg font-bold text-text-primary">{f.name}</h3>
-                    <span className="rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-0.5 text-xs font-semibold text-purple-400">{f.title}</span>
+                    <span className=" border border-purple-400/20 bg-purple-500/10 px-3 py-0.5 text-xs font-semibold text-purple-400">{f.title}</span>
                   </div>
                   <p className="mt-3 text-text-secondary leading-relaxed">{f.desc}</p>
                   <p className="mt-2 text-sm text-text-secondary/80"><strong className="text-text-primary">Background:</strong> {f.bg}</p>

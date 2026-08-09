@@ -134,7 +134,7 @@ export default function XRPPriceHistoryPage() {
           <div className="space-y-6">
             {yearlyData.map((y) => (
               <div key={y.year} className="relative pl-8 border-l-2 border-white/[0.06]">
-                <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-xrp-accent bg-black" />
+                <div className="absolute -left-[9px] top-0 h-4 w-4  border-2 border-xrp-accent bg-black" />
                 <div className="flex items-baseline gap-3 mb-1">
                   <h3 className="text-lg font-bold text-xrp-accent">{y.year}</h3>
                   <span className="text-sm font-mono text-text-secondary">{y.range}</span>

@@ -12,7 +12,7 @@
 - [x] Rich List with holder tier calculator
 - [x] 3D Globe (ThreeXRP) integrated at /live
 - [x] X-style community feed (homepage) with demo data
-- [x] Daily news recap system (generator built, no cron yet)
+- [x] Retired daily recap system in favor of original source-led reporting
 - [x] Mega menu: Track, Analysis, Learn, Donate
 - [x] SEO: JSON-LD schema, meta tags, FAQ blog pages, sitemap
 - [x] UI overhaul: Sora + Plus Jakarta Sans, atmospheric design
@@ -30,7 +30,6 @@
 - [ ] Affiliate link signups (Uphold, Ledger, Coinbase, Kraken, Gemini, Crypto.com) — IN PROGRESS
 
 ## Phase 2: Monetization & Content Engine (Week 3-4)
-- [ ] Daily news recap cron (automated blog posts)
 - [ ] Newsletter launch (Beehiiv or Substack) — daily digest of top creator posts
 - [ ] Affiliate pages built out (wallets, exchanges, Gemini credit card)
 - [ ] Buy/sell/hold sentiment gauge (exchange inflow/outflow data)
@@ -66,7 +65,6 @@
 | Vercel Pro | $20/mo | If needed for traffic |
 | Domains (17+) | ~$17/mo amortized | ~$200/yr total |
 | X API | ~$5-20/mo | Pay-per-use, 30 accounts |
-| Perplexity API | ~$5-10/mo | Daily recaps |
 | Newsletter | $0-49/mo | Beehiiv free tier to start |
 | Wyoming LLC | $1,000 one-time | Split w/ Cole |
 | **Total monthly** | **~$50-100/mo** | After LLC setup |

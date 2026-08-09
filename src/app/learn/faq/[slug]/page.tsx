@@ -100,7 +100,7 @@ export default async function FAQBlogPage({ params }: Props) {
         </h1>
 
         {/* Quick answer box */}
-        <div className="mt-6 rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5">
+        <div className="mt-6  border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5">
           <p className="text-xs font-semibold uppercase tracking-wider text-xrp-accent mb-2">Quick Answer</p>
           <p className="text-text-secondary leading-relaxed">{faq.answer}</p>
         </div>
@@ -123,7 +123,7 @@ export default async function FAQBlogPage({ params }: Props) {
                 <Link
                   key={r.slug}
                   href={`/learn/faq/${r.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-black px-5 py-4 transition-colors hover:border-xrp-accent/30 hover:bg-[#111113]"
+                  className="group flex items-center gap-3  border border-white/[0.06] bg-black px-5 py-4 transition-colors hover:border-xrp-accent/30 hover:bg-[#111113]"
                 >
                   <span className="text-sm text-text-primary group-hover:text-xrp-accent transition-colors">{r.question}</span>
                   <span className="ml-auto text-text-secondary group-hover:text-xrp-accent transition-colors">→</span>
@@ -146,7 +146,7 @@ export default async function FAQBlogPage({ params }: Props) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-start gap-3 rounded-xl border border-white/[0.06] bg-black px-4 py-3 transition-colors hover:border-xrp-accent/30"
+                className="group flex items-start gap-3  border border-white/[0.06] bg-black px-4 py-3 transition-colors hover:border-xrp-accent/30"
               >
                 <div>
                   <span className="text-sm font-medium text-text-primary group-hover:text-xrp-accent transition-colors">{link.label}</span>

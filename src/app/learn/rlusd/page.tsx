@@ -353,7 +353,7 @@ export default function RLUSDPage() {
                 { q: "What is RLUSD's market cap?", a: "CoinGecko reported approximately $1.61 billion when this page was reviewed on August 8, 2026. Verify the current figure because supply and price change." },
                 { q: "Can an RLUSD and XRP pool generate fees?", a: "Providers can receive pool trading fees, but returns are not guaranteed and may be offset by impermanent loss, price changes, low volume, or other risks." },
               ].map((faq, i) => (
-                <div key={i} className="rounded-sm border border-surface-border bg-surface-card p-5">
+                <div key={i} className=" border border-surface-border bg-surface-card p-5">
                   <h3 className="text-base font-semibold text-text-primary">{faq.q}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{faq.a}</p>
                 </div>

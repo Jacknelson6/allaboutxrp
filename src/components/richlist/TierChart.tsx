@@ -15,7 +15,7 @@ export { TIERS };
 
 export default function TierChart() {
   return (
-    <section className="mt-8 rounded-xl border border-white/[0.06] p-6" aria-label="XRP Holder Tiers">
+    <section className="mt-8  border border-white/[0.06] p-6" aria-label="XRP Holder Tiers">
       <h2 className="text-xl font-bold text-text-primary mb-1">XRP Holder Tiers</h2>
       <p className="text-sm text-text-secondary mb-6">Community-created XRP holder rankings</p>
 
@@ -23,7 +23,7 @@ export default function TierChart() {
         {TIERS.map((tier) => (
           <div
             key={tier.name}
-            className="flex items-center gap-4 rounded-lg border border-white/[0.06] p-3 hover:bg-white/[0.02] transition-colors"
+            className="flex items-center gap-4  border border-white/[0.06] p-3 hover:bg-white/[0.02] transition-colors"
           >
             <div className="text-2xl shrink-0">{tier.emoji}</div>
             <div className="flex-1 min-w-0">

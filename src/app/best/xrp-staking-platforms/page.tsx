@@ -218,7 +218,7 @@ export default function BestXRPStakingPage() {
           </h1>
 
           {/* Important Notice */}
-          <div className="rounded-lg border border-orange-900/50 bg-orange-950/20 px-4 py-4 text-sm text-orange-200/90 mb-6">
+          <div className=" border border-orange-900/50 bg-orange-950/20 px-4 py-4 text-sm text-orange-200/90 mb-6">
             <p className="font-semibold mb-1">⚠️ Important: XRP Does Not Have Native Staking</p>
             <p>
               Unlike Ethereum, Cardano, or Solana, the XRP Ledger uses a Federated Consensus protocol —
@@ -237,7 +237,7 @@ export default function BestXRPStakingPage() {
           {/* Quick Picks */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6">⚡ Quick Picks</h2>
-            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+            <div className="overflow-x-auto  border border-zinc-800">
               <table className="w-full text-sm text-left">
                 <thead className="bg-zinc-900 text-zinc-400 uppercase text-xs">
                   <tr>
@@ -254,7 +254,7 @@ export default function BestXRPStakingPage() {
                       <td className="px-4 py-3 text-zinc-400">{p.bestFor}</td>
                       <td className="px-4 py-3 text-zinc-400 font-mono">{p.estimatedYield}</td>
                       <td className="px-4 py-3 text-center">
-                        <span className="inline-block rounded-full bg-[#0085FF]/10 px-2 py-0.5 font-mono text-[#0085FF] font-semibold">
+                        <span className="inline-block  bg-[#0085FF]/10 px-2 py-0.5 font-mono text-[#0085FF] font-semibold">
                           {p.rating}/10
                         </span>
                       </td>
@@ -279,7 +279,7 @@ export default function BestXRPStakingPage() {
                 ["Accessibility (10%)", "Ease of use, minimum requirements, regional availability."],
                 ["Track Record (10%)", "How long has the platform operated? Any incidents?"],
               ].map(([title, desc]) => (
-                <div key={title} className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div key={title} className=" border border-zinc-800 bg-zinc-950 p-4">
                   <h3 className="font-semibold text-white text-sm mb-1">{title}</h3>
                   <p className="text-xs text-zinc-500">{desc}</p>
                 </div>
@@ -293,18 +293,18 @@ export default function BestXRPStakingPage() {
               <h2 className="text-2xl font-bold text-white mb-2">
                 {idx + 1}. {p.name}
               </h2>
-              <div className="rounded-lg border-l-4 border-[#0085FF] bg-[#0085FF]/5 px-4 py-3 mb-6">
+              <div className=" border-l-4 border-[#0085FF] bg-[#0085FF]/5 px-4 py-3 mb-6">
                 <p className="text-sm font-medium text-[#0085FF]">🏆 Verdict: {p.verdict}</p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 mb-6">
-                <div className="rounded-lg border border-green-900/30 bg-green-950/10 p-4">
+                <div className=" border border-green-900/30 bg-green-950/10 p-4">
                   <h3 className="text-sm font-semibold text-green-400 mb-2">✅ Pros</h3>
                   <ul className="space-y-1">
                     {p.pros.map((pr) => <li key={pr} className="text-sm text-zinc-400">• {pr}</li>)}
                   </ul>
                 </div>
-                <div className="rounded-lg border border-red-900/30 bg-red-950/10 p-4">
+                <div className=" border border-red-900/30 bg-red-950/10 p-4">
                   <h3 className="text-sm font-semibold text-red-400 mb-2">❌ Cons</h3>
                   <ul className="space-y-1">
                     {p.cons.map((c) => <li key={c} className="text-sm text-zinc-400">• {c}</li>)}
@@ -312,7 +312,7 @@ export default function BestXRPStakingPage() {
                 </div>
               </div>
 
-              <div className="overflow-x-auto rounded-lg border border-zinc-800 mb-6">
+              <div className="overflow-x-auto  border border-zinc-800 mb-6">
                 <table className="w-full text-sm">
                   <tbody className="divide-y divide-zinc-800">
                     {[
@@ -339,7 +339,7 @@ export default function BestXRPStakingPage() {
                 href={p.url}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="inline-flex items-center rounded-lg bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
+                className="inline-flex items-center  bg-[#0085FF] px-4 py-2 text-sm font-medium text-white hover:bg-[#0085FF]/80 transition-colors"
               >
                 Learn More →
               </a>
@@ -349,7 +349,7 @@ export default function BestXRPStakingPage() {
           {/* Full Comparison Table */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6">Full Comparison Table</h2>
-            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+            <div className="overflow-x-auto  border border-zinc-800">
               <table className="w-full text-xs text-left">
                 <thead className="bg-zinc-900 text-zinc-400 uppercase">
                   <tr>
@@ -388,13 +388,13 @@ export default function BestXRPStakingPage() {
                 ["💳 Want to borrow against XRP?", "Nexo lets you use XRP as collateral for loans without selling."],
                 ["🇺🇸 Based in the US?", "Options are more limited due to regulation. XRPL AMM is your best bet."],
               ].map(([title, desc]) => (
-                <div key={title} className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div key={title} className=" border border-zinc-800 bg-zinc-950 p-4">
                   <h3 className="font-semibold text-white text-sm mb-1">{title}</h3>
                   <p className="text-sm text-zinc-400">{desc}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-lg border border-red-900/50 bg-red-950/20 px-4 py-4 text-sm text-red-200/80">
+            <div className="mt-6  border border-red-900/50 bg-red-950/20 px-4 py-4 text-sm text-red-200/80">
               <p className="font-semibold mb-1">🚨 Golden Rule of Crypto Yield</p>
               <p>
                 If you can&apos;t explain where the yield comes from, you are the yield. Every legitimate return
@@ -415,7 +415,7 @@ export default function BestXRPStakingPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {faqItems.map((f) => (
-                <details key={f.q} className="group rounded-lg border border-zinc-800 bg-zinc-950 overflow-hidden">
+                <details key={f.q} className="group  border border-zinc-800 bg-zinc-950 overflow-hidden">
                   <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-white hover:bg-zinc-900/50 transition-colors">
                     {f.q}
                     <span className="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">▼</span>
@@ -426,7 +426,7 @@ export default function BestXRPStakingPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-8">
+          <section className=" border border-zinc-800 bg-zinc-950 p-8">
             <h2 className="text-lg font-semibold text-white mb-4">Continue Learning</h2>
             <div className="flex flex-wrap gap-3">
               {[
@@ -437,7 +437,7 @@ export default function BestXRPStakingPage() {
                 ["/learn/rlusd", "What is RLUSD?"],
                 ["/learn/is-xrp-a-good-investment", "Is XRP a Good Investment?"],
               ].map(([href, label]) => (
-                <Link key={href} href={href} className="rounded-full border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
+                <Link key={href} href={href} className=" border border-zinc-700 px-3 py-1.5 text-sm text-zinc-400 hover:border-[#0085FF] hover:text-[#0085FF] transition-colors">
                   {label}
                 </Link>
               ))}

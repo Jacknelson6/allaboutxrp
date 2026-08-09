@@ -81,7 +81,7 @@ export default function XRPTokenomicsPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">The short answer is:</strong> XRP has a fixed supply of 100 billion — no more can ever be created. Approximately 57-58 billion circulate freely, ~33.9 billion are locked in <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple&apos;s escrow</Link>, and over 14 million have been permanently burned through transaction fees. XRP is mildly deflationary — the supply only shrinks over time.

@@ -36,7 +36,7 @@ export default function FAQ({ items }: FAQProps) {
           return (
             <div
               key={i}
-              className={`overflow-hidden rounded-lg border transition-colors ${
+              className={`overflow-hidden  border transition-colors ${
                 isOpen ? "border-xrp-accent/30" : "border-white/[0.06]"
               }`}
             >

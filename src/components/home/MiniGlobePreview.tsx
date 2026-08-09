@@ -9,7 +9,7 @@ const Globe = dynamic(() => import('@/components/globe/Globe'), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center h-full">
-      <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+      <div className="h-6 w-6 animate-spin  border-2 border-white/10 border-t-[#0085FF]" />
     </div>
   ),
 });
@@ -18,14 +18,14 @@ const noop = () => {};
 
 export default function MiniGlobePreview() {
   return (
-    <div className="relative rounded-2xl border border-[#2F3336] bg-[#16181C] overflow-hidden group">
+    <div className="relative  border border-[#2F3336] bg-[#16181C] overflow-hidden group">
       {/* Globe preview - non-interactive */}
       <Link href="/live-chart">
         <div className="relative h-[280px] w-full pointer-events-none">
           <div className="absolute inset-0">
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
-                <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/10 border-t-[#0085FF]" />
+                <div className="h-6 w-6 animate-spin  border-2 border-white/10 border-t-[#0085FF]" />
               </div>
             }>
               <Globe arcs={[]} onArcComplete={noop} />
@@ -49,7 +49,7 @@ export default function MiniGlobePreview() {
       </div>
 
       {/* Blue glow effect */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10 rounded-full blur-3xl -z-0" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#0085FF]/10  blur-3xl -z-0" />
     </div>
   );
 }

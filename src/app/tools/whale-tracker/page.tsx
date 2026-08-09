@@ -134,7 +134,7 @@ export default function WhaleTrackerPage() {
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="rounded-lg bg-xrp-accent/10 p-2.5">
+                <div className=" bg-xrp-accent/10 p-2.5">
                   <Fish className="h-6 w-6 text-xrp-accent" />
                 </div>
                 <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -159,7 +159,7 @@ export default function WhaleTrackerPage() {
             )}
             <button
               onClick={fetchWhaleTransactions}
-              className="ml-auto flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-zinc-400 hover:text-white hover:border-xrp-accent/30 transition-colors"
+              className="ml-auto flex items-center gap-1.5  border border-white/10 px-3 py-1.5 text-xs text-zinc-400 hover:text-white hover:border-xrp-accent/30 transition-colors"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />
               Refresh
@@ -167,14 +167,14 @@ export default function WhaleTrackerPage() {
           </div>
 
           {error && (
-            <div className="mb-6 rounded-xl border border-yellow-500/20 bg-yellow-500/5 px-4 py-3 flex items-center gap-3 text-sm text-yellow-400">
+            <div className="mb-6  border border-yellow-500/20 bg-yellow-500/5 px-4 py-3 flex items-center gap-3 text-sm text-yellow-400">
               <AlertTriangle className="h-4 w-4 shrink-0" />
               {error}
             </div>
           )}
 
           {/* Transaction table */}
-          <div className="rounded-xl border border-white/[0.06] overflow-hidden mb-12">
+          <div className=" border border-white/[0.06] overflow-hidden mb-12">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="border-b border-white/[0.06] bg-white/[0.02]">
@@ -267,28 +267,28 @@ export default function WhaleTrackerPage() {
           <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
             <Link
               href="/learn/escrow"
-              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
+              className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
             >
               <h3 className="font-semibold text-white mb-1">XRP Escrow Explained →</h3>
               <p className="text-sm text-zinc-500">How Ripple&apos;s 1B monthly unlock works</p>
             </Link>
             <Link
               href="/tools/escrow-tracker"
-              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
+              className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
             >
               <h3 className="font-semibold text-white mb-1">Escrow Schedule Reference →</h3>
               <p className="text-sm text-zinc-500">Understand releases without relying on stale estimates</p>
             </Link>
             <Link
               href="/holders"
-              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
+              className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
             >
               <h3 className="font-semibold text-white mb-1">XRP Rich List →</h3>
               <p className="text-sm text-zinc-500">Top holders and wallet distribution</p>
             </Link>
             <Link
               href="/tools/price-alerts"
-              className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
+              className=" border border-white/[0.06] bg-white/[0.02] p-5 hover:border-xrp-accent/30 transition-colors"
             >
               <h3 className="font-semibold text-white mb-1">Price Levels to Watch →</h3>
               <p className="text-sm text-zinc-500">Key support and resistance for XRP</p>
@@ -306,7 +306,7 @@ export default function WhaleTrackerPage() {
                 { q: "Who creates large XRP transactions?", a: "Any funded ledger account can. Treat ownership as unknown unless a reliable public source supports the address label." },
                 { q: "How should I verify a transaction?", a: "Open its hash in the linked explorer and confirm the transaction result in a validated ledger." },
               ].map((item, i) => (
-                <details key={i} className="group rounded-xl border border-white/[0.06] bg-white/[0.02]">
+                <details key={i} className="group  border border-white/[0.06] bg-white/[0.02]">
                   <summary className="cursor-pointer px-5 py-4 font-medium text-white flex items-center justify-between">
                     {item.q}
                     <span className="text-zinc-500 group-open:rotate-180 transition-transform">▾</span>

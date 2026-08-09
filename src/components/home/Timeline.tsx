@@ -40,7 +40,7 @@ export default function Timeline({ events }: TimelineProps) {
             role="tab"
             aria-selected={filter === cat}
             onClick={() => setFilter(cat)}
-            className={`rounded-full px-3 py-1 text-sm capitalize transition-colors ${
+            className={` px-3 py-1 text-sm capitalize transition-colors ${
               filter === cat
                 ? "bg-xrp-accent text-white"
                 : "border border-white/[0.06] text-text-secondary hover:text-text-primary"
@@ -56,11 +56,11 @@ export default function Timeline({ events }: TimelineProps) {
           const dotColor = categoryColors[event.category] || "bg-xrp-accent";
           return (
             <div key={`${event.date}-${event.title}`} className="relative mb-6 last:mb-0">
-              <div className={`absolute -left-[1.6rem] top-2 h-2.5 w-2.5 rounded-full ${dotColor}`} />
-              <div className="rounded-lg border border-white/[0.06] p-4">
+              <div className={`absolute -left-[1.6rem] top-2 h-2.5 w-2.5  ${dotColor}`} />
+              <div className=" border border-white/[0.06] p-4">
                 <div className="flex items-center gap-3 flex-wrap">
                   <time className="font-mono text-xs text-text-secondary">{event.date}</time>
-                  <span className="rounded-full border border-white/[0.06] px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary">
+                  <span className=" border border-white/[0.06] px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-text-secondary">
                     {event.category}
                   </span>
                 </div>

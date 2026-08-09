@@ -24,12 +24,12 @@ export default function ContinueLearning({ links }: ContinueLearningProps) {
           <Link
             key={link.href}
             href={link.href}
-            className="group relative rounded-xl border border-[#2F3336] bg-[#16181C] p-5 transition-all overflow-hidden"
+            className="group relative  border border-[#2F3336] bg-[#16181C] p-5 transition-all overflow-hidden"
           >
             {/* Hover: white overlay */}
-            <div className="absolute inset-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+            <div className="absolute inset-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity  pointer-events-none" />
             {/* Hover: blue gradient glow from top-left */}
-            <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+            <div className="absolute -inset-px bg-gradient-to-br from-[#0085FF]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity  pointer-events-none" />
 
             <div className="relative z-10">
               <h3 className="text-sm font-semibold text-white group-hover:text-[#0085FF] transition-colors">

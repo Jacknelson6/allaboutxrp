@@ -80,7 +80,7 @@ export default function XRPvsBitcoinPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">The short answer is:</strong> XRP is built for speed and payments — settling in 3-5 seconds for under $0.01. Bitcoin is built as a store of value — &quot;digital gold&quot; secured by Proof of Work mining. They serve different purposes and are complementary, not competitive. As of 2026, both have growing institutional adoption through ETFs and enterprise products.

@@ -108,7 +108,7 @@ export default function HowToBuyXRPPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">The short answer is:</strong> Choose a venue that serves your jurisdiction and supports XRP withdrawals, complete its identity checks, fund the account, and inspect the final fee, spread, and amount received before buying. Decide between exchange custody and a self-custody <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">XRP wallet</Link> before you deposit money.
@@ -190,9 +190,9 @@ export default function HowToBuyXRPPage() {
             </p>
 
             <ol className="mt-8 space-y-8">
-              <li className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <li className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">1</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">1</span>
                   <h3 className="text-xl font-semibold text-text-primary">Choose an Exchange</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -200,9 +200,9 @@ export default function HowToBuyXRPPage() {
                 </p>
               </li>
 
-              <li className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <li className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">2</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">2</span>
                   <h3 className="text-xl font-semibold text-text-primary">Create and Verify Your Account</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -210,9 +210,9 @@ export default function HowToBuyXRPPage() {
                 </p>
               </li>
 
-              <li className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <li className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">3</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">3</span>
                   <h3 className="text-xl font-semibold text-text-primary">Deposit Funds</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -220,9 +220,9 @@ export default function HowToBuyXRPPage() {
                 </p>
               </li>
 
-              <li className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <li className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">4</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">4</span>
                   <h3 className="text-xl font-semibold text-text-primary">Buy XRP</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -230,9 +230,9 @@ export default function HowToBuyXRPPage() {
                 </p>
               </li>
 
-              <li className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <li className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">5</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">5</span>
                   <h3 className="text-xl font-semibold text-text-primary">Secure Your XRP</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">

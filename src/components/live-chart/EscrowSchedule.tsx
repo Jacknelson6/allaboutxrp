@@ -18,7 +18,7 @@ const allUnlocks = [...pastUnlocks, ...escrowSchedule];
 
 export default function EscrowSchedule() {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5">
+    <div className=" border border-white/[0.06] bg-[#0A0A0B] p-5">
       <h2 className="text-lg font-bold mb-1">
         XRP <span className="text-[#0085FF]">Escrow</span> Schedule
       </h2>
@@ -28,7 +28,7 @@ export default function EscrowSchedule() {
           return (
             <div
               key={unlock.date}
-              className={`flex items-center justify-between rounded-lg px-4 py-3 transition-colors ${
+              className={`flex items-center justify-between  px-4 py-3 transition-colors ${
                 isReleased
                   ? 'bg-white/[0.02] opacity-50'
                   : i === pastUnlocks.length
@@ -45,7 +45,7 @@ export default function EscrowSchedule() {
                 <div>
                   <span className="text-sm font-medium text-white">{unlock.date}</span>
                   {i === pastUnlocks.length && (
-                    <span className="ml-2 text-[10px] uppercase tracking-wider bg-[#0085FF]/20 text-[#0085FF] px-1.5 py-0.5 rounded-full font-semibold">
+                    <span className="ml-2 text-[10px] uppercase tracking-wider bg-[#0085FF]/20 text-[#0085FF] px-1.5 py-0.5  font-semibold">
                       Next
                     </span>
                   )}

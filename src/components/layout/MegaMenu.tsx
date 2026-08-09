@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -15,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import PriceWidget from "../shared/PriceWidget";
+import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
 
 const learnGroups = [
@@ -97,7 +97,7 @@ export default function MegaMenu() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const navLink = (href: string) =>
-    `flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${
+    `flex min-h-11 items-center px-3 text-sm font-semibold transition-colors ${
       isActive(href) ? "bg-black/[0.055] text-text-primary" : "text-text-secondary hover:bg-black/[0.035] hover:text-text-primary"
     }`;
 
@@ -106,15 +106,7 @@ export default function MegaMenu() {
       <nav className="site-nav sticky top-0 z-50 border-b border-surface-border backdrop-blur-md" aria-label="Main navigation">
         <div className="site-container flex min-h-[4.25rem] items-center justify-between gap-4">
           <Link href="/" className="flex min-h-11 shrink-0 items-center" aria-label="AllAboutXRP home">
-            <Image
-              src="/aaxrp-logo.png"
-              alt="All About XRP"
-              width={1299}
-              height={138}
-              priority
-              unoptimized
-              className="site-logo h-auto w-[166px] sm:w-[184px]"
-            />
+            <BrandMark />
           </Link>
 
           <div className="hidden items-center gap-0.5 lg:flex">
@@ -122,7 +114,7 @@ export default function MegaMenu() {
               <button
                 type="button"
                 onClick={() => setLearnOpen((value) => !value)}
-                className={`flex min-h-11 items-center gap-1.5 rounded-lg px-3 text-sm font-semibold transition-colors ${
+                className={`flex min-h-11 items-center gap-1.5 px-3 text-sm font-semibold transition-colors ${
                   learnOpen || pathname.startsWith("/learn")
                     ? "bg-black/[0.055] text-text-primary"
                     : "text-text-secondary hover:bg-black/[0.035] hover:text-text-primary"
@@ -137,7 +129,7 @@ export default function MegaMenu() {
               {learnOpen ? (
                 <div
                   id="desktop-learn-menu"
-                  className="absolute left-1/2 top-full mt-2 w-[720px] -translate-x-1/2 rounded-xl border border-surface-border bg-surface-card p-5 shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+                  className="absolute left-1/2 top-full mt-2 w-[720px] -translate-x-1/2 border border-surface-border bg-surface-card p-5"
                 >
                   <div className="grid grid-cols-3 gap-5">
                     {learnGroups.map((group) => (
@@ -150,7 +142,7 @@ export default function MegaMenu() {
                         </div>
                         <div className="space-y-1">
                           {group.items.map((item) => (
-                            <Link key={item.href} href={item.href} className="block min-h-14 rounded-lg px-3 py-2 transition-colors hover:bg-black/[0.04]">
+                            <Link key={item.href} href={item.href} className="block min-h-14 px-3 py-2 transition-colors hover:bg-black/[0.04]">
                               <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
                               <span className="mt-0.5 block text-xs text-text-secondary">{item.desc}</span>
                             </Link>
@@ -187,7 +179,7 @@ export default function MegaMenu() {
             <button
               type="button"
               onClick={() => setMobileOpen((value) => !value)}
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-surface-border text-text-primary transition-colors hover:bg-black/[0.04]"
+              className="flex h-11 w-11 items-center justify-center border border-surface-border text-text-primary transition-colors hover:bg-black/[0.04]"
               aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-navigation"
@@ -214,11 +206,11 @@ export default function MegaMenu() {
                 {mobileLearnOpen ? (
                   <div className="grid gap-1 pb-3 sm:grid-cols-2">
                     {learnGroups.flatMap((group) => group.items).map((item) => (
-                      <Link key={item.href} href={item.href} className="flex min-h-12 items-center rounded-lg px-3 text-sm text-text-secondary hover:bg-black/[0.04] hover:text-text-primary">
+                      <Link key={item.href} href={item.href} className="flex min-h-12 items-center px-3 text-sm text-text-secondary hover:bg-black/[0.04] hover:text-text-primary">
                         {item.label}
                       </Link>
                     ))}
-                    <Link href="/learn" className="flex min-h-12 items-center rounded-lg px-3 text-sm font-semibold text-xrp-accent-bright">
+                    <Link href="/learn" className="flex min-h-12 items-center px-3 text-sm font-semibold text-xrp-accent-bright">
                       View all guides
                     </Link>
                   </div>
@@ -232,7 +224,7 @@ export default function MegaMenu() {
               <Link href="/editorial" className={`${navLink("/editorial")} border-b border-surface-border`}>
                 Editorial standards
               </Link>
-              <div className="mt-8 flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-4 text-sm text-text-secondary">
+              <div className="mt-8 flex items-start gap-3 border border-surface-border bg-surface-card p-4 text-sm text-text-secondary">
                 <CircleHelp className="mt-0.5 h-4 w-4 shrink-0 text-xrp-accent" aria-hidden="true" />
                 AllAboutXRP is independent and is not affiliated with Ripple Labs.
               </div>

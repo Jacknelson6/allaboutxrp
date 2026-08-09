@@ -79,7 +79,7 @@ export default function XRPStakingPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">The short answer is:</strong> XRP does <em>not</em> support traditional staking. The <Link href="/learn/xrp-ledger-explained" className="text-xrp-accent underline decoration-xrp-accent/30">XRP Ledger</Link> uses Federated Consensus, not Proof of Stake — so there are no native staking rewards. You <em>can</em> earn yield through AMM liquidity provision, exchange earn programs, and DeFi lending, but each carries risk. Be extremely cautious of any platform advertising &quot;XRP staking&quot; with guaranteed returns — it&apos;s likely a scam.

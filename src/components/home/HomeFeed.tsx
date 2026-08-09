@@ -1,17 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import AccordionGallery from "./AccordionGallery";
 import DeferredHomeContent from "./DeferredHomeContent";
 import HeroArtwork from "./HeroArtwork";
 import HomeIntelligenceCharts from "./HomeIntelligenceCharts";
-import SpecularButton from "./SpecularButton";
 
-const galleryItems = [
-  { image: "/images/xrp-ascii-bank-hero.webp", label: "Understand XRP", eyebrow: "FOUNDATIONS", link: "/learn/what-is-xrp" },
-  { image: "/news/clarity-act-senate-cloture-editorial.webp", label: "Follow regulation", eyebrow: "POLICY", link: "/learn/xrp-us-regulation" },
-  { image: "/news/xrp-ledger-3-3-0-amendments-editorial.webp", label: "Track the ledger", eyebrow: "NETWORK", link: "/learn/xrp-ledger-explained" },
-  { image: "/newsletter/market-chart.png", label: "Read the market", eyebrow: "MARKETS", link: "/live-chart" },
-  { image: "/images/xrp-ascii-bank-hero-night.webp", label: "Use XRP tools", eyebrow: "MODELS", link: "/tools" },
+const featuredGuides = [
+  { image: "/guides/ultimate-guide-xrp-2026.webp", label: "The complete guide to XRP", eyebrow: "FOUNDATIONS", link: "/learn/what-is-xrp" },
+  { image: "/guides/ultimate-guide-buying-xrp-2026.webp", label: "How to buy XRP safely", eyebrow: "PRACTICAL GUIDE", link: "/learn/how-to-buy-xrp" },
+  { image: "/guides/xrp-2026-outlook.webp", label: "The 2026 XRP outlook", eyebrow: "RESEARCH", link: "/learn/xrp-2026-outlook" },
 ];
 
 const answerLinks = [
@@ -30,15 +27,14 @@ export default function HomeFeed() {
         <div className="premium-hero-canvas">
             <HeroArtwork />
             <div className="premium-hero-copy">
-              <h1 id="home-hero-heading" className="premium-eyebrow">XRP News &amp; Analysis</h1>
-              <p className="premium-display-headline">Follow the Money.</p>
+              <h1 id="home-hero-heading" className="premium-eyebrow">XRP News, Data &amp; Research</h1>
+              <p className="premium-display-headline">Understand what moves XRP.</p>
               <p className="premium-hero-deck">News, markets, policy, and intelligence shaping XRP and the future of global finance.</p>
               <div className="premium-hero-actions">
-                <SpecularButton href="/learn/what-is-xrp">Read the XRP guide <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></SpecularButton>
+                <Link href="/learn/what-is-xrp" className="premium-primary-action">Read the XRP guide <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
                 <Link href="/learn" className="premium-text-action">Explore every guide <span aria-hidden="true">↗</span></Link>
               </div>
             </div>
-            <p className="premium-art-caption" aria-hidden="true">OPEN LEDGER / OPEN RECORD / INDEPENDENT ANALYSIS</p>
         </div>
         <div className="site-container">
           <dl className="ascii-proof-grid">
@@ -58,7 +54,14 @@ export default function HomeFeed() {
             <div><p className="ascii-section-label">SELECT A RESEARCH PATH</p><h2 id="pathways-heading" className="mt-3 max-w-2xl text-3xl text-text-primary sm:text-5xl">What are you trying to find out?</h2></div>
             <Link href="/learn" className="text-link text-sm">Browse the full learning center <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
           </div>
-          <div className="mt-10"><AccordionGallery items={galleryItems} defaultIndex={2} expandRatio={0.52} trigger="hover" /></div>
+          <div className="editorial-cover-grid mt-10">
+            {featuredGuides.map((item) => (
+              <Link key={item.link} href={item.link} className="editorial-cover group">
+                <span className="editorial-cover-image"><Image src={item.image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" /></span>
+                <span className="editorial-cover-meta"><span>{item.eyebrow}</span><strong>{item.label}</strong></span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -80,7 +83,7 @@ export default function HomeFeed() {
       <section className="site-container py-14 sm:py-20" aria-labelledby="latest-xrp-heading">
         <div className="ascii-feed-heading">
           <div><p className="ascii-section-label">NEWS WIRE / CURRENT COVERAGE</p><h2 id="latest-xrp-heading" className="mt-3 text-3xl text-text-primary sm:text-5xl">Latest XRP developments</h2></div>
-          <p className="max-w-md text-sm leading-6 text-text-secondary">Original reporting and dated recaps. Every time-sensitive claim points back to its source.</p>
+          <p className="max-w-md text-sm leading-6 text-text-secondary">Original reporting grounded in primary records. Every time-sensitive claim points back to its source.</p>
         </div>
         <div className="mt-8"><DeferredHomeContent /></div>
       </section>

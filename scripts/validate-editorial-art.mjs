@@ -8,9 +8,10 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const failures = [];
 const routes = new Set();
 const labels = new Set();
+const sceneKeys = new Set();
 
-if (manifest.styleVersion !== "aaxrp-classical-ascii-v1") {
-  failures.push("editorial-art.json must use aaxrp-classical-ascii-v1");
+if (manifest.styleVersion !== "aaxrp-classical-ascii-v2") {
+  failures.push("editorial-art.json must use aaxrp-classical-ascii-v2");
 }
 
 for (const artwork of manifest.guides || []) {
@@ -18,6 +19,12 @@ for (const artwork of manifest.guides || []) {
   if (labels.has(artwork.breadcrumbLabel)) failures.push(`duplicate guide label: ${artwork.breadcrumbLabel}`);
   routes.add(artwork.route);
   labels.add(artwork.breadcrumbLabel);
+
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(artwork.sceneKey || "")) failures.push(`${artwork.route}: sceneKey must be a stable slug`);
+  if (sceneKeys.has(artwork.sceneKey)) failures.push(`${artwork.route}: sceneKey must be unique: ${artwork.sceneKey}`);
+  sceneKeys.add(artwork.sceneKey);
+  if ((artwork.setting || "").length < 24) failures.push(`${artwork.route}: setting must describe a distinct environment`);
+  if ((artwork.primarySymbol || "").length < 24) failures.push(`${artwork.route}: primarySymbol must describe the topic metaphor`);
 
   if (!artwork.src?.startsWith("/guides/") || !artwork.src.endsWith(".webp")) {
     failures.push(`${artwork.route}: guide art must be a WebP under /guides`);
@@ -42,6 +49,7 @@ for (const artwork of manifest.guides || []) {
 console.log(JSON.stringify({
   styleVersion: manifest.styleVersion,
   guideImages: manifest.guides?.length || 0,
+  uniqueGuideScenes: sceneKeys.size,
   failures,
 }, null, 2));
 

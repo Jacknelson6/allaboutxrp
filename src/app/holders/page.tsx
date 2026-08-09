@@ -71,7 +71,7 @@ function WhaleActivityCard({ data }: { data: WhaleData | null }) {
   if (!data) {
     return (
       <div className="flex items-center justify-center h-full text-text-secondary text-sm">
-        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
+        <div className="h-4 w-4 animate-spin  border-2 border-white/10 border-t-xrp-accent mr-2" />
         Loading…
       </div>
     );
@@ -200,7 +200,7 @@ export default function HoldersPage() {
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
             {/* Whale Activity */}
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-6">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-6">
               <h3 className="text-sm font-medium text-text-secondary mb-4 flex items-center gap-2">
                 <Waves className="h-4 w-4 text-xrp-accent" />
                 Whale Activity (24h)
@@ -209,12 +209,12 @@ export default function HoldersPage() {
             </div>
 
             {/* Buy vs Sell Volume */}
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-6">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-6">
               <h3 className="text-sm font-medium text-text-secondary mb-4">Buy vs Sell Volume (24h)</h3>
               {sentiment ? (
                 <div className="flex flex-col justify-center h-32">
                   {/* Bar */}
-                  <div className="flex rounded-full overflow-hidden h-8">
+                  <div className="flex  overflow-hidden h-8">
                     <div
                       className="flex items-center justify-center text-xs font-semibold text-white transition-all duration-500"
                       style={{ width: `${sentiment.buyPercent}%`, background: "linear-gradient(90deg, #16c784, #00ba7c)" }}
@@ -247,7 +247,7 @@ export default function HoldersPage() {
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-32 text-text-secondary text-sm">
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent mr-2" />
+                  <div className="h-4 w-4 animate-spin  border-2 border-white/10 border-t-xrp-accent mr-2" />
                   Loading…
                 </div>
               )}
@@ -259,7 +259,7 @@ export default function HoldersPage() {
         <section className="mt-10" aria-label="Holders overview">
           {/* Stats Cards */}
           <div className="grid gap-3 sm:grid-cols-3 mb-6">
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-5">
               <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
                 <Users className="h-4 w-4" /> Total Holders
               </div>
@@ -267,7 +267,7 @@ export default function HoldersPage() {
                 {holders?.totalAccounts ? formatNumber(holders.totalAccounts) : "—"}
               </div>
             </div>
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-5">
               <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
                 <DollarSign className="h-4 w-4" /> Market Cap
               </div>
@@ -275,7 +275,7 @@ export default function HoldersPage() {
                 {holders?.marketCap ? formatCompact(holders.marketCap) : "—"}
               </div>
             </div>
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-5">
               <div className="flex items-center gap-2 text-text-secondary text-xs mb-2">
                 <DollarSign className="h-4 w-4" /> XRP Price
               </div>
@@ -288,11 +288,11 @@ export default function HoldersPage() {
           {/* Table + Donut */}
           <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
             {/* Top Holders Table */}
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] overflow-hidden">
+            <div className=" border border-[#2F3336] bg-[#16181C] overflow-hidden">
               <div className="px-5 py-4 border-b border-[#2F3336] flex items-center justify-between">
                 <h2 className="text-lg font-bold text-text-primary">Top Holders</h2>
                 <span className="text-xs text-text-secondary font-mono flex items-center gap-1">
-                  <span className="inline-flex h-2 w-2 rounded-full bg-green-400" />LIVE
+                  <span className="inline-flex h-2 w-2  bg-green-400" />LIVE
                 </span>
               </div>
 
@@ -307,7 +307,7 @@ export default function HoldersPage() {
               </div>
                 {loading ? (
                   <div className="px-5 py-12 text-center text-text-secondary text-sm flex items-center justify-center gap-2">
-                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/10 border-t-xrp-accent" />
+                    <div className="h-4 w-4 animate-spin  border-2 border-white/10 border-t-xrp-accent" />
                     Loading holders…
                   </div>
                 ) : (holders?.topHolders ?? []).length === 0 ? (
@@ -320,7 +320,7 @@ export default function HoldersPage() {
                         <span className="font-mono text-xs text-xrp-accent">{shortenAddress(h.address)}</span>
                         <CopyAddress address={h.address} />
                         {h.label && (
-                          <span className="ml-2 rounded-full border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
+                          <span className="ml-2  border border-xrp-accent/20 px-2 py-0.5 text-[10px] font-medium text-xrp-accent">
                             {h.label}
                           </span>
                         )}
@@ -328,9 +328,9 @@ export default function HoldersPage() {
                       <div className="text-right font-mono text-sm text-text-primary">{formatCompact(h.balance)}</div>
                       <div className="text-right font-mono text-xs text-text-secondary hidden sm:block">${formatCompact(h.valueUsd)}</div>
                       <div className="text-right hidden sm:flex items-center justify-end gap-2">
-                        <div className="w-16 h-1.5 rounded-full bg-[#2F3336] overflow-hidden">
+                        <div className="w-16 h-1.5  bg-[#2F3336] overflow-hidden">
                           <div
-                            className="h-full rounded-full bg-xrp-accent transition-all duration-300"
+                            className="h-full  bg-xrp-accent transition-all duration-300"
                             style={{ width: `${Math.min((h.balance / maxBalance) * 100, 100)}%` }}
                           />
                         </div>
@@ -343,7 +343,7 @@ export default function HoldersPage() {
             </div>
 
             {/* Donut Chart */}
-            <div className="rounded-xl border border-[#2F3336] bg-[#16181C] p-5">
+            <div className=" border border-[#2F3336] bg-[#16181C] p-5">
               <h3 className="text-sm font-bold text-text-primary mb-4">Holders Distribution</h3>
               {holders ? (
                 <>
@@ -372,16 +372,16 @@ export default function HoldersPage() {
                     </div>
                   </div>
                   <div className="mt-4 space-y-2">
-                    <div className="flex items-center justify-between rounded-lg border border-[#2F3336] px-3 py-2">
+                    <div className="flex items-center justify-between  border border-[#2F3336] px-3 py-2">
                       <div className="flex items-center gap-2">
-                        <div className="h-2.5 w-2.5 rounded-full bg-xrp-accent" />
+                        <div className="h-2.5 w-2.5  bg-xrp-accent" />
                         <span className="text-xs text-text-secondary">Top 10 Holders</span>
                       </div>
                       <span className="font-mono text-xs font-semibold text-text-primary">{holders.distribution.top10.toFixed(1)}%</span>
                     </div>
-                    <div className="flex items-center justify-between rounded-lg border border-[#2F3336] px-3 py-2">
+                    <div className="flex items-center justify-between  border border-[#2F3336] px-3 py-2">
                       <div className="flex items-center gap-2">
-                        <div className="h-2.5 w-2.5 rounded-full bg-[#2F3336]" />
+                        <div className="h-2.5 w-2.5  bg-[#2F3336]" />
                         <span className="text-xs text-text-secondary">Others</span>
                       </div>
                       <span className="font-mono text-xs font-semibold text-text-primary">{holders.distribution.others.toFixed(1)}%</span>
@@ -400,10 +400,10 @@ export default function HoldersPage() {
         <TierCalculator />
 
         {/* CTA */}
-        <div className="mt-8 rounded-xl border border-xrp-accent/20 bg-gradient-to-r from-xrp-accent/[0.04] to-transparent p-6 text-center">
+        <div className="mt-8  border border-xrp-accent/20 bg-gradient-to-r from-xrp-accent/[0.04] to-transparent p-6 text-center">
           <h3 className="text-lg font-bold text-text-primary">Want to Level Up Your Rank?</h3>
           <p className="mt-2 text-sm text-text-secondary">See where you stand among XRP holders — and learn how to start accumulating.</p>
-          <a href="/how-to-start" className="mt-4 inline-block rounded-lg bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-xrp-accent-bright transition-colors">
+          <a href="/how-to-start" className="mt-4 inline-block  bg-xrp-accent px-5 py-2.5 text-sm font-semibold text-black hover:bg-xrp-accent-bright transition-colors">
             Get Started Buying XRP →
           </a>
         </div>

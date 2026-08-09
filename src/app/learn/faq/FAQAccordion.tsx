@@ -9,7 +9,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
     <div className="mt-8 divide-y divide-surface-border border-y border-surface-border">
       {items.map((item) => (
         <details key={item.slug} className="group py-1">
-          <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-3 py-4 text-left transition-colors hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-xrp-accent-bright">
+          <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4  px-3 py-4 text-left transition-colors hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-xrp-accent-bright">
             <h2 className="font-sans text-base font-semibold text-text-primary transition-colors group-open:text-xrp-accent-bright">
               {item.question}
             </h2>

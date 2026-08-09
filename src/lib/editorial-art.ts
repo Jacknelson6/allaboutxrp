@@ -9,6 +9,9 @@ export interface GuideArtworkRecord {
   alt: string;
   width: number;
   height: number;
+  sceneKey: string;
+  setting: string;
+  primarySymbol: string;
   promptConcept: string;
 }
 

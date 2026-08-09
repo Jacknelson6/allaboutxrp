@@ -98,9 +98,9 @@ export default function BestHubPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all hover:border-[#0085FF]/50 hover:bg-zinc-900/50"
+                className="group relative  border border-zinc-800 bg-zinc-950 p-6 transition-all hover:border-[#0085FF]/50 hover:bg-zinc-900/50"
               >
-                <span className="inline-block rounded-full bg-[#0085FF]/10 px-3 py-1 text-xs font-medium text-[#0085FF] mb-3">
+                <span className="inline-block  bg-[#0085FF]/10 px-3 py-1 text-xs font-medium text-[#0085FF] mb-3">
                   {item.badge}
                 </span>
                 <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-[#0085FF] transition-colors">
@@ -116,7 +116,7 @@ export default function BestHubPage() {
             ))}
           </div>
 
-          <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-950 p-8">
+          <div className="mt-16  border border-zinc-800 bg-zinc-950 p-8">
             <h2 className="text-xl font-semibold text-white mb-3">How We Review</h2>
             <p className="text-zinc-400 leading-relaxed">
               Every product on AllAboutXRP is independently researched and evaluated. We consider

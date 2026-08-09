@@ -46,7 +46,7 @@ export default function StatsBar({ stats }: Props) {
           <AnimatedNumber value={stats.tps} />
         </span>
       </div>
-      <div className={`w-2 h-2 rounded-full ${stats.connected ? 'bg-[#3FB950] animate-pulse' : 'bg-red-500'}`} />
+      <div className={`w-2 h-2  ${stats.connected ? 'bg-[#3FB950] animate-pulse' : 'bg-red-500'}`} />
     </div>
   );
 }

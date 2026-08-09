@@ -39,7 +39,7 @@ export default function GetStartedPage() {
       <main id="main-content" className="mx-auto max-w-4xl px-4 py-16">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="flex items-center gap-3">
-            <div className="rounded-lg bg-xrp-accent/10 p-2">
+            <div className=" bg-xrp-accent/10 p-2">
               <Rocket className="h-5 w-5 text-xrp-accent" />
             </div>
             <div>
@@ -74,7 +74,7 @@ export default function GetStartedPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="flex flex-col rounded-xl border border-white/[0.06] bg-black p-5"
+                className="flex flex-col  border border-white/[0.06] bg-black p-5"
               >
                 <div className="flex items-center gap-3">
                   <h3 className="text-lg font-bold text-text-primary">{ex.name}</h3>
@@ -97,10 +97,10 @@ export default function GetStartedPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="flex gap-5 rounded-xl border border-white/[0.06] bg-black p-6 "
+                className="flex gap-5  border border-white/[0.06] bg-black p-6 "
               >
                 <div className="shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-xrp-accent/10">
+                  <div className="flex h-12 w-12 items-center justify-center  bg-xrp-accent/10">
                     <span className="font-mono text-lg font-bold text-xrp-accent">{step.num}</span>
                   </div>
                 </div>
@@ -117,16 +117,16 @@ export default function GetStartedPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-[#0A0A0B]/50 to-xrp-accent/[0.02] p-8 text-center "
+          className="mt-16  border border-white/[0.06] bg-gradient-to-br from-[#0A0A0B]/50 to-xrp-accent/[0.02] p-8 text-center "
         >
           <h2 className="text-xl font-bold text-text-primary">Ready to Learn More?</h2>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Link href="/learn/what-is-xrp" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is XRP?</Link>
-            <Link href="/learn/what-is-ripple" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is Ripple?</Link>
-            <Link href="/learn/history" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">History</Link>
-            <Link href="/learn/rlusd" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">RLUSD</Link>
-            <Link href="/learn/partnerships" className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">Partnerships</Link>
-            <Link href="/learn" className="rounded-lg bg-[#0085FF]/10 border border-[#0085FF]/20 px-4 py-2 text-sm font-semibold text-[#0085FF] hover:bg-[#0085FF]/20 transition-colors">Browse All →</Link>
+            <Link href="/learn/what-is-xrp" className=" border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is XRP?</Link>
+            <Link href="/learn/what-is-ripple" className=" border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">What is Ripple?</Link>
+            <Link href="/learn/history" className=" border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">History</Link>
+            <Link href="/learn/rlusd" className=" border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">RLUSD</Link>
+            <Link href="/learn/partnerships" className=" border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-text-primary hover:bg-white/[0.06] transition-colors">Partnerships</Link>
+            <Link href="/learn" className=" bg-[#0085FF]/10 border border-[#0085FF]/20 px-4 py-2 text-sm font-semibold text-[#0085FF] hover:bg-[#0085FF]/20 transition-colors">Browse All →</Link>
           </div>
         </motion.div>
       </main>

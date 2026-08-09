@@ -36,15 +36,15 @@ function Pagination({ currentPage, totalPages, totalItems, perPage, onPageChange
     <div className="flex items-center justify-between px-2 pt-4 pb-2 border-t border-white/[0.06]">
       <span className="text-xs text-white/30">Showing {start} - {end} of {totalItems}</span>
       <div className="flex items-center gap-1">
-        <button onClick={() => onPageChange(Math.max(1, currentPage - 1))} disabled={currentPage === 1} className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">‹</button>
+        <button onClick={() => onPageChange(Math.max(1, currentPage - 1))} disabled={currentPage === 1} className="px-2 py-1 text-xs  text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">‹</button>
         {pages.map((p, i) =>
           p === '...' ? (
             <span key={`dots-${i}`} className="px-1 text-xs text-white/30">…</span>
           ) : (
-            <button key={p} onClick={() => onPageChange(p)} className={`px-2.5 py-1 text-xs rounded-md font-medium transition-colors ${p === currentPage ? 'bg-[#0085FF] text-black' : 'text-white/50 hover:text-white hover:bg-white/[0.06]'}`}>{p}</button>
+            <button key={p} onClick={() => onPageChange(p)} className={`px-2.5 py-1 text-xs  font-medium transition-colors ${p === currentPage ? 'bg-[#0085FF] text-black' : 'text-white/50 hover:text-white hover:bg-white/[0.06]'}`}>{p}</button>
           )
         )}
-        <button onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages} className="px-2 py-1 text-xs rounded-md text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">›</button>
+        <button onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages} className="px-2 py-1 text-xs  text-white/40 hover:text-white hover:bg-white/[0.06] disabled:opacity-30 disabled:cursor-not-allowed transition-colors">›</button>
       </div>
     </div>
   );
@@ -73,7 +73,7 @@ export default function RichList() {
 
   if (loading) {
     return (
-      <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+      <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
         <h2 className="text-lg font-bold text-text-primary mb-4">XRP Rich List</h2>
         <div className="animate-pulse space-y-3">
           {[...Array(10)].map((_, i) => (
@@ -88,7 +88,7 @@ export default function RichList() {
   const paged = entries.slice((page - 1) * ROWS_PER_PAGE, page * ROWS_PER_PAGE);
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+    <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
       <h2 className="text-lg font-bold text-text-primary mb-1">XRP Rich List</h2>
       <p className="text-sm text-white/40 mb-4">Top wallets ranked by XRP balance</p>
 

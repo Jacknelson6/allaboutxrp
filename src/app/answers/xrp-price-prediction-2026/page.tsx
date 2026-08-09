@@ -214,7 +214,7 @@ export default function XRPPricePrediction2026Page() {
             <h2 className="text-2xl font-bold text-text-primary mb-6">Bull Case vs. Bear Case Scenarios</h2>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-green-500/20 bg-green-500/[0.02] p-5">
+              <div className=" border border-green-500/20 bg-green-500/[0.02] p-5">
                 <h3 className="text-lg font-bold text-green-400 mb-3">🐂 Bull Case: $3-$4+</h3>
                 <ul className="text-[14px] text-text-secondary space-y-2">
                   <li>✅ XRP ETF approved with strong inflows ($5B+)</li>
@@ -224,7 +224,7 @@ export default function XRPPricePrediction2026Page() {
                   <li>✅ ODL volume doubles from 2025 levels</li>
                 </ul>
               </div>
-              <div className="rounded-xl border border-red-500/20 bg-red-500/[0.02] p-5">
+              <div className=" border border-red-500/20 bg-red-500/[0.02] p-5">
                 <h3 className="text-lg font-bold text-red-400 mb-3">🐻 Bear Case: $1.20-$1.60</h3>
                 <ul className="text-[14px] text-text-secondary space-y-2">
                   <li>❌ XRP ETF denied or indefinitely delayed</li>

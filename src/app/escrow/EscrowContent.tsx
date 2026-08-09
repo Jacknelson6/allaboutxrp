@@ -85,7 +85,7 @@ export default function EscrowContent() {
       {/* Section nav */}
       <nav className="mt-6 flex gap-2 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1 sm:flex-wrap sm:overflow-visible" aria-label="Page sections">
         {sections.map((s) => (
-          <a key={s.id} href={`#${s.id}`} className="shrink-0 whitespace-nowrap rounded-full border border-white/[0.06] px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
+          <a key={s.id} href={`#${s.id}`} className="shrink-0 whitespace-nowrap  border border-white/[0.06] px-3 py-1 text-xs text-text-secondary hover:text-xrp-accent hover:border-xrp-accent/30 transition-colors">
             {s.label}
           </a>
         ))}
@@ -115,7 +115,7 @@ export default function EscrowContent() {
             { name: "EscrowFinish", desc: "Releases escrowed funds to the destination." },
             { name: "EscrowCancel", desc: "Returns funds if cancellation deadline has passed." },
           ].map((tx) => (
-            <div key={tx.name} className="rounded-lg border border-white/[0.06] p-4">
+            <div key={tx.name} className=" border border-white/[0.06] p-4">
               <code className="font-mono text-sm text-xrp-accent">{tx.name}</code>
               <p className="mt-1 text-sm text-text-secondary">{tx.desc}</p>
             </div>
@@ -123,7 +123,7 @@ export default function EscrowContent() {
         </div>
 
         <h3 className="mt-8 text-lg font-semibold text-text-primary">Types of Escrow</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
+        <div className="mt-3 overflow-x-auto  border border-white/[0.06]">
           <table className="w-full text-left text-sm">
             <thead className="border-b border-white/[0.06]">
               <tr>
@@ -147,7 +147,7 @@ export default function EscrowContent() {
 
       {/* The 55B Lockup */}
       <Section id="ripple-55b" title="Ripple's 55 Billion XRP Escrow" index={2} total={7}>
-        <div className="rounded-lg border border-xrp-accent/20 p-5">
+        <div className=" border border-xrp-accent/20 p-5">
           <div className="flex items-center gap-2 text-xrp-accent">
             <Lock className="h-5 w-5" />
             <span className="font-semibold">December 16, 2017</span>
@@ -164,7 +164,7 @@ export default function EscrowContent() {
             { label: "Trust", desc: "Ripple mathematically cannot access funds early" },
             { label: "Supply Ceiling", desc: "Hard cap of 1 billion XRP per month" },
           ].map((item) => (
-            <div key={item.label} className="flex gap-3 rounded-lg border border-white/[0.06] p-3">
+            <div key={item.label} className="flex gap-3  border border-white/[0.06] p-3">
               <CheckCircle className="h-4 w-4 shrink-0 text-success mt-0.5" />
               <div>
                 <p className="font-semibold text-text-primary text-sm">{item.label}</p>
@@ -177,7 +177,7 @@ export default function EscrowContent() {
 
       {/* Monthly Releases */}
       <Section id="monthly-releases" title="Monthly Escrow Releases" index={3} total={7}>
-        <div className="rounded-lg border border-white/[0.06] p-5">
+        <div className=" border border-white/[0.06] p-5">
           <div className="flex items-center gap-2">
             <Unlock className="h-5 w-5 text-xrp-accent" />
             <h3 className="font-semibold text-text-primary">How It Works</h3>
@@ -186,12 +186,12 @@ export default function EscrowContent() {
             On the <strong className="text-text-primary">1st of every month</strong>, escrow contracts unlock up to <span className="font-mono text-xrp-accent">1,000,000,000 XRP</span>. <strong className="text-text-primary">Unlocked ≠ sold</strong>.
           </p>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
-            <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
+            <div className="flex items-center gap-2  border border-white/[0.06] px-3 py-2">
               <span className="text-xs text-text-secondary">Keep:</span>
               <span className="font-mono text-sm text-warning">200-300M</span>
             </div>
             <ArrowRight className="hidden h-4 w-4 text-text-secondary sm:block" />
-            <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] px-3 py-2">
+            <div className="flex items-center gap-2  border border-white/[0.06] px-3 py-2">
               <span className="text-xs text-text-secondary">Re-escrow:</span>
               <span className="font-mono text-sm text-success">700-800M</span>
             </div>
@@ -199,7 +199,7 @@ export default function EscrowContent() {
         </div>
 
         <h3 className="mt-6 text-lg font-semibold text-text-primary">Historical Pattern</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
+        <div className="mt-3 overflow-x-auto  border border-white/[0.06]">
           <table className="w-full text-left text-sm">
             <thead className="border-b border-white/[0.06]">
               <tr>
@@ -230,7 +230,7 @@ export default function EscrowContent() {
             { label: "Schedule", value: "Fixed", sub: "1st of every month" },
             { label: "Deflationary offset", value: "14.26M burned", sub: "Fees burn XRP permanently" },
           ].map((item) => (
-            <div key={item.label} className="rounded-lg border border-white/[0.06] p-4">
+            <div key={item.label} className=" border border-white/[0.06] p-4">
               <p className="text-xs uppercase tracking-wider text-text-secondary">{item.label}</p>
               <p className="mt-1 font-mono text-xl font-bold text-text-primary">{item.value}</p>
               <p className="mt-1 text-xs text-text-secondary">{item.sub}</p>
@@ -238,7 +238,7 @@ export default function EscrowContent() {
           ))}
         </div>
 
-        <div className="mt-4 rounded-lg border border-warning/20 p-4">
+        <div className="mt-4  border border-warning/20 p-4">
           <div className="flex items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-warning" />
             <span className="text-sm font-semibold text-warning">The &quot;Ripple Dumping&quot; FUD</span>
@@ -252,7 +252,7 @@ export default function EscrowContent() {
       {/* Tracker */}
       <Section id="tracker" title="Escrow Tracker & Data" index={5} total={7}>
         <h3 className="text-lg font-semibold text-text-primary">Key Numbers (February 2026)</h3>
-        <div className="mt-3 overflow-x-auto rounded-lg border border-white/[0.06]">
+        <div className="mt-3 overflow-x-auto  border border-white/[0.06]">
           <table className="w-full text-left text-sm">
             <tbody className="divide-y divide-white/[0.04]">
               {[
@@ -276,7 +276,7 @@ export default function EscrowContent() {
         <h3 className="mt-6 text-lg font-semibold text-text-primary">Where to Track</h3>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {trackerTools.map((t) => (
-            <a key={t.tool} href={t.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-white/[0.06] p-3 hover:border-xrp-accent/30 transition-colors">
+            <a key={t.tool} href={t.url} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3  border border-white/[0.06] p-3 hover:border-xrp-accent/30 transition-colors">
               <Eye className="h-4 w-4 shrink-0 text-xrp-accent mt-0.5" />
               <div className="flex-1">
                 <p className="font-semibold text-text-primary text-sm">{t.tool}</p>
@@ -292,7 +292,7 @@ export default function EscrowContent() {
       <Section id="misconceptions" title="Common Misconceptions" index={6} total={7}>
         <div className="space-y-3">
           {misconceptions.map((m, i) => (
-            <div key={i} className="rounded-lg border border-white/[0.06] p-4">
+            <div key={i} className=" border border-white/[0.06] p-4">
               <div className="flex items-start gap-3">
                 <XCircle className="h-5 w-5 text-danger shrink-0 mt-0.5" />
                 <div>
@@ -313,7 +313,7 @@ export default function EscrowContent() {
           {faqItems.map((item, i) => {
             const isOpen = openFaq === i;
             return (
-              <div key={i} className={`rounded-lg border transition-colors ${isOpen ? "border-xrp-accent/30" : "border-white/[0.06]"}`}>
+              <div key={i} className={` border transition-colors ${isOpen ? "border-xrp-accent/30" : "border-white/[0.06]"}`}>
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : i)}
                   className="flex w-full items-center justify-between px-4 py-3 text-left"
@@ -336,19 +336,19 @@ export default function EscrowContent() {
       {/* Continue Reading */}
       <Section id="continue" title="Continue Reading" index={undefined} total={undefined}>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/learn/what-is-xrp" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+          <Link href="/learn/what-is-xrp" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
             <h3 className="font-semibold text-text-primary">What is XRP?</h3>
             <p className="mt-1 text-xs text-text-secondary">Complete guide to XRP and the XRP Ledger</p>
           </Link>
-          <Link href="/learn/rlusd" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+          <Link href="/learn/rlusd" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
             <h3 className="font-semibold text-text-primary">RLUSD & XRP</h3>
             <p className="mt-1 text-xs text-text-secondary">How Ripple&apos;s stablecoin helps XRP</p>
           </Link>
-          <Link href="/learn/history" className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
+          <Link href="/learn/history" className=" border border-white/[0.06] bg-[#0A0A0B] p-5 transition-all duration-300 hover:border-xrp-accent/20 hover:translate-y-[-2px]">
             <h3 className="font-semibold text-text-primary">History & Timeline</h3>
             <p className="mt-1 text-xs text-text-secondary">Every milestone from 2011 to present</p>
           </Link>
-          <Link href="/how-to-start" className="rounded-xl border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px]">
+          <Link href="/how-to-start" className=" border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5 transition-all duration-300 hover:border-xrp-accent/30 hover:translate-y-[-2px]">
             <h3 className="font-semibold text-text-primary">How to Buy XRP</h3>
             <p className="mt-1 text-xs text-text-secondary">Step-by-step beginner guide</p>
           </Link>
@@ -356,7 +356,7 @@ export default function EscrowContent() {
       </Section>
 
       {/* Get Started CTA */}
-      <div className="mt-12 rounded-2xl border border-xrp-accent/20 bg-gradient-to-br from-xrp-accent/[0.04] to-transparent p-8 text-center">
+      <div className="mt-12  border border-xrp-accent/20 bg-gradient-to-br from-xrp-accent/[0.04] to-transparent p-8 text-center">
         <h2 className="text-xl font-bold text-text-primary">Understanding XRP Supply?</h2>
         <p className="mt-3 text-sm text-text-secondary leading-relaxed">
           Now that you understand how escrow works, you know XRP&apos;s supply is transparent and predictable. Ready to start accumulating?
@@ -369,7 +369,7 @@ export default function EscrowContent() {
       </div>
 
       {/* Bottom line */}
-      <div className="mt-12 rounded-2xl border border-xrp-accent/20 p-8">
+      <div className="mt-12  border border-xrp-accent/20 p-8">
         <h2 className="text-xl font-bold text-text-primary">The Bottom Line</h2>
         <p className="mt-3 text-sm text-text-secondary leading-relaxed">
           XRP&apos;s escrow system is one of the most transparent supply management mechanisms in crypto. After 8+ years of operation, it has delivered exactly what it promised.

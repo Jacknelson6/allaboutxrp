@@ -1,21 +1,12 @@
-import { getAllRecaps } from "@/lib/utils/news";
 import { getPublishedNewsEntries } from "@/lib/seo/published-content";
 
 export const revalidate = 3600;
 
 export async function GET() {
-  const recaps = getAllRecaps();
   const publishedNews = await getPublishedNewsEntries();
   // Google News sitemap only includes articles from the last 2 days
   const now = Date.now();
   const twoDaysAgo = now - 2 * 24 * 60 * 60 * 1000;
-
-  const recentRecaps = recaps.filter(
-    (r) => {
-      const publishedAt = Date.parse(`${r.date}T12:00:00Z`);
-      return publishedAt >= twoDaysAgo && publishedAt <= now;
-    },
-  );
 
   const recentNews = publishedNews.filter((article) => {
     const publishedAt = Date.parse(article.publishedAt);
@@ -27,11 +18,6 @@ export async function GET() {
       loc: `https://allaboutxrp.com/news/${article.slug}`,
       publicationDate: article.publishedAt,
       title: article.title,
-    })),
-    ...recentRecaps.map((recap) => ({
-      loc: `https://allaboutxrp.com/news/recaps/${recap.date}`,
-      publicationDate: `${recap.date}T12:00:00Z`,
-      title: recap.title,
     })),
   ];
 

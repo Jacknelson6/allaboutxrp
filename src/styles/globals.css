@@ -900,6 +900,267 @@ h1 { font-weight: 780; }
 }
 
 /* ==========================================
+   DIGITAL AGORA: CONSOLIDATED EDITORIAL UI
+   ========================================== */
+
+.brand-mark {
+  display: inline-grid;
+  gap: 0.1rem;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.brand-mark-rule {
+  color: var(--color-xrp-accent);
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.brand-mark-name {
+  font-family: var(--font-editorial);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.premium-hero {
+  padding: clamp(0.75rem, 2vw, 1.5rem) 0 clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.premium-hero-canvas {
+  width: min(calc(100% - clamp(1rem, 4vw, 4rem)), 90rem);
+  min-height: clamp(38rem, 62vw, 50rem);
+  margin-inline: auto;
+  border: 1px solid var(--color-surface-border);
+}
+
+.hero-artwork,
+.hero-image-plane {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: none;
+  will-change: auto;
+}
+
+.hero-image {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.premium-hero-copy {
+  width: min(36rem, 48%);
+  margin: 0;
+  padding: clamp(4rem, 8vw, 7rem) 0 0 clamp(2rem, 6vw, 5.5rem);
+}
+
+.premium-hero-copy::before {
+  display: none;
+}
+
+.premium-display-headline {
+  max-width: 10ch;
+  font-size: clamp(3.35rem, 5.5vw, 4.75rem);
+  line-height: 0.98;
+  text-shadow: none;
+}
+
+.premium-hero-deck {
+  max-width: 37ch;
+  color: var(--color-hero-muted);
+  text-shadow: none;
+}
+
+.premium-text-action {
+  color: var(--color-text-primary);
+}
+
+.editorial-cover-grid {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--color-surface-border);
+  background: var(--color-surface-border);
+}
+
+.editorial-cover {
+  display: grid;
+  background: var(--color-surface-primary);
+}
+
+.editorial-cover-image {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-surface-elevated);
+}
+
+.editorial-cover-image img {
+  object-fit: cover;
+  transition: filter 180ms ease-out;
+}
+
+.editorial-cover:hover img {
+  filter: contrast(1.04) saturate(1.04);
+}
+
+.editorial-cover-meta {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 7.5rem;
+  padding: 1.25rem;
+}
+
+.editorial-cover-meta span,
+.news-meta,
+.live-status {
+  color: var(--color-text-secondary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.editorial-cover-meta strong {
+  max-width: 18ch;
+  color: var(--color-text-primary);
+  font-family: var(--font-editorial);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.market-record {
+  border-top: 1px solid var(--color-surface-border);
+}
+
+.market-record tr,
+.data-ledger tr {
+  border-bottom: 1px solid var(--color-surface-border);
+}
+
+.market-record th,
+.market-record td {
+  padding: 0.9rem 0;
+  font-size: 0.88rem;
+}
+
+.market-record th {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-align: left;
+}
+
+.market-record td {
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  text-align: right;
+}
+
+.news-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.news-meta span {
+  color: var(--color-xrp-accent);
+}
+
+.news-lead h2 a:hover,
+.news-row h3 a:hover {
+  color: var(--color-xrp-accent);
+}
+
+.source-filters {
+  display: flex;
+  flex-wrap: wrap;
+  border-block: 1px solid var(--color-surface-border);
+}
+
+.source-filters button {
+  min-height: 2.75rem;
+  border-right: 1px solid var(--color-surface-border);
+  padding: 0.6rem 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.source-filters button[aria-pressed="true"] {
+  background: var(--color-text-primary);
+  color: var(--color-surface-primary);
+}
+
+.answer-method > div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-surface-border);
+  padding: 0.8rem 0;
+}
+
+.answer-method > div:last-child { border-bottom: 0; }
+.answer-method dt { color: var(--color-xrp-accent); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+.answer-method dd { color: var(--color-text-primary); font-weight: 600; }
+
+.live-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.live-status i {
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--color-warning);
+}
+
+.live-status i[data-status="ready"] { background: var(--color-success); }
+.live-status i[data-status="error"] { background: var(--color-danger); }
+.live-status button { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.4rem; color: var(--color-text-primary); }
+
+.data-ledger th,
+.data-ledger td {
+  padding: 0.9rem 1rem 0.9rem 0;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data-ledger thead th { color: var(--color-text-primary); font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.data-ledger tbody th { color: var(--color-text-primary); font-weight: 650; }
+
+html[data-theme="light"] main [class~="bg-black"],
+html[data-theme="light"] main [class*="bg-black/"],
+html[data-theme="light"] main [class*="bg-[#0"] {
+  background-color: var(--color-surface-primary) !important;
+  background-image: none !important;
+}
+
+html[data-theme="light"] main [class~="text-white"],
+html[data-theme="light"] main [class*="text-white/"] {
+  color: var(--color-text-primary) !important;
+}
+
+@media (min-width: 760px) {
+  .editorial-cover-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .premium-hero-canvas { min-height: 43rem; }
+  .hero-image { object-position: 61% bottom; }
+  .premium-hero-copy { width: 100%; padding: 3.25rem 1.5rem 0; }
+  .premium-display-headline { max-width: 9ch; font-size: clamp(3rem, 13vw, 3.8rem); }
+  .premium-hero-deck { max-width: 29ch; }
+}
+
+/* ==========================================
    SCROLLBAR THIN
    ========================================== */
 

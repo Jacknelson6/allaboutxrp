@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock3, Newspaper, Rss } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import LocalDateTime from "@/components/shared/LocalDateTime";
 import SEOSchema from "@/components/shared/SEOSchema";
 import { getAllNewsArticles } from "@/lib/news-content";
 
@@ -12,68 +14,59 @@ const breadcrumbSchema = {
   ],
 };
 
-function formatDate(value: string) {
-  return new Date(value).toLocaleString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    timeZoneName: "short",
-  });
-}
-
 export default function NewsPage() {
   const articles = getAllNewsArticles();
+  const [lead, ...rest] = articles;
 
   return (
     <main id="main-content" className="min-h-screen bg-surface-primary">
       <SEOSchema schema={breadcrumbSchema} />
-      <div className="site-container py-14 sm:py-18">
-        <div className="max-w-3xl">
-          <p className="editorial-kicker">Source-led reporting</p>
-          <div className="mt-3 flex items-center gap-3">
-            <div className="rounded-xl bg-xrp-accent/10 p-2.5"><Rss className="h-5 w-5 text-xrp-accent" aria-hidden="true" /></div>
-            <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">XRP News</h1>
-          </div>
-          <p className="mt-5 text-base leading-7 text-text-secondary">
-            Original XRP reporting that starts with primary sources, separates confirmed facts from analysis, and tells you what evidence to watch next.
-          </p>
+      <header className="border-b border-surface-border">
+        <div className="site-container py-16 sm:py-24">
+          <p className="editorial-kicker">THE XRP NEWS DESK</p>
+          <h1 className="mt-4 max-w-4xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98] text-text-primary">Reporting that starts with the record.</h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary">Independent reporting on XRP markets, policy, institutions, and the XRP Ledger. Confirmed facts stay separate from analysis.</p>
         </div>
+      </header>
 
-        <Link href="/news/recaps" className="mt-8 flex max-w-3xl items-center justify-between rounded-2xl border border-xrp-accent/20 bg-xrp-accent/[0.06] p-5 transition-colors hover:border-xrp-accent/40">
-          <div className="flex items-center gap-3">
-            <Newspaper className="h-5 w-5 text-xrp-accent" aria-hidden="true" />
-            <div><h2 className="font-semibold text-text-primary">Daily XRP recap archive</h2><p className="mt-1 text-sm text-text-secondary">Dated summaries with direct links to original reporting</p></div>
-          </div>
-          <ArrowRight className="h-5 w-5 text-xrp-accent" aria-hidden="true" />
-        </Link>
+      {lead ? (
+        <div className="site-container py-12 sm:py-16">
+          <article className="news-lead grid gap-8 border-b border-surface-border pb-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <Link href={`/news/${lead.slug}`} className="relative block aspect-[16/9] overflow-hidden bg-surface-elevated">
+              {lead.image ? <Image src={lead.image} alt={lead.imageAlt ?? ""} fill priority className="object-cover" sizes="(min-width: 1024px) 60vw, 100vw" /> : null}
+            </Link>
+            <div>
+              <div className="news-meta"><span>{lead.category}</span><LocalDateTime value={lead.publishedAt} /></div>
+              <h2 className="mt-4 text-3xl leading-tight text-text-primary sm:text-4xl"><Link href={`/news/${lead.slug}`}>{lead.title}</Link></h2>
+              <p className="mt-4 text-base leading-7 text-text-secondary">{lead.description}</p>
+              <Link href={`/news/${lead.slug}`} className="text-link mt-5">Read the report <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+            </div>
+          </article>
 
-        {articles.length ? (
-          <section className="mt-10" aria-labelledby="latest-news-heading">
-            <h2 id="latest-news-heading" className="text-2xl font-bold text-text-primary">Latest verified reporting</h2>
-            <div className="mt-5 grid gap-5 lg:grid-cols-2">
-              {articles.map((article) => (
-                <article key={article.slug} className="rounded-2xl border border-surface-border bg-surface-card p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)]">
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-text-secondary">
-                    <span className="rounded-full border border-xrp-accent/20 bg-xrp-accent/[0.07] px-2.5 py-1 font-semibold text-xrp-accent-bright">{article.category}</span>
-                    <Clock3 className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
-                    <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+          <section className="pt-12" aria-labelledby="latest-news-heading">
+            <div className="flex items-end justify-between gap-6 border-b border-surface-border pb-5">
+              <h2 id="latest-news-heading" className="text-3xl text-text-primary">Latest reporting</h2>
+              <span className="text-xs text-text-secondary">Times display in your local zone</span>
+            </div>
+            <div className="divide-y divide-surface-border">
+              {rest.map((article) => (
+                <article key={article.slug} className="news-row grid gap-5 py-7 sm:grid-cols-[11rem_1fr]">
+                  <Link href={`/news/${article.slug}`} className="relative block aspect-[16/9] overflow-hidden bg-surface-elevated">
+                    {article.image ? <Image src={article.image} alt={article.imageAlt ?? ""} fill className="object-cover" sizes="176px" /> : null}
+                  </Link>
+                  <div>
+                    <div className="news-meta"><span>{article.category}</span><LocalDateTime value={article.publishedAt} /></div>
+                    <h3 className="mt-2 text-xl leading-snug text-text-primary"><Link href={`/news/${article.slug}`}>{article.title}</Link></h3>
+                    <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">{article.description}</p>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold leading-snug text-text-primary"><Link href={`/news/${article.slug}`} className="hover:text-xrp-accent-bright">{article.title}</Link></h3>
-                  <p className="mt-3 text-sm leading-6 text-text-secondary">{article.description}</p>
-                  <Link href={`/news/${article.slug}`} className="text-link mt-5">Read the analysis <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
                 </article>
               ))}
             </div>
           </section>
-        ) : (
-          <div className="mt-10 max-w-3xl rounded-2xl border border-surface-border bg-surface-card p-8">
-            <h2 className="text-xl font-bold text-text-primary">The new research desk is launching</h2>
-            <p className="mt-3 text-sm leading-7 text-text-secondary">New source-verified reports will publish throughout the day. Until then, browse the recap archive and use the linked primary records to verify time-sensitive claims.</p>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="site-container py-16"><p className="border-y border-surface-border py-8 text-text-secondary">No current reports. New reporting will appear here after source review.</p></div>
+      )}
     </main>
   );
 }

@@ -80,7 +80,7 @@ export default function XRPLedgerExplainedPage() {
         </LearnHero>
 
         {/* TL;DR */}
-        <div className="mt-10 rounded-2xl border border-xrp-accent/20 bg-xrp-accent/5 p-6">
+        <div className="mt-10  border border-xrp-accent/20 bg-xrp-accent/5 p-6">
           <h2 className="text-sm font-bold uppercase tracking-widest text-xrp-accent">TL;DR</h2>
           <p className="mt-3 text-text-secondary leading-relaxed">
             <strong className="text-text-primary">Here&apos;s what you need to know:</strong> The XRP Ledger is an open-source, decentralized blockchain that uses Federated Consensus (not mining or staking) to validate transactions in 3-5 seconds. It has 150+ independent validators, a built-in DEX and AMM, native NFT support, and has operated with zero downtime since 2012 — closing over 90 million ledgers.
@@ -129,9 +129,9 @@ export default function XRPLedgerExplainedPage() {
             </p>
 
             <div className="mt-8 space-y-6">
-              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">1</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">1</span>
                   <h3 className="text-xl font-semibold text-text-primary">Transaction Collection</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -139,9 +139,9 @@ export default function XRPLedgerExplainedPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">2</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">2</span>
                   <h3 className="text-xl font-semibold text-text-primary">Proposal Rounds</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -149,9 +149,9 @@ export default function XRPLedgerExplainedPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">3</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">3</span>
                   <h3 className="text-xl font-semibold text-text-primary">Supermajority Agreement</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
@@ -159,9 +159,9 @@ export default function XRPLedgerExplainedPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-white/[0.06] bg-[#0A0A0B] p-6">
+              <div className=" border border-white/[0.06] bg-[#0A0A0B] p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">4</span>
+                  <span className="flex h-8 w-8 items-center justify-center  bg-xrp-accent/20 font-mono text-sm font-bold text-xrp-accent">4</span>
                   <h3 className="text-xl font-semibold text-text-primary">Ledger Close</h3>
                 </div>
                 <p className="mt-3 text-text-secondary leading-relaxed">
