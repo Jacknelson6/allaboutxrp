@@ -1,0 +1,193 @@
+{
+  "slug": "clarity-act-september-15-cloture-vote-xrp",
+  "title": "Senate Sets September 15 Cloture Vote to Take Up the CLARITY Act",
+  "description": "Senators will vote September 15 on cloture for the motion to proceed to the CLARITY Act. The procedural test does not pass the bill, classify XRP, or change federal law.",
+  "category": "Regulation",
+  "author": "Jack Nelson",
+  "publishedAt": "2026-08-09T14:10:00-05:00",
+  "modifiedAt": "2026-08-09T14:10:00-05:00",
+  "keywords": [
+    "CLARITY Act",
+    "H.R. 3633",
+    "XRP regulation",
+    "crypto market structure",
+    "Senate cloture",
+    "SEC",
+    "CFTC"
+  ],
+  "image": "/news/clarity-act-senate-cloture-editorial.webp",
+  "imageAlt": "U.S. Capitol at dusk framed by translucent legislative pages and a blue digital-asset network",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "keyTakeaways": [
+    "The Senate record confirms a September 15 cloture vote on the motion to proceed to H.R. 3633, the Digital Asset Market Clarity Act.",
+    "Cloture would clear only an early 60-vote procedural hurdle. It would not pass the bill, make it law, or complete Senate consideration.",
+    "The released Senate text does not name XRP or Ripple, so the scheduled vote does not itself classify XRP or change its legal status."
+  ],
+  "sections": [
+    {
+      "heading": "What the Senate actually scheduled",
+      "paragraphs": [
+        "The U.S. Senate has scheduled a September 15 cloture vote on the motion to proceed to the CLARITY Act, an early procedural test that requires 60 votes. H.R. 3633 has not passed the Senate, is not law, and does not classify XRP. If cloture succeeds, this scheduled path can move toward further Senate consideration.",
+        "Confirmed: The Senate's floor activity for legislative business on Saturday, August 8, records two actions on H.R. 3633. Majority Leader John Thune made a motion to proceed to the measure, and a cloture motion on that motion to proceed was presented. The Congressional Record then fixed the cloture vote for Tuesday, September 15, 2026, at 2:15 p.m. Eastern Time under the August 8 unanimous-consent agreement. That official sequence is narrower than headlines saying the Senate is voting on the CLARITY Act. Senators will first vote on whether to limit debate on whether to take up the measure.",
+        "Independent confirmation: CoinDesk reported on August 8 that the filing put the market-structure bill into the Senate's multi-step floor process after it missed an August vote before recess. Axios had reported the surrounding difficulty two days earlier, including Democratic reluctance to grant an initial procedural vote while negotiations continued. The official record and independent reporting therefore agree on the material point: a floor path now exists, but the Senate has not approved the legislation."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-08-07/pdf/CREC-2026-08-07.pdf",
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+        "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess"
+      ]
+    },
+    {
+      "heading": "Why September 15 is a first hurdle, not a final vote",
+      "paragraphs": [
+        "Cloture is the Senate procedure used to end or limit extended debate. The Senate's own procedural history says Rule XXII generally requires three-fifths of all senators duly chosen and sworn, normally 60 of 100. On September 15, that threshold applies to the motion to proceed. If at least 60 senators support cloture, debate on the motion is limited under Senate rules. The chamber would still need to dispose of that motion before it could formally move into consideration of H.R. 3633.",
+        "Even a successful motion to proceed would leave major steps. Senators could debate the measure, offer or negotiate amendments, and face additional procedural votes before final passage. If the Senate eventually approves language that differs from the House-passed bill, both chambers must still agree to identical text before it can be presented to the president. None of those later outcomes is guaranteed by the scheduled September vote.",
+        "Uncertainty label: The official schedule establishes when the cloture vote is expected, not how senators will vote or whether the remaining floor steps will occur. CoinDesk says the initial test needs 60 votes and reports that sufficient bipartisan support remained in doubt as of August 8. Treat September 15 as a dated decision point, not a forecast of enactment."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/about/powers-procedures/filibusters-cloture.htm",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-08-07/pdf/CREC-2026-08-07.pdf",
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month"
+      ]
+    },
+    {
+      "heading": "What the July 22 Senate substitute draft is trying to build",
+      "paragraphs": [
+        "The July 22 Senate substitute draft is broad market-structure legislation, not an XRP bill. Senator Cynthia Lummis released text intended to be proposed that combines work from the Senate Banking and Agriculture committees. Its official section-by-section summary describes a framework that allocates digital-asset responsibilities between the Securities and Exchange Commission and Commodity Futures Trading Commission, creates disclosure rules for certain network-token transactions, and sets registration and customer-protection requirements for digital-commodity intermediaries.",
+        "The official summary also reaches beyond token classification. It covers anti-money-laundering treatment, decentralized-finance rules, custody and customer-property protections, trading-platform registration, software-developer protections, stablecoin-related provisions, cybersecurity programs, and future agency rulemaking. Reuters independently reported similar themes in the May Senate committee text, including SEC-CFTC jurisdiction, Bank Secrecy Act treatment for digital-commodity intermediaries, DeFi standards, and tokenized securities. The July draft remains the primary source for its current wording.",
+        "Confirmed versus provisional: Bloomberg Law independently confirmed that senators circulated a new draft on July 22 while reporting that its path lacked clear Democratic support. The draft has not been adopted as the Senate's operative text, and its release is not proof that every section will survive floor negotiations. Amendments, a substitute, a bipartisan agreement, or further drafting could change the language before any final vote. Readers should check the actual amendment package placed before senators in September for the controlling details."
+      ],
+      "sourceUrls": [
+        "https://www.lummis.senate.gov/press-releases/lummis-releases-updated-clarity-act-text/",
+        "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf",
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+        "https://news.bloomberglaw.com/bloomberg-government-news/updated-crypto-bill-unveiled-by-senate-gop-in-dash-for-passage",
+        "https://www.investing.com/news/stock-market-news/what-is-in-the-us-senates-landmark-crypto-bill-4687538"
+      ]
+    },
+    {
+      "heading": "What the procedural move does and does not mean for XRP",
+      "paragraphs": [
+        "Confirmed: The released July 22 substitute draft does not name XRP or Ripple. The August 8 floor action does not declare XRP a commodity, reverse or expand any court ruling, approve a product, authorize a trading venue, change federal law, or create new legal rights or obligations today. It also supplies no factual basis for a price prediction. Claims that the September cloture vote has already delivered regulatory clarity for XRP confuse a possible legislative path with an enacted legal result.",
+        "Reasonable inference: XRP holders and XRP Ledger businesses still have a legitimate reason to follow the bill. A durable federal division of authority between the SEC and CFTC, plus new rules for exchanges, brokers, dealers, custody, disclosures, and customer assets, could change how U.S. intermediaries evaluate and support digital-asset markets. The practical effect would depend on final statutory definitions, transition periods, agency rules, and the facts of each product or transaction. That is an ecosystem-level implication, not an asset-specific determination.",
+        "Unresolved legal question: The proposal includes provisions touching network tokens and prior court judgments, but whether any final language would apply to XRP, Ripple, a particular distribution, or a particular intermediary requires analysis of the enacted text and relevant facts. The Senate's procedural record does not answer that question. Readers should separate the status of a token from the legal treatment of an offer, sale, service, or platform involving that token."
+      ],
+      "sourceUrls": [
+        "https://www.lummis.senate.gov/wp-content/uploads/Clarity-Act.pdf",
+        "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf",
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm"
+      ]
+    },
+    {
+      "heading": "The disputes that can still stop or reshape the bill",
+      "paragraphs": [
+        "Independent reporting identifies at least three unsettled negotiating areas: government ethics, illicit-finance and law-enforcement provisions, and stablecoin rewards or yield. CoinDesk reported those disputes on August 8 while describing the 60-vote coalition as unconfirmed. Axios reported on August 6 that Democrats were reluctant to provide the initial procedural vote because they believed doing so could reduce negotiating leverage. These reports describe live political negotiations, not final statutory language.",
+        "The distinction matters for evaluating odds. Filing cloture protects floor time and creates a defined vote, but it does not prove that leaders have assembled the required coalition. A compromise could bring more senators aboard, while a contested amendment or unresolved ethics provision could push votes away. The Senate also has a limited September floor window and other legislative priorities. Calendar pressure is real, but it is not evidence that passage will occur or fail.",
+        "Uncertainty label: No public roll call on this cloture motion existed when this article was published on August 9. Statements about exactly which senators will support it, the final contents of any compromise, or the bill's probability of becoming law remain forecasts. The defensible evidence is the scheduled vote, the 60-vote rule, the released July text, and the independently reported areas of disagreement."
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+        "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-08-07/pdf/CREC-2026-08-07.pdf"
+      ]
+    },
+    {
+      "heading": "Practical implications for holders, builders, and institutions",
+      "paragraphs": [
+        "For XRP holders, the immediate implication is informational discipline. The vote can reveal whether a bipartisan market-structure coalition exists, but it does not create an investable guarantee. Avoid treating procedural headlines as a legal reclassification or price catalyst. The useful questions are whether cloture is invoked, which text advances, and what the final language says about intermediaries, disclosures, customer property, and agency jurisdiction.",
+        "For exchanges, custodians, wallet providers, XRP Ledger developers, and institutions, September is a planning checkpoint. Teams can map the July proposal against their activities, identify sections that could create registration, disclosure, custody, anti-money-laundering, or transition obligations, and monitor amendments. They should not implement a compliance program as though the draft were enacted. Scenario planning is appropriate; claiming legal certainty is not.",
+        "For journalists and researchers, the citation chain should begin with the Senate floor record and Congressional Record, then move to the actual bill text and independent reporting. That order prevents three common errors: calling cloture passage, calling a motion to proceed a final vote, and presenting a general digital-asset framework as an XRP-specific ruling. The next verifiable milestone is the September 15 cloture vote unless the Senate changes the schedule or negotiators release materially revised text first."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-08-07/pdf/CREC-2026-08-07.pdf",
+        "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf",
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The September 15, 2026, cloture vote scheduled for 2:15 p.m. Eastern Time, and whether it reaches the 60-vote threshold.",
+    "Any revised substitute or amendment package addressing government ethics, illicit finance, law enforcement, or stablecoin rewards before the vote.",
+    "Whether the Senate adopts the motion to proceed and later schedules debate, amendments, additional cloture votes, and final passage.",
+    "If the Senate passes a different text, whether the House approves identical language before the measure is presented to the president.",
+    "Only after enactment, the SEC and CFTC rulemakings, effective dates, and transition provisions that would determine real-world compliance effects."
+  ],
+  "sources": [
+    {
+      "name": "United States Senate: Senate Floor Activity for August 7 and August 8, 2026",
+      "url": "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+      "publishedAt": "2026-08-08",
+      "type": "primary"
+    },
+    {
+      "name": "U.S. Government Publishing Office: Congressional Record, August 7, 2026",
+      "url": "https://www.govinfo.gov/content/pkg/CREC-2026-08-07/pdf/CREC-2026-08-07.pdf",
+      "publishedAt": "2026-08-07",
+      "type": "primary"
+    },
+    {
+      "name": "United States Senate: About Filibusters and Cloture",
+      "url": "https://www.senate.gov/about/powers-procedures/filibusters-cloture.htm",
+      "type": "primary"
+    },
+    {
+      "name": "Office of Senator Cynthia Lummis: Updated CLARITY Act Text",
+      "url": "https://www.lummis.senate.gov/press-releases/lummis-releases-updated-clarity-act-text/",
+      "publishedAt": "2026-07-22",
+      "type": "primary"
+    },
+    {
+      "name": "U.S. Senate Committees: Digital Asset Market Clarity Act Section-by-Section",
+      "url": "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf",
+      "publishedAt": "2026-07-22",
+      "type": "primary"
+    },
+    {
+      "name": "Office of Senator Cynthia Lummis: Updated Senate Substitute Text",
+      "url": "https://www.lummis.senate.gov/wp-content/uploads/Clarity-Act.pdf",
+      "publishedAt": "2026-07-22",
+      "type": "primary"
+    },
+    {
+      "name": "CoinDesk: U.S. Senate Opens First Stage of Crypto CLARITY Act Voting",
+      "url": "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+      "publishedAt": "2026-08-08",
+      "type": "supporting"
+    },
+    {
+      "name": "Axios: Inside the GOP's Mad Dash to Recess Finish Line",
+      "url": "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess",
+      "publishedAt": "2026-08-06",
+      "type": "supporting"
+    },
+    {
+      "name": "Bloomberg Law: Updated Crypto Bill Unveiled by Senators",
+      "url": "https://news.bloomberglaw.com/bloomberg-government-news/updated-crypto-bill-unveiled-by-senate-gop-in-dash-for-passage",
+      "publishedAt": "2026-07-22",
+      "type": "supporting"
+    },
+    {
+      "name": "Reuters: What Is in the U.S. Senate's Landmark Crypto Bill?",
+      "url": "https://www.investing.com/news/stock-market-news/what-is-in-the-us-senates-landmark-crypto-bill-4687538",
+      "publishedAt": "2026-05-14",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "What Is XRP?",
+      "href": "/learn/what-is-xrp"
+    },
+    {
+      "label": "Is XRP a Good Investment?",
+      "href": "/learn/is-xrp-a-good-investment"
+    },
+    {
+      "label": "Risks Every XRP Holder Should Understand",
+      "href": "/learn/xrp-risks"
+    }
+  ]
+}
