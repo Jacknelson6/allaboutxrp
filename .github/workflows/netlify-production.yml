@@ -36,6 +36,9 @@ jobs:
       - name: Validate SEO policy and internal links
         run: npm run seo:audit
 
+      - name: Validate editorial image system
+        run: npm run art:validate && npm run news:validate
+
       - name: Build for production
         run: npx --yes netlify-cli@27.0.1 build --context production
 

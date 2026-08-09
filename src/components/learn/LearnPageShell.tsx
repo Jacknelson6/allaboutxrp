@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import Link from "next/link";
 import { ChevronDown, CheckCircle, XCircle, AlertTriangle, Info, Zap } from "lucide-react";
 import ScrollHint from "@/components/shared/ScrollHint";
+import GuideArtwork from "@/components/learn/GuideArtwork";
 
 /**
  * TL;DR Summary box — styled callout at the top of learn pages.
@@ -130,6 +131,7 @@ export function LearnHero({
       </p>
 
       {children || null}
+      <GuideArtwork breadcrumbLabel={breadcrumbLabel} />
     </>
   );
 }

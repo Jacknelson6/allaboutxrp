@@ -10,6 +10,8 @@
   "imageAlt": "Specific, factual description of the original editorial illustration",
   "imageWidth": 1200,
   "imageHeight": 630,
+  "imageStyle": "aaxrp-classical-ascii-v1",
+  "imagePrompt": "Describe a subject-specific ancient Greek editorial scene using warm ivory architecture, cobalt Mediterranean color, pale gold light, and fine 1, 0, x ASCII contour fields. Explain what the visual metaphor means for this exact story.",
   "keywords": ["XRP news", "XRP Ledger"],
   "keyTakeaways": ["One verified fact", "A second verified fact", "The practical implication"],
   "sections": [

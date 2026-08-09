@@ -20,9 +20,9 @@
   --color-danger: #ff6673;
 
   --font-sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-display: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Libre Baskerville", Georgia, serif;
   --font-editorial: "Libre Baskerville", Georgia, serif;
-  --font-mono: "Azeret Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-mono: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Animations */
   --animate-fade-in: fade-in 0.4s ease;
@@ -77,6 +77,13 @@ body {
   line-height: 1.68;
   font-kerning: normal;
   font-optical-sizing: auto;
+}
+
+.font-mono,
+time,
+table,
+[data-numeric] {
+  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
@@ -505,6 +512,7 @@ h1 { font-weight: 780; }
 }
 
 .premium-display-headline {
+  font-family: var(--font-editorial);
   max-width: 11ch;
   margin-top: 1.2rem;
   color: #1c1b18;

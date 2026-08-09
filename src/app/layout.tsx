@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Azeret_Mono, Libre_Baskerville, Public_Sans } from "next/font/google";
+import { Libre_Baskerville, Public_Sans } from "next/font/google";
 import "../styles/globals.css";
 import MegaMenu from "@/components/layout/MegaMenu";
 import Footer from "@/components/layout/Footer";
@@ -14,12 +14,6 @@ const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
 const publicSans = Public_Sans({
   variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const azeretMono = Azeret_Mono({
-  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -98,7 +92,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${publicSans.variable} ${azeretMono.variable} ${libreBaskerville.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${publicSans.variable} ${libreBaskerville.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -9,7 +9,7 @@ import SpecularButton from "./SpecularButton";
 const galleryItems = [
   { image: "/images/xrp-ascii-bank-hero.webp", label: "Understand XRP", eyebrow: "FOUNDATIONS", link: "/learn/what-is-xrp" },
   { image: "/news/clarity-act-senate-cloture-editorial.webp", label: "Follow regulation", eyebrow: "POLICY", link: "/learn/xrp-us-regulation" },
-  { image: "/news/xrp-ledger-3-3-0-amendments-editorial.png", label: "Track the ledger", eyebrow: "NETWORK", link: "/learn/xrp-ledger-explained" },
+  { image: "/news/xrp-ledger-3-3-0-amendments-editorial.webp", label: "Track the ledger", eyebrow: "NETWORK", link: "/learn/xrp-ledger-explained" },
   { image: "/newsletter/market-chart.png", label: "Read the market", eyebrow: "MARKETS", link: "/live-chart" },
   { image: "/images/xrp-ascii-bank-hero-night.webp", label: "Use XRP tools", eyebrow: "MODELS", link: "/tools" },
 ];

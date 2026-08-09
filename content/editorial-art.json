@@ -1,0 +1,51 @@
+{
+  "styleVersion": "aaxrp-classical-ascii-v1",
+  "aspectRatio": "16:9",
+  "guides": [
+    {
+      "route": "/learn/what-is-xrp",
+      "breadcrumbLabel": "What is XRP?",
+      "src": "/guides/ultimate-guide-xrp-2026.webp",
+      "alt": "Ancient Greek archive temple above a cobalt sea with an open ledger and luminous paths connecting distant ports",
+      "width": 1672,
+      "height": 941,
+      "promptConcept": "An open Greek archive and ledger sending verified channels toward global ports"
+    },
+    {
+      "route": "/learn/how-to-buy-xrp",
+      "breadcrumbLabel": "How to Buy XRP",
+      "src": "/guides/ultimate-guide-buying-xrp-2026.webp",
+      "alt": "Five ivory steps cross a cobalt channel toward a secure ancient Greek treasury overlooking the Mediterranean",
+      "width": 1672,
+      "height": 941,
+      "promptConcept": "A five-step path through a Greek financial agora toward secure custody"
+    },
+    {
+      "route": "/learn/xrp-2026-outlook",
+      "breadcrumbLabel": "XRP 2026 Outlook",
+      "src": "/guides/xrp-2026-outlook.webp",
+      "alt": "Ancient Greek observers study an armillary sphere as several luminous paths cross a cobalt sea toward the horizon",
+      "width": 1672,
+      "height": 941,
+      "promptConcept": "A Greek observatory comparing several possible paths across a luminous horizon"
+    },
+    {
+      "route": "/learn/altcoins-2026",
+      "breadcrumbLabel": "Altcoins in 2026",
+      "src": "/guides/ultimate-guide-altcoins-2026.webp",
+      "alt": "Different ancient trading vessels follow distinct routes through a cobalt Greek harbor beneath an ivory lighthouse",
+      "width": 1672,
+      "height": 941,
+      "promptConcept": "A Greek harbor of distinct vessels and trade routes used to compare competing networks"
+    },
+    {
+      "route": "/learn/is-xrp-a-good-investment",
+      "breadcrumbLabel": "Is XRP a Good Investment?",
+      "src": "/guides/is-xrp-good-investment-2026.webp",
+      "alt": "A nearly level golden balance weighs a cobalt vessel against dark risk stones on an ancient Greek coastal terrace",
+      "width": 1672,
+      "height": 941,
+      "promptConcept": "A level Greek balance weighing opportunity against distinct investment risks"
+    }
+  ]
+}

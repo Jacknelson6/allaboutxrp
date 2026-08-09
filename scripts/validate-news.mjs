@@ -8,6 +8,7 @@ const files = fs.existsSync(newsDir)
   : [];
 const failures = [];
 const slugs = new Set();
+const REQUIRED_IMAGE_STYLE = "aaxrp-classical-ascii-v1";
 
 for (const file of files) {
   let article;
@@ -46,6 +47,8 @@ for (const file of files) {
   }
   if (!/^\/news\/[a-z0-9-]+\.(?:avif|jpe?g|png|webp)$/.test(article.image || "")) failures.push(`${prefix} image must be a unique file under /news`);
   if ((article.imageAlt || "").length < 40 || article.imageAlt.length > 180) failures.push(`${prefix} imageAlt must be 40 to 180 characters`);
+  if (article.imageStyle !== REQUIRED_IMAGE_STYLE) failures.push(`${prefix} imageStyle must be ${REQUIRED_IMAGE_STYLE}`);
+  if ((article.imagePrompt || "").length < 100) failures.push(`${prefix} imagePrompt must describe the subject-specific classical ASCII art direction`);
   if (article.image) {
     const imagePath = path.join(process.cwd(), "public", article.image.replace(/^\//, ""));
     if (!fs.existsSync(imagePath)) {
