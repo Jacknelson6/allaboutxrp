@@ -40,8 +40,23 @@ function hasMetaNoindex(html) {
   );
 }
 
+async function fetchWithRetry(url, options = {}, attempts = 3) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetch(url, { ...options, signal: AbortSignal.timeout(15000) });
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+    }
+  }
+
+  throw lastError;
+}
+
 async function fetchXml(pathname) {
-  const response = await fetch(`${siteUrl}${pathname}`, {
+  const response = await fetchWithRetry(`${siteUrl}${pathname}`, {
     headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
   });
   const xml = await response.text();
@@ -93,7 +108,7 @@ for (const match of sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
 }
 
 try {
-  const digestResponse = await fetch(`${siteUrl}/api/digests`);
+  const digestResponse = await fetchWithRetry(`${siteUrl}/api/digests`);
   const digests = await digestResponse.json();
   if (digestResponse.ok && Array.isArray(digests)) {
     for (const digest of digests) {
@@ -109,7 +124,7 @@ let cursor = 0;
 async function validatePage() {
   while (cursor < urls.length) {
     const value = urls[cursor++];
-    const response = await fetch(value, {
+    const response = await fetchWithRetry(value, {
       redirect: "manual",
       headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
     });
