@@ -6,11 +6,11 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Live XRP Price and Market Data | AllAboutXRP",
   description:
-    "Live XRP price, market statistics, supply data, venue observations, and a transparent XRP converter.",
+    "Live XRP price, XRP Ledger transactions, holder distribution, whale activity, escrow research, calculators, and venue data.",
   openGraph: {
     title: "Live XRP Price and Market Data | AllAboutXRP",
     description:
-      "Live XRP price, market statistics, supply data, venue observations, and a transparent XRP converter.",
+      "Live XRP price, XRP Ledger transactions, holder distribution, whale activity, escrow research, calculators, and venue data.",
     url: "https://allaboutxrp.com/live-chart",
     siteName: "AllAboutXRP",
     type: "website",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Live XRP Price and Market Data",
     description:
-      "Live XRP price, market statistics, supply data, venue observations, and a transparent XRP converter.",
+      "Live XRP price, XRP Ledger transactions, holder distribution, whale activity, escrow research, calculators, and venue data.",
   },
   alternates: { canonical: "https://allaboutxrp.com/live-chart" },
 };
@@ -30,9 +30,9 @@ export default function LiveChartPage() {
       <header className="border-b border-surface-border">
         <div className="site-container py-16 sm:py-24">
           <p className="editorial-kicker">LIVE DATA</p>
-          <h1 className="mt-4 max-w-4xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98]">XRP market data, without the dashboard clutter.</h1>
+          <h1 className="mt-4 max-w-4xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98]">The XRP Ledger, in motion.</h1>
           <p className="mt-5 max-w-3xl leading-7 text-text-secondary">
-            View current XRP price data, market activity, and recent XRP Ledger transactions. Prices are third-party market data and may differ by venue; verify before making a financial decision.
+            Follow live XRP Ledger payments, current market data, holder concentration, and the research tools that put each signal in context.
           </p>
         </div>
       </header>

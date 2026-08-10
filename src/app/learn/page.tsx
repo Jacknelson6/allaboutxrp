@@ -98,9 +98,9 @@ const topicHubs: Guide[] = LEARN_HUBS.map((hub) => ({
 const allGuides = [...topicHubs, ...foundations, ...clusters.flatMap((cluster) => cluster.guides)];
 
 const featuredGuides = [
-  { href: "/learn/what-is-xrp", title: "The complete guide to XRP", image: "/guides/ultimate-guide-xrp-2026.webp", alt: "Classical oil and ASCII illustration of waterways converging through an aqueduct" },
-  { href: "/learn/how-to-buy-xrp", title: "How to buy XRP safely", image: "/guides/ultimate-guide-buying-xrp-2026.webp", alt: "Classical oil and ASCII illustration of a civic market for comparing XRP purchase routes" },
-  { href: "/learn/altcoins-2026", title: "The 2026 guide to altcoins", image: "/guides/ultimate-guide-altcoins-2026.webp", alt: "Classical oil and ASCII illustration of an inventor's workshop filled with distinct machines" },
+  { href: "/learn/what-is-xrp", title: "The complete guide to XRP", image: "/guides/ultimate-guide-xrp-2026.webp", alt: "A bronze hydraulic gate linking two cobalt waterways" },
+  { href: "/learn/how-to-buy-xrp", title: "How to buy XRP safely", image: "/guides/ultimate-guide-buying-xrp-2026.webp", alt: "A balance, key, and sealed ledger arranged on an ivory table" },
+  { href: "/learn/altcoins-2026", title: "The 2026 guide to altcoins", image: "/guides/ultimate-guide-altcoins-2026.webp", alt: "Five distinct mechanical instruments arranged for comparison" },
 ];
 
 const collectionSchema = {

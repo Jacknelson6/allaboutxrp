@@ -7,8 +7,8 @@ colors:
   paper-muted: "#F6F7F8"
   rule: "#D9D9D9"
   secondary-text: "#5C626B"
-  cobalt: "#1769AA"
-  cobalt-dark: "#12558B"
+  cobalt: "#176F92"
+  cobalt-dark: "#105672"
   night: "#090B10"
   positive: "#1E7D5B"
   negative: "#B33A46"
@@ -84,11 +84,11 @@ The brand is classical in imagery and contemporary in interface. Ancient Greek l
 
 ## Colors
 
-The UI uses true white, near-black ink, neutral gray rules, and one sober cobalt. Gold, vermilion, and emerald belong primarily inside editorial artwork.
+The UI uses true white, near-black ink, neutral gray rules, and one sober water blue. Gold, vermilion, and emerald belong primarily inside editorial artwork.
 
 ### Primary
 
-- **Civic Cobalt** (`#1769AA`): links, selected filters, focus, and one primary data series.
+- **Aegean Blue** (`#176F92`): links, selected filters, focus, and one primary data series. It is sampled from the homepage water and darkened to preserve WCAG contrast on white.
 - **Archive Ink** (`#090B10`): headlines, primary controls, and high-emphasis text.
 
 ### Secondary

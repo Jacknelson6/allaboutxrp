@@ -6,7 +6,7 @@
     "colorMeta": {
       "ink": { "role": "primary", "displayName": "Archive Ink", "canonical": "#090B10", "tonalRamp": ["#090B10", "#1D2026", "#343840", "#565B64", "#7C828B", "#A7ACB3", "#D3D6DA", "#F4F6F8"] },
       "paper": { "role": "neutral", "displayName": "Open Paper", "canonical": "#FFFFFF", "tonalRamp": ["#202020", "#404040", "#606060", "#808080", "#A0A0A0", "#C0C0C0", "#E0E0E0", "#FFFFFF"] },
-      "cobalt": { "role": "primary", "displayName": "Civic Cobalt", "canonical": "#1769AA", "tonalRamp": ["#08233A", "#0D3A60", "#125187", "#1769AA", "#3A83BD", "#73A9D1", "#B1D0E6", "#EDF6FC"] }
+      "cobalt": { "role": "primary", "displayName": "Aegean Blue", "canonical": "#176F92", "tonalRamp": ["#061E2A", "#0A3548", "#105672", "#176F92", "#3383A6", "#69B4D1", "#B4DCEA", "#EDF8FC"] }
     },
     "typographyMeta": {
       "display": { "displayName": "Editorial Display", "purpose": "One dominant statement per page." },
@@ -28,14 +28,14 @@
       "refersTo": "button-primary",
       "description": "The single high-emphasis action on a surface.",
       "html": "<button class=\"ds-btn-primary\">READ THE GUIDE</button>",
-      "css": ".ds-btn-primary{min-height:44px;border:0;border-radius:0;background:#090B10;color:#fff;padding:12px 20px;font:650 14px Public Sans,system-ui,sans-serif;transition:background 160ms cubic-bezier(.22,1,.36,1)}.ds-btn-primary:hover{background:#1769AA}.ds-btn-primary:focus-visible{outline:2px solid #1769AA;outline-offset:3px}"
+      "css": ".ds-btn-primary{min-height:44px;border:0;border-radius:0;background:#090B10;color:#fff;padding:12px 20px;font:650 14px Public Sans,system-ui,sans-serif;transition:background 160ms cubic-bezier(.22,1,.36,1)}.ds-btn-primary:hover{background:#176F92}.ds-btn-primary:focus-visible{outline:2px solid #176F92;outline-offset:3px}"
     },
     {
       "name": "Filter Chip",
       "kind": "chip",
       "description": "A sharp category filter with a binary selected state.",
       "html": "<button class=\"ds-filter\" aria-pressed=\"false\">OFFICIAL SOURCES</button>",
-      "css": ".ds-filter{min-height:44px;border:1px solid #D9D9D9;border-radius:0;background:#fff;color:#090B10;padding:9px 14px;font:650 12px Public Sans,system-ui,sans-serif}.ds-filter:hover,.ds-filter[aria-pressed=true]{border-color:#090B10;background:#090B10;color:#fff}.ds-filter:focus-visible{outline:2px solid #1769AA;outline-offset:3px}"
+      "css": ".ds-filter{min-height:44px;border:1px solid #D9D9D9;border-radius:0;background:#fff;color:#090B10;padding:9px 14px;font:650 12px Public Sans,system-ui,sans-serif}.ds-filter:hover,.ds-filter[aria-pressed=true]{border-color:#090B10;background:#090B10;color:#fff}.ds-filter:focus-visible{outline:2px solid #176F92;outline-offset:3px}"
     },
     {
       "name": "Article Row",
@@ -48,9 +48,9 @@
   "narrative": {
     "northStar": "The Digital Agora",
     "overview": "A bright civic research space where XRP reporting, ledger data, and evidence are placed in public view. Classical imagery carries the identity while a quiet contemporary interface keeps the record readable.",
-    "keyCharacteristics": ["White space and black ink", "One cobalt accent", "Distinct story-specific artwork", "Sharp corners", "Flat ruled information architecture"],
+    "keyCharacteristics": ["White space and black ink", "One water-blue accent", "Distinct symbolic still-life artwork", "Sharp corners", "Flat ruled information architecture"],
     "rules": [
-      { "name": "The One Accent Rule", "body": "Cobalt is the only decorative interface color.", "section": "colors" },
+      { "name": "The One Accent Rule", "body": "Aegean blue is the only decorative interface color.", "section": "colors" },
       { "name": "The Two-Family Rule", "body": "Use only Libre Baskerville and Public Sans.", "section": "typography" },
       { "name": "The Flat Record Rule", "body": "Use spacing and rules before containers and shadows.", "section": "elevation" }
     ],

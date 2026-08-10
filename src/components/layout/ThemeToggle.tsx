@@ -18,11 +18,22 @@ export default function ThemeToggle() {
     queueMicrotask(() => setTheme(readTheme()));
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    window.localStorage.setItem("aaxrp-theme", next);
-    setTheme(next);
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const root = document.documentElement;
+    const next: Theme = root.dataset.theme === "dark" ? "light" : "dark";
+    root.style.setProperty("--theme-x", `${event.clientX}px`);
+    root.style.setProperty("--theme-y", `${event.clientY}px`);
+    const applyTheme = () => {
+      root.dataset.theme = next;
+      window.localStorage.setItem("aaxrp-theme", next);
+      setTheme(next);
+    };
+    const transitionDocument = document as Document & { startViewTransition?: (update: () => void) => void };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !transitionDocument.startViewTransition) {
+      applyTheme();
+      return;
+    }
+    transitionDocument.startViewTransition(applyTheme);
   };
 
   return (

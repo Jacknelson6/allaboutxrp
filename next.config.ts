@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
+    // Netlify's on-demand Next image transform currently returns 502 for local
+    // editorial art. Ship the already-compressed WebP assets directly so every
+    // guide and news thumbnail has a reliable source URL.
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "unavatar.io" },
       { protocol: "https", hostname: "pbs.twimg.com" },
