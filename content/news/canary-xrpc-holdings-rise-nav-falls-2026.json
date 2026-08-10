@@ -1,0 +1,246 @@
+{
+  "slug": "canary-xrpc-holdings-rise-nav-falls-2026",
+  "title": "Canary XRPC Holdings Rose 55.7 Million XRP as NAV per Share Fell 43%",
+  "description": "Canary’s August 7 SEC filing shows XRPC held 55.7 million more XRP at June 30 while NAV per share fell 43.41%, clarifying what ETF creations do and do not prove.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-10T06:18:00-05:00",
+  "modifiedAt": "2026-08-10T06:18:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/canary-xrpc-cross-slide-editorial.webp",
+  "imageAlt": "Ivory surveyor’s cross-slide with a cobalt carriage extended right and a pale-gold plumb stop lowered onto a stone datum slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpc-dual-axis-cross-slide-still-life",
+  "imageSetting": "A bare ivory surveyor’s datum slab in a white mineral alcove under cool diagonal dawn light",
+  "imageMetaphor": "A cobalt horizontal carriage extends while a separate pale-gold plumb stop descends, representing fund quantity and per-share value moving in opposite directions without implying causality",
+  "imagePrompt": "A sparse, physically believable classical oil still life showing one functional surveyor’s cross-slide instrument built from a low ivory reference block, a cobalt horizontal brass carriage extended to the right, and a separate pale-gold vertical plumb stop lowered below its datum plane. High three-quarter near-overhead view from the upper right, compact subject in the lower-left third, broad negative space, cool diagonal dawn light, crisp classical modeling, worn mineral edges, one restrained vermilion witness mark, and extremely subtle 1/0/x stipple only inside a few shadow transitions. No text, numerals, logos, crypto coins, currency symbols, dashboards, graphs, scales, gauges, keys, gates, amphorae, people, architecture, landscapes, cyber objects, or all-over ASCII.",
+  "keywords": [
+    "Canary XRP ETF",
+    "XRPC",
+    "XRP ETF holdings",
+    "XRP ETF creations",
+    "SEC Form 10-Q",
+    "XRP NAV",
+    "ETF authorized participants"
+  ],
+  "keyTakeaways": [
+    "Canary XRPC held 231,279,303 XRP at June 30, 2026, up 55,653,862 from December 31, while shares outstanding increased by a similar 32.02% and XRP per share decreased by only about 0.25%.",
+    "The six-month holdings increase combined 34,132,840 XRP purchased and 25,933,548 contributed in-kind, less 3,933,000 sold for redemptions and 479,526 transferred to pay sponsor fees.",
+    "The filing reports a $82.36 million net increase from capital-share transactions, but it does not identify ultimate shareholders, prove institutional accumulation, establish a price floor, or show that all 55.7 million additional XRP was bought in the market."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPC grew while each share lost value",
+      "paragraphs": [
+        "Canary’s XRPC held 231.3 million XRP at June 30, up 55.7 million from year-end, while NAV per share fell 43.41%. The August 7 SEC filing shows how an exchange-traded product’s shares and underlying exposure can grow during a falling market. It does not identify end investors or establish a price floor.",
+        "The unaudited Form 10-Q reports 231,279,303 XRP at June 30, 2026, compared with 175,625,441 at December 31, 2025. That is an increase of 55,653,862 XRP, or 31.69%. Over the same period, shares outstanding rose from 16.49 million to 21.77 million, an increase of 5.28 million shares, or 32.02%. The similar growth rates are essential context because a larger trust can hold more XRP without materially increasing the amount represented by each share.",
+        "The opposite movement was in value. The SEC filing says XRPC’s financial-statement NAV per share fell from $19.58 at December 31 to $11.08 at June 30, a 43.41% decline. Net assets fell 25.29%, from $322.82 million to $241.17 million, even as new shares and XRP entered the trust. Canary’s fund page separately displays a June 30 market-price return of negative 43.03% and a daily-NAV return of negative 42.84%, confirming the scale and direction while also exposing a valuation-method difference explained later in this article."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://canaryetfs.com/xrpc/",
+        "https://www.etfcentral.com/fund/XRPC"
+      ]
+    },
+    {
+      "heading": "More XRP did not mean more XRP exposure per share",
+      "paragraphs": [
+        "Dividing the reported XRP balance by shares outstanding produces about 10.6504 XRP per share at December 31 and 10.6238 XRP per share at June 30. That calculated ratio declined by roughly 0.25%. It is not a promise that a shareholder can redeem one share for that exact quantity. XRPC creates and redeems in 10,000-share baskets through authorized participants, and accrued liabilities, fees, valuation timing, and secondary-market pricing also matter. The ratio is useful because it isolates how the trust’s XRP quantity scaled relative to its share count.",
+        "The table shows why the headline needs both axes. XRP units and shares expanded by nearly the same percentage. Meanwhile, the filing’s XRP reference value fell from $1.84 at December 31 to $1.04 at June 30, a 43.27% decrease attributed by the trust to the reporting period. That lower asset value drove the much weaker NAV per share despite a larger aggregate XRP balance. The independent June 30 market record on FinanceCharts shows an $11.08 adjusted close for XRPC, matching Canary’s reported June 30 market price. That traded price remains separate from the financial-statement NAV even though both were reported at $11.08.",
+        "This is not dilution evidence in the ordinary sense, nor is it evidence that existing shareholders accumulated 55.7 million more XRP. The trust issued more shares as its asset base changed. The near-flat calculated XRP-per-share ratio indicates that the quantity backing each share stayed broadly stable before fees and liabilities, while the dollar value of that quantity fell. A claim about growth in total XRP holdings therefore answers a different question from a claim about shareholder return."
+      ],
+      "table": {
+        "caption": "XRPC quantity grew while value measures fell in the first half of 2026",
+        "headers": [
+          "Metric",
+          "December 31, 2025",
+          "June 30, 2026",
+          "Six-month change"
+        ],
+        "rows": [
+          [
+            "XRP held",
+            "175,625,441",
+            "231,279,303",
+            "+55,653,862, or +31.69%"
+          ],
+          [
+            "Shares outstanding",
+            "16,490,000",
+            "21,770,000",
+            "+5,280,000, or +32.02%"
+          ],
+          [
+            "Calculated XRP per share",
+            "10.6504",
+            "10.6238",
+            "About -0.25%"
+          ],
+          [
+            "Net assets",
+            "$322,819,725",
+            "$241,173,971",
+            "-$81,645,754, or -25.29%"
+          ],
+          [
+            "NAV per share",
+            "$19.58",
+            "$11.08",
+            "-43.41%"
+          ],
+          [
+            "XRP reference value used in filing discussion",
+            "$1.84",
+            "$1.04",
+            "-43.27%"
+          ]
+        ],
+        "sourceNote": "Source: Canary XRP ETF Form 10-Q filed August 7, 2026, covering the unaudited six months ended June 30. Percentage changes and XRP per share are AllAboutXRP calculations from reported values. Canary’s fund page provides a separate sponsor record, while independent FinanceCharts data cross-checks the June 30 market-price endpoint."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://canaryetfs.com/xrpc/",
+        "https://www.financecharts.com/etfs/XRPC/summary/volume-current-vs-avg"
+      ]
+    },
+    {
+      "heading": "The 55.7 million XRP increase came through four channels",
+      "paragraphs": [
+        "The filing provides a complete XRP-unit reconciliation for the six months. XRPC purchased 34,132,840 XRP, with an associated value of $52,203,985. It also received 25,933,548 XRP in-kind for share creations, valued at $36,051,799. Those are distinct acquisition channels. Saying that XRPC bought all 55.7 million additional XRP would erase the in-kind portion and overstate what the filing shows about market purchases.",
+        "The offsets were 3,933,000 XRP sold for share redemptions, with an associated value of $5,896,744, plus 479,526 XRP transferred to pay the sponsor fee, valued at $759,894 when transferred. Starting with 175,625,441 XRP, adding the purchased and contributed quantities, then subtracting the redemption sales and fee transfers produces the reported 231,279,303 ending balance exactly. The filing reports no XRP distributed in-kind for redemptions during the period.",
+        "Share accounting tells the same story from a different side. XRPC created 5.65 million shares valued at $88,255,544 and redeemed 370,000 shares valued at $5,896,751. The resulting $82,358,793 is labeled a net increase in net assets from capital-share transactions. It should not be renamed investor inflows without qualification. The filing does not disclose which creations were cash-settled versus in-kind at the individual basket level, and the asset-reconciliation quantities should not be treated as an exact share-count split."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/0001999371-26-017438-index.htm"
+      ]
+    },
+    {
+      "heading": "Creations do not reveal who ultimately owned the shares",
+      "paragraphs": [
+        "Authorized participants are the firms allowed to transact directly with an exchange-traded product in creation and redemption baskets. The Investment Company Institute explains that an AP may retain newly created ETF shares, sell them to clients, or sell them through exchanges and other venues. AP activity can also reflect a broker processing transactions for advisers, market makers, hedge funds, or proprietary trading firms. A creation is therefore evidence that primary-market shares were issued, not a roster of the ultimate beneficial owners.",
+        "That distinction rules out a common overclaim. XRPC’s larger XRP balance does not, by itself, prove that banks, pension funds, asset managers, or any named institution accumulated XRP. Retail demand routed through brokerage accounts, market-making inventory, adviser activity, and other secondary-market needs can all interact with the creation process. The SEC filing does not provide holder identities, and this article found no source that can allocate the 5.65 million created shares among those categories.",
+        "Independent market reporting establishes that demand existed across the broader U.S. XRP product category, but it cannot fill that ownership gap. CoinDesk reported on May 12 that five U.S.-listed spot XRP products received a combined $25.8 million on May 11, while XRPC itself recorded no flow that day. ETF Central later displayed roughly $83 million in year-to-date XRPC net flows as of July 24. Those observations support the direction of aggregate product activity, but their dates and methodologies differ from XRPC’s June 30 financial statements. They do not identify end investors or convert the filing’s capital-share figure into a same-period industry flow statistic."
+      ],
+      "sourceUrls": [
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://www.coindesk.com/markets/2026/05/12/spot-xrp-etfs-attract-biggest-inflows-since-january",
+        "https://www.etfcentral.com/fund/XRPC"
+      ]
+    },
+    {
+      "heading": "Why XRPC publishes two slightly different NAV returns",
+      "paragraphs": [
+        "The SEC filing reports a negative 43.41% six-month total return at NAV and a negative 43.03% return at market value. Canary’s fund page reports a negative 42.84% June 30 year-to-date daily-NAV return and the same negative 43.03% market-price return. The 0.57 percentage-point difference between the two NAV figures is not a rounding error that should be silently collapsed. It reflects two reported measurement frameworks.",
+        "For daily fund NAV, the filing says the administrator values XRP using the CoinDesk XRP USD CCIXber 60m New York Rate as of 4 p.m. Eastern. For the financial statements, XRPC uses a GAAP-consistent price from what its third-party vendor identifies as the principal XRP market at the measurement date. The filing explicitly warns that this can produce values different from the trust’s daily NAV calculations. The evidence supports a methodology difference, but the public records reviewed here do not quantify how much each pricing input contributed to the gap.",
+        "Fees also reduce the XRP represented by the trust over time. XRPC charges a 0.50% annual unified sponsor fee on its defined XRP holdings. The six-month expense was $716,898. Separately, the trust transferred 479,526 XRP with a $759,894 fair value to pay sponsor fees during the period. Those figures describe different accounting measures, so the transfer value should not be called the period’s fee expense. Neither figure explains the 43% return decline, which the filing primarily ties to the lower value of XRP."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://canaryetfs.com/xrpc/"
+      ]
+    },
+    {
+      "heading": "What the filing means for investors, XRP holders, and analysts",
+      "paragraphs": [
+        "For an XRPC shareholder, the filing demonstrates the product’s core exposure. A share tracked a relatively stable quantity of XRP before fees and liabilities, while its dollar NAV moved sharply with the asset’s reported value. The product can remove self-custody tasks and fit in brokerage or certain tax-advantaged accounts, as Canary markets on its fund page. It does not remove XRP price risk, sponsor fees, possible premiums or discounts, market liquidity risk, or differences between accounting NAV and a trade executed during the day.",
+        "For a direct XRP holder, the quantity increase is evidence that this trust controlled more XRP at June 30 than at year-end. It is not evidence of a price floor. During the same period, XRPC’s reported XRP reference value and per-share NAV both fell about 43%. New creation activity can add assets to a trust while selling pressure or broader market repricing still outweighs that demand. One fund’s balance also cannot establish the net effect across exchanges, over-the-counter venues, other products, or existing holders.",
+        "For analysts comparing XRP exchange-traded products, three separate series deserve attention: shares created and redeemed, XRP units held, and XRP per share after fees and liabilities. Dollar flows alone mix investor activity with the price at which baskets were processed. Asset quantity alone ignores a growing share count. NAV alone hides whether the product expanded or contracted. Reading all three together produces a more faithful picture of product mechanics and shareholder exposure.",
+        "The broader ecosystem implication remains conditional. More accessible exchange-traded exposure may widen the set of people able to hold XRP-linked securities, and sustained net creations could require a trust to obtain or receive more XRP. The records here do not show where purchased XRP was sourced, whether counterparties drew down existing inventory, how much activity reached public order books, or whether any particular creation moved XRP’s market price. Those are separate empirical questions."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://canaryetfs.com/xrpc/",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.etfcentral.com/fund/XRPC"
+      ]
+    },
+    {
+      "heading": "Uncertainty: confirmed facts, defensible inference, and open questions",
+      "paragraphs": [
+        "Confirmed: the August 7 filing reports 231,279,303 XRP and 21.77 million shares at June 30, along with a 43.41% decline in financial-statement NAV per share for the first half. It reconciles the XRP balance across purchases, in-kind contributions, redemption sales, and fee transfers. Canary’s live page and independent market-data sources corroborate the period’s negative return direction, while ICI’s industry guidance supports the explanation of authorized-participant mechanics.",
+        "Inference: the $82.36 million net capital-share increase and the larger share count are consistent with net primary-market expansion during the period. That likely required market participants to respond to demand for additional XRPC shares. The filing does not establish why each basket was created, whether an AP acted for clients or its own exposure, or whether the ultimate holders were retail, institutional, or mixed. Any ownership label beyond that is speculation.",
+        "Unresolved: XRPC does not publish a holder-level breakdown in this filing, and the public sources do not provide an exact cash-versus-in-kind share split, XRP sourcing venues, transaction-level market impact, or a causal link to XRP’s price. The next quarterly filing can show whether shares and XRP holdings continued to expand after June 30. Until then, the defensible conclusion is structural, not predictive: aggregate exposure grew, per-share XRP stayed broadly stable, and per-share value fell with the underlying asset."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+        "https://canaryetfs.com/xrpc/",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.etfcentral.com/fund/XRPC",
+        "https://www.financecharts.com/etfs/XRPC/summary/volume-current-vs-avg"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "XRPC’s next Form 10-Q, including the September 30 XRP balance, shares outstanding, NAV per share, and a new XRP-unit reconciliation.",
+    "Whether future filings separate enough detail to compare cash purchases with in-kind creations without treating asset quantities as a share-count split.",
+    "The calculated XRP-per-share trend after the 0.50% sponsor fee, liabilities, creations, and redemptions.",
+    "Differences between financial-statement NAV, daily fund NAV, and secondary-market price during volatile reporting dates.",
+    "Any reliable holder or basket-level disclosure before describing future creations as retail or institutional accumulation."
+  ],
+  "sources": [
+    {
+      "name": "SEC EDGAR, Canary XRP ETF Form 10-Q Filing Index",
+      "url": "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/0001999371-26-017438-index.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "name": "Canary XRP ETF Form 10-Q for the Quarter Ended June 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2039505/000199937126017438/xrpc-10q_063026.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "name": "Canary Capital XRPC Fund Page (undated live page; June 30 performance and August 7 trust details used)",
+      "url": "https://canaryetfs.com/xrpc/",
+      "type": "primary"
+    },
+    {
+      "name": "Investment Company Institute, ETF Basics and Structure FAQs",
+      "url": "https://www.ici.org/faqs/faqs_etfs",
+      "type": "supporting",
+      "publishedAt": "2026-04-22"
+    },
+    {
+      "name": "ETF Central XRPC Fund Profile (undated live page; June 30 and July 24 data used)",
+      "url": "https://www.etfcentral.com/fund/XRPC",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk, Spot XRP ETFs Attract Biggest Inflows Since January",
+      "url": "https://www.coindesk.com/markets/2026/05/12/spot-xrp-etfs-attract-biggest-inflows-since-january",
+      "type": "supporting",
+      "publishedAt": "2026-05-12"
+    },
+    {
+      "name": "FinanceCharts XRPC Trade History (undated data page; June 30 adjusted close used)",
+      "url": "https://www.financecharts.com/etfs/XRPC/summary/volume-current-vs-avg",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/etf",
+      "label": "Track XRP exchange-traded products"
+    },
+    {
+      "href": "/learn/xrp-etf",
+      "label": "How XRP ETFs work"
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot versus futures XRP ETFs"
+    },
+    {
+      "href": "/learn/xrp-etf-price-impact",
+      "label": "How ETF activity can affect XRP’s price"
+    },
+    {
+      "href": "/learn/xrp-in-retirement-accounts",
+      "label": "XRP exposure in retirement accounts"
+    }
+  ]
+}
