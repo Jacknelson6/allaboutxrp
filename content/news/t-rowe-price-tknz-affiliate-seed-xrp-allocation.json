@@ -1,0 +1,328 @@
+{
+  "slug": "t-rowe-price-tknz-affiliate-seed-xrp-allocation",
+  "title": "TKNZ Form 10-Q Confirms $15 Million Seed; Fund Page Shows XRP at 7.05%",
+  "description": "T. Rowe Price’s first TKNZ quarterly report confirms its affiliates completed a $15 million seed. The August 10 portfolio puts XRP at 7.05%, while one quantity field remains unresolved.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-10T14:15:00-05:00",
+  "modifiedAt": "2026-08-10T14:15:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/tknz-affiliate-seed-disclosure-editorial.webp",
+  "imageAlt": "Five-leaf pale-gold bronze iris partly open over a cobalt-edged frosted glass plate on an ivory optical slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "tknz-five-leaf-confirmation-iris-still-life",
+  "imageSetting": "An ivory optical calibration slab over pale linen under diffuse cobalt blue-hour backlight",
+  "imageMetaphor": "A partly opened five-leaf bronze iris reveals one bounded record layer, representing a quarterly filing that confirms a planned seed transaction while later ownership and one inconsistent quantity field remain unresolved",
+  "imagePrompt": "A sparse, physically believable classical oil still life showing exactly two functional objects: one partly opened pale-gold bronze optical iris with exactly five clearly separated overlapping leaves, resting above one thin cobalt-edged frosted glass record plate on a warm ivory calibration slab. Low axial three-quarter view, compact arrangement in the lower-right third, broad empty mineral space to the left, crisp classical oil modeling, cool cobalt blue-hour backlight, soft contact shadows, one restrained vermilion registration pin, and extremely subtle 1/0/x stipple only inside a few atmospheric and shadow transitions. No text, numerals, logos, crypto coins, currency symbols, dashboards, charts, scales, keys, gates, amphorae, people, buildings, landscapes, ruins, fantasy elements, cyber cubes, or all-over ASCII.",
+  "keywords": [
+    "T. Rowe Price Active Crypto ETF",
+    "TKNZ",
+    "TKNZ Form 10-Q",
+    "TKNZ XRP allocation",
+    "XRP ETF portfolio weight",
+    "crypto ETF seed capital",
+    "T. Rowe Price XRP"
+  ],
+  "keyTakeaways": [
+    "TKNZ’s August 10 Form 10-Q confirms that T. Rowe Price Sponsor LLC and T. Rowe Price Associates, Inc. completed the previously disclosed 600,000-share, $15 million seed plan before public trading began.",
+    "The filing reports 650,000 shares outstanding at July 31, a net 50,000 above the seed baseline, but it does not identify current beneficial owners or provide a post-launch creation-and-redemption reconciliation.",
+    "T. Rowe Price’s August 10 holdings data assigns XRP a $1,111,278.68 market value and 7.0533% weight, but its raw quantity field implies a price that cannot be reconciled with a same-day independent XRP price record."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the quarterly report confirms the affiliate seed was completed",
+      "paragraphs": [
+        "T. Rowe Price’s first TKNZ quarterly report confirms two affiliates completed the product’s previously disclosed $15 million seed before its July 16 launch. It also reports 650,000 shares outstanding by July 31, 50,000 above the seed baseline. T. Rowe Price’s August 10 portfolio assigns XRP a 7.05% weight.",
+        "The Form 10-Q filed August 10 says T. Rowe Price Sponsor LLC and T. Rowe Price Associates, Inc. bought 600,000 seed shares at $25 each. The sponsor’s total was 6,000 shares for $150,000. Price Associates’ total was 594,000 shares for $14.85 million. The first 800 shares were purchased April 1, and the remaining 599,200 operational seed shares were purchased July 14, two days before operations and NYSE Arca trading began.",
+        "The filing confirms execution rather than revealing a previously unknown plan. A June 23 prospectus had already named the two affiliates as Seed Capital Investors and disclosed the planned share counts and cash split. The new record establishes that the July 14 purchase occurred, adds the July 31 share count, and supplies the fund’s first quarterly financial statements. That distinction keeps a confirmation from being overstated as a surprise disclosure."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+        "https://www.coindesk.com/markets/2026/07/16/usd1-9-trillion-asset-manager-t-rowe-price-bets-on-active-management-with-first-multi-token-crypto-etf",
+        "https://www.theblock.co/post/408667/t-rowe-price-launches-first-actively-managed-multi-token-crypto-etf"
+      ]
+    },
+    {
+      "heading": "The SEC records separate a disclosed plan from completed funding",
+      "paragraphs": [
+        "TKNZ is organized as a Delaware statutory trust under a trust agreement dated September 15, 2025. The April 1 purchase of 800 shares established its initial capital and share balance, not the trust itself. At June 30, the trust still held only $20,000 in cash and had conducted no operations beyond that initial seed activity. Its registration statement had become effective June 18, but its operating capital had not yet arrived by the quarter-end cutoff.",
+        "The June 23 prospectus described what was expected next: the two affiliates intended to purchase another 599,200 shares on or before trading began. The August 10 Form 10-Q records the transaction as a July 14 subsequent event and reports $14.98 million in proceeds. Adding that purchase to the April transaction produces the planned $15 million total and 600,000-share seed baseline exactly.",
+        "Independent reports from The Block and Benzinga described roughly $15 million of opening assets when TKNZ launched July 16. Those reports corroborate the launch scale and date, but they predate the quarterly report and do not independently verify the completed affiliate transaction. CoinDesk separately confirms the launch, active multi-token strategy, XRP’s inclusion, and fee schedule. Source precedence matters here: the SEC filings establish the transaction, while the news reports establish contemporaneous public context."
+      ],
+      "table": {
+        "caption": "TKNZ’s path from disclosed seed plan to completed launch capitalization",
+        "headers": [
+          "Date",
+          "Record or event",
+          "Disclosed amount",
+          "Evidentiary role"
+        ],
+        "rows": [
+          [
+            "April 1, 2026",
+            "Initial seed shares purchased",
+            "800 shares for $20,000",
+            "Completed transaction in both SEC records"
+          ],
+          [
+            "June 23, 2026",
+            "Final prospectus filed",
+            "599,200 more shares planned for $14.98 million",
+            "Named both affiliates and disclosed the intended split"
+          ],
+          [
+            "June 30, 2026",
+            "Quarter-end reporting date",
+            "$20,000 cash and 800 shares",
+            "No operations beyond initial seed activity"
+          ],
+          [
+            "July 14, 2026",
+            "Operational seed purchase completed",
+            "599,200 shares for $14.98 million",
+            "Confirmed as a subsequent event in the Form 10-Q"
+          ],
+          [
+            "July 16, 2026",
+            "Operations and NYSE Arca trading began",
+            "600,000 total seed shares",
+            "Public launch followed affiliate capitalization"
+          ],
+          [
+            "July 31, 2026",
+            "Latest share count in the Form 10-Q",
+            "650,000 shares outstanding",
+            "Net count was 50,000 above the seed baseline"
+          ]
+        ],
+        "sourceNote": "Sources: TKNZ Form 424B3 filed June 23, 2026, and Form 10-Q filed August 10, 2026. The Block, Benzinga, CoinDesk, and ETF.com independently confirm the July 16 launch context. The $15 million total and 600,000-share baseline are sums of the two completed SEC-reported seed transactions."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+        "https://www.coindesk.com/markets/2026/07/16/usd1-9-trillion-asset-manager-t-rowe-price-bets-on-active-management-with-first-multi-token-crypto-etf",
+        "https://www.theblock.co/post/408667/t-rowe-price-launches-first-actively-managed-multi-token-crypto-etf",
+        "https://www.benzinga.com/etfs/new-etfs/26/07/60513605/bitcoin-isnt-everything-first-active-spot-crypto-etf-diversifies-across-nine-tokens",
+        "https://www.etf.com/tools/etf-launches"
+      ]
+    },
+    {
+      "heading": "The July 31 share count is above seed, but ownership remains unknown",
+      "paragraphs": [
+        "The 650,000 shares outstanding at July 31 are 50,000 above the 600,000 shares bought by the Seed Capital Investors. That is a net share-count observation, not a complete flow statement. The Form 10-Q does not reconcile post-launch gross creations and redemptions, identify the beneficial owners of the additional net shares, or say whether the seed investors still held all of their positions after trading began.",
+        "Public investors can trade existing TKNZ shares with one another without changing shares outstanding. Authorized Participants can transact in creation units through the product’s primary-market process. Those pathways mean the extra net shares cannot be converted into an exact dollar amount of outside demand using the $25 seed price, nor can the entire $15 million seed be presented as public-investor inflow. It was investment capital, but it came from disclosed affiliates.",
+        "Legal form is also relevant. Although ETF appears in TKNZ’s name, T. Rowe Price describes it as an exchange-traded product organized as a Delaware statutory trust. It is not an investment company registered under the Investment Company Act of 1940 and is not subject to the same requirements as a registered mutual fund or ETF. Readers should use the product’s own prospectus and filing terms when comparing its disclosures with registered funds."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html"
+      ]
+    },
+    {
+      "heading": "XRP’s displayed weight moved from 9.37% at launch to 7.05%",
+      "paragraphs": [
+        "T. Rowe Price’s holdings page provides the relevant current portfolio record. Effective August 10, it assigns XRP an illustrative market value of $1,111,278.68 and 7.0533099% of total net assets. That makes XRP the fifth-largest crypto position by displayed value, behind bitcoin, ether, BNB, and solana and ahead of Hyperliquid, stellar, dogecoin, and USD Coin.",
+        "Benzinga’s July 16 launch report listed XRP at 9.37%. Comparing the two dated snapshots produces a 2.32 percentage-point decline in XRP’s portfolio weight. BNB gained 2.54 points, bitcoin gained 1.18, and USD Coin gained 0.97, while several other positions declined. The comparison shows that the portfolio changed. It does not reveal whether any individual shift came from trading, relative asset-price movement, cash activity, or a combination.",
+        "That uncertainty is inherent in an active strategy. CoinDesk reported that TKNZ’s managers can adjust allocations based on market conditions, research, and risk assessments rather than tracking a fixed index. T. Rowe Price also warns that the displayed market values are illustrative and may differ from values used for NAV. The table is therefore a source-dated allocation comparison, not a transaction ledger or proof of the manager’s rationale."
+      ],
+      "table": {
+        "caption": "TKNZ launch allocation versus holdings effective August 10, 2026",
+        "headers": [
+          "Position",
+          "July 16 launch weight",
+          "August 10 weight",
+          "Change"
+        ],
+        "rows": [
+          [
+            "Bitcoin",
+            "40.75%",
+            "41.93%",
+            "+1.18 percentage points"
+          ],
+          [
+            "Ether",
+            "18.42%",
+            "18.89%",
+            "+0.47 percentage points"
+          ],
+          [
+            "BNB",
+            "11.01%",
+            "13.55%",
+            "+2.54 percentage points"
+          ],
+          [
+            "Solana",
+            "9.44%",
+            "9.29%",
+            "-0.15 percentage points"
+          ],
+          [
+            "XRP",
+            "9.37%",
+            "7.05%",
+            "-2.32 percentage points"
+          ],
+          [
+            "Hyperliquid",
+            "6.45%",
+            "5.40%",
+            "-1.05 percentage points"
+          ],
+          [
+            "Stellar",
+            "3.00%",
+            "1.44%",
+            "-1.56 percentage points"
+          ],
+          [
+            "Dogecoin",
+            "1.28%",
+            "1.25%",
+            "-0.03 percentage points"
+          ],
+          [
+            "USD Coin",
+            "0.16%",
+            "1.13%",
+            "+0.97 percentage points"
+          ],
+          [
+            "Cash and cash equivalents",
+            "0.11%",
+            "0.07%",
+            "-0.04 percentage points"
+          ]
+        ],
+        "sourceNote": "Sources: Benzinga’s July 16, 2026 launch allocation and T. Rowe Price holdings effective August 10, 2026. August percentages are rounded to two decimals. Changes are AllAboutXRP calculations from the two displayed snapshots and do not identify trades or causality."
+      },
+      "sourceUrls": [
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+        "https://www.benzinga.com/etfs/new-etfs/26/07/60513605/bitcoin-isnt-everything-first-active-spot-crypto-etf-diversifies-across-nine-tokens",
+        "https://www.coindesk.com/markets/2026/07/16/usd1-9-trillion-asset-manager-t-rowe-price-bets-on-active-management-with-first-multi-token-crypto-etf"
+      ]
+    },
+    {
+      "heading": "The sponsor’s XRP quantity field does not reconcile with its market value",
+      "paragraphs": [
+        "One field on the official holdings page requires an explicit caution. T. Rowe Price’s embedded August 10 holdings record displays 2,173,467.417582 in XRP’s quantity field and a market value of $1,111,278.68. Dividing the displayed value by the displayed quantity produces an implied price of about $0.5113 per XRP. That arithmetic does not align with an independent same-day market record.",
+        "CoinGecko’s historical API snapshot for August 10 records XRP at $1.0290585227, approximately twice the implied price in the sponsor fields. Ordinary valuation timing can create modest differences, and T. Rowe Price warns that illustrative holdings values can differ from NAV inputs. The public page, however, does not explain a discrepancy of this size, identify a different unit convention, or provide a note that reconciles the two XRP fields.",
+        "The value and weight are internally consistent with the displayed portfolio: the ten listed positions total $15,755,421.16, and $1,111,278.68 is 7.0533% of that amount. The raw XRP quantity is not similarly reconcilable from the public evidence reviewed. For that reason, this article does not translate the field into a confirmed XRP unit balance. A sponsor clarification, corrected holdings file, or subsequent consistent record is needed before treating 2.17 million as verified XRP held."
+      ],
+      "sourceUrls": [
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+        "https://api.coingecko.com/api/v3/coins/ripple/history?date=10-08-2026&localization=false"
+      ]
+    },
+    {
+      "heading": "What the records mean for advisors, XRP readers, and fund analysts",
+      "paragraphs": [
+        "For advisors and TKNZ investors, the filing explains the origin of the launch capital and the product’s early scale. It does not change the investment case by itself. TKNZ combines multiple crypto assets under active management, and the filing sets a 0.90% annual management fee. The sponsor has agreed to waive 0.15 percentage points through May 31, 2027, leaving a 0.75% net annual fee during the waiver. CoinDesk independently reported that schedule at launch.",
+        "For XRP readers, the defensible current signals are the displayed $1.11 million market value, 7.05% weight, and fifth-place portfolio rank. The lower weight versus launch shows a changed allocation, not the manager’s reason for it and not a stand-alone XRP demand signal. TKNZ is normally expected to hold five to fifteen crypto assets but may hold more or fewer at any time, so XRP’s presence and weight are not guaranteed.",
+        "For fund analysts, the article’s two baselines should remain separate. The SEC record supplies 600,000 affiliate seed shares and 650,000 shares outstanding at July 31. The August 10 sponsor page supplies a later portfolio mix. The unexplained XRP quantity field should be flagged rather than silently propagated into unit-flow calculations. High-quality monitoring depends as much on rejecting irreconcilable inputs as it does on collecting new ones."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+        "https://www.coindesk.com/markets/2026/07/16/usd1-9-trillion-asset-manager-t-rowe-price-bets-on-active-management-with-first-multi-token-crypto-etf"
+      ]
+    },
+    {
+      "heading": "Uncertainty: confirmed facts, bounded inference, and unresolved data",
+      "paragraphs": [
+        "Confirmed: the June 23 prospectus disclosed the affiliate seed plan, and the August 10 Form 10-Q confirms the July 14 operational seed purchase was completed. The first quarterly report also states that operations and NYSE Arca trading began July 16 and that 650,000 shares were outstanding at July 31. The sponsor’s later holdings page assigns XRP a $1,111,278.68 value and 7.0533099% weight effective August 10.",
+        "Bounded inference: the July 31 share count is consistent with net expansion of 50,000 shares above the seed baseline. The change from a 9.37% launch XRP weight to 7.05% is consistent with active portfolio and market movement. Neither observation identifies beneficial owners, gross primary-market activity, specific XRP trades, the manager’s reasoning, or any causal effect on XRP’s market price.",
+        "Unresolved: the sponsor’s displayed XRP quantity and market value imply about $0.5113 per unit, while the independent August 10 CoinGecko record is about $1.0291. The reviewed sources do not reconcile that gap. They also do not disclose whether the affiliates retained their seed shares or identify current end investors. The correct editorial response is to preserve those unknowns, watch for corrected data, and avoid turning one questionable field into a precise institutional-holdings claim."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+        "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+        "https://api.coingecko.com/api/v3/coins/ripple/history?date=10-08-2026&localization=false",
+        "https://www.theblock.co/post/408667/t-rowe-price-launches-first-actively-managed-multi-token-crypto-etf"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Whether T. Rowe Price corrects or explains the XRP quantity field that does not reconcile with its displayed market value.",
+    "TKNZ’s next quarterly report for operating-period creations, redemptions, expenses, affiliate transactions, and an updated share count.",
+    "Daily XRP value and portfolio weight after August 10, with source dates matched before attributing any change to active trading.",
+    "Any reliable beneficial-owner or seed-disposition disclosure before describing share growth as retail or institutional adoption.",
+    "The scheduled May 31, 2027 end of the 0.15-point management-fee waiver unless the sponsor extends it."
+  ],
+  "sources": [
+    {
+      "name": "T. Rowe Price Active Crypto ETF Form 10-Q for the Quarter Ended June 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2089855/000119312526341871/ck0002089855-20260630.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-10"
+    },
+    {
+      "name": "T. Rowe Price Active Crypto ETF Form 424B3 Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/2089855/000199937126013250/tknz-424b3_062326.htm",
+      "type": "primary",
+      "publishedAt": "2026-06-23"
+    },
+    {
+      "name": "T. Rowe Price TKNZ Fund Page (undated live page; holdings effective August 10, 2026 used)",
+      "url": "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/active-crypto-etf.html",
+      "type": "primary"
+    },
+    {
+      "name": "CoinDesk, T. Rowe Price Bets on Active Management With First Multi-Token Crypto ETF",
+      "url": "https://www.coindesk.com/markets/2026/07/16/usd1-9-trillion-asset-manager-t-rowe-price-bets-on-active-management-with-first-multi-token-crypto-etf",
+      "type": "supporting",
+      "publishedAt": "2026-07-16"
+    },
+    {
+      "name": "The Block, T. Rowe Price Launches First Actively Managed Multi-Token Crypto ETF",
+      "url": "https://www.theblock.co/post/408667/t-rowe-price-launches-first-actively-managed-multi-token-crypto-etf",
+      "type": "supporting",
+      "publishedAt": "2026-07-16"
+    },
+    {
+      "name": "Benzinga, First Active Spot Crypto ETF Diversifies Across Nine Tokens",
+      "url": "https://www.benzinga.com/etfs/new-etfs/26/07/60513605/bitcoin-isnt-everything-first-active-spot-crypto-etf-diversifies-across-nine-tokens",
+      "type": "supporting",
+      "publishedAt": "2026-07-16"
+    },
+    {
+      "name": "ETF.com U.S. ETF Launches (undated live database; July 16, 2026 TKNZ entry used)",
+      "url": "https://www.etf.com/tools/etf-launches",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinGecko XRP Historical API Snapshot for August 10, 2026 (undated API reference)",
+      "url": "https://api.coingecko.com/api/v3/coins/ripple/history?date=10-08-2026&localization=false",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/etf",
+      "label": "Track XRP exchange-traded products"
+    },
+    {
+      "href": "/learn/xrp-etf",
+      "label": "How XRP ETFs work"
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot versus futures XRP ETFs"
+    },
+    {
+      "href": "/learn/xrp-in-retirement-accounts",
+      "label": "XRP exposure in retirement accounts"
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "The difference between Ripple and XRP"
+    }
+  ]
+}
