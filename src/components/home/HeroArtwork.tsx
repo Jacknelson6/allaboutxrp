@@ -1,10 +1,19 @@
-import Image from "next/image";
-
 export default function HeroArtwork() {
   return (
     <div className="hero-artwork" aria-hidden="true">
       <div className="hero-image-plane">
-        <Image src="/images/xrp-ascii-bank-hero.webp" alt="" fill priority unoptimized sizes="(min-width: 1280px) 1152px, calc(100vw - 32px)" className="hero-image" />
+        <picture className="hero-picture">
+          <source media="(max-width: 767px)" srcSet="/images/xrp-ascii-bank-hero-mobile.webp" type="image/webp" />
+          <img
+            src="/images/xrp-ascii-bank-hero-1152.webp"
+            alt=""
+            width="1152"
+            height="648"
+            decoding="async"
+            fetchPriority="high"
+            className="hero-image"
+          />
+        </picture>
         <span className="hero-night-treatment" />
       </div>
     </div>

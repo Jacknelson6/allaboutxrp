@@ -6,9 +6,9 @@ import HeroArtwork from "./HeroArtwork";
 import HomeIntelligenceCharts from "./HomeIntelligenceCharts";
 
 const featuredGuides = [
-  { image: "/guides/ultimate-guide-xrp-2026.webp", label: "The complete guide to XRP", eyebrow: "FOUNDATIONS", link: "/learn/what-is-xrp" },
-  { image: "/guides/ultimate-guide-buying-xrp-2026.webp", label: "How to buy XRP safely", eyebrow: "PRACTICAL GUIDE", link: "/learn/how-to-buy-xrp" },
-  { image: "/guides/xrp-2026-outlook.webp", label: "The 2026 XRP outlook", eyebrow: "RESEARCH", link: "/learn/xrp-2026-outlook" },
+  { image: "/guides/ultimate-guide-xrp-2026-card.webp", label: "The complete guide to XRP", eyebrow: "FOUNDATIONS", link: "/learn/what-is-xrp" },
+  { image: "/guides/ultimate-guide-buying-xrp-2026-card.webp", label: "How to buy XRP safely", eyebrow: "PRACTICAL GUIDE", link: "/learn/how-to-buy-xrp" },
+  { image: "/guides/xrp-2026-outlook-card.webp", label: "The 2026 XRP outlook", eyebrow: "RESEARCH", link: "/learn/xrp-2026-outlook" },
 ];
 
 const answerLinks = [
@@ -57,7 +57,7 @@ export default function HomeFeed() {
           <div className="editorial-cover-grid mt-10">
             {featuredGuides.map((item) => (
               <Link key={item.link} href={item.link} className="editorial-cover group">
-                <span className="editorial-cover-image"><Image src={item.image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" /></span>
+                <span className="editorial-cover-image"><Image src={item.image} alt="" width={768} height={432} unoptimized loading="lazy" fetchPriority="low" className="absolute inset-0 h-full w-full" /></span>
                 <span className="editorial-cover-meta"><span>{item.eyebrow}</span><strong>{item.label}</strong></span>
               </Link>
             ))}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
 import {
   LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, FAQAccordion, IconList,
+  HighlightBox, FeatureGrid, FAQAccordion,
   TLDRBox, KeyFactsTable, LastUpdated,
 } from "@/components/learn/LearnPageShell";
 import UniqueInsight from "@/components/learn/UniqueInsight";
@@ -171,6 +171,26 @@ export default function PartnershipsPage() {
           { label: "CBDC Pilots", value: "20+ central banks" },
         ]} />
 
+        <section className="mt-10" aria-labelledby="partnership-research-paths">
+          <p className="editorial-kicker">FOLLOW THE EVIDENCE</p>
+          <h2 id="partnership-research-paths" className="mt-3 max-w-2xl text-3xl text-text-primary">Turn the partner list into useful research.</h2>
+          <div className="instrument-index mt-6">
+            {[
+              { href: "/learn/how-banks-use-xrp", title: "Separate Ripple customers from direct XRP use", description: "See which institutions use Ripple software and which relationships can involve XRP settlement." },
+              { href: "/learn/on-demand-liquidity", title: "Understand how XRP enters a payment flow", description: "Follow the bridge-asset mechanics behind On-Demand Liquidity." },
+              { href: "/learn/acquisitions", title: "See the infrastructure Ripple has acquired", description: "Connect custody, prime brokerage, treasury, and payments capabilities." },
+              { href: "/live-chart", title: "Watch the XRP Ledger in motion", description: "Move from partnership claims to live transactions, holder data, and market context." },
+            ].map((path, index) => (
+              <Link key={path.href} href={path.href} prefetch={false}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{path.title}</strong>
+                <p>{path.description}</p>
+                <span aria-hidden="true">↗</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <SectionNav items={[
           { id: "how-partners-use", label: "How Partners Use XRP" },
           { id: "strategic", label: "Strategic Partners" },
@@ -211,7 +231,7 @@ export default function PartnershipsPage() {
           </RevealSection>
 
           {/* PARTNER CATEGORIES */}
-          {partnersByCategory.map((cat, catIdx) => (
+          {partnersByCategory.map((cat) => (
             <RevealSection key={cat.id} id={cat.id} delay={0.05}>
               <h2 className="text-2xl font-bold text-text-primary">{cat.category}</h2>
               <p className="mt-2 text-text-secondary">{cat.description}</p>
@@ -259,21 +279,21 @@ export default function PartnershipsPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
             <LearnLinkGrid links={[
               { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
+              { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "Utility beyond partnerships" },
               { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
-              { href: "/learn/xrp-wallets", label: "Institutional Custody", desc: "Enterprise storage" },
+              { href: "/learn/xrp-wallets", label: "XRP Custody", desc: "Institutional and personal storage" },
               { href: "/learn/xrp-iso-20022", label: "XRP & ISO 20022", desc: "Global payments standard" },
-              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
+              { href: "/live-chart", label: "Live XRP Ledger", desc: "Transactions and holder data" },
               { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
-              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
+              { href: "/learn/xrp-whale-tracking", label: "XRP Whale Tracking", desc: "How to interpret large payments" },
             ]} />
           </RevealSection>
         </div>
 
         <UniqueInsight title="Which Partnerships Actually Move the Needle — And Which Are Just PR" verifiedDate="February 23, 2026">
-          <p>Ripple claims 300+ partnerships, but let's be honest: <strong className="text-white">fewer than 20 are driving meaningful XRP volume</strong>. Here's our breakdown based on on-chain ODL data from XRPScan and Bithomp.</p>
-          <p>The heavy hitters: <strong className="text-white">SBI Holdings (Japan)</strong> processes the most XRP volume of any single partner — SBI Remit's Philippines-Japan corridor alone accounts for an estimated 15-20% of ODL volume. <strong className="text-white">Tranglo (Southeast Asia)</strong> handles Malaysia, Indonesia, and Thailand corridors, processing $500M+ quarterly. <strong className="text-white">Novatti (Australia)</strong> is a quiet workhorse for AUD corridors. These three entities likely account for 50%+ of actual XRP utility volume.</p>
-          <p>The marketing partnerships: Major bank MOUs (Santander, Standard Chartered) generated headlines but most used RippleNet's messaging layer <em>without</em> touching XRP. Santander's One Pay FX processed $5B+ but used RippleNet, not ODL. The real indicator of a valuable partnership isn't the press release — it's whether XRP appears in the on-chain settlement flow. Our signal: when a partner starts running an XRPL validator node (SBI, Alloy Networks, Bitso have done this), that's when the partnership is real. Everything else is a letter of intent.</p>
+          <p>Ripple claims 300+ partnerships, but let&apos;s be honest: <strong className="text-white">fewer than 20 are driving meaningful XRP volume</strong>. Here&apos;s our breakdown based on on-chain ODL data from XRPScan and Bithomp.</p>
+          <p>The heavy hitters: <strong className="text-white">SBI Holdings (Japan)</strong> processes the most XRP volume of any single partner — SBI Remit&apos;s Philippines-Japan corridor alone accounts for an estimated 15-20% of ODL volume. <strong className="text-white">Tranglo (Southeast Asia)</strong> handles Malaysia, Indonesia, and Thailand corridors, processing $500M+ quarterly. <strong className="text-white">Novatti (Australia)</strong> is a quiet workhorse for AUD corridors. These three entities likely account for 50%+ of actual XRP utility volume.</p>
+          <p>The marketing partnerships: Major bank MOUs (Santander, Standard Chartered) generated headlines but most used RippleNet&apos;s messaging layer <em>without</em> touching XRP. Santander&apos;s One Pay FX processed $5B+ but used RippleNet, not ODL. The real indicator of a valuable partnership isn&apos;t the press release — it&apos;s whether XRP appears in the on-chain settlement flow. Our signal: when a partner starts running an XRPL validator node (SBI, Alloy Networks, Bitso have done this), that&apos;s when the partnership is real. Everything else is a letter of intent.</p>
         </UniqueInsight>
 
         <LearnCTA
