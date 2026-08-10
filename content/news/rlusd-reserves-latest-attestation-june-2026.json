@@ -1,0 +1,220 @@
+{
+  "slug": "rlusd-reserves-latest-attestation-june-2026",
+  "title": "Ripple Reports $1.70B in RLUSD Reserves, but Deloitte Covers June",
+  "description": "Ripple’s August 6 dashboard reports $1.7026 billion in RLUSD reserves. Deloitte’s latest attestation covers June, defining what is verified and what is not.",
+  "category": "RLUSD",
+  "publishedAt": "2026-08-09T22:37:00-05:00",
+  "modifiedAt": "2026-08-09T22:37:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/rlusd-reserve-attestation-measure-editorial.webp",
+  "imageAlt": "Cobalt glass measuring amphora holding pale-gold liquid beside a bronze dip gauge and ivory calibration weight on stone",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "rlusd-reserve-dip-gauge-still-life",
+  "imageSetting": "A bare ivory limestone calibration plinth against warm plaster under one crisp white inspection beam",
+  "imageMetaphor": "A measured liquid level above a reference line represents reported reserve coverage, while the dip gauge represents a point-in-time examination",
+  "imagePrompt": "A sparse, physically believable classical oil still life with one cobalt glass measuring amphora partially filled with pale-gold liquid above an etched reference line, one slim bronze dip gauge with a restrained vermilion witness mark, and one ivory calibration weight on an ivory limestone plinth. Low side-on view, crisp white inspection beam from upper right, broad negative space, precise glass refraction, pale-gold reflected fill, and extremely subtle stipple only in a few shadow transitions. No text, logos, coins, dashboards, people, architecture, landscapes, cyber objects, or reused editorial motifs.",
+  "keywords": [
+    "RLUSD reserves",
+    "RLUSD attestation",
+    "Ripple USD",
+    "Deloitte RLUSD report",
+    "Standard Custody",
+    "NYDFS stablecoin guidance",
+    "XRP Ledger stablecoin"
+  ],
+  "keyTakeaways": [
+    "Ripple’s August 6 dashboard reports $1.7026 billion in reserve funds against $1.5896 billion in circulating RLUSD, about 107.1% coverage using the rounded displayed figures.",
+    "Deloitte’s latest published examination covers June 8 and June 30, not August 6. At June 30, it found $1.5127 billion in reserves against 1.4110 billion outstanding RLUSD, or about 107.2% coverage.",
+    "NYDFS confirmed on June 9, 2026 that its 2022 stablecoin guidance remains in effect while a proposed regulation is pending. Its 30-day publication window means a July report was not overdue on August 9, and the August 6 dashboard is not covered by the latest published independent report.",
+    "The reserve evidence concerns RLUSD. It does not establish XRP demand, XRP price causality, continuous redemption performance, or the issuer’s overall solvency."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the August dashboard is newer than the CPA examination",
+      "paragraphs": [
+        "Ripple’s August 6 dashboard reports $1.7026 billion in RLUSD reserves against $1.5896 billion in circulation, or about 107.1% coverage at the displayed precision. The latest independent Deloitte attestation, signed July 29, covers June instead. That timing fits New York’s monthly reporting framework, but the newer balances have not received the same independent examination.",
+        "The dashboard therefore supplies a timely issuer snapshot, not a real-time proof of reserves. Subtracting its rounded figures produces an estimated $113.0 million excess of reserve value over circulating RLUSD. Ripple’s page does not explain why that excess exists, whether it is intended as a durable buffer, or what exact time and reconciliation method produced the display. Those omissions do not negate the arithmetic, but they limit what the number can prove.",
+        "Readers should separate two evidence layers. Confirmed by an independent accountant: Standard Custody’s reserve assertion was fairly stated in all material respects at two specified June timestamps. Reported later by the issuer: the rounded August 6 reserve and circulation figures imply a similar coverage ratio. Neither layer demonstrates that the ratio held continuously, that every redemption would settle without delay, or that RLUSD activity must increase demand for XRP."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/solutions/stablecoin/transparency/",
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf"
+      ]
+    },
+    {
+      "heading": "What Deloitte independently examined in June",
+      "paragraphs": [
+        "Deloitte & Touche LLP’s report is an examination of Standard Custody & Trust Company’s management assertion, not a full-company audit. It covers two point-in-time measurements at 5:00 p.m. Eastern: June 8 and June 30, 2026. The firm signed the report on July 29 and said the assertion was fairly stated in all material respects under the applicable attestation criteria. That is a meaningful independent conclusion, but its scope remains limited to management’s stated reserve assertion, asset categories, specified conditions, and the two report timestamps.",
+        "At June 30, Standard Custody reported 1,411,034,124 RLUSD outstanding and $1,512,689,493 in reserve assets. Reserves exceeded outstanding units by $101,655,369, producing 107.2043% coverage by direct calculation. At the June 8 snapshot, 1,682,288,477 RLUSD were outstanding against $1,776,628,664 in reserves. That was a $94,340,187 excess and approximately 105.61% coverage.",
+        "The change between the two June dates is also instructive. Outstanding supply and total reserves both moved substantially during the month, while reserves remained above outstanding units at each examined timestamp. The report supports those two statements only. It does not establish the cause of the movements, daily coverage between the snapshots, or an unchanging target ratio."
+      ],
+      "table": {
+        "caption": "RLUSD reserve snapshots use two different evidence levels",
+        "headers": [
+          "Snapshot",
+          "Outstanding or circulating RLUSD",
+          "Reserve value",
+          "Calculated excess",
+          "Coverage and status"
+        ],
+        "rows": [
+          [
+            "June 8, 2026, 5 p.m. ET",
+            "1,682,288,477",
+            "$1,776,628,664",
+            "$94,340,187",
+            "105.61%, Deloitte-examined"
+          ],
+          [
+            "June 30, 2026, 5 p.m. ET",
+            "1,411,034,124",
+            "$1,512,689,493",
+            "$101,655,369",
+            "107.20%, Deloitte-examined"
+          ],
+          [
+            "August 6, 2026",
+            "$1,589.6M displayed",
+            "$1,702.6M displayed",
+            "About $113.0M",
+            "About 107.11%, issuer dashboard"
+          ]
+        ],
+        "sourceNote": "Sources: Deloitte’s June 2026 Independent Accountant’s Report, signed July 29, 2026; Ripple’s undated live transparency page, with displayed balances dated August 6, 2026. August calculations use rounded dashboard figures."
+      },
+      "sourceUrls": [
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+        "https://ripple.com/solutions/stablecoin/transparency/"
+      ]
+    },
+    {
+      "heading": "The June reserve mix was mostly short-term U.S. government exposure",
+      "paragraphs": [
+        "The June 30 reserve was not one undifferentiated cash balance. Deloitte’s report lists $1,053,797,154 in U.S. Treasury bills, $216,762,573 in government money-market funds, and $242,129,766 in cash deposits at U.S.-regulated financial institutions. Those categories equal approximately 69.66%, 14.33%, and 16.01% of the $1.5127 billion total. They sum exactly to the reported reserve value.",
+        "Asset composition matters because a nominal coverage ratio says nothing by itself about liquidity, market risk, custody concentration, or operational access. Treasury bills and government money-market funds can provide short-duration government exposure, while bank deposits can support cash settlement. The report identifies the Treasury bills by CUSIP and maturity, but it does not name the government money-market funds, depository banks, or every counterparty. Readers therefore cannot reconstruct all concentration or stressed-liquidity behavior from the public detail.",
+        "The categories align with the kinds of assets permitted by the New York Department of Financial Services’ stablecoin guidance, which includes short-dated Treasury bills, qualifying government money-market funds, restricted U.S. bank deposits, and certain approved overnight reverse-repurchase agreements. The June 30 table lists no separate reverse-repurchase balance. Regulatory eligibility and independent examination strengthen the evidence about composition, but neither makes RLUSD risk-free or equivalent to an insured bank deposit."
+      ],
+      "sourceUrls": [
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+        "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+        "https://ripple.com/legal/stablecoin/"
+      ]
+    },
+    {
+      "heading": "Why the independent report can lag the live dashboard",
+      "paragraphs": [
+        "NYDFS’s June 8, 2022 guidance requires a DFS-regulated issuer of a U.S.-dollar-backed stablecoin under its supervision to undergo a monthly independent CPA examination covering the last business day of the month and at least one randomly selected business day. The public report must be available no more than 30 days after month-end. The June report’s June 8 and June 30 measurements follow that design, and its July 29 signature falls inside the publication window.",
+        "NYDFS confirmed on June 9, 2026 that the 2022 guidance remains in effect while its newer regulation is still proposed. That schedule explains why the newest published accountant’s report can trail an issuer dashboard. As of this article’s August 9 publication, a July month-end report was not overdue under the 30-day framework. The August 6 balances are issuer-reported and are not covered by the latest published examination.",
+        "The distinction is useful for anyone assessing stablecoin disclosures. A frequently updated dashboard can show direction sooner, while a monthly accountant’s report provides stronger but delayed assurance over specified snapshots. Neither substitutes for the other. The most defensible reading uses the dashboard as a current claim, the attestation as scoped independent evidence, and the regulator’s timetable to understand why their dates differ."
+      ],
+      "sourceUrls": [
+        "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+        "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr20260609",
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+        "https://ripple.com/solutions/stablecoin/transparency/"
+      ]
+    },
+    {
+      "heading": "An independent on-chain estimate is close, but not identical",
+      "paragraphs": [
+        "DefiLlama’s historical RLUSD series provides a useful third-party cross-check of circulating supply, not reserve assets. For August 6, the retrieved series records 1,593,830,866 RLUSD in total, split between 848,445,970 on XRP Ledger and 745,384,896 on Ethereum. That total is 4,230,866, or about 0.266%, above Ripple’s rounded $1,589.6 million dashboard display for the same calendar date.",
+        "The small difference is not evidence of a reserve shortfall. Ripple’s public display is rounded to one decimal place in millions and does not expose its exact snapshot time. DefiLlama’s data endpoint uses its own collection schedule and methodology. A same-date label therefore does not guarantee that the two systems observed the identical instant, set of contracts, time zone, or reconciliation rules.",
+        "The responsible conclusion is narrow: the third-party series is in the same general range as Ripple’s displayed circulation, while the figures do not reconcile exactly from the public information available. A precise reconciliation would require exact issuer balances, timestamp alignment, network-by-network coverage, and documented treatment of transfers or mint-and-burn activity near the snapshot boundary."
+      ],
+      "sourceUrls": [
+        "https://stablecoins.llama.fi/stablecoin/250",
+        "https://ripple.com/solutions/stablecoin/transparency/"
+      ]
+    },
+    {
+      "heading": "What this means for RLUSD users, institutions, and XRP readers",
+      "paragraphs": [
+        "For an RLUSD holder, the strongest confirmed fact is that reserve assets exceeded outstanding units at the two independently examined June timestamps. The liquid-looking category mix and New York supervision are relevant evidence. They do not promise a frictionless redemption at every moment, protect a secondary-market buyer from price deviations, eliminate custody and banking exposure, or grant holders a claim to the calculated reserve excess.",
+        "For a treasury team, payments operator, or market maker, the headline ratio is only one diligence input. Practical questions include who is eligible for direct redemption, the contracting and custody arrangements, operational cutoffs, settlement timing, banking concentration, exchange liquidity, and performance during a surge in redemptions. A point-in-time reserve examination does not measure order-book depth, blockchain congestion, exchange solvency, or the issuer’s end-to-end operational resilience.",
+        "For XRP Ledger users, RLUSD’s supply and reserve transparency matter because the stablecoin is issued on XRPL and can support dollar-denominated activity there. The DefiLlama snapshot indicates a material portion of tracked RLUSD was on XRPL on August 6. That is an ecosystem observation, not evidence that every RLUSD transfer consumes meaningful XRP, routes through XRP, or creates a predictable XRP price effect.",
+        "The XRP conclusion should remain explicitly uncertain. Better RLUSD disclosure may improve confidence among users evaluating the stablecoin, and greater RLUSD use on XRPL could increase activity on that network. The cited records do not report XRP-denominated routing, incremental XRP demand, institutional user counts, revenue contribution, or price causality. Any stronger XRP investment conclusion would be inference unsupported by these reserve documents."
+      ],
+      "sourceUrls": [
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+        "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+        "https://ripple.com/legal/stablecoin/",
+        "https://stablecoins.llama.fi/stablecoin/250"
+      ]
+    },
+    {
+      "heading": "Uncertainty: what the public evidence still cannot answer",
+      "paragraphs": [
+        "Confirmed: Deloitte examined management’s assertion at two June timestamps, and both showed reserve value above outstanding RLUSD. Issuer-reported: Ripple’s rounded August 6 dashboard implies about 107.1% coverage. Inference: the similar ratios may indicate that reserve value continued to exceed circulation into early August. That inference is plausible but unverified by the latest published independent report.",
+        "Unresolved: the public dashboard does not explain the purpose or ownership of the displayed excess, provide exact unrounded balances, or disclose a snapshot time. The accountant’s report does not test continuous backing, future redemption performance, every reserve counterparty, the issuer’s overall solvency, or market liquidity. The cross-source supply difference also cannot be reconciled conclusively with the public metadata.",
+        "The next meaningful evidence is the July CPA report and, after that, the report covering August. Those documents can show whether the coverage ratio and asset mix persisted at later examined timestamps. Readers should also watch direct and secondary-market redemption performance during volatile periods, along with chain-level RLUSD supply and liquidity, before drawing broader conclusions about adoption or XRP."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/solutions/stablecoin/transparency/",
+        "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+        "https://stablecoins.llama.fi/stablecoin/250"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The July 2026 CPA report within the NYDFS publication window, including whether independently examined reserves remain above outstanding RLUSD and how the asset mix changes.",
+    "Exact dashboard methodology, timestamping, and unrounded balances that could make issuer and on-chain circulation figures easier to reconcile.",
+    "RLUSD redemption timing and secondary-market peg behavior during stressed conditions, not only reserve ratios during ordinary snapshots.",
+    "Network-level RLUSD supply, XRP/RLUSD liquidity, and disclosed payment-routing data before attributing any RLUSD growth to XRP demand or price."
+  ],
+  "sources": [
+    {
+      "name": "Ripple RLUSD Transparency Dashboard (undated live page; balances dated August 6, 2026)",
+      "url": "https://ripple.com/solutions/stablecoin/transparency/",
+      "type": "primary"
+    },
+    {
+      "name": "Deloitte & Touche LLP, RLUSD Independent Accountant’s Report for June 2026",
+      "url": "https://cdn.sanity.io/files/ior4a5y3/production/5a9121caa4206788930869cac0f868e5841d7fae.pdf/RLUSD_Attestation_Report_-_June%2726_FINAL.pdf",
+      "type": "supporting",
+      "publishedAt": "2026-07-29"
+    },
+    {
+      "name": "New York Department of Financial Services, Guidance on the Issuance of U.S. Dollar-Backed Stablecoins",
+      "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+      "type": "primary",
+      "publishedAt": "2022-06-08"
+    },
+    {
+      "name": "New York Department of Financial Services, Proposed Stablecoin Regulation Press Release",
+      "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr20260609",
+      "type": "primary",
+      "publishedAt": "2026-06-09"
+    },
+    {
+      "name": "Ripple RLUSD User Terms",
+      "url": "https://ripple.com/legal/stablecoin/",
+      "type": "primary",
+      "publishedAt": "2024-10-03"
+    },
+    {
+      "name": "DefiLlama RLUSD Stablecoin History (undated data endpoint; retrieved August 9, 2026)",
+      "url": "https://stablecoins.llama.fi/stablecoin/250",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/rlusd",
+      "label": "How RLUSD works"
+    },
+    {
+      "href": "/learn/xrp-vs-stablecoins",
+      "label": "XRP versus stablecoins"
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "How Ripple and XRP differ"
+    },
+    {
+      "href": "/learn/xrp-stablecoin-ecosystem",
+      "label": "XRP Ledger’s stablecoin ecosystem"
+    }
+  ]
+}
