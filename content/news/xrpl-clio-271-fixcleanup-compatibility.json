@@ -1,0 +1,121 @@
+{
+  "slug": "xrpl-clio-271-fixcleanup-compatibility",
+  "title": "XRPL Clio 2.7.1 Is the Compatibility Floor After fixCleanup3_2_0 Activation",
+  "description": "Clio 2.7.1 supports the XRP Ledger's active fixCleanup3_2_0 amendment. A mainnet check explains the ETL risk for older Clio deployments and what the upgrade means for operators, developers, data providers and XRP users.",
+  "category": "XRP Ledger Infrastructure",
+  "publishedAt": "2026-08-11T14:14:00-05:00",
+  "modifiedAt": "2026-08-11T14:14:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-271-amendment-channel-editorial.webp",
+  "imageAlt": "A pale-gold gate sits across a cobalt limestone channel carrying three blank bronze ledger tablets through a sunlit ivory archive floor",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clio-etl-channel-gate-still-life",
+  "imageSetting": "A windowless limestone waterworks archive chamber with a diagonal cobalt channel cut into an ivory floor under one square midday skylight",
+  "imageMetaphor": "A pale-gold gate seated across a cobalt record channel lets three ledger tablets pass, representing Clio's ETL path updated for an active XRPL amendment",
+  "imagePrompt": "Finished AllAboutXRP 16:9 editorial still life: exactly one diagonal cobalt-glazed limestone channel in a broad ivory archive floor, exactly three blank bronze ledger tablets in the channel, and one pale-gold sliding gate seated at a single vermilion alignment mark. Elevated three-quarter overhead view, hard radiant midday skylight, luminous academic classical-revival oil modeling, rich glazing, cobalt and ultramarine shadows, warm ivory negative space, pale gold metal, and extremely subtle 1, 0, x stipple only in a few atmospheric or deep-shadow transitions. The channel and gate explain an ETL path updated for a live XRPL amendment. No text, logo, coin, computer, dashboard, people, temple, coast, harbor, mountain, city, border, watermark, coarse halftone, or all-over ASCII.",
+  "keywords": ["XRP Ledger Clio", "Clio 2.7.1", "fixCleanup3_2_0", "XRPL infrastructure", "XRP Ledger news"],
+  "keyTakeaways": [
+    "The official Clio 2.7.1 release, published July 20, says the version supports fixCleanup3_2_0 and avoids the amendment-blocked ETL condition described for older Clio builds.",
+    "A two-endpoint live check on August 11 found fixCleanup3_2_0 enabled, Clio 2.7.1, libxrpl 3.2.0, and validated ledger 106,227,682, but it does not describe every private or public Clio deployment.",
+    "The amendment activates fixes for existing vault, lending, permissioned DEX, Multi-Purpose Token, and permissioned-domain behavior. It does not establish new XRP demand, application adoption, or a price effect."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Clio's compatibility question is now live",
+      "paragraphs": [
+        "Yes, the operational change is real, but it is narrower than a new XRP feature launch. Clio 2.7.1, published July 20, added support for the XRP Ledger's fixCleanup3_2_0 amendment. With that amendment now enabled on mainnet, Clio operators below 2.7.1 risk an amendment-blocked ETL and stopped new-ledger processing. XRP holders do not need a wallet upgrade.",
+        "The strongest current record is a live check, not a promotional claim. At 2:07 p.m. Central Time on August 11, 2026, the public s1.ripple.com and s2.ripple.com endpoints returned fixCleanup3_2_0 with enabled set to true. The same s1 server_info response identified Clio 2.7.1, libxrpl 3.2.0, and a validated ledger sequence of 106,227,682. That verifies the configuration of those public endpoints at that moment. It does not prove that every Clio operator has upgraded or that any particular application is using the amendment's affected features.",
+        "The practical distinction is simple. A software release teaches an implementation how to understand a proposed rule. An amendment activation makes that rule part of the network's validated ledger behavior. Clio 2.7.1 connects those two events for the historical-data pipeline that reads and serves XRPL records. The result is an infrastructure milestone with direct consequences for operators, but no automatic change to a retail wallet or to XRP's market value."
+      ],
+      "table": {
+        "caption": "Dated XRP Ledger compatibility check",
+        "headers": ["Record", "Observed August 11, 2026", "Why it matters"],
+        "rows": [
+          ["fixCleanup3_2_0", "enabled: true", "The amendment is active on the queried mainnet server"],
+          ["Clio", "2.7.1", "The API and ETL layer includes support for the active amendment"],
+          ["libxrpl", "3.2.0", "The Clio build uses the library version named in the release record"],
+          ["Validated ledger", "106,227,682", "The response was serving validated history at the check time"]
+        ],
+        "sourceNote": "Source: undated live responses from Ripple's public s1.ripple.com and s2.ripple.com servers, checked August 11, 2026 at approximately 2:07 p.m. CDT. The values are a dated snapshot, not a fleet-wide census."
+      },
+      "sourceUrls": ["https://xrpl.org/blog/2026/clio-2.7.1", "https://s1.ripple.com:51234", "https://u.today/xrps-flip-of-the-switch-moment-major-network-upgrade-now-live?from=article-links"]
+    },
+    {
+      "heading": "Clio is the read path, not the consensus engine",
+      "paragraphs": [
+        "Clio is an XRP Ledger API server for JSON-RPC and WebSocket calls. The XRPLF project describes it as a service that stores validated historical ledger and transaction data in a space-efficient format, then serves that data to applications. It can use Cassandra or ScyllaDB for scalable read throughput, and multiple Clio nodes can share a dataset. The project's documentation says Clio can use up to four times less space than the core server, a design claim about storage efficiency rather than a promise about every deployment's bill or performance.",
+        "That architecture makes Clio important to data providers without making it a second consensus network. Clio reads from designated xrpld nodes rather than joining the peer-to-peer network itself. It defaults to validated ledger data, which is useful for explorers, analytics and other systems that need settled history. Requests that require peer-to-peer access, such as fee discovery or transaction submission, are forwarded to an upstream core server. A reader should therefore distinguish the data-serving layer from the validator and consensus layer even when both are part of one provider's infrastructure.",
+        "An independent XRPL infrastructure guide makes the same operational distinction: xrpld runs the peer-to-peer network and participates in consensus, while Clio provides the query interface for ledger data. That separation is why the July release matters to ETL operators specifically. The amendment can change transaction and ledger-entry models that Clio must ingest, store and expose, even though Clio is not itself deciding which transaction set the network validates.",
+        "For application users, this is mostly invisible when the stack is healthy. A wallet or analytics product may call an API endpoint and receive a normal response without exposing whether the provider runs Clio, xrpld, a managed service, or a combination. The operator still has to maintain the compatibility chain underneath. A clean front end cannot compensate for a historical-data process that has stopped ingesting new validated ledgers."
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/clio", "https://www.xrplnode.org/concepts", "https://xrpl.org/blog/2026/clio-2.7.1"]
+    },
+    {
+      "heading": "What Clio 2.7.1 changed for operators",
+      "paragraphs": [
+        "The July 20 XRPL release note is unusually explicit about the compatibility condition. Clio 2.7.1 updates the embedded libxrpl library to version 3.2.0 and adds support for the fixCleanup3_2_0 amendment's transaction model changes. If the amendment is enabled while Clio remains below 2.7.1, the release note says the ETL becomes amendment-blocked and new ledgers are not processed. That is a service-continuity statement, not a prediction about a future feature.",
+        "The release also includes two narrower fixes that matter at the boundary between infrastructure and users. It corrects client IP resolution behind a proxy, which can affect logs, rate controls and operational diagnosis when traffic passes through a shared edge. It also stops Clio from recreating its SSL context for every connection, instead allowing the context to be created once and shared. Those changes do not make the amendment active, but they reduce separate sources of operational friction in a production API service.",
+        "The GitHub release record shows that 2.7.1 was published on July 20 and identifies the same libxrpl update and amendment support. Independent coverage from TechTimes had already described the broader XRPL problem in July: software adoption and amendment voting are separate acts, and older infrastructure could become amendment-blocked once the network rule activated. That distinction is now a completed operational condition for fixCleanup3_2_0, rather than a warning about a pending countdown.",
+        "The safest upgrade interpretation is therefore narrow. Operators running Clio should verify that the binary is 2.7.1 or newer, confirm the linked libxrpl version and check that the ETL is advancing through current validated ledgers. They should use the project's signed release assets and their own backup, monitoring and rollback procedures. The public release note does not say that every deployment needs the same migration steps, so infrastructure teams should follow their own packaging and database configuration rather than copy a generic command blindly."
+      ],
+      "sourceUrls": ["https://xrpl.org/blog/2026/clio-2.7.1", "https://github.com/XRPLF/clio/releases/tag/2.7.1", "https://www.techtimes.com/articles/319985/20260709/xrpl-security-fixes-lending-vaults-stalled-upgrade-sails-through.htm"]
+    },
+    {
+      "heading": "Why fixCleanup3_2_0 activation is a different event",
+      "paragraphs": [
+        "The amendment itself was introduced in the official June 15 xrpld 3.2.0 release. It is a bundled maintenance change, not a new lending or vault launch. The release notes list precision and rounding fixes for Single Asset Vaults and the Lending Protocol, a correction to the ValidPermissionedDEX invariant, validation for non-canonical Multi-Purpose Token amounts, a zero DomainID check for permissioned domains, and the AccountRootsDeletedClean invariant for deleted-account artifacts.",
+        "Those fixes matter because they affect existing protocol surfaces, but the wording matters just as much as the scope. A corrected accounting path is not proof that a vault has deposits. A stricter MPT amount check is not evidence that an issuer is using MPTs in production. An invariant is a guardrail in transaction processing, not a customer announcement. The amendment can improve the reliability of the building blocks without proving that the ecosystem has produced a measurable business outcome.",
+        "The XRP Ledger amendment process is separate from ordinary software installation. The official process describes a supermajority vote that must remain above the activation threshold for two weeks. U.Today reported on July 29 that fixCleanup3_2_0 had activated with 30 of 35 validators, or 85.71% support, and that XRPL 3.2.0 became the new minimum version for mainnet compatibility. The live s1 and s2 responses checked August 11 independently returned enabled: true, which is the current state this report relies on.",
+        "This sequence explains why a Clio release from July 20 remains timely on August 11. Before activation, upgrading Clio was preparation. After activation, it is a compatibility requirement for any Clio ETL that must keep processing the amended ledger. The event is easy to miss because it does not add a consumer-facing button. Its effect is visible instead in whether downstream services continue to receive current, validated XRPL data."
+      ],
+      "sourceUrls": ["https://xrpl.org/blog/2026/xrpld-3.2.0", "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "https://u.today/xrps-flip-of-the-switch-moment-major-network-upgrade-now-live?from=article-links", "https://s1.ripple.com:51234"]
+    },
+    {
+      "heading": "Implications for operators, data providers, developers and XRP users",
+      "paragraphs": [
+        "For Clio operators and managed infrastructure providers, the immediate question is health, not narrative. Confirm the running Clio version, its libxrpl dependency, the upstream xrpld connection and the age of the latest validated ledger. If the ETL is amendment-blocked, a service can continue to look reachable while its historical view stops advancing, so monitoring should cover ingestion progress as well as HTTP or WebSocket availability. The public release note establishes the risk, but it does not publish a common fleet-wide health dashboard.",
+        "For analytics companies, explorers and trading interfaces, the change is a data-integrity concern. Applications should test the transaction and ledger-entry shapes touched by the amendment, compare responses across their supported server types and keep an explicit distinction between validated history and current, non-validated data. Clio's default is validated data, while requests that need current or peer-to-peer information may be forwarded to xrpld. That is an implementation detail with user-facing consequences when a product labels a record as final, pending or unavailable.",
+        "For developers, 2.7.1 is a signal to review compatibility before relying on the affected models in production. The upgrade does not by itself add new application permissions, wallets or liquidity. Teams still need client-library support, serialization tests, monitoring and a safe fallback for a server that does not expose a capability. Feature detection is more defensible than assuming that a network version number guarantees identical behavior across every endpoint.",
+        "For XRP holders and investors, no wallet action follows from the Clio release alone. The live amendment is a meaningful maintenance milestone for XRPL infrastructure, but neither the primary records nor the independent reports establish a direct XRP price effect, new demand, institutional adoption or transaction growth. The relevant question is whether named applications and operators later show sustained use of the repaired protocol surfaces. Until then, the verified story is about compatibility and ledger correctness, not a market forecast."
+      ],
+      "sourceUrls": ["https://xrpl.org/blog/2026/clio-2.7.1", "https://github.com/XRPLF/clio", "https://xrpl.org/resources/known-amendments", "https://xrpl.org/docs/concepts/networks-and-servers/amendments"]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, defensible inference and open questions",
+      "paragraphs": [
+        "Confirmed: the official XRPL release page dates Clio 2.7.1 to July 20, 2026 and says it updates libxrpl to 3.2.0, supports fixCleanup3_2_0 and fixes proxy IP resolution and SSL-context handling. The official xrpld 3.2.0 record dates the amendment's code introduction to June 15. A live check of two public Ripple endpoints on August 11 returned the amendment as enabled and identified the queried Clio service as version 2.7.1.",
+        "Defensible inference: once the amendment is enabled, a Clio ETL below 2.7.1 is operationally exposed to the exact failure mode described in the release note. That is why 2.7.1 is the compatibility floor for Clio deployments that need to process this amended history. The inference does not extend to all XRPL API providers, all private deployments or every application that happens to use an endpoint branded as an XRPL API.",
+        "Not established: the public records do not reveal how many Clio instances remain below 2.7.1, which applications depend on them, whether any user-visible outage occurred, or whether the repaired vault, lending, permissioned DEX, MPT and domain paths are seeing meaningful production traffic. The live server response also describes only the queried service at a point in time. It is not evidence of network-wide adoption or economic impact.",
+        "That boundary is important for editorial and technical reasons. A protocol can be active while its applications remain quiet. A server can be compatible while its operator has a separate database or monitoring problem. A security fix can be valuable without creating a new investment case. The evidence supports a clear upgrade and verification story, while the adoption and market questions remain open."
+      ],
+      "sourceUrls": ["https://xrpl.org/blog/2026/clio-2.7.1", "https://xrpl.org/blog/2026/xrpld-3.2.0", "https://s1.ripple.com:51234", "https://www.techtimes.com/articles/319985/20260709/xrpl-security-fixes-lending-vaults-stalled-upgrade-sails-through.htm"]
+    }
+  ],
+  "whatToWatch": [
+    "The live feature response for fixCleanup3_2_0, including any later status change or amendment interaction with the next xrpld release.",
+    "Clio release notes for a newer libxrpl version, additional transaction-model changes, or a compatibility notice affecting the ETL.",
+    "Operator logs and monitoring that show whether Clio instances are still processing current validated ledgers rather than only returning a reachable API response.",
+    "Client-library and serialization support for vault, lending, permissioned DEX, Multi-Purpose Token and permissioned-domain records affected by the amendment.",
+    "Named applications, audits or on-ledger activity that demonstrate sustained use of the repaired protocol surfaces, without treating the amendment itself as proof of adoption or XRP price impact."
+  ],
+  "sources": [
+    { "name": "XRP Ledger: Introducing Clio version 2.7.1", "url": "https://xrpl.org/blog/2026/clio-2.7.1", "type": "primary", "publishedAt": "2026-07-20" },
+    { "name": "XRPLF GitHub: Clio 2.7.1 release", "url": "https://github.com/XRPLF/clio/releases/tag/2.7.1", "type": "primary", "publishedAt": "2026-07-20" },
+    { "name": "XRP Ledger: Introducing XRP Ledger version 3.2.0", "url": "https://xrpl.org/blog/2026/xrpld-3.2.0", "type": "primary", "publishedAt": "2026-06-15" },
+    { "name": "XRP Ledger: Known amendments and current status (undated reference)", "url": "https://xrpl.org/resources/known-amendments", "type": "primary" },
+    { "name": "XRP Ledger: Amendment process (undated reference)", "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "type": "primary" },
+    { "name": "Ripple public XRP Ledger server API (undated live response, checked August 11, 2026)", "url": "https://s1.ripple.com:51234", "type": "primary" },
+    { "name": "XRPLF GitHub: Clio architecture and API behavior (undated reference)", "url": "https://github.com/XRPLF/clio", "type": "primary" },
+    { "name": "XRPL Node: Networks and servers (undated reference)", "url": "https://www.xrplnode.org/concepts", "type": "supporting" },
+    { "name": "TechTimes: XRPL security fixes and amendment rollout", "url": "https://www.techtimes.com/articles/319985/20260709/xrpl-security-fixes-lending-vaults-stalled-upgrade-sails-through.htm", "type": "supporting", "publishedAt": "2026-07-09" },
+    { "name": "U.Today: XRP Ledger fixCleanup3_2_0 activation", "url": "https://u.today/xrps-flip-of-the-switch-moment-major-network-upgrade-now-live?from=article-links", "type": "supporting", "publishedAt": "2026-07-29" }
+  ],
+  "relatedLinks": [
+    { "href": "/learn/xrp-ledger-explained", "label": "How the XRP Ledger works", "topic": "Infrastructure", "description": "The ledger, validators, consensus process and native XRP mechanics in plain language." },
+    { "href": "/learn/xrpl-transaction-fees", "label": "XRP Ledger fees and reserves", "topic": "Operations", "description": "How transaction costs, account reserves and network operations affect users and builders." },
+    { "href": "/learn/xrpl-multi-purpose-tokens", "label": "XRPL Multi-Purpose Tokens explained", "topic": "Tokenization", "description": "The token standard touched by the amendment's amount-validation and institutional workflows." },
+    { "href": "/learn/xrp-real-world-assets", "label": "XRP Ledger real-world assets", "topic": "Applications", "description": "Where tokenized assets depend on protocol capability, issuer controls and verified use." }
+  ]
+}
