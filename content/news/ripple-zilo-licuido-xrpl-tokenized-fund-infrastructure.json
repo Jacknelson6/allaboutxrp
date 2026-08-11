@@ -1,0 +1,226 @@
+{
+  "slug": "ripple-zilo-licuido-xrpl-tokenized-fund-infrastructure",
+  "title": "Ripple Invests in ZILO and Licuido to Extend XRPL Tokenized-Fund Infrastructure",
+  "description": "Ripple’s August 3 investments in ZILO and Licuido extend its XRP Ledger strategy from token issuance toward transfer-agency records, fund distribution, and collateral mobility.",
+  "category": "Institutional Markets",
+  "publishedAt": "2026-08-11T06:06:00-05:00",
+  "modifiedAt": "2026-08-11T06:06:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-zilo-licuido-capital-markets-index-editorial.webp",
+  "imageAlt": "A pale-gold indexing wheel aligns three cobalt ledger plates with a hinged cobalt collateral weight on an ivory stone slab under a circular shaft of morning light.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "transfer-agency-collateral-index-still-life",
+  "imageSetting": "A narrow white-mineral conservatory with a circular overhead aperture and a long ivory stone operations slab under clear early-morning light",
+  "imageMetaphor": "A pale-gold indexing wheel aligns three cobalt ledger plates with a hinged cobalt collateral weight, representing transfer-agency records connecting token issuance to controlled collateral mobility",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape. Depict Ripple’s August 3, 2026 investments in ZILO and Licuido as a sparse, physically believable still life about the market plumbing around tokenized funds: one pale-gold mechanical indexing wheel aligns three separate cobalt ledger plates with one dark cobalt collateral weight held by an ivory hinge and a single restrained vermilion wax seal. Set the objects on a long ivory stone operations slab inside a narrow white-mineral conservatory with a circular overhead aperture, a unique setting not used by any existing artwork. Use a low three-quarter side view from table height and crisp early-morning light from the upper right, leaving broad ivory negative space. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine shadows, warm ivory, pale gold metal, water-blue accents, one vermilion status mark, selective impasto, and extremely subtle 1, 0, x stipple only inside a few atmospheric or shadow transitions. No all-over ASCII or dither. No people, coins, logos, readable text, watermark, dashboard, generic cyber cube, politician, bank building, temple, harbor, coast, terrace, archive table, observatory, workshop, crossroads, fantasy architecture, panoramic Greek city, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, duplicated objects, or extra seals.",
+  "keywords": [
+    "Ripple",
+    "XRP Ledger",
+    "ZILO",
+    "Licuido",
+    "tokenized funds",
+    "tokenized collateral",
+    "institutional XRP markets",
+    "RLUSD"
+  ],
+  "keyTakeaways": [
+    "Ripple’s August 3 announcement describes investments in ZILO and Licuido that expand its XRPL institutional strategy beyond issuance into transfer-agency records, fund distribution, and collateral mobility.",
+    "Aviva Investors’ July 29 tokenized share-class launch shows one live operating use case for the stack, with Licuido providing tokenization infrastructure and Komainu and BNY Mellon handling distinct custody roles.",
+    "The evidence supports an infrastructure milestone, not a disclosed investment amount, a broad adoption total, a guarantee that every fund trade uses XRP, or a verified XRP-price effect."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Ripple is buying the operating layer around tokenized funds",
+      "paragraphs": [
+        "Ripple’s August 3 announcement is an infrastructure investment, not a new XRP product. Ripple said it invested in ZILO and Licuido to add transfer-agency records, token issuance, and collateral mobility around institutional assets on the XRP Ledger. Aviva’s July 29 deployment shows the use case, but no deal size, adoption total, or XRP-price effect was disclosed.",
+        "The distinction matters because a tokenized fund is more than a digital representation of a conventional share. An issuer must maintain an authoritative record of ownership, process subscriptions and redemptions, support transfers, coordinate custody, and make sure the digital instrument can be used within the legal and operational rules of the fund. Ripple’s announcement positions ZILO and Licuido as pieces of that workflow rather than as another token launch.",
+        "Confirmed fact: Ripple publicly described the investments as strategic and linked them to regulated transfer agency, issuance, and collateral mobility on XRPL. Bounded inference: the company is trying to make tokenization repeatable for asset managers, not merely demonstrate that a fund can be minted on a ledger. Unresolved: the announcement does not disclose how much Ripple invested, the ownership percentages, or the number of future products covered."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+        "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/"
+      ]
+    },
+    {
+      "heading": "What ZILO and Licuido add to the XRP Ledger capital-markets stack",
+      "paragraphs": [
+        "Ripple’s release assigns the two companies different but complementary roles. ZILO is described as transfer-agency and fund-administration technology for asset managers, wealth firms, custodians, and transfer agents. In practical terms, that is the record layer that helps an institution answer who owns a tokenized share class, what transactions changed that ownership, and how those records fit the fund’s existing administration process.",
+        "Licuido is described as a platform for the issuance, distribution, and execution of traditional financial assets, including fund shares. Ripple also connects Licuido to digital collateral markets. That makes its role broader than creating an on-chain certificate. The asset must be able to move under defined permissions, reach eligible counterparties, and potentially be pledged or transferred without breaking the relationship between the tokenized record and the regulated fund structure.",
+        "The relationship is easier to understand as a stack with separate responsibilities. Ripple supplies the institutional infrastructure and describes XRPL as the settlement venue. ZILO addresses operational records. Licuido addresses tokenized issuance and asset utility. RLUSD is described by Ripple as the regulated cash leg for delivery-versus-payment transactions. Those statements describe architecture and strategy. They do not prove that each named layer is live in every product or that XRP is the payment asset in every transaction.",
+        "Independent reporting has previously described Ripple’s broader XRPL roadmap in similar terms: compliance controls, multi-purpose tokens, permissioned participation, tokenized collateral, and native lending are being assembled for regulated activity. That context supports the reading that the August 3 investments are an attempt to close the gap between protocol capability and financial-market operations. It does not turn a company roadmap into measured network adoption."
+      ],
+      "table": {
+        "caption": "The announced roles are distinct, and their deployment status is not identical",
+        "headers": [
+          "Layer",
+          "Named role",
+          "Evidence status"
+        ],
+        "rows": [
+          [
+            "Transfer agency and records",
+            "ZILO: digital record-keeping for tokenized share classes",
+            "Investment announced by Ripple; terms and deployment count undisclosed"
+          ],
+          [
+            "Issuance and distribution",
+            "Licuido: issue, distribute, execute, and support asset utility",
+            "Licuido named as infrastructure provider in Aviva’s July 29 launch"
+          ],
+          [
+            "Cash leg and settlement",
+            "XRPL atomic settlement with RLUSD described by Ripple",
+            "Architecture described; live transaction volumes not disclosed"
+          ],
+          [
+            "Collateral mobility",
+            "Tokenized funds moving as collateral or margin assets",
+            "Strategic direction; broad production adoption unconfirmed"
+          ]
+        ],
+        "sourceNote": "Sources: Ripple, published August 3, 2026, and Aviva Investors, published July 29, 2026. The table separates described capability from verified deployment."
+      },
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+        "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/",
+        "https://www.coindesk.com/markets/2026/02/06/ripple-lays-out-institutional-defi-blueprint-for-xrpl-with-xrp-at-center"
+      ]
+    },
+    {
+      "heading": "Aviva’s live share class shows why issuance alone is not enough",
+      "paragraphs": [
+        "The clearest concrete reference point is Aviva Investors’ July 29 announcement. The asset manager said it launched a tokenized share class for its U.S. Dollar Liquidity Fund on XRPL. Aviva described the tokenized class as keeping the conventional fund’s investment objective, risk profile, liquidity characteristics, and regulatory protections, while making the investment available in tokenized form to eligible investors with digital wallets.",
+        "The custody design shows why infrastructure has to be layered. Aviva said Licuido provided tokenization infrastructure, Komainu provided regulated institutional digital-asset custody, and Bank of New York Mellon held the underlying fund assets. The Central Bank of Ireland’s public register separately identifies the conventional Aviva Investors U.S. Dollar Liquidity Fund as an authorized UCITS sub-fund, with J.P. Morgan listed as depositary. The register does not, by itself, publish the full mechanics of the new tokenized class, so the launch description and the fund record should not be collapsed into one claim.",
+        "For asset managers, this is the relevant lesson. Moving a fund share onto XRPL does not replace the administrator, depositary, underlying-asset custodian, digital-asset custodian, compliance controls, or investor eligibility rules. It adds a ledger-based record and transfer path that must remain synchronized with those institutions. Ripple’s investment in ZILO therefore addresses a friction that is easy to overlook in headline tokenization stories: the back-office record must be trustworthy before a new settlement path can be useful.",
+        "This is a production reference point, but it is still one disclosed deployment. Aviva did not publish tokenized assets under management, wallet count, transaction volume, secondary-market turnover, or a timetable for additional funds in the announcement. Those missing measurements prevent a stronger claim that XRPL has reached scaled institutional adoption."
+      ],
+      "sourceUrls": [
+        "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/",
+        "https://registers.centralbank.ie/FundRegisterDataPage.aspx?fundReferenceNumber=C423012&register=28",
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/"
+      ]
+    },
+    {
+      "heading": "Collateral mobility is the strategic change beyond token issuance",
+      "paragraphs": [
+        "Ripple’s most consequential phrase is not tokenization. It is collateral mobility. If a tokenized fund share can be issued, transferred, pledged, and settled under clear controls, it can become part of a financing workflow rather than a static digital receipt. A market participant could potentially use a permitted fund position to support borrowing, margin, or delivery-versus-payment without first moving the record through a series of disconnected systems.",
+        "That potential remains conditional. CoinDesk’s June 29 reporting on the proposed XRPL Lending Protocol described a split between on-ledger enforcement and off-ledger credit judgment. The protocol could handle pooled assets, loan terms, repayment, and default mechanics, while a human institution would still decide whether a borrower is creditworthy. This separation is useful for understanding Ripple’s investment thesis: the ledger can automate state changes, but regulated firms still own underwriting, suitability, custody, legal accountability, and risk limits.",
+        "Ireland’s central bank has made a similar distinction from a supervisory perspective. In a May 26 speech, Deputy Governor Vasileios Madouros described tokenization as a possible way to reduce reconciliation friction and counterparty exposure, while warning that the technology is still early, that interoperability matters, and that new dependencies can arise around validators, oracles, and bridge operators. That is the right standard for evaluating Ripple’s announcement. Better plumbing is valuable only if it connects institutions without creating a more fragmented or less accountable market.",
+        "The immediate implication is not that every tokenized fund will become liquid collateral. It is that Ripple is investing in the interfaces needed for that outcome to be tested. Whether the model works will depend on legal documentation, eligible counterparties, valuation, haircuts, settlement finality, redemptions, and the ability to unwind collateral during stress. None of those outcomes is established by the investment announcement alone."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+        "https://www.coindesk.com/tech/2026/06/29/emb-3-pm-utc-ripple-wants-institutions-to-borrow-against-tokenized-assets-on-xrpl",
+        "https://www.centralbank.ie/news/article/speech-finance-in-transition-deputy-governor-vasileios-madouros-26-may-2026"
+      ]
+    },
+    {
+      "heading": "Implications for asset managers, developers, validators, and XRP readers",
+      "paragraphs": [
+        "For asset managers, the announcement is a signal to evaluate the entire operating model, not just the chain’s transaction speed. The questions are whether a transfer agent can reconcile tokenized and conventional records, whether the fund’s rules allow the intended wallet and transfer flows, who controls permission changes, and how custody is divided when the underlying asset remains off-chain. Aviva’s structure suggests that a regulated product can use several specialized firms, but it does not remove the need for clear accountability between them.",
+        "For developers, ZILO and Licuido make the integration boundary more important. A wallet or application may need to distinguish a fund share from XRP, RLUSD, and other Multi-Purpose Tokens; show eligibility and transfer restrictions; and fail safely when a permission, issuance, or redemption condition is not met. Developers should treat Ripple’s release as an ecosystem direction and test against the actual product documentation, transaction types, and live amendment status before presenting institutional workflows as available.",
+        "For validators and XRPL operators, more institutional activity would raise the importance of reliable infrastructure, amendment review, data availability, and operational monitoring. Ripple’s investment does not create a validator obligation or activate a new protocol feature. The network still needs independent participants to run software, assess changes, and maintain the consensus process. The business case for tokenized collateral also depends on off-ledger institutions that are not controlled by the ledger itself.",
+        "For XRP holders and market analysts, the careful conclusion is narrower than a price thesis. Ripple’s release describes RLUSD as the cash leg for some delivery-versus-payment workflows and describes XRP Ledger as the settlement network. It does not say every tokenized fund will buy XRP, that every collateral transaction will use XRP, or that network growth will translate one-for-one into token demand. Analysts should look for measured issuance, transfers, redemptions, collateral postings, and XRP or RLUSD settlement activity before assigning an economic effect."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+        "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/",
+        "https://www.coindesk.com/markets/2026/02/06/ripple-lays-out-institutional-defi-blueprint-for-xrpl-with-xrp-at-center"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and open questions",
+      "paragraphs": [
+        "Confirmed facts: Ripple published its ZILO and Licuido investment announcement on August 3, 2026. It described the companies’ functions, linked the investments to XRPL infrastructure, and did not publish deal values or ownership percentages. Aviva Investors separately announced a July 29 tokenized share class for its U.S. Dollar Liquidity Fund on XRPL, naming Licuido, Komainu, and Bank of New York Mellon in distinct roles.",
+        "Bounded inference: the two announcements together support a strategy that moves from demonstrating token issuance toward supporting administration, distribution, settlement, and collateral use. The Aviva deployment is evidence that a regulated fund structure can reach live infrastructure with multiple custody and administration layers. It is not evidence that Ripple’s full investment stack is already deployed across a large set of funds.",
+        "Unresolved questions: Ripple has not disclosed the investment amounts, the commercial terms with ZILO or Licuido, the number of institutions using the resulting infrastructure, or the revenue expected from it. The sources reviewed also do not disclose Aviva’s tokenized assets under management, secondary-market volume, or a transaction-level split between XRP and RLUSD. The Central Bank of Ireland’s public fund record confirms the conventional fund’s regulatory identity, but it is not a transaction ledger for the tokenized class.",
+        "The strongest editorial conclusion is therefore structural. Ripple is adding companies that address the operational gap between a tokenized asset and a usable capital-markets instrument. Aviva supplies a concrete live example of the direction. Scale, economics, collateral liquidity, and XRP demand remain questions for later records."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+        "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/",
+        "https://registers.centralbank.ie/FundRegisterDataPage.aspx?fundReferenceNumber=C423012&register=28",
+        "https://www.centralbank.ie/news/article/speech-finance-in-transition-deputy-governor-vasileios-madouros-26-may-2026"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A Ripple, ZILO, or Licuido filing that discloses investment terms, named customers, commercial launch dates, or the first products using the combined infrastructure.",
+    "Additional regulated fund launches that publish tokenized assets under management, eligible-investor rules, wallet or transfer activity, and redemption mechanics rather than only announcing a partnership.",
+    "Evidence that a tokenized fund share is accepted as collateral in a live financing or margin workflow, including the valuation, haircut, custody, and liquidation controls applied.",
+    "XRPL ledger records and product disclosures that distinguish XRP settlement, RLUSD settlement, and other payment paths so network activity is not mistaken for automatic XRP demand.",
+    "Whether the proposed XRPL lending and collateral components move from technical proposals or tests into approved, documented production use with independent risk review."
+  ],
+  "sources": [
+    {
+      "name": "Ripple, investments in ZILO and Licuido",
+      "url": "https://ripple.com/ripple-press/ripple-strengthens-digital-capital-markets-infrastructure-with-investments-in-zilo-and-licuido/",
+      "type": "primary",
+      "publishedAt": "2026-08-03"
+    },
+    {
+      "name": "Aviva Investors, tokenized USD Liquidity Fund share class",
+      "url": "https://www.avivainvestors.com/en-de/about/company-news/2026/07/aviva-investors-launches-tokenised-share-class-for-usd-liquidity-fund/",
+      "type": "supporting",
+      "publishedAt": "2026-07-29"
+    },
+    {
+      "name": "CoinDesk, XRPL institutional DeFi blueprint",
+      "url": "https://www.coindesk.com/markets/2026/02/06/ripple-lays-out-institutional-defi-blueprint-for-xrpl-with-xrp-at-center",
+      "type": "supporting",
+      "publishedAt": "2026-02-06"
+    },
+    {
+      "name": "CoinDesk, proposed XRPL lending protocol",
+      "url": "https://www.coindesk.com/tech/2026/06/29/emb-3-pm-utc-ripple-wants-institutions-to-borrow-against-tokenized-assets-on-xrpl",
+      "type": "supporting",
+      "publishedAt": "2026-06-29"
+    },
+    {
+      "name": "Central Bank of Ireland, Aviva Investors US Dollar Liquidity Fund register",
+      "url": "https://registers.centralbank.ie/FundRegisterDataPage.aspx?fundReferenceNumber=C423012&register=28",
+      "type": "primary",
+      "publishedAt": "2026-07-27"
+    },
+    {
+      "name": "Central Bank of Ireland, approach to tokenized finance",
+      "url": "https://www.centralbank.ie/news/article/speech-finance-in-transition-deputy-governor-vasileios-madouros-26-may-2026",
+      "type": "primary",
+      "publishedAt": "2026-05-26"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-real-world-assets",
+      "label": "XRP and real-world assets",
+      "topic": "Tokenization",
+      "description": "How regulated assets can be represented and transferred on XRPL."
+    },
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens",
+      "topic": "Protocol",
+      "description": "The token standard used for issued assets with configurable controls."
+    },
+    {
+      "href": "/learn/xrp-institutional-custody",
+      "label": "XRP institutional custody",
+      "topic": "Market structure",
+      "description": "Custody, counterparty, and operational questions for institutions."
+    },
+    {
+      "href": "/learn/xrp-and-tokenized-treasuries",
+      "label": "XRP and tokenized treasuries",
+      "topic": "Fixed income",
+      "description": "Where tokenized cash and short-term government assets fit in the XRP ecosystem."
+    },
+    {
+      "href": "/learn/xrp-and-defi",
+      "label": "XRP and DeFi",
+      "topic": "On-chain finance",
+      "description": "The difference between protocol capability, liquidity, and verified use."
+    }
+  ]
+}
