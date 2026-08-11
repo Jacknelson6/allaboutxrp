@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "seo:audit": "node scripts/seo-health.mjs",
+    "seo:test": "node --test scripts/tests/*.test.mjs",
     "seo:indexnow": "node scripts/ping-indexnow.mjs",
     "seo:redirects": "node scripts/redirect-health.mjs",
     "seo:sitemap": "node scripts/sitemap-health.mjs",

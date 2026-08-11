@@ -1,5 +1,7 @@
 import fs from "node:fs";
 
+import { checkHostNormalization, fetchWithRetry } from "./lib/http-checks.mjs";
+
 const siteUrl = (process.argv[2] || process.env.SITE_URL || "https://allaboutxrp.com").replace(
   /\/$/,
   "",
@@ -58,21 +60,6 @@ for (const rule of redirects) {
     failures.push(`${rule.source} redirects through another redirect at ${rule.destination}.`);
   }
   if (!rule.permanent) failures.push(`${rule.source} is configured as a temporary redirect.`);
-}
-
-async function fetchWithRetry(url, options, attempts = 3) {
-  let lastError;
-
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      return await fetch(url, { ...options, signal: AbortSignal.timeout(15000) });
-    } catch (error) {
-      lastError = error;
-      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
-    }
-  }
-
-  throw lastError;
 }
 
 let cursor = 0;
@@ -137,28 +124,15 @@ async function validateHostNormalization() {
     const expectedUrl = `${expectedOrigin}${pathname}`;
 
     try {
-      const response = await fetchWithRetry(sourceUrl, {
-        redirect: "manual",
-        headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+      const normalizationFailures = await checkHostNormalization({
+        sourceUrl,
+        expectedUrl,
+        fetchUrl: (url) => fetchWithRetry(url, {
+          redirect: "manual",
+          headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+        }),
       });
-      const location = response.headers.get("location");
-      const destination = location ? new URL(location, sourceUrl).href : null;
-
-      if (![301, 308].includes(response.status)) {
-        failures.push(`${sourceUrl} returned ${response.status}; expected one permanent redirect.`);
-      }
-      if (destination !== expectedUrl) {
-        failures.push(`${sourceUrl} redirects to ${destination || "nowhere"}; expected ${expectedUrl}.`);
-        continue;
-      }
-
-      const finalResponse = await fetchWithRetry(expectedUrl, {
-        redirect: "manual",
-        headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
-      });
-      if (finalResponse.status !== 200) {
-        failures.push(`${sourceUrl} destination returned ${finalResponse.status}.`);
-      }
+      failures.push(...normalizationFailures);
     } catch (error) {
       failures.push(`${sourceUrl} could not be verified: ${error.message}`);
     }

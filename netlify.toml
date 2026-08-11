@@ -8,25 +8,6 @@
 [functions]
   node_bundler = "esbuild"
 
-# Collapse protocol and hostname normalization into a single permanent hop.
-[[redirects]]
-  from = "http://www.allaboutxrp.com/*"
-  to = "https://allaboutxrp.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.allaboutxrp.com/*"
-  to = "https://allaboutxrp.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://allaboutxrp.com/*"
-  to = "https://allaboutxrp.com/:splat"
-  status = 301
-  force = true
-
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
