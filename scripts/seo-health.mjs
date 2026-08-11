@@ -107,16 +107,21 @@ const noindexSourceFiles = new Set(
     `src/app${route}/layout.tsx`,
   ]),
 );
-const linkPattern = /(?:href|primaryHref|secondaryHref)\s*(?:=|:)\s*["'](\/[^"'#?\n]*)/g;
+const linkPatterns = [
+  /(?:href|primaryHref|secondaryHref)\s*(?:=|:)\s*["'](\/[^"'#?\n]*)/g,
+  /,\s*["'](\/[^"'#?\n]*)["']\s*\]/g,
+];
 
 for (const file of sourceFiles) {
   if (noindexSourceFiles.has(path.relative(process.cwd(), file))) continue;
   const source = fs.readFileSync(file, "utf8");
-  for (const match of source.matchAll(linkPattern)) {
-    internalLinks.push({
-      file: path.relative(process.cwd(), file),
-      path: match[1].replace(/\/$/, "") || "/",
-    });
+  for (const linkPattern of linkPatterns) {
+    for (const match of source.matchAll(linkPattern)) {
+      internalLinks.push({
+        file: path.relative(process.cwd(), file),
+        path: match[1].replace(/\/$/, "") || "/",
+      });
+    }
   }
 }
 

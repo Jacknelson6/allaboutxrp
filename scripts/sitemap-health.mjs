@@ -76,6 +76,11 @@ const warnings = [];
 const { xml: sitemapXml, urls } = await fetchXml("/sitemap.xml");
 const { urls: newsUrls } = await fetchXml("/news-sitemap.xml");
 const urlSet = new Set(urls);
+const criticalIndexableUrls = [
+  `${expectedOrigin}/live-chart`,
+  `${expectedOrigin}/tools/escrow-tracker`,
+  `${expectedOrigin}/news`,
+];
 const sitemapEntries = getEntries(sitemapXml);
 const lastmodByUrl = new Map(sitemapEntries.map((entry) => [normalizeUrl(entry.loc), entry.lastmod]));
 
@@ -84,6 +89,21 @@ if (missingLastmod.length) warnings.push(`${missingLastmod.length} sitemap URLs 
 
 if (urls.length === 0) failures.push("The standard sitemap contains no URLs.");
 if (urlSet.size !== urls.length) failures.push("The standard sitemap contains duplicate <loc> entries.");
+
+for (const value of criticalIndexableUrls) {
+  if (!urlSet.has(value)) failures.push(`${value} is missing from the standard sitemap.`);
+}
+
+const robotsResponse = await fetchWithRetry(`${siteUrl}/robots.txt`, {
+  headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
+});
+const robotsText = await robotsResponse.text();
+if (!robotsResponse.ok) failures.push(`/robots.txt returned ${robotsResponse.status}.`);
+for (const sitemapPath of ["/sitemap.xml", "/news-sitemap.xml"]) {
+  if (!robotsText.includes(`Sitemap: ${expectedOrigin}${sitemapPath}`)) {
+    failures.push(`/robots.txt does not declare ${expectedOrigin}${sitemapPath}.`);
+  }
+}
 
 for (const value of urls) {
   const url = new URL(value);
@@ -149,6 +169,7 @@ const report = {
   siteUrl,
   sitemapUrls: urls.length,
   newsSitemapUrls: newsUrls.length,
+  criticalIndexableUrls,
   missingLastmod,
   warnings,
   failures,

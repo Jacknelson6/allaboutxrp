@@ -83,6 +83,7 @@ export default function HomeFeed() {
       <section className="site-container py-14 sm:py-20" aria-labelledby="latest-xrp-heading">
         <div className="ascii-feed-heading">
           <div><p className="ascii-section-label">NEWS WIRE / CURRENT COVERAGE</p><h2 id="latest-xrp-heading" className="mt-3 text-3xl text-text-primary sm:text-5xl">Latest XRP developments</h2></div>
+          <Link href="/news" className="text-link text-sm">View all source-led reporting <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
           <p className="max-w-md text-sm leading-6 text-text-secondary">Original reporting grounded in primary records. Every time-sensitive claim points back to its source.</p>
         </div>
         <div className="mt-8"><DeferredHomeContent /></div>

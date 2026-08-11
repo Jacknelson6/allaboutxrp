@@ -39,10 +39,10 @@ const liveTools = [
     icon: Activity,
   },
   {
-    href: "/learn/escrow",
+    href: "/tools/escrow-tracker",
     title: "XRP escrow tracker",
-    description: "Follow scheduled releases, executed escrows, returned amounts, and event status.",
-    label: "Ledger data",
+    description: "Review the monthly schedule and verify actual escrow events from primary XRP Ledger records.",
+    label: "Schedule reference",
     icon: Clock3,
   },
   {

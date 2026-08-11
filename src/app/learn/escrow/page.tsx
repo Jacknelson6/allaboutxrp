@@ -20,7 +20,7 @@ const schemas = [
     description: "A comprehensive guide to Ripple's XRP escrow system, monthly release schedule, and impact on supply.",
     url: "https://allaboutxrp.com/learn/escrow",
     datePublished: "2026-02-10",
-    dateModified: "2026-07-27",
+    dateModified: "2026-08-11",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -51,7 +51,7 @@ export default function EscrowLearnPage() {
         <div className="mx-auto max-w-4xl">
           <div className=" border border-white/[0.08] bg-white/[0.025] p-6 text-text-secondary leading-relaxed">
             <h2 className="text-xl font-bold text-text-primary">How to evaluate an escrow release</h2>
-            <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/learn/escrow" className="text-xrp-accent underline decoration-xrp-accent/30">live escrow tracker</Link> is designed to make those on-ledger events inspectable without presenting an unsupported price-correlation claim.</p>
+            <p className="mt-3">A scheduled unlock is not the same thing as an open-market sale. Check the originating escrow transaction, the amount returned to new escrows, transfers to Ripple-controlled accounts, and exchange inflows before drawing a conclusion about sell pressure. Our <Link href="/tools/escrow-tracker" className="text-xrp-accent underline decoration-xrp-accent/30">XRP escrow schedule reference</Link> shows the current calendar boundary and the primary records needed to verify on-ledger events without presenting an unsupported price-correlation claim.</p>
           </div>
         </div>
 

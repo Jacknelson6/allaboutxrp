@@ -6,6 +6,10 @@ const URL = "https://allaboutxrp.com/tools/escrow-tracker";
 
 const FAQ_ITEMS = [
   {
+    question: "When is the next XRP escrow release?",
+    answer: "Ripple's published structure uses escrow finishes at the start of each calendar month. The exact finish time, amount made available, and amount later returned to escrow must be verified from current XRP Ledger transactions.",
+  },
+  {
     question: "Is this a live XRP escrow balance?",
     answer: "No. This page explains Ripple’s published monthly escrow schedule. It does not currently query every escrow object on the XRP Ledger, so it intentionally does not display a live remaining balance.",
   },
@@ -20,6 +24,17 @@ const FAQ_ITEMS = [
 ];
 
 const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${URL}#webpage`,
+    url: URL,
+    name: "XRP Escrow Tracker and Monthly Release Schedule",
+    description: "A source-led XRP escrow schedule reference with ledger verification guidance.",
+    datePublished: "2026-02-10",
+    dateModified: "2026-08-11",
+    isPartOf: { "@id": "https://allaboutxrp.com/#website" },
+  },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -60,31 +75,34 @@ export default function EscrowTrackerPage() {
               <span className="mx-2" aria-hidden="true">/</span>
               <Link href="/tools" className="py-3 transition-colors hover:text-text-primary">Tools</Link>
               <span className="mx-2" aria-hidden="true">/</span>
-              <span className="text-text-primary">Escrow reference</span>
+              <span className="text-text-primary">Escrow tracker</span>
             </nav>
             <div className="flex items-center gap-3 text-xrp-accent-bright">
               <LockKeyhole className="h-5 w-5" aria-hidden="true" />
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em]">Source verification required</p>
             </div>
             <h1 className="mt-5 max-w-4xl text-[clamp(3rem,7vw,5.5rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-text-primary">
-              XRP escrow schedule reference
+              XRP escrow tracker and schedule reference
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-text-secondary">
               Ripple’s original escrow program was structured to finish up to 1 billion XRP each month. This page explains that schedule without presenting estimates as live ledger data.
+            </p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-text-secondary">
+              Reviewed <time dateTime="2026-08-11">August 11, 2026</time>
             </p>
           </div>
         </header>
 
         <section className="site-container border-b border-surface-border py-10 sm:py-14" aria-labelledby="status-heading">
           <div className="grid gap-6 lg:grid-cols-[0.34fr_1fr]">
-            <h2 id="status-heading" className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-xrp-accent-bright">Data status</h2>
+            <h2 id="status-heading" className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-xrp-accent-bright">Current reference status</h2>
             <div className="max-w-3xl border-l-2 border-amber-400/70 pl-5">
               <div className="flex items-center gap-2 text-amber-300">
                 <ShieldAlert className="h-5 w-5" aria-hidden="true" />
                 <p className="font-semibold">This is not a live balance tracker.</p>
               </div>
               <p className="mt-3 leading-7 text-text-secondary">
-                The previous version relied on a hard-coded 2025–2026 table and an unverified balance. Those figures have been removed. This route remains excluded from search until a reproducible ledger-backed data pipeline is available.
+                The previous version relied on a hard-coded 2025–2026 table and an unverified balance. Those figures have been removed. This reference now stays useful by showing the published schedule, the next calendar boundary, and the primary records needed to verify actual ledger events without inventing a live remaining balance.
               </p>
             </div>
           </div>

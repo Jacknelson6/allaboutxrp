@@ -53,7 +53,6 @@ export const NOINDEX_PATHS = new Set([
 
   // ── Utility pages ────────────────────────────────────────────────────
   "/tools/whale-tracker",
-  "/tools/escrow-tracker",
   "/privacy-policy",
   "/terms",
   "/extension",

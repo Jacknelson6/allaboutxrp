@@ -27,6 +27,20 @@ const redirects = [
 ];
 const redirectSources = new Set(redirects.map((rule) => rule.source));
 const failures = [];
+const criticalIndexablePaths = [
+  "/",
+  "/live-chart",
+  "/tools/escrow-tracker",
+  "/news",
+  "/sitemap.xml",
+];
+const normalizationOrigins = expectedOrigin === "https://allaboutxrp.com"
+  ? [
+      "http://allaboutxrp.com",
+      "http://www.allaboutxrp.com",
+      "https://www.allaboutxrp.com",
+    ]
+  : [];
 const retiredPaths = [
   "/donate",
   "/pricing",
@@ -100,6 +114,9 @@ async function validateRedirect() {
           }.`,
         );
       }
+      if (/noindex/i.test(finalResponse.headers.get("x-robots-tag") ?? "")) {
+        failures.push(`${rule.source} destination ${rule.destination} is noindex.`);
+      }
     } catch (error) {
       failures.push(`${rule.source} could not be verified: ${error.message}`);
     }
@@ -107,6 +124,61 @@ async function validateRedirect() {
 }
 
 await Promise.all(Array.from({ length: 8 }, () => validateRedirect()));
+
+let normalizationCursor = 0;
+const normalizationChecks = normalizationOrigins.flatMap((origin) =>
+  criticalIndexablePaths.map((pathname) => ({ origin, pathname })),
+);
+
+async function validateHostNormalization() {
+  while (normalizationCursor < normalizationChecks.length) {
+    const { origin, pathname } = normalizationChecks[normalizationCursor++];
+    const sourceUrl = `${origin}${pathname}`;
+    const expectedUrl = `${expectedOrigin}${pathname}`;
+
+    try {
+      const response = await fetchWithRetry(sourceUrl, {
+        redirect: "manual",
+        headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+      });
+      const location = response.headers.get("location");
+      const destination = location ? new URL(location, sourceUrl).href : null;
+
+      if (![301, 308].includes(response.status)) {
+        failures.push(`${sourceUrl} returned ${response.status}; expected one permanent redirect.`);
+      }
+      if (destination !== expectedUrl) {
+        failures.push(`${sourceUrl} redirects to ${destination || "nowhere"}; expected ${expectedUrl}.`);
+        continue;
+      }
+
+      const finalResponse = await fetchWithRetry(expectedUrl, {
+        redirect: "manual",
+        headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+      });
+      if (finalResponse.status !== 200) {
+        failures.push(`${sourceUrl} destination returned ${finalResponse.status}.`);
+      }
+    } catch (error) {
+      failures.push(`${sourceUrl} could not be verified: ${error.message}`);
+    }
+  }
+}
+
+await Promise.all(Array.from({ length: 6 }, () => validateHostNormalization()));
+
+for (const pathname of criticalIndexablePaths.filter((value) => value !== "/sitemap.xml")) {
+  const response = await fetchWithRetry(`${siteUrl}${pathname}`, {
+    redirect: "manual",
+    headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+  });
+  if (response.status !== 200) {
+    failures.push(`${pathname} returned ${response.status}; expected 200.`);
+  }
+  if (/noindex/i.test(response.headers.get("x-robots-tag") ?? "")) {
+    failures.push(`${pathname} returns an X-Robots-Tag noindex directive.`);
+  }
+}
 
 for (const retiredPath of retiredPaths) {
   const response = await fetchWithRetry(`${siteUrl}${retiredPath}`, {
@@ -124,6 +196,8 @@ for (const retiredPath of retiredPaths) {
 const report = {
   siteUrl,
   redirectsChecked: redirects.length,
+  hostNormalizationsChecked: normalizationChecks.length,
+  criticalIndexablePathsChecked: criticalIndexablePaths.length,
   retiredPathsChecked: retiredPaths.length,
   redirectChains: failures.filter((failure) => failure.includes("another redirect")),
   failures,

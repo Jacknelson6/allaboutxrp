@@ -14,6 +14,7 @@ export const revalidate = 3600;
 const BASE_URL = "https://allaboutxrp.com";
 const JULY_29_REVIEW = new Date("2026-07-29T12:00:00Z");
 const AUGUST_8_REVIEW = new Date("2026-08-08T12:00:00Z");
+const AUGUST_11_RECOVERY = new Date("2026-08-11T00:00:00Z");
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
 /**
@@ -106,6 +107,11 @@ const augustTrustReviewPaths = new Set([
   "/learn/trusted-sources",
 ]);
 
+const indexingRecoveryPaths = new Set([
+  "/live-chart",
+  "/tools/escrow-tracker",
+]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Core / static pages ──────────────────────────────────────────────
   const staticPages: string[] = [
@@ -134,6 +140,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Tools
     "/tools",
     "/tools/price-alerts",
+    "/tools/escrow-tracker",
     "/tools/xrp-profit-calculator",
     "/tools/xrp-fee-calculator",
 
@@ -156,6 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${BASE_URL}${pagePath}`,
         lastModified:
           contentHubDates.get(pagePath) ||
+          (indexingRecoveryPaths.has(pagePath) && AUGUST_11_RECOVERY) ||
           (augustTrustReviewPaths.has(pagePath) && AUGUST_8_REVIEW) ||
           (reviewedStaticPaths.has(pagePath) && JULY_29_REVIEW) ||
           getSourceLastModified(

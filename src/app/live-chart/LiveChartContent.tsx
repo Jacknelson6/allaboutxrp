@@ -35,7 +35,7 @@ const signed = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2, signDi
 const instruments = [
   ["Price levels", "Support, resistance, and current market context", "/tools/price-alerts"],
   ["Holder distribution", "Wallet concentration and the XRP rich list", "/holders"],
-  ["Whale tracker", "Large validated XRP Ledger payments", "/tools/whale-tracker"],
+  ["Whale activity", "Large validated XRP Ledger payments", "/holders"],
   ["Escrow reference", "Schedule mechanics with source limitations", "/tools/escrow-tracker"],
   ["Profit calculator", "Model entry, exit, return, and loss", "/tools/xrp-profit-calculator"],
   ["Fee calculator", "Estimate XRP Ledger transaction costs", "/tools/xrp-fee-calculator"],
