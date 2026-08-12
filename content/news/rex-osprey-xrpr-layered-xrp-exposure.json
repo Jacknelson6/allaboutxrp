@@ -1,0 +1,219 @@
+{
+  "slug": "rex-osprey-xrpr-layered-xrp-exposure",
+  "title": "REX-Osprey XRPR Filing Shows Two Layers of XRP Exposure",
+  "description": "REX-Osprey’s XRPR disclosures show a layered XRP exposure model: the fund reported XRP and CoinShares ETP holdings, while its Cayman subsidiary and cash mechanics shape what “spot” means for investors.",
+  "category": "Market Structure",
+  "author": "AllAboutXRP Editorial Team",
+  "publishedAt": "2026-08-12T06:10:00-05:00",
+  "modifiedAt": "2026-08-12T06:10:00-05:00",
+  "image": "/news/xrpr-layered-exposure-rail-editorial.webp",
+  "imageAlt": "A pale-gold bifurcation rail routes one cobalt glass bar into a solid block and a layered glass folio on ivory stone",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpr-layered-exposure-rail-still-life",
+  "imageSetting": "An open-air white quarry with a bare ivory stone turntable under sharp vertical noon light",
+  "imageMetaphor": "A pale-gold bifurcation rail sends one cobalt glass source into a solid block and a layered folio, representing XRPR exposure through XRP and a CoinShares ETP",
+  "imagePrompt": "A finished AllAboutXRP editorial image in a crisp classical oil style, 16:9 at 1672x941. Show one sparse, physically believable still life on a bare ivory stone turntable in an open-air white quarry under sharp vertical noon light. Use exactly four connected objects: one pale-gold Y-shaped bifurcation rail, one short cobalt glass source bar seated at the rail’s stem, one solid cobalt glass block at one branch, and one layered clear-glass folio held in a thin pale-gold frame at the other branch. Place the compact object cluster in the lower-right third and leave broad ivory negative space across the upper-left. Use pale gold metal, cobalt and water-blue glass, ivory stone, and at most one tiny restrained vermilion mark on an edge. Use physically consistent cast shadows, crisp classical modeling, transparent glass thickness, and a high three-quarter overhead rear-left viewpoint. Permit extremely subtle 1, 0, and x marks only inside a few atmospheric or shadow transitions, never as all-over ASCII or dither. The bifurcation must read as two exposure routes from one source, without labels or literal text. No coins, currency symbols, logos, letters, words, dashboards, graphs, charts, gauges, scales, keys, locks, gates, tablets, people, buildings, temples, banks, harbors, coasts, terraces, observatories, workshops, conservatories, fantasy ruins, cyber cubes, neon, photography, sepia, muddy gray, coarse halftone, retro pixel art, all-over ASCII, or floating disconnected objects. No watermark.",
+  "keywords": [
+    "XRP ETF",
+    "XRPR",
+    "REX-Osprey XRP ETF",
+    "spot XRP ETF",
+    "CoinShares XRP ETP",
+    "Cayman subsidiary",
+    "XRP ETF holdings",
+    "XRP market structure",
+    "Cboe BZX",
+    "XRP exposure"
+  ],
+  "keyTakeaways": [
+    "The SEC filing submitted August 6, 2026, for May 31 reports 23,317,381.8475 XRP and 427,680 CoinShares XRP ETP shares in XRPR’s investment schedule.",
+    "REX’s snapshot labeled August 10 shows 22,989,382 XRP and 417,180 CoinShares ETP shares, with the two lines representing 59.76% and 40.19% of the displayed holdings.",
+    "XRPR’s prospectus allows exposure directly or through a wholly owned Cayman subsidiary, and it says creations and redemptions are principally for cash in 25,000-share units.",
+    "The records explain fund construction, not XRP Ledger usage, Ripple activity, market-wide demand, or a causal effect on XRP’s price."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPR is a layered XRP exposure vehicle",
+      "paragraphs": [
+        "REX-Osprey’s XRPR is designed to track XRP, but its disclosures show a layered vehicle rather than a single direct holding. The August 6 SEC filing reported both XRP and CoinShares XRP ETP positions, and the issuer’s August 10 snapshot still showed both. The structure gives brokerage access to XRP exposure, not ownership of XRP or proof of XRP Ledger activity.",
+        "The immediate news is a dated portfolio record, not a new XRP Ledger release. REX Financial’s filing was submitted to the SEC on August 6, 2026, with a report date of May 31, 2026. Its consolidated schedule listed 23,317,381.8475 units of XRP and 427,680 shares of the CoinShares XRP ETP. A separate REX product-page snapshot labeled August 10 continued to show the same two broad exposure lines, although with different quantities and values.",
+        "That distinction matters because “spot XRP ETF” describes the fund’s investment objective and access channel, not a promise that every dollar is held as XRP in one wallet. REX says XRPR seeks exposure directly or through its wholly owned Cayman subsidiary and warns that investing in the fund is not equivalent to investing directly in XRP. The most defensible reading is a regulated exchange-traded wrapper with several layers between a brokerage share and the reference asset."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm"
+      ]
+    },
+    {
+      "heading": "What the August 6 SEC filing actually records",
+      "paragraphs": [
+        "The NPORT-P/A filing is a consolidated schedule of investments for the REX-Osprey XRP ETF as of May 31, 2026. It reports total assets of $142,207,695.61, total liabilities of $89,942,174.88, and net assets of $52,265,520.73. Within the investment schedule, the XRP line is valued at $30,691,970.20 and marked as 58.7231692545% of net assets. The CoinShares XRP ETP line is valued at $20,622,729.60 and marked as 39.4576181620%. A First American government-obligations fund position contributes $75,322.16, or 0.1441144352%.",
+        "The filing also contains a large negative Marex reverse-repurchase line valued at $89,864,775, with a 4.21% rate and a June 3, 2026 maturity date. The related collateral schedule identifies U.S. Treasury collateral with a $91 million principal amount and $89,864,775 collateral value. This is not a new XRP holding. It is a dated financing entry that helps explain why gross assets, liabilities, and net assets are not interchangeable measures of the fund’s XRP exposure. The SAI describes reverse repurchase agreements as a form of borrowing that can increase gross assets.",
+        "The filing’s footnote says all or part of the listed investments are holdings of a Cayman subsidiary. That language supports a consolidated exposure reading, but it does not identify a public wallet, a specific XRP Ledger address, or the exact location of each unit on the report date. It is also not a live August 12 balance. NPORT-P/A records are useful because they are formal disclosures, but their reporting date and filing date must stay visible in any analysis."
+      ],
+      "table": {
+        "caption": "XRPR’s dated exposure snapshots",
+        "headers": [
+          "Record",
+          "XRP line",
+          "CoinShares XRP ETP line",
+          "Reading the record"
+        ],
+        "rows": [
+          [
+            "SEC NPORT-P/A filed August 6; report date May 31",
+            "23,317,381.8475 units; $30.692M; 58.72%",
+            "427,680 shares; $20.623M; 39.46%",
+            "A consolidated filing snapshot; some investments may be in the wholly owned Cayman subsidiary"
+          ],
+          [
+            "REX issuer page labeled August 10",
+            "22,989,382; $23.430M; 59.76%",
+            "417,180; $15.757M; 40.19%",
+            "A more current issuer snapshot; holdings are subject to change and are not a flow series"
+          ]
+        ],
+        "sourceNote": "Sources: SEC NPORT-P/A filed August 6, 2026, for the May 31 report date; REX-Osprey product page labeled August 10, 2026. Values are source-reported. The dates, accounting bases, and portfolio conditions differ, so the table does not calculate investor flows."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm"
+      ]
+    },
+    {
+      "heading": "Why the spot label does not mean one XRP wallet",
+      "paragraphs": [
+        "REX’s product description says XRPR normally invests at least 80% of its assets in the reference asset, directly or through the subsidiary, while also explaining that the fund’s performance will not exactly replicate XRP. The term “spot” therefore helps distinguish the intended reference exposure from a futures contract. It does not, by itself, specify the custody map for every unit, the daily creation basket, or the share of assets held in a particular legal entity.",
+        "The SAI provides the legal plumbing behind that distinction. It describes a wholly owned Cayman subsidiary used in the fund’s investment structure, says the fund and subsidiary are treated together for certain Investment Company Act limits, and notes that the subsidiary is not registered under the Investment Company Act of 1940. The fund can manage the entities differently for tax and diversification purposes. Those disclosures do not imply anything improper. They simply mean that “XRPR owns XRP” is too compressed a description of the reported structure.",
+        "The CoinShares position adds another exposure layer. XRPR’s consolidated schedule reports shares of an XRP-linked exchange-traded product rather than only units of XRP. That position has its own issuer, custody, pricing, fee, and trading mechanics. A simplified map is XRPR share, then XRPR portfolio, then either the fund’s XRP position or a subsidiary or CoinShares position, then the reference asset. Each step can introduce tracking, liquidity, valuation, counterparty, and expense considerations.",
+        "The SEC’s investor bulletin and the Investment Company Institute’s ETF explanation provide the independent baseline: retail investors generally trade ETF shares on an exchange, while authorized participants create or redeem large creation units with securities, cash, or both. A retail purchase is therefore not the same event as a retail investor taking delivery of XRP. The exchange share, the portfolio, and the underlying asset are related, but they are not the same claim."
+      ],
+      "sourceUrls": [
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    },
+    {
+      "heading": "What the August 10 issuer snapshot adds",
+      "paragraphs": [
+        "The REX product page carries a snapshot labeled August 10, 2026. It lists four holdings and fund assets of $39,151,000, with 4,700,000 shares outstanding. The page shows an $8.34 NAV, an $8.33 closing price, a 0.18% discount, a 0.45% median 30-day spread, and a 0.75% total expense ratio. Its displayed allocation is 59.76% XRP, 40.19% CoinShares Physical XRP, 0.07% First American Government Obligations Fund, and negative 0.02% cash and other.",
+        "The issuer snapshot also shows the reported quantities changing from the May 31 filing: 23,317,381.8475 XRP units became 22,989,382 in the page’s display, while 427,680 CoinShares shares became 417,180. The values changed as well. Those are observable differences between two records, not an explanation of why the portfolio changed. The public material reviewed here does not establish whether the changes reflect creations, redemptions, rebalancing, pricing, fees, financing, a change in the accounting basis, or another portfolio event.",
+        "The page is useful for a current orientation, but it should not be treated as a continuous flow history. Its holdings are expressly subject to change, and the displayed assets, NAV, closing price, and premium or discount describe different measures. None of those fields supplies transaction-level evidence about XRP Ledger activity or proves that a particular investor cohort drove the difference."
+      ],
+      "sourceUrls": [
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, ETF buyers, and market observers",
+      "paragraphs": [
+        "For a retail buyer, XRPR is a listed security that seeks XRP exposure. It is not a personal XRP balance, a private key, or an operating role on the XRP Ledger. The SEC’s ETF guidance emphasizes that investors buy and sell shares at market prices that can differ from NAV. A buyer comparing products should therefore examine the share price, NAV, spread, premium or discount, expense ratio, portfolio composition, and prospectus rather than treating the product name as a custody statement.",
+        "For authorized participants and market makers, the operational details matter. The SAI says XRPR principally issues and redeems Creation Units for cash, with each unit containing 25,000 shares, while reserving the ability to use a basket or cash component. The ICI explains why the large-unit process supports exchange liquidity and helps connect market price with portfolio value. It also means that a change in ETF shares outstanding cannot automatically be translated into a one-for-one end-investor purchase or sale of XRP.",
+        "For XRP analysts, the filing is a regulated access and fund-construction record, not a ledger-usage report. It does not disclose XRP Ledger transaction counts, wallet activity, Ripple Payments volume, destination tags, or a causal link to XRP’s market price. The CoinShares line does not prove that XRP moved through the XRP Ledger during the period. Those questions require separate market and ledger evidence, with a clear time window and methodology.",
+        "For institutions evaluating the wrapper, the public records point to a due-diligence checklist rather than a single headline number. The relevant questions include which legal entity holds each exposure, how valuation is obtained, what cash creation and redemption process is used, how reverse repurchase activity is managed, which party controls custody, and how fees and tracking differences are borne. The disclosed structure is more informative than a simple spot label, but it is not a complete operational map."
+      ],
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm",
+        "https://www.rexshares.com/xrpr/"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels: confirmed facts, bounded inference, unresolved questions",
+      "paragraphs": [
+        "Confirmed facts: the SEC NPORT-P/A filed August 6 reports a May 31 portfolio containing XRP and CoinShares XRP ETP positions, plus a government-obligations fund and financing-related entries. The REX page labeled August 10 displays the same two principal exposure categories with different quantities and values. The REX product page and SAI describe direct or subsidiary exposure, cash-oriented Creation Unit processing, and the fund’s warning that its returns will not exactly match direct XRP ownership.",
+        "Bounded inference: the two reported investment lines appear to be an intentional part of XRPR’s permitted exposure model, because they recur across the formal filing and issuer snapshot. The quantity changes are consistent with portfolio activity between the two dates, but that is only an inference about timing. The sources reviewed do not name the event that caused the change. Performance can also differ from XRP because of expenses, the CoinShares layer, cash, liabilities, financing, trading prices, valuation timing, and other fund mechanics.",
+        "Unresolved questions: the records do not give a wallet-by-wallet allocation, a transaction-level explanation for the quantity changes, a daily creation and redemption history, or a complete description of CoinShares custody and valuation at every point in time. They also do not show whether XRPR changed XRP Ledger usage, drove a market-wide demand shift, affected Ripple activity, or caused any XRP price move. Those claims remain unconfirmed and should not be inferred from these holdings alone."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    },
+    {
+      "heading": "What to watch in the next XRPR records",
+      "paragraphs": [
+        "The next SEC NPORT-P or financial filing should provide a later report date and another formal comparison point. The useful fields are XRP units, CoinShares ETP shares, net assets, liabilities, financing entries, and any disclosed creations or redemptions. A later filing will still be a dated record, but it can narrow the interval in which the portfolio changed.",
+        "Updated REX holdings and basket disclosures may clarify whether the two exposure lines remain near their August 10 weights and whether the issuer’s cash mechanics are visible in the daily process. A revised prospectus or SAI could also add detail about subsidiary funding, reverse repurchase activity, custody responsibilities, or circumstances in which in-kind processing is used.",
+        "Market observers should pair the fund records with XRPR’s NAV, market price, spread, premium or discount, and tracking difference. They should then examine independent XRP market data and XRP Ledger data separately. Until those evidence streams line up, the responsible conclusion is that XRPR documents a layered exchange-traded exposure route. It does not, by itself, establish adoption, network usage, institutional demand, Ripple activity, or XRP price causality."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+        "https://www.rexshares.com/xrpr/",
+        "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The next SEC NPORT-P or financial filing with a report date after May 31, including XRP units, CoinShares ETP shares, net assets, liabilities, and disclosed creations or redemptions.",
+    "REX’s daily holdings and basket disclosures after the August 10 snapshot, especially the relative weights of the XRP and CoinShares lines.",
+    "A revised prospectus or statement of additional information that clarifies cash versus in-kind processing, subsidiary funding, reverse repurchase activity, and custody responsibilities.",
+    "XRPR’s NAV, market price, spread, premium or discount, and tracking difference after the disclosed portfolio changes.",
+    "Independent XRP market and XRP Ledger data before attributing XRPR’s holdings to institutional demand, network usage, Ripple activity, or XRP price causality."
+  ],
+  "sources": [
+    {
+      "name": "SEC EDGAR, REX-Osprey XRP ETF NPORT-P/A and consolidated schedule of investments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1771146/000119312526337173/xrpr.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "REX-Osprey XRPR product page, undated live page with August 10 snapshot",
+      "url": "https://www.rexshares.com/xrpr/",
+      "type": "primary"
+    },
+    {
+      "name": "SEC EDGAR, REX-Osprey XRP ETF statement of additional information",
+      "url": "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm",
+      "type": "primary",
+      "publishedAt": "2026-06-29"
+    },
+    {
+      "name": "SEC Investor.gov, Updated Investor Bulletin: Exchange-Traded Funds",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+      "type": "supporting",
+      "publishedAt": "2023-02-23"
+    },
+    {
+      "name": "Investment Company Institute, ETF Basics and Structure: FAQs",
+      "url": "https://www.ici.org/faqs/faqs_etfs",
+      "type": "supporting",
+      "publishedAt": "2026-04-22"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Track XRP exchange-traded products",
+      "href": "/etf"
+    },
+    {
+      "label": "How XRP ETFs work",
+      "href": "/learn/xrp-etf"
+    },
+    {
+      "label": "Spot versus futures XRP ETFs",
+      "href": "/learn/xrp-spot-etf-vs-futures-etf"
+    },
+    {
+      "label": "How institutional XRP custody works",
+      "href": "/learn/xrp-institutional-custody"
+    },
+    {
+      "label": "How ETF activity can affect XRP’s price",
+      "href": "/learn/xrp-etf-price-impact"
+    }
+  ]
+}
