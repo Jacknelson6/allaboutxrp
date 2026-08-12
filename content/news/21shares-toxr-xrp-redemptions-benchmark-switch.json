@@ -1,0 +1,230 @@
+{
+  "slug": "21shares-toxr-xrp-redemptions-benchmark-switch",
+  "title": "21Shares TOXR Reports 27.3 Million Fewer XRP Ahead of a Benchmark Switch",
+  "description": "21Shares' August 11 Form 10-Q shows TOXR's XRP holdings and shares fell about 20% in the first half, while a separate filing points to a planned CF Benchmarks-to-FTSE pricing transition on August 31.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-11T22:20:00-05:00",
+  "modifiedAt": "2026-08-11T22:20:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/toxr-benchmark-lens-changeover-editorial.webp",
+  "imageAlt": "A cobalt glass reference prism sits between two pale-gold calibration collars on an ivory stone track, with one vermilion changeover mark",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "toxr-benchmark-lens-changeover-still-life",
+  "imageSetting": "A narrow basalt-lined calibration vault with a single vertical skylight at blue-hour dawn",
+  "imageMetaphor": "A cobalt glass reference prism shifts between two pale-gold calibration collars on an ivory track, representing TOXR's planned move from the CME CF XRP-Dollar Reference Rate to FTSE while the XRP asset remains unchanged",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: a sparse, physically believable still life explaining the 21Shares XRP ETF's planned pricing-benchmark change and its measured first-half contraction. In a narrow basalt-lined calibration vault with a single vertical skylight at blue-hour dawn, place one cobalt glass reference prism on an ivory stone track between two pale-gold calibration collars. The left collar is slightly open and the right collar is aligned to receive the prism, with one restrained vermilion witness mark at the changeover point. Use a low side-on three-quarter view from the left, a horizontal lower-third arrangement, broad warm-ivory negative space above, and crisp physical contact shadows. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine, warm ivory, pale gold, and one restrained vermilion mark. Use extremely subtle translucent 1, 0, x stipple only inside a few atmospheric and shadow transitions, never as an all-over filter. The setting, viewpoint, blue-hour light, optical calibration mechanism, and changeover metaphor must differ from every registered news and guide image. Constraints: exactly one prism, two collars, one track, and one witness mark; no readable text, logo, watermark, literal crypto coin, currency symbol, dashboard, graph, scale, gauge, key, gate, amphora, voting stones, measuring plinth, surveyor instrument, Greek temple, bank, harbor, coast, terrace, market, observatory, workshop, conservatory, waterworks chamber, flat limestone archive, or repeated existing scene; no people, politicians, generic cyber cube, impossible building, fantasy ruin, panoramic city, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or all-over ASCII.",
+  "keywords": [
+    "21Shares XRP ETF",
+    "TOXR",
+    "XRP ETF redemptions",
+    "XRP ETF benchmark",
+    "FTSE digital asset index",
+    "CME CF XRP-Dollar Reference Rate",
+    "XRP holdings",
+    "SEC Form 10-Q"
+  ],
+  "keyTakeaways": [
+    "TOXR reported 108,256,464.0739 XRP at June 30, 2026, down 27,302,609.4338 XRP, or 20.14%, from December 31, 2025.",
+    "The trust created 1.47 million shares and redeemed 4.25 million during the first half, leaving 11.11 million shares outstanding at June 30.",
+    "A separate July 7 filing says the CF Benchmarks license is planned to end August 31, with a new FTSE licensing agreement intended around August 24.",
+    "The filings support a dated account of one fund's structure, not a forecast for XRP, proof of XRP Ledger usage, or confirmation that the FTSE transition is complete."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: TOXR's XRP balance fell as redemptions outweighed creations",
+      "paragraphs": [
+        "21Shares' TOXR reported 108.26 million XRP, valued at $112.92 million, at June 30, down from 135.56 million XRP at year-end after 4.25 million shares were redeemed and 1.47 million created. The filing also repeats a planned benchmark transition: CF Benchmarks' license ends August 31, with FTSE intended next. Neither record predicts XRP's price.",
+        "This is a market-structure report, not a claim about the XRP Ledger's usage or Ripple's business. The trust's shares and underlying XRP both contracted, while the XRP reference value used in management discussion fell 42.91% from December 31 to June 30. The benchmark change concerns the input used to value TOXR shares and calculate net asset value. It does not replace XRP or alter the ledger.",
+        "Source precedence matters. The August 11, 2026 Form 10-Q is the controlling public record for the historical quantities, values, creations, redemptions, and first-half results. The July 7, 2026 Form 8-K is the controlling record for the license termination and intended FTSE arrangement. Cboe, CME Group, and the Investment Company Institute provide independent context for how a benchmark and an ETF creation unit work."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+        "https://www.cboe.com/us/equities/listings/listed_products/symbols/TOXR",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    },
+    {
+      "heading": "What the August 11 Form 10-Q records",
+      "paragraphs": [
+        "The unaudited 10-Q reports an ending XRP balance of 108,256,464.0739 at June 30, 2026. It values that holding at $112,922,318 and reports net assets of $112,916,689. At December 31, 2025, the trust held 135,559,073.5077 XRP valued at $247,693,539 and reported net assets of $247,658,271. The comparison is date-specific: it describes a six-month balance change, not a live intraday position.",
+        "The important comparison is between quantity, share count, and value. XRP held fell 20.14%, almost the same percentage as shares outstanding, which fell 20.01%. Net assets fell 54.41% and NAV per share fell 43.02%. The filing's management discussion attributes the asset-base decline primarily to a 42.91% fall in the XRP price used in that discussion, then says the net share decline further reduced the trust's assets. That explanation belongs to TOXR's financial report and should not be generalized into a claim about all XRP market flows."
+      ],
+      "table": {
+        "caption": "TOXR's reported first-half balance and value changes",
+        "headers": [
+          "Metric",
+          "December 31, 2025",
+          "June 30, 2026",
+          "Change"
+        ],
+        "rows": [
+          [
+            "XRP held",
+            "135,559,073.5077",
+            "108,256,464.0739",
+            "-27,302,609.4338 (-20.14%)"
+          ],
+          [
+            "Shares outstanding",
+            "13,890,000",
+            "11,110,000",
+            "-2,780,000 (-20.01%)"
+          ],
+          [
+            "Net assets",
+            "$247,658,271",
+            "$112,916,689",
+            "-$134,741,582 (-54.41%)"
+          ],
+          [
+            "NAV per share",
+            "$17.83",
+            "$10.16",
+            "-$7.67 (-43.02%)"
+          ],
+          [
+            "XRP reference value in management discussion",
+            "$1.8272",
+            "$1.0431",
+            "-$0.7841 (-42.91%)"
+          ],
+          [
+            "Share activity during first half",
+            "Not applicable",
+            "1,470,000 created; 4,250,000 redeemed",
+            "Net -2,780,000"
+          ]
+        ],
+        "sourceNote": "Source: 21Shares XRP ETF Form 10-Q filed August 11, 2026, covering the unaudited six months ended June 30, 2026. Percentage changes are AllAboutXRP calculations from reported values."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.21shares.com/en-us/products-us/toxr",
+        "https://www.cboe.com/us/equities/listings/listed_products/symbols/TOXR"
+      ]
+    },
+    {
+      "heading": "Redemptions, not just mark-to-market loss, changed the trust",
+      "paragraphs": [
+        "TOXR's XRP-unit reconciliation shows how the ending balance was reached. The trust started 2026 with 135,559,073.5077 XRP, received 14,338,631.5739 XRP for share contributions, delivered 41,458,741.0077 XRP for redemptions, and sold 182,500 XRP to pay expenses. The resulting 108,256,464.0739 XRP matches the ending schedule. The filing separately reports $25,497,750 of contributions for shares issued and $74,998,281 of distributions for shares redeemed.",
+        "Those lines establish a contraction in TOXR's own XRP inventory. They do not establish how much XRP left the broader market. A redemption can be processed with cash or in kind under the fund's structure, and the public filing does not identify the final owner, counterparty, or venue for the XRP associated with each transaction. It is therefore accurate to say that TOXR sold XRP for redemptions during the period. It is not accurate to call the entire balance reduction a market-wide XRP outflow without additional evidence.",
+        "The share counts also need ETF context. TOXR reports 147 creation baskets, or 1.47 million shares, and 425 redeemed baskets, or 4.25 million shares, during the first half. The Investment Company Institute explains that authorized participants are the only investors that transact directly with an ETF in creation units, while those firms may act for market makers, advisers, hedge funds, proprietary traders, or clients. TOXR's aggregate basket count therefore cannot identify whether the underlying demand or selling pressure came from retail, institutional, or mixed investors."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    },
+    {
+      "heading": "The benchmark transition is operational, not a new XRP asset",
+      "paragraphs": [
+        "On June 30, 2026, 21Shares US LLC notified CF Benchmarks that the licensing agreement for the CME CF XRP-Dollar Reference Rate, New York Variant would terminate effective August 31. The July 7 Form 8-K says that rate is used to value TOXR shares and calculate the trust's net asset value. The August 11 10-Q repeats the disclosure and says the sponsor intends to enter a license with FTSE International Limited on or about August 24.",
+        "CME Group describes its CME CF Reference Rates as once-daily rates that aggregate executed trade flow from major spot exchanges during a defined calculation window. Its methodology FAQ says the one-hour window is split into twelve five-minute intervals, with the final rate formed from the equally weighted average of the volume-weighted median prices in those intervals. That context explains why a benchmark is part of an ETF's operating and valuation stack. It is an external price reference, not a second form of XRP custody and not an amendment to the XRP Ledger.",
+        "The transition is not yet a confirmed completed event in the records reviewed. The 8-K uses future-tense language for the FTSE agreement and does not provide the successor index's exact name, calculation window, constituent exchanges, or side-by-side methodology. The 10-Q says the change is not expected to have a material impact on NAV, fair value, or results of operations, but that is the sponsor's stated expectation. The first published NAV after implementation will be more informative than the announcement alone."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.cmegroup.com/articles/faqs/cme-cf-cryptocurrency-benchmarks-faq.html",
+        "https://www.cboe.com/us/equities/listings/listed_products/symbols/TOXR"
+      ]
+    },
+    {
+      "heading": "What the change means for TOXR holders and XRP analysts",
+      "paragraphs": [
+        "For a TOXR shareholder, the immediate issue is measurement continuity. The fund still seeks exposure to spot XRP and still holds XRP, but the daily valuation reference is scheduled to move from a CME CF New York rate to a planned FTSE arrangement. The 21Shares product page warns that shares trade at market price rather than NAV, can trade at a premium or discount, and are not individually redeemable. A holder should separate the exchange price, the fund's published NAV, and the benchmark input behind that NAV.",
+        "For a direct XRP holder, TOXR's first-half contraction is not a verdict on XRP Ledger activity, Ripple adoption, or XRP's long-term use. The filing tells us what one trust held at two dated points and how it processed its baskets. It does not provide ledger transaction data, exchange-wide inventory, or a causal explanation for XRP's market price. The correct implication is narrower: regulated exchange-traded exposure can expand or contract through primary-market mechanics while XRP itself continues trading in a separate spot market.",
+        "For authorized participants, market makers, and fund operations teams, the watchpoint is the changeover process. The implementation record should identify the successor benchmark, effective date, operational cutover, and any revised prospectus or basket language. Cboe lists TOXR on Cboe BZX and describes the existing benchmark objective, while the SEC filings provide the transition dates. The market may absorb the change cleanly, but the public evidence does not yet measure the result.",
+        "For analysts comparing XRP ETFs, keep the reporting dates aligned. TOXR's 10-Q covers June 30, the benchmark notice was filed July 7 with a June 30 event date, and the live 21Shares page is a moving August 11 snapshot. Mixing those records into one undated performance series can make a fund look larger, smaller, or more active than it was at the period being studied. A clean comparison should label the source date, valuation method, share count, XRP quantity, and whether a figure is historical or live."
+      ],
+      "sourceUrls": [
+        "https://www.21shares.com/en-us/products-us/toxr",
+        "https://www.cboe.com/us/equities/listings/listed_products/symbols/TOXR",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm"
+      ]
+    },
+    {
+      "heading": "Uncertainty: confirmed facts, bounded inference, and unresolved questions",
+      "paragraphs": [
+        "Confirmed facts: the August 11 Form 10-Q reports 108,256,464.0739 XRP, 11.11 million shares, $112,916,689 of net assets, and $10.16 NAV per share at June 30. It records 1.47 million shares created, 4.25 million redeemed, and a 20.14% decline in XRP quantity from year-end. The July 7 Form 8-K says the CF Benchmarks license is scheduled to terminate August 31 and that a FTSE license is intended around August 24.",
+        "Bounded inference: the near-matching 20.14% decline in XRP quantity and 20.01% decline in shares outstanding indicates that the trust's contraction was broadly shared across the fund rather than represented only by a per-share dilution effect. The filing's reported $74,998,281 of distributions for redeemed shares is consistent with substantial primary-market shrinkage. It does not reveal the motivations of the authorized participants or the final destination of the underlying XRP.",
+        "Unresolved: the public record does not yet show that the FTSE agreement was signed, the successor benchmark's detailed methodology, any transition-day tracking difference, or whether the benchmark change affected the market price or NAV. It also does not prove that TOXR's redemptions changed XRP's wider supply-demand balance. Until those records appear, the defensible conclusion is structural and dated: TOXR became smaller in the first half, and its price-reference infrastructure is scheduled for a change."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+        "https://www.cmegroup.com/articles/faqs/cme-cf-cryptocurrency-benchmarks-faq.html",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A subsequent SEC filing or prospectus supplement confirming whether the intended FTSE licensing agreement was executed and naming the successor benchmark.",
+    "The exact effective date, methodology, calculation window, constituent exchanges, and operational cutover for the new pricing reference.",
+    "TOXR's first NAV and market-price observations after the benchmark transition, including any disclosed tracking difference or premium and discount movement.",
+    "The September 30, 2026 XRP balance, shares outstanding, creations, redemptions, and NAV in the next quarterly filing.",
+    "Independent evidence before attributing TOXR's redemptions to retail behavior, institutional selling, XRP price causality, or a change in XRP Ledger usage."
+  ],
+  "sources": [
+    {
+      "name": "SEC EDGAR, 21Shares XRP ETF Form 10-Q Filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028835/000121390026087823/ea0299658-10q_21shares.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-11"
+    },
+    {
+      "name": "SEC EDGAR, 21Shares XRP ETF Form 8-K on benchmark licensing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+      "type": "primary",
+      "publishedAt": "2026-07-07"
+    },
+    {
+      "name": "21Shares TOXR product page (undated live page; current snapshot checked August 11, 2026)",
+      "url": "https://www.21shares.com/en-us/products-us/toxr",
+      "type": "primary"
+    },
+    {
+      "name": "Cboe BZX, TOXR listing and fund description (undated live page)",
+      "url": "https://www.cboe.com/us/equities/listings/listed_products/symbols/TOXR",
+      "type": "supporting"
+    },
+    {
+      "name": "CME Group, CME CF Cryptocurrency Benchmarks FAQ (undated live reference)",
+      "url": "https://www.cmegroup.com/articles/faqs/cme-cf-cryptocurrency-benchmarks-faq.html",
+      "type": "supporting"
+    },
+    {
+      "name": "Investment Company Institute, ETF Basics and Structure FAQs",
+      "url": "https://www.ici.org/faqs/faqs_etfs",
+      "type": "supporting",
+      "publishedAt": "2026-04-22"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/etf",
+      "label": "Track XRP exchange-traded products"
+    },
+    {
+      "href": "/learn/xrp-etf",
+      "label": "How XRP ETFs work"
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot versus futures XRP ETFs"
+    },
+    {
+      "href": "/learn/xrp-etf-price-impact",
+      "label": "How ETF activity can affect XRP's price"
+    },
+    {
+      "href": "/learn/xrp-in-retirement-accounts",
+      "label": "XRP exposure in retirement accounts"
+    }
+  ]
+}
