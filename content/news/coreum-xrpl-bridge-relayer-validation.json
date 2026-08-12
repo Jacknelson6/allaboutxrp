@@ -1,0 +1,205 @@
+{
+  "slug": "coreum-xrpl-bridge-relayer-validation",
+  "title": "Coreum-XRPL Bridge Drain Points to Relayer Validation Failure",
+  "description": "An August 9 bridge drain sent 199,916.3 XRP from a Coreum-XRPL multisig. Ledger records and bridge code point to deposit validation, not an XRP Ledger consensus exploit, while an operator postmortem remains outstanding.",
+  "category": "Security",
+  "publishedAt": "2026-08-12T14:13:29-05:00",
+  "modifiedAt": "2026-08-12T14:13:29-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/coreum-xrpl-bridge-validation-editorial.webp",
+  "imageAlt": "A broken pale-gold seal clasp beside a cobalt reserve bottle, shallow ivory basin, two blue glass markers, and one released droplet on an ivory stone floor.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "coreum-bridge-phantom-deposit-reserve-vessel-still-life",
+  "imageSetting": "A quiet dry salt-pan inspection floor at violet dusk, viewed from low front-left with a blank ivory stone backdrop and broad negative space",
+  "imageMetaphor": "A broken pale-gold verification clasp sits beside a cobalt reserve vessel and a shallow receiving basin while two blue markers remain outside it, showing a false deposit opening a real reserve release",
+  "imagePrompt": "A sparse 16:9 editorial still life in the AAXRP classical-revival oil system: a quiet dry salt-pan inspection floor at violet dusk, viewed low from the front-left, with broad negative space and a blank ivory stone backdrop. Four deliberate object groups only: a shallow unmarked ivory stone receiving basin, a slim pale-gold rectangular verification seal clasp split cleanly through its hinge with one tiny vermilion wax fracture, a cobalt glass reserve bottle releasing one measured blue droplet, and two cobalt glass markers outside the basin. The arrangement must explain a false cross-chain deposit opening a real reserve release. Use crisp sculptural oil modeling, rich restrained glazing, selective impasto, pale gold, cobalt and water-blue accents, and extremely subtle 1/0/x stipple only inside a few atmospheric or shadow transitions. No words, lettering, numbers, logos, XRP symbols, crypto coins, dashboards, charts, screens, people, animals, architecture, panoramic city, harbor, terrace, temple, observatory, workshop, conservatory, quarry, archive table, gauge, key, lock, gate, wheel, manifold, border, frame, watermark, or all-over dither.",
+  "keywords": [
+    "Coreum-XRPL bridge",
+    "XRP Ledger security",
+    "cross-chain bridge exploit",
+    "relayer validation",
+    "XRP bridge drain",
+    "DefaultRipple",
+    "trust-line tokens",
+    "multisig security"
+  ],
+  "keyTakeaways": [
+    "An independent reconstruction counted 199,916.3 XRP in 94 bridge-signed payments over 97 minutes on August 9, 2026, leaving about 493.5 XRP in the bridge account.",
+    "The public evidence points to relayer and contract evidence logic accepting self-directed token activity as a deposit. That is an independent reconstruction, not a Coreum or TX postmortem.",
+    "Native XRP and XRP Ledger consensus are not shown to be compromised. DefaultRipple applies to trust-line tokens, so the practical response is to monitor bridge status and remediation rather than change an XRP account flag."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: what the public record shows",
+      "paragraphs": [
+        "An independent reconstruction of validated XRP Ledger and Coreum records says the Coreum-XRPL bridge released 199,916.3 XRP on August 9 after relayers treated attacker-controlled transfers as deposits. The bridge's multisig signed the withdrawals. That evidence points to a cross-chain validation failure, not a native XRP Ledger consensus exploit. Coreum's postmortem remains unresolved.",
+        "Confirmed on-chain fact: the investigation counted 94 native XRP payments from the bridge account to two newly created wallets across roughly 97 minutes, with the bridge balance falling to about 493.5 XRP. The official XRP Ledger record for the final release shows a successful Payment of 520.3 XRP at ledger 106,184,842, sent by the bridge account and signed by 17 listed signers. That single record does not prove the whole total, but it verifies the central pattern: the bridge account itself authorized the outflow.",
+        "The event was first described publicly as a possible rippling or partial-payment problem. That explanation does not fit the transaction authorship shown in the ledger records. The outflows were not an outside account silently moving native XRP through a trust line. They were payments authored by the bridge's own multisignature account. A separate independent investigation and CryptoSlate's August 12 report both place the suspected failure on the bridge's cross-chain interpretation layer.",
+        "Uncertainty label: 199,916.3 XRP is an independent reconstruction of public records, not a loss figure published by Coreum or TX. The relayer diagnosis is also an evidence-based reconstruction, not an operator admission. The official bridge material reviewed for this report explains the architecture but does not provide a dated incident postmortem, confirmed patch, recovery statement, or user-compensation plan as of August 12, 2026."
+      ],
+      "sourceUrls": [
+        "https://livenet.xrpl.org/transactions/CD308F78B8E3154F809C0DA46EE54BB9B00DAC14E81805A4F7317105B128020D",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain",
+        "https://cryptoslate.com/xrp-loses-1-for-the-first-time-since-trumps-2024-election-as-bearish-bets-surge-and-200000-xrp-stolen/"
+      ]
+    },
+    {
+      "heading": "The timeline: a bridge account that paid out",
+      "paragraphs": [
+        "The relevant event occurred on August 9, 2026. The independent ledger reconstruction places the first bridge release at about 19:16 UTC and the last large release at 20:53 UTC. Two receiving accounts were created earlier that afternoon. One received roughly 107,397.5 XRP and the other about 92,518.8 XRP, according to the reconstruction. Both then forwarded almost all of the funds onward, which makes the receiving addresses useful for monitoring but does not identify the person or group behind them.",
+        "The bridge account's transaction structure is more important than the speed of the transfers. It used an empty SigningPubKey and a Signers array containing 17 signatures, while the independent review identified a 28-key relayer set and a 17-signature quorum. The official final transaction is validated with a tesSUCCESS result and names the bridge account as Account. In plain language, the XRP Ledger recorded the bridge's authorization of each payout, not a protocol-level balance adjustment that bypassed the bridge.",
+        "The sequence also matters. The reconstruction found a short series of wrapped-token payments before the native XRP releases, followed by repeated conversion payments and a large final drain. None of that turns a suspicious sequence into proof of motive. It does, however, distinguish two questions that are often collapsed in fast-moving crypto coverage: what the XRP Ledger finalized, and why the bridge software decided to sign those transactions. The first question is directly observable. The second requires reading the cross-chain contract, relayer code, and Coreum-side records together."
+      ],
+      "sourceUrls": [
+        "https://livenet.xrpl.org/transactions/CD308F78B8E3154F809C0DA46EE54BB9B00DAC14E81805A4F7317105B128020D",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain",
+        "https://cryptoslate.com/xrp-loses-1-for-the-first-time-since-trumps-2024-election-as-bearish-bets-surge-and-200000-xrp-stolen/"
+      ]
+    },
+    {
+      "heading": "Mechanism: how a cross-chain proof can be wrong",
+      "paragraphs": [
+        "The official TX bridge documentation describes a familiar two-sided flow. A user sends an asset to the XRPL multisignature account, relayers watch for the transaction, and a relayer submits proof to the bridge smart contract. For the return path, a user sends the representation to the TX-side bridge contract, relayers observe that event, and the XRPL multisig delivers the asset to a destination address. The relayer is therefore a messenger and signer between two separate state machines. It is not the XRP Ledger consensus process.",
+        "The pinned relayer source reviewed here shows the XRPL-to-Coreum path processing a successful Payment when it finds the expected Coreum recipient memo. It reads the ledger's delivered amount, converts it, and constructs evidence containing the transaction hash, issuer, currency, amount, and Coreum recipient. At commit c0e94a32, the shown path does not compare the Payment destination with the configured bridge address before submitting that evidence. That is a code observation, not proof that the same code was running unchanged during the incident.",
+        "The companion contract source shows a second important boundary. The evidence object records an XRP Ledger transaction hash, asset fields, amount, and recipient, then the contract counts distinct relayer submissions for the same evidence hash until its threshold is reached. The evidence definition itself does not carry a separate XRPL destination field. Agreement among relayers can therefore establish that many operators saw the same input, while still failing to establish that the input was a genuine deposit into the bridge. A threshold protects against disagreement. It cannot repair a shared predicate that is too permissive.",
+        "The independent reconstruction says the attacker used self-directed transfers carrying bridge-recipient metadata. Because the bridge issued the wrapped asset, those movements appeared in the issuer's trust-line history. The relayer scanner then treated them as deposits, the Coreum-side accounting credited a representation, and the resulting balance could be bridged back through the ordinary withdrawal path. The key inference is not that signatures were forged. It is that valid signatures were applied to a balance created from a deposit event that the bridge had misclassified."
+      ],
+      "sourceUrls": [
+        "https://docs.tx.org/docs-bridge/asset-flow",
+        "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/relayer/processes/xrpl_to_coreum.go",
+        "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/contract/src/evidence.rs",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain"
+      ]
+    },
+    {
+      "heading": "What this does and does not say about XRP Ledger",
+      "paragraphs": [
+        "The XRP Ledger distinction is specific. Official XRPL documentation defines rippling as indirect movement of trust-line tokens. It explains that DefaultRipple is an account setting that enables rippling for incoming trust lines. Native XRP is not a trust-line token. A DefaultRipple flag therefore does not provide a mechanism for an unrelated account to pull native XRP out of a bridge account through the issuer. That flag may matter in issued-token flows, but it does not explain the bridge-signed native XRP Payments identified here.",
+        "Confirmed fact: the observed final release was a validated XRP Ledger Payment with the bridge account as sender, a concrete destination, a successful result, and 17 signatures. Inference: the bridge's own cross-chain process produced or accepted the authorization. Unresolved: whether the deployed relayer code exactly matched the reviewed commit, which Coreum accounts initiated the phantom deposits, how much value was ultimately recovered, and whether any operator or auditor has confirmed the reconstruction.",
+        "This is not a claim that every bridge built around XRPL is safe, or that a protocol cannot contain future defects. It is a boundary claim. XRPL consensus finalized transactions that satisfied the bridge's signing rules. The suspected failure occurred in software and contract logic surrounding that consensus, where an external system interpreted a token event as proof of a reserve-backed deposit. Treating those layers as the same system would mislead both XRP holders and bridge users."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling",
+        "https://livenet.xrpl.org/transactions/CD308F78B8E3154F809C0DA46EE54BB9B00DAC14E81805A4F7317105B128020D",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain"
+      ]
+    },
+    {
+      "heading": "Implications for affected readers",
+      "paragraphs": [
+        "For XRP holders who never used the Coreum-XRPL bridge, the current evidence does not show that ordinary XRP accounts or XRP Ledger consensus were compromised. There is no reason in these records to change an account's DefaultRipple setting as a response to the drain. Readers should still avoid turning that limited finding into a blanket safety guarantee for every cross-chain product. A bridge adds its own contracts, relayers, keys, and accounting assumptions around the base ledger.",
+        "For bridge users, liquidity providers, and anyone holding a wrapped representation, the practical stance is to treat the bridge as operationally impaired until an official status notice explains what was stopped, what was patched, and which balances are recognized. Do not send new funds solely because a front end still displays a deposit button. Save transaction hashes, destination addresses, and account records that show what you held or attempted to transfer. Those records matter if the operator later publishes a claims or remediation process.",
+        "For developers, the engineering lesson is sharper than the headline. A deposit proof should bind the source transaction to the exact bridge destination, issuer, currency, amount, recipient, validated ledger, and finality state before minting or crediting a representation. The system should also reject self-directed activity that merely passes through an issuer's trust-line history. Independent relayers running identical software do not create independent validation if every instance makes the same unchecked assumption.",
+        "For market observers, this incident is a reminder to separate infrastructure exposure from XRP price claims. The public reports reviewed here establish a bridge drain and a likely validation path. They do not establish a causal XRP price reaction, a broader XRP Ledger exploit, an attacker identity, or a confirmed recovery outcome. Any later reporting should earn those claims with new records rather than infer them from the size of the outflow."
+      ],
+      "sourceUrls": [
+        "https://docs.tx.org/docs-bridge/asset-flow",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling",
+        "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/relayer/processes/xrpl_to_coreum.go",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, inference, and open questions",
+      "paragraphs": [
+        "Confirmed from the primary ledger record: the final release transaction was validated on August 9, 2026, at ledger 106,184,842. It sent 520.3 XRP from the bridge account to one of the receiving accounts, returned tesSUCCESS, and included 17 signatures. Confirmed from the independent ledger reconstruction: the broader sequence contained 94 native XRP releases totaling 199,916.3 XRP and left about 493.5 XRP in the bridge account. The second figure is a cross-record calculation, so it should remain attributed to that investigation.",
+        "Independent reconstruction: the bridge's relayer path appears to have accepted self-directed issued-token activity as a deposit because the observed proof path did not verify that the Payment was addressed to the bridge. The source code supports that as a plausible mechanism, and the two-chain transaction pattern is consistent with it. It is still an inference until Coreum or TX publishes a postmortem that identifies the deployed version, the exploit path, and the operator response.",
+        "Open questions as of August 12, 2026 include whether the bridge contract is halted or merely quiet, whether relayers have rotated keys or disabled evidence submission, whether a patched release is available, whether the independent audit mentioned in the official documentation has been published, and whether affected users will receive remediation. The answers should be checked against official notices, signed transactions, contract state, and versioned source, not social-media screenshots alone."
+      ],
+      "sourceUrls": [
+        "https://livenet.xrpl.org/transactions/CD308F78B8E3154F809C0DA46EE54BB9B00DAC14E81805A4F7317105B128020D",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain",
+        "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/relayer/processes/xrpl_to_coreum.go",
+        "https://cryptoslate.com/xrp-loses-1-for-the-first-time-since-trumps-2024-election-as-bearish-bets-surge-and-200000-xrp-stolen/"
+      ]
+    },
+    {
+      "heading": "Why the distinction matters for cross-chain security",
+      "paragraphs": [
+        "A bridge is an economic interpreter. The base chain records an event, a relayer decides how to describe that event to another chain, and a contract decides whether enough descriptions justify minting or releasing value. Each handoff adds a new place where identity, destination, amount, asset, and finality can be confused. In this case, the public evidence suggests the bridge followed its signing procedure while the deposit predicate underneath that procedure was wrong.",
+        "That pattern is important for the XRP Ledger ecosystem because it changes the right remediation question. The first question is not whether the XRPL network should disable a general account flag. It is whether this bridge can prove that a source-chain payment reached the designated custody account and that the corresponding cross-chain credit was not already consumed, replayed, or manufactured through an issuer-side path. The answer belongs in the bridge's code, contract state, monitoring, and incident process.",
+        "The responsible conclusion is therefore narrow. The August 9 event is material bridge-security news involving XRP and XRPL infrastructure. The available records point away from a native XRP Ledger consensus exploit and toward a relayer validation failure, but the final causal account remains pending an official operator postmortem. Until that record exists, the most reliable facts are the validated transactions, the published bridge design, the pinned source code, and the limits those sources place on what can be claimed."
+      ],
+      "sourceUrls": [
+        "https://docs.tx.org/docs-bridge/asset-flow",
+        "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/contract/src/evidence.rs",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling",
+        "https://xrpl.to/insights/coreum-bridge-xrp-drain"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "An official Coreum or TX incident notice that confirms bridge status, scope, deployed software version, and whether new deposits or withdrawals are disabled.",
+    "A versioned bridge patch or postmortem showing that source destination, issuer, currency, amount, recipient, validated ledger, and finality are bound before minting or crediting.",
+    "New validated XRP Ledger and Coreum records involving the bridge account, including any replenishment, recovery transfer, key rotation, or resumed payout activity.",
+    "A published audit or remediation process that explains which wrapped balances are recognized and how affected bridge users can submit evidence without sending additional funds.",
+    "Independent review of the contract state and relayer behavior, especially whether the reported bridge halt is confirmed by official sources rather than inferred from silence."
+  ],
+  "sources": [
+    {
+      "name": "XRP Ledger validated final bridge release record, event dated August 9, 2026",
+      "url": "https://livenet.xrpl.org/transactions/CD308F78B8E3154F809C0DA46EE54BB9B00DAC14E81805A4F7317105B128020D",
+      "type": "primary"
+    },
+    {
+      "name": "TX official XRPL-TX Bridge asset flow documentation, undated live reference accessed August 12, 2026",
+      "url": "https://docs.tx.org/docs-bridge/asset-flow",
+      "type": "primary"
+    },
+    {
+      "name": "CoreumFoundation bridge relayer source at commit c0e94a32, undated source record",
+      "url": "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/relayer/processes/xrpl_to_coreum.go",
+      "type": "primary"
+    },
+    {
+      "name": "CoreumFoundation bridge evidence contract at commit c0e94a32, undated source record",
+      "url": "https://github.com/CoreumFoundation/coreumbridge-xrpl/blob/c0e94a32/contract/src/evidence.rs",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger official rippling documentation, undated live reference accessed August 12, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/rippling",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL.to independent Coreum bridge drain reconstruction, published August 11, 2026",
+      "url": "https://xrpl.to/insights/coreum-bridge-xrp-drain",
+      "type": "supporting",
+      "publishedAt": "2026-08-11"
+    },
+    {
+      "name": "CryptoSlate bridge-drain report, published August 12, 2026",
+      "url": "https://cryptoslate.com/xrp-loses-1-for-the-first-time-since-trumps-2024-election-as-bearish-bets-surge-and-200000-xrp-stolen/",
+      "type": "supporting",
+      "publishedAt": "2026-08-12"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-trust-lines-explained",
+      "label": "How XRPL trust lines work",
+      "topic": "Token mechanics",
+      "description": "Understand the issued-token balances and trust-line settings that are distinct from native XRP."
+    },
+    {
+      "href": "/learn/xrp-and-cbdc-bridge",
+      "label": "XRP and cross-chain bridges",
+      "topic": "Infrastructure",
+      "description": "See why bridge contracts, relayers, custody accounts, and proof systems add separate risk boundaries."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works",
+      "topic": "Core protocol",
+      "description": "Review validation, consensus, native XRP, and the ledger objects involved in a transaction."
+    },
+    {
+      "href": "/learn/xrpl-dex-vs-centralized-exchange",
+      "label": "XRPL DEX versus centralized exchanges",
+      "topic": "Market structure",
+      "description": "Learn how XRPL offers and trust-line assets can interact without confusing them with bridge custody."
+    }
+  ]
+}
