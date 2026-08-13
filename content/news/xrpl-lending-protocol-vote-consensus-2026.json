@@ -1,0 +1,175 @@
+{
+  "slug": "xrpl-lending-protocol-vote-consensus-2026",
+  "title": "XLS-66 Lending Protocol Shows 37.14% Vote Consensus, Still Not Live",
+  "description": "The live XLS-66 page reports 37.14% vote consensus for the XRP Ledger Lending Protocol. A validated feature response checked August 13 shows both features supported but disabled on mainnet.",
+  "category": "XRP Ledger DeFi",
+  "publishedAt": "2026-08-13T14:11:00-05:00",
+  "modifiedAt": "2026-08-13T14:11:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-lending-protocol-vote-consensus-editorial.webp",
+  "imageAlt": "A bronze water clock below a vermilion threshold beside a cobalt lending tablet and three blue share markers on ivory stone.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clepsydra-lending-vote-threshold-still-life",
+  "imageSetting": "A quiet enclosed credit-archive alcove of veined ivory stone with one dark cedar work surface at cool lavender predawn.",
+  "imageMetaphor": "A low water level beneath one vermilion mark shows the Lending Protocol has a measurable vote but has not crossed the XRP Ledger activation threshold.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in a luminous academic classical-revival oil style, 16:9 landscape. Show XLS-66 as built but not activated: one antique bronze clepsydra with a clearly low water level below one restrained vermilion calibration notch, one unmarked cobalt-blue glazed ceramic lending tablet outside a shallow pale-gold circular receiving recess, and exactly three small matte cobalt clay share markers arranged in a precise row. Place the sparse still life on veined ivory stone with one dark cedar work surface in a quiet enclosed credit archive at cool lavender predawn, viewed from a low right-side three-quarter angle, with broad warm ivory negative space to the right. Use plausible scale, contact shadows, tarnished bronze, ceramic glaze, pale-gold metal, and crisp classical oil modeling. Allow only tiny translucent 1/0/x stipple in a few atmospheric or shadow transitions. No text, numbers, labels, logos, watermark, UI, chart, crypto coin, person, politician, dashboard, cyber cube, futuristic device, gate, key, lock, scale, prism, hourglass, funnel, channel, rail, bridge, passport folio, bank interior, Greek temple, Greek coast, harbor, terrace, panorama, or fantasy ruin. Do not reuse the prior AAXRP salt-pan causeway, subterranean or windowless limestone archives, white-stone instrument room, open-air quarry, waterworks archive, black basalt table, marble calibration terrace, limestone vault, covered travertine civic archive, or misty waterworks hall.",
+  "keywords": [
+    "XRP Ledger Lending Protocol",
+    "XLS-66",
+    "XRPL DeFi",
+    "Single Asset Vault",
+    "XRP Ledger amendments",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "The official XLS-66 page reports 37.14% vote consensus and says the amendment opened for mainnet voting with version 3.1.0.",
+    "A validated XRPL feature response checked on August 13 shows LendingProtocol and SingleAssetVault supported but disabled.",
+    "If activated, the protocol would create fixed-term, uncollateralized on-chain loans using pooled funds from a Single Asset Vault.",
+    "Halborn's June 12 re-audit lists five findings, with reported findings addressed but two residual statuses marked risk accepted and one acknowledged."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XLS-66 is in the voting pipeline, not a live lending market",
+      "paragraphs": [
+        "As of August 13, 2026, the XRP Ledger's XLS-66 Lending Protocol is available for testing and mainnet voting, but it is not enabled on the production ledger. The official status page shows 37.14% vote consensus, while a validated feature response marks LendingProtocol and SingleAssetVault as supported but disabled.",
+        "Confirmed record: Ripple Open Source lists the XLS-66 specification as live on December 1, 2025, available on Devnet January 13, 2026, and open for mainnet voting with version 3.1.0 on January 27, 2026. That timeline describes readiness and governance state. It does not establish activation, customer use, deposited assets, or a live borrowing market.",
+        "Editorial boundary: not live here means the amendment was disabled in the validated feature response checked for this report. It does not mean the code is absent, that nobody is testing it on Devnet, or that no off-ledger lender offers XRP-related credit. Those are separate questions that the cited records do not answer."
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ]
+    },
+    {
+      "heading": "What the 37.14% status record actually measures",
+      "paragraphs": [
+        "The live XLS-66 page labels 37.14% as Vote Consensus. On the page checked for this report, that figure is not accompanied by a validator-by-validator list, a vote-weight denominator, or a projected activation date. The responsible reading is therefore narrow: 37.14% is the published consensus metric, not a measure of XRP lending volume, liquidity, users, or market share.",
+        "The XRP Ledger amendment documentation supplies the governance context. Validators vote on amendments, and an amendment passes permanently when it receives more than 80% support for two weeks. The same documentation explains that support can move below 80% before activation, which temporarily rejects the amendment and restarts the two-week period. A release being available and a feature being supported are not the same as that condition being met.",
+        "Inference, clearly labeled: because 37.14% is below the documented more-than-80% support level, the current snapshot does not show XLS-66 meeting the numeric part of the activation condition. Uncertainty remains around the future path. One snapshot cannot predict whether support will rise, fall, or remain unchanged, and the public status page does not explain why the current percentage is 37.14%."
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Why a code release, a vote, and activation are separate milestones",
+      "paragraphs": [
+        "XRP Ledger version 3.1.0, published January 28, 2026, introduced the SingleAssetVault and LendingProtocol amendments in the reference server implementation. That release made the functionality available to software that supports it. The validated feature response is the separate check that matters for current mainnet behavior: both features are supported, but neither is enabled in the response checked on August 13.",
+        "The release trail also shows why a protocol should not be treated as finished merely because its first implementation shipped. Version 3.1.3, published May 14, included fixes affecting Single Asset Vaults and the Lending Protocol. Version 3.2.0, published June 15, bundled additional cleanup fixes affecting those features. These records show continued software maintenance. They do not, by themselves, create an activation event or prove production usage.",
+        "Confirmed fact: the implementation exists in the supported server code path. Confirmed fact: the current mainnet feature response returns enabled false for LendingProtocol and SingleAssetVault. Unresolved question: the records reviewed here do not name a date on which those flags will change, identify the validators currently voting for or against the amendment, or promise that activation will occur."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/rippled-3.1.0",
+        "https://xrpl.org/blog/2026/rippled-3.1.3",
+        "https://xrpl.org/blog/2026/xrpld-3.2.0",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "What XLS-66 would add if the amendment activates",
+      "paragraphs": [
+        "The XRP Ledger documentation describes Lending Protocol as a DeFi primitive for fixed-term, uncollateralized loans funded by pooled assets in a Single Asset Vault. A loan broker can create and manage loans, while depositors provide assets to the vault. This is a native transaction and ledger-entry design, not a promise that a ready-made public lending marketplace is already operating.",
+        "The design is deliberately different from an automated collateralized lending market. The current implementation relies on off-chain underwriting and risk management, and it uses first-loss capital to help offset defaults. The documentation says automated on-chain collateral and liquidation management are not part of the current implementation. Issuers can also use clawback and freeze controls for issued assets, while XRP itself is not an issued token.",
+        "Practical implication: activation would make a protocol primitive available to builders and risk managers. It would not automatically supply borrowers, attract deposits, set a sustainable yield, or create XRP demand. Those outcomes would require separate evidence about deployments, users, asset flows, underwriting, and risk performance. No such outcome should be inferred from a 37.14% vote metric."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/tutorials/defi/lending/use-the-lending-protocol/create-a-loan-broker"
+      ]
+    },
+    {
+      "heading": "Security review is evidence of work, not a launch certificate",
+      "paragraphs": [
+        "Halborn's Lending Protocol re-audit, last updated June 12, 2026, records five findings: zero critical, zero high, one medium, two low, and two informational. Its summary says 100% of reported findings were addressed. That is useful evidence of a review and remediation process, but it is not a validator vote, an activation record, or a guarantee that the system will be used safely in every future deployment.",
+        "The finding-level statuses also matter. Halborn lists the medium issue as solved and one low issue as solved. A second low issue is marked risk accepted. One informational issue is marked risk accepted and another is acknowledged. The distinction prevents a clean-sounding summary from being mistaken for a claim that every observation was eliminated or that every operational risk is closed.",
+        "Confirmed fact: the independent audit page documents a defined scope, remediation status, and residual risk labels. Inference: that security work helps explain why the protocol remains a staged feature rather than an automatic market launch. Uncertainty: the audit does not tell readers how validator support is changing today, whether a future code change will alter the risk profile, or when mainnet activation will happen."
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Implications for validators, developers, depositors, and XRP holders",
+      "paragraphs": [
+        "For validators, the relevant operational distinction is support versus enabled state. Operators can consult the official amendment process and release notes when deciding how to configure and maintain a server, but a supported feature response is not permission to treat LendingProtocol transactions as active on mainnet. The current record supports a careful status update, not a launch announcement.",
+        "For developers, the status page's Devnet milestone is a testing signal, not a production guarantee. Builders can study the concepts and tutorials, model the broker, vault, depositor, and borrower roles, and keep assumptions explicit about amendment availability. Developers should not represent a test deployment or code path as a live XRPL lending venue without a mainnet feature check and ledger evidence.",
+        "For potential depositors and borrowers, the practical takeaway is to wait for independently verifiable activation, terms, counterparties, and risk disclosures before treating XLS-66 as a usable credit product. For XRP holders and market readers, the current record is not a dated price catalyst. It does not establish new XRP demand, protocol revenue, deposits, or adoption. Those would be separate, time-sensitive claims requiring separate primary records."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/tutorials/defi/lending/use-single-asset-vaults/create-a-single-asset-vault",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed: the official XLS-66 page currently reports 37.14% vote consensus; its timeline identifies Devnet availability and a mainnet voting milestone; the validated feature response returns supported true and enabled false for LendingProtocol and SingleAssetVault; and the XRP Ledger documentation sets a more-than-80% support condition lasting two weeks for permanent amendment activation.",
+        "Bounded inference: the current record supports describing XLS-66 as a supported but inactive protocol candidate. It does not support describing it as launched, adopted, liquid, profitable, or bullish for XRP. The audit record supports saying that security review and remediation occurred. It does not support saying the protocol is risk-free or that the review guarantees a future launch.",
+        "Unresolved: the sources reviewed do not disclose a firm activation date, the reasons behind the 37.14% consensus figure, a complete current validator vote breakdown, a mainnet borrower or depositor roster, or a production loan book. Those gaps are not defects in the report. They are the boundary between what the public records establish and what would require new evidence."
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next meaningful update should be a primary-record change, not a more confident headline. Watch the official XLS-66 page for a changed consensus figure or dated activation notice, the known-amendments registry for an activation record, and a validated feature response for enabled true on both LendingProtocol and SingleAssetVault. A future release note or independent security update would add context, but neither would replace the mainnet state check.",
+        "If activation occurs, the follow-up questions are concrete: which vaults are created, what assets are deposited, which brokers publish terms, how first-loss capital is structured, whether borrowers can be verified on-ledger, and what independent risk reporting exists. Those are the records that could establish a functioning lending market. Until then, the defensible status remains supported, under vote, and disabled."
+      ],
+      "bullets": [
+        "Consensus percentage and any official activation notice on the live XLS-66 status page.",
+        "An enabled state and activation transaction for LendingProtocol and SingleAssetVault in current XRPL records.",
+        "A dated xrpld release, amendment update, or security disclosure that changes the protocol's production path.",
+        "Independent evidence of mainnet vault creation, deposits, loans, terms, and risk controls after activation.",
+        "A follow-up Halborn or equivalent review if the code scope or amendment implementation materially changes."
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A changed consensus percentage or dated activation notice on the official XLS-66 status page.",
+    "An activation transaction and enabled state for LendingProtocol and SingleAssetVault in the XRP Ledger amendment registry and validated feature response.",
+    "A dated xrpld release, amendment update, or security disclosure that changes the protocol's production path.",
+    "Independent evidence of mainnet vault creation, deposits, loans, terms, and risk controls after activation.",
+    "A follow-up independent security review if the implementation or scope changes materially."
+  ],
+  "sources": [
+    { "name": "Ripple Open Source, XLS-66 Lending Protocol status page (undated live page; checked August 13, 2026)", "url": "https://opensource.ripple.com/docs/xls-66-lending-protocol", "type": "primary" },
+    { "name": "XRP Ledger, Amendments (undated reference; checked August 13, 2026)", "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "type": "primary" },
+    { "name": "XRP Ledger, Lending Protocol concept documentation (undated reference; checked August 13, 2026)", "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol", "type": "primary" },
+    { "name": "XRP Ledger, Single Asset Vaults concept documentation (undated reference; checked August 13, 2026)", "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults", "type": "primary" },
+    { "name": "XRP Ledger, Create a Loan Broker tutorial (undated reference; checked August 13, 2026)", "url": "https://xrpl.org/docs/tutorials/defi/lending/use-the-lending-protocol/create-a-loan-broker", "type": "primary" },
+    { "name": "XRP Ledger, Create a Single Asset Vault tutorial (undated reference; checked August 13, 2026)", "url": "https://xrpl.org/docs/tutorials/defi/lending/use-single-asset-vaults/create-a-single-asset-vault", "type": "primary" },
+    { "name": "XRP Ledger, Known Amendments (undated live page; checked August 13, 2026)", "url": "https://xrpl.org/resources/known-amendments", "type": "primary" },
+    { "name": "XRP Ledger, Introducing version 3.1.0", "url": "https://xrpl.org/blog/2026/rippled-3.1.0", "type": "primary", "publishedAt": "2026-01-28" },
+    { "name": "XRP Ledger, Introducing version 3.1.3", "url": "https://xrpl.org/blog/2026/rippled-3.1.3", "type": "primary", "publishedAt": "2026-05-14" },
+    { "name": "XRP Ledger, Introducing version 3.2.0", "url": "https://xrpl.org/blog/2026/xrpld-3.2.0", "type": "primary", "publishedAt": "2026-06-15" },
+    { "name": "XRP Ledger public feature response (validated snapshot; checked August 13, 2026)", "url": "https://s1.ripple.com:51234", "type": "primary" },
+    { "name": "Halborn, Lending Protocol (Re-Audit) - Ripple", "url": "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2", "type": "supporting", "publishedAt": "2026-06-12" }
+  ],
+  "relatedLinks": [
+    { "href": "/learn/xrp-lending-platforms", "label": "XRP lending platforms", "topic": "Lending context", "description": "Compare lending models before treating XLS-66 as an active market." },
+    { "href": "/learn/xrp-and-defi", "label": "XRP and DeFi", "topic": "Ecosystem context", "description": "See how native XRPL primitives fit into the wider DeFi stack." },
+    { "href": "/learn/xrp-ledger-explained", "label": "How the XRP Ledger works", "topic": "Protocol basics", "description": "Review amendments, validators, and ledger mechanics in plain language." },
+    { "href": "/learn/how-to-run-xrpl-validator", "label": "How to run an XRPL validator", "topic": "Operator context", "description": "Understand the infrastructure role behind amendment voting." },
+    { "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet", "label": "XRPL amendments that are not live yet", "topic": "Related coverage", "description": "See why release availability and amendment activation are separate events." }
+  ]
+}
