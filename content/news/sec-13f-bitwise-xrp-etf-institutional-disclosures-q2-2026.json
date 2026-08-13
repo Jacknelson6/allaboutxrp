@@ -1,0 +1,234 @@
+{
+  "slug": "sec-13f-bitwise-xrp-etf-institutional-disclosures-q2-2026",
+  "title": "SEC Filings Map $9.1M of Disclosed Bitwise XRP ETF Exposure",
+  "description": "Twenty-nine Q2 Form 13F filings submitted through August 13 report 784,236 Bitwise XRP ETF shares valued at $9.14 million on June 30, while leaving purchases, current positions, and direct XRP custody unresolved.",
+  "category": "Institutional Markets",
+  "publishedAt": "2026-08-13T06:13:29-05:00",
+  "modifiedAt": "2026-08-13T06:13:29-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/sec-13f-bitwise-xrp-etf-disclosures-editorial.webp",
+  "imageAlt": "Overhead still life of a pale-gold shutter partly covering three cobalt glass counters beside a glass hourglass on ivory stone under long shadows",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "quarter-end-disclosure-shutter-still-life",
+  "imageSetting": "A quiet enclosed white ceramic archive room at late afternoon, viewed directly overhead over a broad ivory stone slab with long diagonal shadows.",
+  "imageMetaphor": "A half-closed pale-gold shutter reveals three cobalt counters while a quarter-marked hourglass freezes the dated, delayed public snapshot created by institutional Form 13F disclosures.",
+  "imagePrompt": "A sparse, physically believable direct-overhead still life for a source-led report on quarterly Form 13F disclosures of Bitwise XRP ETF positions. Use a quiet enclosed white ceramic archive room at late afternoon, a broad ivory stone slab, one half-closed pale-gold brass shutter, exactly three separate cobalt glass counters behind its aperture, one transparent glass hourglass with sand at a quarter mark, and exactly one restrained vermilion wax dot on the shutter. The shutter and hourglass explain that institutional exposure is a partial, dated public snapshot rather than live ownership. Use luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, cobalt and ultramarine shadow, warm ivory, pale gold, one vermilion mark, broad negative space, and long physically consistent shadows. Extremely subtle 1, 0, and x stipple may appear only in a few atmospheric or shadow transitions. The setting, direct-overhead viewpoint, objects, lighting, and metaphor must differ from every existing image in content/editorial-art.json and content/news. No readable text, numbers, logo, watermark, coin, token, dashboard, chart, politician, cyber cube, temple, harbor, coast, panoramic Greek city, fantasy ruin, extra object, rounded frame, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or all-over ASCII filter.",
+  "keywords": [
+    "XRP ETF institutional holdings",
+    "Bitwise XRP ETF",
+    "Form 13F XRP",
+    "XRP institutional exposure",
+    "SEC XRP ETF filings",
+    "XRP market structure",
+    "quarter-end XRP holdings",
+    "XRP investment managers"
+  ],
+  "keyTakeaways": [
+    "Twenty-nine exact-name Q2 Form 13F matches report 784,236 Bitwise XRP ETF shares valued at $9,135,089 at June 30, 2026.",
+    "Kaleidoscope Capital, Wolverine Asset Management, and Envestnet account for 597,416 reported shares, about 76% of the reviewed total.",
+    "A Form 13F reports a manager's quarter-end reportable position, not when it bought, whether it still holds it, or whether it owns XRP directly.",
+    "The next useful test is a later-quarter comparison of the same managers, not a headline claiming current institutional demand for XRP."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: what the August 13 SEC record shows",
+      "paragraphs": [
+        "Public SEC filings now show a first usable map of institutional exposure to the Bitwise XRP ETF. Twenty-nine Form 13F reports filed August 3 through August 13 disclose 784,236 shares worth $9.14 million at June 30, led by Kaleidoscope Capital, Wolverine Asset Management, and Envestnet. The records are snapshots, not proof of purchases, current positions, or XRP demand.",
+        "The newest record in this review is FSA Advisors' Form 13F-HR, filed August 13, 2026. Its information table reports 18,196 Bitwise XRP ETF shares with a fair market value of $212,165 at the end of the second quarter. The larger point comes from the filing set rather than that one manager: the NYSE Arca product now appears across investment advisers, wealth platforms, banks, and trading firms in public institutional reports. That makes the filings relevant market-structure evidence, but not a live flow report."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/2130487/000213048726000006/0002130487-26-000006-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/19617/000001961726000325/0000019617-26-000325-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/36104/000003610426000049/0000036104-26-000049-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1294591/000129459126000003/0001294591-26-000003-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1666741/000166674126000004/0001666741-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1702912/000106299326004164/0001062993-26-004164-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1279891/000127989126000010/0001279891-26-000010-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1407543/000121465926009443/0001214659-26-009443-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1452861/000145286126000006/0001452861-26-000006-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1462245/000108514626000563/0001085146-26-000563-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/842775/000084277526000004/0000842775-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/853758/000085375826000015/0000853758-26-000015-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/2075193/000176538026000292/0001765380-26-000292-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/2044855/000204485526000003/0002044855-26-000003-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1555170/000114036126032279/0001140361-26-032279-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/926171/000092617126000010/0000926171-26-000010-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1750405/000175040526000005/0001750405-26-000005-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/9634/000000963426000004/0000009634-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/713676/000119312526339298/0001193125-26-339298-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1586767/000158676726000006/0001586767-26-000006-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1737109/000173710926000005/0001737109-26-000005-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1488542/000148854226000011/0001488542-26-000011-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/720672/000072067226000012/0000720672-26-000012-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1602905/000160290526000008/0001602905-26-000008-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1802387/000180238726000003/0001802387-26-000003-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1696497/000169649726000009/0001696497-26-000009-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1749744/000158064226004976/0001580642-26-004976-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1094584/000109458426000003/0001094584-26-000003-index.htm"
+      ]
+    },
+    {
+      "heading": "What a Q2 Form 13F actually records",
+      "paragraphs": [
+        "Form 13F is a quarterly disclosure from an institutional investment manager that meets the applicable reporting threshold. The SEC says the filing includes the issuer, security class, number of shares, and fair market value as of the calendar quarter's end. In this case, the relevant measurement date is June 30, 2026, while the public filing dates run from August 3 through August 13. That delay is normal, not evidence that a manager acted on the day the filing appeared.",
+        "The dollar values in these newer information tables are rounded to the nearest dollar under the SEC's current Form 13F instructions. The share count is the more durable comparison because it avoids turning a quarter-end mark into a claim about today's price. The review above searched the exact issuer name Bitwise XRP ETF and its CUSIP 09174F107 across the matched Q2 13F information tables. It is therefore a reproducible cut of public filings, not a claim that every institutional XRP exposure sits in this one product or that every manager uses the same issuer label.",
+        "The filing fields also matter. Some managers report sole investment discretion, while others use defined or other discretion and may show voting authority under another category. JPMorgan Chase, for example, reports 113 shares with other investment discretion and no voting authority in the row reviewed. U.S. Bancorp reports 64 shares with defined discretion. Those classifications do not erase the positions, but they do make a simple headline such as ‘banks bought XRP’ too strong."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f",
+        "https://www.sec.gov/pdf/form13f.pdf",
+        "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/19617/000001961726000325/0000019617-26-000325-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/36104/000003610426000049/0000036104-26-000049-index.htm"
+      ]
+    },
+    {
+      "heading": "The largest disclosed Bitwise XRP ETF positions",
+      "paragraphs": [
+        "The concentration inside the reviewed set is more informative than the rounded aggregate alone. Kaleidoscope Capital, Wolverine Asset Management, and Envestnet reported a combined 597,416 shares valued at $6,965,870 at June 30, or roughly 76% of the 784,236 shares in the exact-name review. That concentration may reflect the size and structure of the managers' reportable portfolios. It does not identify the underlying clients or prove that the positions were accumulated during the quarter.",
+        "The table shows the largest rows plus the latest filing in the set. The filing date is when the public record arrived, not the date the position was established. Values are reported fair market values at the quarter-end date, so they should not be read as current assets under management."
+      ],
+      "table": {
+        "caption": "Selected Bitwise XRP ETF positions reported in Q2 Form 13F filings",
+        "headers": ["Manager", "Shares reported", "Value reported", "Filed"],
+        "rows": [
+          ["Kaleidoscope Capital LP", "211,158", "$2,462,102", "Aug. 11, 2026"],
+          ["Wolverine Asset Management LLC", "199,912", "$2,330,974", "Aug. 10, 2026"],
+          ["Envestnet Asset Management Inc.", "186,346", "$2,172,794", "Aug. 3, 2026"],
+          ["Militia Capital Management LLC", "35,320", "$411,831", "Aug. 12, 2026"],
+          ["IMC-Chicago, LLC", "28,237", "$329,243", "Aug. 6, 2026"],
+          ["HighTower Advisors, LLC", "26,597", "$310,116", "Aug. 5, 2026"],
+          ["FSA Advisors, Inc.", "18,196", "$212,165", "Aug. 13, 2026"],
+          ["Cetera Investment Advisers", "12,550", "$146,333", "Aug. 12, 2026"]
+        ],
+        "sourceNote": "Values are the managers' reported fair market values in dollars at June 30, 2026. See SEC sources [1], [2], [6], [7], [8], [9], [10], and [11]."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1702912/000106299326004164/0001062993-26-004164-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1279891/000127989126000010/0001279891-26-000010-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1407543/000121465926009443/0001214659-26-009443-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/2130487/000213048726000006/0002130487-26-000006-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1452861/000145286126000006/0001452861-26-000006-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1462245/000108514626000563/0001085146-26-000563-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1666741/000166674126000004/0001666741-26-000004-index.htm"
+      ]
+    },
+    {
+      "heading": "Why an ETF share is not a direct XRP Ledger position",
+      "paragraphs": [
+        "Bitwise describes its product as an exchange-traded vehicle that holds XRP and seeks to track the value of that XRP, less expenses. Its latest fund page showed one underlying holding, XRP, with the fund's own dated holdings snapshot. An institution reporting Bitwise XRP ETF shares therefore has a security-level route to XRP price exposure through a brokerage or custody arrangement. The 13F row does not, by itself, identify an XRPL account, a transfer of XRP, or direct control of the token.",
+        "That distinction is important because ETF shares and the fund's underlying XRP sit in different parts of the market structure. The fund can create or redeem shares with authorized participants under its own procedures, while a manager can report the shares as part of a portfolio. The presence of a share in a 13F does not tell readers whether it came from a primary-market creation, a secondary-market purchase, a model allocation, a client account, or an internal transition. It also does not reveal any short position, derivative hedge, lending arrangement, or later sale.",
+        "For XRP Ledger readers, the filing wave is therefore evidence about an access channel, not a ledger-usage milestone. It does not show more payments, more trust lines, more RLUSD activity, more validator participation, or a Ripple partnership. The strongest defensible statement is narrower: a set of institutional managers publicly reported exposure to one U.S.-listed XRP ETP at a dated point in time."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://bitxrpetf.com/",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed fact: the matched SEC records report 784,236 Bitwise XRP ETF shares with a combined fair market value of $9,135,089 at June 30, 2026. The public records name a range of reporting managers, including Envestnet, Wolverine, Kaleidoscope, Militia Capital, JPMorgan Chase, U.S. Bancorp, Rakuten Group, Cetera, and FSA Advisors. The filing dates are visible beside each source, and the records can be checked directly rather than inferred from a fund-flow chart.",
+        "Bounded inference: the product had reached enough institutional portfolios to appear in multiple 13F reporting systems before the August 13 cutoff. That is a market-access signal. It may be useful to product analysts, ETF researchers, and advisers comparing how XRP exposure is packaged. It is not a measurement of net demand because the filings do not provide entry dates, cost bases, client intent, or a complete before-and-after position history for every manager.",
+        "Uncertainty: the set is not a live ownership register. Form 13F is backward-looking, only covers reportable Section 13(f) securities, permits certain small positions to be omitted, and does not capture every form of exposure. A manager may file for an account it advises without being the economic owner, and a row with defined or other discretion may involve another manager or voting arrangement. Quiver Quant's independent institutional-ownership page is a useful cross-checking lens, but the SEC filings remain the source of record and the aggregator can lag new EDGAR submissions.",
+        "There is also no safe basis for converting the $9.14 million reported value into a claim about XRP's market impact. It is the sum of quarter-end marks on ETF shares, not a purchase total, a flow total, a direct XRP balance, or a forecast. Keeping those categories separate is the difference between reading the filings and writing a story the filings cannot support."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f",
+        "https://www.sec.gov/pdf/form13f.pdf",
+        "https://www.quiverquant.com/stock/XRP/institutions/",
+        "https://www.sec.gov/Archives/edgar/data/1702912/000106299326004164/0001062993-26-004164-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1279891/000127989126000010/0001279891-26-000010-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1407543/000121465926009443/0001214659-26-009443-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm"
+      ]
+    },
+    {
+      "heading": "Implications for XRP ETF investors, institutions, and XRP Ledger readers",
+      "paragraphs": [
+        "For a prospective ETF investor, the filings are context rather than a trading instruction. They show that some professional managers used the Bitwise vehicle, but they do not establish that the managers were bullish, that the positions were new, or that the same positions survived into August. A reader should compare the dated 13F with the fund's current holdings, NAV, premium or discount, fee, custody disclosures, and prospectus before drawing a conclusion.",
+        "For institutions and advisers, the useful signal is operational. Bitwise XRP ETF shares are a reportable U.S. security with a public CUSIP, an exchange listing, and a defined fund structure. That can make them easier to place inside a portfolio, model, or client-reporting system than direct XRP custody. It does not remove the product's risks, the difference between market price and NAV, or the legal and operational questions that each allocator must assess.",
+        "For XRP holders and developers, the story sets a boundary around the word institutional. Institutional access to an ETF is not the same as institutional use of the XRP Ledger. If the question is network adoption, readers need different records, such as validated XRPL transactions, issuer disclosures, payment volumes, trust-line activity, or named production deployments. The 13F wave answers a narrower question about portfolio exposure and leaves those network questions open."
+      ],
+      "sourceUrls": [
+        "https://bitxrpetf.com/",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/1294591/000129459126000003/0001294591-26-000003-index.htm",
+        "https://www.sec.gov/Archives/edgar/data/1666741/000166674126000004/0001666741-26-000004-index.htm"
+      ]
+    },
+    {
+      "heading": "What to watch in the next filing cycle",
+      "paragraphs": [
+        "First, compare the same managers in the next quarterly 13F window after September 30. The SEC's 45-day filing rule implies a mid-November 2026 arrival period, although individual filings can appear earlier or later. A repeat position, an addition, or a reported exit would answer a more useful question than today's aggregate: whether the exposure persisted or changed across reporting dates.",
+        "Second, check whether later filings broaden the issuer set beyond Bitwise XRP ETF. Managers can hold other U.S.-listed XRP products, and an all-product view is necessary before discussing institutional access to XRP ETFs as a group. The current article deliberately stays with the exact-name Bitwise match so the arithmetic is auditable.",
+        "Third, keep the market-access record separate from the network record. A meaningful XRP Ledger development would require its own primary evidence, such as a dated production release, an on-chain transaction pattern, an issuer's named deployment, or an independently verified usage metric. Until then, the durable conclusion is that the first public Q2 13F cut maps disclosed ETF exposure, while the more consequential questions remain unresolved."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f",
+        "https://www.sec.gov/pdf/form13f.pdf",
+        "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm",
+        "https://bitxrpetf.com/",
+        "https://www.quiverquant.com/stock/XRP/institutions/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Q3 2026 Form 13F filings arriving in the expected mid-November window and the same managers' share counts.",
+    "Whether later filings show additions, reductions, or exits instead of treating the June 30 snapshot as current.",
+    "Positions in other U.S.-listed XRP ETPs before making a market-wide institutional-access comparison.",
+    "Bitwise's dated holdings, NAV, premium or discount, fee, and custody disclosures after the quarter-end record.",
+    "Separate XRPL primary evidence, including validated transaction activity or named production deployments, if a network-use claim emerges."
+  ],
+  "sources": [
+    { "name": "SEC EDGAR, FSA Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1905627/000190562726000004/0001905627-26-000004-index.htm", "type": "primary", "publishedAt": "2026-08-13" },
+    { "name": "SEC EDGAR, Militia Capital Management Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/2130487/000213048726000006/0002130487-26-000006-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, JPMorgan Chase Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961726000325/0000019617-26-000325-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, U.S. Bancorp Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000049/0000036104-26-000049-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Rakuten Group Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1294591/000129459126000003/0001294591-26-000003-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Cetera Investment Advisers Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1666741/000166674126000004/0001666741-26-000004-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Kaleidoscope Capital Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1702912/000106299326004164/0001062993-26-004164-index.htm", "type": "primary", "publishedAt": "2026-08-11" },
+    { "name": "SEC EDGAR, Wolverine Asset Management Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1279891/000127989126000010/0001279891-26-000010-index.htm", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "SEC EDGAR, Envestnet Asset Management Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1407543/000121465926009443/0001214659-26-009443-index.htm", "type": "primary", "publishedAt": "2026-08-03" },
+    { "name": "SEC EDGAR, IMC-Chicago Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1452861/000145286126000006/0001452861-26-000006-index.htm", "type": "primary", "publishedAt": "2026-08-06" },
+    { "name": "SEC EDGAR, HighTower Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1462245/000108514626000563/0001085146-26-000563-index.htm", "type": "primary", "publishedAt": "2026-08-05" },
+    { "name": "SEC EDGAR, Clearstead Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/842775/000084277526000004/0000842775-26-000004-index.htm", "type": "primary", "publishedAt": "2026-08-06" },
+    { "name": "SEC EDGAR, Mercer Global Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/853758/000085375826000015/0000853758-26-000015-index.htm", "type": "primary", "publishedAt": "2026-08-11" },
+    { "name": "SEC EDGAR, Spartan Wealth Advisory Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/2075193/000176538026000292/0001765380-26-000292-index.htm", "type": "primary", "publishedAt": "2026-08-05" },
+    { "name": "SEC EDGAR, Comprehensive Financial Planning Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/2044855/000204485526000003/0002044855-26-000003-index.htm", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "SEC EDGAR, Allworth Financial Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1555170/000114036126032279/0001140361-26-032279-index.htm", "type": "primary", "publishedAt": "2026-08-11" },
+    { "name": "SEC EDGAR, National Bank of Canada Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/926171/000092617126000010/0000926171-26-000010-index.htm", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "SEC EDGAR, Truvestments Capital Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1750405/000175040526000005/0001750405-26-000005-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, BOKF Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/9634/000000963426000004/0000009634-26-000004-index.htm", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "SEC EDGAR, PNC Financial Services Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/713676/000119312526339298/0001193125-26-339298-index.htm", "type": "primary", "publishedAt": "2026-08-07" },
+    { "name": "SEC EDGAR, Arax Advisory Partners Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1586767/000158676726000006/0001586767-26-000006-index.htm", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "SEC EDGAR, Integrated Wealth Concepts Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1737109/000173710926000005/0001737109-26-000005-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Simplex Trading Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1488542/000148854226000011/0001488542-26-000011-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Stifel Financial Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/720672/000072067226000012/0000720672-26-000012-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, MCF Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1602905/000160290526000008/0001602905-26-000008-index.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC EDGAR, Elevated Capital Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1802387/000180238726000003/0001802387-26-000003-index.htm", "type": "primary", "publishedAt": "2026-08-03" },
+    { "name": "SEC EDGAR, Stone House Investment Management Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1696497/000169649726000009/0001696497-26-000009-index.htm", "type": "primary", "publishedAt": "2026-08-05" },
+    { "name": "SEC EDGAR, Global Retirement Partners Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1749744/000158064226004976/0001580642-26-004976-index.htm", "type": "primary", "publishedAt": "2026-08-06" },
+    { "name": "SEC EDGAR, Pin Oak Investment Advisors Form 13F-HR index", "url": "https://www.sec.gov/Archives/edgar/data/1094584/000109458426000003/0001094584-26-000003-index.htm", "type": "primary", "publishedAt": "2026-08-11" },
+    { "name": "SEC EDGAR, Bitwise XRP ETF Form 10-Q for June 30, 2026", "url": "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "SEC, Frequently Asked Questions About Form 13F", "url": "https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f", "type": "supporting" },
+    { "name": "SEC, Form 13F instructions", "url": "https://www.sec.gov/pdf/form13f.pdf", "type": "supporting" },
+    { "name": "Bitwise XRP ETF product page, dated holdings snapshot", "url": "https://bitxrpetf.com/", "type": "primary" },
+    { "name": "Investment Company Institute, ETF Basics and Structure FAQs", "url": "https://www.ici.org/faqs/faqs_etfs", "type": "supporting" },
+    { "name": "Quiver Quant, Bitwise XRP ETF institutional ownership", "url": "https://www.quiverquant.com/stock/XRP/institutions/", "type": "supporting" }
+  ],
+  "relatedLinks": [
+    { "href": "/etf", "label": "XRP ETF dashboard", "topic": "Market structure", "description": "Track the listed products that turn XRP exposure into exchange-traded shares." },
+    { "href": "/learn/xrp-etf-filings", "label": "How XRP ETF filings work", "topic": "Primary records", "description": "Read the key filings that explain holdings, structure, and disclosure timing." },
+    { "href": "/learn/xrp-spot-etf-vs-futures-etf", "label": "Spot XRP ETF vs futures ETF", "topic": "Investor context", "description": "Understand how the underlying exposure changes the market-structure question." },
+    { "href": "/learn/xrp-institutional-custody", "label": "XRP institutional custody", "topic": "Operations", "description": "Separate brokerage exposure, custody, and direct XRP control." },
+    { "href": "/news/rex-osprey-xrpr-layered-xrp-exposure", "label": "REX-Osprey's layered XRP exposure", "topic": "Related reporting", "description": "A separate filing-led look at why an XRP ETF share is not one wallet." }
+  ]
+}
