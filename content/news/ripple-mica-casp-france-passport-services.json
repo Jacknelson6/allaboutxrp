@@ -1,0 +1,234 @@
+{
+  "slug": "ripple-mica-casp-france-passport-services",
+  "title": "France’s AMF Lists Ripple Payments Europe Under MiCA With Three Services",
+  "description": "France’s AMF lists Ripple Payments Europe S.A. as a Luxembourg-authorized MiCA provider and names three services, while XRP, RLUSD availability, customer rollout, and adoption remain separate questions.",
+  "category": "Regulation",
+  "publishedAt": "2026-08-12T22:10:00-05:00",
+  "modifiedAt": "2026-08-12T22:10:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-mica-casp-france-passport-editorial.webp",
+  "imageAlt": "An open ivory passport folio, pale-gold compass, three cobalt route tokens, and one vermilion seal rest on an ivory stone slab in cool window light.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mica-passport-three-services-cartography-still-life",
+  "imageSetting": "A quiet rain-washed cartographer’s room with a tall north-facing window at first clear light and an ivory stone drafting slab",
+  "imageMetaphor": "An open blank ivory passport folio releases three cobalt route tokens beside a pale-gold compass rose and one vermilion authorization mark, representing Ripple Payments Europe’s MiCA passport into France and the AMF’s three named services without implying XRP approval",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape. Use the local homepage hero and bundled style references only for luminous academic oil finish, cobalt and ivory palette, crisp sculptural modeling, rich glazing, and restrained 1, 0, x stipple. Do not copy their bank, architecture, people, animals, scenery, or layouts. Primary request: depict Ripple Payments Europe’s MiCA regulatory passport into France as a sparse, physically believable still life. Place one open blank ivory passport folio on a broad ivory stone drafting slab, one small pale-gold compass rose, exactly three cobalt glass route tokens released from the folio and aligned toward the right, and one restrained vermilion wax authorization mark on the folio edge. The three cobalt tokens represent the three services named in the French AMF public record: exchange of crypto-assets for funds, exchange of crypto-assets for other crypto-assets, and transfer services on behalf of clients. No words, letters, numbers, flags, logos, or readable symbols. Scene: a quiet rain-washed cartographer’s room with a tall north-facing window at first clear light, a setting not used by any registered AllAboutXRP image. Keep the room abstract and sparse with no map wall, city, or architecture panorama. Composition: low table-height view from front-right, folio and compass in the lower-left third, three route tokens in a deliberate shallow diagonal to the lower-right, broad warm ivory negative space in the upper half, crisp contact shadows, and clear paper, stone, glass, wax, and metal separation. Style: luminous academic and classical-revival oil painting, jewel-toned, polished, theatrical but believable, saturated cobalt and ultramarine, warm ivory, pale-gold metal, water-blue glass accents, one restrained vermilion status mark, selective impasto, and extremely subtle translucent 1, 0, x fields only inside a few atmospheric or shadow transitions. Never apply all-over ASCII or dither. Constraints: exactly one open folio, one compass rose, exactly three route tokens, one vermilion wax mark; no literal crypto coin, currency symbol, XRP logo, RLUSD logo, dashboard, chart, cyber cube, politician, bank, temple, harbor, coast, terrace, market, observatory, workshop, conservatory, archive table, voting stones, keys, lock, gate, channel, scale, gauge, amphora, prism, bifurcation rail, manifold, seed tray, loom, generic legal courthouse, fantasy building, panoramic Greek city, people, watermark, border, title text, photographic realism, sepia, muddy gray cast, coarse halftone, retro pixel art, duplicated objects, or impossible geometry. The passport folio, compass, three-token arrangement, post-rain north light, cartographer setting, and cross-border authorization metaphor must remain distinct from every existing news and guide image.",
+  "keywords": [
+    "XRP news",
+    "Ripple MiCA",
+    "Ripple Payments Europe",
+    "MiCA CASP",
+    "Luxembourg CSSF",
+    "XRP regulation",
+    "RLUSD Europe",
+    "crypto-asset services"
+  ],
+  "keyTakeaways": [
+    "France’s AMF public record lists Ripple Payments Europe S.A. as a Luxembourg-authorized MiCA CASP passport with three named service categories.",
+    "Ripple’s July 6 announcement says the Luxembourg authorization supports regulated crypto-asset services across the EEA, but the AMF entry is the concrete France-specific record reviewed here.",
+    "The authorization is a regulatory operating milestone, not proof of XRP demand, RLUSD availability for every European customer, transaction volume, or a price effect."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the AMF record is a service passport, not an XRP approval",
+      "paragraphs": [
+        "France’s financial regulator lists Ripple Payments Europe S.A. as a Luxembourg-authorized MiCA crypto-asset service provider using the passporting route, with three services named: crypto-to-fiat exchange, crypto-to-crypto exchange, and client transfer services. The record supports regulated cross-border activity. It does not approve XRP, RLUSD, or a specific Ripple product for every European customer.",
+        "The record is the most useful primary check on Ripple’s broader July announcement. On July 6, Ripple said its Luxembourg Crypto Asset Service Provider authorization completed its MiCA requirements and made its end-to-end regulated crypto payments product available to financial institutions, corporates, and businesses across all 30 European Economic Area countries. CoinDesk independently reported the upgrade the same day. Those statements describe the company’s regional operating position. The AMF entry shows what that position looks like in one destination market.",
+        "Ripple’s August 5 follow-up frames the authorization as a platform for scaling stablecoin payments and other digital-asset services. That is a company strategy statement, not a regulator finding about XRP usage. The strongest confirmed conclusion is narrower: Ripple has a Luxembourg MiCA authorization, Ripple Payments Europe is listed for passported services in France, and the public French record does not disclose customers, volumes, asset-level usage, or a commercial rollout timetable."
+      ],
+      "sourceUrls": [
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://ripple.com/ripple-press/ripple-receives-full-eu-mica-casp-license/",
+        "https://www.coindesk.com/policy/2026/07/06/ripple-s-preliminary-crypto-asset-provider-license-in-luxembourg-upgraded-to-fully-compliant"
+      ]
+    },
+    {
+      "heading": "What France’s official record actually says",
+      "paragraphs": [
+        "The AMF page dated July 9, 2026 identifies the legal entity as Ripple Payments Europe S.A. It labels the status as a MiCA-licensed CASP, gives the licensing country as Luxembourg, and shows the licensing number as N/A, Passport. That wording matters. France is recording a cross-border authorization rather than presenting a separate French license number for this entity.",
+        "The page names three authorized services: exchange of crypto-assets for funds, exchange of crypto-assets for other crypto-assets, and provision of transfer services for crypto-assets on behalf of clients. It also displays June 29, 2026 as the licensing date, then explains that this date is the starting date on which the entity intends to provide crypto-asset services in France. The page does not publish a customer list, transaction minimum, asset volume, or product-level service terms.",
+        "This is why the phrase three services is more precise than saying that France approved Ripple’s entire digital-asset business. The public entry does not list custody, investment advice, portfolio management, or stablecoin issuance as part of the France passport record. That absence should not be stretched into a claim that Ripple lacks any other authorization elsewhere. It means only that those categories are not named on the regulator page reviewed for this report.",
+        "The legal-entity distinction is equally important for readers. Ripple is the group named in the company announcement, while Ripple Payments Europe S.A. is the entity appearing in the French record. A customer, institution, or analyst should match the contracting entity, service category, and jurisdiction before treating a general Ripple statement as proof that a particular product is available."
+      ],
+      "table": {
+        "caption": "The AMF entry narrows the public record to a specific entity and service scope",
+        "headers": [
+          "AMF field",
+          "Public entry",
+          "What it establishes"
+        ],
+        "rows": [
+          [
+            "Entity",
+            "Ripple Payments Europe S.A.",
+            "The France record names the service provider, not XRP as an asset"
+          ],
+          [
+            "Home authorization",
+            "Luxembourg, MiCA, N/A Passport",
+            "The entry reflects a cross-border passport from the Luxembourg authority"
+          ],
+          [
+            "Named services",
+            "Crypto-to-funds exchange, crypto-to-crypto exchange, client transfers",
+            "Three service categories are visible on the public France record"
+          ],
+          [
+            "France timing",
+            "Licensing date June 29, 2026",
+            "AMF says this is the intended start date for services in France"
+          ]
+        ],
+        "sourceNote": "Source: France’s AMF, published July 9, 2026. The table reports the regulator’s public entry and does not infer additional permissions from Ripple’s corporate announcement."
+      },
+      "sourceUrls": [
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://ripple.com/ripple-press/ripple-receives-full-eu-mica-casp-license/"
+      ]
+    },
+    {
+      "heading": "Why Luxembourg is the gateway and July’s transition date matters",
+      "paragraphs": [
+        "The Luxembourg connection is not incidental. The CSSF’s CASP overview says a provider authorized in Luxembourg may provide services in other EU Member States or EEA states after completing the required notification procedures. In plain terms, the home authorization and the destination-market notification work together. The AMF’s France entry is a concrete example of that structure, not a new standalone French authorization.",
+        "Ripple’s July 6 release says the CSSF authorization allows its regulated crypto payments product to serve institutions, corporates, and businesses across all 30 EEA countries. CoinDesk’s independent report also described the approval as enabling operations across the EU and EEA. The relevant uncertainty is not whether passporting exists. It is how much of Ripple’s described product suite is actually offered, to which counterparties, and under what customer and asset restrictions in each country.",
+        "The timing is material because the CSSF said the EU transition period for virtual asset service providers ended on July 1, 2026. Its consumer notice says providers could no longer offer crypto-asset services without CASP authorization and that unauthorized providers had to wind down their EU activity in an orderly way. The same notice tells consumers to check the provider’s official name, authorization, and the ESMA or CSSF registers.",
+        "For institutions, the practical change is a clearer compliance path after the transition deadline. It is not a guarantee that onboarding is immediate, that every service is available in every EEA state, or that a passport eliminates ordinary checks around financial crime controls, custody, suitability, complaints, or local implementation. Those are operational questions that belong to the entity and product documents, not to the headline license alone."
+      ],
+      "sourceUrls": [
+        "https://www.cssf.lu/en/crypto-assets-service-providers-casp/",
+        "https://www.cssf.lu/en/2026/07/mica-transition-period-for-virtual-asset-service-providers-ended-on-1-july-2026/",
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://www.coindesk.com/policy/2026/07/06/ripple-s-preliminary-crypto-asset-provider-license-in-luxembourg-upgraded-to-fully-compliant"
+      ]
+    },
+    {
+      "heading": "How the authorization touches XRP and RLUSD without guaranteeing demand",
+      "paragraphs": [
+        "Ripple’s July 6 press release says its solutions span payments, custody, liquidity, and treasury management, and describes RLUSD and XRP as assets that underpin those solutions. Its August 5 follow-up places the CASP milestone inside a strategy for stablecoin payments, cross-border settlement, and institutional digital-asset services. Those are Ripple’s stated commercial uses, and they explain why the license matters to the XRP ecosystem.",
+        "The AMF record is more limited. It names service categories and a legal entity. It does not say that XRP must be used in a French payment, that RLUSD is available to every French customer, that a specific bank has onboarded, or that any transaction volume has been generated. The record also does not publish an asset list or an XRP settlement ratio. A service-provider authorization should therefore not be read as an asset endorsement or a demand report.",
+        "Bounded inference: a passported CASP authorization can reduce one regulatory barrier for a firm seeking to offer crypto-asset services to eligible European counterparties. It may make regulated integration easier to evaluate than an unlicensed alternative. That does not establish the economics of the integration. A payment can use fiat, RLUSD, XRP, another crypto-asset, or several rails, depending on the product, corridor, counterparty, and risk controls.",
+        "This distinction is especially relevant after a series of XRP market-structure stories that treat institutional access as a proxy for token demand. The authorization is evidence of operating permission. It is not evidence of XRP purchases, liquidity demand, price appreciation, or a change in XRP’s legal classification. Those claims would require separate records, such as product terms, customer disclosures, on-chain settlement evidence, or audited flow data."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-receives-full-eu-mica-casp-license/",
+        "https://ripple.com/insights/what-ripples-casp-authorisation-means-for-eu-digital-finance/",
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://www.gadgets360.com/cryptocurrency/news/ripple-receives-full-mica-approval-for-crypto-services-in-europe-crypto-regulations-crypto-laws-eu-11738762/amp"
+      ]
+    },
+    {
+      "heading": "Implications for European institutions, customers, and XRP readers",
+      "paragraphs": [
+        "For European financial institutions, the public record is a due-diligence starting point. The institution should identify whether it is contracting with Ripple Payments Europe S.A. or another Ripple entity, then confirm which of the three AMF-listed services is relevant. It should also ask for jurisdiction coverage, onboarding criteria, custody arrangements, execution rules, complaints handling, and the assets or payment rails supported by the specific product.",
+        "For European customers, the license is useful because it makes the provider’s name and home authority easier to check. The CSSF specifically advises customers to consult official provider information, the ESMA register, and national registers. A customer should not assume that a company’s presence in a regulator’s list means every wallet, stablecoin, exchange route, or payment product is offered to that customer. Availability depends on the authorized entity, service, jurisdiction, and terms.",
+        "For developers and counterparties, the most important integration boundary is between a licensed service and the underlying asset. A compliant API or payment rail still needs explicit rules for asset support, account eligibility, transfer restrictions, settlement finality, reconciliation, and failure handling. The AMF record does not replace those technical and legal documents. It tells a developer that a regulated service path exists, not how to implement it safely.",
+        "For XRP holders and market analysts, the signal is institutional rather than immediate market data. Ripple has added a European regulatory permission that could support future payments and digital-asset services. The next question is whether those services produce measurable activity involving XRP, RLUSD, or neither. Until a primary customer, product, or flow record answers that question, the defensible conclusion is regulatory access, not adoption."
+      ],
+      "sourceUrls": [
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://www.cssf.lu/en/2026/07/mica-transition-period-for-virtual-asset-service-providers-ended-on-1-july-2026/",
+        "https://www.cssf.lu/en/crypto-assets-service-providers-casp/",
+        "https://ripple.com/insights/what-ripples-casp-authorisation-means-for-eu-digital-finance/"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and open questions",
+      "paragraphs": [
+        "Confirmed facts: the AMF’s July 9 public entry lists Ripple Payments Europe S.A. as a Luxembourg-authorized MiCA CASP passport in France. It names three service categories and says June 29 is the intended start date for services in France. Ripple announced the underlying Luxembourg authorization on July 6, and the CSSF’s public guidance explains the European passport framework and the end of the transition period.",
+        "Bounded inference: the record supports Ripple’s ability to pursue regulated cross-border crypto-asset services through a Luxembourg home authorization and French notification. That should lower uncertainty about the legal route for an eligible institution. It does not show that the service is already operating at scale, that every EEA country has identical availability, or that the activity is economically tied to XRP.",
+        "Unresolved questions: the sources reviewed do not disclose Ripple Payments Europe’s French customer count, transaction volume, revenue, supported asset list, XRP share of settlement, RLUSD distribution terms, or the names of institutions using the passported services. The AMF page also does not show whether additional service notifications or product permissions have been added after the record was published. Those gaps are not evidence of failure. They are the reason the authorization should be reported as a regulatory milestone rather than a measured adoption outcome.",
+        "The editorial bottom line is simple. Ripple’s Luxembourg MiCA authorization has moved from a company announcement into a visible French regulator record, but the record is narrower than the ecosystem’s broadest interpretation. It confirms a service passport for a named entity and three categories. The next proof point must come from actual products, customers, flows, and asset-level disclosures."
+      ],
+      "sourceUrls": [
+        "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+        "https://ripple.com/ripple-press/ripple-receives-full-eu-mica-casp-license/",
+        "https://www.cssf.lu/en/crypto-assets-service-providers-casp/",
+        "https://www.coindesk.com/policy/2026/07/06/ripple-s-preliminary-crypto-asset-provider-license-in-luxembourg-upgraded-to-fully-compliant"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "AMF, CSSF, or ESMA records naming additional Ripple Payments Europe services, legal entities, or passport notifications in specific EEA states.",
+    "Ripple product terms or an institution announcement identifying whether a European payment flow uses XRP, RLUSD, another stablecoin, or fiat at each leg.",
+    "The first disclosed EU customer rollout with jurisdiction, service category, eligibility, custody, and transaction-volume data rather than a license announcement alone.",
+    "A public disclosure on RLUSD’s European distribution and issuer permissions, kept separate from Ripple’s CASP service-provider authorization.",
+    "Live or audited metrics showing European Ripple Payments volume and any XRP-linked settlement activity."
+  ],
+  "sources": [
+    {
+      "name": "AMF, Ripple Payments Europe S.A. white list",
+      "url": "https://www.amf-france.org/en/warnings/white-lists/casp/ripple-payments-europe-sa",
+      "type": "primary",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "Ripple, full EU MiCA CASP authorisation",
+      "url": "https://ripple.com/ripple-press/ripple-receives-full-eu-mica-casp-license/",
+      "type": "primary",
+      "publishedAt": "2026-07-06"
+    },
+    {
+      "name": "CSSF, MiCA transition period ended July 1",
+      "url": "https://www.cssf.lu/en/2026/07/mica-transition-period-for-virtual-asset-service-providers-ended-on-1-july-2026/",
+      "type": "primary",
+      "publishedAt": "2026-07-02"
+    },
+    {
+      "name": "CSSF, crypto-asset service providers and European passport",
+      "url": "https://www.cssf.lu/en/crypto-assets-service-providers-casp/",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple, what CASP authorisation means for EU digital finance",
+      "url": "https://ripple.com/insights/what-ripples-casp-authorisation-means-for-eu-digital-finance/",
+      "type": "primary",
+      "publishedAt": "2026-08-05"
+    },
+    {
+      "name": "CoinDesk, Luxembourg upgrades Ripple’s CASP status",
+      "url": "https://www.coindesk.com/policy/2026/07/06/ripple-s-preliminary-crypto-asset-provider-license-in-luxembourg-upgraded-to-fully-compliant",
+      "type": "supporting",
+      "publishedAt": "2026-07-06"
+    },
+    {
+      "name": "Gadgets 360, Ripple receives full MiCA approval",
+      "url": "https://www.gadgets360.com/cryptocurrency/news/ripple-receives-full-mica-approval-for-crypto-services-in-europe-crypto-regulations-crypto-laws-eu-11738762/amp",
+      "type": "supporting",
+      "publishedAt": "2026-07-07"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-european-regulation",
+      "label": "XRP and European regulation",
+      "topic": "Regulation",
+      "description": "How MiCA and European licensing shape XRP-related services."
+    },
+    {
+      "href": "/learn/xrp-us-regulation",
+      "label": "XRP and U.S. regulation",
+      "topic": "Legal context",
+      "description": "A separate guide to the U.S. regulatory questions around XRP."
+    },
+    {
+      "href": "/learn/rlusd",
+      "label": "RLUSD explained",
+      "topic": "Stablecoins",
+      "description": "What Ripple USD is and how its issuer claims it is structured."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple vs. XRP",
+      "topic": "Entities",
+      "description": "Why Ripple the company and XRP the asset should not be treated as the same thing."
+    },
+    {
+      "href": "/learn/xrp-institutional-custody",
+      "label": "XRP institutional custody",
+      "topic": "Market structure",
+      "description": "The operational and counterparty questions behind institutional digital-asset services."
+    }
+  ]
+}
