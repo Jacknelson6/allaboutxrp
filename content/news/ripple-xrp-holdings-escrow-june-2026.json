@@ -1,0 +1,217 @@
+{
+  "slug": "ripple-xrp-holdings-escrow-june-2026",
+  "title": "Ripple Reports 37.66 Billion XRP Held as of June 30, With 32.6 Billion in Escrow",
+  "description": "Ripple’s June 30 XRP snapshot reports 37.66 billion held, 62.33 billion distributed, and 32.6 billion in escrow. Independent ledger tracking broadly matches the split, but different dates rule out a live supply forecast.",
+  "category": "Market Structure",
+  "publishedAt": "2026-08-14T14:08:00-05:00",
+  "modifiedAt": "2026-08-14T14:08:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-xrp-holdings-escrow-editorial.webp",
+  "imageAlt": "A pale-gold wire custody basket encloses a cobalt glass capsule while three blue glass beads rest outside on ivory stone under cool pre-dawn light.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "ripple-holdings-escrow-basket-still-life",
+  "imageSetting": "A silent white ceramic conservation studio with a high circular roof oculus at cool pre-dawn, viewed across a broad ivory limestone slab",
+  "imageMetaphor": "A pale-gold open wire custody basket encloses a cobalt glass capsule while three separate blue beads remain outside, representing Ripple’s escrow-locked XRP versus XRP reported as available in wallets",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the established aaxrp-classical-ascii-v2 Sublime Classical Oil system. Explain Ripple’s June 30, 2026 XRP holdings snapshot through one sparse, physically believable still life. Scene: a silent white ceramic conservation studio with a high circular roof oculus, a new setting not used by any registered AllAboutXRP news or guide image. Place a broad warm ivory limestone register slab on the floor. View from a low straight-on side profile at table height from the far left, with the object cluster small in the lower-right third and broad warm ivory negative space across the upper-left and center. Use cool pre-dawn north light through the oculus, one narrow pale-gold rim highlight, crisp cobalt cast shadow, and physically coherent contact shadows. Show exactly four deliberate visible objects: one pale-gold open wire custody basket with three vertical ribs and a simple hinged lid resting open; one smooth cobalt-blue glass capsule seated inside; exactly three separate small water-blue glass beads arranged in a measured shallow line outside the basket; and one thin unmarked ivory stone register slab beneath them. Add at most one restrained vermilion thread tied to the basket hinge as a status witness mark. The enclosed capsule and three separate beads must remain clear at thumbnail size. Use luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, controlled contours, rich cobalt and ultramarine glazing, warm ivory and pale-gold highlights, selective impasto on glass, stone edge, and metal reflections, and ordered painterly brushwork. Extremely subtle translucent 1, 0, and x stipple may appear only inside a few atmospheric or deep-shadow transitions and dissolve into white space. Never apply all-over ASCII, dither, halftone, pixel blocks, or retro-game texture. Preserve exact counts and plausible scale. No readable text, letters, numerals, currency symbols, labels, logos, watermark, border, title text, literal crypto coin, XRP symbol, dashboard, chart, UI, politician, person, bank building, temple, columns, city, harbor, coast, terrace, observatory, workshop, archive room, archive table, instrument room, calibration plinth, quarry, salt pan, waterworks channel, bridge, rail, gate, lock, key, prism, manifold, shutter, hourglass, groma, voting stones, scales, amphora, clepsydra, iris, passport folio, compass, timing mechanism, capsule array, fantasy architecture, cyber cube, neon, photographic realism, sepia, muddy gray cast, excessive craquelure, coarse halftone, duplicated objects, or impossible geometry. The conservation-studio setting, low side-profile viewpoint, cool oculus light, wire custody basket, cobalt capsule, three beads, register slab, and held-versus-escrow metaphor must remain unique and must not copy any existing AllAboutXRP image composition or scenery.",
+  "keywords": ["Ripple XRP holdings", "XRP escrow", "XRP supply", "XRP Ledger", "Ripple wallet balance", "XRP market structure"],
+  "keyTakeaways": [
+    "Ripple’s current XRP page reports 37,656,053,914 XRP held and 32.6 billion placed in escrow as of June 30, 2026.",
+    "Subtracting the reported escrow balance implies 5,056,053,914 XRP outside escrow, but that is a calculation, not a separately reported wallet schedule.",
+    "Independent on-ledger tracking shows why the figures must be read as dated snapshots, not as a live circulating-supply or future-selling forecast.",
+    "The next useful evidence is a new dated Ripple balance disclosure plus transaction-level escrow and wallet movements that can be reconciled independently."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Ripple’s disclosure is a dated holdings record",
+      "paragraphs": [
+        "Ripple’s current XRP overview reports 37,656,053,914 XRP held by Ripple, 62,329,587,596 distributed, and 32.6 billion placed in on-ledger escrow as of June 30, 2026. The figures describe Ripple’s reported holdings, not circulating supply, market demand, or a forecast of future XRP sales or price.",
+        "Confirmed: Ripple says its quarterly holdings disclosure separates XRP currently available in its wallets from XRP subject to on-ledger escrow lockups. That wording gives the June 30 page a defined scope. It is a company-reported balance snapshot, not a real-time attestation of every XRP address associated with Ripple and not a market-wide ownership census.",
+        "The arithmetic is still useful. If the reported 37,656,053,914 XRP held includes the 32,600,000,000 XRP placed in escrow, the implied amount outside escrow is 5,056,053,914 XRP. I label that number as implied because Ripple displays the held and escrow lines, while the outside-escrow figure is calculated here from those two published values."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08"
+      ]
+    },
+    {
+      "heading": "The three figures answer different XRP supply questions",
+      "paragraphs": [
+        "The 37.66 billion figure is the broadest of the three. It is Ripple’s reported total XRP held, and the page says that total is divided between wallet XRP and on-ledger escrow. It should therefore be read as a statement about Ripple’s reported position, not as a claim that all of those units are immediately transferable or offered for sale.",
+        "The 32.6 billion escrow figure is a subset of that reported holding. XRP Ledger documentation describes escrow as a ledger-native mechanism that locks XRP or supported fungible tokens until the release conditions are met. A successful EscrowFinish transaction delivers the funds and removes the escrow object. That is a protocol state transition, not a standing sell order or a promise that the released XRP will enter an exchange.",
+        "The 62.33 billion distributed figure is also not interchangeable with a clean circulating-supply number. Ripple labels it as distributed, while an independent July 8 supply report separately tracks exchange wallets, exchange-traded products, escrow, and operational wallets. Those categories can overlap with custody and attribution questions, so distributed should be treated as Ripple’s reporting label rather than proof that every unit is freely circulating among unrelated market participants.",
+        "For readers who want the shortest reliable interpretation, the snapshot says that Ripple still reported a large XRP position at quarter-end, most of that position was in escrow, and the remainder was outside escrow by calculation. It does not say how much XRP Ripple sold during the quarter, who ultimately owns distributed XRP, or what the balance means for XRP’s price."
+      ],
+      "table": {
+        "caption": "Ripple’s June 30, 2026 reported XRP snapshot",
+        "headers": ["Line item", "XRP", "How to read it"],
+        "rows": [
+          ["Total XRP held by Ripple", "37,656,053,914", "Ripple’s reported wallet-plus-escrow holding"],
+          ["Total XRP distributed", "62,329,587,596", "Ripple’s reported distributed amount, not a live circulating-supply figure"],
+          ["Total XRP placed in escrow", "32,600,000,000", "A subset of Ripple’s reported holding locked by on-ledger escrow"],
+          ["Implied XRP outside escrow", "5,056,053,914", "Subtraction from the two reported Ripple figures, not a separately published wallet schedule"]
+        ],
+        "sourceNote": "Ripple’s XRP overview supplies the three reported values and says holdings are divided between wallets and escrow. The outside-escrow line is a calculation: 37,656,053,914 minus 32,600,000,000. Checked August 14, 2026."
+      },
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08"
+      ]
+    },
+    {
+      "heading": "Escrow is a ledger constraint, not a market forecast",
+      "paragraphs": [
+        "The XRP Ledger’s escrow design matters because it makes the locked portion more than an accounting category. The official documentation says an escrow object holds the funds and defines release conditions such as a time, a cryptographic condition, or both. Until those conditions are met, the escrowed XRP cannot be used in an ordinary transfer. Once a valid finish transaction succeeds, the object is removed and the funds are delivered to the destination.",
+        "That mechanism narrows what can be inferred from Ripple’s 32.6 billion figure. The balance establishes that Ripple reported that quantity as placed in escrow at the June 30 snapshot. It does not establish that the units were released later, that Ripple sold them after release, that a market maker received them, or that XRP holders experienced a supply shock. Each of those claims would require later ledger records and a defensible attribution method.",
+        "The independent XRP Radar describes a recurring operational pattern in which up to 1 billion XRP can be released at the start of a month and a portion can be returned to escrow. That description is useful context for why an escrow balance can change without a one-for-one sale into the market, but it is the dashboard’s on-chain interpretation, not an additional June 30 number reported by Ripple. The distinction between an unlock, a wallet transfer, and a sale is essential.",
+        "For market-structure readers, escrow is therefore best understood as a timing and control layer. It can constrain when Ripple-controlled XRP becomes available to wallets, while the public ledger can show the creation, finish, or cancellation of specific escrow objects. What it cannot do by itself is reveal the commercial purpose, counterparty, execution venue, or price impact of a later movement."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrp-insights.com/xrp-radar",
+        "https://ripple.com/xrp/"
+      ]
+    },
+    {
+      "heading": "Independent tracking broadly matches the structure, not the exact date",
+      "paragraphs": [
+        "The cleanest independent comparison is not an exact reconciliation because the dates differ. XRP Insights published a supply report on July 8 that said it summed live Escrow objects directly from the XRP Ledger and counted 32.44 billion XRP in Ripple escrow, with a further 4.74 billion in operational wallets. It froze those figures at publication. That report supports the existence of a large escrow-plus-operational split, while its later date explains why it should not be substituted for Ripple’s June 30 snapshot.",
+        "The current XRP Radar page checked on August 14 shows 32.28 billion XRP in escrow and identifies a separate Ripple operational category. The dashboard says its escrow total is summed from live ledger objects and that wallet links are checked through XRPSCAN. Because the page is live and its attribution set can change, it is best used as a dated comparison point, not as a restatement of Ripple’s quarter-end disclosure.",
+        "The difference between Ripple’s 32.6 billion on June 30 and the dashboard’s 32.28 billion on August 14 is about 320 million XRP. That comparison is descriptive, not causal. It does not prove a sale, a transfer to a particular counterparty, or a change in market supply. Unlocks, re-locks, escrow finishes, address attribution, and the precise time of each snapshot can all affect the comparison.",
+        "This is why source precedence matters. Ripple’s page controls what Ripple reported and the date to which it refers. XRPL documentation controls the protocol meaning of escrow. Independent trackers provide a separate ledger-based check and a methodology for testing whether the company’s aggregate picture remains plausible. None of the three sources, alone or together, identifies every downstream owner of distributed XRP."
+      ],
+      "table": {
+        "caption": "Dated views of Ripple-linked XRP balances",
+        "headers": ["Record", "Date or check", "Escrow figure", "Other reported or tracked figure", "Scope"],
+        "rows": [
+          ["Ripple XRP overview", "June 30, 2026", "32.60B XRP", "37.656B XRP held; 5.056B implied outside escrow", "Company-reported quarter-end snapshot"],
+          ["XRP Insights supply report", "July 8, 2026", "32.44B XRP", "4.74B XRP in operational wallets", "Independent frozen report based on live ledger objects"],
+          ["XRP Radar", "Checked August 14, 2026", "32.28B XRP", "Separate Ripple operational category", "Independent live dashboard with daily on-chain tracking"]
+        ],
+        "sourceNote": "The records use different dates, scopes, and attribution methods. The comparison shows why the figures are directional checks, not one synchronized balance sheet."
+      },
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08",
+        "https://xrp-insights.com/xrp-radar",
+        "https://xrpl.org/docs/concepts/payment-types/escrow"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, institutions, and XRPL observers",
+      "paragraphs": [
+        "For XRP holders, the June 30 disclosure is useful evidence about Ripple’s reported treasury position, but it is not a dated price catalyst on its own. The company did not use this page to announce a sale, a buyback, a new custody arrangement, or a change to escrow policy. A large reported balance can matter to perceived supply and governance risk, yet the market outcome depends on future releases, actual transfers, liquidity, and buyer and seller behavior that this snapshot does not measure.",
+        "For institutions and analysts, the more practical lesson is definitional. A diligence file should keep at least four fields separate: Ripple’s reported total held, the subset in escrow, XRP in operational wallets, and XRP distributed to the broader market. It should also identify the observation date and whether a number comes from a company disclosure, a ledger query, a custodian report, an ETF filing, or an attributed exchange-wallet estimate. Mixing those fields can make a precise-looking but false supply narrative.",
+        "For XRPL builders, the public ledger offers a way to test the mechanical part of the story. EscrowCreate and EscrowFinish records can establish when XRP was locked or released, and the ledger can show the destination of a successful finish transaction. The harder questions are attribution and intent. A destination address may be controlled by a custodian, market maker, affiliate, or customer, and a transfer does not reveal the commercial terms behind it.",
+        "For researchers, this record also reinforces the need to keep Ripple, XRP, and the XRP Ledger distinct. Ripple is the company reporting a treasury position. XRP is the native digital asset. XRPL is the public ledger whose escrow rules can constrain some movements. The company’s report and the ledger’s protocol are connected, but neither is a substitute for the other when explaining ownership, control, or market effects."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08",
+        "https://xrp-insights.com/xrp-radar"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed: Ripple’s current XRP overview reports 37,656,053,914 XRP held, 62,329,587,596 distributed, and 32,600,000,000 in escrow as of June 30, 2026. The page says its holdings are divided between XRP available in wallets and XRP subject to on-ledger escrow. The XRP Ledger documentation confirms that escrowed XRP is held in ledger objects until defined release conditions are met.",
+        "Independent confirmation: XRP Insights’ July 8 report describes a separate on-ledger sum of 32.44 billion XRP in Ripple escrow and 4.74 billion in operational wallets. The current XRP Radar also displays a live escrow total of 32.28 billion when checked August 14. Those records do not duplicate Ripple’s date or reporting method, but they provide an independent reason to treat the broad split as a measurable ledger state rather than an unsupported headline.",
+        "Bounded inference: the June 30 figures imply that Ripple reported about 5.056 billion XRP outside escrow. It is reasonable to analyze that as the portion not locked in the reported escrow category, because Ripple describes the two categories together. It is not reasonable to call that entire amount liquid, available for sale, held in one wallet, or destined for the market without a wallet-level schedule and later transaction evidence.",
+        "Unresolved: the public page does not provide a wallet-by-wallet reconciliation, a transaction-level flow for the quarter, a counterparty map, or a commercial explanation for every later escrow change. It also does not establish how much distributed XRP is held by exchanges, ETFs, custodians, companies, long-term holders, or inaccessible addresses. The next defensible update must therefore be dated, attributed, and explicit about scope."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08",
+        "https://xrp-insights.com/xrp-radar",
+        "https://xrpl.org/docs/concepts/payment-types/escrow"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "First, watch Ripple’s next dated holdings disclosure. The useful comparison will be the next quarter-end total held, escrow balance, and distributed figure, with the company’s own definitions preserved. A change in the aggregate balance will show that the position moved, but it will not by itself explain whether the cause was an escrow release, a re-lock, a transfer, a sale, or a reporting-boundary change.",
+        "Second, watch the underlying ledger records around escrow releases. A defensible movement report should identify the escrow object, the finish or cancel transaction, the destination where applicable, and the time window. It should then distinguish what the ledger proves from what address attribution or market commentary merely suggests.",
+        "Third, watch whether independent trackers publish reproducible snapshots with the same cutoff time and an explicit wallet list. That would make the June 30 Ripple disclosure easier to reconcile with later operational balances and reduce the risk of comparing a company total with a partial address set. Finally, watch market data only after the supply evidence is established. A price move following a balance change would still not prove that the balance caused it.",
+        "The specific watch list is therefore about evidence quality, not a prediction. The next meaningful development is a dated record that closes one of the reconciliation gaps, not a larger headline number detached from a clear definition."
+      ],
+      "bullets": [
+        "Ripple’s next quarter-end XRP disclosure with total held, escrow, distributed, and any updated definitions.",
+        "EscrowFinish, EscrowCancel, and EscrowCreate transactions that explain changes after the June 30 snapshot.",
+        "An independent wallet-level reconciliation using the same cutoff date as Ripple’s next report.",
+        "Clear attribution of operational, custody, exchange, ETF, and inaccessible XRP categories without double counting.",
+        "Evidence linking a documented XRP movement to a named commercial purpose, counterparty, or market venue before drawing price or demand conclusions."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/xrp/",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrp-insights.com/news/xrp-supply-report-2026-07-08",
+        "https://xrp-insights.com/xrp-radar"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Ripple’s next quarter-end XRP disclosure with total held, escrow, distributed, and any updated definitions.",
+    "EscrowFinish, EscrowCancel, and EscrowCreate transactions that explain changes after the June 30 snapshot.",
+    "An independent wallet-level reconciliation using the same cutoff date as Ripple’s next report.",
+    "Clear attribution of operational, custody, exchange, ETF, and inaccessible XRP categories without double counting.",
+    "Evidence linking a documented XRP movement to a named commercial purpose, counterparty, or market venue before drawing price or demand conclusions."
+  ],
+  "sources": [
+    {
+      "name": "Ripple, XRP Digital Asset for Global Crypto Utility (undated page; data as of June 30, 2026, checked August 14, 2026)",
+      "url": "https://ripple.com/xrp/",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Insights, XRP Supply Report, Week 28",
+      "url": "https://xrp-insights.com/news/xrp-supply-report-2026-07-08",
+      "type": "supporting",
+      "publishedAt": "2026-07-08"
+    },
+    {
+      "name": "XRP Radar, live on-chain supply dashboard (undated reference; checked August 14, 2026)",
+      "url": "https://xrp-insights.com/xrp-radar",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger, Escrow documentation (undated reference; checked August 14, 2026)",
+      "url": "https://xrpl.org/docs/concepts/payment-types/escrow",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-escrow-explained",
+      "label": "How XRP escrow works",
+      "topic": "XRP mechanics",
+      "description": "Review the ledger rules that lock, release, and cancel XRP escrow objects."
+    },
+    {
+      "href": "/learn/escrow",
+      "label": "Ripple’s XRP escrow system",
+      "topic": "Ripple holdings",
+      "description": "Understand the monthly escrow framework and the limits of supply-based interpretations."
+    },
+    {
+      "href": "/learn/xrp-burn-rate",
+      "label": "XRP supply and burn rate",
+      "topic": "Supply data",
+      "description": "Separate fixed issuance, transaction burns, distributed XRP, and market circulation."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple versus XRP",
+      "topic": "Entity clarity",
+      "description": "Keep the company, the digital asset, and the XRP Ledger distinct when reading disclosures."
+    },
+    {
+      "href": "/learn/xrp-2026-outlook",
+      "label": "XRP 2026 outlook",
+      "topic": "Market context",
+      "description": "Use a broader evidence framework for evaluating XRP catalysts, risks, and uncertainty."
+    }
+  ]
+}
