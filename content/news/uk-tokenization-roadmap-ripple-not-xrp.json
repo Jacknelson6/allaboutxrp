@@ -1,0 +1,238 @@
+{
+  "slug": "uk-tokenization-roadmap-ripple-not-xrp",
+  "title": "HM Treasury Report Names Ripple in UK Tokenization Plan, Not XRP",
+  "description": "HM Treasury’s July 13 report places Ripple and Ripple Prime inside a UK wholesale-tokenization taskforce. It sets a 12-month roadmap, but does not endorse XRP, XRPL, RLUSD, or a Ripple product.",
+  "category": "Regulation",
+  "publishedAt": "2026-08-13T22:12:00-05:00",
+  "modifiedAt": "2026-08-13T22:12:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/uk-tokenization-groma-roadmap-editorial.webp",
+  "imageAlt": "A bronze groma surveying instrument aligns two cobalt route slabs on ivory stone beside a pale-gold marker and one vermilion wax seal.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "groma-tokenization-roadmap-still-life",
+  "imageSetting": "A rain-cleared limestone survey court at clear amber evening, viewed from an oblique upper-left angle across a bare ivory stone slab",
+  "imageMetaphor": "A bronze groma aligns two separate cobalt route slabs toward a pale-gold marker while a vermilion seal remains apart, showing a UK market roadmap that includes Ripple without endorsing XRP",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in the aaxrp-classical-ascii-v2 style, cinematic 16:9 landscape. Depict the July 13, 2026 HM Treasury Wholesale Digital Markets Champion report as a sparse, physically believable still life about a public institutional roadmap that includes Ripple and Ripple Prime but does not mention or endorse XRP. Use exactly five visible objects on a broad ivory stone slab in a rain-cleared limestone survey court: one antique bronze groma with two crossed arms and two natural hanging plumb lines; two separate flat cobalt-blue ceramic route slabs aligned toward but not touching one pale-gold boundary marker; and one small restrained vermilion wax seal clearly set apart. The groma sits left of center, the route slabs run diagonally into generous negative space, and the vermilion mark remains outside the route. Oblique upper-left view from slightly above table height. Clear amber after-storm evening light from a low opening behind the viewer, cool cobalt reflected shadows, one long precise cast shadow. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto, warm ivory, pale gold, cobalt and ultramarine, water-blue accents, at most one vermilion status mark. Extremely subtle translucent 1/0/x stipple only inside a few atmospheric or shadow transitions, never all-over ASCII or dither. Preserve the exact object count and arrangement. No readable text, numbers, letters, logo, watermark, coin, token, politician, person, hand, dashboard, chart, UI, generic cyber cube, futuristic device, fantasy ruin, Greek city panorama, temple, columns, bank, harbor, coast, terrace, observatory, workshop, marketplace, crossroads, bridge, lock, key, scale, prism, hourglass, funnel, channel, rail, passport folio, tablet, ledger plate, archive room, quarry, salt pan, cartographer room, conservatory, waterworks chamber, calibration plinth, voting table, basalt vault, lending archive alcove, credit archive, or repeated scenery. Do not use any existing AAXRP guide or news setting: high inland river gorge, enclosed civic marketplace, remote hilltop observatory, skylit mechanical workshop, inland highland crossroads, ivory voting table beneath a cobalt sky, dry salt-pan inspection floor, ceramic archive room, white mineral surveyor alcove, limestone waterworks archive, white-mineral conservatory, white-mineral instrument room, ivory calibration plinth, rain-washed cartographer room, open-air white quarry, basalt-lined calibration vault, or enclosed credit-archive alcove. No sepia cast, muddy gray, photographic realism, coarse halftone, visible pixel blocks, retro pixel art, excessive craquelure, extra objects, duplicate plumb lines, or extra seals.",
+  "keywords": [
+    "XRP news",
+    "Ripple UK tokenization",
+    "HM Treasury digital markets",
+    "Ripple Prime",
+    "UK cryptoasset regulation",
+    "tokenized securities",
+    "XRP regulation",
+    "XRP Ledger institutional markets",
+    "wholesale digital markets",
+    "Digital Gilt Instrument"
+  ],
+  "keyTakeaways": [
+    "HM Treasury’s July 13 report lists Ripple among the firms contributing to a UK wholesale digital-markets taskforce and names Hidden Road, now Ripple Prime, in a regulated-activity example.",
+    "The 71-page report sets a 12-month roadmap around tokenized repo, fixed income, funds, collateral, settlement, compliance, and interoperability, with a Digital Gilt Instrument pilot targeted no later than Q1 2027.",
+    "The report does not mention XRP and does not announce XRPL adoption, RLUSD distribution, a Ripple product launch, new XRP demand, or a transaction-volume outcome.",
+    "The FCA says its new cryptoasset regime is expected to start on October 25, 2027, with the authorisation application window opening on September 30, 2026. Current registration is not the same as future FSMA authorisation."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the UK roadmap includes Ripple, not an XRP approval",
+      "paragraphs": [
+        "HM Treasury’s July 13, 2026 report from the Wholesale Digital Markets Champion places Ripple among the firms shaping a UK tokenization roadmap and lists Hidden Road, now Ripple Prime, as a regulated-market example. The 71-page report does not mention XRP. It describes policy coordination and future market infrastructure, not XRP approval, XRPL adoption, RLUSD distribution, or a Ripple product launch.",
+        "Confirmed fact: the published record is an independent report from the UK’s Wholesale Digital Markets Champion, hosted by HM Treasury. It is not a statute, FCA authorisation decision, exchange listing, or announcement that a UK market will use XRP. That source precedence matters because a government-hosted report can carry more institutional weight than a company blog while still stopping short of a binding rule.",
+        "Analysis: the timely development is Ripple’s inclusion in the policy and industry conversation around wholesale tokenization. The defensible claim is participation in a roadmap, not selection of a chain or asset. The report’s own timetable gives the story a current follow-up path: feedback is requested by September 4, 2026, and details of the action groups are expected by September."
+      ],
+      "sourceUrls": [
+        "https://www.gov.uk/government/publications/wholesale-digital-markets-champion-first-report",
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "What HM Treasury’s July roadmap actually proposes",
+      "paragraphs": [
+        "The report’s central task is practical market coordination. It says the Digital Markets Champion Industry Taskforce will work over the next 12 months, with nine action groups aligned to ten priorities. The first end-to-end use case is a repo transaction on blockchain. The priorities also cover primary issuance and funds, secondary liquidity, tokenized collateral, wholesale payment rails, legal certainty, regulatory standards, financial-crime compliance and identity, tax, resilience, and communications.",
+        "The near-term scope is therefore broader than crypto trading. The report focuses on repo, fixed income, and uncleared over-the-counter derivatives as priority areas for testing and validation. It also calls for more predictable routes from the Digital Securities Sandbox toward full authorisation, market launch, and scale. A priority is not a completed market. It is a work item assigned to an industry and government process.",
+        "The document gives one concrete dated milestone: it recommends an immediate Digital Gilt Instrument pilot issuance no later than the first quarter of 2027, with further issuances expected to support live secondary-market trading. That target explains why the report matters to market structure readers. The policy question is whether tokenized instruments can move from pilots into repeatable issuance, liquidity, collateral, and settlement workflows.",
+        "This builds on HM Treasury’s July 15, 2025 Wholesale Financial Markets Digital Strategy, which set out the government’s intention to modernize UK wholesale markets and coordinate government, regulators, and industry around distributed-ledger technology. The 2026 report is the implementation-oriented milestone that gives that earlier strategy a taskforce, priorities, and a delivery horizon."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.gov.uk/government/publications/wholesale-financial-markets-digital-strategy",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "Where Ripple appears in the institutional market record",
+      "paragraphs": [
+        "Ripple appears in two different parts of the report. First, Annex G lists Ripple among the taskforce contributors alongside firms such as BlackRock, Cboe, Coinbase, DTCC, Euroclear UK and International, Goldman Sachs, J.P. Morgan, State Street, UBS, and Wintermute. That list establishes a seat in a cross-sector working group. It does not establish that every listed firm supports the same chain, asset, or policy outcome.",
+        "Second, Annex B identifies Hidden Road and Ripple Prime as a firm holding both an FCA investment-firm licence and FCA cryptoasset registration covering spot and derivatives across foreign exchange and digital assets. The report uses that structure as an example of regulated activity already operating across traditional and digital markets. The wording is about permissions and business lines, not a new XRP authorisation.",
+        "Ripple’s own October 24, 2025 account says its Hidden Road acquisition had closed and that Hidden Road was now Ripple Prime. Ripple describes the business as a global, multi-asset prime broker spanning clearing, financing, digital assets, foreign exchange, derivatives, swaps, and fixed income. That company record helps identify the entity in the Treasury report, but it remains a self-published description of Ripple’s business and should not be read as independent proof of volume or market impact.",
+        "Independent coverage from CoinDesk reached the same narrow reading of the report: Ripple Prime was included as an example of convergence between traditional finance and crypto, while the policy work centered on tokenized wholesale markets. The strongest entity-level conclusion is that Ripple is participating in institutional infrastructure discussions. The asset-level conclusion remains unproven."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://ripple.com/insights/ripple-closes-hidden-road-acquisition/",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "The regulatory signal is participation, not blanket permission",
+      "paragraphs": [
+        "The FCA’s current timetable supplies the necessary regulatory boundary. Its page, first published March 26 and updated June 30, 2026, says firms providing in-scope cryptoasset services in the UK must register under the Money Laundering Regulations before trading. It also says the new regime will require authorisation under the Financial Services and Markets Act, with applications opening September 30, 2026 and the regime expected to start October 25, 2027.",
+        "The FCA explicitly warns that registration under the Money Laundering Regulations does not guarantee authorisation under FSMA. That means the phrase cryptoasset registration in the Treasury report should not be inflated into a claim that Ripple Prime has already received every permission that will apply under the future UK regime. The applicable permission depends on the entity, activity, product, customer, and transition rules.",
+        "Confirmed fact: the Treasury report records a current combination of an investment-firm licence and cryptoasset registration for Hidden Road or Ripple Prime. Confirmed fact: the FCA describes a later authorisation regime with its own application window and start date. Analysis: those records show a layered regulatory pathway, not a single on-off approval switch. Uncertainty: the sources reviewed do not state which future FSMA permissions Ripple Prime will seek or receive.",
+        "For XRP readers, this distinction is more than legal housekeeping. A company can be licensed to provide a service without a regulator approving a specific token, public ledger, stablecoin, or investment thesis. The report’s Ripple reference therefore has institutional relevance while remaining silent on whether XRP will be used in any future UK wholesale-market workflow."
+      ],
+      "sourceUrls": [
+        "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime",
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "Why the report matters for XRPL without proving XRPL adoption",
+      "paragraphs": [
+        "The report is relevant to the XRP ecosystem because it treats institutional digital-asset infrastructure as part of the same market-structure conversation as banks, exchanges, custodians, central securities depositories, and asset managers. It discusses public and permissioned networks, settlement finality, interoperability, identity controls, liquidity, collateral, and the cash leg. Those are the operating constraints that any public-ledger strategy must address before a tokenized instrument can become a durable financial product.",
+        "The report also mentions white-label arrangements that include Santander UK’s use of Ripple’s blockchain for cross-border payments. It does not identify XRP, XRPL, RLUSD, a current transaction flow, or the chain used in that example. That omission is material. A reference to Ripple’s company technology is not evidence that the XRP Ledger is the selected settlement venue for the proposed UK repo or gilt workflows.",
+        "Analysis, clearly labeled: Ripple’s place in the taskforce suggests that policymakers and market participants see value in hearing from firms that connect cryptoasset infrastructure with traditional finance. That could create opportunities for Ripple Payments, Ripple Prime, custody, stablecoin settlement, or XRPL-related proposals. It does not establish that any of those proposals will be accepted, funded, deployed, or economically significant.",
+        "The evidence standard for an XRP or XRPL adoption claim would be higher. Readers would need a named issuer, a defined instrument, a published legal and custody structure, a chain or settlement-asset designation, and transaction or issuance evidence. The Treasury report supplies none of those details for XRP. It supplies a roadmap for market coordination and a place for Ripple to participate in that work."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.gov.uk/government/publications/wholesale-financial-markets-digital-strategy",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, institutions, and builders",
+      "paragraphs": [
+        "For XRP holders, the confirmed development is a policy and industry milestone around Ripple, not a dated XRP market catalyst. The report does not announce a purchase, reserve allocation, listing, payment corridor, demand estimate, or XRP settlement requirement. A future institutional use case could involve XRP, RLUSD, another stablecoin, tokenized deposits, central-bank money, or no public token at all. The current record cannot choose among those outcomes.",
+        "For UK institutions and market operators, the report identifies the practical questions that will determine whether tokenization leaves the pilot phase: how assets are issued, how secondary liquidity forms, what collateral is acceptable, which cash rail settles the trade, how identity and financial-crime data travel between platforms, and who carries responsibility when systems interoperate. Ripple’s taskforce presence makes it a participant in those discussions, not a guaranteed provider.",
+        "For developers and XRPL ecosystem companies, the opportunity is to map capabilities to a regulated workflow rather than to repeat a general adoption claim. A credible proposal would need to explain the asset record, permissions, custody, legal ownership, settlement finality, reconciliation, and failure handling. The Treasury report’s emphasis on standards and interoperability favors systems that can connect to existing financial-market infrastructure, not isolated demonstrations.",
+        "For researchers and journalists, the cleanest reading is to keep the entities separate: HM Treasury is publishing a market roadmap; the FCA is setting a future authorisation path; Ripple is a contributor and service provider; Ripple Prime is a business line; XRP is a digital asset; and XRPL is a public ledger. Conflating those objects creates a stronger headline than the evidence supports."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime",
+        "https://ripple.com/faq/",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded analysis, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed facts: HM Treasury published the Wholesale Digital Markets Champion’s first report on July 13, 2026. The report describes a 12-month taskforce, nine action groups, ten priorities, and a repo-centered end-to-end use case. Annex G lists Ripple among the contributors. Annex B lists Hidden Road or Ripple Prime as holding an FCA investment-firm licence and cryptoasset registration. A text search of the published report returns no reference to XRP.",
+        "Bounded analysis: the report is meaningful for Ripple because it places the company and its prime-broker subsidiary inside a UK conversation about tokenized wholesale finance. It is potentially relevant to XRPL because public-ledger infrastructure, settlement, custody, and interoperability are part of that conversation. The analysis stops there. Inclusion does not prove a chain selection, a product contract, a customer launch, a transaction, or a change in XRP demand.",
+        "Unresolved uncertainty: the report does not name a future XRP or XRPL deployment, disclose Ripple’s role in a specific action group, publish commercial terms, identify a tokenized instrument that will use Ripple technology, or provide measured activity. The sources also do not establish whether Ripple Prime’s current permissions will be supplemented by specific FSMA authorisations after the FCA gateway opens. Those are open questions, not negative findings.",
+        "The editorial conclusion is therefore precise: the UK has advanced a dated, institution-heavy tokenization roadmap and Ripple is in the room. XRP is not in the report. Any stronger claim requires a new primary record."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next useful updates should be primary records that convert the roadmap into accountable work. First, watch for the action-group structure promised by September and for responses to the report’s September 4 feedback deadline. Second, watch the FCA’s September 30, 2026 authorisation gateway and the October 25, 2027 start of the new cryptoasset regime. Those dates are regulatory milestones, not guarantees of Ripple approval.",
+        "Third, watch the Digital Gilt Instrument pilot target of no later than Q1 2027. A meaningful follow-up would identify the issuer, legal wrapper, settlement asset, custody model, venue, and whether secondary trading occurs. Fourth, watch for a named Ripple, Ripple Prime, XRPL, RLUSD, or XRP deployment with a verifiable contract, public terms, and transaction or issuance data. A press release alone would establish a plan. A live record would establish execution.",
+        "Finally, watch for evidence on the risk controls the report itself highlights: settlement finality, interoperability, identity, financial-crime compliance, custody, and resilience. Those details will tell readers whether the UK roadmap is becoming usable market infrastructure. Until those records appear, the defensible status remains a policy milestone with Ripple participation, not an XRP adoption event."
+      ],
+      "bullets": [
+        "The September 4, 2026 deadline for feedback on the Wholesale Digital Markets Champion report.",
+        "The September publication of the taskforce action-group structure and named delivery responsibilities.",
+        "The FCA authorisation gateway opening September 30, 2026 and the new cryptoasset regime expected October 25, 2027.",
+        "A Digital Gilt Instrument pilot issuance targeted no later than Q1 2027, including its settlement and custody design.",
+        "A dated, independently verifiable Ripple, Ripple Prime, XRPL, RLUSD, or XRP deployment with public activity evidence."
+      ],
+      "sourceUrls": [
+        "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+        "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime",
+        "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The September 4, 2026 feedback deadline and the September publication of action-group details in the UK tokenization roadmap.",
+    "The FCA authorisation gateway opening September 30, 2026, followed by the new cryptoasset regime expected October 25, 2027.",
+    "A Digital Gilt Instrument pilot issuance targeted no later than Q1 2027, with public details on settlement, custody, and secondary trading.",
+    "A named Ripple, Ripple Prime, XRPL, RLUSD, or XRP deployment supported by contracts, public terms, and independently verifiable activity data.",
+    "Evidence that settlement finality, interoperability, identity, financial-crime controls, custody, and resilience work in a live tokenized market."
+  ],
+  "sources": [
+    {
+      "name": "HM Treasury, Wholesale Digital Markets Champion first report",
+      "url": "https://www.gov.uk/government/publications/wholesale-digital-markets-champion-first-report",
+      "type": "primary",
+      "publishedAt": "2026-07-13"
+    },
+    {
+      "name": "HM Treasury, Wholesale Digital Markets Champion first report PDF",
+      "url": "https://assets.publishing.service.gov.uk/media/6a510e8b2467584757371d58/Digital_Markets_Champion_Report.pdf",
+      "type": "primary",
+      "publishedAt": "2026-07-13"
+    },
+    {
+      "name": "HM Treasury, Wholesale Financial Markets Digital Strategy",
+      "url": "https://www.gov.uk/government/publications/wholesale-financial-markets-digital-strategy",
+      "type": "primary",
+      "publishedAt": "2025-07-15"
+    },
+    {
+      "name": "FCA, cryptoasset registration ahead of the new FSMA regime (updated June 30, 2026)",
+      "url": "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime",
+      "type": "primary",
+      "publishedAt": "2026-06-30"
+    },
+    {
+      "name": "Ripple, Hidden Road becomes Ripple Prime",
+      "url": "https://ripple.com/insights/ripple-closes-hidden-road-acquisition/",
+      "type": "primary",
+      "publishedAt": "2025-10-24"
+    },
+    {
+      "name": "Ripple FAQ, Ripple and XRP distinction (undated live reference; checked August 13, 2026)",
+      "url": "https://ripple.com/faq/",
+      "type": "primary"
+    },
+    {
+      "name": "CoinDesk, UK Treasury report on tokenization cites Ripple as convergence model",
+      "url": "https://www.coindesk.com/policy/2026/07/13/ripple-lands-inside-uk-plan-for-tokenized-repo-bonds-and-funds",
+      "type": "supporting",
+      "publishedAt": "2026-07-13"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-uk-fca-regulation",
+      "label": "XRP and UK FCA regulation",
+      "topic": "UK regulation",
+      "description": "Understand the UK regulatory path for cryptoasset firms and XRP-related services."
+    },
+    {
+      "href": "/learn/xrp-real-world-assets",
+      "label": "XRP and real-world assets",
+      "topic": "Tokenization",
+      "description": "See how tokenized assets depend on issuer controls, custody, and verified ledger use."
+    },
+    {
+      "href": "/learn/xrp-and-tokenized-treasuries",
+      "label": "XRP and tokenized treasuries",
+      "topic": "Fixed income",
+      "description": "Review the market-structure questions around tokenized government debt and settlement."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple versus XRP",
+      "topic": "Entity clarity",
+      "description": "Keep the company, the asset, and the ledger distinct when evaluating new announcements."
+    },
+    {
+      "href": "/news/ripple-zilo-licuido-xrpl-tokenized-fund-infrastructure",
+      "label": "Ripple’s tokenized-fund infrastructure investments",
+      "topic": "Related reporting",
+      "description": "A separate source-led report on the operating layer behind tokenized funds on XRPL."
+    }
+  ]
+}
