@@ -1,0 +1,259 @@
+{
+  "slug": "swift-17-bank-tokenized-deposit-ledger-xrp-role",
+  "title": "Swift’s 17-Bank Ledger Pilot Has No Announced XRP or XRPL Integration",
+  "description": "Swift’s July 9 ledger milestone puts 17 banks into a tokenized-deposit pilot on a permissioned EVM stack. The public record describes coordination and existing settlement rails, not an XRP or XRPL deployment.",
+  "category": "Market Structure",
+  "publishedAt": "2026-08-14T06:07:46-05:00",
+  "modifiedAt": "2026-08-14T06:07:46-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/swift-tokenized-deposit-escapement-editorial.webp",
+  "imageAlt": "A pale-gold timing mechanism seats three cobalt glass capsules while a separate dark-cobalt ceramic tile rests beyond it on ivory stone under reflected light.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "swift-escapement-deposit-coordination-still-life",
+  "imageSetting": "A waterless timing chamber lined with matte white ceramic and a broad ivory stone slab under reflected late-morning light from a high east wall",
+  "imageMetaphor": "A pale-gold timing mechanism synchronizes three cobalt deposit capsules while a separate dark-cobalt settlement tile remains outside it, representing Swift’s coordination layer before existing settlement systems",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in the aaxrp-classical-ascii-v2 style, cinematic 16:9 landscape. Use the homepage hero and bundled Sublime Classical Oil references only for palette, luminous academic oil finish, crisp sculptural modeling, rich glazing, and material separation. Depict Swift’s July 9, 2026 17-bank tokenized-deposit ledger pilot as a sparse, physically believable still life in a waterless timing chamber lined with matte white ceramic. On a broad warm ivory stone slab, show exactly five deliberate visible objects: one pale-gold timing mechanism with a single counterbalanced arm and three separate cobalt-blue glass deposit capsules seated in three different notches, plus one separate flat dark-cobalt ceramic settlement tile beyond the mechanism and visibly disconnected. Add at most one restrained vermilion witness mark on the mechanism. Use a close oblique rear-right eye-level view, object cluster in the upper-right third, broad warm ivory negative space across the lower-left, and reflected late-morning light from a high east wall with one crisp sideways cast shadow. The mechanism represents a shared coordination layer and the disconnected tile represents final settlement through existing bank rails. Use saturated cobalt and ultramarine, warm ivory, pale-gold metal, water-blue glass, selective impasto, and extremely subtle translucent 1/0/x stipple only inside a few atmospheric or shadow transitions. No all-over ASCII or dither. No readable text, letters, numbers, logos, watermark, XRP or crypto coin, currency symbol, token icon, dashboard, chart, screen, data table, politician, bank building, temple, columns, city, harbor, coast, terrace, observatory, workshop, archive table, instrument room, calibration plinth, quarry, salt pan, conservatory, waterworks channel, bridge, rail, gate, lock, key, wheel, manifold, prism, shutter, hourglass, groma, voting stones, scales, passport folio, ledger tablets, fantasy machinery, cyber cube, neon, photography, sepia, muddy gray, coarse halftone, retro pixel art, excessive craquelure, duplicated objects, impossible geometry, extra marks, border, or rounded frame.",
+  "keywords": [
+    "XRP news",
+    "XRP and Swift",
+    "Swift blockchain ledger",
+    "tokenized deposits",
+    "XRP Ledger",
+    "Ripple payments",
+    "cross-border payments",
+    "institutional market structure",
+    "digital asset settlement",
+    "Hyperledger Besu"
+  ],
+  "keyTakeaways": [
+    "Swift said on July 9 that 17 banks across six continents were preparing to pilot live cross-border transactions using bank-issued tokenized deposits on its new shared ledger.",
+    "Swift’s public design uses a Swift-operated, EVM-compatible Hyperledger Besu ledger to coordinate payment commitments before final settlement through existing systems, with banks retaining control of their own keys and assets.",
+    "The milestone is not an announced XRP, XRP Ledger, Ripple, or RLUSD integration. It is a dated institutional blockchain deployment whose competitive or complementary relevance to XRP remains an analytical question.",
+    "The next evidence threshold is live transaction data and a named settlement asset or public-network connection, not a larger bank-participant count or a general statement that blockchain is being used."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Swift’s pilot does not announce an XRP or XRPL role",
+      "paragraphs": [
+        "Swift’s July 9, 2026 announcement moved its blockchain-based shared ledger from design toward initial use with 17 banks preparing tokenized-deposit pilots. The public record describes a Swift-operated coordination layer built on Hyperledger Besu and final settlement through existing systems. It does not announce XRP, XRPL, RLUSD, or Ripple as a settlement asset or network.",
+        "Confirmed fact: Swift’s own July 9 release is the source of the 17-bank milestone. Its named mechanism is a shared ledger for bank-issued tokenized deposits on participating banks’ own ledgers. Reuters and CoinDesk independently described the same launch. Neither supporting report adds an XRP or XRPL integration. That does not prove Swift could never connect to a public network. It establishes only what this announcement says.",
+        "Why this matters for AllAboutXRP: blockchain-based payments are not a single design. Swift is adding a coordination layer within a bank-controlled network, while the XRP Ledger is an open public blockchain and XRP is its native asset. The relevant question is not whether Swift used a blockchain. It is which entity controls the ledger, what value is represented, how commitments are validated, and where final settlement occurs."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://www.sahmcapital.com/news/content/update-1-swift-starts-blockchain-ledger-with-initial-set-of-17-banks-2026-07-09",
+        "https://www.coindesk.com/business/2026/07/09/swift-rolls-out-24-7-blockchain-payment-systems-with-17-global-banks-across-six-continents",
+        "https://xrpl.org/about"
+      ]
+    },
+    {
+      "heading": "What Swift activated on July 9, 2026",
+      "paragraphs": [
+        "Swift said 17 banks from six continents were preparing to pilot live transactions with tokenized deposits. The public announcement names examples including Citi, HSBC, BNY, UBS, DBS, MUFG, Standard Chartered, and Wells Fargo across its participant statements. The important noun is deposits: the value representation remains bank-issued, even though the coordination layer uses distributed-ledger technology.",
+        "The shared ledger is described as an orchestration layer for deposits held on the participating banks’ own ledgers. It can let banks move funds for customers overnight and on weekends before completing final settlement through existing systems. Swift’s language therefore separates the timing of payment coordination from the legal and operational systems that complete settlement. It is not a claim that the shared ledger replaces every correspondent, real-time gross settlement, custody, or internal banking process.",
+        "Swift also presented the milestone as the first use case for a ledger announced in 2025 and developed with financial institutions in nine months. Reuters characterized the launch as a mainstream banking effort to support round-the-clock tokenized-fund movement while preserving regulatory and operational controls. CoinDesk likewise described a 17-bank pilot, not a completed production network with published transaction volumes, customer counts, cost savings, or settlement performance.",
+        "Confirmed fact: the pilot is a dated launch and participation milestone. Uncertainty: the sources reviewed do not disclose how many transactions have occurred, whether customers have used the system, the value transferred, or the measured effect on liquidity and reconciliation. Those missing metrics are central to judging whether the design has moved beyond a controlled institutional test."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://www.sahmcapital.com/news/content/update-1-swift-starts-blockchain-ledger-with-initial-set-of-17-banks-2026-07-09",
+        "https://www.coindesk.com/business/2026/07/09/swift-rolls-out-24-7-blockchain-payment-systems-with-17-global-banks-across-six-continents"
+      ]
+    },
+    {
+      "heading": "Architecture: a coordination layer versus the XRP Ledger",
+      "paragraphs": [
+        "Swift’s March 30 implementation update adds the technical detail needed to compare systems without turning the comparison into a price or adoption forecast. Swift says the minimum viable product is being built on the EVM-compatible Hyperledger Besu architecture. Swift will operate the ledger, while banks retain authority over keys, assets, funding, and settlement through RTGS systems, correspondent relationships, or another agreed mechanism.",
+        "The XRP Ledger documentation describes a different operating model. It is a public peer-to-peer blockchain whose consensus protocol confirms transaction order and outcome without a central operator. XRPL documentation says validated ledger versions are final, and Ripple’s current XRP overview describes XRP as the native asset used in the ledger’s decentralized exchange and settlement design. These are structural differences, not a declaration that one model wins every payment use case.",
+        "The comparison below is deliberately limited to what the sources describe. It does not compare transaction speed, fees, legal finality, or commercial performance because the Swift release does not publish a live benchmark and the use cases are not identical.",
+        "Swift’s March 30 record also says the MVP can support future exploration of other on-chain settlement assets and use cases. That sentence leaves an interoperability question open. It does not identify XRP, XRPL, or RLUSD as the future asset, and it should not be converted into a prediction that Swift will use any specific public network."
+      ],
+      "table": {
+        "caption": "Published design differences, not a performance ranking",
+        "headers": ["Dimension", "Swift ledger pilot", "XRP Ledger reference model"],
+        "rows": [
+          ["Network model", "Swift-operated shared ledger built on EVM-compatible Hyperledger Besu", "Open public peer-to-peer ledger maintained by independent participants"],
+          ["Value representation", "Bank-issued tokenized deposits on participating banks’ own ledgers", "XRP plus issued fungible tokens recorded on XRPL"],
+          ["Control", "Banks retain authority over keys, assets, funding, and agreed settlement", "Validators and network participants reach protocol consensus without a central operator"],
+          ["Settlement described in the record", "Coordination before final settlement through existing systems", "Validated ledger versions record and finalize transactions on the public ledger"]
+        ],
+        "sourceNote": "Swift rows: Swift records dated March 30 and July 9, 2026. XRPL rows: XRP Ledger documentation and Ripple’s undated XRP overview, checked August 14, 2026. The table describes architecture, not commercial performance."
+      },
+      "sourceUrls": [
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://xrpl.org/docs/concepts/consensus-protocol",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens",
+        "https://ripple.com/xrp/"
+      ]
+    },
+    {
+      "heading": "What the milestone says about XRP, Ripple, and XRPL",
+      "paragraphs": [
+        "The July 9 Swift release identifies Swift, participating banks, tokenized deposits, an initial shared ledger, and existing settlement systems. It does not name XRP, the XRP Ledger, Ripple, or RLUSD as part of the pilot. That is a confirmed description of the public record, not a claim about undisclosed technical work or future product choices.",
+        "Bounded inference: Swift’s launch is relevant to XRP because it shows a large institutional network testing a blockchain-based payment-coordination model while keeping bank control and existing settlement relationships in the design. That could create competition for some institutional payment workflows, or it could create a future interoperability surface for public networks. The sources do not resolve which path will develop.",
+        "Ripple’s current XRP overview describes the company, XRP, and the XRP Ledger as related but distinct objects. Ripple says its solutions use XRP, RLUSD, and other digital assets, while the XRP Ledger is open-source technology on which others can build. That distinction is useful here: Swift’s use of a distributed ledger does not establish a Ripple partnership, a Ripple Payments deployment, or new XRP demand.",
+        "Unresolved uncertainty: Swift has not published a participant-by-participant technical map, a list of settlement assets beyond tokenized deposits, a public API or smart-contract specification for the initial pilot, or live transaction evidence. Until those records appear, the strongest defensible conclusion is that Swift has activated its own institutional ledger path, not that it has adopted or rejected XRP."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://ripple.com/xrp/",
+        "https://xrpl.org/about"
+      ]
+    },
+    {
+      "heading": "Why tokenized deposits are institutionally legible",
+      "paragraphs": [
+        "Swift’s design starts with an asset banks already understand: a deposit obligation issued by a regulated bank. That can make compliance, customer ownership, internal treasury controls, and credit-risk responsibilities easier to map than a new public settlement asset. The release says participating banks retain authority over their keys, assets, and funding, which keeps those responsibilities inside the institutional perimeter even as payment commitments are coordinated on a shared ledger.",
+        "This does not make tokenized deposits risk-free or automatically interoperable. A cross-border payment still needs a legal claim, a funded account, a foreign-exchange route, sanctions and financial-crime controls, liquidity at the required time, and a settlement process that can handle failure. Swift’s March 30 update explicitly lists funding validation, workflow coordination, and settlement through existing systems as parts of the model. The ledger is an additional execution and visibility layer, not a substitute for every control.",
+        "XRP can address a different design problem. The XRP Ledger’s public consensus and XRP’s native liquidity role can provide a common asset and shared transaction history across counterparties that choose to use them. That model may reduce some bilateral coordination requirements, but it also requires decisions about custody, public-market liquidity, asset exposure, compliance, and the legal treatment of issued claims. Neither the Swift record nor the XRPL documentation proves that one set of tradeoffs is universally better.",
+        "For market-structure readers, the significance is the coexistence of these models. Institutional adoption of distributed ledgers may proceed through bank-issued money, public cryptoassets, stablecoins, tokenized securities, or connections among several of them. The useful evidence will be the controls and settlement results, not the word blockchain by itself."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://xrpl.org/docs/concepts/consensus-protocol",
+        "https://ripple.com/xrp/"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, XRPL builders, and payment operators",
+      "paragraphs": [
+        "For XRP holders, this is not a dated price catalyst on the evidence available. Swift’s release does not announce XRP purchases, custody, a settlement requirement, an exchange listing, a payment corridor, or a change in XRP demand. A 17-bank tokenized-deposit pilot can be important for digital-asset market structure without translating into XRP use. Treating the bank count as an XRP adoption number would confuse an institutional ledger milestone with an asset-specific outcome.",
+        "For XRPL builders, the opening is concrete but conditional. A public-ledger proposal would need to explain how it connects to bank keys, identity, permissions, liquidity, reconciliation, finality, compliance evidence, and existing settlement systems. The XRPL offers public consensus and token standards, but those capabilities are not a deployment. A named bank, defined instrument, contract, technical integration, and verifiable ledger activity would be the next evidence level.",
+        "For institutions and payment users, the milestone gives a useful comparison point. Ask whether a proposed system coordinates obligations or actually settles value; whether the value is a bank deposit, stablecoin, XRP, or a tokenized security; who controls keys and can reverse or freeze activity; which rail carries final settlement; and what happens when liquidity, connectivity, or compliance checks fail. Those questions apply to Swift, Ripple, XRPL, and every other digital settlement proposal.",
+        "For researchers and journalists, the editorial discipline is to keep the entities separate: Swift is a financial-messaging cooperative building a ledger; the participating banks are the deposit issuers and operators in the pilot; XRP is a digital asset; XRPL is a public ledger; and Ripple is a company with separate products. The current evidence supports a market-structure story, not a partnership or price story."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://xrpl.org/about",
+        "https://ripple.com/xrp/"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed facts: Swift announced on July 9, 2026 that its blockchain-based ledger was ready for initial use and that 17 banks across six continents were preparing tokenized-deposit pilots. Swift’s March 30 update says the MVP uses an EVM-compatible Hyperledger Besu architecture, with Swift operating the ledger and banks retaining authority over keys, assets, funding, and agreed settlement. Reuters and CoinDesk independently reported the July 9 launch.",
+        "Bounded inference: the pilot is a serious institutional market-structure milestone because it gives bank-issued tokenized deposits a shared coordination environment inside a network with established financial relationships. It may compete with, complement, or eventually interoperate with public-ledger payment models. That is analysis based on system design, not a reported Swift strategy for XRP or XRPL.",
+        "Unresolved uncertainty: the public records reviewed do not show live transaction counts, transferred value, performance against conventional rails, customer usage, the exact legal structure of each deposit, or a public connection to XRP, XRPL, RLUSD, or Ripple. They also do not establish whether the initial pilot will expand beyond tokenized deposits or when any additional asset class will be supported.",
+        "The editorial conclusion is therefore narrow: Swift has moved a bank-controlled tokenized-deposit ledger into an initial pilot phase. XRP’s role is unannounced. A stronger XRP claim would require a new primary record naming the asset, the ledger, the Ripple product, or a verifiable transaction path."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://www.sahmcapital.com/news/content/update-1-swift-starts-blockchain-ledger-with-initial-set-of-17-banks-2026-07-09",
+        "https://www.coindesk.com/business/2026/07/09/swift-rolls-out-24-7-blockchain-payment-systems-with-17-global-banks-across-six-continents"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "First, watch for a Swift or participant-bank record that reports live transaction activity rather than readiness. The useful details will be transaction counts, value, corridors, operating hours, settlement timing, failed-payment handling, and reconciliation results. A statement that the ledger is available will not answer whether it is being used at meaningful scale.",
+        "Second, watch the asset boundary. Swift’s March 30 update says the MVP is intended to support future exploration of other on-chain settlement assets and use cases. A material XRP development would require a named settlement asset, a public or permissioned network connection, a responsible legal entity, and terms that explain custody, liquidity, and settlement. The phrase other assets alone is not such evidence.",
+        "Third, watch whether Ripple appears in a primary technical or commercial record. A Ripple partnership announcement would establish a plan, but a live XRP Ledger transaction, named customer workflow, issued asset, or public integration specification would establish execution. The same evidence standard applies to RLUSD. Finally, watch whether bank-ledger pilots and public-ledger systems begin to interoperate. That is the market-structure question most likely to affect XRP’s practical role.",
+        "Until those records arrive, the dated status is clear: Swift has a 17-bank tokenized-deposit pilot with no announced XRP or XRPL integration. Readers should monitor the next primary release, not infer adoption from the existence of a blockchain ledger."
+      ],
+      "bullets": [
+        "Swift’s first published live-transaction results, including value, corridors, timing, failed-payment handling, and reconciliation evidence.",
+        "A named settlement asset or public-network connection in Swift’s future on-chain asset roadmap.",
+        "A primary Ripple, XRP, XRPL, or RLUSD record that identifies a customer, instrument, technical integration, and verifiable activity.",
+        "Evidence that the pilot moves beyond readiness into repeatable 24/7 institutional payment flows.",
+        "Interoperability specifications showing how bank-issued deposits connect to public-ledger assets or settlement systems."
+      ],
+      "sourceUrls": [
+        "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+        "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+        "https://ripple.com/xrp/",
+        "https://xrpl.org/docs/concepts/consensus-protocol"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Swift’s first published live-transaction results, including value, corridors, timing, failed-payment handling, and reconciliation evidence.",
+    "A named settlement asset or public-network connection in Swift’s future on-chain asset roadmap.",
+    "A primary Ripple, XRP, XRPL, or RLUSD record that identifies a customer, instrument, technical integration, and verifiable activity.",
+    "Evidence that the pilot moves beyond readiness into repeatable 24/7 institutional payment flows.",
+    "Interoperability specifications showing how bank-issued deposits connect to public-ledger assets or settlement systems."
+  ],
+  "sources": [
+    {
+      "name": "Swift, blockchain ledger ready for use with 17 banks",
+      "url": "https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-on-trusted-global-infrastructure",
+      "type": "primary",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "Swift, shared ledger progresses to MVP implementation",
+      "url": "https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation",
+      "type": "primary",
+      "publishedAt": "2026-03-30"
+    },
+    {
+      "name": "Reuters, Swift starts blockchain ledger with initial set of 17 banks",
+      "url": "https://www.sahmcapital.com/news/content/update-1-swift-starts-blockchain-ledger-with-initial-set-of-17-banks-2026-07-09",
+      "type": "supporting",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "CoinDesk, Swift rolls out 24/7 blockchain payment system with 17 global banks",
+      "url": "https://www.coindesk.com/business/2026/07/09/swift-rolls-out-24-7-blockchain-payment-systems-with-17-global-banks-across-six-continents",
+      "type": "supporting",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "XRP Ledger, Consensus Protocol (undated reference; checked August 14, 2026)",
+      "url": "https://xrpl.org/docs/concepts/consensus-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, XRPL Overview (undated reference; checked August 14, 2026)",
+      "url": "https://xrpl.org/about",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple, XRP Digital Asset for Global Crypto Utility (undated reference; checked August 14, 2026)",
+      "url": "https://ripple.com/xrp/",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, Fungible Tokens (undated reference; checked August 14, 2026)",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-vs-swift",
+      "label": "XRP versus Swift",
+      "topic": "Payment rails",
+      "description": "Compare the company, public ledger, and messaging network without treating them as interchangeable systems."
+    },
+    {
+      "href": "/learn/cross-border-payments",
+      "label": "How cross-border payments work",
+      "topic": "Payments",
+      "description": "Review the settlement, liquidity, compliance, and correspondent-bank layers behind international transfers."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "XRP Ledger explained",
+      "topic": "XRPL basics",
+      "description": "Understand the public consensus ledger and the roles of XRP, validators, and issued assets."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple versus XRP",
+      "topic": "Entity clarity",
+      "description": "Keep Ripple the company, XRP the asset, and XRPL the ledger distinct when reading announcements."
+    },
+    {
+      "href": "/learn/xrp-institutional-custody",
+      "label": "Institutional XRP custody",
+      "topic": "Market infrastructure",
+      "description": "See why keys, custody, legal ownership, and operational controls matter to institutional digital assets."
+    }
+  ]
+}
