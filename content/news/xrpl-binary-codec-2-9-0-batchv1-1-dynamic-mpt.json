@@ -1,0 +1,281 @@
+{
+  "slug": "xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+  "title": "XRPL Binary Codec 2.9.0 Adds BatchV1_1 and Dynamic MPT Support",
+  "description": "The August 13 XRPLF release adds JavaScript serialization support for BatchV1_1 and Dynamic MPT data, improving developer readiness without activating either amendment on XRP Ledger mainnet.",
+  "category": "XRP Ledger Developers",
+  "publishedAt": "2026-08-15T15:30:00-05:00",
+  "modifiedAt": "2026-08-15T15:30:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-binary-codec-serialization-editorial.webp",
+  "imageAlt": "A pale-gold perforation drum faces two separate cobalt receiver slates on an ivory stone floor beneath a pre-dawn clerestory",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "binary-codec-perforation-drum-still-life",
+  "imageSetting": "A quiet white alabaster signal chamber with a shallow circular floor and one narrow horizontal clerestory at pre-dawn, viewed from low floor level at a front-right three-quarter angle",
+  "imageMetaphor": "A pale-gold perforation drum translates a structured record into a canonical sequence while two separate cobalt receiver slates represent BatchV1_1 and Dynamic MPT definition paths",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: a sparse, physically believable still life explaining the August 13, 2026 ripple-binary-codec release and its BatchV1_1 and Dynamic MPT serialization support. The visual metaphor is canonical translation from a structured record into a serialized sequence, with two new protocol-definition paths. Use a new setting not present in any existing guide or news image: a quiet white alabaster signal chamber with a shallow circular floor and one narrow horizontal clerestory at pre-dawn, viewed from low floor level at a front-right three-quarter angle. Place the arrangement in the lower-right third with broad warm-ivory negative space across the upper-left. Arrange exactly four deliberate objects on an ivory stone slab: one pale-gold perforation drum lying horizontally with a clean row of small physical apertures and a short output end; exactly two separate cobalt glass receiver slates aligned beyond it, one with paired circular apertures and one with a single adjustable iris aperture; and one tiny restrained vermilion witness pin at the drum output end. Keep all contacts and cast shadows physically coherent. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, smooth enamel-like cobalt glass, physically modeled pale-gold metal, warm ivory stone, selective impasto on metal edges and glass highlights, saturated cobalt and ultramarine depth, clean ivory-gold reflected light. Extremely subtle translucent 1, 0, and x stipple may appear only in a few atmospheric or cast-shadow transitions, dissolving into white space, never across the objects and never as an all-over filter. Constraints: exactly one drum, exactly two receiver slates, exactly one witness pin; no extra objects, people, animals, Greek architecture, temple, city, landscape, bank, coin, token, XRP logo, cryptocurrency symbol, dashboard, chart, interface, readable letters or numbers, watermark, border, rounded frame, generic cyber cube, impossible building, fantasy ruin, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or duplicated elements. Bundled references affect palette, light, paint handling, material separation, and finish only.",
+  "keywords": [
+    "XRP Ledger news",
+    "ripple-binary-codec",
+    "XRPL developers",
+    "BatchV1_1",
+    "Dynamic MPT",
+    "XLS-94D",
+    "XRP Ledger amendments",
+    "XRPL binary format"
+  ],
+  "keyTakeaways": [
+    "XRPLF released ripple-binary-codec 2.9.0 on August 13, 2026 with BatchV1_1 and Dynamic MPT support in its JavaScript binary codec.",
+    "The package can help applications encode and decode proposed transaction and ledger fields, but a codec release does not activate an amendment on XRPL mainnet.",
+    "BatchV1_1 is the replacement path after the original Batch amendment was stopped before activation over a signature-validation vulnerability.",
+    "Dynamic MPT remains a draft design whose mutability rules, issuer controls, validator votes and production integrations still require separate verification."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the codec release expands developer readiness, not mainnet capability",
+      "paragraphs": [
+        "The August 13, 2026 release of XRPLF's ripple-binary-codec@2.9.0 adds JavaScript serialization support for BatchV1_1 and Dynamic MPT data. That helps applications encode and decode proposed protocol objects, but it does not activate either amendment on XRPL mainnet, announce adoption, or create a direct XRP price signal.",
+        "The primary record is a package release in the XRPLF xrpl.js repository. Its notes list support for BatchV1_1, support for Dynamic MPTs under XLS-94D, updates to the Dynamic MPT implementation, and updated binary-codec definitions. In practical terms, the release moves part of the client tooling closer to the protocol code. It does not say that a wallet, issuer, exchange, validator or institution has deployed either feature.",
+        "That distinction matters because XRP Ledger software has several layers. A client library needs to represent a transaction or ledger object, a binary codec needs to serialize it deterministically, a server needs to understand the corresponding rules, and the network still needs amendment support and activation. The release is material because the encoding layer is a hard compatibility boundary. It is not a launch certificate for any application built above it.",
+        "The right editorial conclusion is therefore narrow and useful: developers now have a new released codec package to evaluate for two proposed XRPL capabilities, while XRP holders and market readers still need separate records for validator support, activation, production use and economic impact."
+      ],
+      "table": {
+        "caption": "Three layers of the current XRPL feature path",
+        "headers": [
+          "Layer",
+          "Dated record",
+          "What it establishes",
+          "What it does not establish"
+        ],
+        "rows": [
+          [
+            "ripple-binary-codec 2.9.0",
+            "Released August 13, 2026",
+            "JavaScript definitions and serialization support for named features",
+            "A live amendment or application adoption"
+          ],
+          [
+            "rippled 3.3.0",
+            "Released August 6, 2026",
+            "Server software contains six proposed amendment packages",
+            "Network-wide activation"
+          ],
+          [
+            "XRPL amendment process",
+            "Current rule; undated documentation",
+            "More than 80% validator support for two weeks is required",
+            "A timetable or guarantee that a feature will pass"
+          ]
+        ],
+        "sourceNote": "Sources: XRPLF ripple-binary-codec release published August 13, 2026; XRPLF rippled 3.3.0 release published August 6, 2026; XRP Ledger amendments documentation, undated reference checked August 15, 2026."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://registry.npmjs.org/ripple-binary-codec"
+      ]
+    },
+    {
+      "heading": "What ripple-binary-codec 2.9.0 actually changes",
+      "paragraphs": [
+        "Confirmed fact: the XRPLF release page records four changes. It names BatchV1_1 support, Dynamic MPT support, updates to DynamicMPT, and updated ripple-binary-codec definitions. The release was published at 19:52 UTC on August 13, 2026. The npm registry independently lists 2.9.0 as the package's latest version with the same August 13 publication timestamp when checked on August 15. Those records establish a released package artifact, not a network event.",
+        "The package name is important. ripple-binary-codec is the low-level JavaScript and TypeScript layer that converts between JSON-like XRPL objects and the ledger's canonical binary representation. It is not the rippled server, a validator, a wallet, an exchange-traded product or XRP itself. A new codec definition can make a field representable and signable in client code, but it does not make a server accept that field under every network condition.",
+        "The higher-level package path also deserves care. The npm registry snapshot checked for this report lists xrpl 5.0.0 as the latest stable xrpl package, published June 5, 2026, with a dependency range of ^2.8.0 for ripple-binary-codec. That range can admit a compatible 2.9.0 installation, but lockfiles and application tests can preserve an older resolved version. Developers should inspect the actual dependency tree rather than assume that every existing application is using the new definitions.",
+        "The public xrpl.js history page currently places related BatchV1_1 and Dynamic MPT work under an Unreleased heading for the higher-level package. This is a packaging nuance, not a contradiction. It means the low-level codec tag is a concrete milestone, while end-to-end helpers, typed transaction models, documentation and production release status must be checked separately. The independent XRPL Monday Brew also described BatchV1_1 support as an in-progress client-library item in its July 6 to July 12 development review, which helps establish the path from proposed code to released codec."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://registry.npmjs.org/ripple-binary-codec",
+        "https://registry.npmjs.org/xrpl",
+        "https://github.com/XRPLF/xrpl.js/blob/main/packages/xrpl/HISTORY.md",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "Why canonical binary format is a protocol compatibility boundary",
+      "paragraphs": [
+        "The XRP Ledger's binary format is not an optional presentation layer. Official XRPL documentation explains that client APIs commonly use JSON, but JSON can represent the same information in multiple equivalent ways. The canonical binary format removes that ambiguity for transaction signing and is also used in ledger storage, peer-to-peer communication and other protocol paths. If a client does not know the correct field definitions, it cannot safely produce the bytes that validators and servers expect.",
+        "That is why a codec release can matter even when no user-facing feature is live. A developer working on a BatchV1_1 wallet flow needs the correct field names, type definitions, signing behavior and decoding rules before testing an application. A token issuer evaluating Dynamic MPT needs a matching representation for issuance metadata, transfer-fee fields and mutable flags. In both cases, the codec is part of the testable contract between application code and XRPL protocol software.",
+        "The definitions file also provides a useful boundary around experimental work. XRPL documentation says the server_definitions method can supply definitions for dev networks, features in development and sidechains with new fields or data types. A responsible test harness can therefore compare a library's definitions with the target server, use a devnet or testnet, sign only the intended bytes, and verify the response before any production submission. This is a compatibility workflow, not a claim that a mainnet feature is enabled.",
+        "Bounded inference: the release should reduce one class of developer friction because the named features no longer require every JavaScript application to maintain a private codec fork. It does not remove the need for server compatibility, amendment gating, integration tests or security review. The July XRPL Brew report's description of BatchV1_1 as awaiting compatible integration infrastructure reinforces that the released codec is one step in a longer path."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/binary-format",
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://xrpl.org/docs/tutorials/advanced-developer-topics/protocol-development/testing-devnet-features",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "BatchV1_1 is a repaired transaction path, not a Batch reactivation",
+      "paragraphs": [
+        "BatchV1_1 carries security history that should remain visible whenever its support is reported. The official XRPL vulnerability disclosure published February 26, 2026 says the original Batch amendment contained a signature-validation flaw that could have allowed unauthorized inner transactions if it had activated. The disclosure also says the amendment was not active on mainnet and no funds were at risk. The immediate response was an emergency rippled release that marked the original Batch path unsupported, followed by work on the replacement BatchV1_1 amendment.",
+        "The new codec support does not reopen that unsafe identifier. It gives JavaScript code the definitions needed to work with the replacement path, including the higher-level signing helpers named in the xrpl.js history: signMultiBatch and combineBatchSigners. This matters for wallets, custody systems and transaction builders because a batch is not just a visual grouping. Inner transaction signatures, the outer batch structure and the exact serialized bytes must all match the rules that the target server recognizes.",
+        "The other gate is consensus. The official 3.3.0 server release includes BatchV1_1 among its proposed amendment packages, but the software release itself is not activation. Under the XRPL amendment process, an amendment needs more than 80% support from trusted validators for two weeks, and a loss of majority can reset the clock. The current known-amendments record is the place to check status, while a live ledger or feature response is stronger evidence than a package version alone.",
+        "For security-sensitive developers, the practical reading is conservative. Use the codec release to build deterministic test vectors and negative tests for invalid signatures, malformed inner transactions and mismatched definitions. Do not infer that a successful local encode or a devnet transaction proves mainnet availability. Do not reuse claims about the original Batch feature as if they described BatchV1_1's final security posture. The replacement has to earn trust through review, testing, validator scrutiny and observed behavior."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://github.com/XRPLF/xrpl.js/blob/main/packages/xrpl/HISTORY.md",
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Dynamic MPT adds controlled mutability, with governance costs",
+      "paragraphs": [
+        "Dynamic MPT is a different kind of change. The XLS-0094 draft describes an amendment that extends Multi-Purpose Tokens by letting an issuer declare selected fields and issuance flags mutable at creation. Those choices can then be used by MPTokenIssuanceSet to update fields such as metadata or transfer fees, or to enable certain issuance capabilities. The design is not unrestricted editing: a field must have been declared mutable, and the issuer is the actor authorized to make the change.",
+        "The draft also makes some changes one-way. Mutable issuance flags can be enabled later when the relevant permission was declared at creation, but the design says those flags cannot then be disabled through MPTokenIssuanceSet. That is a governance boundary for holders and integrators. It can preserve a promised capability once enabled, while also making the original issuance configuration and the issuer's authority materially important to due diligence.",
+        "Confirmed fact: the codec release lists Dynamic MPT support and updates to its definitions. Confirmed fact: the public XLS-0094 page labels the proposal Draft. Unresolved question: whether the current draft, the rippled implementation, the released codec definitions and any eventual mainnet amendment will remain identical. Specifications can change, and a client library can move ahead of or lag a server branch. Developers should pin the exact version and compare definitions against the network used for testing.",
+        "Bounded inference: Dynamic MPT could make tokenized funds, credit instruments or compliance-managed assets easier to operate because an issuer may update selected properties without creating a replacement issuance. That is an architectural possibility, not evidence of a named production deployment or institutional adoption on XRPL. The practical risk is the mirror image: mutable fields can improve operations while adding governance, disclosure, custody and change-management obligations for anyone relying on the token."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://github.com/XRPLF/xrpl.js/blob/main/packages/xrpl/HISTORY.md",
+        "https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators and XRP holders",
+      "paragraphs": [
+        "For JavaScript and TypeScript developers, the immediate task is dependency verification. Check whether the application resolves ripple-binary-codec 2.9.0, whether the higher-level xrpl package exposes the needed transaction and ledger types, and whether its lockfile pins an older definition set. Then generate known-good and known-bad vectors, compare encode and decode results with the target server, and run them on the intended devnet or testnet. A clean package install is not the same as an end-to-end compatibility test.",
+        "For infrastructure operators, the relevant record is the server and amendment state, not only npm. A rippled node can support a feature in software while the amendment remains disabled. Operators should monitor their release channel, signed artifacts, server_definitions output, amendment support and enabled status. Applications should feature-detect where possible and fail clearly when a transaction depends on a disabled amendment. That design prevents a client update from silently turning a proposed feature into an invalid production submission.",
+        "For token issuers and custody teams, the release opens a test path but also raises control questions. BatchV1_1 needs key-management and signature tests. Dynamic MPT needs a written policy for which fields are mutable, who may change them, how changes are disclosed and what downstream systems do when a value changes. The codec can make those values representable; it cannot decide whether an issuer's governance model is safe or whether a user's legal rights are clear.",
+        "For ordinary XRP holders, there is no required wallet action from this package release and no verified direct price implication. The update is about XRPL application infrastructure, not a new XRP supply event, ETF flow, Ripple holdings change or announced customer deployment. If these features later activate and applications use them, network activity and product evidence will be the relevant measures. Until then, claims that codec support guarantees XRP adoption, institutional demand or a price outcome are unsupported."
+      ],
+      "sourceUrls": [
+        "https://registry.npmjs.org/ripple-binary-codec",
+        "https://registry.npmjs.org/xrpl",
+        "https://xrpl.org/docs/references/protocol/binary-format",
+        "https://xrpl.org/docs/tutorials/advanced-developer-topics/protocol-development/testing-devnet-features",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference and open questions",
+      "paragraphs": [
+        "Confirmed facts: XRPLF published ripple-binary-codec 2.9.0 on August 13, 2026. Its release notes name BatchV1_1, Dynamic MPT, DynamicMPT updates and updated definitions. Official XRPL documentation describes canonical binary serialization as necessary for signing and other protocol uses. The XLS-0094 page describes Dynamic MPT as a Draft proposal, and the original Batch vulnerability report says the unsafe amendment had not activated on mainnet.",
+        "Bounded inference: the release improves the readiness of JavaScript applications that need to model or serialize the named features. It may reduce custom-definition work and make reproducible testing easier. It does not prove that the high-level xrpl package has shipped every helper, that a particular lockfile resolves the new codec, or that an application can submit a feature-dependent transaction successfully to a live network.",
+        "Unresolved: the decisive records are future validator support, the first majority date, two weeks of continuous support, final amendment activation, any specification changes, independent security findings and named production deployments. There is also a practical packaging question for each project: whether a stable high-level SDK release, server release and application release all agree on the same definitions. Until those records converge, the codec tag should be treated as a meaningful developer milestone with a clearly limited claim.",
+        "The cleanest way to read this development is as a chain of evidence. A released codec says client serialization has advanced. A compatible server says protocol code can understand the proposal. Validator votes say the network is considering activation. A live amendment and named application usage say the capability is actually available and used. Keeping those statements separate protects both the engineering progress and the reader's understanding of what has not yet happened."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+        "https://xrpl.org/docs/references/protocol/binary-format",
+        "https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html",
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://github.com/XRPLF/xrpl.js/blob/main/packages/xrpl/HISTORY.md",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The XRPL known-amendments record and live feature response for BatchV1_1 and DynamicMPT support versus enabled status.",
+    "A stable high-level xrpl package release or documented helper support that aligns with ripple-binary-codec 2.9.0.",
+    "The first validator majority date and the full two-week activation window for each relevant amendment.",
+    "Independent security reviews, specification changes or new disclosures affecting BatchV1_1 signing and Dynamic MPT mutability.",
+    "A named wallet, issuer, custody provider or institutional application showing production use instead of planned capability."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF GitHub: ripple-binary-codec 2.9.0 release",
+      "url": "https://github.com/XRPLF/xrpl.js/releases/tag/ripple-binary-codec%402.9.0",
+      "type": "primary",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "XRP Ledger: Binary Format",
+      "url": "https://xrpl.org/docs/references/protocol/binary-format",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF GitHub: xrpl.js release history",
+      "url": "https://github.com/XRPLF/xrpl.js/blob/main/packages/xrpl/HISTORY.md",
+      "type": "primary"
+    },
+    {
+      "name": "npm registry: ripple-binary-codec package metadata, checked August 15, 2026",
+      "url": "https://registry.npmjs.org/ripple-binary-codec",
+      "type": "supporting"
+    },
+    {
+      "name": "npm registry: xrpl package metadata, checked August 15, 2026",
+      "url": "https://registry.npmjs.org/xrpl",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPLF GitHub: rippled 3.3.0 release",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRP Ledger: Amendments process",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger: Known amendments and current status",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger: Batch amendment vulnerability disclosure",
+      "url": "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026",
+      "type": "primary",
+      "publishedAt": "2026-02-26"
+    },
+    {
+      "name": "XLS-0094: Dynamic Multi-Purpose Tokens draft, created June 9, 2025",
+      "url": "https://xls.xrpl.org/xls/XLS-0094-dynamic-MPT.html",
+      "type": "supporting",
+      "publishedAt": "2025-06-09"
+    },
+    {
+      "name": "XRPL Monday Brew: July 6 to July 12, 2026 developer review",
+      "url": "https://xrplbrew.com/2026-07-06_2026-07-12.html",
+      "type": "supporting",
+      "publishedAt": "2026-07-12"
+    },
+    {
+      "name": "XRP Ledger: Devnet feature testing and definitions",
+      "url": "https://xrpl.org/docs/tutorials/advanced-developer-topics/protocol-development/testing-devnet-features",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources",
+      "description": "Find the official tools and documentation for building on XRPL."
+    },
+    {
+      "href": "/learn/xrp-transaction-types",
+      "label": "XRP Ledger transaction types",
+      "description": "Review how XRPL transactions are structured and processed."
+    },
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens",
+      "description": "Understand the token model behind the Dynamic MPT proposal."
+    },
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "Why XRPL 3.3.0 is not activation",
+      "description": "Read the separate report on server support versus mainnet amendment status."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works",
+      "description": "Start with the protocol and consensus fundamentals."
+    }
+  ]
+}
