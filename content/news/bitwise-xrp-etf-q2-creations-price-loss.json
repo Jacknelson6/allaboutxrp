@@ -1,0 +1,238 @@
+{
+  "slug": "bitwise-xrp-etf-q2-creations-price-loss",
+  "title": "Bitwise XRP ETF Added 105.3 Million XRP in Q2 Despite an $84.9M Loss",
+  "description": "Bitwise's Q2 Form 10-Q shows 105.3 million XRP added through share creations while a June price decline produced an $84.9 million operating loss, separating fund growth from investor returns.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-14T22:10:27-05:00",
+  "modifiedAt": "2026-08-14T22:10:27-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/bitwise-xrp-etf-q2-ratchet-editorial.webp",
+  "imageAlt": "A pale-gold ratchet carriage advances a row of cobalt counters while one vermilion counter returns and an ivory plumb slider descends on limestone.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "bitwise-etf-creation-ratchet-metrology-room",
+  "imageSetting": "A bare ivory limestone metrology chamber after rain, with clear late-morning cross-light from a low west-facing aperture and an elevated front-right viewpoint",
+  "imageMetaphor": "A pale-gold ratchet carriage advances a fuller cobalt counter track while a single vermilion return counter and descending ivory plumb slider separate creations, redemptions, and lower per-share value",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in cinematic 16:9, using a new ivory limestone metrology chamber after rain and an elevated front-right viewpoint. One pale-gold bronze ratchet carriage holds a cobalt glazed drum and a fuller forward track of cobalt counters, while a smaller vermilion return track and a descending ivory plumb slider separate creations, redemptions, and lower per-share value. Use luminous academic classical-revival oil, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine, warm ivory, pale gold, one restrained vermilion accent, broad negative space, and subtle 1/0/x stipple only in selected shadow transitions. No coins, logos, dashboards, readable text, extra mechanisms, repeated Greek scenery, border, watermark, coarse halftone, or all-over ASCII.",
+  "keywords": [
+    "Bitwise XRP ETF",
+    "XRP ETF",
+    "XRP market structure",
+    "XRP creations and redemptions",
+    "XRP price",
+    "SEC Form 10-Q",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "Bitwise's Q2 Form 10-Q reports 105.3 million XRP added through share creations and 1.18 million shares redeemed during the quarter ended June 30, 2026.",
+    "The fund's net assets rose to $299.146 million even as operations produced an $84.915 million loss, because net capital share transactions added $122.206 million.",
+    "The filing attributes the largest part of the Q2 loss to XRP's decline from $1.34 on March 31 to $1.04 on June 30, not to a loss of ETF share demand.",
+    "The record measures a single-asset exchange-traded product's creation and redemption mechanics. It does not prove XRP adoption, long-term investor conviction, or a price effect."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Bitwise grew the vehicle while XRP marked it lower",
+      "paragraphs": [
+        "Bitwise's Q2 Form 10-Q shows its U.S.-listed XRP exchange-traded product grew its share count and XRP balance through creations, even as a lower XRP price produced an $84.9 million operating loss for the quarter ended June 30, 2026. The filing documents fund mechanics and investor access, not proof of XRP adoption or future performance.",
+        "Confirmed: the quarterly report, filed August 12, covers the Bitwise XRP ETF for the period ended June 30. It reports 286,838,445.9126 XRP held at quarter-end, $299.146 million in net assets, 25.66 million shares outstanding, and a principal-market NAV per share of $11.66. Those are dated accounting figures, not a live balance and not a census of all XRP held by exchange-traded products.",
+        "This report is also different from a 13F holder survey. A 13F can show which institutional managers disclosed a position in the ETF. Bitwise's 10-Q instead shows what happened inside the fund: creations, redemptions, XRP held, valuation, fees, and the change in net assets. That distinction matters because fund growth and outside institutional ownership answer different questions.",
+        "Independent context: Charles Schwab's ETF research page lists XRP as the product's only holding and explains that ETF shares trade at a market price that can differ from NAV. That supports the structure described in the filing, but it does not independently audit every quarter-end figure. Source precedence remains the SEC filing for the reported Q2 amounts."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://www.schwab.wallst.com/Prospect/Research/etfs/portfolio.asp?symbol=xrp"
+      ]
+    },
+    {
+      "heading": "The Q2 creation and redemption record shows expansion, not a one-way bet",
+      "paragraphs": [
+        "Confirmed: during the three months ended June 30, the Trust issued 9.42 million shares and redeemed 1.18 million shares. That produced a net increase of 8.24 million shares. The filing also says the Trust added approximately 105,315,793 XRP through share creations, while approximately 13,190,376 XRP left the Trust to meet redemptions and approximately 191,749 XRP was transferred to pay the Sponsor Fee.",
+        "The cash-value lines tell the same story in a different unit. The filing records $137.908 million of creations and $15.702 million of redemptions in the statement of changes in net assets, for $122.206 million of net capital share transactions. Over the same quarter, net assets increased from $261.855 million to $299.146 million. The increase was therefore not a return generated by the underlying XRP position. It was capital entering through share transactions after the operating loss was recognized.",
+        "Calculated from the filing, the 8.24 million net share increase was roughly 47% of the 17.42 million shares outstanding on March 31. That is a meaningful expansion of the vehicle over one quarter, but it should not be translated into 47% growth in end-investor demand. Authorized participants create or redeem baskets with the Trust, while shares can then trade between investors on NYSE Arca. The filing records the primary-market creation and redemption layer, not every secondary-market trade or the intent of each buyer.",
+        "The mechanism also explains why XRP count and dollar value should be kept separate. A creation delivers XRP or the cash needed to buy the basket, depending on the order type. A redemption can deliver XRP back or sell XRP and distribute cash. The reported flow is evidence of how the Trust's inventory changed, not a complete map of who ultimately owns the asset after the basket reaches the market."
+      ],
+      "table": {
+        "caption": "Bitwise XRP ETF Q2 2026 operating snapshot",
+        "headers": [
+          "Metric",
+          "Q2 value",
+          "What it measures"
+        ],
+        "rows": [
+          [
+            "XRP held at June 30",
+            "286,838,445.9126 XRP",
+            "Fund inventory at the reporting date"
+          ],
+          [
+            "Shares created",
+            "9,420,000",
+            "Primary-market issuance"
+          ],
+          [
+            "Shares redeemed",
+            "1,180,000",
+            "Primary-market redemption"
+          ],
+          [
+            "Net share change",
+            "+8,240,000",
+            "Created shares minus redeemed shares"
+          ],
+          [
+            "Net capital share transactions",
+            "+$122.206 million",
+            "Capital change before operating loss"
+          ],
+          [
+            "Net decrease from operations",
+            "($84.915 million)",
+            "Realized and unrealized loss plus sponsor fee"
+          ]
+        ],
+        "sourceNote": "All values are from Bitwise XRP ETF's unaudited Form 10-Q for the quarter ended June 30, 2026, filed August 12, 2026. The table separates share transactions from operating performance."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm"
+      ]
+    },
+    {
+      "heading": "Why net assets rose while the ETF reported an $84.9 million loss",
+      "paragraphs": [
+        "Confirmed: Bitwise reports a $70.921 million change in unrealized depreciation on XRP for Q2, a $13.762 million realized loss on XRP sold to meet redemptions, and a $30,000 realized gain on XRP transferred for the Sponsor Fee. After the $262,000 quarterly Sponsor Fee, the net decrease in net assets resulting from operations was $84.915 million.",
+        "The filing attributes the main mark-to-market move to XRP falling from $1.34 on March 31 to $1.04 on June 30, using the principal-market price selected for the Trust's accounting. That is a roughly 22% decline calculated from the two reported prices. The filing does not claim the ETF caused that move, and the record cannot establish what caused the wider XRP market to move during the quarter.",
+        "Inference: the apparent contradiction between asset growth and a loss disappears when the two lines are separated. Net capital share transactions added $122.206 million, while operations reduced net assets by $84.915 million. The capital inflow was larger than the mark-to-market loss, so the vehicle ended the quarter with more assets even though the underlying holding lost value during the period. Growth in assets under management is therefore not the same as positive investor return.",
+        "A dated market check adds context without changing that conclusion. Investing.com's historical table lists the Bitwise ETF market price at $11.66 on June 30, $11.25 on August 12, $11.29 on August 13, and $11.16 on August 14, 2026. Those are ETF share prices, not the XRP spot prices used in the 10-Q, and a short price sequence cannot establish a cause or a forecast."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://www.investing.com/etfs/xrp-historical-data"
+      ]
+    },
+    {
+      "heading": "The Coinbase detail is an accounting valuation choice, not an ETF flow map",
+      "paragraphs": [
+        "The 10-Q contains a useful market-structure detail that can be easy to overread. Bitwise says its valuation vendor, Lukka, reviewed a set of U.S.-accessible digital asset markets using activity, volume, and price stability criteria. As of June 30, the report names Coinbase as the Trust's principal market and assigns XRP a price of $1.04 there for the principal-market NAV calculation.",
+        "Confirmed: this does not mean Coinbase handled every creation, redemption, or XRP trade connected to the ETF. The filing says the Trust itself does not transact on digital asset markets. Authorized participants or liquidity providers may transact in brokered, dealer, principal-to-principal, or exchange markets, while the Trust receives XRP in connection with creation orders. The principal-market label is an accounting and fair-value determination under U.S. GAAP.",
+        "Custody is a separate layer again. Coinbase Custody Trust Company is named as the XRP custodian and is responsible for segregated accounts holding the Trust's XRP. That is not the same claim as saying the ETF's XRP was traded on Coinbase, and it is not evidence that the ETF's inventory is a proxy for Coinbase's total XRP reserves. Keeping valuation venue, execution venue, and custody provider separate is essential when reading a crypto ETP filing.",
+        "Schwab's independent ETF explanation reinforces the practical implication for readers: shares are bought and sold at market price, while NAV is calculated separately. A market price near NAV can support orderly trading, but the relationship is not a promise. The 10-Q provides the fund's rules and dated accounting result, not a guarantee that future market prices will match the value of XRP held by the Trust."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://www.schwab.wallst.com/Prospect/Research/etfs/portfolio.asp?symbol=xrp"
+      ]
+    },
+    {
+      "heading": "The August snapshot points to continued activity, but it is not a new audit",
+      "paragraphs": [
+        "Bitwise's public fund page, checked August 14 with holdings data dated August 13, lists 298,961,654.04 XRP in the Trust, a market value of $298,561,045.43, 26.76 million shares outstanding, and $298,512,735 in net assets. Compared with the June 30 10-Q, the issuer's own later snapshot shows about 12.1 million more XRP and 1.1 million more shares. This is a useful post-quarter direction check, not independent assurance.",
+        "The page also reports 11.17196 XRP per share and identifies the product as a single-asset ETP listed on NYSE Arca. Because those values come from the sponsor's current page, they do not replace the SEC filing's unaudited quarter-end statements or establish a day-by-day flow series. The page says holdings are subject to change, which is the appropriate limitation for a live fund page.",
+        "Independent market data shows why a later asset total should not be read as a price signal by itself. Investing.com's dated history records the ETF at $11.16 on August 14, below the $11.66 June 30 market-price entry even though the issuer's page shows more XRP and more shares. The comparison is descriptive. It does not prove that creations caused a price move, that redemptions stopped, or that any change in the ETF transferred into XRP spot demand.",
+        "Uncertainty label: the public materials do not provide a complete daily ledger of creations, redemptions, basket type, authorized participants, or secondary-market trades after June 30. A later holdings page can show the current state, but it cannot by itself explain every transition between the two dates."
+      ],
+      "sourceUrls": [
+        "https://bitxrpetf.com/",
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://www.investing.com/etfs/xrp-historical-data"
+      ]
+    },
+    {
+      "heading": "Implications for investors, XRP readers, and XRPL observers",
+      "paragraphs": [
+        "For a prospective ETF investor, the clearest takeaway is that a brokerage-accessible wrapper can grow while its underlying asset records a loss. The Trust's ordinary expense is a 0.34% annual Sponsor Fee on its XRP holdings after the initial waiver period, and the filing says the Trust generally does not hold cash or use derivatives for its investment objective. A buyer therefore faces concentrated XRP exposure plus the difference between market price, NAV, fees, custody, and direct-token ownership.",
+        "For XRP market observers, the Q2 creation record is evidence that a primary-market channel was active during a weak price quarter. It is not evidence that every created share represented a long-term allocation, that all buyers held through the quarter, or that the ETF pulled a measured quantity of XRP from the open market. Authorized participants, liquidity providers, cash creations, in-kind creations, redemptions, and secondary-market trading can all change the interpretation.",
+        "For XRP Ledger readers, this filing is about a regulated market vehicle that holds XRP, not about a new XRP Ledger amendment, a Ripple corporate balance, or a new payments deployment. XRP is the asset, XRPL is the ledger, and Bitwise XRP ETF is a financial product that offers brokerage-traded exposure to the asset. Treating those entities as interchangeable would turn a precise filing into a misleading adoption claim.",
+        "Confirmed facts are the Q2 figures in the 10-Q and the dated market observations. Inference is that capital creation activity outweighed the accounting loss in the fund's asset total. Unresolved questions include who ultimately owned the created shares, how much of the XRP flow was cash versus in-kind, which participants handled the baskets, and whether any market move was caused by the ETF. The record is material because it makes those boundaries visible."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://bitxrpetf.com/",
+        "https://www.schwab.wallst.com/Prospect/Research/etfs/portfolio.asp?symbol=xrp"
+      ]
+    },
+    {
+      "heading": "What to watch next: filings, flows, and the gap between access and adoption",
+      "paragraphs": [
+        "First, watch the next Bitwise quarterly filing for the same fields on a new cutoff date: XRP quantity, net assets, shares outstanding, creations, redemptions, realized and unrealized results, and the principal-market method. Repeating the same ledger of fields will show whether Q2 was a one-quarter expansion or part of a sustained pattern.",
+        "Second, watch the filing's flow detail rather than headline AUM alone. A larger asset total can come from share creations, higher XRP prices, or both. A smaller total can come from redemptions, lower prices, fee transfers, or a combination. The useful evidence is the joint movement of share count, XRP quantity, net capital transactions, and operating result.",
+        "Third, watch independent market data for the ETF's market price, NAV, volume, and premium or discount on the same dates. That helps test whether brokerage access is functioning as a liquid wrapper, but it still cannot identify the investment horizon or the commercial reason for a basket transaction. Finally, watch XRP Ledger and Ripple records separately for evidence of usage, transfers, custody changes, and supply movements. None should be inferred from the ETF filing alone.",
+        "The specific editorial standard is simple: treat a new 10-Q as evidence of the fund's reported mechanics, a current issuer page as a dated operational snapshot, and independent market data as a check on trading context. The next meaningful development will be a record that narrows one of the unresolved flow questions, not merely a larger AUM number."
+      ],
+      "bullets": [
+        "Bitwise's next quarter-end 10-Q with XRP quantity, net assets, shares outstanding, creations, redemptions, and the realized versus unrealized result.",
+        "The split between cash and in-kind basket activity, plus any clearer disclosure of authorized participants or liquidity providers.",
+        "ETF market price, NAV, volume, and premium or discount on dates that can be matched to the fund's official holdings record.",
+        "Independent evidence of whether a change in ETF inventory corresponds to a named XRP transfer, custodian movement, or market venue.",
+        "Separate XRP Ledger, Ripple, and ETF records that establish usage or supply effects without treating fund access as proof of adoption."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+        "https://bitxrpetf.com/",
+        "https://www.investing.com/etfs/xrp-historical-data"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Bitwise's next quarter-end 10-Q with XRP quantity, net assets, shares outstanding, creations, redemptions, and the realized versus unrealized result.",
+    "The split between cash and in-kind basket activity, plus any clearer disclosure of authorized participants or liquidity providers.",
+    "ETF market price, NAV, volume, and premium or discount on dates that can be matched to the fund's official holdings record.",
+    "Independent evidence of whether a change in ETF inventory corresponds to a named XRP transfer, custodian movement, or market venue.",
+    "Separate XRP Ledger, Ripple, and ETF records that establish usage or supply effects without treating fund access as proof of adoption."
+  ],
+  "sources": [
+    {
+      "name": "U.S. SEC, Bitwise XRP ETF Form 10-Q for the quarter ended June 30, 2026 (filed August 12, 2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/2039525/000119312526346245/xrp-20260630.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "Bitwise XRP ETF issuer page, holdings and fund details (undated reference; data checked August 14, 2026)",
+      "url": "https://bitxrpetf.com/",
+      "type": "supporting"
+    },
+    {
+      "name": "Investing.com, Bitwise XRP ETF historical data (undated reference; dated market rows checked August 14, 2026)",
+      "url": "https://www.investing.com/etfs/xrp-historical-data",
+      "type": "supporting"
+    },
+    {
+      "name": "Charles Schwab ETF Research, Bitwise XRP ETF portfolio page (undated reference; data checked August 14, 2026)",
+      "url": "https://www.schwab.wallst.com/Prospect/Research/etfs/portfolio.asp?symbol=xrp",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "What is XRP?",
+      "topic": "XRP fundamentals",
+      "description": "Separate the XRP digital asset from the companies and products that provide market access to it."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple versus XRP",
+      "topic": "Entity clarity",
+      "description": "Keep Ripple, XRP, and the XRP Ledger distinct when reading institutional disclosures."
+    },
+    {
+      "href": "/learn/xrp-2026-outlook",
+      "label": "XRP 2026 outlook",
+      "topic": "Market context",
+      "description": "Use a dated evidence framework for separating confirmed catalysts from market speculation."
+    },
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "Is XRP a good investment?",
+      "topic": "Risk and suitability",
+      "description": "Review the risks, time horizon, and evidence needed before treating a market product as an investment decision."
+    },
+    {
+      "href": "/learn/xrp-escrow-explained",
+      "label": "How XRP escrow works",
+      "topic": "Supply mechanics",
+      "description": "Understand why ETF holdings, Ripple-held XRP, and ledger escrow are different supply categories."
+    }
+  ]
+}
