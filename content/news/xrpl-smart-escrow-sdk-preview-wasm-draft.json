@@ -1,0 +1,295 @@
+{
+  "slug": "xrpl-smart-escrow-sdk-preview-wasm-draft",
+  "title": "XRPL Smart Escrow SDK Preview Adds WASM Fields, but XLS-100 Is Still a Draft",
+  "description": "XRPLF's August 12 pre-release adds bytecode, escrow data, gas, and execution-result fields for Smart Escrow development. XLS-100 remains in development, with no mainnet activation record.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-16T06:08:44-05:00",
+  "modifiedAt": "2026-08-16T06:08:44-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-smart-escrow-wasm-preview-editorial.webp",
+  "imageAlt": "A cobalt glass module sits in a pale-gold socket beside a notched ivory gas gauge and vermilion cancellation pin on a moonlit basalt gallery shelf",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "smart-escrow-socket-gauge-still-life",
+  "imageSetting": "A windless subterranean basalt service gallery with a narrow moon aperture, viewed side-on at stone level",
+  "imageMetaphor": "A socketed cobalt module, notched gas gauge, and cancellation pin show code attached to escrow, bounded execution, and expiry safety",
+  "imagePrompt": "Create a 16:9 editorial still life in the established sublime classical oil style. Show a windless subterranean basalt service gallery at night, viewed side-on from stone level. On an ivory limestone shelf at the right, place one cobalt glass cylindrical module seated in a pale-gold metal socket, a separate notched ivory gas gauge with four cobalt slots, and one small vermilion cancellation pin. Leave broad unoccupied dark basalt and moonlit negative space across the left two thirds. Use crisp realistic modeling, restrained pale gold, cobalt blue, ivory stone, and one vermilion status mark. The objects must explain code attached to an escrow, bounded gas, and expiry cancellation. No text, letters, numbers, logos, coins, dashboards, people, politicians, cyber cubes, fantasy architecture, Greek city, or all-over ASCII or dither. If any 1/0/x stipple appears, keep it extremely subtle and confined to a few shadow transitions.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "XRPL Smart Escrows",
+    "XLS-100",
+    "WASM",
+    "xrpl.js"
+  ],
+  "keyTakeaways": [
+    "XRPLF's xrpl.js 5.1.0-smartescrow.1 is a dated pre-release that adds client model fields for bytecode, escrow data, gas, and execution results.",
+    "XLS-100 remains a draft proposal. SmartEscrow is listed as In Development, and the sampled XRP Ledger Mainnet feature response did not return a SmartEscrow entry.",
+    "The design makes execution limits and expiry safety central: proposed gas settings, cancellation timing, read-only ledger access, and explicit failure codes are part of the risk model.",
+    "Developers can begin test integration, but XRP holders and applications should not treat Smart Escrow as a live Mainnet capability or as evidence of immediate XRP demand."
+  ],
+  "sections": [
+    {
+      "heading": "What the August 12 pre-release actually changes",
+      "paragraphs": [
+        "Direct answer: XRPLF's August 12, 2026 xrpl@5.1.0-smartescrow.1 pre-release moves Smart Escrow closer to a testable JavaScript client path by carrying proposed WASM bytecode, escrow data, gas, and execution-result fields. It does not activate XLS-100, create a stable xrpld release, open validator voting, or show production use on XRP Ledger Mainnet.",
+        "Confirmed fact: the official XRPLF release is explicitly marked Pre-release. Its published record is dated August 12, 2026, and it points to commit 3dc0ad5, which regenerates definitions from a ripple/se/supported server-definitions artifact and bumps the beta package version for the next Smart Escrow release. That makes the record a useful implementation milestone, not a network-status announcement.",
+        "The branch changes are concrete. The typed Escrow ledger model and EscrowCreate transaction model carry Bytecode and Data. EscrowFinish carries Gas, while transaction metadata models include GasUsed and VMReturnCode. The same generated definitions also expose Smart Escrow related result codes, including temBAD_WASM, tecOUT_OF_GAS, tefNO_BYTECODE, and tefBYTECODE_NOT_INCLUDED. These fields give a client library a vocabulary for a proposed execution path.",
+        "That vocabulary matters because developers need to serialize transactions and interpret failures before an application can test a new protocol feature. It does not prove that every field is accepted by a public server, that a validator can vote on the amendment today, or that a wallet can safely send a Smart Escrow transaction on Mainnet. The package label and release channel keep the evidence bounded.",
+        "Bounded inference: this is the clearest current public signal that Smart Escrow work is being carried into an XRPL client release path. Unresolved uncertainty: the release record does not state a launch date, final protocol parameters, audit completion, or an amendment activation plan. Those questions require separate primary records."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/xrpl%405.1.0-smartescrow.1",
+        "https://github.com/XRPLF/xrpl.js/commit/3dc0ad5d5292b71fd3231be4c44e7c403e1678ae",
+        "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/transactions/escrowCreate.ts",
+        "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/transactions/escrowFinish.ts",
+        "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/ledger/Escrow.ts"
+      ]
+    },
+    {
+      "heading": "What XLS-100 would add to XRP Ledger escrow",
+      "paragraphs": [
+        "XLS-100 describes Smart Escrows as escrows with a custom release function written in WebAssembly. Under the draft design, the code is attached when the escrow is created and runs when someone submits EscrowFinish. A positive return value would allow the finish operation, while a zero or negative return value would reject it. That is a programmable release condition layered onto an existing escrow lifecycle.",
+        "The draft also gives the code a narrowly defined data surface. A Smart Escrow function can read ledger objects and the transaction context, but it cannot write arbitrary ledger objects or emit another transaction. The attached Escrow Data field is the specified place for mutable state associated with that escrow. This distinction is important for safety and for application design: a release function is not a general-purpose smart contract.",
+        "Expiration remains a hard safety boundary. The XLS says a bytecode escrow must include CancelAfter so funds have a route back to the sender if the custom condition never succeeds. The design therefore combines three controls: code decides whether a finish is acceptable, gas bounds the work, and expiry limits how long funds can remain locked. The proposed shape is more specific than the phrase programmable escrow suggests.",
+        "The fee settings in the draft are parameters, not live Mainnet terms. XLS-100 proposes an initial GasLimit of 100,000, a BytecodeSizeLimit of 100,000 bytes, and a GasPrice of 1,000 micro-drops. Those values could change before implementation or activation. Readers should not turn them into a quoted production fee schedule.",
+        "The records reviewed show three different status layers rather than one launch switch:"
+      ],
+      "table": {
+        "caption": "XRPL escrow paths in the records reviewed",
+        "headers": [
+          "Path",
+          "What it controls",
+          "Current status"
+        ],
+        "rows": [
+          [
+            "Standard Escrow",
+            "XRP release by time or crypto-condition",
+            "Existing XRPL escrow path"
+          ],
+          [
+            "TokenEscrow, XLS-85",
+            "Escrow for trust-line tokens and MPTs",
+            "Enabled and supported in the sampled Mainnet feature response"
+          ],
+          [
+            "SmartEscrow, XLS-100",
+            "WASM finish condition, escrow Data, and Gas",
+            "Draft and In Development; no SmartEscrow entry in the sampled Mainnet response"
+          ]
+        ]
+      },
+      "sourceNote": "The SmartEscrow mechanics and proposed parameters come from the current XLS-100 draft. TokenEscrow status is a dated feature-response snapshot taken August 16, 2026, not a claim that every server has identical state.",
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html",
+        "https://opensource.ripple.com/docs/xls-100-smart-escrows/concepts/programmability",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://s1.ripple.com:51234/",
+        "https://www.xrpl-commons.org/newsroom/whats-new-on-the-xrp-ledger",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "Mainnet status: in development, not voting",
+      "paragraphs": [
+        "The official Known Amendments page currently places SmartEscrow in the In Development section and links it to the XLS-100 documentation. The page says an amendment can become open for Mainnet voting if it is included in a stable server release. That condition has not been established by the August 12 JavaScript pre-release, which is explicitly labeled beta and pre-release.",
+        "I also checked the public s1.ripple.com JSON-RPC endpoint on August 16, 2026 at 11:06 UTC. Its server_info response identified rippled 3.3.0, Clio 2.7.1, and ledger 106331874. A feature response returned TokenEscrow as enabled and supported, but no SmartEscrow entry appeared in the filtered result. This is a dated node snapshot, not a universal census of the network.",
+        "The amendment process adds another gate. XRPL documentation says an amendment needs more than 80 percent validator support for two weeks after it is available in a stable server release before it can become enabled. A proposal, a generated client model, and a stable server release are therefore separate milestones. Calling the pre-release a Mainnet launch would collapse those distinctions.",
+        "Testing guidance points developers toward devnet, standalone networks, and private networks for amendment testing. A feature working on one of those networks would demonstrate testability, not production activation. The same rule applies to a local rippled build or a client package that can serialize fields: code availability is not consensus availability.",
+        "Independent context also helps prevent a naming error. XRPL Commons has used Smart Escrow in connection with the token escrow work associated with XLS-85, while XLS-100 defines a different WASM-based programmable escrow path. The shared label makes the feature identifier and source document more important than a headline that simply says Smart Escrow is live."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/infrastructure/testing-and-auditing/test-amendments",
+        "https://www.xrpl-commons.org/newsroom/whats-new-on-the-xrp-ledger",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "The security design is the product constraint",
+      "paragraphs": [
+        "Smart Escrow's value depends on making a custom release rule useful without turning every escrow into an opaque program with unbounded cost. Ripple's prerelease documentation describes deterministic gas limits: when execution reaches the limit, the function stops and the transaction fails. The sender sets a maximum gas allowance, and the documentation says gas is translated to XRP and destroyed. The exact economics remain subject to the draft and implementation state.",
+        "The execution sandbox is deliberately narrow. The XLS-100 draft describes read access to ledger objects and transaction context, with no arbitrary ledger writes and no transaction emission. That limits side effects, but it also means an application cannot assume that a Smart Escrow function can perform the same actions as a general contract. Builders need to model the escrow state and any off-ledger orchestration around those boundaries.",
+        "The cancellation path is equally important. A condition that cannot be met should not leave XRP locked indefinitely, so the draft makes CancelAfter mandatory for bytecode escrows. In practical terms, expiry is not a decorative parameter. It is the recovery mechanism that defines what happens when code rejects every finish attempt, an oracle is unavailable, or an application disappears.",
+        "Failure reporting is part of the developer experience. The proposed model exposes distinct cases for missing bytecode, omitted bytecode on a finish, invalid WASM, rejected bytecode, and out-of-gas execution. GasUsed and VMReturnCode can help applications distinguish a user condition that returned false from an execution path that failed before the condition completed. That separation will matter for wallets, monitoring, and support tools.",
+        "RippleX Developers wrote in a December 18, 2025 security post that sandboxing, testing, and multiple audits were part of the Smart Escrow work at that publication date. That is useful supporting context, but it is not an audit certificate or a current security sign-off. Confirmed safety claims should wait for dated audit records, stable implementation notes, and reproducible test results."
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-100-smart-escrows/concepts/programmability",
+        "https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html",
+        "https://dev.to/ripplexdev/smart-escrow-series-3-security-3e0p",
+        "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/transactions/escrowFinish.ts",
+        "https://xrpl.org/docs/concepts/payment-types/escrow"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, and XRP holders",
+      "paragraphs": [
+        "For XRPL developers, the immediate opportunity is test integration. The pre-release gives typed JavaScript consumers a place to represent Bytecode, Data, Gas, GasUsed, and VMReturnCode. A useful next step is to pin the exact beta version, build against the matching server definitions, and test rejection paths on a non-Mainnet network. The package should be treated as an experimental dependency, not silently promoted into a production wallet.",
+        "For application operators, the operational work is larger than adding one transaction field. A Smart Escrow service would need bytecode provenance, deterministic build records, expiry monitoring, gas budgeting, failure telemetry, and a recovery process for rejected finishes. Operators should also record the server version and amendment state used by each test. A successful local test without those controls would provide weak evidence about production readiness.",
+        "For XRP holders, this record does not establish an immediate change to XRP utility, demand, or price. Smart Escrow could eventually support more expressive settlement rules, but the sources reviewed do not report Mainnet activation, user counts, transaction growth, or a market outcome. The defensible conclusion is narrower: the protocol work has moved into a visible client preview while the network status remains developmental.",
+        "For token issuers and custody teams, the naming split matters. TokenEscrow and SmartEscrow can describe different protocol paths, with different prerequisites and risk assumptions. A product specification should cite XLS-85 or XLS-100 directly, state whether it needs XRP or issued-asset escrow, and avoid using a generic Smart Escrow label as proof that a particular feature is enabled.",
+        "For readers evaluating XRP Ledger infrastructure announcements, the lesson is to follow the evidence chain. Start with the server or standards record, check the amendment status, inspect the actual network feature response, and then look for independent reporting or security evidence. That method keeps a promising developer milestone from becoming an unsupported adoption or investment claim."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/xrpl%405.1.0-smartescrow.1",
+        "https://github.com/XRPLF/xrpl.js/commit/3dc0ad5d5292b71fd3231be4c44e7c403e1678ae",
+        "https://xrpl.org/docs/infrastructure/testing-and-auditing/test-amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/payment-types/escrow"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, unresolved questions",
+      "paragraphs": [
+        "Confirmed facts: XRPLF published the xrpl@5.1.0-smartescrow.1 record as a pre-release on August 12, 2026. The linked commit updated generated definitions and beta versions, and the tagged models contain the Smart Escrow fields described above. XLS-100 is a draft, and the Known Amendments page lists SmartEscrow as In Development.",
+        "Bounded inference: the client-model changes indicate that developers are being given a more complete interface for testing the proposal. They do not, by themselves, prove that a stable rippled implementation is ready, that validators are voting, or that applications are using the feature in production.",
+        "Unresolved questions: the records reviewed do not establish a final gas schedule, final bytecode limits, a completed audit, a stable server release, a Mainnet amendment vote, or a live application deployment. The August 16 feature response is also one public node snapshot. Those gaps are not evidence of failure, but they are reasons to keep the headline and product claims conditional."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl.js/releases/tag/xrpl%405.1.0-smartescrow.1",
+        "https://github.com/XRPLF/xrpl.js/commit/3dc0ad5d5292b71fd3231be4c44e7c403e1678ae",
+        "https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "First, watch the official xrpl.js and rippled release records for a stable version that carries the corresponding definitions. A later beta is not enough by itself. The meaningful transition is a stable server release with clear Smart Escrow implementation notes and test coverage.",
+        "Second, watch the Known Amendments page and validator-facing amendment records for SmartEscrow to move from In Development into a voting state. If that happens, the amendment documentation will provide the relevant support threshold and activation window. Until then, a client preview remains a development signal.",
+        "Third, watch for dated audit reports, devnet or standalone test results, final parameter changes, and independent reports of real deployments. Those records would answer the remaining questions about code safety, cost, operational recovery, and actual usage more directly than a package changelog can."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/infrastructure/testing-and-auditing/test-amendments",
+        "https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html",
+        "https://dev.to/ripplexdev/smart-escrow-series-3-security-3e0p",
+        "https://xrpldashboard.com/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable rippled release and matching server definitions that carry SmartEscrow beyond the current xrpl.js pre-release.",
+    "A Known Amendments status change from In Development to a validator voting state, followed by the documented support and activation window.",
+    "Dated audit reports, reproducible devnet or standalone test results, and final gas, bytecode-size, and cancellation parameters.",
+    "A public Mainnet feature response that explicitly identifies SmartEscrow as enabled and supported across more than one independently checked node.",
+    "Named applications or transactions demonstrating real Smart Escrow use, with source records that separate deployment evidence from protocol availability."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF xrpl.js 5.1.0-smartescrow.1 release",
+      "url": "https://github.com/XRPLF/xrpl.js/releases/tag/xrpl%405.1.0-smartescrow.1",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "XRPLF xrpl.js smartescrow definitions commit 3dc0ad5",
+      "url": "https://github.com/XRPLF/xrpl.js/commit/3dc0ad5d5292b71fd3231be4c44e7c403e1678ae",
+      "type": "primary",
+      "publishedAt": "2026-08-10"
+    },
+    {
+      "name": "XRPLF EscrowCreate model at smartescrow.1",
+      "url": "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/transactions/escrowCreate.ts",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF EscrowFinish model at smartescrow.1",
+      "url": "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/transactions/escrowFinish.ts",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF Escrow ledger model at smartescrow.1",
+      "url": "https://github.com/XRPLF/xrpl.js/blob/xrpl%405.1.0-smartescrow.1/packages/xrpl/src/models/ledger/Escrow.ts",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-100 Smart Escrows",
+      "url": "https://xls.xrpl.org/xls/XLS-0100-smart-escrows.html",
+      "type": "primary",
+      "publishedAt": "2026-06-22"
+    },
+    {
+      "name": "Ripple Open Source Smart Escrow programmability concepts",
+      "url": "https://opensource.ripple.com/docs/xls-100-smart-escrows/concepts/programmability",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Known Amendments",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL amendment process",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL amendment testing guidance",
+      "url": "https://xrpl.org/docs/infrastructure/testing-and-auditing/test-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Mainnet feature RPC snapshot endpoint",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL escrow documentation",
+      "url": "https://xrpl.org/docs/concepts/payment-types/escrow",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Dashboard current amendment status",
+      "url": "https://xrpldashboard.com/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Commons, What's New on the XRP Ledger",
+      "url": "https://www.xrpl-commons.org/newsroom/whats-new-on-the-xrp-ledger",
+      "type": "supporting",
+      "publishedAt": "2025-10-24"
+    },
+    {
+      "name": "RippleX Developers, Smart Escrow Series: Security",
+      "url": "https://dev.to/ripplexdev/smart-escrow-series-3-security-3e0p",
+      "type": "supporting",
+      "publishedAt": "2025-12-18"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/escrow",
+      "label": "How XRP Ledger Escrow Works",
+      "description": "Review the existing time-based and condition-based escrow model."
+    },
+    {
+      "href": "/learn/xrp-smart-contracts",
+      "label": "XRP Smart Contracts",
+      "description": "See how Smart Escrow fits into the wider XRPL programmability landscape."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Developer Resources",
+      "description": "Find the tools and documentation needed to test XRPL applications."
+    },
+    {
+      "href": "/learn/how-to-run-xrpl-validator",
+      "label": "How to Run an XRPL Validator",
+      "description": "Understand the validator infrastructure behind amendment decisions."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "XRPL Binary Codec 2.9.0 Adds New Protocol Models",
+      "description": "Compare this Smart Escrow client preview with a separate XRPL codec release."
+    }
+  ]
+}
