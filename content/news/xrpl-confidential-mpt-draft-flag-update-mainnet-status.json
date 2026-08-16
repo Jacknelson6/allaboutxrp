@@ -1,0 +1,270 @@
+{
+  "slug": "xrpl-confidential-mpt-draft-flag-update-mainnet-status",
+  "title": "XRPL Updates Confidential Transfer Draft, but Mainnet Privacy Is Not Live",
+  "description": "An August 10 XLS-0096 revision changes how XRPL confidential MPTs record an immutable privacy lock. The proposal remains a draft, with no mainnet voting or activation record.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-15T22:07:32-05:00",
+  "modifiedAt": "2026-08-15T22:07:32-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-confidential-mpt-audit-lock-editorial.webp",
+  "imageAlt": "A cobalt glass balance capsule sits inside a pale-gold locking collar beside an ivory audit aperture plate on a shadowed stone bench",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "confidential-mpt-audit-lock-still-life",
+  "imageSetting": "A silent white-clay cryptography atelier with a narrow west-facing slit window at blue hour, viewed from a close three-quarter rear angle across an ivory stone bench",
+  "imageMetaphor": "A cobalt glass balance capsule sits inside a pale-gold two-position locking collar beside a separate audit aperture, showing encrypted MPT balances that can be disclosed for audit but cannot have confidentiality switched off once locked",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape, sparse physically believable symbolic still life. Primary request: explain the August 10, 2026 revision to the XRP Ledger XLS-0096 Confidential Transfers draft for Multi-Purpose Tokens. Show privacy with auditability and a one-way protocol lock, not a live product. Use a new setting unlike every existing AllAboutXRP scene: a silent white-clay cryptography atelier with a narrow west-facing slit window at blue hour, viewed from a close three-quarter rear angle across an ivory stone bench. Put the focal arrangement low and slightly right of center, with broad warm-ivory negative space across the upper-left. Exactly four deliberate objects: one cobalt glass balance capsule with an opaque inner chamber; one pale-gold two-position locking collar physically fitted around the capsule, with one open position and one permanent stop; one separate flat ivory audit aperture plate with three clean circular openings, representing holder, issuer, and auditor views; and one restrained vermilion witness pin securing the permanent stop. Make all contacts and cast shadows physically coherent. The specific metaphor is encrypted MPT balances remain private while selected parties can audit them, and confidentiality can be enabled once but cannot be switched off after the immutable lock is chosen. Style: luminous academic and classical-revival oil painting, crisp sculptural modeling, rich glazing, smooth enamel-like cobalt glass, physically modeled pale-gold metal, warm ivory stone, selective impasto on metal edges and glass highlights, saturated cobalt and ultramarine shadow depth, clean ivory-gold reflected light, extraordinary atmospheric clarity. Extremely subtle translucent fields made only from 1, 0, and x may appear only in a few atmospheric or cast-shadow transitions and dissolve into white space; never across the objects, never as an all-over filter. Constraints: exactly one capsule, one collar, one aperture plate, one witness pin; no extra objects, people, animals, Greek architecture, temple, city, landscape, bank, coin, token, XRP logo, cryptocurrency symbol, dashboard, chart, interface, readable letters or numbers, watermark, border, rounded frame, generic cyber cube, impossible building, fantasy ruin, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, duplicated elements, or classical subject leakage. Finished art must feel like a premium editorial cover with clean negative space and a fact-safe mechanism.",
+  "keywords": [
+    "XRP Ledger news",
+    "XLS-0096",
+    "Confidential Transfers",
+    "confidential MPTs",
+    "XRPL privacy",
+    "Multi-Purpose Tokens"
+  ],
+  "keyTakeaways": [
+    "Confirmed: the August 10, 2026 XLS-0096 revision moves the permanent confidentiality lock to sfImmutableFlags and changes post-creation activation to the Flags field.",
+    "Confirmed: the draft would encrypt MPT balances and transfer amounts with EC-ElGamal and zero-knowledge proofs while preserving public supply accounting and selected audit paths.",
+    "Current status: ConfidentialTransfer remains development work with no on-chain hash or mainnet activation record, so XRP holders have no new privacy feature to use."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: this is draft maintenance, not a mainnet privacy launch",
+      "paragraphs": [
+        "On August 10, the XRP Ledger Standards repository revised the draft XLS-0096 Confidential Transfers design, moving its permanent confidentiality lock to `sfImmutableFlags` and changing the post-issuance enablement flag. The proposal still carries Draft status, and current status checks place ConfidentialTransfer in development with no on-chain hash. This is specification work, not mainnet privacy, XRP privacy, or activation.",
+        "Confirmed fact: the primary record is a one-file commit in the XRPLF XRPL-Standards repository. Its diff records 42 additions and 55 deletions in the XLS-0096 specification. The edit replaces the draft’s earlier `sfMutableFlags` and `MutableFlags` route with `sfImmutableFlags` and `ImmutableFlags`, renames the relevant transaction flags, and changes the bit assigned to post-creation enablement. Those are protocol-design details, not a software release or a validator vote.",
+        "The distinction is important because XRPL features move through several separate gates. A draft XLS can describe an intended ledger change. A server implementation can carry code for that change. A stable server release can make the amendment eligible for network consideration. Validators can then vote, and the amendment can activate only after the network’s consensus rules are satisfied. A revision to a standards file does not cross those gates by itself.",
+        "Bounded inference: the update is material for developers and token issuers because it changes the configuration model they would need to implement and test. Unresolved uncertainty: the August 10 commit does not promise that the revised design is final, that the implementation has reached a stable release, or that the specification will not change again. Readers should treat the current document as a moving technical contract."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/commit/9fbf7ef8eb69973f43d44836875e01e6364a3ecb",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What the August 10 XRPL Standards commit changes",
+      "paragraphs": [
+        "Confirmed fact: the revised draft separates the fact that an issuance can hold confidential balances from the decision that the capability can never be changed after creation. The ledger-state flag `lsfMPTCanHoldConfidentialBalance` remains in `sfFlags` at hexadecimal `0x00000080`. The new immutable-state flag `lsifMPTCanHoldConfidentialBalance` sits in `sfImmutableFlags`, also at `0x00000080`, and acts as the permanent lock when set at issuance creation.",
+        "The post-creation path also moves. The new draft places `tfMPTSetCanHoldConfidentialBalance` in the ordinary `Flags` field at hexadecimal `0x00000100`, or decimal 256. An issuer can use that path to enable confidential balances later only when the issuance was created without the immutable lock. The current draft says that enabling confidentiality is one-way. It cannot be cleared through a later transaction once the capability is set.",
+        "The table is a compact reading of the updated flag map:",
+        "Bounded inference: this arrangement gives an issuer an explicit choice between future flexibility and an issuance-level promise that the privacy capability cannot be changed. That may simplify downstream risk review because the permanence decision is visible in the issuance configuration. It does not, however, tell a holder whether an issuer will use an auditor, how keys will be governed, or whether a token will ever reach production.",
+        "Unresolved uncertainty: the commit also removes an earlier draft subsection that discussed freeze and clawback prerequisites through Dynamic MPT mutable flags. That removal is evidence that the text changed, not evidence that those controls are complete, unnecessary, or production-ready. A developer should compare the exact implementation, the target server definitions, and the latest XLS before relying on any field name or permission rule."
+      ],
+      "table": {
+        "caption": "The revised XLS-0096 flag model",
+        "headers": [
+          "Protocol element",
+          "Field",
+          "Value",
+          "Meaning in the current draft"
+        ],
+        "rows": [
+          [
+            "lsfMPTCanHoldConfidentialBalance",
+            "sfFlags",
+            "0x00000080",
+            "Enables confidential balance support for the MPT issuance"
+          ],
+          [
+            "lsifMPTCanHoldConfidentialBalance",
+            "sfImmutableFlags",
+            "0x00000080",
+            "Locks the enablement choice against later change when set at creation"
+          ],
+          [
+            "tfMPTSetCanHoldConfidentialBalance",
+            "Flags",
+            "0x00000100 / 256",
+            "Enables confidentiality after creation when the lock was not set"
+          ],
+          [
+            "ConfidentialTransfer",
+            "Amendment status",
+            "In development",
+            "Not a mainnet activation or a public voting record"
+          ]
+        ],
+        "sourceNote": "Values and meanings are taken from the August 10, 2026 XRPLF commit and the current XLS-0096 draft. Status is checked against the independent XRPL amendment tracker on August 15, 2026."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/commit/9fbf7ef8eb69973f43d44836875e01e6364a3ecb",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html"
+      ]
+    },
+    {
+      "heading": "What Confidential Transfers would actually hide on XRPL",
+      "paragraphs": [
+        "Confirmed fact: XLS-0096 is a proposed extension to Multi-Purpose Tokens, or MPTs. Its design uses EC-ElGamal encryption and zero-knowledge proofs to hide individual balances and transfer amounts while keeping supply accounting enforceable. The draft defines `OutstandingAmount` and `ConfidentialOutstandingAmount` as public ledger values, so validators can check supply relationships without decrypting every holder’s balance.",
+        "The privacy boundary is selective rather than absolute. The current concept documentation says a holder’s encrypted balance can have separate ciphertexts for the holder, issuer, and an optional auditor. That architecture gives the holder spending authority, gives the issuer an encrypted mirror for supply and compliance work, and can give an auditor a separate view. Sender and receiver addresses, transaction types, total supply fields, and conversion amounts can remain visible even when the balance being transferred is hidden.",
+        "The scope is also narrower than the phrase XRP Ledger privacy might suggest. The proposal applies to MPTs, not native XRP payments. The current documentation describes direct confidential payments, while explicitly excluding XRPL DEX transactions, escrows, and checks. A future private MPT workflow therefore would not make every asset or every ledger operation private. It would add a particular confidential path to one token standard, with public and confidential balances able to coexist for the same issuance.",
+        "The draft also imposes a meaningful economic constraint: a confidential MPT cannot use a non-zero transfer fee. The specification says the fee model is percentage-based, while a confidential transfer hides the amount needed to calculate that percentage. This is a protocol tradeoff, not a bug in a live product. Institutions evaluating tokenized funds or stablecoins would need to weigh privacy, fee design, audit access, and composability together rather than treating confidentiality as a free overlay."
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://opensource.ripple.com/docs/xls-96-confidential-transfers",
+        "https://coinedition.com/xrp-ledger-batch-transactions-move-toward-validator-vote-within-two-weeks/"
+      ]
+    },
+    {
+      "heading": "Why the immutable lock matters to issuers and auditors",
+      "paragraphs": [
+        "Confirmed fact: under the current draft, an issuer can enable confidential balances at creation, or later through `MPTokenIssuanceSet` if the immutable flag was not set. Once `lsfMPTCanHoldConfidentialBalance` is enabled, the draft says it cannot be cleared. The purpose is operationally understandable: funds already converted to encrypted form should not become stranded because an issuer disabled the capability underneath them.",
+        "That one-way rule changes the due-diligence question. Before a token is issued, a buyer or custodian would need to inspect whether the issuer selected the immutable setting, which public and confidential states are supported, and which keys were registered. After issuance, an issuer may still have authority to enable the capability if the original configuration permits it. The initial configuration is therefore part of the token’s governance history, not merely a technical default.",
+        "The audit model does not eliminate trust. The draft and Ripple’s prerelease documentation describe issuer and optional auditor encryption keys, but key custody remains an operational responsibility. The documentation warns that losing a holder’s private key can permanently lose access to confidential funds, and that registered issuer and auditor keys cannot simply be changed or cleared. Selective disclosure can help compliance teams, but it also creates key-management, succession, and revocation questions that the ledger cannot answer on its own.",
+        "Bounded inference: the design is aimed at a familiar institutional compromise, keeping individual positions private while leaving supply limits and authorized review possible. Unresolved uncertainty: neither the draft nor the August 10 change establishes regulatory approval, a named production issuer, or a completed operational policy for auditors. A privacy mechanism can support compliance workflows without itself being a compliance determination."
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://opensource.ripple.com/docs/xls-96-confidential-transfers",
+        "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/"
+      ]
+    },
+    {
+      "heading": "Trail of Bits review raises the bar for a draft cryptographic feature",
+      "paragraphs": [
+        "Confirmed fact: Trail of Bits lists an April 2026 security review of Ripple Labs’ XRP Ledger Confidential Transfer work. Its public summary records 17 findings: three high, three medium, three low, seven informational, and one undetermined. The review is an independent security record, not an announcement that the feature is exploitable on mainnet. It matters because the proposed system depends on encryption, range proofs, version counters, and multi-ciphertext consistency.",
+        "The published findings include a missing range proof that could enable a confidential balance overdraft, an aggregated Bulletproof limitation for some in-range values, and high-severity version-counter findings involving confidential sends. The page also lists timing side-channel considerations, a mismatch between specification fields and implementation, and a multi-ciphertext equality-proof issue. These are exactly the kinds of edge cases that can change whether a privacy protocol is safe to deploy, even when the top-level design is easy to describe.",
+        "The August 10 standards commit should therefore be read alongside the audit, not as a substitute for it. The commit changes flag placement, terminology, transaction bits, and some surrounding draft text. It does not, in the record reviewed here, attach a remediation matrix to each Trail of Bits finding or declare the feature ready for a stable server release. A standards revision can be necessary after review without proving that the implementation has cleared review.",
+        "Independent technical coverage had already documented pressure points in the proposal. The XRPL Monday Brew summary for June 29 through July 5 reported a flag-bit collision and a question about clearing the confidentiality flag when no confidential funds remained. The August 10 change addresses the flag model in a later revision, but the responsible conclusion is limited: the specification is being actively refined, and its security status still requires direct review of the latest code and report."
+      ],
+      "sourceUrls": [
+        "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/",
+        "https://github.com/XRPLF/XRPL-Standards/commit/9fbf7ef8eb69973f43d44836875e01e6364a3ecb",
+        "https://xrplbrew.com/2026-06-29_2026-07-05.html"
+      ]
+    },
+    {
+      "heading": "Mainnet status: no voting record and no XRP-holder action",
+      "paragraphs": [
+        "Confirmed fact: the official XLS page still labels XLS-0096 `Draft`, while Ripple’s open-source page presents the feature in a prerelease documentation area. XRPL’s amendment guidance says development work becomes eligible for mainnet voting only after it is included in a stable server release. The August 10 standards commit is not that stable release, and it does not open a validator vote.",
+        "Current snapshot: an independent XRPL amendment tracker fetched from the public feature RPC on August 15, 2026 places XLS-96 under “in development” with no on-chain hash. The same tracker distinguishes supported but not enabled amendments from specifications that have not shipped in a released binary. An August 15 check of the public `s1.ripple.com:51234` feature response returned supported entries for `Batch` and `DynamicMPT`, but no `ConfidentialTransfer` entry. This is consistent with development work that has not reached a public voting state.",
+        "A dated independent report adds useful context but not a schedule. CoinEdition wrote on July 21 that a validator forecast expected several amendments, including confidential transfers, to move toward voting in roughly two weeks if development proceeded as planned. That forecast was conditional. The current primary records and the live status snapshot take precedence over the estimate, and they do not establish that voting has opened or that activation is imminent.",
+        "For XRP holders, the practical answer is simple. There is no new confidential-XRP wallet mode, no verified mainnet transaction type to use, and no sourced basis for claiming that this draft changes XRP demand or price. For developers, the update is worth testing in the right environment. For investors and institutions, it is a protocol-development milestone that may matter later, not evidence of current adoption, revenue, or regulatory approval."
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://opensource.ripple.com/docs/xls-96-confidential-transfers",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://s1.ripple.com:51234",
+        "https://coinedition.com/xrp-ledger-batch-transactions-move-toward-validator-vote-within-two-weeks/"
+      ]
+    },
+    {
+      "heading": "Implications for developers, token issuers, and XRP readers",
+      "paragraphs": [
+        "For JavaScript, Python, and server-side XRPL developers, the immediate task is version and definition discipline. Pin the exact XLS revision and implementation being tested. Compare the target server’s definitions with the client’s transaction fields. Build negative tests for malformed keys, invalid proofs, stale balance versions, transfer-fee conflicts, and attempts to clear a one-way flag. A successful local serialization or devnet transaction would prove only that the test environment accepted the path, not that mainnet does.",
+        "For issuers and custodians, record the privacy decision as part of the issuance policy. Decide whether confidentiality is enabled at creation, whether the capability must be permanently locked, which auditor keys are allowed, and how key loss or organizational change will be handled. The current draft’s public supply fields and optional auditor model can support review, but the governance policy must explain who can disclose, who can freeze or claw back when permitted, and how downstream systems react to a hidden balance.",
+        "For compliance teams, the feature’s selective disclosure is not the same as a regulator’s approval. An issuer-controlled view key, an auditor ciphertext, and public supply invariants each answer different questions. A review process still needs legal classification, sanctions controls, operational resilience, privacy policy, and evidence that the implementation matches the approved specification. The Trail of Bits findings make that last requirement especially concrete.",
+        "For ordinary XRP readers, the relevant lesson is how to read XRPL development news without collapsing entities or stages. XLS-0096 concerns issued MPTs, not native XRP. The August 10 record concerns a draft standard, not a Ripple customer announcement. The security review concerns code and cryptographic design, not a reported mainnet exploit. Keeping those boundaries intact is more useful than assigning a price narrative to a feature that is not live."
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next decisive record would be a stable XRPL server release whose notes explicitly include `ConfidentialTransfer`, followed by a public feature response showing that the amendment is supported. That would still be a software milestone, not activation. The subsequent evidence would be the official amendment status moving into voting and a validated ledger record showing whether the required validator majority is sustained.",
+        "The technical watchlist is equally specific. Check whether the XLS-0096 page changes its Draft label, whether the flag names and bit values remain stable, whether the Trail of Bits findings receive a public remediation status, and whether the devnet documentation exposes a reproducible test path. A final specification should also make the interaction with Dynamic MPT, transfer fees, freeze, clawback, DEX transactions, and auditor-key rotation clear enough for independent implementation.",
+        "Unresolved uncertainty: there is no current public record of a named production issuer using Confidential Transfers on XRPL, no mainnet activation, and no evidence that the feature would itself create XRP demand. Those claims should remain open until a primary deployment record, live ledger evidence, or independently verifiable production integration appears."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://github.com/XRPLF/XRPL-Standards/commit/9fbf7ef8eb69973f43d44836875e01e6364a3ecb",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable XRPL server release that explicitly includes ConfidentialTransfer and exposes it through the public feature response.",
+    "The official amendment record moving XLS-96 from development into validator voting, followed by a validated ledger majority sustained for the required activation window.",
+    "A final XLS-0096 specification that keeps the flag model, transfer-fee rule, Dynamic MPT dependency, freeze and clawback behavior, and auditor-key lifecycle internally consistent.",
+    "A public remediation record for the high-severity and undetermined findings in Trail of Bits’ April 2026 security review.",
+    "A named issuer, custodian, wallet, or institutional application showing independently verifiable production use rather than a draft, testnet, or roadmap claim."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF XRPL-Standards, August 10 XLS-0096 flag update commit",
+      "url": "https://github.com/XRPLF/XRPL-Standards/commit/9fbf7ef8eb69973f43d44836875e01e6364a3ecb",
+      "type": "primary",
+      "publishedAt": "2026-08-10"
+    },
+    {
+      "name": "XLS-0096 Confidential Transfers for Multi-Purpose Tokens, official draft",
+      "url": "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+      "type": "primary",
+      "publishedAt": "2026-01-15"
+    },
+    {
+      "name": "XRPL Known Amendments, official status reference",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple Open Source, XLS-96 prerelease documentation",
+      "url": "https://opensource.ripple.com/docs/xls-96-confidential-transfers",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL public feature RPC, snapshot checked August 15, 2026",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "Trail of Bits, Ripple Labs XRP Ledger Confidential Transfer security review",
+      "url": "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/",
+      "type": "supporting",
+      "publishedAt": "2026-04"
+    },
+    {
+      "name": "CoinEdition, XRP Ledger amendments and validator-vote forecast",
+      "url": "https://coinedition.com/xrp-ledger-batch-transactions-move-toward-validator-vote-within-two-weeks/",
+      "type": "supporting",
+      "publishedAt": "2026-07-21"
+    },
+    {
+      "name": "XRPL Monday Brew, June 29 through July 5 technical summary",
+      "url": "https://xrplbrew.com/2026-06-29_2026-07-05.html",
+      "type": "supporting",
+      "publishedAt": "2026-07-05"
+    },
+    {
+      "name": "xrpldashboard, independent live amendment tracker checked August 15, 2026",
+      "url": "https://xrpldashboard.com/amendments",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens",
+      "description": "Understand the token standard extended by the XLS-0096 proposal."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works",
+      "description": "Review amendments, validators, and the network process behind activation."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources",
+      "description": "Find official documentation, SDKs, and testing resources for XRPL builders."
+    },
+    {
+      "href": "/learn/how-to-run-xrpl-validator",
+      "label": "How to run an XRPL validator",
+      "description": "See the infrastructure role behind amendment support and voting."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "XRPL binary codec support",
+      "description": "Read the separate report on released client serialization support for proposed XRPL features."
+    }
+  ]
+}
