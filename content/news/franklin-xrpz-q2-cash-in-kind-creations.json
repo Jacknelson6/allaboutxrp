@@ -1,0 +1,261 @@
+{
+  "slug": "franklin-xrpz-q2-cash-in-kind-creations",
+  "title": "Franklin XRP ETF's Q2 Filing Splits $88.8M of Creations Into Cash and XRP",
+  "description": "Franklin's August 14 SEC filing shows how XRPZ's Q2 share creations were funded, separating $48.0 million of cash purchases from $40.8 million of in-kind XRP contributions.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-16T22:15:24-05:00",
+  "modifiedAt": "2026-08-16T22:15:24-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/franklin-xrpz-two-route-settlement-editorial.webp",
+  "imageAlt": "A pale-gold two-lane settlement shuttle joins a cobalt glass transfer flask and ivory ceramic balance weight into one cobalt custody vessel on an ivory stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpz-two-route-settlement-shuttle-still-life",
+  "imageSetting": "A narrow enclosed alabaster clearinghouse chamber with an ivory limestone settlement slab and a high west slit window under cool lucid late-morning light after a cloud break, viewed from a low rear-right three-quarter angle",
+  "imageMetaphor": "A pale-gold two-lane settlement shuttle joins a cobalt XRP transfer flask and an ivory cash weight into one cobalt custody vessel, representing Franklin XRPZ's separate in-kind and cash creation routes",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in a luminous academic classical-revival oil style with restrained 1/0/x stipple only in a few atmospheric and shadow transitions. Create one sparse, physically believable still life in a narrow enclosed alabaster clearinghouse chamber: an ivory limestone settlement slab, a high west slit window, cool lucid late-morning light after a cloud break, and broad negative space across the upper left. Use exactly four deliberate objects: a pale-gold bronze two-lane settlement shuttle with two channels joining at a receiving throat; a small cobalt glass transfer flask with water-blue liquid seated in the left channel for XRP delivered in kind; a smooth warm-ivory ceramic balance weight seated in the right channel for the cash route; and a low cobalt glass custody vessel at the joined outlet. Add exactly one tiny restrained vermilion wax seal at the merge. Low rear-right three-quarter viewpoint at stone level, crisp sculptural modeling, measured arrangement, no people, no text, no letters, no numbers, no logo, no literal crypto coin, no dashboard, no graph, no circuitry, no generic cyber cube, no Greek city, no temple, no harbor, no coastline, no panoramic landscape, no all-over ASCII, no dither outside selective atmospheric or shadow transitions.",
+  "keywords": [
+    "Franklin XRP ETF",
+    "XRPZ",
+    "XRP ETF",
+    "ETF creations and redemptions",
+    "in-kind XRP contribution",
+    "XRP market structure",
+    "SEC Form 10-Q"
+  ],
+  "keyTakeaways": [
+    "Franklin's SEC Form 10-Q filed August 14 reports 225,368,820.7314 XRP, 20.75 million shares, and $236.441 million of net assets at June 30, 2026.",
+    "Q2 share creations totaled $88.822 million: $48.042 million of XRP purchases funded by cash and $40.780 million of XRP contributed in kind. No shares were redeemed.",
+    "Calculated from the filing, XRP per share stayed nearly flat at about 10.861 XRP while NAV per share fell from $14.63 to $11.39 as XRP was marked lower.",
+    "The filing records ETF primary-market mechanics. It does not identify the buyers, the source venue for cash-purchased XRP, or a direct XRP price effect.",
+    "Independent ETF Central data as of July 29 listed XRPZ at $253.76 million of assets and $183 million of year-to-date flows, but that later snapshot does not replace the audited filing record."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPZ's Q2 growth came through two creation routes",
+      "paragraphs": [
+        "Franklin's XRPZ Form 10-Q, filed with the U.S. Securities and Exchange Commission on August 14, reports $88.822 million of Q2 share creations through two routes: $48.042 million of cash-funded XRP purchases and $40.780 million of XRP contributed in kind. No shares were redeemed. That shows primary-market activity, not who bought XRP or why.",
+        "The distinction matters because a new ETF share can be created against a basket that arrives as digital assets, cash, or a combination of both. The filing gives a precise accounting record for this quarter, but it does not turn the share count into a simple measure of net XRP demand. The cash line records what the fund bought and the in-kind line records what was transferred into the fund. Neither line names an end investor.",
+        "The same filing reports 225,368,820.7314 XRP and 20,750,000 shares outstanding on June 30. Net assets were $236,440,941, while NAV per share was $11.39. The quarter therefore combines an expanding vehicle with a lower marked value, a pattern that is easier to understand when share transactions are separated from operating performance."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm"
+      ]
+    },
+    {
+      "heading": "What Franklin reported at June 30",
+      "paragraphs": [
+        "Franklin's unaudited Form 10-Q compares June 30 with March 31, 2026. XRP held rose from 159,659,740.0158 to 225,368,820.7314, an increase of 65,709,080.7156 XRP. Shares outstanding rose from 14.70 million to 20.75 million. Net assets increased from $215.062 million to $236.441 million even though the fund recorded a large net decrease from operations.",
+        "The balance-sheet growth should be read as a fund-accounting result, not as a standalone conclusion about the broader XRP market. New shares add capital or assets to the vehicle, and the XRP already held is then marked at the reporting date. Those two movements can point in different directions during the same quarter.",
+        "The filing reports XRP at a June 30 fair value of $236.480 million, or 100.02% of net assets. The reported cost of those holdings was $410.972 million. The difference is consistent with the filing's $67.405 million net unrealized depreciation for the quarter. The numbers describe the fund's carrying value on the reporting date, not a realized sale of the entire position."
+      ],
+      "table": {
+        "caption": "Franklin XRPZ quarter-end comparison",
+        "headers": [
+          "Metric",
+          "March 31, 2026",
+          "June 30, 2026",
+          "Change or reading"
+        ],
+        "rows": [
+          [
+            "XRP held",
+            "159,659,740.0158 XRP",
+            "225,368,820.7314 XRP",
+            "+65,709,080.7156 XRP"
+          ],
+          [
+            "Shares outstanding",
+            "14,700,000",
+            "20,750,000",
+            "+6,050,000"
+          ],
+          [
+            "Net assets",
+            "$215.062 million",
+            "$236.441 million",
+            "+$21.379 million"
+          ],
+          [
+            "NAV per share",
+            "$14.63",
+            "$11.39",
+            "Calculated decrease of 22.15%"
+          ],
+          [
+            "XRP per share",
+            "About 10.861 XRP",
+            "About 10.861 XRP",
+            "Calculated change of about -0.00006 XRP"
+          ]
+        ],
+        "sourceNote": "Balance-sheet values are from Franklin XRP ETF's unaudited Form 10-Q for the quarter ended June 30, 2026, filed August 14, 2026. Percentage changes and XRP-per-share figures are calculations from those reported values, rounded for readability."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm"
+      ]
+    },
+    {
+      "heading": "The creation record separates cash purchases from in-kind XRP",
+      "paragraphs": [
+        "Franklin's statement of cash flows is unusually useful for explaining the quarter. It records $48.042 million of XRP purchases and an equal $48.042 million of proceeds from the issuance of shares. It separately records $40.780 million of in-kind contributions of XRP and an equal $40.780 million of shares issued in exchange for XRP. The filing records zero XRP sales, zero proceeds from redeemed shares, and zero in-kind distributions for redeemed shares during the quarter.",
+        "The two creation components add to the $88.822 million of contributions shown in the statement of changes in net assets. Calculated as a share of that total, the cash-linked component was 54.09% and the in-kind component was 45.91%. Those percentages are not a new Franklin disclosure. They are a transparent calculation from the filing's two reported contribution lines.",
+        "In practical terms, the cash line says the fund purchased XRP after receiving cash associated with share issuance. The in-kind line says XRP arrived directly as the asset exchanged for newly issued shares. The accounting presentation does not say whether one authorized participant handled both routes, whether different participants handled them, or where the cash-funded XRP was sourced.",
+        "The U.S. SEC said in July 2025 that in-kind creations and redemptions could be used by crypto asset exchange-traded products. That policy context explains why an XRP fund can report both forms of activity, but it does not establish a universal operating pattern for every issuer or every reporting period. XRPZ's August 14 filing is the controlling evidence for what this fund reported in Q2."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/newsroom/press-releases/2025-101"
+      ]
+    },
+    {
+      "heading": "What ETF mechanics do and do not say about demand",
+      "paragraphs": [
+        "The Investment Company Institute explains that an authorized participant creates ETF shares by delivering a specified basket of securities, cash, or both to the fund. In return, the participant receives a creation unit, generally a large block of shares that can then enter the secondary market. Retail investors normally buy and sell ETF shares on an exchange rather than delivering XRP directly to the fund.",
+        "That structure creates an important boundary around the evidence. XRPZ's new-share data demonstrates that the fund issued shares and received assets or cash under its creation process. It does not show the identity of the beneficial owners who later held those shares, whether a retail buyer or an institution initiated the order, or whether any buyer intended to hold for a long period.",
+        "It also does not show a direct one-for-one price effect on XRP. A primary-market cash creation can require the fund or its trading counterparties to source XRP, but the filing does not identify the venue, timing, execution strategy, or counterparties. An in-kind creation transfers XRP into the fund, but the filing does not disclose the prior owner's acquisition history. Moving custody is not the same as proving new demand.",
+        "The SEC's crypto ETP guidance and ICI's general ETF explanation support the mechanics, while the Franklin filing supplies the fund-specific numbers. Keeping those source roles separate prevents a common analytical error: using a correct creation figure to make an unsupported claim about investor conviction, institutional accumulation, XRP adoption, or future price direction."
+      ],
+      "sourceUrls": [
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/newsroom/press-releases/2025-101",
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm"
+      ]
+    },
+    {
+      "heading": "Why assets rose while NAV fell",
+      "paragraphs": [
+        "XRPZ's Q2 statement of operations reports a $67.404 million net unrealized depreciation and a $67.443 million net decrease in net assets from operations. The loss was almost entirely unrealized because the fund reported no net realized gain or loss. It also reported $38,563 of total expenses after the sponsor-fee reimbursement and waiver shown in the filing.",
+        "At the same time, the statement of changes reports $88.822 million of contributions for shares issued and no distributions for shares redeemed. The contributions were larger than the operating decrease, so net assets finished the quarter $21.379 million above the March 31 amount. This is why “assets increased” and “NAV declined” can both be accurate descriptions of the same three-month period.",
+        "Calculated from the reported NAV figures, per-share NAV fell from $14.63 on March 31 to $11.39 on June 30, a 22.15% decrease. That calculation is a quarter-end comparison, not a claim about the precise path of XRP's price between those dates. The filing's accounting result captures both the reporting-date valuation and the share transaction history.",
+        "Independent ETF Central data marked as of July 29 lists XRPZ at $253.76 million of assets and $183 million of year-to-date flows. That later market-data snapshot provides context that the product remained active after Q2, but it is not a replacement for the issuer's filing and it does not reveal the cash versus in-kind split reported for June."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.etfcentral.com/fund/XRPZ"
+      ]
+    },
+    {
+      "heading": "The per-share XRP exposure barely moved",
+      "paragraphs": [
+        "A useful second calculation divides XRP held by shares outstanding at each quarter end. The March 31 result is about 10.8612068 XRP per share. The June 30 result is about 10.8611480 XRP per share. The difference is roughly negative 0.0000588 XRP per share, or less than one ten-thousandth of an XRP. Rounded to ordinary reporting precision, the fund added inventory and shares in nearly the same proportion.",
+        "That relationship is a more precise way to describe the Q2 expansion than saying that every new share represented a fresh increase in XRP exposure per existing share. The total position grew because the vehicle issued more shares and received additional XRP or cash-funded XRP. The calculated per-share quantity stayed almost constant, subject to rounding and the filing's reporting conventions.",
+        "Franklin's product page later showed 21 million shares and more than 228 million XRP in a July 7 snapshot. The dated issuer snapshot is directionally consistent with continued post-quarter growth, but it is not a substitute for the June 30 Form 10-Q and it does not identify whether subsequent additions used cash, in-kind transfers, or both."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ"
+      ]
+    },
+    {
+      "heading": "Implications for investors, XRP holders, and XRPL readers",
+      "paragraphs": [
+        "For brokerage investors, the filing is a reminder that buying an XRP ETF share is not the same transaction as buying XRP directly. The investor receives a security with a NAV, trading price, fees, custody arrangements, and creation and redemption rules. The fund's June 30 XRP balance is informative, but it does not remove the ETF's market, operational, tax, or product-structure risks.",
+        "For authorized participants and liquidity providers, the cash and in-kind split is the most operationally relevant detail. It shows that both routes contributed materially to Q2 issuance, with the cash calculation slightly larger than the in-kind calculation. The next useful disclosures would be whether that mix persists, whether basket sizes or counterparties change, and how closely market price stays to NAV during volatile sessions.",
+        "For XRP holders, the filing supports a narrower conclusion: Franklin's vehicle held more XRP at June 30 than it held at March 31. It does not establish that XRP's circulating supply fell, that the assets came from a particular market maker, or that the holdings will remain in the fund. ETF inventory, Ripple-held XRP, ledger escrow, exchange balances, and self-custodied XRP are different categories.",
+        "For XRPL readers, there is no new ledger-use claim in this filing. The document concerns an exchange-traded product's shares, holdings, valuation, and cash flows. It does not report new XRPL transactions, a Ripple partnership, a protocol change, or a change to XRP Ledger functionality. Keeping Ripple, XRP, XRPZ, and the XRPL distinct is part of reading the record accurately."
+      ],
+      "sourceUrls": [
+        "https://www.ici.org/faqs/faqs_etfs",
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels: confirmed fact, calculation, and unresolved detail",
+      "paragraphs": [
+        "Confirmed fact: Franklin's August 14 SEC filing reports the June 30 holdings, shares, net assets, NAV, operating result, cash purchases, in-kind contributions, share issuances, and absence of redemptions described above. Those statements are tied to the fund's unaudited quarterly report and should be read as the issuer's accounting record for the period ended June 30.",
+        "Calculation: the 65.709 million XRP increase, 6.05 million share increase, 22.15% NAV decline, 9.94% net-asset increase, 54.09% cash share of contributions, 45.91% in-kind share, and roughly 10.861 XRP per share are derived from reported values. They are rounded and should not be mistaken for separately reported Franklin metrics.",
+        "Unresolved: the filing does not identify end investors, beneficial ownership concentration, authorized participants, trading venues, execution timing for cash purchases, the previous owners of in-kind XRP, or the eventual disposition of the fund's holdings. It also cannot prove that Q2 creation activity caused a specific XRP price move or produced XRPL adoption. Those questions require different evidence."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.ici.org/faqs/faqs_etfs"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next quarter-end Franklin filing should be checked for the same fields: XRP quantity, shares outstanding, net assets, NAV, cash purchases, in-kind contributions, creations, redemptions, and realized versus unrealized results. A repeatable series is more informative than one strong quarter because it can show whether the creation mix is stable or event-driven.",
+        "Daily issuer holdings and independent AUM data should be compared with market price, NAV, volume, and any premium or discount on matching dates. That comparison can identify access and trading conditions, but it still should not be described as proof of long-term ownership or direct XRP demand without holder and transaction evidence.",
+        "The most consequential missing detail is source and destination transparency around the baskets. Watch for disclosures that identify authorized participants, custody movements, redemption activity, or the relationship between cash creations and XRP purchases. Also watch separate XRP Ledger and Ripple records for actual protocol use or company activity. ETF access alone is not a ledger-adoption metric."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+        "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ",
+        "https://www.etfcentral.com/fund/XRPZ"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Franklin's next quarter-end 10-Q with XRP quantity, net assets, shares outstanding, creations, redemptions, and realized versus unrealized results.",
+    "Whether the split between cash and in-kind basket activity persists, changes materially, or is accompanied by clearer authorized-participant disclosure.",
+    "Matching official holdings, AUM, NAV, market price, volume, and premium or discount data on the same dates.",
+    "Any evidence identifying the venue, custodian movement, or counterparties connected to cash-funded XRP purchases or in-kind transfers.",
+    "Separate XRP Ledger, Ripple, and XRP market records that establish actual usage or supply effects without treating ETF access as proof of adoption."
+  ],
+  "sources": [
+    {
+      "name": "U.S. SEC, Franklin XRP Trust Form 10-Q for the quarter ended June 30, 2026 (filed August 14, 2026)",
+      "url": "https://www.sec.gov/Archives/edgar/data/2059438/000114036126033198/ef20077164_10-q.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-14"
+    },
+    {
+      "name": "Franklin Templeton XRP ETF product page and holdings snapshot (undated reference; July 7, 2026 data checked)",
+      "url": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ",
+      "type": "primary"
+    },
+    {
+      "name": "Investment Company Institute, ETF Basics and Structure FAQs",
+      "url": "https://www.ici.org/faqs/faqs_etfs",
+      "type": "supporting",
+      "publishedAt": "2026-04-22"
+    },
+    {
+      "name": "ETF Central, XRPZ fund data (undated reference; data as of July 29, 2026)",
+      "url": "https://www.etfcentral.com/fund/XRPZ",
+      "type": "supporting"
+    },
+    {
+      "name": "U.S. SEC, statement on in-kind creations and redemptions for crypto asset ETPs",
+      "url": "https://www.sec.gov/newsroom/press-releases/2025-101",
+      "type": "supporting",
+      "publishedAt": "2025-07-29"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/etf",
+      "label": "XRP ETF dashboard",
+      "topic": "ETF market context",
+      "description": "Track the wider XRP ETF landscape while keeping fund-level filings separate from market-wide conclusions."
+    },
+    {
+      "href": "/learn/xrp-etf-filings",
+      "label": "How to read XRP ETF filings",
+      "topic": "Filing literacy",
+      "description": "Use a consistent framework for separating holdings, share transactions, NAV, and operating results."
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot XRP ETF versus futures ETF",
+      "topic": "Product structure",
+      "description": "Compare the asset exposure and mechanics that make spot and futures products different."
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "Ripple versus XRP",
+      "topic": "Entity clarity",
+      "description": "Keep Ripple, XRP, XRPZ, and the XRP Ledger distinct when interpreting institutional records."
+    },
+    {
+      "href": "/news/bitwise-xrp-etf-q2-creations-price-loss",
+      "label": "Bitwise's Q2 XRP ETF filing",
+      "topic": "Comparable filing",
+      "description": "Compare a different issuer's Q2 creations, redemptions, and operating result without merging the fund records."
+    }
+  ]
+}
