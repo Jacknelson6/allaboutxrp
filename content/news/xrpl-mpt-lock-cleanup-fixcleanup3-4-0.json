@@ -1,0 +1,223 @@
+{
+  "slug": "xrpl-mpt-lock-cleanup-fixcleanup3-4-0",
+  "title": "XRPL Patch Extends MPT Lock Guard to Future fixCleanup3_4_0",
+  "description": "XRPLF merged a develop-branch patch that extends locked-MPT authorization checks and adds cleanup for a dangling holder record. The amendment is not a Mainnet activation.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-17T14:10:00-05:00",
+  "modifiedAt": "2026-08-17T14:10:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-mpt-orphan-cleanup-editorial.webp",
+  "imageAlt": "A cobalt glass ledger lozenge sits inside a pale-gold hinged latch beside a broken ivory provenance seal on an inspection bench",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mpt-orphan-captive-ring-release-still-life",
+  "imageSetting": "A quiet glassblower's inspection bench with an ivory limestone surface and high frosted vent under clear cold late-morning light, viewed near the tabletop from the right",
+  "imageMetaphor": "A pale-gold captive-ring latch keeps a cobalt ledger lozenge secured while a broken ivory issuance seal sits apart, showing a locked MPT guard that still protects an existing issuance but permits cleanup once the issuance is gone",
+  "imagePrompt": "Create one original finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape for an article about XRPLF rippled PR #8004. Use the homepage hero and Sublime Classical Oil references only for luminous academic oil modeling, cobalt and ultramarine depth, warm ivory stone, pale-gold metal, crisp material separation, selective impasto, and extremely subtle 1/0/x stipple in a few wall or shadow transitions. Do not copy their people, architecture, scenery, objects, or compositions. Depict one sparse, physically believable still life on an ivory limestone inspection bench inside a quiet glassblower's inspection room, a setting unlike all registered AAXRP scenes. Use a near-surface close view from the right at tabletop height, with a frosted high vent and clear cold late-morning light from upper left, a long soft shadow toward lower right, and broad negative space across the left two-thirds. Include exactly four deliberate objects clustered on the right third: one pale-gold hinged captive-ring latch with a closed outer ring and visibly open release gate; one cobalt-blue glass ledger lozenge seated in an ivory groove inside it; one separate flat ivory provenance seal disk cracked cleanly in two with its center missing; and one tiny vermilion stop pin beside the intact hinge, the only red mark. The arrangement must explain that fixCleanup3_4_0 rejects unauthorized removal while an issuance still exists but permits cleanup of a dangling holder record after the issuance is destroyed. Preserve realistic weight, metal thickness, glass refraction, hinge mechanics, contact shadows, and object count. No readable text, logo, XRP symbol, crypto coin, coin edge, token-shaped disk, dashboard, screen, code, circuitry, wire, person, politician, robe, column, temple, Greek city, coast, harbor, terrace, bank, archive, survey court, quarry, cartographer room, instrument room, conservation studio, conservatory, salt pan, clearinghouse, timing chamber, bookbindery, kiln yard, relay cellar, signal chamber, waterworks chamber, cryptography atelier, credit alcove, basalt service gallery, mountain panorama, water vista, fantasy ruin, cyber cube, neon, generic technology illustration, impossible floating parts, duplicate object, extra red mark, title, watermark, border, rounded frame, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or all-over dither.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "Multi-Purpose Tokens",
+    "MPTokenAuthorize",
+    "fixCleanup3_4_0",
+    "XRPL security",
+    "XRP Ledger developers"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #8004 into develop on August 17, 2026, extending the locked-MPToken unauthorize guard to fixCleanup3_4_0 and adding a four-corner amendment test matrix.",
+    "The regression scenario is a holder-owned MPToken that remains locked after its issuer destroys the issuance; the new fix path allows the orphaned holder record to be cleaned up.",
+    "The change is amendment-gated and does not announce a public API, peer-protocol, Mainnet activation, XRP price, or XRP-demand event.",
+    "Developers and token issuers should treat this as a state-transition and release-status item, while XRP holders without MPT positions have no confirmed direct action from the patch."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF merged a gated MPT cleanup fix",
+      "paragraphs": [
+        "XRPLF merged PR #8004 on August 17, 2026, extending the locked-MPToken unauthorize guard to the future `fixCleanup3_4_0` path and adding tests for a dangling holder record left after issuance destruction. The change is in `develop`, is amendment-gated, and does not show a Mainnet activation, exploit, price signal, or XRP demand event. [1][2]",
+        "[Confirmed fact] The pull request updates `MPTokenAuthorize` and `MPToken_test`, and its description says the behavior change is gated behind `fixCleanup3_4_0`. The same record says there is no public API, libxrpl, or peer-protocol impact. The merge landed on the XRPLF `develop` branch, which makes this a current engineering record rather than proof that a stable `xrpld` package or the XRP Ledger Mainnet has changed. [1][2]",
+        "The distinction is important because XRP Ledger software moves through separate layers. A code change can be merged, packaged in a release, supported by a server, opened for amendment voting, and eventually enabled on Mainnet. Those are different events. PR #8004 documents the first layer and points to a future amendment gate; it does not publish a stable-release version, validator vote, activation date, or production deployment instruction. [1][4]",
+        "[Independent context] The XRP Ledger security history shows why readers should keep those layers separate. CoinDesk's February 27 report on an earlier XRPL bug described a server release disabling affected amendments after a security finding. That report does not confirm PR #8004 or imply that the current patch responds to a live exploit. It is useful only as context for why a guarded code path and a network activation are not interchangeable facts. [6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8004",
+        "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.coindesk.com/tech/2026/02/27/ai-tool-catches-critical-xrp-ledger-bug-that-could-have-drained-wallets"
+      ]
+    },
+    {
+      "heading": "The edge case: a locked MPToken can become a stranded ledger object",
+      "paragraphs": [
+        "[Confirmed fact] Multi-Purpose Tokens are issuer-defined assets on the XRP Ledger. An `MPToken` ledger entry records a holder's relationship to an issuance, while the issuance controls properties such as locking and clawback. The official XRPL documentation says an issuer can lock a holder's balance, and the holder-side `MPTokenAuthorize` flow includes an unauthorize path for relinquishing an MPT when the required conditions are met. [3]",
+        "The regression test in PR #8004 makes the edge case concrete. In the test setup, Alice issues a lock-capable MPT, locks Bob's holder entry, and then destroys the issuance after the issuance has no outstanding balance. The holder entry can still exist even though the issuance object it points to no longer does. That is why the test calls the remaining record a dangling or orphaned locked MPToken. [2]",
+        "Under the older feature combination, the cleanup path can dead-end. Bob's attempt to unauthorize the holder entry returns `tecNO_PERMISSION` because the entry is flagged as locked. An issuer-side unlock cannot repair the state because the issuance has already been destroyed, so the corresponding test expects `tecOBJECT_NOT_FOUND`. The result is not a transfer of value or a consensus failure; it is a ledger-object lifecycle problem in which the holder record cannot finish its own deletion path. [2]",
+        "[Independent corroboration] XRPL Commons' MPT training reference describes `canLock`, holder authorization, issuance identifiers, and the role of `MPTokenAuthorize` in the same general state model. Its guide is not a report about PR #8004, and it should not be used to infer a live exploit. It independently supports the underlying explanation that an MPT holder record, its issuance identifier, its lock state, and its authorization state are separate pieces of ledger behavior. [5]",
+        "That separation explains why the patch deserves technical coverage even though it has no XRP price angle. A tokenized asset system needs to preserve a real lock when the issuance still exists, but it also needs a deterministic way to remove a holder record when the object that could unlock it has been retired. The fix is aimed at that boundary between compliance control and lifecycle cleanup."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    },
+    {
+      "heading": "PR #8004 separates lock protection from orphan cleanup",
+      "paragraphs": [
+        "[Confirmed fact] The code change hoists the MPT issuance lookup so `MPTokenAuthorize::preclaim` can see both the holder entry and the issuance before deciding whether an unauthorize request is allowed. When `fixCleanup3_4_0` is enabled, a locked holder entry is rejected if its issuance still exists. If the issuance is gone, the new branch does not apply the lock rejection, which lets the holder record complete its cleanup. The older `featureSingleAssetVault` branch remains available for the pre-fix behavior. [1][2]",
+        "This is a narrower design than simply removing the lock check. The patch does not make a live locked MPT freely removable. It conditions the rejection on the existence of the issuance under the new amendment path. That preserves the meaning of an issuer-controlled lock when there is still an issuance to govern, while creating an exit for the otherwise unreachable state produced by a destroyed issuance. [1][2]",
+        "The test work is also more informative than a single happy-path assertion. PR #8004 expands `testSetEnabled` across the four combinations of `featureSingleAssetVault` and `fixCleanup3_4_0`, then adds `testLockedMPTokenDestroyedIssuance` to exercise the specific orphan scenario. The matrix makes the intended boundary visible: feature flags, issuance existence, holder lock state, and transaction result all matter together. [1][2]"
+      ],
+      "table": {
+        "caption": "Expected cleanup result in the destroyed-issuance regression test",
+        "headers": [
+          "Single Asset Vault",
+          "fixCleanup3_4_0",
+          "Dangling locked MPToken after issuance destruction"
+        ],
+        "rows": [
+          [
+            "Off",
+            "Off",
+            "Holder cleanup succeeds"
+          ],
+          [
+            "Off",
+            "On",
+            "Holder cleanup succeeds"
+          ],
+          [
+            "On",
+            "Off",
+            "Cleanup is blocked with `tecNO_PERMISSION`; the lock cannot be cleared because the issuance is gone"
+          ],
+          [
+            "On",
+            "On",
+            "Holder cleanup succeeds under the new gated path"
+          ]
+        ],
+        "sourceNote": "The table summarizes the four feature combinations and expected outcomes asserted by XRPLF's PR #8004 regression test. It describes the destroyed-issuance test scenario, not general behavior for every locked MPT. [1][2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8004",
+        "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a"
+      ]
+    },
+    {
+      "heading": "Implications for MPT issuers, application teams, and XRP holders",
+      "paragraphs": [
+        "[Implication for MPT issuers] Issuers using lock-capable Multi-Purpose Tokens should track the difference between a balance that is intentionally locked and a holder record that has lost its issuance. The former is a compliance or transfer-control state. The latter is an object-lifecycle state. PR #8004 is designed to keep those cases from sharing the same permanent rejection path once the future amendment is enabled. [1][3]",
+        "[Implication for application teams] Developers who create, authorize, lock, unlock, destroy, or index MPTs should add both paths to their fixtures. Test a live issuance with a locked holder and confirm that unauthorized removal remains rejected. Then test an issuance with no outstanding balance, destroy it, and verify the holder record's cleanup result under the relevant feature combinations. Persist the transaction result and ledger state rather than treating a generic failed submission as enough evidence. [2][3]",
+        "[Implication for validators and node operators] There is no instruction in PR #8004 to install a `develop` build on production infrastructure. The XRPL known-amendments page explains that in-development changes need to be included in a stable server release before they can become open for Mainnet voting, and that amendment status is a separate network record. Operators should wait for a stable release, read its migration notes, and inspect live feature status before scheduling an upgrade. [1][4]",
+        "[Implication for XRP holders] This patch is about MPT ledger objects, not XRP supply, XRP escrow, XRP transaction fees, or a new XRP market venue. The sources reviewed do not identify a named production application, new XRP demand, a price reaction, or a holder action caused by PR #8004. [Bounded inference] Better lifecycle handling can reduce friction for developers working with regulated or controlled tokens over time, but that is not evidence of an immediate XRP outcome. [1][3][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8004",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://xrpl.org/resources/known-amendments",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    },
+    {
+      "heading": "Status labels: confirmed change, bounded inference, unresolved release questions",
+      "paragraphs": [
+        "[Confirmed] The merge record shows PR #8004 was merged into `develop` on August 17 after changes to the MPT transactor and its tests. The commit contains the four-corner feature matrix and the destroyed-issuance regression test. The pull request explicitly describes the change as gated behind `fixCleanup3_4_0` and says it has no public API, libxrpl, or peer-protocol impact. [1][2]",
+        "[Bounded inference] The most defensible reading is that XRPLF is tightening a state transition before a future protocol path can be enabled. The code and tests support that interpretation. They do not support calling the work a critical vulnerability, a wallet-draining exploit, a consensus repair, or proof that MPT adoption is accelerating. The patch's scope is a correctness and cleanup boundary. [1][2][6]",
+        "[Unresolved] The public records reviewed do not identify a stable `xrpld` version that contains the change, an amendment identifier for `fixCleanup3_4_0`, a Mainnet vote schedule, an activation threshold result, or a named production service that has deployed it. The official status page also says its development list is maintained manually, so absence from that list is not a substitute for a live feature response. Those unknowns should remain visible until a release or network record resolves them. [1][4]",
+        "The same caution applies to independent corroboration. XRPL Commons supports the general MPT mechanics, and CoinDesk supplies historical security context, but neither outlet reports this specific merge. The primary record remains the authority for what PR #8004 changed. Independent sources help explain the surrounding system and the difference between a code record and a live network event; they do not manufacture confirmation where none exists. [5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8004",
+        "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a",
+        "https://xrpl.org/resources/known-amendments",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+        "https://www.coindesk.com/tech/2026/02/27/ai-tool-catches-critical-xrp-ledger-bug-that-could-have-drained-wallets"
+      ]
+    },
+    {
+      "heading": "What to watch next for fixCleanup3_4_0 and MPT lifecycle safety",
+      "paragraphs": [
+        "The next meaningful record is not a social-media announcement. It is a dated stable-server release or XRPLF changelog entry that names `fixCleanup3_4_0`, carries PR #8004 forward, and explains whether any test or migration behavior changed after the merge. That record would move the story from a `develop`-branch implementation to a versioned operator decision. [1][4]",
+        "Watch the amendment status separately. A future `feature` response, the official amendment page, or a validator-vote record should establish whether the amendment is supported, open for voting, or enabled on Mainnet. A library, SDK, or code-branch reference cannot substitute for that network evidence. [1][4]",
+        "Watch the regression itself in testnet or devnet documentation. The useful evidence will show a locked holder entry, a destroyed issuance with no outstanding balance, the `MPTokenAuthorize` result, and the final owner-object count under each relevant feature combination. If a later release changes the error codes or cleanup sequence, that is the kind of detail application teams need to update fixtures and reconciliation logic. [2][3]",
+        "Finally, watch for independent operator notes that identify a deployed version and a tested MPT lifecycle. Until those appear, the measured conclusion is enough: XRPLF has merged a narrowly scoped protocol-correctness patch that preserves lock protection for existing MPT issuances while creating a future gated cleanup path for orphaned holder records. It is a meaningful engineering milestone, not a live XRP market catalyst. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8004",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A dated stable xrpld release or changelog entry that includes fixCleanup3_4_0 and PR #8004 after the develop-branch merge.",
+    "The official amendment record or feature response showing whether fixCleanup3_4_0 is supported, open for voting, or enabled on XRP Ledger Mainnet.",
+    "Testnet or devnet evidence for MPTokenAuthorize after an issuer destroys an issuance with no outstanding balance, including the final owner-object count.",
+    "Any release-note change to the tecNO_PERMISSION, tecOBJECT_NOT_FOUND, or cleanup outcomes used in the four feature-flag combinations.",
+    "Named applications, custodians, or data providers publishing versioned MPT lifecycle tests and deployment notes rather than generic XRPL support claims."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8004, locked-MPToken unauthorize guard",
+      "url": "https://github.com/XRPLF/rippled/pull/8004",
+      "type": "primary",
+      "publishedAt": "2026-08-17"
+    },
+    {
+      "name": "XRPLF rippled commit c497890, PR #8004 implementation and tests",
+      "url": "https://github.com/XRPLF/rippled/commit/c49789086ad3b031cd527fa7ed2e687e81fdfd4a",
+      "type": "primary",
+      "publishedAt": "2026-08-17"
+    },
+    {
+      "name": "XRPL Multi-Purpose Tokens documentation, undated live reference checked August 17, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL known amendments status page, undated live reference checked August 17, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons Multi-Purpose Token training reference, undated supporting reference checked August 17, 2026",
+      "url": "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk report on an earlier XRPL amendment security response",
+      "url": "https://www.coindesk.com/tech/2026/02/27/ai-tool-catches-critical-xrp-ledger-bug-that-could-have-drained-wallets",
+      "type": "supporting",
+      "publishedAt": "2026-02-27"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "How Multi-Purpose Tokens work on XRPL",
+      "topic": "MPT foundation",
+      "description": "Background on issuance, holder balances, authorization, locks, and lifecycle controls."
+    },
+    {
+      "href": "/news/xrpl-3-3-0-amendments-not-live-yet",
+      "label": "Why XRPL software release is not amendment activation",
+      "topic": "Protocol status",
+      "description": "The separate steps between server code, validator support, and a live ledger feature."
+    },
+    {
+      "href": "/news/xrpl-confidential-mpt-draft-flag-update-mainnet-status",
+      "label": "Confidential MPT draft status and mainnet limits",
+      "topic": "MPT development",
+      "description": "A separate source-led report on MPT privacy code that remains outside Mainnet use."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "XRPL binary codec and current transaction models",
+      "topic": "Developer context",
+      "description": "How current serialization support differs from protocol activation and network status."
+    }
+  ]
+}
