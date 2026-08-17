@@ -1,0 +1,270 @@
+{
+  "slug": "xrpl-go-0-3-0-rippled-3-3-0-migration",
+  "title": "XRPL Go v0.3.0 Aligns With rippled 3.3.0, but Migration Is Required",
+  "description": "XRPLF's August 13 Go SDK release adds rippled 3.3.0 compatibility and stronger finality, signing, identity, and fee checks. Existing applications face breaking changes before upgrading.",
+  "category": "XRP Ledger Developers",
+  "publishedAt": "2026-08-17T06:12:23-05:00",
+  "modifiedAt": "2026-08-17T06:12:23-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-go-two-stage-finality-collet-editorial.webp",
+  "imageAlt": "A cobalt glass cylinder sits in the deeper seat of a pale-gold two-stage registration collet beside an ivory witness disk with one vermilion mark on an ivory stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpl-go-two-stage-finality-collet-still-life",
+  "imageSetting": "A clean ceramic kiln yard after rain, viewed from low front-right at table height across an ivory limestone slab under hard post-rain sun",
+  "imageMetaphor": "A two-stage pale-gold registration collet seats a cobalt glass cylinder in its deeper final position while an independent ivory witness disk marks verification, representing SDK migration from provisional results to validated transaction finality",
+  "imagePrompt": "Create one original 16:9 editorial hero image for a source-led AllAboutXRP article about the XRPL Go v0.3.0 SDK migration. Use the referenced images only for luminous academic classical oil modeling, jewel-toned cobalt and vermilion color, crisp material separation, selective impasto, and disciplined light. Do not copy their people, architecture, landscape, or composition. Depict a sparse physically believable still life in a clean ceramic kiln yard after rain, not a city and not a panoramic landscape. The camera is low and slightly front-right at table height. A broad ivory limestone slab occupies the lower-right third, with a large quiet field of pale mineral ground and soft cobalt-gray shadow across the left two thirds. Use hard, clear post-rain sunlight from high rear-left with cool blue reflected shadows and a long restrained shadow edge. Place exactly three deliberate objects clustered on the right third: a finely made pale-gold split-collet registration clamp with two concentric stages, its upper cradle visibly open and its deeper lower seat closed; one cobalt-blue glass cylinder seated securely in the deeper lower registration seat with realistic weight, reflections, and contact shadow; and one separate small ivory witness disk just beyond the clamp, marked only by one restrained vermilion dot. The two-stage collet and seated cylinder must read as a physical mechanism moving from a provisional position to a validated final position, while the witness disk reads as independent verification. Keep the objects modest in scale, with broad negative space and no decorative clutter. Style: refined luminous classical oil still life, crisp drawing, believable brass and glass reflections, warm ivory stone, pale gold metal, cobalt blue glass, one vermilion status mark, contemporary editorial restraint. Extremely subtle 1/0/x stipple may appear only inside a few atmospheric or deep-shadow transitions, never on the objects and never as all-over texture. No text, letters, numbers, labels, logos, XRP or crypto coins, tokens, dashboards, screens, code, wires, circuitry, people, politicians, robes, columns, temples, city skyline, mountain panorama, water vista, fantasy architecture, cyber cubes, neon, multiple mechanisms, duplicate objects, impossible floating parts, or all-over ASCII or dither. No Greek city or classical narrative scene. Do not reuse registered scenes such as calibration vaults, metrology rooms, survey slabs, voting tables, salt pans, clearinghouses, quarries, cartographer rooms, instrument rooms, conservation studios, conservatories, calibration plinths, archive rooms, timing chambers, optical slabs, bookbinderies, survey courts, archive tables, relay cellars, signal chambers, waterworks archives, cryptography ateliers, credit alcoves, or basalt service galleries. The final image must feel like one measured, fact-safe editorial metaphor for SDK migration and validated transaction finality, not a generic technology illustration.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "XRPL Go",
+    "Go SDK",
+    "rippled 3.3.0",
+    "XRPL developers",
+    "XRP transaction finality"
+  ],
+  "keyTakeaways": [
+    "XRPLF published xrpl-go v0.3.0 on August 13, 2026, as a breaking client release aligned with rippled 3.3.0. It is not a Mainnet protocol activation.",
+    "Reliable submission now treats validated-ledger finality as the completion boundary, while txnNotFound remains a pending state that applications must continue to monitor.",
+    "Network identity discovery, canonical signing fields, HTTPS-only credential handling, exact Drops arithmetic, and changed MPT and Batch models create concrete migration work.",
+    "Developers and custody operators should test against the matching server definitions and non-Mainnet environments. XRP holders have no confirmed direct price, demand, or activation signal from this SDK release."
+  ],
+  "sections": [
+    {
+      "heading": "The official release is an SDK milestone, not a Mainnet activation",
+      "paragraphs": [
+        "XRPL Go v0.3.0 is a meaningful client release, not a mainnet protocol activation. Published August 13, 2026, it aligns the Go SDK with rippled 3.3.0 and tightens signing, network identity, fee handling, and reliable submission. The tradeoff is migration work: existing applications must review breaking API and transaction-behavior changes before upgrading. [1]",
+        "[Confirmed fact] The XRP Ledger Foundation's official release record says v0.3.0 adds compatibility with rippled 3.3.0, improves transaction safety and client reliability, and contains breaking changes. It also sets Go 1.25.12 as the minimum version. That is a clear software compatibility statement, but it is not a statement that the public XRP Ledger has switched to a new consensus rule or that every server operator has adopted the library. [1][2]",
+        "The distinction matters because a Go SDK sits above the server and consensus layers. It can learn how to encode a field, discover a server's identity, wait for a validated ledger, or reject an unsafe request without changing what validators agree to accept. The official XRPL Go release is therefore best read as an integration milestone for builders who need to track the rippled 3.3.0 data model, not as an amendment activation notice. [1][6]",
+        "An independent record supports the existence and timing of the module. The Go module proxy records github.com/Peersyst/xrpl-go v0.3.0 at 2026-08-13T14:38:57Z, and the public pkg.go.dev module page resolves the same version. Those records do not independently validate every behavior in the changelog, but they confirm that the tagged package is available through the normal Go distribution path rather than existing only as an announcement. [8][9]",
+        "[Unresolved] The records reviewed do not publish an adoption count, a list of production applications, or a network-wide inventory of Go clients using v0.3.0. They also do not establish that a particular exchange, custodian, wallet, or payment company has upgraded. The defensible news is the release and its migration surface. Any claim about immediate XRP demand, institutional use, or a Mainnet effect would go beyond the evidence."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+        "https://pkg.go.dev/github.com/Peersyst/xrpl-go@v0.3.0",
+        "https://proxy.golang.org/github.com/!peersyst/xrpl-go/@v/v0.3.0.info"
+      ]
+    },
+    {
+      "heading": "Validated-ledger finality becomes the important behavioral change",
+      "paragraphs": [
+        "The most consequential change for payment and custody software is not a new field. It is the meaning of completion. XRPL Go's migration guide says the wait helpers now use validated-ledger finality instead of treating an early submission response or a fixed retry pattern as enough. The related implementation work describes reliable submission as a process of submitting, monitoring, and checking validation, which is closer to the risk model applications actually need. [2][4]",
+        "In practice, SubmitTxAndWait and SubmitTxBlobAndWait now wait for a transaction to be observed in a validated ledger, subject to a positive LastLedgerSequence and the caller's context. A txnNotFound response is treated as pending rather than as a definitive failure. That prevents one missing observation from being mistaken for a failed transaction, but it also means the application must keep a durable status path and decide when its own context or ledger bound has expired. [2][3]",
+        "The official XRPL transaction guidance explains why the boundary matters. A preliminary engine result is not the same as inclusion in a validated ledger. Systems that treat provisional evidence as final can retry a payment that is still progressing, creating duplicate-payment risk. The guidance recommends a LastLedgerSequence boundary and checking the validated transaction result. XRPL Go v0.3.0 makes more of that discipline part of the client workflow, but it cannot choose an application's business timeout or reconciliation policy. [6]",
+        "A subtle migration point is error handling. When a validated transaction returns a tec result, the wait helper can return a nil Go error because the transaction reached finality even though the transaction itself did not succeed. Applications must inspect the XRPL result code separately. A service that only checks an error value can now confuse a validated, rejected ledger result with an accepted payment. That is a code-review issue for payout, exchange, and treasury teams, not a marketing feature. [2]",
+        "The practical map is simple: the client can help establish ledger finality, while the application still owns idempotency, durable transaction identifiers, customer messaging, and recovery. Developers should test timeout, LastLedgerSequence, txnNotFound, validated tec, and successful validation as separate cases. Those tests are more informative than a single happy-path transfer because they exercise the boundary that v0.3.0 is designed to make explicit."
+      ],
+      "table": {
+        "caption": "XRPL Go v0.3.0 submission states to test",
+        "headers": [
+          "State",
+          "What the client signals",
+          "Application responsibility"
+        ],
+        "rows": [
+          [
+            "Preliminary response",
+            "Submission was received or processed provisionally",
+            "Do not mark a payment complete"
+          ],
+          [
+            "txnNotFound",
+            "Status is still pending in the reliable-submission flow",
+            "Continue monitoring within a bounded context"
+          ],
+          [
+            "Validated success",
+            "Transaction is in a validated ledger",
+            "Persist the result and ledger evidence"
+          ],
+          [
+            "Validated tec result",
+            "The transaction is final but its result is not success",
+            "Inspect the XRPL result code separately from Go error state"
+          ]
+        ],
+        "sourceNote": "Behavioral descriptions are summarized from the XRPL Go v0.3.0 migration guide and the undated XRPL reliable-submission reference, both checked August 17, 2026. [2][6]"
+      },
+      "sourceUrls": [
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://xrplf.github.io/xrpl-go/changelog/v0.3.x/v0_3_0",
+        "https://github.com/XRPLF/xrpl-go/pull/359",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission"
+      ]
+    },
+    {
+      "heading": "Identity, signing, and transport checks move closer to the request",
+      "paragraphs": [
+        "Network identity is another change with operational consequences. The v0.3.0 guide replaces public RPC and WebSocket NetworkID fields with NetworkIdentity accessors, and WebSocket Connect discovers the server identity. The guide says identity-dependent autofill and signing should follow server_info discovery unless a trusted identity override is intentionally configured. A custom proxy, test double, or private server therefore needs an explicit design for how the client knows which network it is serving. [2][3]",
+        "The policy is not merely a renamed getter. For public network identities from 0 through 1024, the transaction can omit NetworkID. For higher public IDs, the exact network identifier must be present. That distinction affects code that signs transactions for sidechains, private networks, or a proxy that fronts more than one environment. A deployment that assumes Mainnet defaults can produce a transaction that is structurally valid but bound to the wrong identity or rejected during autofill. [2]",
+        "Signing requirements also become stricter. The release notes call for complete canonical signature fields, while the migration guide describes changes to signing and submission validation. This is useful for safety because malformed or incomplete signature material should fail before a service treats a request as ready to broadcast. It is also a compatibility risk for code that built transaction objects incrementally and relied on the older client to accept a partial shape. [1][2]",
+        "The release includes transport hardening as well. The related XRPL Go pull request describes HTTPS requirements for credentialed RPC traffic, blocks unsafe HTTPS-to-HTTP redirects, and keeps credentials out of errors. Those details matter most to operators who place an authenticated RPC endpoint behind a proxy or redirect layer. A deployment can pass a local test and still need configuration changes when it runs behind a load balancer, service mesh, or managed endpoint. [1][5]",
+        "[Implication for affected readers] Developers should test network discovery and signing against every server class they support, including Mainnet, test networks, private networks, and any authenticated proxy. Operators should review redirect behavior, credential redaction, and reconnect handling. The release makes the client more opinionated about identity and transport, which is a safety improvement only if production configuration matches those assumptions."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://xrplf.github.io/xrpl-go/changelog/v0.3.x/v0_3_0",
+        "https://github.com/XRPLF/xrpl-go/pull/360"
+      ]
+    },
+    {
+      "heading": "Current MPT and Batch models require real code changes",
+      "paragraphs": [
+        "The rippled 3.3.0 alignment reaches the data models that applications use to sign and decode transactions. Dynamic MPT APIs now use ImmutableFlags rather than MutableFlags, and MPT amount and ledger fields are represented as quoted decimal or hexadecimal strings. The change is easy to describe but not necessarily easy to absorb: typed Go code, JSON fixtures, validation logic, and database adapters may all encode assumptions about the old field names or numeric shapes. [1][2]",
+        "Batch signing also changes format. XRPL Go v0.3.0 uses BatchV1_1, and the signing payload includes the outer account and effective sequence. Signature fragments generated by v0.2.0 are not compatible. Batch transactions must contain between two and eight inner transactions. An application that stores partially signed payloads, queues them for later approval, or moves them between services needs a versioning plan rather than a blind dependency bump. [1][2]",
+        "Fee handling is intentionally more exact. The release adds a Drops arithmetic type for XRP amounts and fees, changes fee cushion values to float64, and represents maximum fee configuration as decimal strings. The goal is to avoid losing precision through a generic floating-point path or through premature rounding. It does not remove the need for a service to set a business-level fee ceiling, record the server response, and show users the final amount in the unit they understand. [1][3]",
+        "The release also expands typed coverage for XLS-69 simulation, server_definitions, ledger_entry responses, Clio deleted-entry metadata, bookChanges notifications, X-address autofill, MPT Clawback, and additional ledger queries. Those additions can reduce custom JSON plumbing and make test fixtures more explicit. They should not be read as separate activation announcements. A client can expose a model for a protocol capability while the server or amendment status remains the controlling record. [1][7]",
+        "This is where the story differs from a general announcement about Batch or MPT. The question for a Go team is not whether those concepts exist. It is whether the team's serialization, signing, queues, and fixtures are tied to v0.2.0 assumptions. The prior XRPL binary-codec release is useful background, but v0.3.0 is the migration checkpoint for applications written in Go and for services that depend on their exact transaction object behavior."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://xrplf.github.io/xrpl-go/changelog/v0.3.x/v0_3_0",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/master/docs/references/index.md"
+      ]
+    },
+    {
+      "heading": "What the release changes for developers, operators, and XRP holders",
+      "paragraphs": [
+        "For XRPL developers, the immediate task is a migration inventory. Pin the exact version, confirm Go 1.25.12 compatibility, search for NetworkID, MutableFlags, old Batch signing, ErrTransactionNotFound, fee configuration, and partial signature construction, then rebuild fixtures against the matching server definitions. The upgrade guide should be treated as a checklist. A successful compile is not enough because several changes concern finality, identity, and transaction interpretation after the request has already left the process. [2]",
+        "For exchanges, custodians, and payment operators, the priority is reconciliation. Their test matrix should cover a validated success, a validated tec result, a pending txnNotFound observation, a LastLedgerSequence expiry, a network identity mismatch, and a credentialed endpoint with redirect behavior. They also need to decide how long a request remains in an intermediate state and how customer-facing status is updated. Those are local risk controls, not guarantees supplied by an SDK. [4][5][6]",
+        "For validator and infrastructure teams, v0.3.0 is a client compatibility signal rather than an instruction to upgrade rippled. The release can help a service understand rippled 3.3.0, but it does not replace the server release process, validator configuration, amendment procedure, or operational testing. A node operator should consult the server's own release record and the network's observed state before making an infrastructure change. [1][7]",
+        "For XRP holders, the confirmed effect is indirect. A safer Go client may make it easier for builders to integrate current XRPL features, but the sources reviewed do not report new XRP demand, a new application launch, transaction growth attributable to v0.3.0, or a price response. [Inference] The release may reduce integration friction for some teams over time. That possibility is not a forecast and should not be presented as an immediate market catalyst.",
+        "Go's own module guidance provides useful context: v0 modules are unstable and do not promise backward compatibility in the way a v1 module does. That does not make v0.3.0 unfit for testing or production, but it does make explicit pinning, migration tests, and release-note review more important. [Confirmed fact] A team choosing the package is accepting a moving compatibility surface and should budget for that maintenance rather than treating the minor version as a routine patch. [10]"
+      ],
+      "sourceUrls": [
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://github.com/XRPLF/xrpl-go/pull/359",
+        "https://github.com/XRPLF/xrpl-go/pull/360",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/master/docs/references/index.md",
+        "https://go.dev/doc/modules/version-numbers"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and unresolved questions",
+      "paragraphs": [
+        "[Confirmed facts] XRPLF published the v0.3.0 release record on August 13, 2026. It identifies rippled 3.3.0 compatibility, Go 1.25.12 as the minimum version, breaking migration notes, stronger reliable submission, network identity discovery, changed Dynamic MPT and Batch models, and exact Drops handling. The Go module proxy and pkg.go.dev also expose the v0.3.0 package record. [1][8][9]",
+        "[Bounded inference] The breadth of the changes suggests that the release is intended to give Go applications a more current and safety-conscious interface to the XRPL data model. It is reasonable to expect migration work in codebases that use transaction signing, reliable submission, MPT, Batch, or authenticated RPC. It is not reasonable to infer that every XRPL application needs every change or that all operators will upgrade on the same schedule.",
+        "[Unresolved] The public records reviewed do not establish how many applications have upgraded, which production services use the release, whether all public infrastructure has moved to rippled 3.3.0, or whether v0.3.0 has caused measurable changes in XRP activity. They also do not eliminate the need for application-level audits of idempotency, key handling, server trust, and error interpretation. Those gaps are normal for a dated SDK release and should remain visible in any coverage of its impact. [1][6][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+        "https://pkg.go.dev/github.com/Peersyst/xrpl-go@v0.3.0",
+        "https://proxy.golang.org/github.com/!peersyst/xrpl-go/@v/v0.3.0.info",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+        "https://go.dev/doc/modules/version-numbers"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "First, watch the XRPL Go changelog and issue tracker for v0.3.x follow-up releases, especially around migration defects in network identity, reliable submission, Batch signing, fee precision, and the changed MPT fields. A patch release can clarify edge cases without changing the central fact that v0.3.0 is a breaking upgrade. [2][3]",
+        "Second, watch whether Go applications publish concrete upgrade notes, matching test results, or production deployment records. The most useful evidence will name the version, server environment, transaction paths tested, and any rollback or reconciliation behavior. A vague statement that a project supports XRPL is not enough to attribute an upgrade to this release.",
+        "Third, watch server-side records separately. The official rippled release history, XRPL documentation, and live network observations remain the right sources for server compatibility, amendment status, and validated-ledger behavior. A Go client feature should not be used as a substitute for a server release note or a network feature response. [1][6][7]",
+        "Finally, watch for measurable ecosystem evidence: named applications, dated package upgrades, public issue resolutions, and transaction or integration data that explicitly identifies the client version. Until those records appear, the strongest conclusion is precise and limited: XRPL Go v0.3.0 is a current, breaking SDK migration milestone that improves the path to reliable XRPL integrations, not proof of a new XRP market event."
+      ],
+      "sourceUrls": [
+        "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+        "https://xrplf.github.io/xrpl-go/changelog/v0.3.x/v0_3_0",
+        "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/master/docs/references/index.md"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "XRPL Go v0.3.x patch notes that clarify NetworkIdentity, reliable-submission, BatchV1_1, fee-precision, or Dynamic MPT migration edge cases.",
+    "Named Go applications publishing versioned upgrade notes, matching test results, and production or rollback evidence rather than generic XRPL support claims.",
+    "The rippled release record and live network observations that independently establish server compatibility, amendment status, and validated-ledger behavior.",
+    "Public issue resolutions involving authenticated RPC redirects, credential redaction, WebSocket reconnects, and custom-server identity overrides.",
+    "Measurable integration or transaction evidence that identifies the client version before attributing any XRP activity, demand, or market outcome to the SDK."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF xrpl-go v0.3.0 release",
+      "url": "https://github.com/XRPLF/xrpl-go/releases/tag/v0.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "XRPLF xrpl-go v0.2.0 to v0.3.0 migration guide",
+      "url": "https://xrplf.github.io/xrpl-go/docs/upgrading-from-v0.2.0-to-v0.3.0",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF xrpl-go v0.3.x changelog",
+      "url": "https://xrplf.github.io/xrpl-go/changelog/v0.3.x/v0_3_0",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF reliable submission implementation PR 359",
+      "url": "https://github.com/XRPLF/xrpl-go/pull/359",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "XRPLF RPC and WebSocket security PR 360",
+      "url": "https://github.com/XRPLF/xrpl-go/pull/360",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "XRPL reliable transaction submission documentation (undated live reference, checked August 17, 2026)",
+      "url": "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL developer portal client-library references (undated live reference, checked August 17, 2026)",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/blob/master/docs/references/index.md",
+      "type": "primary"
+    },
+    {
+      "name": "pkg.go.dev xrpl-go v0.3.0 module record",
+      "url": "https://pkg.go.dev/github.com/Peersyst/xrpl-go@v0.3.0",
+      "type": "supporting",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "Go module proxy v0.3.0 record",
+      "url": "https://proxy.golang.org/github.com/!peersyst/xrpl-go/@v/v0.3.0.info",
+      "type": "supporting",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "Go module version numbering guidance (undated live reference, checked August 17, 2026)",
+      "url": "https://go.dev/doc/modules/version-numbers",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-3-3-0-amendments-not-live-yet",
+      "label": "XRPL 3.3.0 amendments are not automatically live",
+      "topic": "Related developer coverage",
+      "description": "Why server compatibility and amendment activation remain separate records."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "XRPL binary codec 2.9.0 and current transaction models",
+      "topic": "Protocol context",
+      "description": "A separate look at BatchV1_1 and Dynamic MPT serialization changes."
+    },
+    {
+      "href": "/news/xrpl-smart-escrow-sdk-preview-wasm-draft",
+      "label": "XRPL Smart Escrow SDK preview",
+      "topic": "Client release context",
+      "description": "How a JavaScript pre-release can expose draft fields without activating a feature."
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "What is XRP?",
+      "topic": "Foundation",
+      "description": "A source-led overview of XRP and its relationship to the XRP Ledger."
+    }
+  ]
+}
