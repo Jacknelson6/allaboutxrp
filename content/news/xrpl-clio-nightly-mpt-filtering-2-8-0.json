@@ -1,0 +1,162 @@
+{
+  "slug": "xrpl-clio-nightly-mpt-filtering-2-8-0",
+  "title": "XRPL Clio Nightly Adds MPT Transaction Filtering Ahead of 2.8.0",
+  "description": "XRPLF’s Aug. 18 Clio nightly carries MPT-aware account transaction filtering, transient database retry work, and libxrpl 3.3.0 alignment, but remains a development build ahead of a stable 2.8.0 release.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-18T06:10:00-05:00",
+  "modifiedAt": "2026-08-18T06:10:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-mpt-filtering-editorial.webp",
+  "imageAlt": "A pale-gold comb catches two cobalt glass tabs in an ivory sluice while a small reset spring and vermilion pin sit on the stone bench",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clio-indexing-comb-retry-sluice-still-life",
+  "imageSetting": "A silent white-limestone tide laboratory beside a narrow dry sluice under hard post-storm morning light, viewed frontally at bench height across an ivory stone sorting slab",
+  "imageMetaphor": "A pale-gold indexing comb catches two cobalt record tabs while an ivory reset spring waits beside the channel, representing MPT transaction filtering and retry handling in Clio",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in cinematic 16:9 landscape. Use a sparse, physically believable still life in a silent white-limestone tide laboratory beside a narrow dry sluice, a setting unlike every registered AllAboutXRP guide or news image. View the scene frontally at eye level from the left end of a broad ivory stone bench under hard clear post-storm morning light. Show only one pale-gold indexing comb crossing a shallow ivory data trough on a clean diagonal, exactly two cobalt glass record tabs caught by its teeth, one ivory coil spring with a return stop at the far end of the channel, and one small restrained vermilion status pin separate on the stone. The comb and tabs explain MPT issuance filtering in Clio; the spring explains retry handling for transient database errors. Use broad negative space, believable contact shadows, luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, polished cobalt glass, warm ivory limestone, pale gold metal, and selective impasto. Extremely subtle translucent 1/0/x stipple may appear only inside a few atmospheric or cool shadow transitions and must dissolve into clean white space. No all-over ASCII or dither, no readable text, logo, coin, dashboard, screen, cyber cube, politician, bank, archive room, cartographer room, quarry, kiln yard, workshop, conservatory, Greek cityscape, columns, robes, mountains, horses, lions, fantasy ruins, extra tools, extra tabs, extra springs, watermark, border, or rounded frame.",
+  "keywords": ["XRP Ledger", "XRPL Clio", "Clio 2.8.0", "Multi-Purpose Tokens", "MPT issuance", "account_tx", "xrpld 3.3.0"],
+  "keyTakeaways": [
+    "Clio’s Aug. 18 nightly is a development build, not a production release or a new XRP Ledger Mainnet feature.",
+    "The 2.8.0 line adds an optional account_tx filter for transactions tied to a specific MPT issuance identifier.",
+    "Database retry work targets transient Cassandra and other backend errors, while libxrpl 3.3.0 alignment improves version compatibility without proving adoption or price impact.",
+    "Developers should wait for a stable Clio release, test response shapes and configuration, and avoid treating a nightly tag as production evidence."
+  ],
+  "sections": [
+    {
+      "heading": "The short answer",
+      "paragraphs": [
+        "Clio’s August 18, 2026 nightly build is a development snapshot, not a production release. It carries the 2.8.0 line’s MPT issuance filter for account_tx, transient database retry work, and libxrpl 3.3.0 alignment. The useful signal is better queryability and resilience for data operators, not a new XRPL Mainnet feature or XRP market catalyst.",
+        "The newest official record is the XRPL Foundation’s Clio development tag, which GitHub lists as released at 08:40 UTC on August 18. That tag points to commit 62428a2, a change merged into Clio’s develop branch on August 12. The commit history shows the nightly carrying a sequence of 2.8.0 development changes, including the MPT filter, a database retry patch, and the move from a custom libxrpl 3.3.0 release candidate to libxrpl 3.3.0. These are server and data-access changes around the XRP Ledger, not amendments voted on by Mainnet validators. [Confirmed fact]",
+        "The most important editorial boundary is release status. Clio labels nightly-20260818 a development release and says it is not recommended for production. The parallel 2.8.0-rc5 tag is also explicitly a release candidate that is not recommended for production. A final Clio 2.8.0 tag, a production changelog, operator guidance, and evidence from deployed public services are still separate milestones. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260818",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0-rc5",
+        "https://github.com/XRPLF/clio/commit/62428a2d9140a20922a28a9005e5c680f64a569c"
+      ]
+    },
+    {
+      "heading": "What the August 18 nightly actually contains",
+      "paragraphs": [
+        "A nightly tag is a dated build pointer, not a promise that every change has cleared the release process. In this case, the tag’s commit history runs through August 12, even though GitHub published the development release on August 18. The right reading is that the latest official build packages the current develop snapshot at commit 62428a2. It is timely evidence of project state, but not evidence that a stable binary has shipped or that every public Clio provider has upgraded. [Confirmed fact]",
+        "The release records are easier to read when their status is kept separate from their code content. The dates below are the dates shown by the official GitHub records, and the status language comes from the release pages themselves."
+      ],
+      "table": {
+        "caption": "Clio 2.8.0 development line and related XRPL server record",
+        "headers": ["Record", "Visible date", "Status", "What it confirms"],
+        "rows": [
+          ["nightly-20260818", "August 18, 2026", "Development build", "Points to commit 62428a2; not recommended for production"],
+          ["2.8.0-rc5", "August 12, 2026", "Release candidate", "Carries the rc4-to-rc5 change set; not recommended for production"],
+          ["xrpld 3.3.0", "August 6, 2026", "Stable server release", "Provides the released libxrpl version that Clio is aligning with"]
+        ],
+        "sourceNote": "Source: XRPLF Clio release pages and rc4-to-rc5 comparison, plus the XRPLF rippled 3.3.0 release. See sources [1], [2], [3], and [7]."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260818",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0-rc5",
+        "https://github.com/XRPLF/clio/compare/2.8.0-rc4...2.8.0-rc5",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "The main API change: account_tx can filter by MPT issuance",
+      "paragraphs": [
+        "The clearest user-facing feature in the rc5 change set is support for an optional mpt_issuance_id field on account_tx. Clio’s merged pull request says the field lets a caller filter account transactions when a transaction is involved with a specific Multi-Purpose Token issuance. The implementation validates the identifier as a uint192 hexadecimal value and reuses ETL-side parsing to inspect transaction fields and metadata nodes. Unit tests cover invalid parameters, several filter scenarios, and binary output. [Confirmed fact]",
+        "That matters because an MPT issuance identifier is not a display label. XLS-33 defines it as the identifier associated with an MPTokenIssuance, built from the issuance sequence and issuer account. An application that wants a transaction history for one issuance therefore needs a stable identifier and a way to recognize references in transaction data. Moving that matching step into an API handler can reduce the amount of metadata scanning that a client has to perform itself. [Bounded inference]",
+        "The distinction between account_tx and the ledger protocol is important. The filter changes how a Clio service answers a historical account query; it does not create a new transaction type, alter consensus, or change the rules for moving XRP or MPTs. The official mpt_holders reference separately describes a Clio-only, paginated method for retrieving holders and balances at a ledger point. The new account_tx filter is complementary to that query surface, not proof that MPT functionality has become newly active on Mainnet. [Confirmed fact]",
+        "An independent check comes from XRPL Meta, a community data project whose developer documentation lists MPT token, holder, series, and exchange endpoints. That does not confirm deployment of Clio 2.8.0, but it does show why identifier-aware history and holder queries are useful to analytics services beyond the core repository. Cross-provider comparisons should still record the ledger sequence, server version, and whether a result is validated. [Independent supporting context]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3153",
+        "https://xls.xrpl.org/xls/XLS-0033-multi-purpose-tokens.html",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods/mpt_holders",
+        "https://xrplmeta.org/docs"
+      ]
+    },
+    {
+      "heading": "Why the database retry work matters to Clio operators",
+      "paragraphs": [
+        "Clio is not the peer-to-peer server that participates in XRP Ledger consensus. XRPL documentation describes it as an API server that extracts validated data from one or more xrpld servers and stores historical ledger and transaction data in Cassandra or ScyllaDB. That architecture makes backend read behavior a practical reliability concern for exchanges, explorers, indexers, and anyone operating a high-throughput query service. [Confirmed fact]",
+        "The August 10 Clio pull request introduces coroutine-friendly and configurable retry behavior for transient Cassandra and database failures. Its changes standardize the surfaced exception as data::DatabaseError, add retry-delay configuration, make request_timeout accept fractional seconds, and update retry call sites in the RPC engine, transaction feed, ETL service, cache loader, and ledger publisher. The pull request also lists unit and integration tests for error classification, retry delays, and backend behavior. [Confirmed fact]",
+        "The bounded operational implication is narrower than ‘Clio is now reliable.’ A retry can absorb a temporary quorum or connection failure and give a coroutine another chance without blocking the process, but it cannot repair corrupted data, make a failing Scylla cluster healthy, or guarantee that a query will succeed. Operators still need to review the configured delays, request timeout, database capacity, and observability around repeated failures. No production latency or error-rate result is published in the release record. [Bounded inference]",
+        "The independent XRPL Monday Brew roundup from May 11 through May 17 provides useful context for the release boundary. It described Clio 2.8.0-rc2 and several merged changes while explicitly separating development-branch work from changes that are live on the network. That reporting precedent supports the same discipline here: a Clio build can improve a data service without changing the consensus ledger itself. [Independent supporting context]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://github.com/XRPLF/clio/pull/3167",
+        "https://xrplbrew.com/2026-05-11_2026-05-17.html"
+      ]
+    },
+    {
+      "heading": "libxrpl 3.3.0 alignment is compatibility work, not an activation signal",
+      "paragraphs": [
+        "Commit 62428a2 is titled ‘Update libxrpl to 3.3.0.’ GitHub records seven files changed, with 101 additions and 92 deletions. The dependency lock moves from xrpl 3.3.0-rc1-custom to xrpl 3.3.0, and the MPT crypto dependency moves from 0.4.0-rc4 to 1.0.2. The same change updates Clio’s account-MPT issuance handler and its tests, including the field naming and flag model used by the newer library. [Confirmed fact]",
+        "The reason this deserves attention is version coordination. The XRPLF rippled repository released xrpld 3.3.0 on August 6, while Clio’s latest development line updates its protocol library to that released version. A data server that parses ledger objects should track the server-side protocol library closely, especially as MPT, confidential-transfer, and other ledger models evolve. This is a maintenance and compatibility milestone, not a statement that every 3.3.0-adjacent feature is enabled or that Clio 2.8.0 is stable. [Bounded inference]",
+        "There is also a limit to what the source record proves. The commit and pull request show code changes and passing checks reported by GitHub, but they do not show the number of production Clio nodes using the snapshot, the behavior of every public endpoint, or any change in XRP throughput, fees, price, or demand. Those outcomes would require separate operational or market evidence. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/commit/62428a2d9140a20922a28a9005e5c680f64a569c",
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260818",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, and XRP readers",
+      "paragraphs": [
+        "For XRPL application developers, the practical opportunity is targeted history retrieval. If the filter reaches a stable release unchanged, a wallet, explorer, issuer console, or analytics job could ask Clio for account transactions associated with one MPT issuance instead of downloading every account transaction and applying the same matching logic locally. The application still needs version detection, parameter validation, pagination, and tests against real response shapes. It should not silently assume that every Clio endpoint or public provider has the new field. [Bounded inference]",
+        "For Clio operators and data vendors, the retry work is the more operationally relevant part of the snapshot. A staged test should exercise transient database failures, measure retry delay and request timeout behavior, and confirm that failures remain visible rather than being hidden behind indefinite retries. The right acceptance criterion is bounded recovery from specified transient errors, not an unqualified uptime claim. The rc5 release warning means a production operator should wait for stable release guidance before making the nightly its default. [Confirmed fact]",
+        "For indexers, token issuers, and researchers, the MPT filter may become useful only when three layers agree: the transaction format, the Clio handler, and the backing ETL or database index. A successful query on one service does not establish identical coverage on another. Record the server version, ledger index, validation state, and query parameters with any published result. This is especially important when comparing MPT holders, issuance history, and market activity across XRPL Meta, Clio, and self-hosted infrastructure. [Unresolved uncertainty]",
+        "For XRP holders and market readers, the confirmed story is infrastructure progress around data access, not a direct XRP investment signal. The source record does not announce a new XRP use case, institutional deployment, partnership, token demand, price target, or Mainnet amendment activation. The appropriate conclusion is that the XRPL data stack is being prepared for more precise MPT-aware service behavior, while the production and adoption evidence remains to be established. [Confirmed fact]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3153",
+        "https://github.com/XRPLF/clio/pull/3167",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrplmeta.org/docs"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next meaningful signal is not another nightly tag. It is a stable Clio 2.8.0 release with final notes that identify the supported API behavior, configuration changes, upgrade requirements, and any compatibility caveats. Until that record appears, treat the filter and retry work as available for review and testing, not as a production contract. [Confirmed fact]",
+        "A second signal is documentation and provider behavior. Watch whether the account_tx reference documents mpt_issuance_id, whether public Clio services expose the parameter, and whether their responses agree on pagination and validation. A third signal is operational evidence: release notes or operator reports that quantify whether the database retry changes reduce transient failures under a defined workload. None of those outcomes is present in the August 18 release record. [Unresolved uncertainty]",
+        "Finally, keep protocol state separate from API state. The XRP Ledger Mainnet can continue running its current stable xrpld version while Clio develops a new query server. A later amendment vote, server upgrade, or production deployment would need its own primary record before it could support claims about Mainnet functionality, network usage, or XRP market effects. [Bounded inference]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260818",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0-rc5",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods/mpt_holders",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable Clio 2.8.0 tag and final release notes replacing the nightly and rc5 warnings.",
+    "Documentation and public-provider support for the account_tx mpt_issuance_id parameter, including pagination and validated-ledger behavior.",
+    "Operator evidence on configured retry delays, transient Cassandra recovery, request timeouts, and error visibility under load.",
+    "Whether Clio’s MPT handler and ETL coverage stay aligned with the released libxrpl 3.3.0 data model.",
+    "A separate primary record before treating any Clio release as a Mainnet protocol activation, XRP demand signal, or price catalyst."
+  ],
+  "sources": [
+    { "name": "XRPLF Clio nightly-20260818 release", "url": "https://github.com/XRPLF/clio/releases/tag/nightly-20260818", "type": "primary", "publishedAt": "2026-08-18" },
+    { "name": "XRPLF Clio 2.8.0-rc5 release", "url": "https://github.com/XRPLF/clio/releases/tag/2.8.0-rc5", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "XRPLF Clio rc4-to-rc5 comparison", "url": "https://github.com/XRPLF/clio/compare/2.8.0-rc4...2.8.0-rc5", "type": "primary" },
+    { "name": "Clio PR #3153: MPT issuance transaction filtering", "url": "https://github.com/XRPLF/clio/pull/3153", "type": "primary", "publishedAt": "2026-08-04" },
+    { "name": "Clio PR #3167: transient database retry behavior", "url": "https://github.com/XRPLF/clio/pull/3167", "type": "primary", "publishedAt": "2026-08-10" },
+    { "name": "Clio commit 62428a2: libxrpl 3.3.0", "url": "https://github.com/XRPLF/clio/commit/62428a2d9140a20922a28a9005e5c680f64a569c", "type": "primary", "publishedAt": "2026-08-12" },
+    { "name": "XRPLF rippled 3.3.0 release", "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "type": "primary", "publishedAt": "2026-08-06" },
+    { "name": "XRPL Clio server architecture reference", "url": "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server", "type": "primary" },
+    { "name": "XRPL mpt_holders API reference", "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods/mpt_holders", "type": "primary" },
+    { "name": "XLS-33 Multi-Purpose Tokens specification", "url": "https://xls.xrpl.org/xls/XLS-0033-multi-purpose-tokens.html", "type": "primary" },
+    { "name": "XRPL Meta developer documentation", "url": "https://xrplmeta.org/docs", "type": "supporting" },
+    { "name": "XRPL Monday Brew, May 11-17, 2026", "url": "https://xrplbrew.com/2026-05-11_2026-05-17.html", "type": "supporting" }
+  ],
+  "relatedLinks": [
+    { "href": "/news/xrpl-clio-271-fixcleanup-compatibility", "label": "How Clio 2.7.1 handled XRPL amendment compatibility", "topic": "Prior Clio release", "description": "The earlier report explains why API servers must track amendment-aware ledger models." },
+    { "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens", "label": "XRPL MPT and AMM transfer rules", "topic": "MPT development", "description": "A separate report on MPT behavior in the XRP Ledger develop branch." },
+    { "href": "/news/xrpl-confidential-mpt-draft-flag-update-mainnet-status", "label": "Confidential MPT remains a draft", "topic": "MPT status", "description": "Read the distinction between client support, draft standards, and Mainnet activation." },
+    { "href": "/learn/xrp-ledger", "label": "XRP Ledger guide", "topic": "Protocol context", "description": "A foundational guide to the ledger, validators, transactions, and native assets." },
+    { "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt", "label": "XRPL binary codec adds MPT support", "topic": "Developer tooling", "description": "See how client-side serialization support differs from server and network state." }
+  ]
+}
