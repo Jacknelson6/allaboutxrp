@@ -1,0 +1,213 @@
+{
+  "slug": "xrpl-mpt-amm-cantransfer-lp-tokens",
+  "title": "XRPL Develop Branch Ties AMM LP Tokens to MPT Transfer Rules",
+  "description": "XRPLF merged a develop-branch change that blocks AMM LP-token movement when a pooled Multi-Purpose Token lacks CanTransfer, while Mainnet status, amendment timing, and any XRP effect remain unresolved.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-17T22:12:00-05:00",
+  "modifiedAt": "2026-08-17T22:12:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-mpt-amm-clevis-transfer-editorial.webp",
+  "imageAlt": "Two cobalt braided cord ends meet at a pale-gold clevis beside an ivory pin and one vermilion wax mark on an ivory limestone board",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mpt-amm-clevis-transfer-still-life",
+  "imageSetting": "A silent ivory cordage workshop with a square limestone board under first clear light from a low east-facing window, viewed from a low front-right angle",
+  "imageMetaphor": "Two cobalt braided cord ends meet at a pale-gold double clevis while an ivory pin rests outside the open slot, showing an AMM LP position can pass between holders only when the pooled MPT permits transfer",
+  "imagePrompt": "Create one original finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape for an article about XRPLF rippled PR #7418, which ties AMM LP-token movement to an MPT pool asset’s CanTransfer flag. Use the homepage hero and Sublime Classical Oil references only for luminous academic oil modeling, cobalt and ultramarine depth, warm ivory stone, pale-gold metal, crisp material separation, selective impasto, and extremely subtle 1/0/x stipple in a few atmospheric or shadow transitions. Do not copy literal people, scenery, architecture, objects, or layouts from the references. Depict one sparse, physically believable still life in a silent ivory cordage workshop on a square warm limestone board, a setting unlike all registered AAXRP scenes. Use a low front-right three-quarter view near tabletop height, with broad clean negative space across the left half and the focal arrangement on the right third. Include exactly four visible elements: two separate cobalt braided cord ends with realistic woven fibers and natural tension; one pale-gold double clevis coupling with believable thickness, two holes, and a clean open slot; one ivory removable pin placed beside the slot; and only one tiny restrained vermilion wax status mark on the stone. The arrangement must explain that an AMM LP-token position can move between holders only when the underlying MPT pool asset permits transfer. Use first clear early-morning light from a narrow east-facing window, cobalt shadow cast toward lower left, and a pale-gold edge on the metal. Preserve realistic weight, contact shadows, fiber texture, metal thickness, and the open-slot/removable-pin relationship. Do not reuse the high inland river gorge, civic marketplace, hilltop observatory, mechanical workshop, highland crossroads, basalt calibration vault, metrology chamber, surveyor datum slab, voting table, salt-pan inspection floor, alabaster clearinghouse, white-mineral instrument room, ceramic conservation studio, white-mineral conservatory, calibration plinth, archive room, timing chamber, optical calibration slab, bookbindery, limestone survey court, archive table, basalt relay cellar, signal chamber, waterworks archive, cryptography atelier, ceramic kiln yard, credit-archive alcove, glassblower inspection bench, subterranean basalt service gallery, temple, coast, harbor, terrace, bank, Greek city, mountain panorama, or water vista. No readable text, logo, XRP symbol, crypto coin, coin edge, token-shaped disk, dashboard, screen, code, circuitry, person, politician, robe, column, generic cyber cube, neon, impossible floating parts, duplicate elements, extra red marks, title, watermark, embedded border, rounded frame, photographic realism, sepia, muddy gray cast, coarse halftone, retro pixel art, or all-over dither.",
+  "keywords": [
+    "XRP Ledger news",
+    "XRPL AMM",
+    "Multi-Purpose Tokens",
+    "MPT CanTransfer",
+    "AMM LP tokens",
+    "rippled develop branch",
+    "XRP Ledger DEX"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7418 into rippled’s develop branch on August 17, 2026, adding a canTransferLPToken guard to AMM LP-token paths when a pool contains an MPT.",
+    "The added tests expect holder-to-holder LP-token payments to return tecNO_AUTH when the pooled MPT lacks CanTransfer, while issuer-involving transfers remain permitted.",
+    "The same logic makes a non-transferable pool MPT render the LP token unspendable for OfferCreate, producing tecUNFUNDED_OFFER in the added test case.",
+    "MPTokensV2 remains listed as In Development, so the change is protocol-development evidence, not Mainnet behavior, a trading launch, or XRP demand proof."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF merged an MPT transfer guard into develop",
+      "paragraphs": [
+        "XRPLF merged PR #7418 into the `rippled` `develop` branch on August 17, adding checks that tie an AMM’s LP-token transferability to the `CanTransfer` flag of any MPT in its pool. The added tests block non-issuer LP-token movement when that flag is absent. This is develop-branch code, not a Mainnet activation or XRP market event.",
+        "The pull request page records a merge to `develop` on August 17, 2026. The resulting commit adds `canTransferLPToken` in the ledger view layer, wires the check into token spendability and direct payment-path handling, and extends `LPTokenTransfer_test` with MPT cases. That description matters because a merged pull request is evidence of source-code state, not evidence that operators have installed a release."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7418",
+        "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83"
+      ]
+    },
+    {
+      "heading": "What the CanTransfer check means inside an XRPL AMM",
+      "paragraphs": [
+        "An XRPL AMM holds a pair of assets and issues LP tokens from its special AMM account. LP tokens represent a proportional claim on the pool and can normally be paid or traded within the ledger’s AMM and DEX design. An MPT, by contrast, can be created without holder-to-holder transfer permission: XRPL’s MPT documentation says the Can Transfer flag enables holder transfers, while a non-transferable MPT can move only directly to its issuer.",
+        "The new helper checks whether the LP-token issuer is an AMM account. If it is, the code inspects both pool assets and calls the MPT transfer check for each MPT it finds. Non-MPT pool assets do not trigger this rule, and an issuer that is not an AMM does not get treated as an LP-token issuer. That is a narrow permission-propagation rule, not a new token type or a new user-facing API.",
+        "An independent XRPL.to analysis describes a separate, practical LP-token friction: AMM-created trust lines often start at a zero limit, so ordinary payments may fail until the recipient raises the limit. The new PR does not claim to fix that trust-line limit behavior. It addresses a different boundary: whether the pool’s MPT permission allows LP-token movement at all. Keeping those mechanisms separate prevents a developer from treating every failed LP-token transfer as the same error."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem"
+      ]
+    },
+    {
+      "heading": "The test matrix covers payments and offer funding",
+      "paragraphs": [
+        "The first test path is a holder-to-holder payment. The added test creates an MPT issued by `gw`, places it in an AMM alongside XRP in both asset orders, gives Alice and Bob LP-token trust lines, and checks a payment from Alice to Bob. Without `tfMPTCanTransfer`, the expected result is `tecNO_AUTH`; with the flag, the payment is allowed. The test also preserves the issuer exemption used by the MPT rules.",
+        "The second test path is offer funding. A non-transferable MPT in the pool makes the LP token’s spendable balance unavailable to `OfferCreate`, so the added test expects a passive sell offer to fail with `tecUNFUNDED_OFFER`. When the CanTransfer flag is set, the same test expects the offer to be created. The code comment describes this as parity with frozen LP tokens, whose movement and sale paths are already restricted.",
+        "These results are behavioral assertions in XRPLF’s test suite, not a report of Mainnet transactions. They establish what the implementation is designed to do under the feature combination, not how much liquidity exists, how many pools are affected, or whether any wallet has encountered the condition in production. No source reviewed for this article reports an exploit, consensus failure, lost funds, or a price response."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7418",
+        "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83",
+        "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem"
+      ]
+    },
+    {
+      "heading": "Mainnet status: MPTokensV2 is still in development",
+      "paragraphs": [
+        "Status is the key qualifier. XRPL’s current known-amendments page lists `MPTokensV2` as “In Development” and describes it as the extension that brings MPTs into DEX transactions, including OfferCreate, Payment, AMM, and Checks. The PR’s own tests gate the new behavior on `featureMPTokensV2`. Together, those records show the code is preparing a future protocol path, not changing today’s Mainnet rules.",
+        "The XRP Ledger amendment documentation says changes that affect transaction processing, including bug fixes that change outcomes, require amendment approval. It says an amendment must maintain more than 80% support for two weeks before it applies permanently. That means the path from this merge to production has several observable checkpoints: a compatible release, validator support, the required support period, and an enabled ledger amendment.",
+        "An academic study of the XRPL AMM describes its protocol-level integration, which helps explain why this is not merely a front-end rule. A change that alters whether payments or offers are spendable can affect transaction processing and therefore belongs to the network’s release and amendment process. The study is background, not evidence that PR #7418 has activated."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://github.com/XRPLF/rippled/pull/7418",
+        "https://arxiv.org/abs/2312.13749"
+      ]
+    },
+    {
+      "heading": "Implications for developers, issuers, liquidity providers, and XRP readers",
+      "paragraphs": [
+        "Implications for XRP Ledger developers: an AMM or DEX integration that treats LP tokens as freely transferable should check both the LP token’s issuer relationship and the underlying MPT flags once the relevant feature exists. Error handling should distinguish `tecNO_AUTH` from `tecUNFUNDED_OFFER`, and a production test should cover both pool-asset orderings. None of that means developers should ship against the `develop` branch without a compatible release and network-status check.",
+        "Implications for MPT issuers and liquidity providers: the flag choice is not only about direct MPT payments in the tested design. If an MPT becomes an AMM pool asset under MPTokensV2, its holder-transfer permission can constrain the corresponding LP token’s secondary movement. That may be appropriate for permissioned or restricted instruments, but it creates a concrete integration dependency for custody, market-making, and wallet software. A holder’s exact action depends on the pool, feature set, server version, trust-line state, and issuer policy.",
+        "Implications for XRP holders and market observers: this is not evidence that XRP supply changed, that XRP demand increased, that a named institution adopted XRPL, or that the XRP price should react. XRP can be one side of an AMM pool, but the code change concerns token transfer rules for a future MPT-enabled path. Readers without an MPT-based AMM position have no confirmed action from the merge."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels: confirmed change, bounded inference, unresolved deployment",
+      "paragraphs": [
+        "Confirmed fact: PR #7418 was merged into XRPLF/rippled’s `develop` branch on August 17, and the commit adds a helper plus tests for MPT CanTransfer behavior on AMM LP tokens. The tests name the expected outcomes for both direct payments and OfferCreate funding.",
+        "Bounded inference: the change is intended to keep a non-transferable pool asset from producing an LP token that appears spendable through a different path. It improves semantic consistency with frozen LP tokens, but this interpretation is about design intent and test behavior, not a measured production result.",
+        "Unresolved: the reviewed records do not provide a stable release number, a Mainnet amendment vote, an activation ledger, a production pool count, a user-loss report, or an XRP price or demand effect tied to the merge. The known-amendments page still lists MPTokensV2 as in development at the time checked. An independent XRPL.to article does not report this PR, so its support is limited to existing LP-token mechanics, not independent confirmation of deployment."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7418",
+        "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem"
+      ]
+    },
+    {
+      "heading": "What to watch next for MPT-enabled AMMs",
+      "paragraphs": [
+        "The next useful records are operational, not promotional. A release or release-branch changelog should identify whether commit `ca6121c5` or an equivalent implementation is included, with a version and installation guidance. The amendment status page should then show whether MPTokensV2 moves from development into voting or enabled status, rather than leaving readers to infer activation from a source-code merge.",
+        "A reproducible test-network or Mainnet record would be stronger evidence than the current unit tests: it would show holder-to-holder LP-token payments and OfferCreate behavior for both MPT/XRP and XRP/MPT pool orderings when CanTransfer is off and on. Wallet and DEX release notes should also distinguish `tecNO_AUTH`, `tecUNFUNDED_OFFER`, trust-line-limit failures, and AMMWithdraw behavior.",
+        "Finally, independent pool or infrastructure data would be needed to estimate how many real positions could be affected and whether the change improves user outcomes. Until those records exist, the defensible conclusion is narrow: XRPLF has merged a future-facing permission guard into `develop`, and the network has not published evidence that it is live or economically consequential."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7418",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable or release-branch rippled changelog that includes PR #7418 or an equivalent canTransferLPToken implementation, with a version and operator guidance.",
+    "MPTokensV2 moving from In Development to validator voting or enabled status, supported by an official amendment record rather than a code-merge inference.",
+    "A reproducible testnet or Mainnet transaction pair showing holder-to-holder LP-token payments and OfferCreate outcomes for MPT/XRP and XRP/MPT pools when CanTransfer is off or on.",
+    "Wallet and DEX release notes that distinguish tecNO_AUTH, tecUNFUNDED_OFFER, trust-line-limit failures, and AMMWithdraw behavior.",
+    "Independent pool or infrastructure data showing actual affected pools and user behavior, instead of extrapolating from the XRPLF test suite."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #7418, Enforce MPT CanTransfer on AMM LP Tokens",
+      "url": "https://github.com/XRPLF/rippled/pull/7418",
+      "type": "primary",
+      "publishedAt": "2026-08-17"
+    },
+    {
+      "name": "XRPLF rippled commit ca6121c, MPT CanTransfer implementation and tests",
+      "url": "https://github.com/XRPLF/rippled/commit/ca6121c5b34520f304796fdc1a57c2bac5806a83",
+      "type": "primary",
+      "publishedAt": "2026-08-17"
+    },
+    {
+      "name": "XRPL known amendments, live status reference checked August 17, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Automated Market Makers documentation, undated live reference checked August 17, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Multi-Purpose Tokens documentation, undated live reference checked August 17, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL amendment process documentation, undated live reference checked August 17, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL.to, AMM LP-token trust-line mechanics, undated independent supporting reference checked August 17, 2026",
+      "url": "https://xrpl.to/insights/xrpl-lp-token-trustline-limit-problem",
+      "type": "supporting"
+    },
+    {
+      "name": "Dahi et al., Automated Market Maker on the XRP Ledger, arXiv",
+      "url": "https://arxiv.org/abs/2312.13749",
+      "type": "supporting",
+      "publishedAt": "2023-12-21"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "How Multi-Purpose Tokens work on XRPL",
+      "topic": "MPT foundation",
+      "description": "Review issuance, holder balances, authorization, transfer flags, and lifecycle controls."
+    },
+    {
+      "href": "/learn/xrpl-amm-liquidity-pools",
+      "label": "How XRPL AMM liquidity pools work",
+      "topic": "AMM mechanics",
+      "description": "See how deposits, LP tokens, withdrawals, and pool risk fit together on the XRP Ledger."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRPL DEX",
+      "topic": "DEX behavior",
+      "description": "Connect LP-token transfer rules to Offers, payments, and other ledger-native trading paths."
+    },
+    {
+      "href": "/news/xrpl-mpt-lock-cleanup-fixcleanup3-4-0",
+      "label": "A separate MPT lifecycle guard in rippled",
+      "topic": "MPT lifecycle",
+      "description": "Compare this LP-token permission change with a different develop-branch cleanup safeguard."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "Why SDK support is not protocol activation",
+      "topic": "Developer status",
+      "description": "A source-led explanation of how implementation support differs from a live XRPL amendment."
+    }
+  ]
+}
