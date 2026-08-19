@@ -1,0 +1,120 @@
+{
+  "slug": "xrpl-sponsorship-end-reserve-gate-fix",
+  "title": "XRPL Develop Branch Adds a Reserve Gate When Sponsorship Ends",
+  "description": "XRPLF merged an August 18 develop-branch change that rejects ending object sponsorship when the sponsee cannot carry the reserve, but no stable release or Mainnet activation is established.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-18T23:06:08-04:00",
+  "modifiedAt": "2026-08-18T23:06:08-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-sponsorship-reserve-yoke-editorial.webp",
+  "imageAlt": "A pale-gold mechanical yoke carries a cobalt reserve capsule over an empty ivory cradle, with a vermilion release pin on an ivory threshold in a blue-lit stone alcove",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "sponsorship-reserve-yoke-release-still-life",
+  "imageSetting": "A silent limewashed grain-measuring alcove of pale white stone with a narrow east-facing ceiling slit at first pre-dawn light, viewed dead-on from floor level across an ivory threshold",
+  "imageMetaphor": "A pale-gold load-bearing yoke carries a cobalt reserve capsule above an empty ivory receiving cradle until a vermilion release pin can be withdrawn, representing sponsorship ending only when the sponsee can carry the reserve or another sponsor takes over",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, cinematic 16:9 landscape, using the homepage hero and approved Sublime Classical Oil references only for palette, light, paint handling, material finish, and subtle 1/0/x texture. Create one sparse, physically believable symbolic still life for an XRP Ledger reserve-accounting safety change. Scene: a silent limewashed grain-measuring alcove of pale white stone, broad ivory threshold, generous negative space, and a narrow east-facing ceiling slit at first pre-dawn light after rain. Viewpoint: dead-on straight-on from floor level, with the mechanism slightly right of center and a quiet ivory field to the left. Show exactly four deliberate objects: one pale-gold load-bearing yoke with two short arms and a central pivot resting naturally on the threshold; one unmarked cobalt glass reserve capsule suspended from the left arm; one empty ivory receiving cradle under the right arm, not yet supporting the capsule; and one small restrained vermilion release pin beside the central pivot. The yoke explains that a sponsor can end an object reserve sponsorship only when the former sponsee can carry the reserve, another sponsor assumes it, or the object is deleted. Use crisp sculptural modeling, luminous academic classical-revival oil painting, rich glazing, polished cobalt glass, warm ivory stone, pale-gold metal, controlled cobalt shadow, and one vermilion status mark. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or cool shadow transitions and must dissolve into clean white space. Never apply all-over ASCII, dither, halftone, or pixel texture. Preserve exact object count and contact relationships. Do not repeat any registered AllAboutXRP setting: high inland river gorge, enclosed civic marketplace, remote hilltop observatory, skylit mechanical workshop, inland highland crossroads, basalt-lined calibration vault, bare ivory surveyor datum slab, ivory voting table, dry salt-pan inspection floor, open-air white quarry, rain-washed cartographer room, white-mineral instrument room, ceramic conservation studio, white-mineral conservatory, ivory limestone calibration plinth, white ceramic archive room, waterless timing chamber, ivory optical calibration slab, white-clay bookbindery, rain-cleared limestone survey court, ivory archive table, limestone waterworks archive chamber, veined credit-archive alcove, white alabaster signal chamber, white-limestone tide laboratory, white-clay cryptography atelier, ceramic kiln yard, glassblower inspection bench, ivory cordage workshop, subterranean basalt service gallery, white-plaster merchant counting niche, or any existing temple, bank, harbor, terrace, coast, Greek city, or panoramic landscape. Do not add a coin, XRP symbol, logo, readable text, number, screen, dashboard, cyber cube, politician, figure, columns, robes, mountains, horses, lions, fantasy ruins, lock, hinge, rail, shuttle, manifold, clevis, ring, comb, drum, vessel, passport, iris, groma, hourglass, baffle, selector, channel, extra object, extra capsule, extra cradle, extra pin, impossible floating parts, border, rounded frame, watermark, photographic realism, muted sepia, muddy gray, excessive craquelure, or decorative clutter.",
+  "keywords": ["XRP Ledger sponsorship", "SponsorshipTransfer", "XRPL reserves", "fixCleanup3_4_0", "XLS-68", "XRPL security", "XRP Ledger news"],
+  "keyTakeaways": [
+    "XRPLF merged PR #8044 on August 18 into the rippled develop branch, adding an object-level reserve check to the SponsorshipTransfer ending path when fixCleanup3_4_0 is enabled.",
+    "The new test rejects an underfunded sponsorship ending with tecINSUFFICIENT_RESERVE, then allows it after the former sponsee can carry the object reserve.",
+    "Sponsorship does not transfer XRP to the sponsee. It shifts responsibility for fees or reserves, so ending an object sponsorship returns the reserve burden to its owner.",
+    "The reviewed records show a development-branch correctness fix, not a stable release, validator vote, Mainnet activation, exploit report, XRP demand signal, or price catalyst."
+  ],
+  "sections": [
+    {
+      "heading": "The short answer: XRPLF tightened sponsorship exits in develop",
+      "paragraphs": [
+        "XRPLF merged a change on August 18 that adds a reserve check when a SponsorshipTransfer ends an object-level sponsorship. If fixCleanup3_4_0 is enabled, an underfunded sponsee should receive tecINSUFFICIENT_RESERVE; the code is in develop, not a stable release, and does not prove Mainnet activation or a live incident. [Confirmed fact]",
+        "The newest primary record is XRPLF pull request #8044, merged into the rippled develop branch on August 18. Its companion commit changes SponsorshipTransfer.cpp and the Sponsor_test.cpp suite. The implementation calls checkReserve before the sponsored-object count is reduced, but only when the fixCleanup3_4_0 rule is enabled. That makes the event a concrete code change with a bounded activation condition, not a claim that every XRP Ledger server already behaves this way. [Confirmed fact]",
+        "The source record also sets the right limit. The pull request says the change reflects a decision that sponsorship cannot be ended if the sponsee lacks enough funds to cover the reserve, unless another sponsor takes over. It does not report a production exploit, lost funds, affected customer, validator vote, or stable release. Whether the fix reaches a tagged server release and later becomes active on Mainnet remains unresolved. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/commit/7442ff2dec1adea36c27245b558c3e05a1d06fd2", "https://github.com/XRPLF/rippled/pull/8044", "https://github.com/XRPLF/rippled/releases/tag/3.3.0"]
+    },
+    {
+      "heading": "How XLS-68 reserve sponsorship hands the burden back",
+      "paragraphs": [
+        "The XRP Ledger sponsorship model separates control of an account or ledger object from responsibility for selected costs. The sponsor can cover a transaction fee or an owner reserve for another account, while the sponsee keeps control of its keys and ownership. The current XRPL documentation is explicit that sponsorship does not send XRP into the sponsee wallet. It tracks which account is responsible for the reserve. [Confirmed fact]",
+        "That distinction matters when a sponsor wants to leave. XLS-68, the Sponsored Fees and Reserves standard, describes SponsorshipTransfer as the transaction that can pass a sponsored object’s reserve responsibility back to its owner or on to a new sponsor. The tfSponsorshipEnd flag represents the first path. If no new Sponsor is supplied, the former sponsee becomes responsible for the object again. [Confirmed fact]",
+        "The reserve is not a decorative balance in this design. XRP Ledger reserves exist to constrain ledger growth, and owner objects consume reserve capacity associated with an account. When the sponsor relationship ends, the account that owns the object must be able to absorb that capacity. XLS-68 lists tecINSUFFICIENT_RESERVE when the owner cannot cover the object or account reserve during dissolution. [Confirmed fact]",
+        "For an ordinary reader, the practical translation is simple: a sponsored trust line, escrow, payment channel, or other eligible object can be easier to create, but the sponsorship is not a permanent waiver. If the sponsor exits, the object still has an owner and that owner must either self-fund, obtain a replacement sponsor, or remove the object when the protocol allows it. [Bounded inference]"
+      ],
+      "sourceUrls": ["https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves", "https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html", "https://xrpl.org/docs/concepts/accounts/reserves"]
+    },
+    {
+      "heading": "What the August 18 code and tests actually change",
+      "paragraphs": [
+        "The key change is an asymmetry correction. Before this commit, the object-level ending path deliberately did not call checkReserve, according to the removed source comment. That allowed a sponsor to end a sponsorship even when the sponsee lacked enough reserve to take the object back. The new code keeps the existing behavior before fixCleanup3_4_0, then turns on the reserve check when the feature rule is enabled. [Confirmed fact]",
+        "The test makes the behavior concrete without claiming a production event. It reduces Alice’s balance to one drop below the reserve needed for the sponsored object, submits the sponsor transfer with tfSponsorshipEnd, and expects tecINSUFFICIENT_RESERVE while fixCleanup3_4_0 is enabled. The test then restores the reserve and repeats the transfer successfully. The same test suite runs with the feature bit removed to preserve the pre-feature comparison. [Confirmed fact]",
+        "The implementation checks the balance before the transaction fee and applies an owner-count delta for the object being returned. In plain terms, the reserve decision is made against the sponsee’s usable balance and the extra ledger burden that would be created by ending sponsorship. That is narrower than a general solvency check: it addresses the reserve obligation for this transition, not every financial risk an account may carry. [Bounded inference]",
+        "The independent context is also narrower than a market narrative. Bitcoinist’s August 3 coverage described XLS-68 as a fee-abstraction and onboarding proposal that could make XRP less visible to some users, while stressing that a proposal is not adoption. That framing helps separate the user-experience debate from this new correctness guard. PR #8044 does not establish that sponsored fees have increased activity or reduced XRP demand. [Independent supporting context]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/commit/7442ff2dec1adea36c27245b558c3e05a1d06fd2", "https://github.com/XRPLF/rippled/pull/8044", "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/"]
+    },
+    {
+      "heading": "Why develop-branch code is not a Mainnet release",
+      "paragraphs": [
+        "The August 18 merge is a development milestone, not a user-facing release notice. The pull request’s base branch is develop, and the commit is gated by the fixCleanup3_4_0 feature rule. At the time of this report, the latest tagged rippled release reviewed is version 3.3.0, published August 6. The reviewed release record does not contain this August 18 change. [Confirmed fact]",
+        "That release boundary is central to how XRP Ledger protocol changes work. Code can be compiled, tested, and reviewed before a stable package exists. A stable package can then be installed by validators without making the amendment active. Activation requires a separate ledger-status record and validator support. The August 18 commit supplies neither a vote start date nor a Mainnet activation date. [Confirmed fact]",
+        "The current documentation also says the Sponsor amendment is required for sponsored fees and reserves. Bitcoinist independently describes the same feature family as a proposal whose effects depend on activation and application integration. The evidence therefore supports a layered status: the specification defines the intended behavior, the develop branch now tests a reserve gate, and production availability remains a later milestone. [Bounded inference]",
+        "This distinction protects readers from two opposite errors. Calling the change live would overstate what the commit proves. Calling it irrelevant would miss a meaningful safety decision in the reference implementation. Developers can study the patch and test the path, while applications and infrastructure teams should wait for a tagged release, feature status, and their own compatibility checks before depending on it. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/pull/8044", "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves", "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/"]
+    },
+    {
+      "heading": "Implications for XRPL operators, wallets, and XRP holders",
+      "paragraphs": [
+        "For XRPL infrastructure operators, the affected workflow is sponsor exit. A test plan should cover an underfunded sponsee, a fully funded sponsee, a replacement sponsor, and object deletion where the ledger permits it. It should assert the returned transaction result, inspect the owner and sponsor counts, and run the scenarios with the feature rule both enabled and disabled. Those are engineering acceptance steps, not evidence that production operators have already adopted the patch. [Bounded inference]",
+        "For wallets, issuers, and enterprise applications, sponsorship remains a lifecycle responsibility. An onboarding flow can make XRP less visible to a customer because a platform covers fees or reserves, but that platform still needs a budget, exit policy, and recovery path. If it stops sponsoring an object, silently submitting an ending transfer may fail once the reserve gate is active. The product should explain whether it will fund the account, reassign sponsorship, or ask the user to remove the object. [Bounded inference]",
+        "For a sponsored user, the relevant fact is that the sponsor’s XRP does not become the user’s spendable balance. The user keeps the account and keys, while the ledger records the sponsor’s responsibility. If the relationship ends and the user cannot carry the reserve, the new path is designed to reject the transition rather than leave the account underfunded. That is a protocol result-code change, not a promise that a sponsor must keep paying forever. [Confirmed fact]",
+        "For XRP holders and market readers, there is no defensible price or adoption conclusion in this record. The commit reports no new XRP volume, institutional deployment, partnership, reserve amount, or customer count. The independent coverage discusses a possible UX tradeoff, but even that source says the effect depends on activation, sponsor behavior, transaction volume, and application use. Any claim that this fix is bullish, bearish, or proof of demand would go beyond the evidence. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/commit/7442ff2dec1adea36c27245b558c3e05a1d06fd2", "https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves", "https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html", "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/"]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed facts: XRPLF merged PR #8044 into develop on August 18; the code gates object-level reserve checking behind fixCleanup3_4_0; the test expects tecINSUFFICIENT_RESERVE for an underfunded ending and success after the reserve is restored; and the stated rationale is to make object and account sponsorship exits consistent. These points come from the primary commit, pull request, and test changes. [Confirmed fact]",
+        "Bounded inference: the reserve gate should reduce the chance that an ordinary sponsorship exit creates a state in which the former sponsee cannot carry the object’s required reserve. It should also make provider exits more predictable because the transaction fails before the burden is returned. This is an inference from the control flow and regression test, not a measured security outcome or a guarantee that all reserve-accounting paths are correct. [Bounded inference]",
+        "Unresolved uncertainty: the reviewed records do not say when fixCleanup3_4_0 will enter a tagged release, whether validators will vote for it, which networks may enable it first, or how many applications use sponsorship today. They also do not report a live exploit, a customer loss, a production outage, or a post-release adoption metric. A public server version check would describe one endpoint, not every validator or private deployment. [Unresolved uncertainty]",
+        "The strongest conclusion is therefore modest but useful. The XRPL reference implementation is tightening a specific reserve handoff in its sponsorship machinery. The change deserves developer testing and release tracking, while XRP market claims, Mainnet status, and adoption claims should wait for separate records. [Confirmed fact]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/commit/7442ff2dec1adea36c27245b558c3e05a1d06fd2", "https://github.com/XRPLF/rippled/pull/8044", "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html", "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/"]
+    },
+    {
+      "heading": "What to watch next for the sponsorship reserve gate",
+      "paragraphs": [
+        "The next primary milestone is a tagged rippled release that names fixCleanup3_4_0, documents its compatibility requirements, and explains whether the object-level reserve check is intended to become part of the stable protocol path. A release tag would establish package availability, but it still would not by itself establish Mainnet activation. [Confirmed fact]",
+        "The next status milestone is an official amendment record showing whether the relevant rule is supported, open for voting, or enabled on the network. Readers should look for validator support and an activation window rather than infer status from a GitHub merge, a library release, or a social post. [Unresolved uncertainty]",
+        "The next operational milestone is testable behavior in real sponsor workflows. Watch for wallet and issuer documentation that handles a failed ending transfer, a replacement sponsor, atomic funding, and object cleanup. If providers adopt the feature, published runbooks and result-code handling will be more informative than generic claims that sponsorship removes XRP friction. [Bounded inference]",
+        "Finally, watch for evidence about actual use. Named applications, sponsor policies, reserve funding practices, validated transaction examples, and independent operational measurements could show how the feature works in practice. Until those records exist, the August 18 change is best treated as a precise safety improvement under development, not as a market or adoption event. [Unresolved uncertainty]"
+      ],
+      "sourceUrls": ["https://github.com/XRPLF/rippled/pull/8044", "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves", "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/"]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled release that includes fixCleanup3_4_0, with operator notes for object-level sponsorship exits and compatibility.",
+    "An official amendment-status record showing whether the reserve gate is supported, open for validator voting, or enabled on Mainnet.",
+    "Wallet, issuer, and sponsor runbooks for tecINSUFFICIENT_RESERVE, replacement sponsorship, atomic funding, and eligible object deletion.",
+    "Independent operational evidence that tests reserve handoffs correctly across funded, underfunded, reassigned, and deleted-object paths.",
+    "Named production applications and validated ledger examples before drawing conclusions about XRP visibility, transaction activity, or demand."
+  ],
+  "sources": [
+    { "name": "XRPLF rippled commit 7442ff2: reserve checking on ending sponsorship", "url": "https://github.com/XRPLF/rippled/commit/7442ff2dec1adea36c27245b558c3e05a1d06fd2", "type": "primary", "publishedAt": "2026-08-18" },
+    { "name": "XRPLF rippled PR #8044: enable reserve checking on ending sponsorship", "url": "https://github.com/XRPLF/rippled/pull/8044", "type": "primary", "publishedAt": "2026-08-18" },
+    { "name": "XLS-0068 Sponsored Fees and Reserves draft, updated January 30, 2026", "url": "https://xls.xrpl.org/xls/XLS-0068-sponsored-fees-and-reserves.html", "type": "primary", "publishedAt": "2026-01-30" },
+    { "name": "XRPL documentation: Sponsored Fees and Reserves", "url": "https://xrpl.org/docs/concepts/accounts/sponsored-fees-and-reserves", "type": "primary" },
+    { "name": "XRPL documentation: Reserves", "url": "https://xrpl.org/docs/concepts/accounts/reserves", "type": "primary" },
+    { "name": "XRPLF rippled 3.3.0 release", "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0", "type": "primary", "publishedAt": "2026-08-06" },
+    { "name": "XRPL documentation: Amendment process", "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments", "type": "primary" },
+    { "name": "Bitcoinist: XRP Ledger sponsored-fees proposal and XRP visibility", "url": "https://bitcoinist.com/xrp-ledger-sponsored-fees-proposal-could-make-xrp-less-visible-to-some-users/", "type": "supporting", "publishedAt": "2026-08-03" }
+  ],
+  "relatedLinks": [
+    { "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet", "label": "Why XRPL 3.3.0 amendments are not live yet", "topic": "Release status", "description": "Keep stable server software, validator support, and Mainnet activation separate." },
+    { "href": "/news/xrpl-mpt-lock-cleanup-fixcleanup3-4-0", "label": "XRPL’s separate fixCleanup3_4_0 MPT safety patch", "topic": "Related code change", "description": "Read the distinct MPT lock-cleanup path without conflating it with sponsorship exits." },
+    { "href": "/learn/xrpl-reserves-explained", "label": "How XRP Ledger reserves work", "topic": "Protocol context", "description": "Review why accounts and ledger objects require XRP reserve capacity." },
+    { "href": "/learn/xrpl-transaction-fees", "label": "XRPL transaction fees explained", "topic": "Native XRP", "description": "See how transaction fees differ from account and object reserves." },
+    { "href": "/learn/how-to-run-xrpl-validator", "label": "How to run an XRPL validator", "topic": "Infrastructure", "description": "Understand the operator responsibilities behind server upgrades and feature support." }
+  ]
+}
