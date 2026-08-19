@@ -1,0 +1,265 @@
+{
+  "slug": "xrpl-clio-mpt-issuance-history-backfill-gate",
+  "title": "XRPL Clio Nightly Adds MPT Issuance History RPC With a Backfill Gate",
+  "description": "XRPLF’s August 19 Clio nightly adds a Clio-only Multi-Purpose Token issuance-history RPC, but its backfill-complete gate and development-release status keep the change outside a production or Mainnet claim.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-19T08:47:00-04:00",
+  "modifiedAt": "2026-08-19T08:47:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-mpt-issuance-history-ribbon-editorial.webp",
+  "imageAlt": "A pale-gold perforated ribbon carries three cobalt glass wafers across an ivory stone slab toward an open terminal latch in a rain-lit records yard",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clio-issuance-history-ribbon-latch-still-life",
+  "imageSetting": "A silent white-pumice archival drying yard beneath a translucent roof after brief rain, with a broad ivory stone slab and a cool late-evening skylight, viewed from a raised rear-left angle",
+  "imageMetaphor": "A pale-gold perforated record ribbon carries three cobalt issuance wafers toward an open terminal latch, showing historical issuance events becoming queryable only after backfill completes",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in cinematic 16:9 landscape. Use a sparse, physically believable symbolic still life in a silent white-pumice archival drying yard beneath a translucent roof after brief rain, with one broad ivory stone slab and a single cool late-evening skylight falling diagonally from upper right. This setting, viewpoint, lighting, and arrangement are new and must not resemble any registered AllAboutXRP guide or news scene. Show exactly five deliberate objects: one pale-gold perforated record ribbon making one shallow S-curve across the slab; exactly three separate cobalt glass ledger wafers threaded through three selected ribbon apertures; and one small ivory terminal latch at the far end, visibly open and waiting for the ribbon to reach it. The ribbon represents an issuance lifecycle becoming queryable as a continuous historical record; the open latch represents a backfill-complete gate in a development build, not production availability. View from a raised rear-left three-quarter angle at stone height, looking along the ribbon toward the latch, with broad negative space, crisp contact shadows, luminous academic classical-revival oil modeling, rich glazing, polished pale-gold metal, physically refracting cobalt glass, warm ivory stone, and selective impasto on glints. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or cool shadow transitions and must dissolve into clean white space. No all-over ASCII or dither. No readable text, numbers, labels, logo, XRP symbol, crypto coin, token coin, dashboard, screen, computer, circuitry, cyber cube, generic blockchain icon, politician, people, columns, robes, temple, Greek city, panoramic architecture, fantasy ruins, mountains, horses, lions, extra tools, extra papers, extra wafers, extra ribbon loops, extra latch, watermark, title, border, rounded frame, photographic realism, sepia cast, muddy gray, coarse halftone, retro pixel art, or impossible floating parts.",
+  "keywords": ["XRP Ledger", "XRPL Clio", "MPT issuance history", "Multi-Purpose Tokens", "XRP Ledger API", "Clio 2.8.0", "XRPL development", "XRP news"],
+  "keyTakeaways": [
+    "XRPLF’s August 19, 2026 Clio development build adds mptoken_issuance_history, a Clio-only method for querying transactions tied to one MPT issuance.",
+    "The handler supports optional account and transaction-type filters, ledger ranges, markers, binary output, forward ordering, and a limit from 1 to 100, with 50 as the default.",
+    "Clio refuses the request until its MPT transaction-history backfill reports Migrated, which protects readers from treating an incomplete historical index as a complete record.",
+    "The release is not recommended for production, the XRPL documentation does not yet list the method, and the record proves neither Mainnet protocol change nor XRP demand.",
+    "Developers should test the method against versioned Clio fixtures, while operators should wait for a stable release and verify migration state before exposing it to users."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Clio can query MPT history, but only as development software",
+      "paragraphs": [
+        "Clio’s August 19 development build adds `mptoken_issuance_history`, a Clio-only query for transactions tied to one XRP Ledger Multi-Purpose Token issuance. It can narrow by account or transaction type, but the handler refuses partial history until migration finishes. The build is not recommended for production, and it does not change XRP Ledger consensus or Mainnet. [1][2]",
+        "The newest official primary record is the XRPLF Clio release page for `nightly-20260819`, published at 08:41 UTC on August 19, 2026. GitHub identifies it as a pre-release, points to commit `e8e0478`, and repeats the warning that the development build is not recommended for production. The commit adds the RPC handler on top of MPT issuance-history indexing and backend work that landed earlier. [1][2]",
+        "That makes this a current developer-infrastructure milestone, not a new XRP Ledger amendment. The official Clio pull request was merged into the `develop` branch on August 18, and XRPL Monday Brew had already tracked the planned handler as work building on the earlier ETL indexing. The independent timeline confirms the project sequence, while the dated nightly confirms that the handler is now packaged in a development tag. [3][8]",
+        "The angle is deliberately narrower than a generic Clio upgrade report. The key question is not whether MPT transactions can be filtered at all. It is whether a service can return a complete, issuance-scoped history without letting a partially migrated database look authoritative. That distinction matters to anyone publishing token histories, compliance evidence, issuer activity, or analytics derived from XRPL records."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://github.com/XRPLF/clio/pull/3141",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "What the new mptoken_issuance_history RPC actually does",
+      "paragraphs": [
+        "The commit description calls `mptoken_issuance_history` the MPT-scoped sibling of `nft_history`. A caller supplies an MPT issuance identifier, and the handler routes the request to an issuance-level transaction fetch. If an account is also supplied, it uses an account-scoped fetch; if `tx_type` is supplied, the result is filtered by `TransactionType` after retrieval. These are query-shaping choices, not changes to the ledger’s transaction rules. [2][3]",
+        "The method follows existing history-query conventions for ledger ranges, pagination markers, binary responses, forward ordering, and API-version response branches. The implementation records a limit range of 1 to 100 with a default of 50. Those details are material for application teams because an endpoint that returns the right records but paginates differently can still produce duplicate, skipped, or misordered results in a downstream index. [2][3]",
+        "A compact reading of the current development contract is below. It describes what XRPLF’s commit says the handler will do, not a guarantee that every public Clio provider already exposes it. [1][2]"
+      ],
+      "table": {
+        "caption": "Development behavior recorded for mptoken_issuance_history",
+        "headers": ["Element", "Recorded behavior", "Why it matters"],
+        "rows": [
+          ["Scope", "Clio-only RPC", "The method is not a rippled consensus or peer-network command"],
+          ["Primary selector", "One MPT issuance identifier", "The history is scoped to an issuance rather than a whole account"],
+          ["Optional filters", "Account and tx_type", "Applications can narrow issuer, holder, or lifecycle-event views"],
+          ["Pagination", "Markers, forward, binary, ledger ranges; limit 1 to 100, default 50", "Clients need stable paging and response-shape tests"],
+          ["Readiness", "notReady until MPTTransactionHistoryMigrator reports Migrated", "The endpoint does not present partial history as complete"],
+          ["After migration", "Readiness is cached and no restart is required", "A running node can begin serving the method after the backfill state changes"]
+        ],
+        "sourceNote": "Source: XRPLF Clio commit e8e0478 and merged PR #3141, both dated August 18, 2026. The table summarizes development-branch behavior and is not a stable-release contract. [2][3]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://github.com/XRPLF/clio/pull/3141"
+      ]
+    },
+    {
+      "heading": "The backfill gate is the most important operational detail",
+      "paragraphs": [
+        "The handler is explicitly gated on historical migration. Until `MPTTransactionHistoryMigrator` reports `Migrated`, a request receives a `notReady` response with a message directing the operator toward the `--migrate` command. After migration completes, the readiness result is cached and the method turns on automatically without a restart. [2][3]",
+        "This is a data-integrity control. A history endpoint can be reachable, return valid JSON, and still be incomplete if the underlying index has not covered older ledgers. By refusing the request before the backfill is finished, Clio’s intended behavior distinguishes ‘the service is online’ from ‘the service can answer this historical question with the indexed coverage it claims.’ [2][5]",
+        "The requirement follows the shape of an MPT’s lifecycle. XRPL documentation describes `MPTokenIssuanceCreate` as the transaction that creates the issuance definition, and an `MPTokenIssuance` ledger entry as the record holding data associated with that issuance. The issuance has a stable identifier built from the issuance sequence and issuer account. A history query can therefore be organized around one asset definition instead of an account’s entire transaction stream. [6][7]",
+        "The independent development record supports the sequence without overstating the result. XRPL Monday Brew described the earlier ETL indexing as the foundation for a new MPT issuance-history capability, then listed the RPC handler as work to watch. That is useful corroboration for the architecture, but it does not establish a production deployment, a completed backfill on any named node, or a count of issuances that can already be queried. [8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://github.com/XRPLF/clio/pull/3141",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance",
+        "https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "How issuance history differs from account_tx and mpt_holders",
+      "paragraphs": [
+        "The new method fills a different analytical gap from the existing Clio methods. The XRPL documentation describes `account_tx` as a list of validated transactions involving a given account, while `mpt_holders` returns the holders and balances of an MPT issuance as of a chosen ledger. One is account-centered, and the other is a point-in-time ownership view. `mptoken_issuance_history` is intended to make the issuance itself the center of the historical query. [4][11]",
+        "That difference helps explain why an issuer, auditor, or indexer might want all three views. An issuance-history query can assemble lifecycle events for one MPT. Account-level history can show what a particular issuer or holder did across multiple assets. A holder snapshot can answer who held the issuance at a ledger boundary. None of those views alone proves economic use, legal ownership outside the ledger, or the identity of an off-ledger institution. [4][6][9]",
+        "The current documentation also exposes an important status gap. The Clio Methods page, last updated two months ago when checked on August 19, lists `mpt_holders`, `nft_history`, `nft_info`, `nfts_by_issuer`, `ledger_index`, `server_info`, and `version`, but not `mptoken_issuance_history`. That omission is consistent with the nightly’s development status. It is not evidence that the method will never ship, and it means readers should not cite the documentation as proof of stable availability yet. [1][4]",
+        "The prior AllAboutXRP report on Clio’s August 18 nightly focused on MPT-aware filtering inside `account_tx`, database retry behavior, and libxrpl alignment. This report covers a separate issuance-scoped handler and its migration gate. The two changes may eventually work together, but they should not be combined into one claim that Clio has already delivered a complete production MPT data platform."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_tx",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    },
+    {
+      "heading": "Why this matters to Clio operators and XRPL data providers",
+      "paragraphs": [
+        "Clio is an API and historical-data server, not a second validator network. XRPL documentation says Clio extracts validated data from specified `xrpld` servers, stores historical ledger and transaction data in Cassandra or ScyllaDB, and serves WebSocket or HTTP requests. It can reduce load on peer-to-peer `xrpld` servers, but its value depends on the completeness and health of the data store underneath the API. [5]",
+        "For an explorer or analytics provider, issuance-scoped history can reduce a common source of ambiguity. A client can ask for the events attached to a single MPT issuance instead of downloading every transaction for a busy issuer account and reconstructing the relationship locally. That is a bounded engineering benefit inferred from the handler’s selectors and the existing MPT data model. It does not mean the endpoint is faster in every deployment, and no benchmark or production error-rate result is published in the current record. [2][6][8]",
+        "For operators, the migration state is a release-readiness check. A binary may start, accept network traffic, and answer unrelated Clio methods while this one remains unavailable because its historical index is incomplete. Monitoring should therefore distinguish process health, upstream ledger ingestion, database health, and MPT-history migration state. The commit describes the gate, but it does not publish a fleet-wide dashboard or an operator census. [2][5]",
+        "For data vendors, reproducibility matters more than a convenient endpoint name. A published MPT history should carry the Clio version, the requested issuance identifier, ledger range, pagination state, validation status, and the date of retrieval. Those fields make it possible to tell a complete historical response from a partial or moving query. The method’s existence alone is not a guarantee that two providers have identical historical coverage. [2][4][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods"
+      ]
+    },
+    {
+      "heading": "Implications for developers, issuers, and XRP readers",
+      "paragraphs": [
+        "For application developers, the next practical step is contract testing, not immediate production adoption. Build fixtures for issuance creation, issuance changes, payments, holder authorization, and destruction where applicable. Test the required issuance identifier, optional account and `tx_type` filters, markers, forward ordering, binary responses, ledger bounds, and the not-ready path. Then repeat those tests against a stable release when one exists. [2][3][7]",
+        "For MPT issuers and tokenized-asset teams, the method could eventually support a cleaner audit trail for one issuance’s on-ledger lifecycle. The word ‘eventually’ is important. The current record does not name an issuer using the nightly, an auditor accepting its output, or a regulated workflow that depends on it. Better historical query infrastructure can make evidence easier to assemble, but it does not by itself create compliance approval, asset liquidity, or adoption. [2][6][9]",
+        "For Clio operators and managed API providers, a nightly is a test artifact. The release page says not to use it in production, and the handler’s backfill gate implies that an operator must plan the migration rather than assume a binary upgrade is enough. Wait for stable release notes, read the database and migration instructions, verify the backfill on the intended dataset, and expose the endpoint only after the service reports complete coverage. [1][2][5]",
+        "For XRP holders and market readers, there is no confirmed direct action. The source record announces a Clio query feature around MPT history. It does not announce a new XRP product, institutional deployment, XRP Ledger Mainnet activation, transaction-volume outcome, price reaction, or XRP demand. A more searchable MPT history could help future research, but that is an infrastructure implication, not a present investment thesis. [1][4][8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://github.com/XRPLF/clio/pull/3141",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels: what is confirmed and what is not",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF published `nightly-20260819` on August 19, 2026 as a pre-release development build. The tag points to commit `e8e0478`, which adds a Clio-only `mptoken_issuance_history` handler with account and transaction-type filters, existing history-query conventions, a limit range of 1 to 100 with a default of 50, and a migration-readiness check. [1][2][3]",
+        "[Confirmed fact] The method is designed not to serve partial history before the MPT transaction-history backfill reports `Migrated`. [Bounded inference] That makes the gate a meaningful provenance safeguard because a caller can treat a successful response as evidence that the specific migration prerequisite was satisfied on that node. It still does not establish that every older ledger, every database replica, or every provider has identical coverage. [2][5]",
+        "[Unresolved uncertainty] The public records do not identify a stable Clio version containing the handler, a production provider exposing it, a completed migration on a named public node, an endpoint adoption count, or a benchmark showing query speed or error-rate improvement. The official Clio Methods reference does not yet list the new method. Those gaps are normal for a same-day nightly, but they block production and ecosystem claims. [1][4]",
+        "[Unresolved uncertainty] The sources also do not show a new XRPL amendment, validator vote, Mainnet feature activation, XRP price effect, XRP demand change, or named institutional use case caused by this code. The independent XRPL Monday Brew report confirms that the work grew from earlier ETL indexing, but it does not convert development-branch progress into live-network adoption. [8]",
+        "The defensible conclusion is therefore specific: Clio’s latest official development tag adds a more precise MPT issuance-history query and protects it with a backfill gate. The evidence supports technical significance for data operators and application builders. It does not support a claim that the XRP Ledger itself changed, that a production service has upgraded, or that XRP’s market outlook moved because of the nightly."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://github.com/XRPLF/clio/pull/3141",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html"
+      ]
+    },
+    {
+      "heading": "What a production-ready signal would look like",
+      "paragraphs": [
+        "The next meaningful milestone is a dated stable Clio release with final notes for `mptoken_issuance_history`, migration instructions, supported request fields, response examples, and compatibility guidance. A second release candidate or nightly can show continued development, but it cannot replace a production recommendation. [1][2]",
+        "Documentation should then expose the method in the Clio reference and state whether the API contract is identical across API versions. A public provider or reproducible self-hosted test should demonstrate a completed backfill, a known issuance identifier, paginated results, and consistent behavior across the ledger ranges being queried. That evidence would move the story from implementation to usable service capability. [2][4][5]",
+        "Finally, independent operator notes or application releases should identify who is using the method and for what purpose. Named analytics, issuer, custody, or compliance workflows would establish actual use. Until then, the strongest outcome is the code-level one: Clio is gaining a better way to organize MPT history, while the project’s own readiness gate keeps incomplete provenance from being presented as finished data. [8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+        "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrplbrew.com/2026-07-06_2026-07-12.html",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable Clio 2.8.0 release or final release note that formally exposes mptoken_issuance_history and documents its migration and response contract.",
+    "The Clio Methods reference adding the new method, including API-version behavior, required and optional fields, pagination, and not-ready responses.",
+    "A reproducible operator test showing MPT transaction-history backfill completion, validated ledger coverage, and consistent results across pages and ledger ranges.",
+    "Named explorers, issuers, custodians, analytics providers, or compliance workflows that publish a versioned deployment using the method.",
+    "A separate XRPLF server release, amendment record, validator vote, or live feature response before treating this Clio change as a Mainnet protocol event or XRP market signal."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF Clio nightly-20260819 release",
+      "url": "https://github.com/XRPLF/clio/releases/tag/nightly-20260819",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XRPLF Clio commit e8e0478, mptoken_issuance_history RPC",
+      "url": "https://github.com/XRPLF/clio/commit/e8e0478333c86ccc0e1d526f0cd2a2f19b45479c",
+      "type": "primary",
+      "publishedAt": "2026-08-18"
+    },
+    {
+      "name": "XRPLF Clio PR #3141, mptoken_issuance_history handler",
+      "url": "https://github.com/XRPLF/clio/pull/3141",
+      "type": "primary",
+      "publishedAt": "2026-08-18"
+    },
+    {
+      "name": "XRPL documentation: Clio Methods, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/clio-methods",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: The Clio Server, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: MPTokenIssuance, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/mptokenissuance",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: MPTokenIssuanceCreate, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/mptokenissuancecreate",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Monday Brew: July 6 to 12, 2026 weekly development summary",
+      "url": "https://xrplbrew.com/2026-07-06_2026-07-12.html",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Commons Multi-Purpose Token training reference, undated supporting reference checked August 19, 2026",
+      "url": "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL documentation: account_tx, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_tx",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "How XRPL Multi-Purpose Tokens work",
+      "topic": "MPT foundation",
+      "description": "Review issuance, holder balances, transfer controls, and lifecycle fields before interpreting an MPT history."
+    },
+    {
+      "href": "/news/xrpl-clio-nightly-mpt-filtering-2-8-0",
+      "label": "Clio’s MPT account filtering report",
+      "topic": "Adjacent development",
+      "description": "See how the prior nightly’s account_tx filter differs from the new issuance-scoped history handler."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "XRPL binary codec and MPT models",
+      "topic": "Developer context",
+      "description": "Separate serialization-library support from server release status and ledger activation."
+    },
+    {
+      "href": "/news/xrpl-go-0-3-0-rippled-3-3-0-migration",
+      "label": "XRPL Go’s migration boundary",
+      "topic": "Compatibility",
+      "description": "A related report on SDK version alignment, validated results, and why release compatibility needs testing."
+    },
+    {
+      "href": "/learn/how-to-run-xrpl-validator",
+      "label": "How to run an XRPL validator",
+      "topic": "Infrastructure",
+      "description": "Understand the operator role that Clio does not replace in the XRP Ledger’s peer-to-peer network."
+    }
+  ]
+}
