@@ -1,0 +1,287 @@
+{
+  "slug": "xrpl-loan-default-freeze-fixcleanup3-4-0",
+  "title": "XRPL Develop Branch Merges Loan-Default Freeze Fix Behind fixCleanup3_4_0",
+  "description": "XRPLF merged a develop-branch fix that lets a loan default traverse a frozen IOU or MPT path under fixCleanup3_4_0. It improves correctness, but is not a stable release, Mainnet activation, or confirmed XRP-use event.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-19T23:10:00-04:00",
+  "modifiedAt": "2026-08-19T23:10:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-loan-default-freeze-cam-editorial.webp",
+  "imageAlt": "A pale-gold stepped cam guides an ivory transfer roller past a frosted cobalt sleeve on an ivory stone slab, with one vermilion witness bead",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "loan-default-cam-freeze-bypass-still-life",
+  "imageSetting": "A silent white-calcite pressure chamber after a passing storm, with one low west opening and a damp ivory stone floor under electric blue twilight, viewed from a high diagonal rear-right angle",
+  "imageMetaphor": "A stepped pale-gold cam guides one measured transfer around a frosted cobalt sleeve while ordinary paths remain blocked, representing a narrow loan-default freeze exception rather than a general bypass",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Primary request: explain XRPLF's August 19, 2026 loan-default freeze fix through one sparse, physically believable symbolic still life. Scene: a silent white-calcite pressure chamber after a passing storm, with a damp ivory stone floor, one low west opening, and electric blue twilight reflected on the stone. This setting is new and must not reuse any registered AllAboutXRP guide or news setting. Composition: view from a high diagonal rear-right angle close to the floor, looking across a broad ivory stone slab with the object cluster small in the lower-left third and generous clean negative space above and to the right. Show exactly five deliberate visible objects: one pale-gold stepped cam wheel with a single raised lobe resting on a short ivory axle; one smooth ivory transfer roller aligned with the cam on a shallow straight groove; one frosted cobalt glass sleeve crossing the groove with exactly one oval opening aligned to the roller; one small cobalt glass ledger bead positioned just beyond the opening; and one restrained vermilion witness bead on the stone beside the sleeve. The cam, roller, single opening, and cobalt bead must read as one controlled transfer path, while the frosted sleeve blocks every other path. Use a narrow cold twilight shaft from the low west opening, crisp physically consistent contact shadows, pale-gold rim light, cobalt reflections, and broad warm ivory negative space. Style: luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on the metal edge, frosted glass, and wet stone. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions and must dissolve into white space. Never use an all-over ASCII or dither filter. The metaphor is a narrow fixCleanup3_4_0-gated exception for an already-late loan default, not a general freeze override. Constraints: no readable text, letters, numbers, currency symbols, logos, XRP symbol, literal crypto coin, token coin, dashboard, chart, screen, UI, computer, circuitry, cyber cube, politician, person, bank, temple, columns, robes, harbor, coast, terrace, panoramic Greek city, mountain, fantasy ruin, bridge, gate, lock, key, latch, clasp, yoke, rail, prism, manifold, hourglass, scale, ratchet, clepsydra, amphora, passport folio, compass, shutter, ribbon, capsule array, waterworks channel, archive room, instrument room, quarry, salt pan, kiln yard, workshop, conservatory, bookbindery, counting niche, calibration chamber, pressure gauge, watermark, border, rounded frame, photographic realism, sepia cast, muddy gray, coarse halftone, retro pixel art, duplicated objects, floating parts, or impossible geometry. Bundled references are style-only and must not leak their content or compositions.",
+  "keywords": [
+    "XRP Ledger lending",
+    "XLS-66",
+    "XRPL loan default",
+    "fixCleanup3_4_0",
+    "XRPL freeze",
+    "Single Asset Vault",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7932 into the develop branch on August 19, 2026, adding a narrow loan-default freeze exception gated by fixCleanup3_4_0.",
+    "The exemption covers the vault asset's issuer-to-broker and issuer-to-vault transfer path, not every transaction touching a frozen line.",
+    "MPT authorization, canTransfer, and canTrade checks remain in force, while ordinary LoanPay and LoanBrokerCoverWithdraw paths keep their existing freeze behavior.",
+    "A public Ripple endpoint checked August 19 still reported rippled 3.3.0, with LendingProtocol supported but disabled and no fixCleanup3_4_0 feature entry.",
+    "Halborn's June 12 third-party re-audit found freeze and invariant issues in the lending codebase, but it does not certify this later patch or a future Mainnet launch."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a develop-branch fix, not a Mainnet lending launch",
+      "paragraphs": [
+        "XRPLF merged a rippled patch on August 19 that lets an already-late loan default move first-loss capital through a frozen IOU or MPT path, but only when fixCleanup3_4_0 is enabled. The change is on develop, not a stable Mainnet release. It does not make XLS-66 lending live or prove XRP usage. [1][2][5]",
+        "The newest official primary record is commit 368ff1afce, merged through XRPLF rippled pull request #7932. GitHub records the merge into the develop branch on August 19, 2026. The change adds a ledger helper, narrows two invariant checks, and adds dedicated tests for global freeze, deep freeze, and an impaired-loan MPT path. [1][2]",
+        "The practical issue is specific. A loan that has passed its grace period must be able to enter default processing so the ledger can account for first-loss capital and update the vault. Before this fix, the transfer needed by that accounting could still trip freeze-related invariants when the vault asset was frozen. The patch changes that result only for the exact default workflow and only under a future cleanup rule. [1][3]",
+        "That status boundary is the story. The record is important to XRPL developers, lending-protocol reviewers, issuers, and infrastructure operators because it addresses a correctness edge case in a consensus-sensitive path. It is not evidence that LendingProtocol has activated, that a public loan book exists, that a validator has adopted the code, or that XRP demand changed. [5][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "What failed when a loan default met a freeze",
+      "paragraphs": [
+        "XLS-0066 defines a lending path with three important roles: a loan broker manages the protocol, depositors supply assets to a Single Asset Vault, and borrowers receive funds under fixed terms. If a borrower misses the required payments and the grace period ends, the broker can default the loan. The design also includes optional first-loss capital, which is a buffer intended to absorb part of a default loss before the vault bears the remainder. [3][4]",
+        "The default operation is not a simple flag flip. XRPLF's pull request explains that LoanManage::defaultLoan moves first-loss capital through the broker and vault pseudo-accounts. Because neither pseudo-account is the issuer of the vault asset, the transfer passes through the issuer in two hops: broker to issuer, then issuer to vault. When freeze checks were enforced on those trust-line changes, the post-apply TransfersNotFrozen invariant for IOUs and ValidMPTTransfer invariant for MPTs could reject tfLoanDefault with tecINVARIANT_FAILED. The pull request says that failed path also charged the broker's transaction fee. [1][2]",
+        "This is a useful distinction for readers who see the word freeze and assume the patch turns off compliance controls. The issue is not that the issuer loses the ability to freeze an asset. The issue is that a late-loan default needs a narrowly recognized accounting transfer even when the asset's freeze state would otherwise block it. The patch resolves that conflict in the invariant layer rather than granting every LoanManage transaction a broad override. [1][3][9]",
+        "Independent security context reinforces why the edge case deserves careful treatment. Halborn's Lending Protocol re-audit, last updated June 12, 2026, reviewed freeze behavior, state invariants, validation, and accounting. It reported zero critical and zero high findings, one medium, two low, and two informational findings, with some statuses marked solved and others risk accepted or acknowledged. That review predates PR #7932, so it is context for the protocol's risk surface, not a certification of this later change. [8]"
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    },
+    {
+      "heading": "What the exemption changes, and what it deliberately leaves blocked",
+      "paragraphs": [
+        "The change is narrow enough that the affected transaction and the unaffected paths should be read together. The table below summarizes the behavior recorded in the August 19 commit and pull request. It describes develop-branch code under a named amendment gate, not a promise about every current XRPL server. [1][2]",
+        "The account scoping is as important as the amendment gate. The helper resolves the referenced Loan, then its LoanBroker and Vault objects, and then the vault's own asset. That prevents an application from presenting an arbitrary transaction as a loan default and prevents a freeze exception for an unrelated currency or MPT held by the same accounts. [1]",
+        "The MPT side is also deliberately narrower than a general permission bypass. The pull request says only the freeze check is waived for the matching default transfer. Authorization, transferability, and trading checks remain active. In other words, the patch is designed to let the protocol complete a specific recovery accounting path, not to turn an unauthorized or non-transferable asset into a transferable one. [1][2]",
+        "The test plan mirrors those boundaries. It covers a globally frozen issuer, an individually deep-frozen broker trust line, and a globally locked MPT after loan impairment. It also checks that an ordinary LoanPay remains blocked by the same lock. Those tests are evidence of intended behavior and regression coverage. They are not evidence that the feature has been exercised on Mainnet with real borrowers or depositors. [1][3]"
+      ],
+      "table": {
+        "caption": "Behavioral boundary recorded for the loan-default freeze fix",
+        "headers": ["Path or check", "When fixCleanup3_4_0 is off", "When the gate is on"],
+        "rows": [
+          ["LoanManage with tfLoanDefault", "Existing freeze or lock invariant can reject the transfer", "The exact default path can receive the scoped freeze exception"],
+          ["Asset and accounts", "No new exemption", "Only the vault's own asset and its resolved issuer, broker, and vault relationships qualify"],
+          ["Ordinary LoanPay", "Freeze and lock rules remain enforced", "No bypass added by PR #7932"],
+          ["LoanBrokerCoverWithdraw", "Existing freeze behavior remains", "No bypass added by PR #7932"],
+          ["MPT authorization and transfer rules", "Existing checks remain", "isAuthorized, canTransfer, and canTrade remain enforced"],
+          ["Unrelated frozen currency or line", "Existing invariant behavior remains", "The transaction should still be caught outside the vault asset path"]
+        ],
+        "sourceNote": "Source: XRPLF rippled PR #7932 and commit 368ff1a, merged August 19, 2026. The table summarizes the proposed consensus behavior and is not a stable-release or Mainnet status record. [1][2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ]
+    },
+    {
+      "heading": "Why fixCleanup3_4_0 changes the status story",
+      "paragraphs": [
+        "The patch does not claim to rewrite today's Mainnet rules. Its helper returns an exemption only when the ledger rules report fixCleanup3_4_0 as enabled. The pull request targets develop, and the latest stable rippled release record available in this review is version 3.3.0, published August 6. A develop merge can be compiled and tested before it appears in a tagged release or enters amendment voting. [1][2][7]",
+        "I checked Ripple's public XRP Ledger endpoint at 11:04 p.m. Eastern on August 19, 2026. The response reported rippled_version 3.3.0. Its feature response returned LendingProtocol as supported but enabled false, and it did not return a fixCleanup3_4_0 feature entry. This is a dated snapshot from one public endpoint, not a census of validators, private networks, or every future build. [5]",
+        "The official Known Amendments page also separates Mainnet status from amendments in development and says the page is updated manually. It does not list fixCleanup3_4_0 as a current Mainnet amendment or as a named in-development item on the page checked for this report. That absence is supporting status context, not proof that development has stopped. The stronger evidence remains the branch targeted by PR #7932, the stable release line, and the live feature response. [6][7][10]",
+        "The precise label is therefore [Unresolved uncertainty] for activation timing. The code is merged into develop, but the records reviewed do not provide a stable release date, a validator vote schedule, a Mainnet activation transaction, or a promise that the amendment will be enabled. Readers should not convert a guarded code path into a current network capability."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Implications for loan brokers, issuers, developers, and operators",
+      "paragraphs": [
+        "For loan brokers and vault depositors, the fix targets a failure mode in the default lifecycle. A broker should be able to process an eligible default after the grace period, and the ledger should be able to move the permitted first-loss amount without treating that accounting step as an ordinary user payment. The improvement may make recovery behavior more coherent when an issued asset is frozen, but it does not erase the economic loss from a default or guarantee that first-loss capital covers the full obligation. [3][4]",
+        "For asset issuers and compliance teams, the change keeps the freeze model intact outside the one recognized path. XRP Ledger documentation says issuers can freeze issued trust-line tokens and MPTs, while XRP itself cannot be frozen. The PR leaves ordinary loan payments and cover withdrawals subject to existing rules and retains MPT authorization and transferability checks. A compliance policy should therefore treat default accounting, borrower repayment, and broker withdrawals as separate workflows. [1][4][9]",
+        "For developers, the right acceptance test is a matrix, not one successful happy path. Test IOU and MPT vault assets, global freeze and deep freeze, feature-gate off and on, valid and missing LoanID references, the correct vault asset, an unrelated frozen currency, and ordinary LoanPay behavior. Then run the same tests against the exact stable release and network feature set used in production. A local build passing its new unit tests is not a Mainnet compatibility guarantee. [1][2][5]",
+        "For node operators and API providers, the change is a release-tracking item. They should watch signed release notes, amendment support, validator voting, and enabled status separately. Installing a build that understands an amendment is not the same as enabling it, and a server that reports a feature as supported is not necessarily applying that feature's rules. The operators most affected are those testing XLS-66 or maintaining infrastructure for future lending applications. [5][7][10]"
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes",
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "What this means for XRP holders and market readers",
+      "paragraphs": [
+        "For XRP holders, the direct market conclusion is limited. The current endpoint snapshot shows LendingProtocol supported but disabled, and the new fix reports no customer, transaction, deposit, loan-book, or XRP-volume data. Nothing in PR #7932 establishes an XRP purchase, a new bridge route, an institutional deployment, or a price response. A protocol-correctness patch can matter to future builders without being a present XRP market catalyst. [1][5]",
+        "The asset distinction matters because freeze language can be misunderstood. The affected cases concern issuer-controlled IOUs or MPTs moving through trust lines and pseudo-accounts. XRPL documentation states that XRP is the native asset and cannot be frozen by an issuer. That does not make the lending design irrelevant to XRP, because XRP can be used by other XRPL applications, but it means this specific exception is not a rule allowing someone to freeze or unfreeze native XRP. [4][9]",
+        "[Bounded inference] If the Lending Protocol eventually activates and developers deploy real vaults, this fix could reduce one source of friction in default processing for issued assets. The useful evidence would then be named vaults, validated LoanManage transactions, disclosed asset types, first-loss balances, and independent risk reporting. Until those records exist, the change is best understood as a staged safety improvement in protocol software, not as proof of lending adoption or XRP utility. [3][5][8]",
+        "This is also why the story should not be merged with the earlier report on XLS-66's 37.14% vote consensus. That report addressed governance and activation status. This one addresses a later develop-branch implementation edge case. The two records can both be true: a protocol can have active development and security fixes while its corresponding Mainnet amendment remains disabled. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #7932 into the rippled develop branch on August 19, 2026. The commit adds a helper that resolves the referenced Loan, LoanBroker, Vault, and vault asset, then passes a narrow account-and-asset context into the IOU and MPT invariant checks. [1][2]",
+        "[Confirmed fact] The intended exemption applies to an already-late tfLoanDefault path when fixCleanup3_4_0 is enabled. The primary record says the path covers the issuer-to-broker and issuer-to-vault hops needed for default accounting, while unrelated frozen lines remain subject to checks. It also says the MPT authorization, canTransfer, and canTrade conditions remain enforced. [1][2]",
+        "[Bounded inference] The implementation should reduce a specific class of false blocking outcomes because a valid protocol default no longer fails solely from the vault asset's freeze state when the future gate is active. That inference comes from the changed control flow and regression tests. It is not a measured reduction in production failures, a security score, or a guarantee that all loan-accounting bugs are resolved. [1][8]",
+        "[Unresolved uncertainty] The reviewed records do not establish a stable release containing the patch, a validator vote for fixCleanup3_4_0, a Mainnet activation date, a public production lender, or any XRP market effect. The live endpoint check is one dated observation, and the Known Amendments page is manually updated. Those limits should remain visible in any follow-up coverage. [5][6][7]",
+        "The defensible conclusion is modest but material: XRPLF has merged a carefully scoped correction for how an eligible loan default interacts with issuer freeze invariants. That is useful protocol engineering news for the XLS-66 path. It is not a live lending launch, a general freeze bypass, or an XRP adoption announcement."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/pull/7932",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "What to watch next for the loan-default fix",
+      "paragraphs": [
+        "The first milestone is a signed, dated rippled release that includes fixCleanup3_4_0 and documents the compatibility boundary for the loan-default exemption. A release tag would show that operators can install the code, but it would still not prove that validators have enabled the amendment or that an application uses it in production. [1][7]",
+        "The second milestone is a network-status change. Watch the Known Amendments record, validator support, and a current feature response for a named fixCleanup3_4_0 entry and enabled state. The existing endpoint check should be repeated against more than one public server when the amendment is expected to matter, because one node is a snapshot rather than a fleet-wide result. [5][6][10]",
+        "The third milestone is behavioral evidence from real or reproducible lending workflows. Look for a named vault asset, a defaulted LoanManage transaction, the associated first-loss movement, and proof that ordinary LoanPay remains blocked under the intended freeze state. Those records would show whether the code behaves as designed. They would still need separate risk and adoption analysis before supporting claims about a lending market or XRP demand. [3][4][8]"
+      ],
+      "bullets": [
+        "A stable rippled release that names fixCleanup3_4_0 and includes operator notes for the loan-default freeze exception.",
+        "A Known Amendments update and public feature responses showing support and enabled state separately.",
+        "Validated IOU and MPT LoanManage default examples that show the scoped transfer path and preserve unrelated freeze checks.",
+        "Evidence that ordinary LoanPay and LoanBrokerCoverWithdraw transactions remain blocked when the relevant freeze or lock rules require it.",
+        "Named XLS-66 vaults, borrowers, depositors, first-loss balances, and independent risk reporting before drawing conclusions about adoption or XRP demand."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable rippled release that names fixCleanup3_4_0 and includes operator notes for the loan-default freeze exception.",
+    "A Known Amendments update and public feature responses showing support and enabled state separately.",
+    "Validated IOU and MPT LoanManage default examples that show the scoped transfer path and preserve unrelated freeze checks.",
+    "Evidence that ordinary LoanPay and LoanBrokerCoverWithdraw transactions remain blocked when the relevant freeze or lock rules require it.",
+    "Named XLS-66 vaults, borrowers, depositors, first-loss balances, and independent risk reporting before drawing conclusions about adoption or XRP demand."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled commit 368ff1a, Exempt loan default from asset freeze",
+      "url": "https://github.com/XRPLF/rippled/commit/368ff1afce195cef00debf64d34aa82d72fe707c",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XRPLF rippled PR #7932, Exempt loan default from asset freeze",
+      "url": "https://github.com/XRPLF/rippled/pull/7932",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XLS-0066 Lending Protocol specification, undated reference checked August 19, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Lending Protocol documentation, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger public feature RPC snapshot, checked August 19, 2026 at 11:04 p.m. Eastern",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 release, published August 6, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "Halborn, Lending Protocol Re-Audit for Ripple, last updated June 12, 2026",
+      "url": "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+      "type": "supporting",
+      "publishedAt": "2026-06-12"
+    },
+    {
+      "name": "XRP Ledger Freezing Tokens documentation, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Amendment process documentation, undated reference checked August 19, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XLS-66 lending protocol voting status",
+      "topic": "Governance context",
+      "description": "Separate amendment consensus and Mainnet activation from later code-level fixes."
+    },
+    {
+      "href": "/news/xrpl-mpt-lock-cleanup-fixcleanup3-4-0",
+      "label": "XRPL's separate MPT lock-cleanup fix",
+      "topic": "Related security work",
+      "description": "Read the distinct fixCleanup3_4_0 MPT path without conflating it with loan defaults."
+    },
+    {
+      "href": "/news/xrpl-sponsorship-end-reserve-gate-fix",
+      "label": "XRPL's sponsorship reserve gate",
+      "topic": "Protocol correctness",
+      "description": "Compare another develop-branch safety change whose release and activation remain separate milestones."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "XRP lending platforms",
+      "topic": "Lending context",
+      "description": "Compare off-ledger lending models before treating XLS-66 as an active credit market."
+    },
+    {
+      "href": "/learn/xrpl-trust-lines-explained",
+      "label": "XRPL trust lines explained",
+      "topic": "Asset mechanics",
+      "description": "Review how issued assets, trust lines, and issuer controls differ from native XRP."
+    }
+  ]
+}
