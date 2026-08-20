@@ -1,0 +1,307 @@
+{
+  "slug": "xrpl-py-5-1-0-feature-signing-support",
+  "title": "xrpl-py 5.1.0 Adds Four XRPL Feature Families, Not Mainnet Activation",
+  "description": "XRPLF’s August 19 xrpl-py 5.1.0 release adds Python support for Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, and BatchV1_1 signing. The package does not activate any amendment or prove Mainnet adoption.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-20T15:24:00-04:00",
+  "modifiedAt": "2026-08-20T15:24:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-py-four-feature-case-editorial.webp",
+  "imageAlt": "A pale-gold four-slot case holds cobalt glass modules beside an unlatched ivory gate plate on a white stone shelf",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "python-sdk-four-slot-case-still-life",
+  "imageSetting": "A quiet white-clay instrument maker’s packing room at clear post-rain morning, viewed straight from behind at low shelf height across a bare ivory stone shelf with broad negative space",
+  "imageMetaphor": "A pale-gold four-slot folding case holds four cobalt glass modules while a separate ivory gate plate remains unlatched, representing client support for four proposed XRPL feature families without network activation",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Primary request: explain the xrpl-py 5.1.0 developer-tooling release that adds Python support for Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, and BatchV1_1 signing, while keeping amendment activation as a separate unresolved gate. Use one sparse, physically believable symbolic still life in a setting unlike every registered AAXRP guide or news scene: a quiet white-clay instrument maker’s packing room at clear post-rain morning, viewed straight from behind at low shelf height across a bare ivory stone shelf, with the focal arrangement slightly left of center and broad warm ivory negative space on the right. Show one pale-gold four-slot folding sample case with realistic hinges and depth, the four cobalt glass modules seated together inside its four compartments as one grouped mechanism, one separate flat ivory gate plate resting just outside the open case, and one small restrained vermilion witness pin at the gate plate’s untouched latch point. The case and four modules represent Python client support for four feature families; the separate unlatched gate plate represents the fact that installed client support does not activate an XRPL amendment. Make the relationship physically legible through contact shadows, slot depth, the open hinge, and the clear gap between the case and gate plate. Use luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on the pale-gold hinge and ivory stone grain, saturated cobalt and ultramarine shadows, warm ivory, pale gold, and exactly one restrained vermilion status accent. Use diffuse north-clerestory light after rain, with a cool cobalt cast shadow moving toward the right and a pale-gold rim on the case edge. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions and must dissolve into white space. Never apply an all-over ASCII or dither filter. Constraints: preserve the straight rear low-shelf viewpoint, grouped four-module case, separate unlatched gate plate, left-of-center arrangement, broad negative space, and single vermilion pin. No readable text, numbers, code, logo, XRP symbol, crypto coin, coin edge, dashboard, screen, circuitry, person, politician, robe, column, temple, harbor, coast, bank, Greek city, mountain panorama, water vista, generic cyber cube, neon, impossible floating parts, duplicate cases, extra red marks, title, watermark, embedded border, rounded frame, photographic realism, sepia, muddy gray cast, coarse halftone, retro pixel art, or all-over dither.",
+  "keywords": [
+    "xrpl-py 5.1.0",
+    "XRP Ledger Python SDK",
+    "Confidential MPT",
+    "Sponsored Fees and Reserves",
+    "Dynamic MPT",
+    "BatchV1_1",
+    "XRP Ledger amendments",
+    "XRPL developer tools"
+  ],
+  "keyTakeaways": [
+    "XRPLF released xrpl-py 5.1.0 on August 19, 2026 with client-side support for Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, and BatchV1_1 signing.",
+    "The release notes put Confidential MPT proof generation and balance decryption in an optional native xrpl.ext.confidential extension, so the core Python package should not be treated as a complete privacy stack.",
+    "PyPI shows the 5.1.0 source distribution and wheel uploaded on August 19 and requires Python 3.10 or newer, making this an integration milestone with a concrete dependency boundary.",
+    "The package does not activate an amendment, establish validator support, prove a Mainnet transaction, or provide evidence of XRP adoption or price impact."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the package expands client support, not network state",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF released xrpl-py 5.1.0 on August 19, 2026 with Python-side support for Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, and BatchV1_1 signing. The package is a developer-tooling milestone: it gives applications a versioned client interface for the listed protocol work, but it does not enable amendments, prove Mainnet use, or establish XRP demand.",
+        "The official GitHub release was published at 20:26 UTC on August 19. Its tag points developers to a changelog that names the four additions, while the public PyPI project page shows the 5.1.0 wheel and source distribution uploaded the same day. Those records establish that a releasable Python package exists. They do not establish that an XRP Ledger validator, wallet, exchange, issuer, or end user has adopted it. [1][2][3]",
+        "The timing matters because these client changes sit beside the larger rippled 3.3.0 amendment cycle. An independent CoinDesk report published August 1 described Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, Batch, and Permission Delegation as proposed features that still needed validator approval. The newer Python release improves an application’s ability to speak the feature vocabulary, but it does not skip the network governance step. [4][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What xrpl-py 5.1.0 actually adds, and what it removes",
+      "paragraphs": [
+        "[Confirmed fact] The v5.1.0 changelog lists support for Confidential MPT, identified with XLS-0096; Sponsored Fees and Reserves, identified with XLS-68; Dynamic Multi-Purpose Tokens, identified with XLS-94; and BatchV1_1 signing, identified with XLS-56. This is a compact release with a wide protocol surface. It touches privacy-oriented token transfers, fee and reserve sponsorship, mutable token properties, and multi-transaction signing, but the release note is describing SDK support rather than declaring four live services. [1][2]",
+        "The Batch entry has an important qualifier. The release removed the older Batch signing format because it was never live on any network, according to the changelog, and says that no existing signatures are affected. The official Known Amendments page independently describes BatchV1_1 as the replacement for the original Batch amendment after a critical bug was found. That makes the Python change a compatibility cleanup as well as an addition: a developer should target the corrected format, not preserve a dead format out of habit. [2][5]",
+        "The package boundary is also different from a rippled release. xrpl-py is a Python library used by applications to construct, serialize, sign, submit, and inspect XRPL transactions through client APIs. A library release can expose classes, fields, signing paths, and optional cryptography without changing how a validator validates a ledger. The target server still needs to understand the transaction or amendment, and the network still needs the relevant feature enabled before a Mainnet transaction can rely on it. [1][3][6]",
+        "That distinction prevents a common reporting error. “Supported by the SDK” means a Python application can use the released client surface where the implementation exists. “Supported by rippled” means server software recognizes the protocol rule. “Enabled” means the validated ledger is applying the rule. Those states can be separated by a release, an amendment vote, or both. The 5.1.0 tag proves the first state for the named client work, not the last two. [1][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Confidential MPT support includes a deliberate optional dependency",
+      "paragraphs": [
+        "The most important implementation detail is in the Confidential MPT entry. The changelog says xrpl-py 5.1.0 adds support for XLS-0096, while optional native cryptography for proof generation and balance decryption lives in a separate xrpl.ext.confidential extension. That is a useful boundary for Python teams: wire-format and transaction support in the main package are not the same thing as shipping every cryptographic operation in the default install. [2]",
+        "The XLS-0096 specification describes confidential balances and transfers for Multi-Purpose Tokens, with encrypted values and zero-knowledge proofs while preserving supply checks and selective disclosure for authorized parties. It also makes clear that confidentiality is a token and network capability with its own transaction types and flags. A Python package can expose those fields before a target network accepts them. It cannot make an ordinary MPT issuance confidential merely because the import succeeds. [7][8]",
+        "The optional-extension design has practical consequences. A wallet or custody service must decide whether it needs only transaction modeling and signing, or also native proof generation, balance decryption, key handling, and platform-specific packaging. Those are different test matrices. A successful pip install is evidence of a dependency resolution, not evidence that a confidential transfer can be created, submitted, validated, decrypted, audited, or recovered in production. [2][3][7]",
+        "The package page adds a second hard boundary: xrpl-py 5.1.0 requires Python 3.10 or newer and lists classifiers through Python 3.13. Teams on older runtimes need an upgrade or a separate environment before evaluating the feature work. That requirement is directly attributable to the dated PyPI release metadata. It is not an estimate of how much migration effort a particular application will need. [3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpl.org/resources/known-amendments",
+        "https://pypi.org/project/xrpl-py/5.1.0/"
+      ]
+    },
+    {
+      "heading": "Four feature families create four separate activation questions",
+      "paragraphs": [
+        "The release is easiest to understand when its four additions are separated from the network questions that follow them. The table below treats the Python release note as the source of client scope, then uses the amendment record and independent ecosystem reporting to identify the next proof required. “Ready in the package” is therefore not a synonym for “ready on Mainnet.” [1][2][4][5]",
+        "[Confirmed fact] The amendment lifecycle requires sustained validator support before a protocol change becomes active. The exact status can differ by amendment and by network, and the current public status page is a live reference rather than a promise about a future date. Developers should record the server version, amendment state, and test network alongside the Python dependency when they document a feature. [5][6]"
+      ],
+      "table": {
+        "caption": "The Python milestone and the next proof each feature still needs",
+        "headers": [
+          "Feature family",
+          "What 5.1.0 contributes",
+          "What would prove live use"
+        ],
+        "rows": [
+          [
+            "Confidential MPT",
+            "Client support for XLS-0096, with optional native proof and decryption extension",
+            "Compatible rippled support, ConfidentialTransfer activation, token flags, and a validated test transaction"
+          ],
+          [
+            "Sponsored Fees and Reserves",
+            "Python support for the XLS-68 client surface",
+            "Sponsor amendment enabled and a validated sponsored fee or reserve workflow"
+          ],
+          [
+            "Dynamic MPT",
+            "Python support for the XLS-94 client surface",
+            "DynamicMPT enabled and a validated issuer update within the permitted fields"
+          ],
+          [
+            "BatchV1_1",
+            "Signing support for the corrected XLS-56 format",
+            "BatchV1_1 enabled and a validated batch accepted by the target network"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF xrpl-py v5.1.0 release notes, XRP Ledger Known Amendments, amendment documentation, and independent XRPL status reporting. The table separates package scope from activation evidence. [1][2][5][6]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs"
+      ]
+    },
+    {
+      "heading": "Why the packaging milestone matters to Python integrators",
+      "paragraphs": [
+        "For Python developers, the immediate value is coordination. A versioned package gives wallets, custodians, signing services, testing harnesses, and backend workers a common dependency boundary for the new fields and transaction types. Teams can pin 5.1.0, compare generated payloads, run test vectors, and record failures against a known library version. That is a real reduction in integration ambiguity even when the network feature remains gated. [1][2][3]",
+        "The public PyPI record supplies an independent artifact check. It lists the release as published August 19, 2026, shows both a universal wheel and source distribution uploaded that day, and identifies Python 3.10 through 3.13 as supported classifiers. The project page also exposes the package’s modern trusted-publishing metadata. Those facts confirm that developers have a distributable package to evaluate, not only a branch or an unreleased pull request. [3]",
+        "[Bounded inference] A client release may reduce the time between protocol activation and application readiness because teams can exercise serialization and signing before the amendment becomes live. That is an engineering expectation, not a measured adoption result. The benefit depends on API stability, test coverage, native cryptography packaging, server compatibility, and whether the network feature actually activates. Neither the GitHub release nor PyPI reports how many applications installed it. [1][3]",
+        "The best first use is a compatibility matrix. Record Python version, xrpl-py version, rippled version, amendment state, transaction type, signing path, and expected result. Run that matrix on a named devnet or private network before sending any new feature transaction to a production endpoint. If a test fails, the failure should identify whether the problem is Python support, server support, amendment state, cryptography packaging, or application policy. [3][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://xrpldashboard.com/amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "How this differs from the recent XRPL 3.3.0 reports",
+      "paragraphs": [
+        "The xrpl-py release is adjacent to, but distinct from, the August rippled story. CoinDesk reported on August 1 that the server upgrade was expected to put revised Batch and Permission Delegation alongside Confidential MPT, Sponsored Fees and Reserves, and Dynamic MPT before validators. It also described the 80 percent support threshold for two consecutive weeks. That independent report supports the governance context, not the claim that Python developers have already produced live transactions. [4]",
+        "Independent follow-up coverage of rippled 3.3.0 made the same distinction: server code can move a feature closer to possible activation while validator approval remains necessary. The live XRPL dashboard currently describes the release as carrying six amendments and separates in-flight features from those still in development. Its status values are useful corroboration, but they are a snapshot of a service and can change as nodes upgrade or feature responses change. [9][10]",
+        "That is why this report is not a repackage of the existing XRPL 3.3.0 amendment status report. It covers a Python package published on August 19, not the server release published on August 6. It is also different from the xrpl.js binary codec report and the Go SDK migration report: those articles cover other client surfaces. The internal links provide context without treating separate releases as one adoption event.",
+        "No XRP price snapshot is included because it would not improve this explanation. The material evidence is versioned source code, a public package artifact, amendment documentation, and independent status reporting. Adding a market number could invite a causal reading that the sources do not support. The release is relevant to XRPL infrastructure and developer readiness, not a measured market catalyst. [1][3][4][9]"
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs",
+        "https://xrpldashboard.com/amendments",
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://pypi.org/project/xrpl-py/5.1.0/"
+      ]
+    },
+    {
+      "heading": "Implications for Python developers, operators, and XRP readers",
+      "paragraphs": [
+        "For Python developers, the next action is to pin the package in an isolated test environment, confirm the Python 3.10 minimum, and inspect the generated payloads for each feature family. Test both positive and negative paths: an amendment-enabled endpoint that accepts the intended transaction, and an older or disabled endpoint that rejects it predictably. Keep the optional xrpl.ext.confidential dependency separate in test and deployment manifests so native cryptography failures are not mistaken for ordinary SDK failures. [2][3]",
+        "For wallet and custody teams, signing support is not the same as policy approval. BatchV1_1 can change the shape of a multi-transaction signing flow, while Sponsored Fees and Reserves can change who pays network costs. A service should display the exact transaction family, target network, amendment state, and fee sponsor before a user authorizes anything. Confidential MPT adds key-management and disclosure questions that are operationally different from signing a regular Payment. [2][7][8]",
+        "For node operators and validators, the package is a signal to test client parity, not a reason to enable an amendment. Compare the server’s supported and enabled feature responses, read the relevant XLS specification, and review the server release notes before accepting new traffic. Operators should also watch whether other SDKs converge on the same field semantics; the July ecosystem roundup documented parallel xrpl.js and xrpl4j work. An SDK that gets ahead of a server is useful for testing, but dangerous if production code assumes activation. [5][8][10]",
+        "For XRP holders and general market readers, the evidence supports no direct price or demand conclusion. The records reviewed contain no verified customer deployment, wallet installation count, validator vote outcome, Mainnet transaction count, XRP volume change, supply change, institutional contract, or market response caused by xrpl-py 5.1.0. The package may matter to developers building on XRPL, but that is a future-facing infrastructure implication rather than a confirmed XRP catalyst. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://xrplbrew.com/2026-07-20_2026-07-26.html"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] The official xrpl-py v5.1.0 release and tag changelog are dated August 19, 2026. They list Confidential MPT, Sponsored Fees and Reserves, Dynamic MPT, and BatchV1_1 signing support, and they describe the old Batch signing format as removed because it was never live on any network. The PyPI page independently shows 5.1.0 files uploaded on August 19 and a Python 3.10 minimum. [1][2][3]",
+        "[Confirmed fact] The XRP Ledger amendment documentation and independent status reporting separate code availability from validator activation. The Known Amendments page says amendments can become enabled after the required support period, while the dashboard reports current counts and feature states from a live service. CoinDesk’s August 1 report also described the 3.3.0 features as proposed and subject to approval. [4][5][9]",
+        "[Bounded inference] xrpl-py 5.1.0 should make it easier for Python teams to build and test against the four feature families before activation because the client surface is versioned and distributable. That inference is limited to engineering workflow. It does not predict activation, adoption, transaction volume, institutional use, XRP demand, or market performance. The sources provide no installation telemetry or production case study. [1][2][3]",
+        "[Unresolved uncertainty] The records checked do not establish how many Python applications are using 5.1.0, whether the optional confidential extension is packaged consistently across operating systems, which validators support each amendment, when any feature will activate, or whether any Mainnet application will use it. A future article should update those questions only from new package releases, public validator and feature records, named network transactions, or accountable operator disclosures. [2][3][5][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What to watch next in the Python and amendment stack",
+      "paragraphs": [
+        "The first checkpoint is a follow-up xrpl-py release or documentation update that clarifies end-to-end examples for each feature, especially the optional confidential extension. Look for reproducible install instructions, test vectors, supported operating systems, and explicit behavior when the target server lacks the relevant amendment. A new package version alone will not prove a live feature, but it can show whether the client contract is stabilizing. [1][2][3]",
+        "The second checkpoint is network evidence. Track each amendment separately in the Known Amendments record and a current feature response. For Confidential MPT, verify the server version, ConfidentialTransfer state, token flags, and a validated transaction. For Dynamic MPT and Sponsored Fees, verify their own feature states and transaction results. For BatchV1_1, verify that the corrected signing format is accepted by the target network rather than only serialized locally. [5][6][7][9]",
+        "The third checkpoint is accountable usage. A wallet, custodian, issuer, exchange, or infrastructure provider would need to identify the feature, network, software versions, and transaction evidence before anyone could responsibly claim adoption. Until those records appear, the exceptional but bounded conclusion is simple: xrpl-py 5.1.0 makes four current XRPL protocol workstreams easier for Python applications to approach, while the ledger’s activation and real-world use remain separate questions. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+        "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+        "https://pypi.org/project/xrpl-py/5.1.0/",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpldashboard.com/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "An xrpl-py follow-up with reproducible examples, test vectors, and platform guidance for the optional Confidential MPT extension.",
+    "Separate supported and enabled feature responses for ConfidentialTransfer, Sponsor, DynamicMPT, and BatchV1_1 on the target network.",
+    "Validated devnet or testnet transactions that exercise each feature through xrpl-py 5.1.0 against a named rippled version.",
+    "Wallet, custody, issuer, exchange, or infrastructure disclosures that identify real software versions and transaction evidence before adoption is claimed.",
+    "Any measurable XRP volume, demand, or price effect only if a source directly attributes it to documented usage rather than to the SDK release itself."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF xrpl-py v5.1.0 GitHub release, published August 19, 2026",
+      "url": "https://github.com/XRPLF/xrpl-py/releases/tag/v5.1.0",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XRPLF xrpl-py v5.1.0 changelog, published August 19, 2026",
+      "url": "https://github.com/XRPLF/xrpl-py/blob/v5.1.0/CHANGELOG.md",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "PyPI xrpl-py 5.1.0 package record, published August 19, 2026",
+      "url": "https://pypi.org/project/xrpl-py/5.1.0/",
+      "type": "supporting",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "CoinDesk, XRP Ledger upgrade brings back features once pulled over critical bugs, published August 1, 2026",
+      "url": "https://www.coindesk.com/tech/2026/08/01/xrp-ledger-upgrade-brings-back-features-once-pulled-over-critical-bugs",
+      "type": "supporting",
+      "publishedAt": "2026-08-01"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger amendments documentation, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0096 Confidential Transfers for Multi-Purpose Tokens, undated reference checked August 20, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+      "type": "primary"
+    },
+    {
+      "name": "xrpldashboard live XRPL amendment status, undated reference checked August 20, 2026",
+      "url": "https://xrpldashboard.com/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "Cryptoted, XRP Ledger 3.3.0 brings privacy and batch upgrades, published August 7, 2026",
+      "url": "https://cryptoted.net/index.php/2026/08/07/xrp-ledger-3-3-0-brings-privacy-and-batch-upgrades/",
+      "type": "supporting",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "name": "XRPL Monday Brew, July 20 to July 26, 2026 ecosystem roundup",
+      "url": "https://xrplbrew.com/2026-07-20_2026-07-26.html",
+      "type": "supporting",
+      "publishedAt": "2026-07-26"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "Why XRPL code is not activation",
+      "topic": "Network status",
+      "description": "Separate client releases, server support, validator voting, and live amendment state."
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "The JavaScript codec milestone",
+      "topic": "SDK context",
+      "description": "See how the same protocol work reached the JavaScript binary codec layer."
+    },
+    {
+      "href": "/news/xrpl-go-0-3-0-rippled-3-3-0-migration",
+      "label": "The Go SDK migration boundary",
+      "topic": "SDK context",
+      "description": "Compare a Go client release with the separate rippled 3.3.0 server milestone."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP developer resources",
+      "topic": "Implementation",
+      "description": "Find the documentation and tooling needed to test XRPL client integrations."
+    },
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens",
+      "topic": "Token context",
+      "description": "Review the MPT foundation behind Dynamic MPT and Confidential MPT proposals."
+    }
+  ]
+}
