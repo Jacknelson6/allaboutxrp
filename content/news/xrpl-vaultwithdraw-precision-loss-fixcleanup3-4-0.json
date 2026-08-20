@@ -1,0 +1,277 @@
+{
+  "slug": "xrpl-vaultwithdraw-precision-loss-fixcleanup3-4-0",
+  "title": "XRPLF Merges VaultWithdraw Precision Fix Behind fixCleanup3_4_0",
+  "description": "XRPLF merged a develop-branch fix that rejects Single Asset Vault withdrawals when a share value rounds to zero. The guard improves error handling, but it is not a stable release, Mainnet activation, or XRP-use signal.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-20T09:10:00-04:00",
+  "modifiedAt": "2026-08-20T09:10:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-vaultwithdraw-precision-punch-editorial.webp",
+  "imageAlt": "A pale-gold precision punch stops a hairline cobalt glass bead before an ivory receiving slot, with one vermilion rejection wedge on a salt-white stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "vault-rounding-punch-zero-rejection-still-life",
+  "imageSetting": "A silent white salt-crystallization gallery with a broad matte ivory evaporation slab and one narrow overhead skylight at first blue dawn, viewed close and low from the front-left",
+  "imageMetaphor": "A pale-gold precision punch stops a hairline cobalt payout before the first representable boundary while a separate ivory share marker remains surrendered, showing a positive share debit that would round to zero assets",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Primary request: explain XRPLF's August 19, 2026 rippled PR #7950, which rejects a VaultWithdraw fixed-share request when the positive share value rounds to zero representable assets. Use one sparse, physically believable symbolic still life in a new setting: a silent white salt-crystallization gallery with a broad matte ivory evaporation slab and one narrow overhead skylight at first blue dawn. View close and low from the front-left at slab height, with the object group confined to the lower-right third and broad warm ivory negative space across the upper-left. Show exactly four deliberate visible object groups: one pale-gold precision punch with a single narrow working tip resting on a short ivory base; one hairline cobalt glass bead poised just before a shallow rectangular receiving slot in the base, visibly too fine to cross the first unmarked boundary; one separate ivory share marker beside the punch, clearly surrendered but not merged into the receiving slot; and one restrained vermilion rejection wedge touching the slot edge. These objects must read as one mechanism: the share marker is debited, the cobalt payout cannot be represented at the slot's granularity, and the vermilion wedge stops the operation. Use luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on the gold edge, glass bead, and salt-white stone, saturated cobalt and ultramarine shadows, warm ivory, pale gold, and one restrained vermilion status accent. Use physically consistent contact shadows and clear first-blue-dawn light from the overhead slit, with long cool cobalt shadows toward the upper-left and delicate pale-gold rim light on the punch. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions and must dissolve into white space. Never apply an all-over ASCII or dither filter. Constraints: preserve the low front-left viewpoint, broad negative space, and exact object count. No readable text, letters, digits, currency symbols, logos, XRP symbols, literal crypto coins, dashboards, charts, screens, computers, circuitry, cyber cubes, politicians, banks, buildings, Greek temples, columns, robes, people, animals, bridges, locks, keys, gates, rails, wheels, ratchets, gauges, scales, hourglasses, ribbons, capsules, prisms, manifolds, shutters, folios, compasses, amphorae, ledgers with text, architectural panoramas, fantasy ruins, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, duplicated objects, floating parts, impossible geometry, or all-over dither. Bundled references are style-only and must not leak their content or compositions.",
+  "keywords": [
+    "XRP Ledger",
+    "VaultWithdraw",
+    "Single Asset Vault",
+    "fixCleanup3_4_0",
+    "XRPL security",
+    "XRP Ledger lending",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7950 into the rippled develop branch on August 19, 2026, adding a precision-loss guard to fixed-share VaultWithdraw requests. [1][2]",
+    "When a positive share value would round to zero representable assets, the gated path returns tecPRECISION_LOSS instead of allowing an invariant failure. [1][3]",
+    "The commit also tightens vault invariants and dust-debit handling, but it does not create a general freeze bypass or change ordinary withdrawal permissions. [1][9]",
+    "A public XRPL endpoint checked August 20 still reported rippled 3.3.0, with SingleAssetVault and LendingProtocol supported but disabled, and no fixCleanup3_4_0 entry. [6][7]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a develop-branch precision fix, not a Mainnet lending launch",
+      "paragraphs": [
+        "XRPLF merged a rippled fix on August 19 that rejects VaultWithdraw requests when a positive share balance would convert to zero representable assets, returning tecPRECISION_LOSS instead of reaching an invariant failure. The change is gated by fixCleanup3_4_0 on develop, so it is protocol-hardening work, not a live Mainnet lending launch.",
+        "The newest official primary record is pull request #7950 in XRPLF's rippled repository. GitHub records it as merged into the develop branch at 13:40:47 UTC on August 19, 2026. The PR title describes the user-visible boundary, while the implementation adds shared withdrawal math, a dust-debit check, invariant changes, and regression tests across vault and lending code. [1][2]",
+        "The specific defect is a mismatch between two ledger actions. A fixed number of vault shares can be redeemed for a variable amount of the underlying asset. If the vault still has positive effective value but that computed amount rounds to zero at the asset's representable precision, the old path could move the shares and then fail a VaultInvariant check. The new path rejects the transaction before that inconsistent state is accepted. [1][3]",
+        "That distinction matters to developers, vault builders, issuers, and infrastructure operators because an explicit precision-loss result is easier to handle than an invariant failure. It does not establish that a public vault exists, that a lending market is active, that a validator has enabled the gate, or that XRP demand changed. The official and independent records reviewed contain no customer, volume, deposit, loan-book, or price evidence tied to this patch. [1][6][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://s1.ripple.com:51234",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
+      ]
+    },
+    {
+      "heading": "The accounting edge case: shares moved while the asset payout became zero",
+      "paragraphs": [
+        "A Single Asset Vault aggregates one asset from multiple depositors and issues shares that represent proportional claims. XRP, trust-line tokens, and Multi-Purpose Tokens can serve as vault assets, while the vault's pseudo-account holds the assets and the share issuance records ownership. The design is intended to support asset management and the XRP Ledger Lending Protocol, but the relevant amendments are separate from this code merge. [4][5][10]",
+        "VaultWithdraw has two different user intents. A caller can specify the asset amount they want to receive, in which case the ledger calculates how many shares must be burned. Or the caller can specify the number of shares to redeem, in which case the ledger calculates the asset payout using the vault's exchange rate and any unrealized loss. PR #7950 addresses the second branch, where the input is a fixed share amount and the output is variable. [1][3]",
+        "The old failure mode was not simply an ordinary rounding difference. According to the pull request, the fixed-share branch lacked the guard already present in the analogous fixed-asset path. A positive share amount could therefore produce zero assets after canonicalization, burn shares, and reach the VaultInvariant logic with no corresponding vault balance change. The reported result was tecINVARIANT_FAILED, a consistency failure rather than a clean transaction-level precision error. [1][2]",
+        "The patch also distinguishes a real no-op from an economically empty vault. If effective assets are positive, a share redemption that rounds to zero is rejected. If the vault's effective value is genuinely zero, such as a fully impaired pool, the commit allows the zero-value case to pass the invariant logic under the new amendment gate. That prevents the safety check from treating a legitimate zero payout and a precision bug as the same event. [1]",
+        "Independent evidence confirms that this is a meaningful protocol surface rather than a cosmetic code cleanup. Immunefi's XRPL Lending Protocol program lists a related VaultWithdraw path that could return tecINVARIANT_FAILED when a fee matched the withdrawal amount, with the known issue last updated October 10, 2025. That record does not independently certify PR #7950, but it corroborates the broader history of withdrawal edge cases being handled through explicit fixes. [8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl"
+      ]
+    },
+    {
+      "heading": "What PR #7950 changes in the vault safety boundary",
+      "paragraphs": [
+        "The code change is broader than one conditional in VaultWithdraw, but narrower than a new vault feature. XRPLF extracted the effective asset total used for withdrawal conversion into a shared helper and added a check for a genuinely non-zero debit that canonicalizes back to the same stored STAmount. In plain language, the ledger now tests whether a debit would be visible in the stored balance before allowing the related share movement. [1][2]",
+        "The invariant changes preserve a legitimate zero-value withdrawal only when the effective pool value is actually zero and the new gate is enabled. They also continue to cross-check one-sided balance changes and destination deltas. The same commit adds a parallel precision-loss guard to VaultClawback, so a clawback that is mathematically non-zero but too small to change the stored vault balance is rejected cleanly instead of being allowed to trigger a later invariant failure. [1]",
+        "The regression coverage is substantial by the pull request's own account. XRPLF reports 1,072 Loan cases covering 117,230 tests, 411 Vault cases covering 11,373 tests, and 85 Invariants cases covering 14,090 tests, each with zero failures in the stated run. Those are maintainers' test results for the proposed code, not production observations or evidence that the amendment has been enabled on the public ledger. [1]",
+        "The boundary is deliberately not a universal precision or authorization bypass. The commit is concerned with fixed-share withdrawals, dust-sized debits, final zero-value behavior, and related vault invariants. It does not say that every small transfer should succeed, that a frozen asset becomes freely transferable, or that an account can redeem a vault share it does not own. The XRPL documentation still describes VaultWithdraw as requiring SingleAssetVault and lists ordinary permission, freeze, lock, liquidity, and amount errors. [1][3]",
+        "XRPL Commons provides useful independent context for that restraint. In its March 6, 2026 explanation of XLS-65, the ecosystem organization describes vault shares as MPTs representing proportional ownership and says its team ran 257 Devnet tests across ten categories before voting yes. That supports the importance of adversarial testing around share math, while its own article says the feature was to be tested before activation. It does not turn PR #7950 into a live-network capability. [10]"
+      ],
+      "table": {
+        "caption": "Precision boundary recorded in XRPLF PR #7950",
+        "headers": ["Scenario", "Before the new gate", "Under fixCleanup3_4_0"],
+        "rows": [
+          ["Fixed-share request with positive effective value but zero asset output", "Shares could move before the path reached tecINVARIANT_FAILED", "Reject with tecPRECISION_LOSS before accepting a no-op asset debit"],
+          ["Genuinely zero effective vault value", "A missing balance delta could be treated as an invariant failure", "Allow the legitimate zero-value case under the gated invariant logic"],
+          ["Non-zero asset debit too small to change stored vault balance", "The share movement could be followed by a vault-balance invariant failure", "Reject the dust debit cleanly with tecPRECISION_LOSS"],
+          ["Ordinary permissions, locks, freezes, or unrelated assets", "Existing checks apply", "No general bypass is added by PR #7950"]
+        ],
+        "sourceNote": "Source: XRPLF rippled PR #7950 and commit 3adf2d4, merged into develop on August 19, 2026. The table summarizes proposed gated behavior and is not a stable-release or Mainnet status record. [1][2][3]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl"
+      ]
+    },
+    {
+      "heading": "Independent security reviews put the rounding fix in context",
+      "paragraphs": [
+        "Halborn's Single Asset Vault assessment for Ripple covered the ledger entry and core Create, Set, Delete, Deposit, Withdraw, and Clawback transactions. The engagement ran from February 17 through March 13, 2025, and the report was last updated June 27, 2025. Halborn recorded seven findings in its summary, including two critical findings marked solved, one informational finding marked solved, and several findings marked risk accepted. [9]",
+        "That audit is not a verdict on the August 19 patch. It reviewed an earlier commit, and Halborn recommends a follow-up assessment after material code changes. Its value here is independent confirmation that share calculations, asset transfers, authorization, freezes, and edge cases are security-relevant parts of the vault surface. A later precision guard should be read as additional hardening, not as proof that all vault risks have disappeared. [9]",
+        "Immunefi adds a separate operational signal. Its XRPL Attackathon page describes XLS-66 as an on-ledger fixed-term lending protocol sourced from pooled funds and keeps a known VaultWithdraw invariant issue in the program record. The page also says testing should use local forks rather than public deployed code. That is consistent with the status boundary in PR #7950: maintainers can test a develop-branch correction without claiming that public users can rely on it today. [8]",
+        "XRPL Commons reaches a similar conclusion from a different position. Its independent Devnet review says the Single Asset Vault model was tested across exchange formulas, authorization boundaries, reserve requirements, transfer-fee behavior, and frozen-asset protections before activation. Taken together, the three supporting records point to a protocol feature that deserves careful numerical and adversarial testing. None supplies evidence of Mainnet lending volume, real borrower performance, or XRP adoption from this particular fix. [8][9][10]"
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl",
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1"
+      ]
+    },
+    {
+      "heading": "Mainnet status: supported code is not an enabled amendment",
+      "paragraphs": [
+        "The activation question is answerable more directly than the adoption question. I checked a public XRPL JSON-RPC endpoint at 9:09 a.m. Eastern on August 20, 2026. Its server_info response reported rippled 3.3.0. Its feature response showed SingleAssetVault as supported but enabled false, and LendingProtocol as supported but enabled false. The response contained no fixCleanup3_4_0 feature entry. [6]",
+        "The current stable-release boundary points the same way. XRPLF's 3.3.0 release page records the tag as released on August 6 and shows 117 commits to develop since that release. PR #7950 targets develop, not the 3.3.0 tag. The fact that the patch is merged and its checks completed does not mean it is part of the stable binary currently reported by the public endpoint. [1][7]",
+        "The official Known Amendments page separates Mainnet status from amendments in development and warns that its status list is updated manually. I therefore treat it as a map of the protocol pipeline, not as a real-time validator census. The stronger current observation is the endpoint's explicit enabled flags, combined with the PR's develop target and the stable release record. [5][6][7]",
+        "For readers, the vocabulary should stay precise. Supported means the server understands an amendment's rules or feature identifier. Enabled means the ledger is applying those rules. A develop merge means maintainers have accepted code into an integration branch. A stable release makes the code installable through a release line. None of those labels alone proves validator supermajority, Mainnet activation, or live lending activity. [1][5][6]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl",
+        "https://xrplbrew.com/2026-07-20_2026-07-26.html"
+      ]
+    },
+    {
+      "heading": "Implications for developers, vault builders, issuers, and XRP readers",
+      "paragraphs": [
+        "For developers, the immediate implication is better failure handling in a narrow branch. An application that submits a fixed-share redemption should distinguish tecPRECISION_LOSS from a network outage, missing vault, insufficient liquidity, frozen destination, or authorization error. The right test matrix includes XRP, IOU, and MPT vault assets where applicable, positive and zero effective value, small share amounts, feature-gate off and on, final withdrawals, and unrelated transactions. A local test that passes against develop is not a compatibility guarantee for a 3.3.0 production node. [1][3][6]",
+        "For vault builders and loan brokers, the fix makes a protocol boundary more legible. A share can be validly held while its calculated payout is too small to be represented in the underlying asset's stored precision. The clean response is a rejected operation that leaves the caller with a reason to adjust the request or wait for a different exchange rate, not an opaque invariant failure. [Bounded inference] That should reduce integration ambiguity, but the reviewed records do not measure retry rates, user losses, or economic performance after the patch. [1][3][9]",
+        "For issuers and compliance teams, the patch does not erase asset controls. XRPL documentation distinguishes native XRP from issued tokens, and issuer-controlled freezes apply to trust-line assets and relevant MPT paths rather than to XRP itself. PR #7950 is about precision and invariant consistency in vault operations. It should not be described as a policy change that makes frozen assets generally movable or that overrides ordinary holder authorization. [1][3][11]",
+        "For node operators, this is a release-tracking item rather than an immediate production upgrade instruction. Wait for a signed stable release, published compatibility notes, and a feature response that shows the amendment's support and enabled state separately. Operators testing the patch should pin the exact commit, record the feature set, and avoid mixing results from develop, Devnet, and Mainnet into one status claim. [1][5][6][7]",
+        "For XRP holders and market readers, the defensible conclusion is narrower still. The patch concerns the accounting behavior of a future or separately enabled XRPL vault path. It includes no XRP purchase, ETF flow, named institutional deployment, public vault balance, borrower record, or price observation. A cleaner precision error can matter to builders without becoming a present XRP market catalyst. [1][6][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #7950 into the rippled develop branch on August 19, 2026. The patch adds a fixed-share VaultWithdraw check for positive effective value that rounds to zero, a stored-balance dust check, shared withdrawal-total math, related invariant handling, a VaultClawback guard, and regression tests. The PR reports zero failures in its stated Loan, Vault, and Invariants test suites. [1][2]",
+        "[Confirmed fact] The patch is gated by fixCleanup3_4_0. The public endpoint checked on August 20 reported rippled 3.3.0, SingleAssetVault supported but disabled, LendingProtocol supported but disabled, and no fixCleanup3_4_0 feature entry. XRPLF's 3.3.0 release page shows the stable tag predates the develop merge. [6][7]",
+        "[Bounded inference] Returning tecPRECISION_LOSS before an invariant failure should make a class of precision-boundary errors easier for clients and operators to recognize. The changed code and named tests support that interpretation. They do not establish a reduction in production incidents, an economic benefit to depositors, a security certification, or a guarantee that all vault and lending bugs are resolved. [1][8][9]",
+        "[Unresolved uncertainty] The records reviewed do not provide a stable release date for this patch, an amendment vote schedule, a Mainnet activation event, a named production vault, a public borrower, a first-loss balance, or an XRP market response. The public RPC result is one endpoint snapshot, and the Known Amendments page is manually updated. Those limits should remain visible in any follow-up report. [5][6]",
+        "The defensible conclusion is modest but material: XRPLF has merged a carefully scoped correction for a precision boundary in Single Asset Vault withdrawals. It makes a future protocol path more explicit and testable. It is not a live lending launch, a general asset-control bypass, an institutional adoption announcement, or evidence that XRP usage has changed. [1][8][9][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7950",
+        "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A signed stable rippled release that includes PR #7950 or its equivalent and documents the fixCleanup3_4_0 compatibility boundary.",
+    "A public feature response and Known Amendments update showing SingleAssetVault, LendingProtocol, and fixCleanup3_4_0 support and enabled states separately.",
+    "Regression evidence for fixed-share precision loss, non-zero dust debits, genuinely zero effective vault value, final withdrawals, and VaultClawback under the amendment gate.",
+    "Evidence that ordinary VaultWithdraw, LoanPay, asset-freeze, MPT authorization, and transferability checks remain enforced outside the scoped path.",
+    "Named production vaults, borrowers, depositors, first-loss balances, validated transactions, and independent risk reporting before drawing conclusions about lending adoption or XRP demand."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #7950, Reject VaultWithdraw fixed-share amounts that round to zero",
+      "url": "https://github.com/XRPLF/rippled/pull/7950",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XRPLF rippled commit 3adf2d4, VaultWithdraw precision-loss and invariant changes",
+      "url": "https://github.com/XRPLF/rippled/commit/3adf2d40b560b9e979c7d540b835bd86a2df37d1",
+      "type": "primary",
+      "publishedAt": "2026-08-19"
+    },
+    {
+      "name": "XRP Ledger VaultWithdraw documentation, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vault documentation, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Public XRPL feature RPC snapshot, checked August 20, 2026 at 9:09 a.m. Eastern",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 release, published August 6, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "Immunefi XRPL Lending Protocol Attackathon, known issue last updated October 10, 2025",
+      "url": "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+      "type": "supporting"
+    },
+    {
+      "name": "Halborn Single Asset Vault security assessment for Ripple, last updated June 27, 2025",
+      "url": "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+      "type": "supporting",
+      "publishedAt": "2025-06-27"
+    },
+    {
+      "name": "XRPL Commons, Why We Voted Yes on XLS-65, published March 6, 2026",
+      "url": "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl",
+      "type": "supporting",
+      "publishedAt": "2026-03-06"
+    },
+    {
+      "name": "XRP Ledger token freezing documentation, undated reference checked August 20, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/freezes",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Monday Brew weekly summary, published July 26, 2026",
+      "url": "https://xrplbrew.com/2026-07-20_2026-07-26.html",
+      "type": "supporting",
+      "publishedAt": "2026-07-26"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XLS-66 lending protocol voting status",
+      "topic": "Governance context",
+      "description": "Separate amendment consensus and Mainnet activation from later code-level precision fixes."
+    },
+    {
+      "href": "/news/xrpl-loan-default-freeze-fixcleanup3-4-0",
+      "label": "XRPL's separate loan-default freeze fix",
+      "topic": "Related security work",
+      "description": "Read the distinct fixCleanup3_4_0 loan-default path without conflating it with VaultWithdraw rounding."
+    },
+    {
+      "href": "/news/xrpl-mpt-lock-cleanup-fixcleanup3-4-0",
+      "label": "XRPL's MPT lock-cleanup fix",
+      "topic": "Protocol correctness",
+      "description": "Compare another gated develop-branch correction whose release and activation remain separate milestones."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "XRP lending platforms",
+      "topic": "Lending context",
+      "description": "Compare off-ledger lending models before treating XLS-66 as an active credit market."
+    },
+    {
+      "href": "/learn/xrpl-trust-lines-explained",
+      "label": "XRPL trust lines explained",
+      "topic": "Asset mechanics",
+      "description": "Review how issued assets, trust lines, issuer controls, and native XRP differ."
+    }
+  ]
+}
