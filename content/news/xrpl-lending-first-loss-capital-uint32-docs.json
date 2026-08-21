@@ -1,0 +1,319 @@
+{
+  "slug": "xrpl-lending-first-loss-capital-uint32-docs",
+  "title": "XRPL Lending Docs Clarify First-Loss Capital and Correct a Field Type",
+  "description": "An August 20 XRPLF documentation merge clarifies how XLS-66 first-loss capital moves through a loan-broker pseudo-account and corrects CoverRateLiquidation to UInt32, without activating Mainnet lending.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-20T22:07:00-04:00",
+  "modifiedAt": "2026-08-20T22:07:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-lending-first-loss-spillway-editorial.webp",
+  "imageAlt": "Two separate cobalt glass plates sit in ivory ceramic wells beside a pale-gold spillway scoop and a small catch cup holding one blue bead on an ivory stone bench under moonlight.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "first-loss-spillway-basin-still-life",
+  "imageSetting": "A quiet enclosed copper-plating room lined with dark blue glazed brick and one high horizontal clerestory at deep midnight, viewed across a broad ivory stone bench.",
+  "imageMetaphor": "Two identical cobalt ledger plates remain in separate ivory wells while a pale-gold spillway scoop sends only one bounded blue bead toward a catch cup, representing first-loss capital held separately and applied in a limited amount to a default.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial hero illustration, cinematic 16:9 landscape. Primary request: a sparse, physically believable symbolic still life for a source-led article about the August 20, 2026 XRPLF documentation update to the XLS-66 Lending Protocol. The visual must explain first-loss capital: cover capital is held separately, and only a bounded portion is transferred to absorb a loan default before the vault bears the remaining loss. Input images: Image 1 is the AllAboutXRP homepage hero and controls only brand palette, broad editorial mood, and fine 1/0/x texture. Images 2-4 are Sublime Classical Oil style-only references for luminous oil modeling, cobalt and ivory color separation, metal finish, and selective detail. Do not copy any subject, architecture, scenery, or composition from the references. Scene/backdrop: a quiet enclosed copper-plating room lined with dark blue glazed brick, a broad warm-ivory stone bench, and one high horizontal clerestory at deep midnight. A single warm oil lamp just below the lower-left frame combines with cool cobalt moonlight from the clerestory, producing crisp believable upward cast shadows and clean tonal separation. This is a new setting and lighting condition, not a Greek temple, bank, harbor, coast, terrace, archive, observatory, workshop, waterworks chamber, quarry, salt pan, conservatory, kiln yard, bookbindery, or civic room. Subject: exactly four deliberate objects in a readable lower-left cluster on the ivory stone: one shallow ivory ceramic well containing one cobalt glass ledger plate, a second separate shallow ivory ceramic well containing an identical cobalt glass ledger plate, one pale-gold sacrificial spillway scoop resting between the wells with a small open lip aimed toward the second well, and one small ivory catch cup holding exactly one cobalt glass bead. The two plates must remain visibly separate; the scoop must show a small bounded transfer path, not a flood or continuous flow. Add at most one restrained vermilion wax mark on the scoop lip. Keep the upper and right two-thirds as broad uncluttered warm-ivory negative space. Style/medium: luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto only on metal highlights and ceramic edges, saturated cobalt and ultramarine shadows, warm ivory, pale gold, and one restrained vermilion mark. Extremely subtle translucent 1, 0, x stipple may appear only inside a few atmospheric or shadow transitions and must dissolve into clear paint; never use an all-over filter. Composition/framing: very low tabletop-level side profile from the far left, objects placed in the lower-left third, large negative space above and to the right, sharp silhouette and physically consistent contact shadows, no border or rounded frame. Constraints: preserve exactly two separate cobalt plates, one spillway scoop, one catch cup, and one bead; no readable text, numbers, labels, logos, watermark, coin, token icon, currency symbol, dashboard, graph, UI, person, politician, generic cyber cube, impossible building, fantasy ruin, panoramic Greek city, temple, columns, marble statue, robes, bank, harbor, coast, bridge, lock, key, scale, hourglass, gate, rail, ratchet, yoke, cam, clevis, manifold, prism, amphora, gauge, shutter, baffle, punch, perforation drum, timing mechanism, or any repeated existing AAXRP image object. No extra objects. No photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or all-over ASCII.",
+  "keywords": [
+    "XRP Ledger Lending Protocol",
+    "XLS-66",
+    "first-loss capital",
+    "CoverRateLiquidation",
+    "XRPL DeFi",
+    "LoanBroker",
+    "Single Asset Vault",
+    "XRP Ledger development",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged documentation PR #3865 on August 20, changing three Lending Protocol reference pages with 11 additions and 9 deletions.",
+    "The updated guide says first-loss capital is the same asset held in a separate loan-broker pseudo-account, with only a bounded amount moved to the vault after a default.",
+    "The reference pages correct CoverRateLiquidation from UInt12 to UInt32 and change example values from 1,000 and 500 to 10,000 and 5,000; those are examples, not live settings.",
+    "A validated feature response checked at 10:04 p.m. EDT on August 20 shows LendingProtocol and SingleAssetVault supported but enabled false on the queried Mainnet server.",
+    "Halborn's independent re-audit found no critical or high-severity findings, but it still recorded two risk-accepted findings and one acknowledged finding, so first-loss capital is not a guarantee."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF tightened the lending record, not the live ledger",
+      "paragraphs": [
+        "XRPLF merged an August 20 documentation update that makes the Lending Protocol’s first-loss capital mechanics explicit and corrects the `CoverRateLiquidation` field from `UInt12` to `UInt32`. The change improves how developers and risk reviewers read XLS-66, but it does not activate lending on Mainnet, remove credit risk, or establish deposits, borrowers, or XRP demand.",
+        "The news is therefore a documentation and implementation-boundary milestone, not a launch announcement. The merge updates how the XRP Ledger developer portal describes an existing proposal. It does not report a new vault, a funded loan, a validator vote threshold, an amendment activation, a Ripple product deployment, or a market outcome."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+        "https://github.com/XRPLF/xrpl-dev-portal/commit/0cd5073340235a08031c8cec814e1cc5210aa8ba",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "What the August 20 XRPLF merge changed",
+      "paragraphs": [
+        "GitHub records PR #3865, titled “Update first-loss capital info,” as merged into the XRP Ledger Foundation’s `master` branch on August 20, 2026. The merge commit identifies three files changed, with 11 additions and 9 deletions. That scope matters: the visible change is in the developer portal’s concept and reference pages, not a same-day `rippled` release or a new amendment transaction.",
+        "The central wording change replaces a vague description of first-loss capital being placed into a vault with a more precise account model. The updated concept page says a loan broker deposits the same asset as first-loss capital into a separate loan-broker pseudo-account. When a loan defaults, the capital moves from that pseudo-account to the Single Asset Vault to cover part of the missed-payment loss. The page also adds that the broker’s own capital at risk is intended to encourage more careful underwriting and loan management.",
+        "The same merge adjusts examples in the `LoanBroker` ledger-entry and `LoanBrokerSet` transaction reference pages. `CoverRateMinimum` changes from 1,000 to 10,000, and `CoverRateLiquidation` changes from 500 to 5,000. These are sample JSON values. They do not show a live account, a network-wide default, or a new recommended parameter set. The field table also changes the internal type of `CoverRateLiquidation` from `UInt12` to `UInt32`, which is the technically important correction."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+        "https://github.com/XRPLF/xrpl-dev-portal/commit/0cd5073340235a08031c8cec814e1cc5210aa8ba",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/concepts/tokens/lending-protocol.md",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/ledger-data/ledger-entry-types/loanbroker.md"
+      ]
+    },
+    {
+      "heading": "How first-loss capital is supposed to cover an XLS-66 default",
+      "paragraphs": [
+        "The updated XRP Ledger concept page names three controls. `CoverAvailable` is the amount deposited as cover. `CoverRateMinimum` expresses how much of the broker’s `DebtTotal` the cover must represent. `CoverRateLiquidation` limits the portion of that minimum required cover that can be moved into the asset vault when a loan defaults. The controls describe a bounded loss-sharing mechanism, not a promise that depositors are made whole.",
+        "The XLS-66 specification gives the design a simple sequence. A broker operates against a Single Asset Vault funded by depositors. The broker can optionally deposit first-loss capital, issue a fixed-term uncollateralized loan, and later default that loan through `LoanManage` if the borrower fails to pay. The protocol applies the permitted cover first, reduces the broker’s available cover, and leaves any remaining default loss with the vault’s asset pool under the documented accounting rules.",
+        "The reference example makes the scale visible. With `DebtTotal` of 1,090 tokens, a 10% minimum-cover rate, and a 10% liquidation rate, the first-loss calculation covers 10.9 tokens of a 1,090-token default. The remaining 1,079.1 tokens are the vault loss in that example, while the vault’s available balance receives the 10.9 tokens transferred from cover. Those figures are specification examples, not observations from a live XRP Ledger lending market.",
+        "The documentation also describes a control response when available cover drops below the required minimum. The loan broker cannot issue new loans, and fees that would otherwise go to the broker are added to first-loss capital to cover the deficit. That creates an operational brake, but it does not eliminate a borrower’s credit risk, the broker’s underwriting responsibility, or the possibility that the vault absorbs a loss beyond the covered amount."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0066-lending-protocol/README.md",
+        "https://github.com/immunefi-team/attackathon-xrpl-lending-protocol/blob/main/src/xrpld/app/tx/detail/LoanManage.cpp",
+        "https://github.com/XRPLF/xrpl-dev-portal/commit/0cd5073340235a08031c8cec814e1cc5210aa8ba"
+      ]
+    },
+    {
+      "heading": "The UInt32 correction fixes a representation boundary, not a new lending feature",
+      "paragraphs": [
+        "The field-type change is easy to miss because it appears in a reference table, but it has a clear technical rationale. The developer portal documents both cover-rate fields as unsigned 32-bit integers measured in one-tenth of a basis point, with valid values from 0 to 100,000, representing 0% to 100%. A 12-bit unsigned range tops out at 4,095, so it cannot represent the full documented range. The `UInt32` label aligns the field declaration with the stated bounds.",
+        "This is an inference from the published type and range, not a claim that a live Mainnet transaction previously failed because of the old label. The independently maintained XRPL lending code used in the Immunefi Attackathon source also represents `CoverRateLiquidation` through a `TenthBips32` value in the default-loan calculation. That supports the reading that the portal correction describes the intended implementation width, while the XRPLF merge remains the controlling record for the documentation change.",
+        "The sample-value adjustment has the same boundary. Because 10,000 tenth-basis-point units equal 10% and 5,000 equal 5%, the new example is more realistic than the old 1% and 0.5% pair for demonstrating a cover policy. It still is not a default, protocol-wide minimum, or recommendation. Developers should treat example JSON as explanatory material and read the live schema, transaction rules, amendment status, and asset-specific constraints before building against it."
+      ],
+      "table": {
+        "caption": "Fields clarified by the August 20 documentation merge",
+        "headers": [
+          "Field",
+          "Role in the model",
+          "Type after merge",
+          "Documented range or example"
+        ],
+        "rows": [
+          [
+            "CoverRateMinimum",
+            "Share of DebtTotal that first-loss capital must cover",
+            "UInt32",
+            "0 to 100,000, with 10,000 in the example"
+          ],
+          [
+            "CoverRateLiquidation",
+            "Maximum share of minimum cover moved to the vault on default",
+            "UInt32, corrected from UInt12",
+            "0 to 100,000, with 5,000 in the example"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF PR #3865 and the merged developer-portal reference pages, merged August 20, 2026. Ranges and example values describe the documentation model, not live Mainnet settings."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/ledger-data/ledger-entry-types/loanbroker.md",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/transactions/types/loanbrokerset.md",
+        "https://github.com/immunefi-team/attackathon-xrpl-lending-protocol/blob/main/src/xrpld/app/tx/detail/LoanManage.cpp"
+      ]
+    },
+    {
+      "heading": "A first-loss buffer is not a guarantee of repayment",
+      "paragraphs": [
+        "The new wording makes the risk boundary more accountable. First-loss capital is designed to absorb an initial slice of a default, but the official XLS-66 specification says the protocol relies on off-chain underwriting and risk management. It deliberately does not begin with automated on-chain collateral and liquidation management. A cover balance can change, a borrower can still default, and the vault can still carry the uncovered portion of a loss.",
+        "Halborn’s independent Lending Protocol re-audit provides useful context without turning the documentation update into a security certificate. Halborn’s report, last updated June 12, 2026, records five findings: zero critical, zero high, one medium, two low, and two informational. Two findings were marked solved, two were risk accepted, and one was acknowledged. The medium finding and one low finding were solved, but the report still distinguishes accepted or acknowledged residual issues from remediation.",
+        "Halborn says the engagement ran from December 16, 2025 through January 12, 2026 and reviewed code changes against the XLS-0066d specification. Its scope is tied to assessed and remediation commits, with new features or implementations after those commits out of scope. Confirmed fact: an independent review and remediation record exists. Inference: that record is relevant evidence for a developer or risk committee. Unresolved: it does not certify the August 20 documentation merge, predict amendment activation, or guarantee the safety of a future implementation change."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0066-lending-protocol/README.md",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865"
+      ]
+    },
+    {
+      "heading": "The documentation merge does not turn XLS-66 on",
+      "paragraphs": [
+        "The status check is separate from the documentation diff. The XRP Ledger’s official feature response, queried through `s1.ripple.com:51234` at about 10:04 p.m. EDT on August 20, returned `supported: true` and `enabled: false` for both `LendingProtocol` and `SingleAssetVault`. The same server reported a validated `rippled_version` of 3.3.0. That is a current server snapshot, not a forecast and not a record of every validator’s configuration.",
+        "The official Ripple Open Source page describes XLS-66 as a prerelease feature with separate milestones for the live specification, Devnet testing, Mainnet voting, and vote consensus. The XRPL-Standards file still labels XLS-66 as a Draft amendment. The August 20 portal merge does not change either the amendment’s governance state or the feature flags returned by the queried Mainnet server.",
+        "That distinction keeps this report separate from the earlier AllAboutXRP coverage of XLS-66’s vote percentage. The earlier report explains why a supported code path and an enabled Mainnet feature are different milestones. This report addresses a later, narrower primary record: how XRPLF clarified the risk buffer’s account flow and corrected the field representation in the developer reference."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0066-lending-protocol/README.md",
+        "https://allaboutxrp.com/news/xrpl-lending-protocol-vote-consensus-2026"
+      ]
+    },
+    {
+      "heading": "Implications for developers, brokers, depositors, borrowers, and XRP holders",
+      "paragraphs": [
+        "For XRPL developers, the practical task is schema discipline. A client or reference implementation that copied `UInt12` for `CoverRateLiquidation` would be out of step with the corrected portal documentation and the published 0-to-100,000 range. The safe next step is to compare the field type across the current `rippled` definitions, transaction serialization, test fixtures, and the amendment’s actual availability on the target network. This is engineering guidance inferred from the records, not a claim that a production client is currently broken.",
+        "For loan brokers and credit-risk teams, the updated account model makes the control path easier to audit. The cover asset is separate from the vault’s pooled asset balance until a default calculation moves the permitted amount. A falling cover balance can stop new origination and redirect fees toward rebuilding cover. That may align incentives, but it does not replace underwriting, borrower monitoring, legal agreements, or a clear policy for losses that exceed the covered slice.",
+        "For potential depositors and borrowers, there is no live Mainnet market to join on the evidence checked for this report. A future activation would still leave important questions open: which assets a broker accepts, how cover is funded, what the loan terms are, how a default is declared, what happens when an issued asset is frozen or clawed back, and what independent reporting exists after deployment. A documentation update cannot answer those commercial and operational questions.",
+        "For XRP holders and market readers, the merge carries no sourced price, supply, usage, or adoption result. XLS-66 is an XRP Ledger protocol proposal, but the August 20 record does not report XRP deposits, XRP-denominated loans, transaction volume, fees, or new demand. Any claim that the field correction is bullish or bearish for XRP would go beyond the evidence."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+        "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/ledger-data/ledger-entry-types/loanbroker.md",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0066-lending-protocol/README.md",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed facts: XRPLF merged PR #3865 on August 20, 2026; the commit changed three developer-portal files; the concept page now describes first-loss capital in a separate loan-broker pseudo-account; the reference table now lists `CoverRateLiquidation` as `UInt32`; and the sample values are 10,000 and 5,000. Confirmed current snapshot: the queried server reported both lending features supported but disabled.",
+        "Inference: the old `UInt12` label was inconsistent with the documented 100,000 maximum because 12 bits cannot encode that upper bound. Inference: the revised prose gives developers and risk reviewers a more accurate mental model of where cover sits and how a bounded amount reaches the vault. Neither inference proves a prior Mainnet defect, a live lending deployment, or a change in XRP market conditions.",
+        "Unresolved uncertainty: the public records reviewed do not show a Mainnet `LoanBroker`, `Loan`, or `SingleAssetVault` activity record resulting from this merge; they do not disclose an activation date; and they do not identify new borrowers, depositors, loan volumes, or XRP demand. It is also unresolved whether any future code change will require a fresh independent audit, although Halborn recommends follow-up work after material changes or within six months."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/xrpl-dev-portal/commit/0cd5073340235a08031c8cec814e1cc5210aa8ba",
+        "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+        "https://s1.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    },
+    {
+      "heading": "Evidence needed before XLS-66 activation",
+      "paragraphs": [
+        "The next meaningful evidence should come from a primary record that changes implementation or network state. Watch the official portal and XRPL-Standards pages for a versioned specification update, the `rippled` repository for validation or serialization changes, and the live feature response for `enabled: true` on both `LendingProtocol` and `SingleAssetVault`. A new documentation paragraph alone should not be treated as activation.",
+        "If the feature later activates, the follow-up should move from definitions to ledger evidence. Analysts should look for actual `LoanBroker`, `Loan`, and `SingleAssetVault` entries, cover deposits, default transactions, asset types, and disclosed terms. Developers should also check whether the corrected field type is reflected consistently in released binaries, client libraries, tests, and examples. Those records would establish what the protocol does in production, whereas the current merge establishes only what the official documentation now says."
+      ],
+      "bullets": [
+        "A versioned `rippled` or XRPL-Standards change that alters cover-rate validation, serialization, or default accounting.",
+        "A current feature response and amendment registry record showing whether LendingProtocol and SingleAssetVault remain disabled or become enabled.",
+        "A dated Mainnet ledger record for a LoanBroker, Single Asset Vault, cover deposit, loan, repayment, or default.",
+        "Independent security or performance review coverage after any material code change beyond Halborn’s assessed commit scope.",
+        "Asset-level evidence showing whether future lending activity involves XRP, issued tokens, or Multi-Purpose Tokens, with no inference from the protocol name alone."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled",
+        "https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0066-lending-protocol",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A versioned rippled or XRPL-Standards change that alters cover-rate validation, serialization, or default accounting.",
+    "A current feature response and amendment registry record showing whether LendingProtocol and SingleAssetVault remain disabled or become enabled.",
+    "A dated Mainnet ledger record for a LoanBroker, Single Asset Vault, cover deposit, loan, repayment, or default.",
+    "Independent security or performance review coverage after any material code change beyond Halborn’s assessed commit scope.",
+    "Asset-level evidence showing whether future lending activity involves XRP, issued tokens, or Multi-Purpose Tokens, with no inference from the protocol name alone."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF, Pull Request #3865, Update first-loss capital info",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/pull/3865",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF, merged commit 0cd5073 for the first-loss capital documentation update",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/commit/0cd5073340235a08031c8cec814e1cc5210aa8ba",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF developer portal, Lending Protocol concept page at the August 20 merge commit",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/concepts/tokens/lending-protocol.md",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF developer portal, LoanBroker ledger entry reference at the August 20 merge commit",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/ledger-data/ledger-entry-types/loanbroker.md",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF developer portal, LoanBrokerSet transaction reference at the August 20 merge commit",
+      "url": "https://github.com/XRPLF/xrpl-dev-portal/blob/0cd5073340235a08031c8cec814e1cc5210aa8ba/docs/references/protocol/transactions/types/loanbrokerset.md",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRP Ledger developer portal, Lending Protocol concept page (undated live reference; checked August 20, 2026)",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF XRPL-Standards, XLS-66 Lending Protocol (undated live specification; metadata updated January 14, 2026)",
+      "url": "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0066-lending-protocol/README.md",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger public feature response, validated Mainnet snapshot checked August 20, 2026 at 10:04 p.m. EDT",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple Open Source, XLS-66 Lending Protocol status page (undated live page; checked August 20, 2026)",
+      "url": "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "Halborn, Lending Protocol Re-Audit for Ripple",
+      "url": "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+      "type": "supporting",
+      "publishedAt": "2026-06-12"
+    },
+    {
+      "name": "Immunefi Attackathon XRPL Lending Protocol, LoanManage implementation (undated repository reference)",
+      "url": "https://github.com/immunefi-team/attackathon-xrpl-lending-protocol/blob/main/src/xrpld/app/tx/detail/LoanManage.cpp",
+      "type": "supporting"
+    },
+    {
+      "name": "AllAboutXRP, XLS-66 vote and activation status report",
+      "url": "https://allaboutxrp.com/news/xrpl-lending-protocol-vote-consensus-2026",
+      "type": "supporting",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "XRP Ledger, Known Amendments (undated live registry; checked August 20, 2026)",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF, rippled source repository (undated live repository)",
+      "url": "https://github.com/XRPLF/rippled",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF XRPL-Standards, XLS-66 directory (undated live specification directory)",
+      "url": "https://github.com/XRPLF/XRPL-Standards/tree/master/XLS-0066-lending-protocol",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "Why XLS-66 is still not live",
+      "topic": "Related coverage",
+      "description": "Separate amendment voting, feature support, and Mainnet activation before reading a launch claim."
+    },
+    {
+      "href": "/news/xrpl-loan-default-freeze-fixcleanup3-4-0",
+      "label": "XRPL loan-default freeze fix",
+      "topic": "Implementation context",
+      "description": "See how a different develop-branch lending fix handles a frozen asset without implying a live market."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "XRP lending platforms",
+      "topic": "Lending context",
+      "description": "Compare lending models and custody assumptions before evaluating a protocol design."
+    },
+    {
+      "href": "/learn/xrpl-defi",
+      "label": "DeFi on the XRP Ledger",
+      "topic": "Ecosystem context",
+      "description": "Place XLS-66 alongside the XRP Ledger’s other decentralized-finance primitives."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works",
+      "topic": "Protocol basics",
+      "description": "Review amendments, validators, and ledger entries before interpreting feature status."
+    }
+  ]
+}
