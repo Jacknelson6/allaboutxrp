@@ -1,0 +1,288 @@
+{
+  "slug": "xrpl-amm-zero-fee-auction-slot-price-floor",
+  "title": "XRPL Develop Fix Puts a Price Floor Under Zero-Fee AMM Auction Slots",
+  "description": "XRPLF merged a develop-branch fix for zero-fee AMM auction slots, closing a free future-fee speculation path while leaving stable-release and Mainnet status unresolved.",
+  "category": "XRP Ledger Market Structure",
+  "publishedAt": "2026-08-21T06:10:00-04:00",
+  "modifiedAt": "2026-08-21T06:10:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/amm-auction-zero-fee-floor-editorial.webp",
+  "imageAlt": "A pale-gold precision caliper holds a cobalt glass bid bead above a visible zero-gap channel beside an ivory LP-token weight and a single vermilion stop pin",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "amm-zero-floor-caliper-still-life",
+  "imageSetting": "A quiet white-porphyry amphora-drying annex after a dustless late-sunset heat, viewed from a high front-left angle across a bare ivory stone slab",
+  "imageMetaphor": "A pale-gold precision caliper raises a minimum stop beneath a cobalt bid bead, showing how a zero-fee AMM auction slot receives a non-zero LP-token price floor before future fee changes can create free option value",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain XRPLF rippled PR #7430, merged into the develop branch on August 20, 2026, which prevents an XRPL Automated Market Maker auction slot from being acquired at zero or dust cost when the AMM trading fee is zero. Show a precise minimum-price floor, not a generic lock or a coin. Scene: a quiet white-porphyry amphora-drying annex after a dustless late-sunset heat, a new setting unlike every existing AllAboutXRP image, with only a pale ivory stone slab and a softly receding white-porphyry wall and broad warm negative space in the upper-right. Exactly four deliberate objects: one pale-gold precision caliper with a raised minimum-stop jaw laid diagonally; one cobalt glass bid bead resting on the lower jaw but held above a visible zero-gap channel; one small ivory LP-token weight on a short brass balance notch, separate from the bead; and one restrained vermilion marker pin seated in the caliper stop. The caliper and stop represent the non-zero auction price floor, the bead represents an auction-slot bid, and the separate weight represents LP-token value. High front-left three-quarter viewpoint, lower-left arrangement, strong thumbnail silhouette, broad empty ivory space, sharp contact shadows. Rarefied amber after-sunset light enters from a narrow west slit, with cool cobalt reflected shadow and one warm highlight along the caliper edge. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, enamel-like cobalt glass, physically modeled pale-gold metal, warm ivory stone, saturated cobalt and ultramarine shadow, selective impasto, and ordered detail without clutter. Extremely subtle translucent 1, 0, and x stipple may appear only inside a few atmospheric or cast-shadow transitions and must dissolve into white space, never across the objects and never as an all-over filter. Exactly one caliper, one bid bead, one ivory weight, and one vermilion pin. No amphoras visible, no columns, temple, bank, panoramic Greek city, landscape, literal cryptocurrency coin, XRP logo, letters, numbers, readable text, dashboard, chart, interface, politician, generic cyber cube, impossible building, fantasy ruin, watermark, border, rounded frame, photographic realism, sepia wash, muddy gray, coarse halftone, retro pixel art, or duplicated elements.",
+  "keywords": [
+    "XRP Ledger news",
+    "XRPL AMM",
+    "AMMBid",
+    "XRP Ledger market structure",
+    "fixCleanup3_4_0",
+    "XRP Ledger security",
+    "liquidity provider tokens",
+    "XRPL develop branch"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7430 into develop on August 20, adding a non-zero AMM auction-slot price floor when fixCleanup3_4_0 is enabled and the pool trading fee is zero.",
+    "The documented edge case let an empty or expired slot cost zero LP tokens, creating free 24-hour exposure if liquidity providers later voted the AMM fee higher.",
+    "The record does not report an exploit, lost funds, affected pools, stable-release inclusion, validator voting, Mainnet activation, or a direct XRP market effect.",
+    "At 06:07 UTC on August 21, public s1 and s2 snapshots still reported rippled 3.3.0 and AMM enabled, with no fixCleanup3_4_0 feature entry."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the fix closes a free future-fee option, not a reported Mainnet exploit",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #7430 into the develop branch on August 20, 2026. The change makes a zero-fee AMM auction slot carry a non-zero LP-token price when fixCleanup3_4_0 is enabled. It closes a free future-fee speculation path, but it is not a stable release, validator vote, Mainnet activation, or evidence of lost funds. [1][2]",
+        "The pull request is a core-server change to the AMMBid path, not a new asset, a Ripple commercial announcement, or an XRP supply event. Its description says the old minimum-price formula produced zero when an AMM trading fee was zero, allowing an unowned or expired slot to be acquired for no LP tokens. The merged code adds a helper for the minimum auction price, applies a floor under fixCleanup3_4_0, and updates regression tests for both the gated and legacy behaviors. [1][2]",
+        "The merge target and release line are part of the news. PR #7430 landed in XRPLF's develop branch and was assigned to the 3.4.0 milestone. The latest stable server release reviewed for this report is xrpld 3.3.0, published August 6, 2026. A develop merge can matter for protocol review and future release planning while remaining unavailable to a Mainnet application. [1][3]",
+        "The responsible reading is therefore about an economic boundary in XRPL's native decentralized exchange. It is not an exploit headline. No reviewed primary record reports that a trader used the edge case on Mainnet, that a pool lost funds, or that the fix changes XRP demand or price."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://github.com/XRPLF/rippled/commit/d0dbf9163c66288e37d1c5bc9dce313d457f732b",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "The zero-fee AMM edge case was a pricing inconsistency with a future benefit",
+      "paragraphs": [
+        "[Confirmed fact] XRPL's AMM auction-slot rule uses the total outstanding LP-token balance and the pool trading fee to calculate the minimum bid for an empty, expired, or final-interval slot. The documented formula is M = L x F / 25, where L is the outstanding LP-token amount and F is the trading fee expressed as a decimal. When F is zero, the calculated minimum is zero. [1][5]",
+        "The zero result did not create an immediate discount. An auction-slot holder pays one tenth of the normal AMM trading fee, so a pool with a zero fee gives the holder no current fee advantage. The problem identified in PR #7430 is what happens if the fee changes later. The pull request says AMMVote updates the slot holder's discounted fee when liquidity providers vote a higher trading fee. A slot acquired for zero LP tokens could then retain a future advantage for the rest of its 24-hour term without having paid for that possibility. [1][4]",
+        "[Bounded inference] That is best understood as a free option created by the pricing rule, not as proof that someone profited from it. The slot occupied ledger state and the holder's future position, but the source record does not quantify zero-fee pools, bids, hypothetical advantage, or whether any trader observed the path outside tests.",
+        "[Unresolved uncertainty] The reviewed records do not establish an incident, a malicious actor, a consensus failure, or a loss of LP value. They establish a code path that maintainers considered economically inconsistent enough to correct, and a test plan that checks the zero-fee behavior under the next cleanup amendment."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers"
+      ]
+    },
+    {
+      "heading": "PR #7430 adds a gated non-zero floor and regression coverage",
+      "paragraphs": [
+        "[Confirmed fact] The merged diff adds ammAuctionMinSlotPrice to AMMCore.h so the minimum-slot formula is represented in one helper. In AMMBid.cpp, the existing computed bid price becomes an effective price. When fixCleanup3_4_0 is enabled and the AMM trading fee is zero, the effective price is raised to at least the same minimum-price calculation using a fee value of one. The code then applies BidMin and BidMax to that effective price. [1][2]",
+        "The feature gate is important. The fix does not silently rewrite historical behavior for every server or every network. The changed tests exercise a zero-fee pool with the amendment present and absent. With the amendment enabled, the expected auction price is the non-zero floor and the AMM LP-token balance falls by that amount. Without it, the test retains the legacy zero or dust expectation. [1]",
+        "The change also reaches the MPT-backed AMM test suite. That is evidence about coverage, not evidence that MPT-backed AMMs are live on Mainnet or that this fix activates MPT functionality. The PR changes four files, including the core pricing helper, the AMMBid transactor, and two test files. Its recorded API checklist does not mark a new HTTP or WebSocket method, a breaking public API change, or a peer-protocol change. [1]",
+        "[Bounded inference] Centralizing the formula and adding amendment-on and amendment-off tests should make the rule easier to audit across issued-asset and MPT test cases. It does not certify every downstream client, market maker, or data provider. Those systems still need the exact server version, amendment state, and handling for BidMin, BidMax, LP-token balances, and failed bids."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://github.com/XRPLF/rippled/commit/d0dbf9163c66288e37d1c5bc9dce313d457f732b"
+      ]
+    },
+    {
+      "heading": "XRPL AMM auction slots are a market-structure mechanism for LPs and arbitrageurs",
+      "paragraphs": [
+        "[Confirmed fact] An XRPL Automated Market Maker holds a pool of two assets and issues LP tokens to liquidity providers. Those LP tokens represent a share of the pool, can be used in fee votes, and can be bid for a temporary auction-slot discount. XRPL's official documentation says an active slot lasts 24 hours, the winner pays one tenth of the normal trading fee, and an outbid holder receives a time-based refund. [4][5]",
+        "The auction mechanism is not a decorative feature around a trading interface. When an external market moves away from an AMM's internal price, an arbitrageur may trade against the pool. The official explanation says the auction is intended to return more of that arbitrage value to liquidity providers and help prices move back toward external markets. The separate XRPL Commons core-development module describes the same mechanism alongside fee governance, LP-token accounting, and pathfinding. [4][9]",
+        "An academic paper from University College London, Nanyang Technological University, Exponential Science, the UK Centre for Blockchain Technologies, and Ripple Labs models the XRPL AMM's Continuous Auction Mechanism. Its simulations describe LP-token holders bidding for daily zero-fee trading slots and examine how the mechanism can redistribute arbitrage value to LPs. That study provides independent economic context for why the auction exists. It does not evaluate PR #7430, establish that the zero-fee edge case was exploited, or prove that simulated results describe current Mainnet pools. [10]",
+        "This context explains why a zero price is not an inconsequential formatting detail. The bid is supposed to price access to a time-limited trading advantage. If a bidder can reserve the slot at zero cost while the fee is zero and later benefit if governance changes the fee, the auction temporarily stops pricing that future possibility. PR #7430 restores a cost floor under the future-gated behavior."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+        "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+        "https://discovery.ucl.ac.uk/id/eprint/10216028/1/XRPL_AMM.pdf"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: what the merge, the rulebook, and the live snapshot each prove",
+      "paragraphs": [
+        "[Confirmed fact] The records point to different layers of the XRPL feature path. The pull request and commit prove a reviewed code change landed in develop. The AMM documentation describes intended auction rules. A live feature response shows the configuration of the queried server at a particular time. None of those records alone proves that every validator runs the change or that the amendment is active on Mainnet. [1][2][4][7][8]"
+      ],
+      "table": {
+        "caption": "Three evidence layers for the zero-fee AMM floor",
+        "headers": [
+          "Record",
+          "Dated status",
+          "What it establishes",
+          "What it does not establish"
+        ],
+        "rows": [
+          [
+            "XRPLF PR #7430 and commit d0dbf91",
+            "Merged August 20, 2026 into develop",
+            "The gated code change and regression tests exist",
+            "A stable release, validator vote, or Mainnet activation"
+          ],
+          [
+            "XRPL AMM and AMMBid documentation",
+            "Undated references checked August 21, 2026",
+            "The 24-hour slot, LP-token bid, fee discount, and minimum-bid rule",
+            "Whether a current public node contains the new fix"
+          ],
+          [
+            "Public s1 and s2 feature snapshots",
+            "August 21, 2026 at about 06:07 UTC",
+            "The queried nodes reported rippled 3.3.0, AMM enabled, and no fixCleanup3_4_0 entry",
+            "A fleet-wide validator census or a future release outcome"
+          ]
+        ],
+        "sourceNote": "Sources: XRPLF PR #7430 and commit, merged August 20, 2026; XRPL AMM and AMMBid documentation, undated references checked August 21, 2026; public s1 and s2 server_info and feature responses checked August 21, 2026 at 06:07 UTC. [1][2][4][5][7][8]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://github.com/XRPLF/rippled/commit/d0dbf9163c66288e37d1c5bc9dce313d457f732b",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Mainnet status remains separate from the develop-branch milestone",
+      "paragraphs": [
+        "[Confirmed fact] I checked Ripple's public s1.ripple.com and s2.ripple.com endpoints at approximately 06:07 UTC on August 21, 2026. The s1 server_info response reported rippled_version 3.3.0 and validated ledger sequence 106442845 at 06:07:24 UTC. The s2 response reported rippled_version 3.3.0 and validated ledger sequence 106442846 at 06:07:26 UTC. Both feature responses reported AMM as supported and enabled, but neither returned a fixCleanup3_4_0 feature entry. [7][8]",
+        "That snapshot is consistent with the source history. PR #7430 was merged into develop on August 20, after the stable 3.3.0 release had been published on August 6. The official amendments guidance says validator support and activation are separate from code availability, and the Known Amendments record is the place to follow named amendment status. The current endpoint check is stronger than a package-version guess, but it remains a sample of two public servers rather than a census of all validators or private infrastructure. [1][3][6][7][8][11]",
+        "[Bounded inference] The practical status today is therefore: the fix is ready for continued review and possible inclusion in a future stable release, while the public Mainnet servers checked for this report do not expose the gate that activates the new behavior. That conclusion may change with a signed release, a different public server build, or a future amendment record.",
+        "[Unresolved uncertainty] The sources do not provide a release date for xrpld 3.4.0, a validator-vote schedule for fixCleanup3_4_0, a first activation ledger, or a Mainnet transaction showing the corrected floor in action. None of those missing records should be filled with a forecast."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Implications for XRPL developers, liquidity providers, and XRP holders",
+      "paragraphs": [
+        "[Confirmed fact] JavaScript, TypeScript, C++, and service teams integrating AMMBid should treat the merged code as a versioned protocol change, not a generic pricing recommendation. A test matrix should cover zero, non-zero, and fee-voted-up states; empty and occupied slots; BidMin and BidMax; LP-token balances; expired slots; the fixCleanup3_4_0 gate; and the exact stable or development server used by the application. The expected result should be checked against the server feature response before any feature-dependent transaction is submitted. [1][4][5][7]",
+        "For liquidity providers and market makers, the affected economic object is the LP-token cost of claiming a 24-hour auction slot, not the XRP balance in a normal wallet. A zero-fee pool may still exist and trade under current AMM rules, but this develop-branch correction does not change the status of every current pool. Market makers should verify the server build, amendment state, bid result code, and post-transaction AMM data rather than assuming a source merge changed live execution.",
+        "For data providers, explorers, and risk teams, the useful monitoring fields are concrete: AMMBid transactions, the AMM entry's auction slot, the trading fee, the bid price, LP-token balances, server feature state, and the release line that processed the ledger. A dashboard that labels the PR as an active Mainnet rule would overstate the evidence. A dashboard that labels it as a future-gated code correction would be accurate.",
+        "For ordinary XRP holders, there is no required wallet action from this merge and no verified direct XRP price, supply, ETF-flow, or adoption implication. The change concerns the pricing integrity of a protocol-native AMM auction mechanism. A later stable release and activation could matter to developers and liquidity providers, but any claim that this fix itself creates XRP demand or predicts a market move would be unsupported. [Bounded inference]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and open questions",
+      "paragraphs": [
+        "[Confirmed facts] PR #7430 merged into XRPLF/rippled develop on August 20, 2026. Its diff adds a non-zero effective bid-price floor for zero-fee AMM pools when fixCleanup3_4_0 is enabled, and its tests cover both amendment-enabled and amendment-disabled behavior. Official XRPL documentation describes the 24-hour auction slot, LP-token bid, fee discount, and minimum-bid formula. The two public snapshots checked on August 21 reported rippled 3.3.0 and did not return fixCleanup3_4_0. [1][2][4][5][7][8]",
+        "[Bounded inference] The correction improves the internal economic consistency of a future-gated auction by preventing a free reservation from carrying a possible later fee benefit. It should make the edge case easier to test and reason about once the relevant server and amendment are deployed. This is an interpretation of the code and mechanism, not a measured claim about pool behavior, LP returns, or market impact.",
+        "[Unresolved uncertainty] The next decisive records are a stable xrpld release that includes the fix, a public feature response showing whether the amendment is supported and enabled, the validator support history required by the amendment process, and a validated ledger after activation. Separate evidence would still be needed for affected pool counts, actual zero-cost bids, losses, exploit attempts, production integrations, or XRP market effects.",
+        "Source precedence matters here. The XRPLF PR and commit own the claim about what the code does. XRPL's AMM and AMMBid documentation own the protocol rules. The public feature endpoints own only their dated server snapshots. The academic and XRPL Commons materials explain the auction's economic context, but neither can turn a develop merge into a Mainnet event. Keeping those roles separate is the most reliable way to follow this story."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7430",
+        "https://github.com/XRPLF/rippled/commit/d0dbf9163c66288e37d1c5bc9dce313d457f732b",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+        "https://discovery.ucl.ac.uk/id/eprint/10216028/1/XRPL_AMM.pdf",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A signed stable xrpld release that includes PR #7430 or an equivalent AMMBid floor change, plus release notes that state the fixCleanup3_4_0 dependency.",
+    "The XRPL Known Amendments record and public feature responses showing fixCleanup3_4_0 as supported, then enabled, rather than relying on a develop commit alone.",
+    "Validator support, the first majority date, and the full activation window for fixCleanup3_4_0 under the XRPL amendment process.",
+    "AMMBid regression behavior for zero-fee pools, including BidMin, BidMax, expired slots, LP-token balance changes, and the one-unit floor after the amendment is enabled.",
+    "A separate on-chain or incident record showing whether any zero-cost bids occurred on a live network, affected pool counts, lost value, or real XRP market effects."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF PR #7430, merged August 20, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7430",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF commit d0dbf91, AMMBid zero-fee floor",
+      "url": "https://github.com/XRPLF/rippled/commit/d0dbf9163c66288e37d1c5bc9dce313d457f732b",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF xrpld 3.3.0 stable release",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRP Ledger: Automated Market Makers",
+      "url": "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger: AMMBid transaction and auction-slot price rules",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/ammbid",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger: Amendment process",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger: Known Amendments status page",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple public s1 XRP Ledger server, feature snapshot checked August 21, 2026",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple public s2 XRP Ledger server, feature snapshot checked August 21, 2026",
+      "url": "https://s2.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons: Automated Market Maker core-development module",
+      "url": "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+      "type": "supporting"
+    },
+    {
+      "name": "UCL Discovery: AMM-based DEX on the XRP Ledger, IEEE ICBC 2025 paper",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10216028/1/XRPL_AMM.pdf",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-amm",
+      "label": "How XRPL Automated Market Makers work",
+      "topic": "XRPL mechanics",
+      "description": "Review pools, LP tokens, fee votes, and the auction-slot design."
+    },
+    {
+      "href": "/learn/xrp-amm-yield-guide",
+      "label": "XRPL AMM yield and liquidity guide",
+      "topic": "Liquidity providers",
+      "description": "Understand the risks and mechanics of supplying liquidity to an XRPL AMM."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRP Ledger DEX",
+      "topic": "Trading infrastructure",
+      "description": "See how order books and AMM liquidity fit together on XRPL."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources",
+      "topic": "Builders",
+      "description": "Find the tools and documentation needed to test XRPL protocol features."
+    },
+    {
+      "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens",
+      "label": "When MPT transfer rules constrain AMM LP tokens",
+      "topic": "Related XRPL coverage",
+      "description": "Read the separate report on MPT transfer permissions and future AMM behavior."
+    }
+  ]
+}
