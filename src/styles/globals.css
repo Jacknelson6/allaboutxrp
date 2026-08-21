@@ -2126,3 +2126,24 @@ html[data-theme="dark"] .hero-night-treatment { opacity: 0.7; }
   ::view-transition-new(root) { animation: none; }
   .premium-home .premium-hero-canvas:hover .hero-image { transform: none; }
 }
+
+/* ==========================================================================
+   INVERTED BAND SEMANTIC COLORS (helm/seo-design-overhaul)
+
+   The market ticker paints itself on `bg-ink` / `text-paper` — the exact
+   inverse of the surrounding page. The positive/negative tokens are tuned for
+   the page surface, so on that inverted band they drop below WCAG AA. This
+   opt-in class re-points the two semantic tokens to the values that belong on
+   the opposite surface, for the duration of the band only. Additive: nothing
+   picks it up unless it asks for it by class name.
+   ========================================================================== */
+
+.on-ink-band {
+  --color-positive: #3fae82;
+  --color-negative: #ff7b86;
+}
+
+html[data-theme="dark"] .on-ink-band {
+  --color-positive: #1e7d5b;
+  --color-negative: #b33a46;
+}
