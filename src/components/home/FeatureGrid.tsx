@@ -1,28 +1,79 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { Badge, DataList } from "@/components/ui";
+import { DEK, LABEL_ACCENT } from "./home-style";
 
 const standards = [
-  { code: "SOURCE", title: "Claims you can check", description: "Important facts link to official documentation, records, or first-party reporting." },
-  { code: "METHOD", title: "Data with methodology", description: "Ledger and market views disclose source, timestamp, limitations, and calculation method." },
-  { code: "REVIEW", title: "Updates that are visible", description: "Time-sensitive guides show review dates and distinguish facts from scenarios or opinion." },
+  {
+    code: "Source",
+    title: "Claims you can check",
+    description: "Important facts link to official documentation, records, or first-party reporting.",
+  },
+  {
+    code: "Method",
+    title: "Data with methodology",
+    description: "Ledger and market views disclose source, timestamp, limitations, and calculation method.",
+  },
+  {
+    code: "Review",
+    title: "Updates that are visible",
+    description: "Time-sensitive guides show review dates and distinguish facts from scenarios or opinion.",
+  },
 ];
 
+/**
+ * The editorial protocol band — the three standards that govern everything
+ * above it, compressed onto one muted band.
+ */
 export default function FeatureGrid() {
   return (
-    <section className="ascii-standard border-y border-surface-border" aria-labelledby="research-standard-heading">
-      <div className="site-container py-16 sm:py-24">
-        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
-          <div>
-            <p className="ascii-section-label">EDITORIAL PROTOCOL</p>
-            <h2 id="research-standard-heading" className="mt-4 text-4xl leading-tight text-text-primary sm:text-5xl">Information is only useful when you can verify it.</h2>
-            <div className="mt-7 flex flex-wrap gap-x-5 gap-y-1"><Link href="/editorial" className="text-link text-sm">Read the full protocol <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link><Link href="/learn/trusted-sources" className="text-link text-sm text-text-secondary">Inspect trusted sources</Link></div>
-          </div>
-          <div>
-            <ol className="ascii-standard-list">
-              {standards.map((item) => <li key={item.code}><span>[{item.code}]</span><div><h3>{item.title}</h3><p>{item.description}</p></div></li>)}
-            </ol>
+    <section className="border-b border-hairline bg-paper-muted" aria-labelledby="research-standard-heading">
+      <div className="site-container grid gap-10 py-12 sm:py-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div>
+          <p className={LABEL_ACCENT}>Editorial protocol</p>
+          <h2
+            id="research-standard-heading"
+            className="mt-4 max-w-xl font-display text-2xl leading-tight font-normal text-ink sm:text-3xl"
+          >
+            Information is only useful when you can verify it.
+          </h2>
+          <p className={`${DEK} mt-5 max-w-md`}>
+            Three standards apply to every guide, data view, and report on this site.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            <Link
+              href="/editorial"
+              className="inline-flex min-h-11 items-center gap-1.5 font-sans text-sm font-[650] text-ink underline decoration-transparent decoration-1 underline-offset-4 transition-colors duration-150 hover:text-cobalt hover:decoration-current"
+            >
+              Read the full protocol <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/learn/trusted-sources"
+              className="inline-flex min-h-11 items-center gap-1.5 font-sans text-sm font-[650] text-text-secondary underline decoration-transparent decoration-1 underline-offset-4 transition-colors duration-150 hover:text-cobalt hover:decoration-current"
+            >
+              Inspect trusted sources
+            </Link>
           </div>
         </div>
+
+        <DataList ariaLabel="Editorial standards">
+          {standards.map((item) => (
+            <li key={item.code} className="flex flex-col gap-3 py-5 sm:flex-row sm:gap-6">
+              <span className="shrink-0 sm:w-24">
+                <Badge variant="outline" tone="neutral">
+                  {item.code}
+                </Badge>
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block font-display text-lg leading-snug font-normal text-ink">
+                  {item.title}
+                </span>
+                <span className="mt-1.5 block text-sm leading-6 text-text-secondary">
+                  {item.description}
+                </span>
+              </span>
+            </li>
+          ))}
+        </DataList>
       </div>
     </section>
   );

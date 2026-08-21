@@ -1,6 +1,13 @@
 import { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
-import HomeFeed from "@/components/home/HomeFeed";
+import HomeMarketProvider from "@/components/home/HomeMarketProvider";
+import HomeTicker from "@/components/home/HomeTicker";
+import HomeHeroBand from "@/components/home/HomeHeroBand";
+import HomeTopStories from "@/components/home/HomeTopStories";
+import HomeMarketBand from "@/components/home/HomeMarketBand";
+import HomeEducationPaths from "@/components/home/HomeEducationPaths";
+import HomeAnswerIndex from "@/components/home/HomeAnswerIndex";
+import HomeToolsStrip from "@/components/home/HomeToolsStrip";
 import FeatureGrid from "@/components/home/FeatureGrid";
 import HomeFAQ from "@/components/home/HomeFAQ";
 import { HOME_FAQ_ITEMS } from "@/data/home-faq";
@@ -48,15 +55,31 @@ const faqSchema = {
   })),
 };
 
+/**
+ * The front page, top to bottom: live ticker, masthead, top stories, the market
+ * record, education pathways, the answer index, tools, editorial protocol, FAQ.
+ *
+ * Everything except the two market surfaces is a server component;
+ * HomeMarketProvider only wraps its children so the ticker and the market band
+ * can share one live `/api/market-data` fetch.
+ */
 export default function HomePage() {
   return (
     <>
       <SEOSchema schema={organizationSchema} />
       <SEOSchema schema={faqSchema} />
-      <main id="main-content">
-        <HomeFeed />
-        <FeatureGrid />
-        <HomeFAQ />
+      <main id="main-content" className="bg-paper">
+        <HomeMarketProvider>
+          <HomeTicker />
+          <HomeHeroBand />
+          <HomeTopStories />
+          <HomeMarketBand />
+          <HomeEducationPaths />
+          <HomeAnswerIndex />
+          <HomeToolsStrip />
+          <FeatureGrid />
+          <HomeFAQ />
+        </HomeMarketProvider>
       </main>
     </>
   );
