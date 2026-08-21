@@ -18,7 +18,5 @@ export default function HomeTicker() {
     direction: figure.direction,
   }));
 
-  // `on-ink-band` re-points the positive/negative tokens for the inverted
-  // ticker surface so the deltas keep WCAG AA contrast in both themes.
-  return <TickerTape items={items} className="on-ink-band" ariaLabel="Live XRP market ticker" />;
+  return <TickerTape items={items} ariaLabel="Live XRP market ticker" />;
 }

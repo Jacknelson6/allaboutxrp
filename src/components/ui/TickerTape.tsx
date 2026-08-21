@@ -41,7 +41,7 @@ export function TickerTape({ items, className, ariaLabel = "Market ticker" }: Ti
 
   return (
     <div
-      className={cn("group relative overflow-hidden border-y border-hairline bg-ink text-paper", className)}
+      className={cn("on-ink-band group relative overflow-hidden border-y border-hairline bg-ink text-paper", className)}
       role="marquee"
       aria-label={ariaLabel}
     >

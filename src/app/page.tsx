@@ -30,21 +30,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com" },
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://allaboutxrp.com/#organization",
-  name: "AllAboutXRP",
-  url: "https://allaboutxrp.com",
-  description: "Independent XRP publisher with source-led education, live data, tools, and news.",
-  logo: {
-    "@type": "ImageObject",
-    url: "https://allaboutxrp.com/logo-full.png",
-    width: 2000,
-    height: 2000,
-  },
-};
-
+// Organization JSON-LD is emitted site-wide by the root layout (same @id).
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -66,7 +52,6 @@ const faqSchema = {
 export default function HomePage() {
   return (
     <>
-      <SEOSchema schema={organizationSchema} />
       <SEOSchema schema={faqSchema} />
       <main id="main-content" className="bg-paper">
         <HomeMarketProvider>
