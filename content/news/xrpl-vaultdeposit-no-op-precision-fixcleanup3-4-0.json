@@ -1,0 +1,278 @@
+{
+  "slug": "xrpl-vaultdeposit-no-op-precision-fixcleanup3-4-0",
+  "title": "XRPLF Merges VaultDeposit Guard for Deposits That Round to Zero",
+  "description": "XRPLF merged a develop-branch fix that rejects VaultDeposit cases where share rounding leaves the depositor's balance unchanged, while fixCleanup3_4_0 and SingleAssetVault remain disabled on public Mainnet servers.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-21T14:10:27-04:00",
+  "modifiedAt": "2026-08-21T14:10:27-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-vaultdeposit-rounding-groove-editorial.webp",
+  "imageAlt": "A pale-gold tessera jig routes one cobalt glass share tile into an ivory groove while a separate cobalt balance strip remains flush to its origin notch",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "vaultdeposit-tessera-rounding-groove-still-life",
+  "imageSetting": "A silent white-plaster tessera sorting niche beneath one cobalt glass roof tile at clear mid-morning, viewed from a near-macro left-front angle along an ivory stone workbench with broad negative space above",
+  "imageMetaphor": "A pale-gold tessera jig routes one cobalt share tile into a receiving groove while a separate depositor balance strip stays flush to its origin notch, showing a share credit can follow rounded conversion even when the representable debit is zero",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain XRPLF rippled PR #8014, merged into the develop branch on August 21, 2026, which rejects a VaultDeposit when the share-round-trip amount would leave the depositor's balance unchanged under fixCleanup3_4_0. Show the exact mechanism as a sparse, physically believable still life, not a generic security symbol: a share conversion can create a share credit while the depositor-side debit rounds to no representable movement. Scene: a silent white-plaster tessera sorting niche beneath one cobalt glass roof tile at clear mid-morning, a setting unlike every registered AllAboutXRP image, with a warm ivory stone workbench and broad uncluttered negative space across the upper half. Near-macro left-front viewpoint, only slightly above tabletop height, looking along two parallel ivory grooves from lower-left toward upper-right. Exactly four deliberate objects: one pale-gold hand-cut tessera jig with a fixed lower channel and a small sliding carriage, one cobalt translucent rectangular share tile seated in the receiving groove beyond the jig, one separate narrow cobalt glass balance strip still flush with its origin notch in the second groove, and one small ivory witness tile with a single restrained vermilion hairline at the rejected boundary. The jig and first groove represent the rounded-down share conversion, the share tile represents minted vault shares, and the unchanged balance strip represents a debit that rounded away. Physically model the metal carriage, glass refraction, ivory edges, contact shadows, and slight distance between the two tracks. Radiant clear mid-morning light is filtered through the single cobalt roof tile, creating cool blue shadow and one warm reflected edge from the white plaster. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, enamel-like cobalt glass, pale-gold metal, warm ivory stone, saturated cobalt and ultramarine shadow, selective impasto, ordered detail, and broad negative space. Extremely subtle translucent 1, 0, and x stipple may appear only inside a few atmospheric or cast-shadow transitions and must dissolve into white space, never across the objects and never as an all-over filter. Exactly one jig, one share tile, one balance strip, and one witness tile. No readable text, letters, numbers, logo, XRP symbol, cryptocurrency coin, coin edge, dashboard, screen, chart, interface, code, circuitry, person, politician, robe, column, temple, bank, market, harbor, terrace, city panorama, mountain, coast, archive, counting board, calibration slab, caliper, punch, ratchet, gauge, scale, lock, latch, gate, comb, shuttle, amphora, basin, vessel, impossible mechanism, floating parts, duplicated elements, generic cyber cube, neon, fantasy ruin, photographic realism, sepia wash, muddy gray, coarse halftone, retro pixel art, watermark, border, rounded frame, title, or all-over dither. Use the homepage hero and bundled Sublime Classical Oil assets only as style, palette, light, surface, and finish references. Do not copy their content, scenery, objects, or composition.",
+  "keywords": [
+    "XRP Ledger news",
+    "XRPL VaultDeposit",
+    "Single Asset Vault",
+    "XLS-65",
+    "fixCleanup3_4_0",
+    "XRPL precision loss",
+    "XRP Ledger security",
+    "XRPL lending protocol"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #8014 into rippled's develop branch on August 21, adding a fixCleanup3_4_0-gated guard for VaultDeposit cases where the depositor's balance would remain unchanged. [1][2]",
+    "The regression scenario uses a 1,240-asset vault with 1,000 shares and a 6-asset deposit that becomes 4.96 assets after share truncation, small enough to round away at the depositor's trust-line precision. [1][2]",
+    "Before the gate, the test reaches tecINVARIANT_FAILED; with fixCleanup3_4_0, the merged code returns tecPRECISION_LOSS before the vault records the deposit. [1][2]",
+    "Public s1 and s2 responses checked at 18:07 UTC still report rippled 3.3.0, SingleAssetVault supported but disabled, and no fixCleanup3_4_0 feature entry. [6][7]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPL fixed a vault deposit no-op edge case, but Mainnet is unchanged",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8014 into the `rippled` `develop` branch on August 21, 2026. The change adds a `fixCleanup3_4_0`-gated check that rejects a `VaultDeposit` when share rounding would leave the depositor's balance unchanged, returning `tecPRECISION_LOSS` before the deposit is booked. Public Mainnet servers still report the gate absent, so this is protocol hardening, not an XRP market event or reported exploit. [1][2][6]",
+        "The story is about an accounting boundary inside the XRP Ledger's Single Asset Vault implementation. A depositor asks to add an asset amount, the protocol converts that amount into whole vault shares, then converts the rounded share count back into the asset amount that should move. In a narrow precision case, the recalculated amount can be positive mathematically but too small to change the depositor's stored balance. [3][4]",
+        "The final merged commit adds a `roundsToZeroForDepositor` helper in `VaultDeposit.cpp` and invokes it in `doApply` after the share round-trip has produced the actual asset amount. If the debit would leave the stored balance unchanged, the transaction returns `tecPRECISION_LOSS`; the patch does not show a separate final `preclaim` edit. That distinction matters because the pull request description discusses an early check, while the merged diff is the authoritative record of what landed. [1][2]",
+        "[Unresolved uncertainty] The primary records do not report a Mainnet exploit, a customer loss, an affected vault count, or a production transaction that reached this path. They document a reproducible test failure and a consensus-affecting correction gated for a future amendment. The evidence supports a careful engineering report, not a breach headline."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "How share rounding could create a credit without a representable debit",
+      "paragraphs": [
+        "[Confirmed fact] XLS-65 defines a subsequent vault deposit in two stages. First, the requested asset amount is multiplied by the current share supply and divided by the vault's asset total, with the share result rounded down to a whole integer. Second, that integer share amount is converted back into the asset amount that the vault actually receives. The merged PR targets the gap between the request and that post-truncation amount. [1][4]",
+        "The PR's regression setup makes the gap concrete without relying on a market price. A synthetic USD trust-line deposit starts a vault with 1,000 assets and 1,000 shares. A one-year loan at 24% is then paid back, leaving the vault at 1,240 assets while the share supply stays at 1,000. A later 6-asset deposit therefore truncates to 4 shares, and those 4 shares represent 4.96 assets under the test ratio. [1][2]",
+        "The test then places the depositor at an IOU precision cusp where one unit in the stored balance is 10 assets. The 4.96-asset debit is below half of that unit, so subtracting it from the stored balance rounds back to the original balance. The vault can still book the 4.96 assets and mint the 4 shares unless a guard stops the operation. This is why the issue is not simply a user entering too many decimal places. It is a mismatch between share discretization and the asset balance's representable scale. [1][2]",
+        "Before the new amendment gate, the test expects the transaction to run far enough for the `ValidVault` invariant to reject the mismatch with `tecINVARIANT_FAILED`. With `fixCleanup3_4_0` enabled, the same scenario returns `tecPRECISION_LOSS` before the vault fields are touched. The result changes the failure boundary from a late invariant rejection to an explicit precision-loss outcome, while preserving the old behavior when the feature is not enabled. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0065-single-asset-vault/README.md"
+      ]
+    },
+    {
+      "heading": "What PR #8014 changes in rippled, and what it leaves alone",
+      "paragraphs": [
+        "[Confirmed fact] The merged diff adds the balance check to the VaultDeposit application path and adds a targeted regression suite in `VaultBugs_test.cpp`. The helper skips integral assets, reads the depositor's simple stored balance rather than a spendable amount that may include counterparty limits, and compares the balance before and after the computed debit. That comparison asks the ledger's own numeric representation whether it noticed the debit. [2]",
+        "The test matrix crosses `fixCleanup3_4_0` on and off with `fixCleanup3_2_0` on and off. It also covers an ordinary positive trust-line balance and a debt case where the stored balance and spendable amount diverge. The final test setup reconstructs the non-power-of-ten vault ratio through actual vault and loan transactions instead of asserting only an isolated arithmetic helper. [1][2]",
+        "The code is deliberately narrow. It does not change the vault's share formula, make fractional MPT shares possible, or guarantee that every small deposit will succeed. It rejects a deposit when the amount the protocol would actually move cannot be represented as a change to the depositor's balance. An issuer account is treated separately in the code because its balance representation is not an ordinary depositor trust line. [1][2]",
+        "[Bounded inference] The main operational improvement is a clearer failure mode for clients and operators. An application can distinguish precision loss from insufficient funds, authorization, frozen assets, or a generic invariant failure. That should make retries and user explanations more accurate, but the sources do not measure reduced failures in production or establish that any current integration was broken."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultdeposit"
+      ]
+    },
+    {
+      "heading": "Why this matters for the XLS-65 vault model",
+      "paragraphs": [
+        "[Confirmed fact] A Single Asset Vault aggregates one asset from multiple depositors and represents ownership with Multi-Purpose Token shares. The XRPL specification lists XRP, issued tokens, and MPTs as possible vault assets, while the official transaction reference says a successful VaultDeposit moves assets to the vault's pseudo-account, issues the corresponding shares, and updates the vault balance. A no-op depositor debit would therefore break the relationship between three records: the depositor balance, the vault assets, and the share supply. [3][4][5]",
+        "The precision boundary is built into the design rather than being an incidental property of one test. XLS-65 says share calculations use integer units and that subsequent deposit shares are rounded down before the actual asset amount is recalculated. The same specification warns that the protocol controls rounding direction and that fractional results can create unexpected outcomes. PR #8014 is a direct implementation response to one of those outcomes, where the rounded result is still too small to register against the depositor's asset scale. [1][4]",
+        "XRPL Commons provides independent ecosystem context, not proof about this merge. In a March 6, 2026 explanation of XLS-65, the organization described vaults as a native pooled-asset primitive and said its Devnet suite covered 257 test cases across ten categories. That supports the importance of adversarial share and authorization testing, while its article remains a pre-activation explanation and does not evaluate PR #8014 or establish Mainnet use. [8]",
+        "[Bounded inference] The fix is material for future vault operators because a lending or yield protocol can change the asset-to-share ratio through ordinary state updates such as accrued interest. The relevant question is not whether the requested amount looks nonzero in a client interface. It is whether the post-rounding amount that `rippled` computes can change the depositor's actual stored balance at the moment the transaction applies."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultdeposit",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0065-single-asset-vault/README.md",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl"
+      ]
+    },
+    {
+      "heading": "Mainnet status: the code is in develop, not in the public feature state",
+      "paragraphs": [
+        "[Confirmed fact] The merge record targets XRPLF's `develop` branch, and the latest tagged stable release reviewed for this report is `rippled` 3.3.0, published August 6, 2026. A develop merge can be important for protocol review and future release planning, but it is not by itself a package release, validator vote, amendment activation, or production behavior change. [1][2][10]",
+        "I queried Ripple's public `s1.ripple.com:51234` and `s2.ripple.com:51234` endpoints at about 18:07 UTC on August 21, 2026. Both returned `rippled` 3.3.0. Both feature responses returned `SingleAssetVault` as supported but disabled and `LendingProtocol` as supported but disabled. Neither response included a `fixCleanup3_4_0` feature entry. These are two public-server snapshots, not a census of every validator or private deployment. [6][7]"
+      ],
+      "table": {
+        "caption": "The evidence boundary for the VaultDeposit guard",
+        "headers": ["Record", "Dated status", "What it establishes", "What it does not establish"],
+        "rows": [
+          ["PR #8014 and commit 046d4dd", "Merged August 21, 2026 into develop", "The guard and regression tests landed in the development code line", "A stable package, validator vote, or Mainnet activation"],
+          ["s1.ripple.com feature response", "Checked August 21, 2026 at 18:07 UTC", "rippled 3.3.0; SingleAssetVault supported but disabled; no fixCleanup3_4_0 entry", "The state of every validator or a future release outcome"],
+          ["s2.ripple.com feature response", "Checked August 21, 2026 at 18:07 UTC", "rippled 3.3.0; SingleAssetVault supported but disabled; no fixCleanup3_4_0 entry", "A Mainnet transaction using the corrected path"],
+          ["XLS-65 specification", "Updated April 27, 2026; reference checked August 21", "The share conversion and rounding model", "That the proposed guard is enabled on Mainnet"]
+        ],
+        "sourceNote": "Sources: XRPLF PR #8014 and merged commit, August 21, 2026; public s1 and s2 server_info and feature responses checked August 21, 2026 at 18:07 UTC; XRPLF XLS-0065 specification updated April 27, 2026. [1][2][4][6][7][10]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0065-single-asset-vault/README.md"
+      ]
+    },
+    {
+      "heading": "Implications for developers, vault operators, and XRP readers",
+      "paragraphs": [
+        "For XRPL developers, the immediate requirement is version and feature awareness. A client that prepares VaultDeposit transactions should model the actual post-rounding amount, recognize `tecPRECISION_LOSS`, and test both amendment states against the server version it targets. It should not assume that a develop-branch commit is available merely because a transaction type appears in documentation. The official reference still lists `temDISABLED` when the SingleAssetVault amendment is not enabled. [2][3][6][7]",
+        "For vault owners and lending teams, the affected object is the exchange between an asset balance and integer share supply. Any connected protocol that changes `AssetsTotal`, accrues yield, books repayment, or otherwise changes the ratio should run deposit and withdrawal tests at the asset issuer's actual precision. The PR's loan-interest setup is a warning about state composition: a later deposit can encounter a ratio that an empty-vault or one-to-one test never exercised. [1][2][4]",
+        "For depositors and liquidity providers, the merge creates no current Mainnet action because the public servers checked for this report do not expose the gate and SingleAssetVault remains disabled. If a future vault becomes live, users should review the asset, share policy, access controls, withdrawal terms, and operator identity before depositing. The official XRPL tutorial itself warns that a public vault can be created by anyone and that a malicious owner can drain assets, so a precision fix is not a complete safety approval. [3][5]",
+        "For XRP holders and market readers, the record carries no sourced XRP price, supply, volume, adoption, or demand result. Vault assets may be XRP, an issued token, or an MPT, and the PR's test uses a synthetic IOU. It would be unsupported to convert this implementation fix into a bullish XRP forecast. The defensible significance is narrower: XRPLF is tightening the accounting boundary of a future-gated vault primitive. [1][4][5]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultdeposit",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/tutorials/defi/lending/use-single-asset-vaults/deposit-into-a-vault",
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0065-single-asset-vault/README.md"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] PR #8014 was merged into `develop` on August 21, 2026. Its final commit adds a depositor-balance comparison after the actual share-round-trip amount is known, returns `tecPRECISION_LOSS` when the debit rounds away, and adds regression cases for the amendment boundary, the earlier cleanup amendment, and a debt balance. Public s1 and s2 snapshots checked after the merge still report `rippled` 3.3.0 and no `fixCleanup3_4_0` entry. [1][2][6][7]",
+        "[Bounded inference] Moving the failure from `tecINVARIANT_FAILED` to `tecPRECISION_LOSS` should make the edge case easier for clients to diagnose and should prevent the vault from reaching a state where shares are credited against no depositor-side movement. That is a code-level interpretation of the merged guard and tests, not a measured production reliability result. [1][2]",
+        "[Unresolved uncertainty] The records do not identify a release date for `fixCleanup3_4_0`, a validator-vote schedule, an activation ledger, the number of future vaults that would encounter the case, or any live user loss. Halborn's Single Asset Vault assessment was tied to commit `9d619b9` from a February 17 to March 13, 2025 engagement and recommends a follow-up after material code changes. It therefore cannot certify this August 21 change. [9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
+      ]
+    },
+    {
+      "heading": "What to watch next for VaultDeposit and fixCleanup3_4_0",
+      "paragraphs": [
+        "The next meaningful record should change the protocol or network state, not simply repeat the pull request title. A signed `rippled` release that includes PR #8014 would establish package availability. A feature response that names `fixCleanup3_4_0` and reports its support and enabled state would establish server capability. An amendment record and validated ledger after activation would be needed before describing the guard as live Mainnet behavior. [1][2][6][7][10]",
+        "If SingleAssetVault later activates, follow-up reporting should look for real `VaultDeposit` metadata, the asset type, the share amount, the post-rounding asset amount, and the transaction result. Those records could show whether the guard is encountered in practice and whether a client reports the new error correctly. They would still be separate from evidence about vault solvency, operator behavior, lending performance, or XRP demand. [3][4][5]"
+      ],
+      "bullets": [
+        "A signed stable `rippled` release or changelog entry that carries PR #8014 and documents the `fixCleanup3_4_0` compatibility boundary.",
+        "A public feature response and Known Amendments record showing whether `fixCleanup3_4_0` is supported, open for voting, or enabled on XRP Ledger Mainnet.",
+        "A validated ledger containing a live `VaultDeposit` transaction that records the asset amount, minted shares, result code, and affected Vault state.",
+        "Client-library and explorer updates that recognize `tecPRECISION_LOSS` for deposits and do not report a develop-only guard as active production behavior.",
+        "An independent follow-up security review after the material code change, with scope and assessed commit stated clearly."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8014",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A signed stable rippled release or changelog entry that carries PR #8014 and documents the fixCleanup3_4_0 compatibility boundary.",
+    "A public feature response and Known Amendments record showing whether fixCleanup3_4_0 is supported, open for voting, or enabled on XRP Ledger Mainnet.",
+    "A validated ledger containing a live VaultDeposit transaction that records the asset amount, minted shares, result code, and affected Vault state.",
+    "Client-library and explorer updates that recognize tecPRECISION_LOSS for deposits and do not report a develop-only guard as active production behavior.",
+    "An independent follow-up security review after the material code change, with scope and assessed commit stated clearly."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8014, merged August 21, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8014",
+      "type": "primary",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "XRPLF rippled commit 046d4dd, final VaultDeposit precision guard, August 21, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/046d4dd4afca8c532962e8d5714e21b4762afe2c",
+      "type": "primary",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "XRP Ledger VaultDeposit reference, undated page checked August 21, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/vaultdeposit",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF XRPL-Standards XLS-0065 Single Asset Vault, updated April 27, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0065-single-asset-vault/README.md",
+      "type": "primary",
+      "publishedAt": "2026-04-27"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vaults concept, undated reference checked August 21, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "Public s1.ripple.com server_info and feature responses, checked August 21, 2026 at 18:07 UTC",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "Public s2.ripple.com server_info and feature responses, checked August 21, 2026 at 18:07 UTC",
+      "url": "https://s2.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons, Why We Voted Yes on XLS-65, published March 6, 2026",
+      "url": "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl",
+      "type": "supporting",
+      "publishedAt": "2026-03-06"
+    },
+    {
+      "name": "Halborn, Ripple Single Asset Vault Smart Contract Assessment, last updated June 27, 2025",
+      "url": "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+      "type": "supporting",
+      "publishedAt": "2025-06-27"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 release, published August 6, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRP Ledger Deposit into a Vault tutorial, undated reference checked August 21, 2026",
+      "url": "https://xrpl.org/docs/tutorials/defi/lending/use-single-asset-vaults/deposit-into-a-vault",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 21, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-vaultwithdraw-precision-loss-fixcleanup3-4-0",
+      "label": "XRPL's separate VaultWithdraw precision fix",
+      "topic": "Related code change",
+      "description": "Read the distinct withdrawal-side rounding report without conflating it with this deposit guard."
+    },
+    {
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs",
+      "label": "XLS-66 lending documentation clarification",
+      "topic": "Lending context",
+      "description": "See why XRPL lending documentation and live feature activation remain separate milestones."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XLS-66 voting status on XRPL",
+      "topic": "Activation context",
+      "description": "Follow the earlier report on support consensus and the disabled Mainnet feature state."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP lending platforms work",
+      "topic": "Reader guide",
+      "description": "Review the broader lending model before assessing a future vault deployment."
+    },
+    {
+      "href": "/learn/xrpl-trust-lines-explained",
+      "label": "XRPL trust lines explained",
+      "topic": "Precision context",
+      "description": "Understand the balance representation that matters when an issued-asset debit is rounded."
+    }
+  ]
+}
