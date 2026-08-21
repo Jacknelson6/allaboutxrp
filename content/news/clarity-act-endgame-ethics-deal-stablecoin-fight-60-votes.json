@@ -1,0 +1,193 @@
+{
+  "slug": "clarity-act-endgame-ethics-deal-stablecoin-fight-60-votes",
+  "title": "Inside the CLARITY Act Endgame: The Ethics Deal, the Stablecoin Fight, and the Path to 60 Votes",
+  "description": "The CLARITY Act's fate rests on a few unresolved deals: conflict-of-interest language Democrats demand, stablecoin reward rules banks oppose, and 60 votes on September 15. Here is the state of play for XRP readers.",
+  "category": "Regulation",
+  "author": "Jack Nelson",
+  "publishedAt": "2026-08-21T09:40:00-05:00",
+  "modifiedAt": "2026-08-21T09:40:00-05:00",
+  "keywords": [
+    "CLARITY Act",
+    "H.R. 3633",
+    "crypto market structure",
+    "Senate negotiations",
+    "conflict of interest",
+    "stablecoin rewards",
+    "XRP regulation",
+    "cloture"
+  ],
+  "image": "/news/clarity-act-endgame-negotiations-editorial.webp",
+  "imageAlt": "A bronze balance beam nearly level at dusk, with two unequal weight sets and one small deciding weight held apart on a marble ledge",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "dusk-balance-beam-final-weight-ledge",
+  "imageSetting": "An open marble negotiating terrace at dusk under a deep cobalt sky",
+  "imageMetaphor": "A large balance beam sits almost level between two unequal stacks of weights while one small final weight rests apart on the ledge, showing a deal that is close but not yet struck",
+  "imagePrompt": "A luminous classical oil painting at dusk: a large bronze balance beam on a marble negotiating terrace, its two pans holding unequal stacks of stone and bronze weights so the beam sits almost, but not quite, level. One small final bronze weight rests separately on the marble ledge in the foreground. Deep cobalt dusk sky with pale gold horizon light, fine translucent 1, 0, x ASCII contours in the sky and beam shadow. No people, no text, no coins, no doorway, no voting stones, no gates, no scales of justice cliche with blindfold figures.",
+  "keyTakeaways": [
+    "The Senate left for recess without passing the CLARITY Act and returns September 14, with a 60-vote cloture test on the motion to proceed set for September 15.",
+    "Senate Democrats, including Kirsten Gillibrand, Angela Alsobrooks, and Ruben Gallego, have made enforceable conflict-of-interest language covering federal officials the price of their votes.",
+    "Banking trade groups oppose the bill's treatment of stablecoin rewards, arguing it threatens deposits and local lending, which puts pressure on Republicans from the other direction.",
+    "President Trump's August 19 call for a 'fair version' of the bill signals the White House wants a deal, but no revised bipartisan text had been released when this report was published."
+  ],
+  "sections": [
+    {
+      "heading": "Where the CLARITY Act actually stands right now",
+      "paragraphs": [
+        "The Digital Asset Market Clarity Act, H.R. 3633, passed the House and has been stuck in the Senate ever since. Majority Leader John Thune promised floor action before the August recess, and the Senate got as far as filing cloture on the motion to proceed on August 8. But it adjourned without a vote on the bill itself, punting the fight to September. The Senate returns September 14, and the cloture vote is scheduled for September 15 at 2:15 p.m. Eastern.",
+        "That procedural posture matters because it defines what a 'deal' has to accomplish. Sixty senators must agree merely to begin considering the bill. Republicans control fewer than 60 seats, so some Senate Democrats have to vote yes, and the negotiations described below are about what those Democrats, and a handful of skeptical Republicans, get in exchange."
+      ],
+      "sourceUrls": [
+        "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+        "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month"
+      ]
+    },
+    {
+      "heading": "Deal one: the conflict-of-interest and ethics language",
+      "paragraphs": [
+        "The most explicit demand on the table comes from Senate Democrats who are otherwise open to crypto legislation. Kirsten Gillibrand, one of the chamber's most consistently crypto-friendly Democrats, has said enforceable conflict-of-interest language is the price of Democratic votes, with Angela Alsobrooks and Ruben Gallego pressing the same point. The provisions under discussion would restrict federal officials from profiting from digital-asset businesses while in office.",
+        "This is the negotiation to watch, because it is the one that most directly determines whether cloture can reach 60. It is also politically awkward: the demand implicates the president's family's crypto ventures, which is why it has survived every previous attempt to finesse it. A credible compromise here likely unlocks the bill; a collapse here likely sinks the September 15 vote regardless of what the rest of the text says.",
+        "For XRP readers, note what this dispute is not about: it is not about token classification, the SEC-CFTC jurisdictional split, or anything asset-specific. The market-structure core that matters for XRP has broad support in both drafts. The bill is hostage to an ethics fight, not a fight about crypto market design."
+      ],
+      "sourceUrls": [
+        "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+        "https://www.coindesk.com/policy/2026/08/05/here-are-the-possible-outcomes-for-clarity-right-now",
+        "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess"
+      ]
+    },
+    {
+      "heading": "Deal two: stablecoin rewards and the banking lobby",
+      "paragraphs": [
+        "The second unresolved fight comes from outside the crypto industry. A coalition of banking trade associations argues that the updated Senate text's treatment of stablecoin rewards, effectively interest-like payments for holding payment stablecoins, would pull deposits out of banks and 'put at risk the local lending that drives economic activity.' The banks want the loophole closed; crypto firms and exchanges want rewards preserved.",
+        "This dispute cuts across party lines differently than the ethics fight: it pressures Republicans from home-state community banks rather than Democrats from the ethics angle. Negotiators can trade across the two issues, which is why the endgame is genuinely uncertain, as a concession that wins Democratic ethics votes could coexist with a stablecoin compromise that loses bank-aligned senators, or vice versa.",
+        "The July 22 substitute released by Senator Cynthia Lummis remains the latest public text, and its section-by-section summary shows the broader architecture at stake: SEC and CFTC jurisdiction, disclosures, custody, customer-asset protections, anti-money-laundering rules, and DeFi provisions. Whatever deal emerges will be layered onto that framework, and the text placed on the floor in September will matter more than any summary."
+      ],
+      "sourceUrls": [
+        "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+        "https://www.lummis.senate.gov/press-releases/lummis-releases-updated-clarity-act-text/",
+        "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf"
+      ]
+    },
+    {
+      "heading": "The White House has now put its weight on the scale",
+      "paragraphs": [
+        "President Trump's August 19 White House crypto event added a new variable: explicit, public presidential pressure for a 'fair version' of the CLARITY Act, delivered to a room that included SEC Chairman Paul Atkins, CFTC Chairman Michael Selig, and executives from Ripple, Coinbase, and the major exchange operators. The administration's message was that it wants a bill this fall, not next Congress.",
+        "Presidential pressure is a double-edged instrument in a negotiation whose central dispute is whether officials, including the president's own family, should be barred from profiting from crypto. It raises the political cost of Republican inaction, but it can also harden Democratic insistence on the ethics provisions. Prediction-market pricing reflected that ambiguity, with Polymarket odds of 2026 passage reported around 20% in mid-August, down from earlier in the summer."
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event",
+        "https://coingape.com/white-house-crypto-summit-today-trump-meets-sec-cftc-amid-clarity-stall/"
+      ]
+    },
+    {
+      "heading": "The possible outcomes from here",
+      "paragraphs": [
+        "CoinDesk's scenario reporting lays out the realistic paths. Best case for the bill: negotiators strike an ethics-plus-stablecoin compromise during the recess, cloture clears 60 on September 15, and the Senate grinds through amendments toward passage this fall, after which the House must accept the Senate's changes. Middle case: cloture fails or is postponed, but talks continue and the bill returns in a lame-duck window after the midterm elections. Worst case: the coalition fractures, and comprehensive market-structure legislation slips into the next Congress with an uncertain map.",
+        "The calendar is the bill's biggest enemy. After the Senate returns September 14, there are limited working days before the chamber breaks again for the final stretch of the 2026 midterm campaign. Every week without a released compromise text raises the odds that September 15 becomes a test vote that fails, rather than the start of floor consideration.",
+        "For XRP, none of these paths changes anything by itself on the day it happens. What they change is the timeline for the things that do matter: enacted definitions of which assets and transactions fall under CFTC versus SEC oversight, and the rulemakings on exchanges, custody, and customer assets that would follow enactment. Our coverage of the September 15 mechanics and of what the bill would and would not do for XRP is linked below."
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/policy/2026/08/05/here-are-the-possible-outcomes-for-clarity-right-now",
+        "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Release of any revised substitute or compromise amendment text before September 14, especially on conflict-of-interest and stablecoin-reward provisions.",
+    "Public statements from Gillibrand, Alsobrooks, Gallego, or other persuadable Democrats signaling whether an ethics deal is close.",
+    "Whether banking trade groups escalate or soften their opposition as the stablecoin-rewards language evolves.",
+    "The September 15 cloture vote at 2:15 p.m. Eastern: 60 votes opens floor consideration, and a failed vote pushes the bill toward the lame-duck calendar.",
+    "If cloture passes, the amendment process that follows, which will determine the final SEC-CFTC jurisdictional lines that matter most for digital assets like XRP."
+  ],
+  "sources": [
+    {
+      "name": "United States Senate: Senate Floor Activity for August 7 and August 8, 2026",
+      "url": "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+      "publishedAt": "2026-08-08",
+      "type": "primary"
+    },
+    {
+      "name": "Office of Senator Cynthia Lummis: Updated CLARITY Act Text",
+      "url": "https://www.lummis.senate.gov/press-releases/lummis-releases-updated-clarity-act-text/",
+      "publishedAt": "2026-07-22",
+      "type": "primary"
+    },
+    {
+      "name": "U.S. Senate Committees: Digital Asset Market Clarity Act Section-by-Section",
+      "url": "https://www.lummis.senate.gov/wp-content/uploads/CLARITY-Act-Sec-by-Section-1.pdf",
+      "publishedAt": "2026-07-22",
+      "type": "primary"
+    },
+    {
+      "name": "ABA Banking Journal: Senate Adjourns With No Vote on Clarity Act",
+      "url": "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+      "publishedAt": "2026-08-10",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk: Here Are the Possible Outcomes for CLARITY Right Now",
+      "url": "https://www.coindesk.com/policy/2026/08/05/here-are-the-possible-outcomes-for-clarity-right-now",
+      "publishedAt": "2026-08-05",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk: U.S. Senate Opens First Stage of Crypto CLARITY Act Voting",
+      "url": "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+      "publishedAt": "2026-08-08",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk: Trump Pushes Congress to Move on Clarity Act During White House Crypto Event",
+      "url": "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event",
+      "publishedAt": "2026-08-19",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinGape: White House Crypto Summit Today: Trump Meets SEC, CFTC Amid CLARITY Stall",
+      "url": "https://coingape.com/white-house-crypto-summit-today-trump-meets-sec-cftc-amid-clarity-stall/",
+      "publishedAt": "2026-08-19",
+      "type": "supporting"
+    },
+    {
+      "name": "Axios: Inside the GOP's Mad Dash to Recess Finish Line",
+      "url": "https://www.axios.com/2026/08/06/senate-republicans-save-act-clarity-hemp-august-recess",
+      "publishedAt": "2026-08-06",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Senate Sets September 15 Cloture Vote on the CLARITY Act",
+      "href": "/news/clarity-act-september-15-cloture-vote-xrp",
+      "topic": "Procedure",
+      "description": "Our earlier report on the mechanics of the September 15 vote and what cloture does and does not decide."
+    },
+    {
+      "label": "CLARITY Act Explained",
+      "href": "/learn/xrp-clarity-act",
+      "topic": "Legislation",
+      "description": "A plain-language guide to the bill, its market structure rules, and the remaining Senate process."
+    },
+    {
+      "label": "XRP and U.S. Regulation",
+      "href": "/learn/xrp-us-regulation",
+      "topic": "Regulation",
+      "description": "The agencies, statutes, court decisions, and policy questions that shape XRP in the United States."
+    },
+    {
+      "label": "How Regulatory Clarity Could Affect XRP",
+      "href": "/learn/xrp-regulatory-clarity-impact",
+      "topic": "Market structure",
+      "description": "What clearer rules could change for exchanges, institutions, liquidity, and XRP holders."
+    },
+    {
+      "label": "Is XRP a Security?",
+      "href": "/learn/is-xrp-a-security",
+      "topic": "Legal status",
+      "description": "What courts have decided, what they have not decided, and why transaction context matters."
+    }
+  ]
+}
