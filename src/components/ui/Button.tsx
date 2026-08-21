@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "./cn";
 
@@ -56,7 +57,9 @@ const VARIANT_STYLES: Record<ButtonVariant, string> = {
  * fill), quiet (text + underline-on-hover, no chrome).
  * Sizes: sm / md / lg — all honor the 44px minimum touch target; size only
  * changes horizontal padding and type scale, never height below 44px.
- * Renders as <a> when `href` is passed, otherwise <button>.
+ * Renders as <button> with no `href`. With `href`, internal paths (starting
+ * with "/") render Next's <Link> for client-side navigation and prefetch;
+ * external/hash/mailto/tel hrefs render a plain <a>.
  */
 export function Button({
   variant = "primary",
@@ -70,6 +73,13 @@ export function Button({
 
   if ("href" in rest && typeof rest.href === "string") {
     const { href, ...anchorRest } = rest;
+    if (href.startsWith("/")) {
+      return (
+        <Link href={href} className={classes} {...anchorRest}>
+          {children}
+        </Link>
+      );
+    }
     return (
       <a href={href} className={classes} {...anchorRest}>
         {children}
