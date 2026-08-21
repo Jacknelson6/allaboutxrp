@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, CircleHelp, Scale, WalletCards } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
+import { Button, DataList, SectionHeader } from "@/components/ui";
 import { buildBreadcrumbSchema } from "@/lib/utils/seo";
 
 export const dynamic = "force-static";
@@ -153,70 +154,86 @@ export default function AnswersHub() {
       <SEOSchema schema={collectionSchema} />
       <SEOSchema schema={faqSchema} />
 
-      <main id="main-content" className="bg-surface-primary">
-        <header className="border-b border-surface-border">
-          <div className="site-container grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+      <main id="main-content" className="bg-paper">
+        <header className="border-b border-hairline">
+          <div className="site-container grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
             <div>
               <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-                <Link href="/" className="inline-flex min-h-11 items-center transition-colors hover:text-text-primary">Home</Link>
+                <Link href="/" className="inline-flex min-h-11 items-center transition-colors duration-150 hover:text-cobalt">Home</Link>
                 <span className="mx-2" aria-hidden="true">/</span>
-                <span className="text-text-primary">Answers</span>
+                <span className="text-ink">Answers</span>
               </nav>
-              <p className="text-sm font-semibold text-xrp-accent-bright">The XRP answer desk</p>
-              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98] text-text-primary">
+              <p className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-cobalt">The XRP answer desk</p>
+              <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.5rem,6vw,4rem)] leading-[0.98] font-normal text-ink">
                 The answer first. The evidence next.
               </h1>
             </div>
-            <dl className="answer-method max-w-xl border-y border-surface-border text-sm">
-              <div><dt>01</dt><dd>Direct answer</dd></div>
-              <div><dt>02</dt><dd>Primary evidence</dd></div>
-              <div><dt>03</dt><dd>Limits and uncertainty</dd></div>
-              <div><dt>Reviewed</dt><dd><time dateTime="2026-07-29">July 29, 2026</time></dd></div>
+            <dl className="max-w-xl divide-y divide-hairline border-y border-hairline text-sm">
+              {[
+                { dt: "01", dd: "Direct answer" },
+                { dt: "02", dd: "Primary evidence" },
+                { dt: "03", dd: "Limits and uncertainty" },
+                { dt: "Reviewed", dd: <time dateTime="2026-07-29">July 29, 2026</time> },
+              ].map((row) => (
+                <div key={row.dt} className="flex items-center justify-between gap-4 py-3">
+                  <dt className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-cobalt">{row.dt}</dt>
+                  <dd className="font-[650] text-ink">{row.dd}</dd>
+                </div>
+              ))}
             </dl>
           </div>
         </header>
 
         <div>
           {answerGroups.map((group, groupIndex) => (
-            <section key={group.title} className={groupIndex % 2 === 1 ? "border-y border-surface-border bg-surface-card" : "bg-surface-primary"} aria-labelledby={`answers-${groupIndex}`}>
-              <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-                <div>
-                  <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
-                    <group.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
-                  </div>
-                  <h2 id={`answers-${groupIndex}`} className="mt-5 text-4xl text-text-primary">{group.title}</h2>
-                  <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">{group.description}</p>
-                </div>
-                <ul className="divide-y divide-surface-border border-y border-surface-border">
+            <section
+              key={group.title}
+              className={groupIndex % 2 === 1 ? "border-b border-hairline bg-paper-muted" : "border-b border-hairline bg-paper"}
+              aria-labelledby={`answers-${groupIndex}`}
+            >
+              <div className="site-container py-12 sm:py-16">
+                <SectionHeader
+                  eyebrow={<span className="inline-flex items-center gap-1.5"><group.icon className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />{group.description}</span>}
+                  title={<span id={`answers-${groupIndex}`}>{group.title}</span>}
+                />
+                <DataList ariaLabel={`${group.title} answers`} className="mt-2">
                   {group.answers.map((answer) => (
-                    <li key={answer.href} className="py-6 sm:px-3">
-                        <div>
-                          <h3 className="font-sans text-lg font-semibold text-text-primary">
-                            <Link href={answer.href} className="inline-flex items-center gap-2 transition-colors hover:text-xrp-accent-bright">
-                              {answer.title}
-                              <ArrowUpRight className="h-4 w-4 text-text-secondary" aria-hidden="true" />
-                            </Link>
-                          </h3>
-                          <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">{answer.snippet}</p>
-                          <a href={answer.source.href} data-source-link="true" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-xs font-semibold text-xrp-accent-bright underline decoration-xrp-accent/30 underline-offset-4 hover:decoration-xrp-accent-bright">
-                            Source: {answer.source.label}
-                          </a>
-                        </div>
+                    <li key={answer.href} className="py-6">
+                      <h3 className="font-display text-lg leading-snug font-normal text-ink">
+                        <Link href={answer.href} className="group inline-flex items-center gap-2 transition-colors duration-150 hover:text-cobalt">
+                          {answer.title}
+                          <ArrowUpRight className="h-4 w-4 text-text-secondary transition-colors duration-150 group-hover:text-cobalt" aria-hidden="true" />
+                        </Link>
+                      </h3>
+                      <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">{answer.snippet}</p>
+                      <a
+                        href={answer.source.href}
+                        data-source-link="true"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex min-h-11 items-center font-sans text-xs font-[650] text-cobalt underline decoration-cobalt/30 decoration-1 underline-offset-4 hover:decoration-current"
+                      >
+                        Source: {answer.source.label}
+                      </a>
                     </li>
                   ))}
-                </ul>
+                </DataList>
               </div>
             </section>
           ))}
         </div>
 
-        <section className="border-y border-surface-border bg-surface-elevated">
+        <section className="bg-paper-muted">
           <div className="site-container grid gap-7 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
             <div>
-              <h2 className="text-3xl text-text-primary">Need the complete explanation?</h2>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-text-secondary">Follow a structured path through the XRP learning center.</p>
+              <h2 className="font-display text-2xl leading-tight font-normal text-ink sm:text-3xl">
+                Need the complete explanation?
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-text-secondary">
+                Follow a structured path through the XRP learning center.
+              </p>
             </div>
-            <Link href="/learn" className="btn-primary px-5">Explore XRP guides</Link>
+            <Button href="/learn" variant="primary" size="md">Explore XRP guides</Button>
           </div>
         </section>
       </main>

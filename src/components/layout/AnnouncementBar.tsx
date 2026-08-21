@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
           <span className="sm:hidden">Independent XRP reference</span>
           <span className="hidden sm:inline">Independent XRP research, guides, and live data</span>
         </div>
-        <Link href="/editorial" className="shrink-0 font-medium text-text-primary transition-colors hover:text-xrp-accent">
+        <Link href="/editorial" className="shrink-0 font-[650] text-ink transition-colors duration-150 hover:text-cobalt">
           Our standards
         </Link>
       </div>

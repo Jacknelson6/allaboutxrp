@@ -39,7 +39,7 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-primary pb-[env(safe-area-inset-bottom)]" role="contentinfo">
+    <footer className="border-t border-hairline bg-paper pb-[env(safe-area-inset-bottom)]" role="contentinfo">
       <div className="site-container py-14 sm:py-18">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <div className="max-w-md">
@@ -49,7 +49,10 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-7 text-text-secondary">
               Independent, source-led education, reporting, data, and tools for understanding XRP and the XRP Ledger.
             </p>
-            <Link href="/editorial" className="text-link mt-4 text-sm">
+            <Link
+              href="/editorial"
+              className="mt-4 inline-flex min-h-11 items-center gap-1.5 font-sans text-sm font-[650] text-ink underline decoration-transparent decoration-1 underline-offset-4 transition-colors duration-150 hover:text-cobalt hover:decoration-current"
+            >
               How we verify information <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -57,11 +60,11 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
             {footerSections.map((section) => (
               <nav key={section.title} aria-label={`${section.title} links`}>
-                <h2 className="font-sans text-sm font-semibold text-text-primary">{section.title}</h2>
+                <h2 className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-text-secondary">{section.title}</h2>
                 <ul className="mt-4 space-y-2">
                   {section.links.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="inline-flex min-h-9 items-center text-sm text-text-secondary transition-colors hover:text-text-primary">
+                      <Link href={link.href} className="inline-flex min-h-9 items-center text-sm text-text-secondary transition-colors duration-150 hover:text-cobalt">
                         {link.label}
                       </Link>
                     </li>
@@ -72,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-surface-border pt-6">
+        <div className="mt-12 border-t border-hairline pt-6">
           <div className="flex flex-col gap-3 text-xs leading-6 text-text-secondary lg:flex-row lg:items-start lg:justify-between">
             <p>© {new Date().getFullYear()} AllAboutXRP.com</p>
             <p className="max-w-3xl lg:text-right">

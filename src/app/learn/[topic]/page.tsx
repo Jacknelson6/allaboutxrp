@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
+import { DataList, SectionHeader } from "@/components/ui";
 import { getLearnHub, LEARN_HUBS, titleFromSlug } from "@/data/learn-hubs";
 import AuthorByline from "@/components/shared/AuthorByline";
 
@@ -68,52 +69,57 @@ export default async function LearnTopicPage({ params }: Props) {
   return (
     <>
       {schemas.map((schema, index) => <SEOSchema key={index} schema={schema} />)}
-      <main className="bg-surface-primary">
-        <header className="border-b border-surface-border">
-          <div className="site-container py-14 sm:py-20">
-            <nav aria-label="Breadcrumb" className="mb-7 text-sm text-text-secondary">
-              <Link href="/" className="py-3 transition-colors hover:text-text-primary">Home</Link>
+      <main className="bg-paper">
+        <header className="border-b border-hairline">
+          <div className="site-container py-12 sm:py-16">
+            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
+              <Link href="/" className="py-3 transition-colors duration-150 hover:text-cobalt">Home</Link>
               <span className="mx-2" aria-hidden="true">/</span>
-              <Link href="/learn" className="py-3 transition-colors hover:text-text-primary">Learn</Link>
+              <Link href="/learn" className="py-3 transition-colors duration-150 hover:text-cobalt">Learn</Link>
               <span className="mx-2" aria-hidden="true">/</span>
-              <span className="text-text-primary">{hub.shortTitle}</span>
+              <span className="text-ink">{hub.shortTitle}</span>
             </nav>
-            <p className="editorial-kicker">Guided learning path</p>
-            <h1 className="mt-5 max-w-4xl text-[clamp(3rem,7vw,5.5rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-text-primary">
+            <p className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-cobalt">Guided learning path</p>
+            <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.5rem,6vw,4.25rem)] leading-[0.98] font-normal text-ink">
               {hub.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-text-secondary">{hub.description}</p>
+            <p className="mt-5 max-w-3xl text-base leading-7 text-text-secondary">{hub.description}</p>
             <div className="mt-6"><AuthorByline date="2026-07-29" modified="2026-08-08" /></div>
           </div>
         </header>
 
-        <section className="site-container border-b border-surface-border py-10 sm:py-14" aria-labelledby="direct-answer-heading">
-          <div className="grid gap-5 lg:grid-cols-[0.34fr_1fr]">
-            <h2 id="direct-answer-heading" className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-xrp-accent-bright">
+        <section className="border-b border-hairline bg-paper-muted" aria-labelledby="direct-answer-heading">
+          <div className="site-container grid gap-5 py-10 sm:py-12 lg:grid-cols-[0.34fr_1fr]">
+            <h2 id="direct-answer-heading" className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-cobalt">
               Start here
             </h2>
-            <p className="max-w-4xl text-xl leading-9 text-text-primary sm:text-2xl">{hub.answer}</p>
+            <p className="max-w-4xl font-display text-xl leading-9 font-normal text-ink sm:text-2xl">{hub.answer}</p>
           </div>
         </section>
 
-        <section className="site-container section-shell" aria-labelledby="guides-heading">
-          <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">
-            <div>
-              <h2 id="guides-heading" className="text-3xl text-text-primary">Guides in this path</h2>
-              <p className="mt-3 text-sm leading-6 text-text-secondary">Read in order for a structured introduction, or open the question you need answered.</p>
-            </div>
-            <ol className="divide-y divide-surface-border border-y border-surface-border">
-              {hub.guides.map((slug, index) => (
-                <li key={slug}>
-                  <Link href={`/learn/${slug}`} className="group grid min-h-20 grid-cols-[2rem_1fr_auto] items-center gap-3 py-4 transition-colors hover:bg-white/[0.02] sm:px-3">
-                    <span className="font-mono text-xs text-text-secondary">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="font-semibold text-text-primary transition-colors group-hover:text-xrp-accent-bright">{titleFromSlug(slug)}</span>
-                    <ArrowUpRight className="h-4 w-4 text-text-secondary transition-colors group-hover:text-xrp-accent" aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
+        <section className="site-container py-12 sm:py-16" aria-labelledby="guides-heading">
+          <SectionHeader
+            eyebrow="Guide index"
+            title={<span id="guides-heading">Guides in this path</span>}
+          />
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-text-secondary">
+            Read in order for a structured introduction, or open the question you need answered.
+          </p>
+          <DataList ariaLabel="Guides in this learning path" className="mt-6">
+            {hub.guides.map((slug, index) => (
+              <li key={slug}>
+                <Link href={`/learn/${slug}`} className="group grid min-h-[3.5rem] grid-cols-[2rem_1fr_auto] items-center gap-3 py-4">
+                  <span className="font-sans text-xs font-[650] tabular-nums text-text-secondary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-base leading-snug font-normal text-ink transition-colors duration-150 group-hover:text-cobalt sm:text-lg">
+                    {titleFromSlug(slug)}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-text-secondary transition-colors duration-150 group-hover:text-cobalt" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </DataList>
         </section>
       </main>
     </>

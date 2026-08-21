@@ -419,7 +419,7 @@ h1 { font-weight: 780; }
 }
 
 .trust-bar {
-  border-bottom: 1px solid rgba(37, 34, 29, 0.1);
+  border-bottom: 1px solid var(--color-hairline);
   background: #fbfaf7;
 }
 

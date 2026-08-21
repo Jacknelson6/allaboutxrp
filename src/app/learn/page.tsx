@@ -10,6 +10,7 @@ import {
   WalletCards,
 } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
+import { Button, Card, DataList, SectionHeader } from "@/components/ui";
 import { LEARN_HUBS } from "@/data/learn-hubs";
 
 type Guide = {
@@ -125,61 +126,92 @@ export default function LearnPage() {
   return (
     <>
       <SEOSchema schema={collectionSchema} />
-      <div className="bg-surface-primary">
-        <header className="homepage-hero overflow-hidden border-b border-surface-border">
-          <div className="site-container grid gap-10 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div className="bg-paper">
+        <header className="border-b border-hairline bg-paper">
+          <div className="site-container grid gap-8 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
-              <nav aria-label="Breadcrumb" className="mb-6 text-sm text-text-secondary">
-                <Link href="/" className="min-h-11 py-3 transition-colors hover:text-text-primary">Home</Link>
+              <nav aria-label="Breadcrumb" className="mb-5 text-sm text-text-secondary">
+                <Link href="/" className="inline-flex min-h-11 items-center transition-colors duration-150 hover:text-cobalt">Home</Link>
                 <span className="mx-2" aria-hidden="true">/</span>
-                <span className="text-text-primary">Learn</span>
+                <span className="text-ink">Learn</span>
               </nav>
-              <p className="text-sm font-semibold text-xrp-accent-bright">XRP learning center</p>
-              <h1 className="mt-5 max-w-3xl text-[clamp(3.25rem,7vw,4.75rem)] leading-[0.98] text-text-primary">
+              <p className="font-sans text-xs font-[650] uppercase tracking-[0.04em] text-cobalt">XRP learning center</p>
+              <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.5rem,6vw,4rem)] leading-[0.98] font-normal text-ink">
                 Understand XRP from first principles.
               </h1>
             </div>
-            <div className="max-w-xl lg:pb-2">
-              <p className="text-lg leading-8 text-text-secondary">
+            <div className="max-w-xl lg:pb-1">
+              <p className="text-base leading-7 text-text-secondary">
                 Follow a structured path through XRP, the XRP Ledger, Ripple, custody, and risk. Every core guide
                 begins with a direct answer and points to sources you can inspect.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/learn/what-is-xrp" className="btn-primary px-5">Begin with XRP</Link>
-                <Link href="/answers" className="btn-secondary px-5">Browse quick answers</Link>
+                <Button href="/learn/what-is-xrp" variant="primary" size="md">Begin with XRP</Button>
+                <Button href="/answers" variant="secondary" size="md">Browse quick answers</Button>
               </div>
             </div>
           </div>
         </header>
 
         <section className="site-container py-12 sm:py-16" aria-labelledby="featured-guides-heading">
-          <div className="flex items-end justify-between gap-6 border-b border-surface-border pb-5"><h2 id="featured-guides-heading" className="text-3xl text-text-primary">Essential guides</h2><span className="text-xs text-text-secondary">Built for a complete first read</span></div>
-          <div className="editorial-cover-grid mt-8">
-            {featuredGuides.map((guide) => <Link key={guide.href} href={guide.href} className="editorial-cover group"><span className="editorial-cover-image"><Image src={guide.image} alt={guide.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" /></span><span className="editorial-cover-meta"><span>ULTIMATE GUIDE</span><strong>{guide.title}</strong></span></Link>)}
+          <SectionHeader
+            eyebrow="Essential guides"
+            title={<span id="featured-guides-heading">Built for a complete first read</span>}
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            {featuredGuides.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="group block">
+                <span className="relative block aspect-[16/9] w-full overflow-hidden border border-hairline bg-paper-muted transition-colors duration-150 group-hover:border-ink">
+                  <Image src={guide.image} alt={guide.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+                </span>
+                <span className="mt-3 block font-sans text-xs font-[650] uppercase tracking-[0.04em] text-text-secondary">
+                  Ultimate guide
+                </span>
+                <span className="mt-1.5 block font-display text-lg leading-snug font-normal text-ink transition-colors duration-150 group-hover:text-cobalt">
+                  {guide.title}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
-        <section className="border-b border-surface-border bg-surface-card" aria-labelledby="paths-heading">
-          <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-            <div>
-              <p className="text-sm font-semibold text-xrp-accent-bright">Complete library</p>
-              <h2 id="paths-heading" className="mt-5 text-4xl text-text-primary sm:text-5xl">Choose a learning path</h2>
-              <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">
-                Seven topic hubs organize every indexable guide, giving readers and search crawlers a direct route through the full library.
-              </p>
+        <section className="border-y border-hairline bg-paper-muted" aria-labelledby="paths-heading">
+          <div className="site-container py-12 sm:py-16">
+            <SectionHeader
+              eyebrow="Complete library"
+              title={<span id="paths-heading">Choose a learning path</span>}
+            />
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-text-secondary">
+              Seven topic hubs organize every indexable guide, giving readers and search crawlers a direct route
+              through the full library.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {LEARN_HUBS.map((hub, index) => (
+                <Card
+                  key={hub.slug}
+                  href={`/learn/${hub.slug}`}
+                  variant="default"
+                  eyebrow={`Path ${String(index + 1).padStart(2, "0")}`}
+                  title={hub.title}
+                  meta={<span className="tabular-nums">{hub.guides.length} guides</span>}
+                >
+                  <p className="text-sm leading-6 text-text-secondary">{hub.description}</p>
+                </Card>
+              ))}
             </div>
-            <GuideList guides={topicHubs} />
           </div>
         </section>
 
-        <section className="site-container section-shell" aria-labelledby="foundations-heading">
+        <section className="site-container py-12 sm:py-16" aria-labelledby="foundations-heading">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
+              <div className="flex h-11 w-11 items-center justify-center border border-hairline text-cobalt">
                 <BookOpen className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
               </div>
-              <h2 id="foundations-heading" className="mt-5 text-4xl text-text-primary sm:text-5xl">XRP foundations</h2>
-              <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">
+              <h2 id="foundations-heading" className="mt-5 font-display text-3xl leading-tight font-normal text-ink">
+                XRP foundations
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-6 text-text-secondary">
                 These guides establish the vocabulary and distinctions needed for every deeper topic.
               </p>
             </div>
@@ -187,35 +219,46 @@ export default function LearnPage() {
           </div>
         </section>
 
-        <div className="border-t border-surface-border">
+        <div className="border-t border-hairline">
           {clusters.map((cluster, index) => (
-            <section key={cluster.id} id={cluster.id} className={index % 2 === 0 ? "bg-surface-card" : "bg-surface-primary"} aria-labelledby={`${cluster.id}-heading`}>
-              <div className="site-container section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-                <div>
-                  <div className="flex h-11 w-11 items-center justify-center border border-surface-border text-xrp-accent">
-                    <cluster.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
+            <section
+              key={cluster.id}
+              id={cluster.id}
+              className={index % 2 === 0 ? "border-b border-hairline bg-paper-muted" : "border-b border-hairline bg-paper"}
+              aria-labelledby={`${cluster.id}-heading`}
+            >
+              <div className="site-container py-12 sm:py-16">
+                <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div>
+                    <div className="flex h-11 w-11 items-center justify-center border border-hairline text-cobalt">
+                      <cluster.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
+                    </div>
+                    <h2 id={`${cluster.id}-heading`} className="mt-5 font-display text-2xl leading-tight font-normal text-ink sm:text-3xl">
+                      {cluster.title}
+                    </h2>
+                    <p className="mt-4 max-w-md text-sm leading-6 text-text-secondary">{cluster.description}</p>
                   </div>
-                  <h2 id={`${cluster.id}-heading`} className="mt-5 text-3xl text-text-primary sm:text-4xl">{cluster.title}</h2>
-                  <p className="mt-4 max-w-md text-base leading-7 text-text-secondary">{cluster.description}</p>
+                  <GuideList guides={cluster.guides} />
                 </div>
-                <GuideList guides={cluster.guides} />
               </div>
             </section>
           ))}
         </div>
 
-        <section className="border-y border-surface-border bg-surface-elevated">
-          <div className="site-container grid gap-8 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
+        <section className="bg-paper-muted">
+          <div className="site-container grid gap-7 py-12 sm:grid-cols-[1fr_auto] sm:items-center">
             <div className="max-w-2xl">
-              <ShieldCheck className="h-6 w-6 text-xrp-accent" aria-hidden="true" />
-              <h2 className="mt-4 text-3xl text-text-primary">See the evidence behind the explanation.</h2>
+              <ShieldCheck className="h-6 w-6 text-cobalt" aria-hidden="true" />
+              <h2 className="mt-4 font-display text-2xl leading-tight font-normal text-ink sm:text-3xl">
+                See the evidence behind the explanation.
+              </h2>
               <p className="mt-3 text-sm leading-6 text-text-secondary">
                 Review the primary sources, editorial process, and correction standards used across AllAboutXRP.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href="/learn/trusted-sources" className="btn-primary px-5">Trusted sources</Link>
-              <Link href="/editorial" className="btn-secondary px-5">Editorial standards</Link>
+              <Button href="/learn/trusted-sources" variant="primary" size="md">Trusted sources</Button>
+              <Button href="/editorial" variant="secondary" size="md">Editorial standards</Button>
             </div>
           </div>
         </section>
@@ -226,18 +269,26 @@ export default function LearnPage() {
 
 function GuideList({ guides }: { guides: Guide[] }) {
   return (
-    <ul className="divide-y divide-surface-border border-y border-surface-border">
+    <DataList ariaLabel="Guides in this section">
       {guides.map((guide) => (
         <li key={guide.href}>
-          <Link href={guide.href} className="group grid min-h-24 gap-3 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[1fr_auto] sm:items-start sm:gap-4 sm:px-3">
+          <Link
+            href={guide.href}
+            className="group grid min-h-[4.5rem] gap-3 py-4 sm:grid-cols-[1fr_auto] sm:items-start sm:gap-4"
+          >
             <span>
-              <span className="block text-lg font-semibold text-text-primary transition-colors group-hover:text-xrp-accent-bright">{guide.title}</span>
+              <span className="block font-display text-lg leading-snug font-normal text-ink transition-colors duration-150 group-hover:text-cobalt">
+                {guide.title}
+              </span>
               <span className="mt-1 block text-sm leading-6 text-text-secondary">{guide.description}</span>
             </span>
-            <ArrowUpRight className="hidden h-4 w-4 text-text-secondary transition-colors group-hover:text-xrp-accent sm:block" aria-hidden="true" />
+            <ArrowUpRight
+              className="hidden h-4 w-4 shrink-0 text-text-secondary transition-colors duration-150 group-hover:text-cobalt sm:block"
+              aria-hidden="true"
+            />
           </Link>
         </li>
       ))}
-    </ul>
+    </DataList>
   );
 }
