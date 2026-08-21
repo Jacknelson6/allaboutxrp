@@ -186,3 +186,37 @@ Every article and major guide receives one original 16:9 image. Each image must 
 - **Don't** repeat a Greek coast, temple, harbor, bank, terrace, or hero composition merely to preserve style.
 - **Don't** use hard-coded black page sections inside the light theme or hard-coded white text outside deliberate dark data instruments.
 - **Don't** add daily recap archives, newsletter conversion modules, donation prompts, or paid-conversion surfaces.
+
+## Design Foundation Primitives (`src/components/ui/`)
+
+A shared, composable primitive layer for the FT/Bloomberg-print-density pass. These are the only building blocks pages should reach for before writing bespoke markup; a later pass rebuilds the homepage on top of them. All are sharp-cornered, shadow-free, and theme-aware (light/dark tokens both resolve to the correct DESIGN.md palette).
+
+### Tokens added to `src/styles/globals.css`
+
+Short, flat-identity aliases, declared once in `@theme` (light default) and overridden per theme in the existing `:root` / `html[data-theme="dark"]` blocks, following the same pattern already used for `--color-xrp-accent`:
+
+| Token | Light | Dark | Utility classes |
+| --- | --- | --- | --- |
+| `--color-ink` | `#090B10` | `#F4F6F8` | `bg-ink`, `text-ink`, `border-ink` |
+| `--color-paper` | `#FFFFFF` | `#090B10` | `bg-paper`, `text-paper`, `border-paper` |
+| `--color-paper-muted` | `#F6F7F8` | `#171C24` | `bg-paper-muted` |
+| `--color-secondary` | `#5C626B` | `#ABB2BD` | `text-secondary` (existing `text-text-secondary` also still works) |
+| `--color-hairline` | `#D9D9D9` | `#2B3038` | `border-hairline`, `divide-hairline` |
+| `--color-cobalt` / `--color-cobalt-dark` | `#176F92` / `#105672` | `#69B8F4` / `#86C9FB` | `bg-cobalt`, `text-cobalt`, `border-cobalt`, `-dark` variants for hover/press |
+| `--color-positive` | `#1E7D5B` | `#3FAE82` | `text-positive`, `bg-positive` |
+| `--color-negative` | `#B33A46` | `#FF7B86` | `text-negative`, `bg-negative` |
+
+Also added: `--animate-marquee` + `@keyframes marquee` (used by `TickerTape`; frozen automatically under `motion-reduce:` via Tailwind's built-in variant, no extra CSS needed). Tabular figures use Tailwind's built-in `tabular-nums` utility — no new token required. Spacing rhythm relies on Tailwind's default 4px scale; no new spacing tokens were needed.
+
+### Primitives
+
+- **`cn(...)`** (`ui/cn.ts`) — dependency-free classname joiner (no clsx/tailwind-merge) used by every primitive below.
+- **`Button`** — variants `primary | secondary | accent | quiet`; sizes `sm | md | lg` (all ≥44px tall); renders `<a>` when `href` is passed, else `<button>`; `active:translate-y-px` press state; global 3px cobalt `:focus-visible` outline applies automatically.
+- **`Card`** — variants `default | muted | data`; optional `eyebrow`, `title`, `meta`; `href` or `interactive` turns on the hover affordance (border → ink, title → cobalt); never moves or shadows.
+- **`StatTile`** — `label` + big tabular-nums `value` + optional `delta`/`direction` (`up|down|flat` → green ▲ / red ▼ / neutral) + `meta`; sizes `sm | lg`.
+- **`SectionHeader`** — `eyebrow` + Baskerville `title` + optional `href`/`linkLabel` ("View all →"), sitting on a hairline rule.
+- **`TickerTape`** — data-agnostic `items: {id,label,value,delta?,direction?}[]`; CSS-only marquee, pauses on hover, sits still under reduced motion.
+- **`DataList` / `NewsListItem`** — hairline-divided `<ul>` of dense editorial rows: `timestamp`, `category`, `headline`, optional `thumbnailSrc`.
+- **`Badge`** — variants `outline | tonal | solid`; tones `neutral | cobalt | positive | negative`; uppercase label chip.
+
+Import from `src/components/ui` (barrel) or the individual files directly.

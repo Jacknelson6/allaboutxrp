@@ -81,6 +81,25 @@ All colors must use semantic tokens. Components may not hardcode a light or dark
 - Hidden focus states
 - Conversion-first newsletter, donation, affiliate, or sales patterns
 
+## Design foundation primitives
+
+`src/components/ui/` is the shared primitive layer implementers should reach for before writing bespoke markup — `Button`, `Card`, `StatTile`, `SectionHeader`, `TickerTape`, `DataList` / `NewsListItem`, `Badge`, plus a dependency-free `cn()` classname joiner. All are sharp-cornered, shadow-free, and built only from the theme tokens below (light and dark both resolve correctly, so components never need a `data-theme` check of their own).
+
+`src/styles/globals.css` gained a short-name token layer for these primitives — declared in `@theme` with a light default, then overridden per theme in the existing `:root` / `html[data-theme="dark"]` blocks (same pattern already used for `--color-xrp-accent`):
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| `--color-ink` | `#090B10` | `#F4F6F8` |
+| `--color-paper` | `#FFFFFF` | `#090B10` |
+| `--color-paper-muted` | `#F6F7F8` | `#171C24` |
+| `--color-secondary` | `#5C626B` | `#ABB2BD` |
+| `--color-hairline` | `#D9D9D9` | `#2B3038` |
+| `--color-cobalt` / `--color-cobalt-dark` | `#176F92` / `#105672` | `#69B8F4` / `#86C9FB` |
+| `--color-positive` | `#1E7D5B` | `#3FAE82` |
+| `--color-negative` | `#B33A46` | `#FF7B86` |
+
+Also added: `--animate-marquee` / `@keyframes marquee` for `TickerTape` (auto-frozen under `prefers-reduced-motion` via Tailwind's `motion-reduce:` variant). See `DESIGN.md` for the full primitive API surface (props per component).
+
 ## Release checks
 
 - Test 375, 768, 1024, and 1440 pixel widths.

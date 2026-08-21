@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: PageProps) {
     "@context": "https://schema.org", "@type": "NewsArticle", "@id": `${url}#article`, headline: article.title, description: article.description,
     url, inLanguage: "en-US", image: { "@type": "ImageObject", url: image, width: imageWidth, height: imageHeight }, thumbnailUrl: image,
     datePublished: article.publishedAt, dateModified: article.modifiedAt, author: accountablePublisher,
-    publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "AllAboutXRP", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/aaxrp-logo.png` } },
+    publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "AllAboutXRP", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-full.png`, width: 2000, height: 2000 } },
     mainEntityOfPage: { "@type": "WebPage", "@id": url }, articleSection: article.category, keywords: article.keywords.join(", "),
     about: article.keywords.map((keyword) => ({ "@type": "Thing", name: keyword })), wordCount: getArticleWords(article),
     citation: article.sources.map((source) => source.url), isAccessibleForFree: true,

@@ -19,6 +19,25 @@
   --color-warning: #f2b84b;
   --color-danger: #ff6673;
 
+  /* ------------------------------------------------------------------
+     DESIGN FOUNDATION TOKENS (helm/seo-design-overhaul)
+     Short, flat-identity aliases used by every src/components/ui/*
+     primitive. Light-mode default here matches DESIGN.md's fixed
+     palette exactly (ink #090B10, paper #FFFFFF, paper-muted #F6F7F8,
+     cobalt #176F92, positive #1E7D5B, negative #B33A46); the light/dark
+     theme blocks further down override the runtime value per theme,
+     same pattern already used for --color-xrp-accent etc. above.
+     ------------------------------------------------------------------ */
+  --color-ink: #090b10;
+  --color-paper: #ffffff;
+  --color-paper-muted: #f6f7f8;
+  --color-secondary: #5c626b;
+  --color-hairline: #d9d9d9;
+  --color-cobalt: #176f92;
+  --color-cobalt-dark: #105672;
+  --color-positive: #1e7d5b;
+  --color-negative: #b33a46;
+
   --font-sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Libre Baskerville", Georgia, serif;
   --font-editorial: "Libre Baskerville", Georgia, serif;
@@ -27,6 +46,7 @@
   /* Animations */
   --animate-fade-in: fade-in 0.4s ease;
   --animate-ticker: ticker 0.3s ease;
+  --animate-marquee: marquee 32s linear infinite;
 
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(8px); }
@@ -39,6 +59,10 @@
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 }
 
@@ -1567,6 +1591,17 @@ html[data-theme="light"] {
   --color-hero-copy: #090b10;
   --color-hero-muted: #5c626b;
   --hero-copy-scrim: rgba(255, 255, 255, 0.82);
+
+  /* Design foundation tokens — light (canonical, matches DESIGN.md exactly) */
+  --color-ink: #090b10;
+  --color-paper: #ffffff;
+  --color-paper-muted: #f6f7f8;
+  --color-secondary: #5c626b;
+  --color-hairline: #d9d9d9;
+  --color-cobalt: #176f92;
+  --color-cobalt-dark: #105672;
+  --color-positive: #1e7d5b;
+  --color-negative: #b33a46;
 }
 
 html:root[data-theme="dark"] {
@@ -1587,6 +1622,17 @@ html:root[data-theme="dark"] {
   --color-hero-copy: #f7f8f9;
   --color-hero-muted: #c5cbd2;
   --hero-copy-scrim: rgba(9, 11, 16, 0.72);
+
+  /* Design foundation tokens — dark (inverted, WCAG AA on --color-paper) */
+  --color-ink: #f4f6f8;
+  --color-paper: #090b10;
+  --color-paper-muted: #171c24;
+  --color-secondary: #abb2bd;
+  --color-hairline: #2b3038;
+  --color-cobalt: #69b8f4;
+  --color-cobalt-dark: #86c9fb;
+  --color-positive: #3fae82;
+  --color-negative: #ff7b86;
 }
 
 html[data-theme="light"] main,

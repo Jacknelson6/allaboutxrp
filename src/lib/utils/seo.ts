@@ -17,13 +17,6 @@ const publisher = {
   },
 };
 
-const author = {
-  "@type": "Organization",
-  "@id": `${SITE_URL}/#editorial`,
-  name: "AllAboutXRP",
-  url: `${SITE_URL}/editorial`,
-};
-
 const editorialReview = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#editorial`,
@@ -52,7 +45,7 @@ export function buildArticleSchema(opts: {
     url: opts.url,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
-    author,
+    author: accountablePublisher,
     accountablePerson: accountablePublisher,
     editor: editorialReview,
     reviewedBy: editorialReview,
@@ -79,7 +72,7 @@ export function buildHowToSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.url,
-    author,
+    author: accountablePublisher,
     accountablePerson: accountablePublisher,
     reviewedBy: editorialReview,
     publisher,

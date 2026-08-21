@@ -5,12 +5,16 @@ export async function GET() {
 
 AllAboutXRP is an independent publisher and is not affiliated with Ripple. Content is educational and is not financial, legal, or tax advice. Verify market prices, ledger parameters, balances, and legal developments with the primary source linked on the page.
 
+For a full, one-line-per-page index of every guide, article, and tool, see [llms-full.txt](https://allaboutxrp.com/llms-full.txt).
+
 ## Trust and editorial context
 
 - [Homepage](https://allaboutxrp.com/): XRP education, data references, and research tools.
+- [About AllAboutXRP](https://allaboutxrp.com/about): Mission, scope, and independence policy.
 - [Editorial standards](https://allaboutxrp.com/editorial): Sourcing, review, corrections, and independence policy.
+- [Accountable publisher](https://allaboutxrp.com/authors/jack-nelson): Jack Nelson, the publisher responsible for editorial standards and disclosures.
+- [Corrections log](https://allaboutxrp.com/corrections): Public record of material corrections.
 - [Trusted sources](https://allaboutxrp.com/learn/trusted-sources): Official documents and data sources used by the publisher.
-- [XRP answers](https://allaboutxrp.com/answers): Short answers with links to deeper guides and primary evidence.
 
 ## Learning paths
 
@@ -33,6 +37,24 @@ AllAboutXRP is an independent publisher and is not affiliated with Ripple. Conte
 - [How to buy XRP](https://allaboutxrp.com/learn/how-to-buy-xrp): A risk-aware purchase and custody process.
 - [XRP wallets](https://allaboutxrp.com/learn/xrp-wallets): Wallet types, custody tradeoffs, backups, destination tags, and reserves.
 - [XRP live chart](https://allaboutxrp.com/live-chart): Third-party market data and recent XRPL activity.
+
+## Answers
+
+- [XRP answers hub](https://allaboutxrp.com/answers): Short, direct answers with links to deeper guides and primary evidence.
+- [Is XRP a security?](https://allaboutxrp.com/answers/is-xrp-a-security): The current U.S. legal status of programmatic XRP sales.
+- [How to buy XRP safely](https://allaboutxrp.com/answers/how-to-buy-xrp-safely): Security practices, scam avoidance, and self-custody basics.
+- [Is XRP a good investment?](https://allaboutxrp.com/answers/is-xrp-a-good-investment): Utility, adoption, and risk factors, without guaranteed outcomes.
+
+## News
+
+- [XRP news](https://allaboutxrp.com/news): Dated reporting and analysis of XRP, Ripple, and XRP Ledger developments, each with cited primary and supporting sources.
+
+## Tools
+
+- [XRP tools](https://allaboutxrp.com/tools): Calculators, ledger trackers, and live data utilities with stated methodology.
+- [XRP profit calculator](https://allaboutxrp.com/tools/xrp-profit-calculator): Model profit, loss, and return from purchase price, exit price, and amount.
+- [XRP transaction fee calculator](https://allaboutxrp.com/tools/xrp-fee-calculator): Estimate XRP Ledger fee costs for one transaction or a batch.
+- [XRP holder distribution](https://allaboutxrp.com/holders): Major balances, known accounts, and concentration methodology.
 
 ## Citation guidance
 

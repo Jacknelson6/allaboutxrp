@@ -8,6 +8,7 @@ import SEOSchema from "@/components/shared/SEOSchema";
 import LayoutShell from "@/components/layout/LayoutShell";
 import { XRPPriceProvider } from "@/contexts/XRPPriceContext";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import { accountablePublisher, SITE_URL } from "@/lib/editorial";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-2BWKVQT4L5";
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -86,6 +87,27 @@ const websiteSchema = {
   ],
 };
 
+// Canonical, site-wide Organization entity. Rendered on every page so the
+// "@id" reference used by WebSite, Article, and NewsArticle schemas resolves
+// wherever those schemas appear. No official AllAboutXRP social profiles
+// currently exist, so `sameAs` is intentionally omitted rather than invented.
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://allaboutxrp.com/#organization",
+  name: "AllAboutXRP",
+  url: SITE_URL,
+  description: "Independent, source-led educational publisher covering XRP, the XRP Ledger, and Ripple.",
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/logo-full.png`,
+    width: 2000,
+    height: 2000,
+  },
+  foundingDate: "2026-02",
+  founder: accountablePublisher,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -105,7 +127,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
-        <SEOSchema schema={websiteSchema} />
+        <SEOSchema schema={[organizationSchema, websiteSchema]} />
         <XRPPriceProvider>
         <AnnouncementBar />
         <LayoutShell megaMenu={<MegaMenu />} footer={<Footer />}>
