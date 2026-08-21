@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import SEOSchema from "@/components/shared/SEOSchema";
 
 export const dynamic = "force-static";
 
@@ -17,9 +18,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/editorial" },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
+    { "@type": "ListItem", position: 2, name: "Editorial Standards", item: "https://allaboutxrp.com/editorial" },
+  ],
+};
+
 export default function EditorialPage() {
   return (
     <main id="main-content" className="min-h-screen bg-black">
+      <SEOSchema schema={breadcrumbSchema} />
       <article className="mx-auto max-w-3xl px-5 py-16">
         <header className="mb-12">
           <h1 className="text-4xl font-bold text-white tracking-tight">

@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// This file is rendered with an HTTP 404 status automatically by Next.js.
+// The explicit noindex is belt-and-suspenders: it stops the page from
+// inheriting the root layout's default index:true robots directive.
+export const metadata: Metadata = {
+  title: "Page Not Found | AllAboutXRP",
+  description: "The page you're looking for doesn't exist or has been moved.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

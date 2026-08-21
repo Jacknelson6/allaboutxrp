@@ -28,7 +28,7 @@ const canonical = "https://allaboutxrp.com/learn/altcoins-2026";
 export const metadata: Metadata = {
   title: "The Ultimate Guide to Altcoins in 2026: Research Without Hype",
   description: "Learn how to research altcoins in 2026 using token utility, usage, security, control, dilution, liquidity, and disclosure. Includes a free evidence scorecard.",
-  alternates: { canonical },
+  alternates: { canonical: canonical },
   openGraph: {
     title: "The Ultimate Guide to Altcoins in 2026 | AllAboutXRP",
     description: "A practical, evidence-first method for researching altcoins without relying on price targets or sponsored rankings.",

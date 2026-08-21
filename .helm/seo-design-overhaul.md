@@ -13,7 +13,7 @@ Route: 3 helm: multi-chunk audit + redesign with design judgment and independent
 Worktree: /Users/jack/Claude Code Projects/allaboutxrp-helm (branch helm/seo-design-overhaul off origin/main @ 9faea90)
 Baseline: build green; all 5 SEO/design gates green; lint 63 errors pre-existing; seo:audit shows 258 pages, 243 withMetadata, 240 withCanonical, 231 withSchema (gap to investigate).
 ## Chunks
-- [ ] 1. SEO hardening — investigate metadata/canonical/schema coverage gap (258 vs 243/240/231), verify noindex set matches intent, robots/sitemap refinements, any 404/redirect fixes. Acceptance: gates green + gap explained or closed in a written note.
+- [x] 1. SEO hardening — investigate metadata/canonical/schema coverage gap (258 vs 243/240/231), verify noindex set matches intent, robots/sitemap refinements, any 404/redirect fixes. Acceptance: gates green + gap explained or closed in a written note.
 - [ ] 2. AEO/GEO push — llms.txt review/expansion, JSON-LD validation + enrichment (Organization sameAs, author Person schema, article schema completeness), llms-full.txt if warranted. Acceptance: check #4 passes + diff review.
 - [ ] 3. Design foundation — upgraded tokens in globals.css + premium primitives (Button, Card, StatTile/DataBar, SectionHeader, ticker styling) in src/components/ui. Acceptance: build green, design:audit green, primitives exported and documented.
 - [ ] 4. Homepage redesign — compose market-data band, hero, top-stories grid, education pathways, tools strip, FAQ using chunk-3 primitives. Acceptance: check #5, advisor screenshot review.
@@ -22,3 +22,4 @@ Baseline: build green; all 5 SEO/design gates green; lint 63 errors pre-existing
 - Scout: repo map (haiku explore) — site already strong on technical SEO; gap: metadata coverage 243/258, canonical 240, schema 231. Homepage is dark editorial research page; needs news-forward premium density.
 - Baseline gates: build green, seo:audit/sitemap/redirects/news:validate/design:audit all green, lint 63 pre-existing errors (out of scope).
 - Dispatched parallel wave 1 (sonnet x3): chunk 1 SEO hardening, chunk 2 AEO/GEO, chunk 3 design foundation. Awaiting results.
+- Chunk 1 ACCEPTED (sonnet, 1 attempt, ~173k tokens): 6 real gaps fixed (breadcrumb schema x3, 404 noindex, thanks canonical, sitemap modifiedAt lastmod); coverage counts mostly audit-regex false positives (metadata lives in sibling layout.tsx / shared AnswerPageLayout / re-exports). Gates: canonical 240→242, schema 231→234, zero failures. Noted (not fixed, fine): dead-code routes /get-started /live /charts /etf intercepted by redirects; stale comment in published-content.ts; www-normalization handled at Netlify DNS layer.

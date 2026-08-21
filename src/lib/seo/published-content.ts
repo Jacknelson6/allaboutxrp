@@ -5,6 +5,7 @@ export interface PublishedNewsEntry {
   slug: string;
   title: string;
   publishedAt: string;
+  modifiedAt: string;
 }
 
 /**
@@ -17,5 +18,6 @@ export const getPublishedNewsEntries = cache(async (): Promise<PublishedNewsEntr
     slug: article.slug,
     title: article.title,
     publishedAt: article.publishedAt,
+    modifiedAt: article.modifiedAt,
   }));
 });

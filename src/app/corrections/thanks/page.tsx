@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Correction Received | AllAboutXRP",
   description: "Confirmation that AllAboutXRP received a correction report.",
+  alternates: { canonical: "https://allaboutxrp.com/corrections/thanks" },
   robots: { index: false, follow: true },
 };
 

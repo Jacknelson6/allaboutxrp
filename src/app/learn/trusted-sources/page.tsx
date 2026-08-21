@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import SEOSchema from "@/components/shared/SEOSchema";
 
 interface Source {
   name: string;
@@ -34,12 +35,23 @@ const sources: Source[] = [
 
 const categories = ["All", "Official & Core", "Legal & Regulatory", "News & Media", "XRPL Tools", "Analytics & Data"];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://allaboutxrp.com" },
+    { "@type": "ListItem", position: 2, name: "Learn", item: "https://allaboutxrp.com/learn" },
+    { "@type": "ListItem", position: 3, name: "Trusted Sources", item: "https://allaboutxrp.com/learn/trusted-sources" },
+  ],
+};
+
 export default function TrustedSourcesPage() {
   const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? sources : sources.filter((source) => source.category === filter);
 
   return (
     <main id="main-content" className="min-h-screen bg-surface-primary">
+      <SEOSchema schema={breadcrumbSchema} />
       <header className="border-b border-surface-border">
         <div className="site-container py-16 sm:py-24">
           <Link href="/learn" className="text-link text-sm"><ArrowLeft className="h-4 w-4" aria-hidden="true" />Learning center</Link>

@@ -194,10 +194,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })),
 
     // Substantial first-party news articles remain in the standard sitemap
-    // after they age out of the two-day Google News sitemap window.
+    // after they age out of the two-day Google News sitemap window. Use the
+    // article's modified date (not published date) so lastmod reflects the
+    // most recent edit, matching Google's crawl-freshness signal.
     ...publishedNews.map((article) => ({
       url: `${BASE_URL}/news/${article.slug}`,
-      lastModified: new Date(article.publishedAt),
+      lastModified: new Date(article.modifiedAt || article.publishedAt),
     })),
 
     // FAQ individual pages excluded — thin content, FAQ hub is canonical
