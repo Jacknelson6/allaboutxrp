@@ -1,5 +1,6 @@
 # Helm: allaboutxrp SEO/AEO/GEO audit + premium redesign
-Status: in progress
+Status: complete
+Status-note: All 6 chunks accepted, completion check passed in full on branch helm/seo-design-overhaul. Not merged/deployed — awaiting user go-ahead to ship to main (Netlify builds on push).
 Goal: Verify and harden the site's indexing/sitemap/noindex/404 posture, push AEO/GEO further, and redesign the landing page + core components to a premium editorial-financial standard (Yahoo Finance density, AllAboutXRP editorial identity).
 Completion check:
   1. `npm run build` exits 0 in the worktree.
@@ -18,9 +19,12 @@ Baseline: build green; all 5 SEO/design gates green; lint 63 errors pre-existing
 - [x] 3. Design foundation — upgraded tokens in globals.css + premium primitives (Button, Card, StatTile/DataBar, SectionHeader, ticker styling) in src/components/ui. Acceptance: build green, design:audit green, primitives exported and documented.
 - [x] 4. Homepage redesign — compose market-data band, hero, top-stories grid, education pathways, tools strip, FAQ using chunk-3 primitives. Acceptance: check #5, advisor screenshot review.
 - [x] 6. FAQ schema sync — ~70 learn pages where FAQPage JSON-LD lists fewer questions than the rendered FAQAccordion; single-source each page, add seo:faq gate. Acceptance: seo:faq exits 0, build green.
-- [ ] 5. Site-wide adoption — nav/footer/news index/learn hubs adopt new primitives for consistency. Acceptance: build + design:audit green, advisor diff + screenshot review.
+- [x] 5. Site-wide adoption — nav/footer/news index/learn hubs adopt new primitives for consistency. Acceptance: build + design:audit green, advisor diff + screenshot review.
 ## Log
 - Scout: repo map (haiku explore) — site already strong on technical SEO; gap: metadata coverage 243/258, canonical 240, schema 231. Homepage is dark editorial research page; needs news-forward premium density.
+- Chunk 5 ACCEPTED (sonnet, 1 attempt, ~193k tokens): news index, learn index+hubs, answers, tools, footer/megamenu/announcement typography aligned to new idiom; schemas/metadata byte-identical, internal links identical (2674, zero broken). Advisor visual review of /news, /learn, /tools passed.
+- COMPLETION CHECK PASSED: build exit 0; seo:audit/sitemap/redirects/news:validate/design:audit/seo:faq/seo:schema all zero failures; 12 key routes + sitemap/robots/llms/llms-full all 200; 30 sampled sitemap URLs all 200; JSON-LD 8/8 page types valid; homepage checklist + advisor screenshot review (desktop light/dark, mobile) passed.
+- Totals: advisor=claude-fable-5 (session, est ~120k output/review tokens) scout=haiku (unreported, est ~60k) implementers: chunk1=sonnet:172963 chunk2=sonnet:186354 chunk3=sonnet:176984(2 attempts) chunk4=opus:217336 chunk5=sonnet:193308 chunk6=sonnet:166394; subagent_total=1113339; attempts=7/6 chunks (1 revision, 0 escalations, 0 rejections); economics=savings (5 of 6 chunks on sonnet, advisor share ~10%)
 - Baseline gates: build green, seo:audit/sitemap/redirects/news:validate/design:audit all green, lint 63 pre-existing errors (out of scope).
 - Dispatched parallel wave 1 (sonnet x3): chunk 1 SEO hardening, chunk 2 AEO/GEO, chunk 3 design foundation. Awaiting results.
 - Chunk 2 ACCEPTED (sonnet, 1 attempt, ~186k tokens): Organization JSON-LD site-wide, Person author on article/howto schemas, publisher logo fix, llms.txt expanded, llms-full.txt created (203 guides + answers + tools + news with descriptions), schema-validate.mjs gate added (8/8 pages pass). sameAs correctly omitted (no real social URLs in repo). Surfaced 70-page FAQ schema/content mismatch → became chunk 6.
