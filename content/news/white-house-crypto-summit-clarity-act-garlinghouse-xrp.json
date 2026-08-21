@@ -1,0 +1,225 @@
+{
+  "slug": "white-house-crypto-summit-clarity-act-garlinghouse-xrp",
+  "title": "Trump's White House Crypto Summit Puts the CLARITY Act Center Stage, With Ripple at the Table",
+  "description": "President Trump hosted crypto and market executives, including Ripple's Brad Garlinghouse, on August 19 and pressed the Senate to pass the CLARITY Act. Here is what was said, who attended, and what it changes for XRP.",
+  "category": "Regulation",
+  "author": "Jack Nelson",
+  "publishedAt": "2026-08-21T10:30:00-05:00",
+  "modifiedAt": "2026-08-21T10:30:00-05:00",
+  "keywords": [
+    "White House crypto summit",
+    "CLARITY Act",
+    "Brad Garlinghouse",
+    "Ripple",
+    "XRP regulation",
+    "SEC",
+    "CFTC",
+    "Innovation Advisory Committee"
+  ],
+  "image": "/news/white-house-crypto-summit-editorial.webp",
+  "imageAlt": "Envoy staffs from many city-states gathered into one bronze stand before an open marble doorway at midday",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "council-doorway-envoy-staffs-convening",
+  "imageSetting": "A sunlit marble council forecourt with one open bronze-framed doorway",
+  "imageMetaphor": "Many distinct envoy staffs placed together in a single stand before one doorway, showing rival parties convening in one room without any staff yet crossing the threshold",
+  "imagePrompt": "A luminous classical oil painting of a marble council forecourt at midday: a single bronze stand holding many distinct envoy staffs of different heights and finials, placed before one open bronze-framed doorway with pale gold interior light. No staff has crossed the threshold. Fine translucent 1, 0, x ASCII contours in the sky and doorway shadow. Cobalt, ivory, pale gold palette with restrained vermilion. No people, no text, no coins, no legislature interiors, no voting stones, no gates from prior scenes.",
+  "keyTakeaways": [
+    "President Trump hosted crypto executives and regulators at a White House event on August 19, 2026, and publicly pressed Congress to pass a 'fair version' of the CLARITY Act.",
+    "Ripple CEO Brad Garlinghouse attended alongside executives from Coinbase, Gemini, and Polymarket, plus leaders from Nasdaq, NYSE, CME Group, and DTCC, with SEC Chairman Paul Atkins and CFTC Chairman Michael Selig.",
+    "The next day, the CFTC's new Innovation Advisory Committee, whose members include Garlinghouse, held its first meeting on crypto market structure, AI, and prediction markets.",
+    "The summit changes momentum and signaling, not law. The binding milestone remains the Senate's September 15 cloture vote on the motion to proceed to H.R. 3633."
+  ],
+  "sections": [
+    {
+      "heading": "What happened at the August 19 White House summit?",
+      "paragraphs": [
+        "President Donald Trump hosted a White House gathering of crypto-industry executives, traditional-market leaders, and financial regulators on August 19, 2026. According to CoinDesk's report from the event, the president used the meeting to press Congress to move on the Digital Asset Market Clarity Act, calling for a 'fair version' of the bill that has been stalled in the Senate since before the August recess.",
+        "The event was organized around the administration's digital-asset policy apparatus, with Patrick Witt, executive director of the President's Council of Advisers for Digital Assets, involved in convening the group. Reported discussion topics included market-structure legislation, tokenization of real-world assets, prediction markets, and regulatory safe harbors for on-chain markets.",
+        "This was a policy and signaling event, not a lawmaking one. No bill text changed, no agency rule was adopted, and no XRP-specific decision was made. Its significance is that the executive branch publicly spent political capital on the CLARITY Act less than a month before the Senate's scheduled September 15 procedural vote."
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event",
+        "https://coingape.com/white-house-crypto-summit-today-trump-meets-sec-cftc-amid-clarity-stall/",
+        "https://www.foxbusiness.com/technology/trump-crypto-meeting-signals-us-not-going-slow-down-bid-digital-asset-dominance-expert-says"
+      ]
+    },
+    {
+      "heading": "Who was in the room, and why the guest list matters",
+      "paragraphs": [
+        "Pre-event reporting, first surfaced by Politico and syndicated via Stocktwits, listed executives from Coinbase, Ripple, Polymarket, and Gemini alongside leaders from Nasdaq, NYSE, CME Group, DTCC, and Intercontinental Exchange. SEC Chairman Paul Atkins and CFTC Chairman Michael Selig were also expected, putting both market regulators in the same room as the firms they oversee.",
+        "Multiple post-event reports confirmed that Ripple CEO Brad Garlinghouse joined the meeting. For XRP readers, the composition matters more than any single attendee: the pairing of crypto-native firms with incumbent exchange, clearing, and depository operators is consistent with an agenda about integrating digital assets into regulated U.S. market infrastructure, which is exactly the territory the CLARITY Act's exchange, custody, and jurisdiction provisions would govern.",
+        "Attendance is not endorsement of any asset, and nothing reported from the meeting named XRP as a policy subject. The reasonable reading is narrower: Ripple currently has a seat in the rooms where U.S. market-structure policy is being negotiated, both at the White House and, as covered below, inside the CFTC's new advisory structure."
+      ],
+      "sourceUrls": [
+        "https://finance.yahoo.com/markets/crypto/articles/white-house-set-host-coinbase-090819371.html",
+        "https://coingape.com/white-house-crypto-summit-today-trump-meets-sec-cftc-amid-clarity-stall/",
+        "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event"
+      ]
+    },
+    {
+      "heading": "The CFTC's Innovation Advisory Committee debut on August 20",
+      "paragraphs": [
+        "One day after the summit, the CFTC's Innovation Advisory Committee held its inaugural meeting in Washington from 1:00 p.m. to 4:00 p.m. Eastern, with a public webcast. CFTC Chairman Michael S. Selig, the committee's sponsor, published the agenda in advance: the regulation of crypto assets, artificial intelligence in markets, and prediction markets, with the crypto session framed around the move from regulation-by-enforcement toward a comprehensive federal framework.",
+        "The committee's membership, disclosed through the CFTC and its Federal Register notice, draws heavily from the industry: reports identify Coinbase CEO Brian Armstrong, Ripple CEO Brad Garlinghouse, Gemini's Tyler Winklevoss, and executives from Kraken, Uniswap Labs, Solana Labs, Chainlink, Kalshi, CME Group, and Intercontinental Exchange among the members.",
+        "An advisory committee produces recommendations, not rules. But it is a durable channel: if the CLARITY Act passes and hands the CFTC a large share of digital-asset spot-market jurisdiction, this committee is one of the venues where implementation details, such as listing standards, custody expectations, and exemptions, will be debated with Ripple in a member's seat."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/PressRoom/PressReleases/9283-26",
+        "https://www.cftc.gov/PressRoom/PressReleases/9279-26",
+        "https://www.cftc.gov/About/AdvisoryCommittees/IAC",
+        "https://www.federalregister.gov/documents/2026/08/11/2026-16328/innovation-advisory-committee",
+        "https://www.cryptotimes.io/2026/08/20/live-cftc-innovation-advisory-committee-meeting/"
+      ]
+    },
+    {
+      "heading": "How did the XRP market react?",
+      "paragraphs": [
+        "XRP rose sharply in the sessions around the summit. Coinpedia reported an initial move of roughly 10% as news of Garlinghouse's attendance circulated, Benzinga reported broad market gains after the event with bitcoin trading near $74,000, and follow-on reports placed XRP's 24-hour gain in the mid-to-high teens as the rally extended. The exact percentage depends on the measurement window, so treat the range, not any single figure, as the fact.",
+        "The honest caveat is that nothing legally changed for XRP this week. A price move on a policy meeting is a repricing of expectations, in this case expectations that the CLARITY Act's odds improved because the White House publicly leaned on the Senate. Expectation-driven moves can reverse just as fast if the September procedural votes disappoint, which is why the dated milestones below matter more than the candlestick."
+      ],
+      "sourceUrls": [
+        "https://coinpedia.org/news/xrp-rises-10-as-garlinghouse-joins-trump-at-white-house-crypto-summit/",
+        "https://www.benzinga.com/crypto/cryptocurrency/26/08/61347954/bitcoin-74000-ethereum-xrp-dogecoin-trump-crypto-summit",
+        "https://www.cryptotimes.io/2026/08/21/xrp-price-surges-18-overnight-short-squeeze-whales-and-trump-meeting-fuel-rally/"
+      ]
+    },
+    {
+      "heading": "What actually changes for the CLARITY Act, and what should XRP readers watch?",
+      "paragraphs": [
+        "The legislative mechanics are unchanged: the Senate left for recess without voting on the bill and is scheduled to hold a cloture vote on the motion to proceed to H.R. 3633 on September 15 at 2:15 p.m. Eastern. That is a 60-vote procedural test, not passage. What the summit adds is public presidential pressure and a visible administration preference for getting a negotiated text through this fall.",
+        "Watch three things between now and mid-September. First, whether the White House push translates into a bipartisan deal on the disputed provisions, especially the ethics and conflict-of-interest language Senate Democrats have demanded. Second, whether a revised substitute text appears before the vote, since the text on the floor will matter more than any summit statement. Third, the September 15 roll call itself: 60 votes opens the path to floor debate, while a failed cloture vote would push the bill dangerously close to the midterm-campaign calendar."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+        "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event",
+        "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Whether the administration's pressure produces a revised, bipartisan CLARITY Act substitute before the Senate returns on September 14.",
+    "The September 15, 2026, cloture vote on the motion to proceed to H.R. 3633, and whether it reaches 60 votes.",
+    "Recommendations coming out of the CFTC Innovation Advisory Committee's crypto market-structure workstream, where Ripple holds a seat.",
+    "Whether any White House follow-up events or executive actions on digital assets are scheduled for September.",
+    "Whether XRP's summit-driven rally holds once expectations meet the actual procedural votes."
+  ],
+  "sources": [
+    {
+      "name": "CFTC: Chairman Selig Announces Agenda for August 20 Innovation Advisory Committee Meeting",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9283-26",
+      "publishedAt": "2026-08-18",
+      "type": "primary"
+    },
+    {
+      "name": "CFTC: Chairman Selig Announces Inaugural Innovation Advisory Committee Meeting on August 20",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9279-26",
+      "publishedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "name": "CFTC: Innovation Advisory Committee",
+      "url": "https://www.cftc.gov/About/AdvisoryCommittees/IAC",
+      "type": "primary"
+    },
+    {
+      "name": "Federal Register: Innovation Advisory Committee Meeting Notice",
+      "url": "https://www.federalregister.gov/documents/2026/08/11/2026-16328/innovation-advisory-committee",
+      "publishedAt": "2026-08-11",
+      "type": "primary"
+    },
+    {
+      "name": "United States Senate: Senate Floor Activity for August 7 and August 8, 2026",
+      "url": "https://www.senate.gov/legislative/LIS/floor_activity/08_07_2026_Senate_Floor.htm",
+      "publishedAt": "2026-08-08",
+      "type": "primary"
+    },
+    {
+      "name": "CoinDesk: Trump Pushes Congress to Move on Clarity Act During White House Crypto Event",
+      "url": "https://www.coindesk.com/policy/2026/08/19/trump-pushes-congress-to-move-on-clarity-act-during-white-house-crypto-event",
+      "publishedAt": "2026-08-19",
+      "type": "supporting"
+    },
+    {
+      "name": "Yahoo Finance / Stocktwits: White House Set to Host Coinbase, Ripple and Wall Street Executives",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/white-house-set-host-coinbase-090819371.html",
+      "publishedAt": "2026-08-17",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinGape: White House Crypto Summit Today: Trump Meets SEC, CFTC Amid CLARITY Stall",
+      "url": "https://coingape.com/white-house-crypto-summit-today-trump-meets-sec-cftc-amid-clarity-stall/",
+      "publishedAt": "2026-08-19",
+      "type": "supporting"
+    },
+    {
+      "name": "Fox Business: Trump Crypto Meeting Signals US Not Going to Slow Down Digital Asset Push",
+      "url": "https://www.foxbusiness.com/technology/trump-crypto-meeting-signals-us-not-going-slow-down-bid-digital-asset-dominance-expert-says",
+      "publishedAt": "2026-08-19",
+      "type": "supporting"
+    },
+    {
+      "name": "Coinpedia: XRP Rises 10% As Garlinghouse Joins Trump at White House Crypto Summit",
+      "url": "https://coinpedia.org/news/xrp-rises-10-as-garlinghouse-joins-trump-at-white-house-crypto-summit/",
+      "publishedAt": "2026-08-20",
+      "type": "supporting"
+    },
+    {
+      "name": "Benzinga: Bitcoin Hits $74,000, Ethereum, XRP, Dogecoin Advance After Trump-Hosted Crypto Summit",
+      "url": "https://www.benzinga.com/crypto/cryptocurrency/26/08/61347954/bitcoin-74000-ethereum-xrp-dogecoin-trump-crypto-summit",
+      "publishedAt": "2026-08-20",
+      "type": "supporting"
+    },
+    {
+      "name": "The Crypto Times: Live: CFTC Innovation Advisory Committee Meeting",
+      "url": "https://www.cryptotimes.io/2026/08/20/live-cftc-innovation-advisory-committee-meeting/",
+      "publishedAt": "2026-08-20",
+      "type": "supporting"
+    },
+    {
+      "name": "The Crypto Times: XRP Price Surges 18% Overnight",
+      "url": "https://www.cryptotimes.io/2026/08/21/xrp-price-surges-18-overnight-short-squeeze-whales-and-trump-meeting-fuel-rally/",
+      "publishedAt": "2026-08-21",
+      "type": "supporting"
+    },
+    {
+      "name": "ABA Banking Journal: Senate Adjourns With No Vote on Clarity Act",
+      "url": "https://bankingjournal.aba.com/2026/08/senate-adjourns-with-no-vote-on-clarity-act/",
+      "publishedAt": "2026-08-10",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "CLARITY Act Explained",
+      "href": "/learn/xrp-clarity-act",
+      "topic": "Legislation",
+      "description": "A plain-language guide to the bill, its market structure rules, and the remaining Senate process."
+    },
+    {
+      "label": "XRP and U.S. Regulation",
+      "href": "/learn/xrp-us-regulation",
+      "topic": "Regulation",
+      "description": "The agencies, statutes, court decisions, and policy questions that shape XRP in the United States."
+    },
+    {
+      "label": "How Regulatory Clarity Could Affect XRP",
+      "href": "/learn/xrp-regulatory-clarity-impact",
+      "topic": "Market structure",
+      "description": "What clearer rules could change for exchanges, institutions, liquidity, and XRP holders."
+    },
+    {
+      "label": "Brad Garlinghouse",
+      "href": "/learn/brad-garlinghouse",
+      "topic": "Leadership",
+      "description": "Ripple's CEO, his role in the SEC case, and his positions on U.S. crypto policy."
+    },
+    {
+      "label": "Crypto Regulation and Its Impact on XRP",
+      "href": "/learn/crypto-regulation-xrp-impact",
+      "topic": "Policy",
+      "description": "How legislation and agency rulemaking flow through to exchanges, custody, and XRP markets."
+    }
+  ]
+}
