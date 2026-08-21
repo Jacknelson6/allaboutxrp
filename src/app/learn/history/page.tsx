@@ -39,6 +39,14 @@ const categoryColors: Record<string, string> = {
   regulation: "border-danger/30 bg-danger/10 text-danger",
 };
 
+const faqItems = [
+  { q: "When was XRP created?", a: "Development of the XRP Ledger began in 2011. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis. The company OpenCoin (now Ripple) was founded in September 2012." },
+  { q: "What was XRP's all-time high price?", a: "XRP reached $3.84 on January 4, 2018, during the 2017-2018 crypto bull run. It briefly became the second-largest cryptocurrency by market capitalization." },
+  { q: "Who created XRP?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined to co-found the company." },
+  { q: "When did the SEC sue Ripple?", a: "The SEC filed suit on December 22, 2020. Judge Torres issued the landmark ruling on July 13, 2023, that XRP on exchanges is not a security. Ripple paid a $125M penalty in August 2024." },
+  { q: "How can I buy XRP today?", a: "XRP is available on all major exchanges including Coinbase, Uphold, and Kraken. See our step-by-step beginner guide at /how-to-start." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP History: Complete Ripple Timeline 2011-2026",
@@ -53,20 +61,7 @@ const schemas = [
     { name: "History & Timeline" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/history" }),
-  buildFAQSchema([
-    { question: "When was XRP created?", answer: "The XRP Ledger development began in 2011 by David Schwartz, Jed McCaleb, and Arthur Britto. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis." },
-    { question: "What was XRP's all-time high price?", answer: "XRP reached its all-time high of $3.84 on January 4, 2018, during the 2017-2018 crypto bull run." },
-    { question: "When did the SEC sue Ripple?", answer: "The SEC filed its lawsuit against Ripple on December 22, 2020. Judge Torres ruled in July 2023 that XRP on exchanges is not a security." },
-    { question: "Who created XRP?", answer: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto." },
-  ]),
-];
-
-const faqItems = [
-  { q: "When was XRP created?", a: "Development of the XRP Ledger began in 2011. The ledger went live on June 2, 2012, with all 100 billion XRP created at genesis. The company OpenCoin (now Ripple) was founded in September 2012." },
-  { q: "What was XRP's all-time high price?", a: "XRP reached $3.84 on January 4, 2018, during the 2017-2018 crypto bull run. It briefly became the second-largest cryptocurrency by market capitalization." },
-  { q: "Who created XRP?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Chris Larsen joined to co-found the company." },
-  { q: "When did the SEC sue Ripple?", a: "The SEC filed suit on December 22, 2020. Judge Torres issued the landmark ruling on July 13, 2023, that XRP on exchanges is not a security. Ripple paid a $125M penalty in August 2024." },
-  { q: "How can I buy XRP today?", a: "XRP is available on all major exchanges including Coinbase, Uphold, and Kraken. See our step-by-step beginner guide at /how-to-start." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 const eventsByYear = timelineData.reduce((acc: Record<number, typeof timelineData>, event) => {

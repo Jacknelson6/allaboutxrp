@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/why-is-xrp-so-cheap" },
 };
 
+const faqItems = [
+  { q: "Why is XRP so cheap compared to Bitcoin?", a: "XRP has nearly 5,000x more tokens than Bitcoin (100B vs 21M). When you spread the same market cap across 5,000x more tokens, the unit price is 5,000x lower. It's math, not value." },
+  { q: "Is XRP undervalued?", a: "That depends on your view of its future adoption. At ~$110B market cap, XRP is a top-5 crypto. Whether that's 'undervalued' depends on institutional adoption trajectory and utility growth." },
+  { q: "Can XRP reach Bitcoin's price?", a: "No. XRP at $50,000 would require a $2.9 quadrillion market cap — 30x global GDP. Compare market caps, not unit prices." },
+  { q: "Does XRP's supply keep the price down?", a: "Yes, by definition. Price = Market Cap ÷ Supply. With 58B tokens, even $580B market cap = only ~$10 per XRP." },
+  { q: "Will XRP's price go up?", a: "It depends on adoption, ETF approval, institutional demand, and market conditions. Positive catalysts exist but all crypto carries risk." },
+  { q: "Should I buy XRP because it's 'cheap'?", a: "A low unit price doesn't mean XRP is a bargain. Always evaluate based on market cap, utility, adoption trajectory, and risk — not per-unit price alone." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Why Is XRP So Cheap? Price vs Value Explained",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "Why Is XRP So Cheap?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/why-is-xrp-so-cheap" }),
-  buildFAQSchema([
-    { question: "Why is XRP so cheap compared to Bitcoin?", answer: "XRP's lower unit price is primarily due to its much larger supply. Bitcoin has 21 million coins; XRP has 100 billion — nearly 5,000x more tokens. When you spread the same market cap across 5,000x more tokens, the price per token is 5,000x lower. It's a math issue, not a value issue. XRP is actually the 4th-5th largest cryptocurrency by total market cap (~$110 billion)." },
-    { question: "Is XRP undervalued?", answer: "Whether XRP is 'undervalued' depends on your view of its future adoption. XRP's market cap is ~$110 billion, making it a top-5 cryptocurrency. Bulls argue that its institutional partnerships, regulatory clarity, and payment utility justify a higher valuation. Bears point to competition and supply concerns. The unit price being 'low' doesn't inherently mean it's undervalued." },
-    { question: "Can XRP reach the price of Bitcoin?", answer: "No, not realistically. For XRP to match Bitcoin's price (~$50,000+), its market cap would need to reach approximately $2.9 quadrillion — roughly 30x the entire global GDP. The supply difference makes per-unit price comparison meaningless. Compare market caps, not unit prices." },
-    { question: "Does XRP's large supply keep the price down?", answer: "Yes, by definition. Price = Market Cap ÷ Circulating Supply. With 58 billion tokens in circulation, even a massive market cap translates to a modest per-unit price. A $580 billion market cap (comparable to Ethereum's peak) would only make XRP worth ~$10." },
-    { question: "Will XRP's price go up?", answer: "XRP's price depends on adoption, regulatory developments, ETF approval, institutional demand, and broader crypto market conditions. Positive catalysts include growing ODL usage, XRP ETF applications, and increasing institutional partnerships. However, like all crypto assets, XRP carries risk and past performance doesn't guarantee future results." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Why is XRP so cheap compared to Bitcoin?", a: "XRP has nearly 5,000x more tokens than Bitcoin (100B vs 21M). When you spread the same market cap across 5,000x more tokens, the unit price is 5,000x lower. It's math, not value." },
-  { q: "Is XRP undervalued?", a: "That depends on your view of its future adoption. At ~$110B market cap, XRP is a top-5 crypto. Whether that's 'undervalued' depends on institutional adoption trajectory and utility growth." },
-  { q: "Can XRP reach Bitcoin's price?", a: "No. XRP at $50,000 would require a $2.9 quadrillion market cap — 30x global GDP. Compare market caps, not unit prices." },
-  { q: "Does XRP's supply keep the price down?", a: "Yes, by definition. Price = Market Cap ÷ Supply. With 58B tokens, even $580B market cap = only ~$10 per XRP." },
-  { q: "Will XRP's price go up?", a: "It depends on adoption, ETF approval, institutional demand, and market conditions. Positive catalysts exist but all crypto carries risk." },
-  { q: "Should I buy XRP because it's 'cheap'?", a: "A low unit price doesn't mean XRP is a bargain. Always evaluate based on market cap, utility, adoption trajectory, and risk — not per-unit price alone." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function WhyIsXRPSoCheapPage() {

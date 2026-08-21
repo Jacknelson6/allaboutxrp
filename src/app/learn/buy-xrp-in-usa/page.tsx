@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-in-usa" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal to buy in the USA?", a: "Yes. The SEC v Ripple ruling confirmed XRP sales on exchanges are not securities. All major US exchanges now support XRP." },
+  { q: "What is the best exchange to buy XRP in the US?", a: "Coinbase (all 50 states, easy), Kraken (best security), Uphold (never delisted XRP). Lowest fees: Coinbase Advanced (0.05%) or Kraken Pro (0.16%)." },
+  { q: "Do I have to pay taxes on XRP in the US?", a: "Yes. IRS treats crypto as property. Selling for profit triggers capital gains tax. Holding 1+ year qualifies for lower long-term rates (0-20%)." },
+  { q: "Are there state restrictions?", a: "Most states allow XRP. New York requires BitLicense (Coinbase/Bitstamp have it; Kraken doesn't). Some restrictions in Hawaii, Nevada." },
+  { q: "Can I buy XRP with a US bank account?", a: "Yes. Coinbase, Kraken, Uphold, Bitstamp all support free ACH deposits with 1-3 day settlement." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP in the USA: Complete Guide (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP in USA" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-in-usa" }),
-  buildFAQSchema([
-    { question: "Is XRP legal to buy in the USA?", answer: "Yes. XRP is fully legal to buy, sell, and hold in the United States. The SEC v Ripple ruling in 2023 confirmed that XRP sales on exchanges are not securities transactions. All major US exchanges now support XRP trading." },
-    { question: "What is the best exchange to buy XRP in the US?", answer: "Coinbase is the most popular choice (all 50 states, easy to use). Kraken offers the best security record. Uphold never delisted XRP. For lowest fees, use Coinbase Advanced Trade (0.05%) or Kraken Pro (0.16%)." },
-    { question: "Do I have to pay taxes on XRP in the US?", answer: "Yes. The IRS treats cryptocurrency as property. Selling XRP for profit triggers capital gains tax. Holding for more than 1 year qualifies for lower long-term capital gains rates (0-20%). You must report all crypto transactions on your tax return." },
-    { question: "Are there state restrictions for buying XRP?", answer: "Most states allow XRP trading on major exchanges. New York requires exchanges to hold a BitLicense (Coinbase and Bitstamp have one; Kraken doesn't). Some exchanges have restrictions in Hawaii, Nevada, and a few other states." },
-    { question: "Can I buy XRP with a US bank account?", answer: "Yes. Coinbase, Kraken, Uphold, and Bitstamp all support ACH bank transfers (usually free) and wire transfers. ACH deposits typically take 1-3 business days but many platforms allow instant trading while the deposit clears." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal to buy in the USA?", a: "Yes. The SEC v Ripple ruling confirmed XRP sales on exchanges are not securities. All major US exchanges now support XRP." },
-  { q: "What is the best exchange to buy XRP in the US?", a: "Coinbase (all 50 states, easy), Kraken (best security), Uphold (never delisted XRP). Lowest fees: Coinbase Advanced (0.05%) or Kraken Pro (0.16%)." },
-  { q: "Do I have to pay taxes on XRP in the US?", a: "Yes. IRS treats crypto as property. Selling for profit triggers capital gains tax. Holding 1+ year qualifies for lower long-term rates (0-20%)." },
-  { q: "Are there state restrictions?", a: "Most states allow XRP. New York requires BitLicense (Coinbase/Bitstamp have it; Kraken doesn't). Some restrictions in Hawaii, Nevada." },
-  { q: "Can I buy XRP with a US bank account?", a: "Yes. Coinbase, Kraken, Uphold, Bitstamp all support free ACH deposits with 1-3 day settlement." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPInUSAPage() {

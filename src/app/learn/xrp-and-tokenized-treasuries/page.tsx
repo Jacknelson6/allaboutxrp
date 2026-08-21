@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What are tokenized treasuries?", a: "Tokenized treasuries are US Treasury bonds represented as blockchain tokens. They let you buy, sell, and earn yield from government bonds 24/7 with instant settlement, fractional ownership, and global access." },
+  { q: "How does XRP relate to tokenized treasuries?", a: "XRPL is being used to issue and trade tokenized treasuries. Its native tokenization features (trust lines, MPTs), low fees, and institutional-grade compliance make it ideal for real-world asset tokenization." },
+  { q: "How big is this market?", a: "Tokenized treasuries exceeded $2 billion in 2025. Industry projections estimate the total tokenized asset market could reach $10-16 trillion by 2030, with treasuries being the largest segment." },
+  { q: "Why would this increase XRP's value?", a: "Tokenized treasuries on XRPL increase transaction volume, demonstrate institutional credibility, attract capital to the ecosystem, and drive demand for XRP as the native settlement currency." },
+  { q: "Is this different from RLUSD?", a: "Yes. RLUSD is a stablecoin pegged to the US dollar. Tokenized treasuries are yield-bearing instruments — you earn interest from the underlying government bonds. They serve complementary roles in the ecosystem." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished, dateModified: datePublished }),
   buildBreadcrumbSchema([
@@ -32,21 +40,7 @@ const schemas = [
     { name: "XRP & Tokenized Treasuries" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What are tokenized treasuries?", answer: "Tokenized treasuries are US Treasury bonds represented as digital tokens on a blockchain. They allow investors to buy, sell, and earn yield from government bonds 24/7, with instant settlement and fractional ownership." },
-    { question: "How does XRP relate to tokenized treasuries?", answer: "The XRP Ledger is being used to issue and trade tokenized treasuries. XRPL's native tokenization features, low fees, and fast settlement make it an attractive platform for real-world asset tokenization." },
-    { question: "How big is the tokenized treasury market?", answer: "The tokenized treasury market exceeded $2 billion in 2025 and is projected to reach $10+ trillion as traditional finance embraces blockchain-based settlement." },
-    { question: "Can I buy tokenized treasuries on XRPL?", answer: "Tokenized treasury products are beginning to launch on the XRP Ledger. Access may be limited to accredited investors initially, but broader availability is expected as regulations evolve." },
-    { question: "Why tokenize treasuries on blockchain?", answer: "Tokenization enables 24/7 trading, instant settlement (vs T+1), fractional ownership, global access, and composability with DeFi protocols — making treasuries more liquid and accessible." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are tokenized treasuries?", a: "Tokenized treasuries are US Treasury bonds represented as blockchain tokens. They let you buy, sell, and earn yield from government bonds 24/7 with instant settlement, fractional ownership, and global access." },
-  { q: "How does XRP relate to tokenized treasuries?", a: "XRPL is being used to issue and trade tokenized treasuries. Its native tokenization features (trust lines, MPTs), low fees, and institutional-grade compliance make it ideal for real-world asset tokenization." },
-  { q: "How big is this market?", a: "Tokenized treasuries exceeded $2 billion in 2025. Industry projections estimate the total tokenized asset market could reach $10-16 trillion by 2030, with treasuries being the largest segment." },
-  { q: "Why would this increase XRP's value?", a: "Tokenized treasuries on XRPL increase transaction volume, demonstrate institutional credibility, attract capital to the ecosystem, and drive demand for XRP as the native settlement currency." },
-  { q: "Is this different from RLUSD?", a: "Yes. RLUSD is a stablecoin pegged to the US dollar. Tokenized treasuries are yield-bearing instruments — you earn interest from the underlying government bonds. They serve complementary roles in the ecosystem." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndTokenizedTreasuriesPage() {

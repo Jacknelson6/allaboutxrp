@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Is XRP and Ripple the same thing?", a: "No! Ripple is a company (like Apple). XRP is a digital currency (like dollars, but digital). Ripple uses XRP in its products, but they're separate. You can use XRP without Ripple, and Ripple has products that don't use XRP." },
+  { q: "If I buy XRP, do I own part of Ripple?", a: "Absolutely not. Buying XRP gives you a digital currency. It does NOT give you ownership in Ripple. Ripple is a private company — its shares aren't available to the public (yet)." },
+  { q: "What does Ripple actually do?", a: "Ripple builds technology for banks and financial institutions to send money around the world. Its main products include RippleNet (payment network), ODL (on-demand liquidity using XRP), and RLUSD (a stablecoin)." },
+  { q: "Could XRP exist without Ripple?", a: "Yes. The XRP Ledger is decentralized open-source software maintained by a community of developers and validators. If Ripple disappeared, the ledger and XRP would continue operating." },
+  { q: "Why does Ripple matter for XRP's price?", a: "Ripple is the biggest company driving XRP adoption. When Ripple signs a new bank partner or launches a new product, it increases demand for XRP. Ripple's success is good for XRP, but they're still separate." },
+  { q: "Will Ripple do an IPO?", a: "Ripple has discussed a potential IPO (initial public offering). If they go public, you could buy Ripple stock separately from buying XRP. These would be two different investments." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -33,22 +42,7 @@ const schemas = [
     { name: "XRP vs Ripple" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Ripple?", answer: "Ripple is a technology company based in San Francisco. XRP is a digital currency that runs on the XRP Ledger. Ripple uses XRP in its products, but they are separate things — like how Google is a company and Gmail is a product." },
-    { question: "Is buying XRP the same as investing in Ripple?", answer: "No. When you buy XRP, you're buying a digital currency. You are NOT buying shares in Ripple the company. Ripple is a private company — you can't buy its stock on any exchange." },
-    { question: "Does Ripple control XRP?", answer: "No. Ripple contributes to the XRP Ledger and uses XRP in its products, but the XRP Ledger is decentralized and operates independently. If Ripple disappeared, XRP would continue to function." },
-    { question: "Why do people confuse XRP and Ripple?", answer: "Because Ripple is the most prominent company using XRP, and early on the terms were used interchangeably. Media coverage often says 'Ripple' when they mean 'XRP,' adding to the confusion." },
-    { question: "Does Ripple own a lot of XRP?", answer: "Yes. Ripple holds a significant amount of XRP, with most of it locked in escrow accounts that release a set amount monthly. This is publicly visible on the blockchain." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP and Ripple the same thing?", a: "No! Ripple is a company (like Apple). XRP is a digital currency (like dollars, but digital). Ripple uses XRP in its products, but they're separate. You can use XRP without Ripple, and Ripple has products that don't use XRP." },
-  { q: "If I buy XRP, do I own part of Ripple?", a: "Absolutely not. Buying XRP gives you a digital currency. It does NOT give you ownership in Ripple. Ripple is a private company — its shares aren't available to the public (yet)." },
-  { q: "What does Ripple actually do?", a: "Ripple builds technology for banks and financial institutions to send money around the world. Its main products include RippleNet (payment network), ODL (on-demand liquidity using XRP), and RLUSD (a stablecoin)." },
-  { q: "Could XRP exist without Ripple?", a: "Yes. The XRP Ledger is decentralized open-source software maintained by a community of developers and validators. If Ripple disappeared, the ledger and XRP would continue operating." },
-  { q: "Why does Ripple matter for XRP's price?", a: "Ripple is the biggest company driving XRP adoption. When Ripple signs a new bank partner or launches a new product, it increases demand for XRP. Ripple's success is good for XRP, but they're still separate." },
-  { q: "Will Ripple do an IPO?", a: "Ripple has discussed a potential IPO (initial public offering). If they go public, you could buy Ripple stock separately from buying XRP. These would be two different investments." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsRippleBeginnersPage() {

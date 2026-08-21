@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/escrow" },
 };
 
+const faqItems = [
+  { q: "How does Ripple's XRP escrow work?", a: "In 2017, Ripple locked 55 billion XRP into cryptographic escrow on the XRPL. Each month, 1 billion XRP unlocks automatically. Ripple can use or sell it, and any unused portion gets re-locked at the back of the queue." },
+  { q: "Does the escrow release hurt XRP's price?", a: "Minimal impact in practice. Ripple re-locks 80-90% of each release. The predictable schedule means markets have priced it in. Ripple's actual net release is typically 100-200 million XRP per month." },
+  { q: "How much XRP is still in escrow?", a: "Approximately 38-42 billion XRP as of early 2026. The exact amount changes monthly based on releases and re-locks." },
+  { q: "Why did Ripple create the escrow?", a: "To provide transparency and predictability. Before escrow, critics argued Ripple could dump XRP at will. The cryptographic escrow guarantees a maximum release of 1 billion per month — no exceptions." },
+  { q: "Can Ripple change the escrow schedule?", a: "No. The escrow is enforced by the XRP Ledger's protocol. Ripple cannot accelerate, modify, or override the schedule. They can only choose not to use their monthly allocation (re-locking it instead)." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "The 1 Billion XRP Escrow: Why It Matters Every Month",
@@ -45,20 +53,7 @@ const schemas = [
     { name: "XRP Escrow Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/escrow" }),
-  buildFAQSchema([
-    { question: "How does Ripple's XRP escrow work?", answer: "In 2017, Ripple locked 55 billion XRP into a series of cryptographic escrow accounts on the XRP Ledger. Each month, 1 billion XRP is unlocked automatically. Ripple can use or sell the unlocked XRP. Any unused portion is re-locked into new escrow contracts at the back of the queue." },
-    { question: "Does the escrow release hurt XRP's price?", answer: "The impact is minimal in practice. Ripple typically re-locks 80-90% of each monthly release. The predictable, transparent schedule means the market has already priced in the releases. Sudden large sales would hurt, but Ripple has maintained disciplined release patterns." },
-    { question: "How much XRP is still in escrow?", answer: "As of early 2026, approximately 38-42 billion XRP remains in escrow. The exact amount fluctuates based on monthly releases and re-locks. This represents the largest single allocation of XRP." },
-    { question: "Why did Ripple create the escrow?", answer: "Ripple created the escrow in December 2017 to provide transparency and predictability to the market. Critics had argued that Ripple could dump its XRP holdings at any time. The escrow cryptographically guarantees a maximum release rate of 1 billion per month." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How does Ripple's XRP escrow work?", a: "In 2017, Ripple locked 55 billion XRP into cryptographic escrow on the XRPL. Each month, 1 billion XRP unlocks automatically. Ripple can use or sell it, and any unused portion gets re-locked at the back of the queue." },
-  { q: "Does the escrow release hurt XRP's price?", a: "Minimal impact in practice. Ripple re-locks 80-90% of each release. The predictable schedule means markets have priced it in. Ripple's actual net release is typically 100-200 million XRP per month." },
-  { q: "How much XRP is still in escrow?", a: "Approximately 38-42 billion XRP as of early 2026. The exact amount changes monthly based on releases and re-locks." },
-  { q: "Why did Ripple create the escrow?", a: "To provide transparency and predictability. Before escrow, critics argued Ripple could dump XRP at will. The cryptographic escrow guarantees a maximum release of 1 billion per month — no exceptions." },
-  { q: "Can Ripple change the escrow schedule?", a: "No. The escrow is enforced by the XRP Ledger's protocol. Ripple cannot accelerate, modify, or override the schedule. They can only choose not to use their monthly allocation (re-locking it instead)." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPEscrowExplainedPage() {

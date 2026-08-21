@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-dex-vs-centralized-exchange" },
 };
 
+const faqItems = [
+  { q: "What is the XRPL DEX?", a: "A decentralized exchange built into the XRP Ledger protocol since 2012. Features an on-chain order book and native AMM for peer-to-peer trading of any XRPL token — no intermediaries needed." },
+  { q: "Is the XRPL DEX cheaper?", a: "Yes — transaction fees are fractions of a cent. CEXes charge 0.1-0.5% per trade. However, lower liquidity on some XRPL DEX pairs may mean higher slippage for large orders." },
+  { q: "Do I need KYC for the XRPL DEX?", a: "No. The XRPL DEX is permissionless — anyone with an XRPL wallet can trade. CEXes require KYC documentation." },
+  { q: "What are the downsides of the XRPL DEX?", a: "Lower liquidity on some pairs, no fiat on/off ramp, fewer trading pairs than major CEXes, and steeper learning curve for beginners." },
+  { q: "Can I trade any token?", a: "Any token issued on the XRPL — stablecoins, project tokens, wrapped assets. Tokens from other chains need to be bridged first." },
+  { q: "Which should I use?", a: "Use CEXes for fiat purchases, high-liquidity trading, and convenience. Use the XRPL DEX for self-custodial trading, privacy, and accessing XRPL-native tokens." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL DEX vs Centralized Exchanges: Trading Compared",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL DEX vs Centralized Exchange" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-dex-vs-centralized-exchange" }),
-  buildFAQSchema([
-    { question: "What is the XRPL DEX?", answer: "The XRPL DEX is a decentralized exchange built directly into the XRP Ledger protocol since 2012. It features an on-chain order book and native AMM, allowing peer-to-peer trading of any XRPL-issued token without intermediaries." },
-    { question: "Is the XRPL DEX cheaper than centralized exchanges?", answer: "Yes, XRPL DEX transaction fees are fractions of a cent per trade. Centralized exchanges typically charge 0.1-0.5% per trade. However, the XRPL DEX may have lower liquidity on some pairs, which can result in higher slippage for large trades." },
-    { question: "Do I need KYC to use the XRPL DEX?", answer: "No. The XRPL DEX is permissionless — anyone with an XRPL wallet can trade without identity verification. Centralized exchanges require KYC (Know Your Customer) documentation for most features." },
-    { question: "What are the disadvantages of the XRPL DEX?", answer: "Lower liquidity than major CEXes on some pairs, no fiat on/off ramp (you need XRP already), smaller selection of trading pairs, and a steeper learning curve for beginners compared to CEX interfaces." },
-    { question: "Can I trade any token on the XRPL DEX?", answer: "You can trade any token issued on the XRPL. This includes stablecoins (RLUSD), wrapped assets, project tokens, and more. However, tokens from other blockchains must be bridged or wrapped to trade on the XRPL DEX." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the XRPL DEX?", a: "A decentralized exchange built into the XRP Ledger protocol since 2012. Features an on-chain order book and native AMM for peer-to-peer trading of any XRPL token — no intermediaries needed." },
-  { q: "Is the XRPL DEX cheaper?", a: "Yes — transaction fees are fractions of a cent. CEXes charge 0.1-0.5% per trade. However, lower liquidity on some XRPL DEX pairs may mean higher slippage for large orders." },
-  { q: "Do I need KYC for the XRPL DEX?", a: "No. The XRPL DEX is permissionless — anyone with an XRPL wallet can trade. CEXes require KYC documentation." },
-  { q: "What are the downsides of the XRPL DEX?", a: "Lower liquidity on some pairs, no fiat on/off ramp, fewer trading pairs than major CEXes, and steeper learning curve for beginners." },
-  { q: "Can I trade any token?", a: "Any token issued on the XRPL — stablecoins, project tokens, wrapped assets. Tokens from other chains need to be bridged first." },
-  { q: "Which should I use?", a: "Use CEXes for fiat purchases, high-liquidity trading, and convenience. Use the XRPL DEX for self-custodial trading, privacy, and accessing XRPL-native tokens." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLDEXvsCEXPage() {

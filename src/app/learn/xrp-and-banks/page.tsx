@@ -26,6 +26,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Why are banks adopting XRP?", a: "Banks adopt XRP because it eliminates pre-funded nostro/vostro accounts, settles cross-border payments in 3-5 seconds, and reduces costs by up to 60%. It solves real infrastructure problems that SWIFT can't." },
+  { q: "How many banks use XRP?", a: "Over 100 financial institutions across 55+ countries have integrated with Ripple's network. Key partners include SBI Holdings (Japan), Santander, Standard Chartered, and National Bank of Egypt." },
+  { q: "Is XRP approved for bank use?", a: "Yes. The SEC settlement confirmed XRP is not a security when sold on exchanges. Combined with ISO 20022 compliance and regulatory clarity, banks can adopt XRP with confidence." },
+  { q: "Do banks actually hold XRP?", a: "Most use XRP as a bridge currency through ODL — it's bought, transferred, and sold in seconds during a transaction. Some institutions hold XRP as a strategic treasury asset." },
+  { q: "What is the institutional thesis for XRP?", a: "XRP solves a $27 trillion problem in cross-border payments. It replaces slow, expensive correspondent banking with instant, low-cost settlement. As more corridors go live, XRP demand increases structurally." },
+  { q: "How does XRP compare to SWIFT for banks?", a: "SWIFT takes 3-5 days and costs $25-65 per transaction. XRP settles in 3-5 seconds for fractions of a cent. XRP also eliminates the need for pre-funded accounts in destination currencies." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished, dateModified: datePublished }),
   buildBreadcrumbSchema([
@@ -34,22 +43,7 @@ const schemas = [
     { name: "XRP & Banks" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "Why are banks adopting XRP?", answer: "Banks adopt XRP because it eliminates the need for pre-funded nostro/vostro accounts, settles cross-border payments in 3-5 seconds instead of 3-5 days, and reduces transaction costs by up to 60%." },
-    { question: "How many banks use XRP?", answer: "Over 100 financial institutions across 55+ countries have partnered with Ripple's payment network. Many use On-Demand Liquidity (ODL) which relies on XRP as the bridge currency." },
-    { question: "Is XRP approved for bank use?", answer: "Yes. Following the SEC vs Ripple settlement and growing regulatory clarity globally, XRP has become the most legally vetted digital asset for institutional use." },
-    { question: "Do banks actually hold XRP?", answer: "Most banks use XRP as a bridge currency through ODL rather than holding it on their balance sheets. XRP is bought, transferred, and sold in seconds during a transaction." },
-    { question: "What is the institutional thesis for XRP?", answer: "The institutional thesis is that XRP solves a $27 trillion problem in cross-border payments by replacing slow, expensive correspondent banking with instant, low-cost liquidity via the XRP Ledger." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Why are banks adopting XRP?", a: "Banks adopt XRP because it eliminates pre-funded nostro/vostro accounts, settles cross-border payments in 3-5 seconds, and reduces costs by up to 60%. It solves real infrastructure problems that SWIFT can't." },
-  { q: "How many banks use XRP?", a: "Over 100 financial institutions across 55+ countries have integrated with Ripple's network. Key partners include SBI Holdings (Japan), Santander, Standard Chartered, and National Bank of Egypt." },
-  { q: "Is XRP approved for bank use?", a: "Yes. The SEC settlement confirmed XRP is not a security when sold on exchanges. Combined with ISO 20022 compliance and regulatory clarity, banks can adopt XRP with confidence." },
-  { q: "Do banks actually hold XRP?", a: "Most use XRP as a bridge currency through ODL — it's bought, transferred, and sold in seconds during a transaction. Some institutions hold XRP as a strategic treasury asset." },
-  { q: "What is the institutional thesis for XRP?", a: "XRP solves a $27 trillion problem in cross-border payments. It replaces slow, expensive correspondent banking with instant, low-cost settlement. As more corridors go live, XRP demand increases structurally." },
-  { q: "How does XRP compare to SWIFT for banks?", a: "SWIFT takes 3-5 days and costs $25-65 per transaction. XRP settles in 3-5 seconds for fractions of a cent. XRP also eliminates the need for pre-funded accounts in destination currencies." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndBanksPage() {

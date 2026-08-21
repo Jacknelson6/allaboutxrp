@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-sui" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Sui (SUI): Next-Gen Blockchain Comparison (2026)", description: "Compare XRP and Sui — enterprise payments veteran vs next-gen L1 built by ex-Meta engineers.", url: "https://allaboutxrp.com/learn/xrp-vs-sui", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Sui" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-sui" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Sui?", answer: "XRP is a 12-year-old payment network with 300+ institutional partners focused on cross-border settlement. Sui is a next-generation L1 blockchain built by ex-Meta (Diem/Libra) engineers, using the Move programming language and object-centric data model for high-performance DeFi and gaming." },
-    { question: "Which is faster, XRP or Sui?", answer: "Sui claims higher theoretical throughput (100,000+ TPS) compared to XRP's 1,500+ TPS. However, XRP's 3-5 second finality is proven over 10+ years. Sui achieves sub-second finality for simple transactions but is much newer and less battle-tested." },
-    { question: "Is Sui a competitor to XRP?", answer: "Not directly. Sui targets DeFi, gaming, and general-purpose smart contracts using the Move language. XRP targets institutional cross-border payments. They operate in different segments, though both benefit from fast, cheap transactions." },
-    { question: "Who built Sui?", answer: "Sui was built by Mysten Labs, founded by ex-Meta engineers who worked on the Diem (formerly Libra) blockchain project. The team brings deep expertise in distributed systems and the Move programming language." },
-    { question: "Which is a better investment?", answer: "XRP offers established institutional adoption, regulatory clarity, and pending ETF filings. Sui offers exposure to next-gen blockchain technology with higher potential upside from a smaller market cap but significantly more risk as an unproven newer project. Not financial advice." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference?", a: "XRP: 12-year payment veteran, 300+ bank partners. Sui: next-gen L1 by ex-Meta engineers using Move language for DeFi and gaming." },
   { q: "Which is faster?", a: "Sui claims 100,000+ TPS (theoretical). XRP: 1,500+ TPS. But XRP's 3-5 sec finality is proven over 10+ years." },
   { q: "Are they competitors?", a: "Not directly — XRP targets institutional payments, Sui targets DeFi/gaming. Different segments." },
   { q: "Who built Sui?", a: "Mysten Labs — ex-Meta engineers from the Diem/Libra project. Deep distributed systems expertise." },
   { q: "Which is better to invest in?", a: "XRP: established, regulated, ETF filings. Sui: higher risk/reward, newer, less proven. Not financial advice." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Sui (SUI): Next-Gen Blockchain Comparison (2026)", description: "Compare XRP and Sui — enterprise payments veteran vs next-gen L1 built by ex-Meta engineers.", url: "https://allaboutxrp.com/learn/xrp-vs-sui", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Sui" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-sui" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsSuiPage() {

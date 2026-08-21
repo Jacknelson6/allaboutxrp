@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/rlusd" },
 };
 
+const faqItems = [
+  { q: "What is RLUSD?", a: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services. It runs on both the XRP Ledger and Ethereum, backed 1:1 by USD deposits and US Treasury bills." },
+  { q: "Is RLUSD safe?", a: "RLUSD is one of the most regulated stablecoins available. NY DFS approval means it meets the same standards as major US banks. It's fully backed by USD and US Treasuries with regular third-party attestations." },
+  { q: "How does RLUSD compare to USDC?", a: "Both are regulated USD stablecoins. RLUSD's advantages: native XRPL support (faster/cheaper), integration into Ripple's 300+ institution network, and enterprise focus. USDC's advantages: much larger market cap, broader DeFi adoption, and longer track record." },
+  { q: "Does RLUSD compete with XRP?", a: "No — they're complementary. XRP is a bridge currency for instant settlement with price appreciation potential. RLUSD is a stable store of value for institutions wanting USD exposure on-chain. Both run on XRPL and increase ecosystem activity." },
+  { q: "Where can I buy RLUSD?", a: "RLUSD is available on major exchanges including the XRPL's native DEX, and is integrated into Ripple's institutional payment products. Check Ripple's official website for the latest list of supported platforms." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "RLUSD: Ripple's Stablecoin That Could Flip USDC",
@@ -45,20 +53,7 @@ const schemas = [
     { name: "RLUSD Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/rlusd" }),
-  buildFAQSchema([
-    { question: "What is RLUSD?", answer: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services (NY DFS). It runs on both the XRP Ledger and Ethereum, backed 1:1 by USD deposits and US Treasury bills. It's designed for institutional cross-border payments and DeFi." },
-    { question: "Is RLUSD safe?", answer: "RLUSD is one of the most regulated stablecoins in the market. It's approved by the NY DFS (the same regulator that oversees major US banks), backed 1:1 by USD and US Treasuries with regular attestations, and issued by Ripple — a company valued at $11B+." },
-    { question: "How does RLUSD compare to USDC?", answer: "Both are regulated USD stablecoins, but RLUSD has advantages: it runs natively on XRPL (faster and cheaper than Ethereum), is integrated into Ripple's payment network of 300+ institutions, and benefits from Ripple's enterprise relationships. USDC has a much larger market cap and broader DeFi adoption." },
-    { question: "Does RLUSD help XRP's price?", answer: "Yes, indirectly. RLUSD on the XRPL creates demand for XRP through DEX trading pairs, increases XRPL network activity, and brings new institutions into Ripple's ecosystem who may also adopt ODL/XRP for settlement." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is RLUSD?", a: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services. It runs on both the XRP Ledger and Ethereum, backed 1:1 by USD deposits and US Treasury bills." },
-  { q: "Is RLUSD safe?", a: "RLUSD is one of the most regulated stablecoins available. NY DFS approval means it meets the same standards as major US banks. It's fully backed by USD and US Treasuries with regular third-party attestations." },
-  { q: "How does RLUSD compare to USDC?", a: "Both are regulated USD stablecoins. RLUSD's advantages: native XRPL support (faster/cheaper), integration into Ripple's 300+ institution network, and enterprise focus. USDC's advantages: much larger market cap, broader DeFi adoption, and longer track record." },
-  { q: "Does RLUSD compete with XRP?", a: "No — they're complementary. XRP is a bridge currency for instant settlement with price appreciation potential. RLUSD is a stable store of value for institutions wanting USD exposure on-chain. Both run on XRPL and increase ecosystem activity." },
-  { q: "Where can I buy RLUSD?", a: "RLUSD is available on major exchanges including the XRPL's native DEX, and is integrated into Ripple's institutional payment products. Check Ripple's official website for the latest list of supported platforms." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RLUSDExplainedPage() {

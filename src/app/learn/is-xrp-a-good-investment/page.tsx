@@ -25,19 +25,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "Is XRP a Good Investment in 2026? A Decision Framework", description: "A source-led framework for evaluating XRP's utility, market risks, concentration, opportunity cost, and fit with an investor's own circumstances.", url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment", datePublished: "2026-02-15", dateModified: "2026-08-08", citations: ["https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset", "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm", "https://xrpl.org/docs/concepts/transactions/transaction-cost", "https://ripple.com/solutions/stablecoin/"] }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Is XRP a Good Investment?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" }),
-  buildFAQSchema([
-    { question: "Is XRP a good investment in 2026?", answer: "There is no universal answer. XRP offers exposure to a volatile digital asset and the XRP Ledger ecosystem, but price performance is not guaranteed by network utility, Ripple announcements, ETF availability, or RLUSD growth. The decision depends on your objectives, loss capacity, time horizon, liquidity needs, and alternatives." },
-    { question: "What are the biggest risks of investing in XRP?", answer: "Key risks include crypto-market volatility, uncertain demand, competition, custody or exchange failure, liquidity changes, regulation, concentration of holdings, and the possibility that network activity does not translate into asset returns." },
-    { question: "What makes XRP different from other crypto investments?", answer: "XRP is the native asset of the XRP Ledger and can be used for transaction fees, reserves, transfers, and liquidity paths. Those functions are observable, but they do not establish a fair price or guarantee that adoption produces investment returns." },
-    { question: "How much should I invest in XRP?", answer: "A general article cannot determine an appropriate amount. Consider whether a total loss would affect housing, debt payments, emergency savings, taxes, or near-term goals. A qualified financial adviser can evaluate your full circumstances." },
-    { question: "Should I buy XRP or Bitcoin?", answer: "A general article cannot recommend either asset. They have different designs, market histories, supply rules, custody considerations, and risk drivers. Compare those factors with your objectives and alternatives rather than assuming that a smaller market capitalization guarantees more upside." },
-  ]),
-];
-
 const faqItems = [
   { q: "Is XRP a good investment in 2026?", a: "There is no universal answer. Utility, product announcements, ETFs, and ecosystem growth do not guarantee investment returns." },
   { q: "Biggest risks?", a: "Volatility, uncertain demand, custody or exchange failure, liquidity changes, competition, regulation, concentration, and weak linkage between network activity and returns." },
@@ -45,6 +32,13 @@ const faqItems = [
   { q: "How much should I invest?", a: "A general article cannot set an allocation. Evaluate loss capacity, liquidity needs, taxes, debt, and alternatives, or consult a qualified adviser." },
   { q: "XRP or Bitcoin?", a: "Neither is universally appropriate. Compare design, market history, custody, liquidity, supply, and the evidence behind each thesis." },
   { q: "When should I sell?", a: "A general page cannot choose a sale point. Define what would invalidate your thesis and account for taxes, liquidity needs, and execution risk." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "Is XRP a Good Investment in 2026? A Decision Framework", description: "A source-led framework for evaluating XRP's utility, market risks, concentration, opportunity cost, and fit with an investor's own circumstances.", url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment", datePublished: "2026-02-15", dateModified: "2026-08-08", citations: ["https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset", "https://www.sec.gov/Archives/edgar/data/1771146/000177114626001359/ck0001771146-20260629.htm", "https://xrpl.org/docs/concepts/transactions/transaction-cost", "https://ripple.com/solutions/stablecoin/"] }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Is XRP a Good Investment?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/is-xrp-a-good-investment" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function IsXRPGoodInvestmentPage() {

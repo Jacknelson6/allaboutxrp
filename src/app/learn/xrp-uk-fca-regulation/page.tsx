@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in the UK?", a: "Yes. XRP is fully legal in the UK. The FCA classifies it as an exchange token (cryptoasset). You can buy, sell, hold, and transfer XRP freely through FCA-registered platforms." },
+  { q: "How does the FCA regulate crypto?", a: "The FCA requires crypto exchanges to register for AML/KYC compliance. It oversees financial promotions (advertising rules), bans crypto derivatives for retail, and is developing a comprehensive regulatory framework." },
+  { q: "What are financial promotions rules?", a: "Since October 2023, all crypto promotions in the UK must include risk warnings, be fair and not misleading, and be approved by an FCA-authorized firm. This applies to exchanges advertising to UK residents." },
+  { q: "How is XRP taxed in the UK?", a: "HMRC treats crypto as property. You pay Capital Gains Tax when selling at a profit (after the £3,000 annual allowance). Rates are 10% (basic rate) or 20% (higher rate). Crypto income is subject to Income Tax." },
+  { q: "Can I use a non-UK exchange?", a: "You can, but unregistered exchanges cannot legally promote their services to UK residents. Using an FCA-registered exchange provides better consumer protection and regulatory oversight." },
+  { q: "Will there be an XRP ETF in the UK?", a: "The FCA currently bans crypto ETNs/ETPs for retail investors. However, institutional access is available, and the regulatory landscape is evolving. A change in this policy could unlock UK-listed XRP products." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "UK FCA Regulation" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "Is XRP legal in the UK?", answer: "Yes. XRP is legal to buy, sell, and hold in the United Kingdom. It is classified as a cryptoasset (exchange token) under FCA guidelines, not as a security or e-money." },
-    { question: "How does the FCA regulate XRP?", answer: "The FCA regulates crypto exchanges operating in the UK through its cryptoasset registration regime. Exchanges must register with the FCA for anti-money laundering compliance. The FCA also oversees financial promotions rules for crypto." },
-    { question: "What platforms can I use to buy XRP in the UK?", answer: "FCA-registered platforms that offer XRP include major exchanges like Bitstamp, Kraken, and others with UK operations. Always verify an exchange's FCA registration status before using it." },
-    { question: "How is XRP taxed in the UK?", answer: "HMRC treats crypto as property for capital gains tax purposes. You pay CGT when selling XRP at a profit, with a £3,000 annual exempt amount (2026). Crypto received as income is subject to income tax." },
-    { question: "Are there restrictions on crypto in the UK?", answer: "The FCA has banned the sale of crypto derivatives and ETNs to retail consumers. Spot XRP trading remains fully legal. Financial promotions rules require risk warnings on crypto advertisements." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in the UK?", a: "Yes. XRP is fully legal in the UK. The FCA classifies it as an exchange token (cryptoasset). You can buy, sell, hold, and transfer XRP freely through FCA-registered platforms." },
-  { q: "How does the FCA regulate crypto?", a: "The FCA requires crypto exchanges to register for AML/KYC compliance. It oversees financial promotions (advertising rules), bans crypto derivatives for retail, and is developing a comprehensive regulatory framework." },
-  { q: "What are financial promotions rules?", a: "Since October 2023, all crypto promotions in the UK must include risk warnings, be fair and not misleading, and be approved by an FCA-authorized firm. This applies to exchanges advertising to UK residents." },
-  { q: "How is XRP taxed in the UK?", a: "HMRC treats crypto as property. You pay Capital Gains Tax when selling at a profit (after the £3,000 annual allowance). Rates are 10% (basic rate) or 20% (higher rate). Crypto income is subject to Income Tax." },
-  { q: "Can I use a non-UK exchange?", a: "You can, but unregistered exchanges cannot legally promote their services to UK residents. Using an FCA-registered exchange provides better consumer protection and regulatory oversight." },
-  { q: "Will there be an XRP ETF in the UK?", a: "The FCA currently bans crypto ETNs/ETPs for retail investors. However, institutional access is available, and the regulatory landscape is evolving. A change in this policy could unlock UK-listed XRP products." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPUKFCAPage() {

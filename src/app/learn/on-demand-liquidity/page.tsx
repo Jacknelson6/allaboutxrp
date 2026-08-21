@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/on-demand-liquidity" },
 };
 
+const faqItems = [
+  { q: "What is On-Demand Liquidity (ODL)?", a: "ODL is Ripple's payment solution that uses XRP as a bridge currency to enable instant cross-border payments without pre-funded accounts. Formerly known as xRapid, it was renamed in 2019." },
+  { q: "How does ODL use XRP?", a: "ODL converts the sender's fiat to XRP, transfers it across the XRP Ledger in 3-5 seconds, then converts it to the destination fiat. This creates real buy and sell demand for XRP on every transaction." },
+  { q: "What are nostro/vostro accounts and why does ODL replace them?", a: "Nostro/vostro accounts are pre-funded bank accounts in foreign countries used for cross-border payments. An estimated $27 trillion is locked globally. ODL eliminates this requirement by using XRP as an instant bridge." },
+  { q: "How many ODL corridors exist?", a: "As of 2026, there are 20+ active ODL corridors spanning Asia-Pacific, Europe, the Middle East, Latin America, and Africa. Major corridors include Japan-Philippines, US-Mexico, and Europe-Southeast Asia." },
+  { q: "Is ODL the same as xRapid?", a: "Yes. xRapid was renamed to On-Demand Liquidity (ODL) in 2019 when Ripple consolidated its products under the RippleNet brand." },
+  { q: "Does every RippleNet payment use ODL?", a: "No. RippleNet offers both ODL (XRP-powered) and traditional messaging-based settlement. Institutions choose based on corridor availability and preference." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "What is On-Demand Liquidity (ODL)? XRP as a Bridge Currency",
@@ -43,20 +52,7 @@ const schemas = [
     { name: "On-Demand Liquidity" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/on-demand-liquidity" }),
-  buildFAQSchema([
-    { question: "What is On-Demand Liquidity (ODL)?", answer: "ODL is Ripple's payment solution that uses XRP as a bridge currency to enable instant cross-border payments without pre-funded accounts in destination countries." },
-    { question: "How does ODL use XRP?", answer: "ODL converts the sender's fiat currency to XRP, transfers it across the XRP Ledger in 3-5 seconds, then converts it to the destination fiat currency — creating real buy and sell demand for XRP." },
-    { question: "What are nostro/vostro accounts?", answer: "Nostro/vostro accounts are pre-funded bank accounts held in foreign countries to facilitate cross-border payments. An estimated $27 trillion is locked in these accounts globally. ODL eliminates the need for them." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is On-Demand Liquidity (ODL)?", a: "ODL is Ripple's payment solution that uses XRP as a bridge currency to enable instant cross-border payments without pre-funded accounts. Formerly known as xRapid, it was renamed in 2019." },
-  { q: "How does ODL use XRP?", a: "ODL converts the sender's fiat to XRP, transfers it across the XRP Ledger in 3-5 seconds, then converts it to the destination fiat. This creates real buy and sell demand for XRP on every transaction." },
-  { q: "What are nostro/vostro accounts and why does ODL replace them?", a: "Nostro/vostro accounts are pre-funded bank accounts in foreign countries used for cross-border payments. An estimated $27 trillion is locked globally. ODL eliminates this requirement by using XRP as an instant bridge." },
-  { q: "How many ODL corridors exist?", a: "As of 2026, there are 20+ active ODL corridors spanning Asia-Pacific, Europe, the Middle East, Latin America, and Africa. Major corridors include Japan-Philippines, US-Mexico, and Europe-Southeast Asia." },
-  { q: "Is ODL the same as xRapid?", a: "Yes. xRapid was renamed to On-Demand Liquidity (ODL) in 2019 when Ripple consolidated its products under the RippleNet brand." },
-  { q: "Does every RippleNet payment use ODL?", a: "No. RippleNet offers both ODL (XRP-powered) and traditional messaging-based settlement. Institutions choose based on corridor availability and preference." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function OnDemandLiquidityPage() {

@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-stablecoins" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Stablecoins: Why Not Just Use USDT?", description: "Why XRP exists as a bridge currency when stablecoins like USDT and USDC are available. Complete comparison.", url: "https://allaboutxrp.com/learn/xrp-vs-stablecoins", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Stablecoins" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-stablecoins" }),
-  buildFAQSchema([
-    { question: "Why not just use stablecoins instead of XRP?", answer: "XRP and stablecoins serve different roles. XRP is a neutral bridge asset — it's not pegged to any single fiat currency, making it ideal for multi-currency settlement. Stablecoins are pegged to USD and are great for USD-denominated transfers, but they introduce USD dependency and counterparty risk from the issuer. XRP is also faster on its native ledger (3-5 seconds vs 15-60+ seconds for USDT on Ethereum)." },
-    { question: "Is XRP more risky than stablecoins because of price volatility?", answer: "For holding value, yes — XRP's price fluctuates while stablecoins stay ~$1. But for bridging (buying XRP, transferring, selling within seconds), the volatility exposure is minimal (3-5 seconds). ODL specifically uses XRP as a bridge for seconds, not as a store of value." },
-    { question: "Doesn't Ripple also have a stablecoin (RLUSD)?", answer: "Yes. Ripple launched RLUSD, an NYDFS-approved stablecoin. This doesn't compete with XRP — Ripple uses RLUSD and XRP together. RLUSD provides stability for holding/settlement, while XRP provides bridge liquidity for currency conversion. They're complementary." },
-    { question: "What is XRP's advantage over USDT for cross-border payments?", answer: "Currency neutrality (not USD-dependent), faster native settlement (3-5 sec vs 15-60 sec), lower fees on XRPL, no counterparty risk from a single issuer (Tether), and institutional-grade regulatory compliance through Ripple's partnerships." },
-    { question: "Will stablecoins make XRP obsolete?", answer: "Unlikely. Stablecoins and XRP serve different functions. Stablecoins are digital dollars — useful for USD transfers but create dependency on one currency. XRP bridges between ANY two currencies or assets, including stablecoins. In Ripple's vision, XRP and RLUSD work together, not against each other." },
-  ]),
-];
-
 const faqItems = [
   { q: "Why not just use stablecoins instead of XRP?", a: "XRP is currency-neutral (bridges any pair), has no single-issuer counterparty risk, and settles faster on its native ledger. Stablecoins are USD-dependent." },
   { q: "Isn't XRP riskier because of volatility?", a: "For holding, yes. For bridging (3-5 second ODL transactions), volatility exposure is minimal. XRP bridges; stablecoins hold." },
   { q: "Doesn't Ripple also have RLUSD?", a: "Yes — they're complementary. RLUSD provides stability, XRP provides bridge liquidity. They work together in Ripple's system." },
   { q: "XRP advantage over USDT?", a: "Currency neutrality, 3-5 sec native settlement, no Tether counterparty risk, institutional compliance." },
   { q: "Will stablecoins make XRP obsolete?", a: "No — different functions. Stablecoins are digital dollars. XRP bridges between ANY currencies/assets, including stablecoins." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Stablecoins: Why Not Just Use USDT?", description: "Why XRP exists as a bridge currency when stablecoins like USDT and USDC are available. Complete comparison.", url: "https://allaboutxrp.com/learn/xrp-vs-stablecoins", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Stablecoins" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-stablecoins" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsStablecoinsPage() {

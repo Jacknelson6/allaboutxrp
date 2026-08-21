@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-custody" },
 };
 
+const faqItems = [
+  { q: "What is Ripple Custody?", a: "An institutional-grade digital asset custody platform for banks and financial institutions. Provides secure storage, management, and tokenization, powered by Metaco technology (acquired 2023 for $250M)." },
+  { q: "What is Metaco?", a: "A Swiss digital asset infrastructure company Ripple acquired for $250M. Its Harmonize platform served major banks like BBVA, Citi, and Societe Generale." },
+  { q: "How does it relate to XRP?", a: "Part of Ripple's broader institutional ecosystem. Banks using Custody can also access Ripple payments and XRP for cross-border liquidity — a full-stack crypto offering." },
+  { q: "Who uses it?", a: "Banks (HSBC, DBS), central banks, fintechs, and financial institutions requiring enterprise-grade security and regulatory compliance." },
+  { q: "Is it safe?", a: "Uses HSM technology, multi-party computation, governance workflows, and meets regulated financial institution standards for security and compliance." },
+  { q: "What assets does it support?", a: "Multi-asset platform supporting XRP, Bitcoin, Ethereum, stablecoins, and tokenized assets. Not limited to XRP or XRPL-based assets." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple Custody: Institutional-Grade Crypto Storage",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "Ripple Custody" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-custody" }),
-  buildFAQSchema([
-    { question: "What is Ripple Custody?", answer: "Ripple Custody is an institutional-grade digital asset custody platform designed for banks, fintech companies, and financial institutions. It provides secure storage, management, and tokenization capabilities for digital assets, powered by technology from Metaco (acquired by Ripple in 2023 for $250M)." },
-    { question: "What is Metaco and why did Ripple acquire it?", answer: "Metaco was a Swiss digital asset infrastructure company whose Harmonize platform served major banks like BBVA, Citi, and Societe Generale. Ripple acquired Metaco in 2023 for $250 million to offer enterprise custody alongside its payments solutions — creating a full-stack institutional crypto platform." },
-    { question: "How does Ripple Custody relate to XRP?", answer: "While Ripple Custody supports multiple digital assets (not just XRP), it's a strategic part of Ripple's broader ecosystem. Banks using Ripple Custody can also access Ripple's payment solutions and XRP for cross-border liquidity, creating a comprehensive institutional crypto offering." },
-    { question: "Who uses Ripple Custody?", answer: "Ripple Custody serves banks, central banks, fintechs, and financial institutions globally. Notable clients include HSBC, DBS Bank, and other tier-1 financial institutions that require enterprise-grade security, regulatory compliance, and institutional-level infrastructure." },
-    { question: "Is Ripple Custody safe?", answer: "Ripple Custody uses multi-layer security including HSM (Hardware Security Module) technology, multi-party computation (MPC), governance workflows, and regulatory compliance frameworks. It's designed to meet the security and compliance standards required by regulated financial institutions." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is Ripple Custody?", a: "An institutional-grade digital asset custody platform for banks and financial institutions. Provides secure storage, management, and tokenization, powered by Metaco technology (acquired 2023 for $250M)." },
-  { q: "What is Metaco?", a: "A Swiss digital asset infrastructure company Ripple acquired for $250M. Its Harmonize platform served major banks like BBVA, Citi, and Societe Generale." },
-  { q: "How does it relate to XRP?", a: "Part of Ripple's broader institutional ecosystem. Banks using Custody can also access Ripple payments and XRP for cross-border liquidity — a full-stack crypto offering." },
-  { q: "Who uses it?", a: "Banks (HSBC, DBS), central banks, fintechs, and financial institutions requiring enterprise-grade security and regulatory compliance." },
-  { q: "Is it safe?", a: "Uses HSM technology, multi-party computation, governance workflows, and meets regulated financial institution standards for security and compliance." },
-  { q: "What assets does it support?", a: "Multi-asset platform supporting XRP, Bitcoin, Ethereum, stablecoins, and tokenized assets. Not limited to XRP or XRPL-based assets." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleCustodyPage() {

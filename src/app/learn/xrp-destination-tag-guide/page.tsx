@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-destination-tag-guide" },
 };
 
+const faqItems = [
+  { q: "What is an XRP destination tag?", a: "A destination tag is a numerical identifier (up to 10 digits) attached to an XRP transaction. Exchanges use a single XRP address for all customers and use destination tags to identify which customer a deposit belongs to. Think of it like an apartment number — the XRP address is the building, the tag is your unit." },
+  { q: "What happens if I forget the destination tag?", a: "Your XRP arrives at the exchange's wallet but won't be credited to your account automatically. Contact support with your transaction hash — most exchanges can manually credit your account, though it may take 1-4 weeks and some charge a recovery fee." },
+  { q: "Do I need a destination tag for all XRP transactions?", a: "No — only when sending to addresses that require them, primarily exchange deposit addresses. Sending to personal wallets (Xaman, Ledger) typically doesn't need one." },
+  { q: "Is a destination tag the same as a memo?", a: "They serve similar purposes but are technically different. XRP destination tags are numerical identifiers native to the XRPL. Some exchanges use 'memo' interchangeably, but they're not the same field on all blockchains." },
+  { q: "Can I choose my own destination tag?", a: "When sending to an exchange, use the exact tag they provide. You can optionally require destination tags on your own account using the RequireDest flag in your XRPL account settings." },
+  { q: "Where do I find the destination tag?", a: "The exchange provides your destination tag on the XRP deposit page alongside the deposit address. It's usually a number between 1 and 4,294,967,295. Always copy-paste it — never type it manually." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Destination Tag Explained: Don't Lose Your XRP",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRP Destination Tag Guide" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-destination-tag-guide" }),
-  buildFAQSchema([
-    { question: "What is an XRP destination tag?", answer: "A destination tag is a numerical identifier (up to 10 digits) attached to an XRP transaction. Exchanges use a single XRP address for all customers and use destination tags to identify which customer a deposit belongs to. Think of it like an apartment number — the XRP address is the building, and the tag is your unit." },
-    { question: "What happens if I forget the destination tag?", answer: "Your XRP will arrive at the exchange's main wallet but won't be automatically credited to your account because the exchange doesn't know which customer it belongs to. Contact the exchange's support with your transaction hash — most can manually credit your account, though it may take 1-4 weeks." },
-    { question: "Do I need a destination tag for all XRP transactions?", answer: "No. Destination tags are only required when sending to addresses that use them — primarily exchange deposit addresses. Sending XRP to a personal wallet (Xaman, Ledger, etc.) typically does not require a destination tag." },
-    { question: "Is a destination tag the same as a memo?", answer: "They serve a similar purpose but are technically different. XRP destination tags are numerical identifiers native to the XRPL protocol. Some exchanges use the term 'memo' interchangeably, while other blockchains (like Stellar) have a separate memo field." },
-    { question: "Can I choose my own destination tag?", answer: "When sending to an exchange, you must use the exact destination tag the exchange provides — you cannot choose your own. When receiving XRP, you can optionally set a destination tag requirement on your own account using the RequireDest flag." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is an XRP destination tag?", a: "A destination tag is a numerical identifier (up to 10 digits) attached to an XRP transaction. Exchanges use a single XRP address for all customers and use destination tags to identify which customer a deposit belongs to. Think of it like an apartment number — the XRP address is the building, the tag is your unit." },
-  { q: "What happens if I forget the destination tag?", a: "Your XRP arrives at the exchange's wallet but won't be credited to your account automatically. Contact support with your transaction hash — most exchanges can manually credit your account, though it may take 1-4 weeks and some charge a recovery fee." },
-  { q: "Do I need a destination tag for all XRP transactions?", a: "No — only when sending to addresses that require them, primarily exchange deposit addresses. Sending to personal wallets (Xaman, Ledger) typically doesn't need one." },
-  { q: "Is a destination tag the same as a memo?", a: "They serve similar purposes but are technically different. XRP destination tags are numerical identifiers native to the XRPL. Some exchanges use 'memo' interchangeably, but they're not the same field on all blockchains." },
-  { q: "Can I choose my own destination tag?", a: "When sending to an exchange, use the exact tag they provide. You can optionally require destination tags on your own account using the RequireDest flag in your XRPL account settings." },
-  { q: "Where do I find the destination tag?", a: "The exchange provides your destination tag on the XRP deposit page alongside the deposit address. It's usually a number between 1 and 4,294,967,295. Always copy-paste it — never type it manually." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPDestinationTagGuidePage() {

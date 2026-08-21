@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-paypal" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs PayPal for International Transfers (2026)", description: "Compare XRP and PayPal for international money transfers — fees, speed, limits, and which is better.", url: "https://allaboutxrp.com/learn/xrp-vs-paypal", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs PayPal" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-paypal" }),
-  buildFAQSchema([
-    { question: "Is XRP cheaper than PayPal for international transfers?", answer: "Yes, significantly. XRP transfers cost ~$0.0005 regardless of amount. PayPal charges 2.5-4.5% for international transfers plus currency conversion fees of 3-4%. On a $1,000 transfer, XRP costs less than a penny while PayPal could charge $50-85." },
-    { question: "Is XRP faster than PayPal?", answer: "For settlement, yes. XRP settles in 3-5 seconds with true finality. PayPal international transfers can take 1-5 business days depending on destination and funding source. However, PayPal is easier to use for non-crypto-native users." },
-    { question: "Can PayPal send money anywhere XRP can?", answer: "PayPal operates in ~200 countries but has restrictions on receiving in many markets. XRP can be sent to any wallet address globally without geographic restrictions. However, converting XRP to local currency requires exchange access, which varies by country." },
-    { question: "Does PayPal use XRP or Ripple technology?", answer: "PayPal does not directly use XRP or Ripple technology. PayPal has its own stablecoin (PYUSD) and crypto offerings. However, PayPal and Ripple compete in the same cross-border payment space, and some believe PayPal could eventually integrate XRP for backend settlement." },
-    { question: "Which is better for sending money to family abroad?", answer: "PayPal is easier if both parties have PayPal accounts. XRP is much cheaper (saving 95%+ in fees) but requires both parties to know how to use crypto wallets and exchanges. For tech-savvy users sending regular remittances, XRP saves significant money." },
-  ]),
-];
-
 const faqItems = [
   { q: "Is XRP cheaper than PayPal?", a: "Yes — XRP costs ~$0.0005 per transfer. PayPal charges 2.5-4.5% + 3-4% FX fees. On $1,000: XRP < $0.01, PayPal = $50-85." },
   { q: "Is XRP faster?", a: "XRP settles in 3-5 seconds. PayPal takes 1-5 business days internationally. But PayPal is much easier to use." },
   { q: "Can PayPal reach everywhere XRP can?", a: "PayPal operates in ~200 countries but with restrictions. XRP has no geographic limits but requires exchange access for fiat conversion." },
   { q: "Does PayPal use Ripple?", a: "No. PayPal has its own stablecoin (PYUSD). They compete in cross-border payments but don't currently collaborate." },
   { q: "Which is better for family remittances?", a: "PayPal is easier. XRP is 95%+ cheaper. For regular large transfers, learning XRP pays off quickly." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs PayPal for International Transfers (2026)", description: "Compare XRP and PayPal for international money transfers — fees, speed, limits, and which is better.", url: "https://allaboutxrp.com/learn/xrp-vs-paypal", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs PayPal" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-paypal" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsPayPalPage() {

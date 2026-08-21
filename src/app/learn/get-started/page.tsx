@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/how-to-start" },
 };
 
+const faqItems = [
+  { q: "What is the best exchange to buy XRP?", a: "For beginners, Uphold is recommended for its simplicity and direct XRP purchases. Coinbase is the largest U.S. exchange with strong security. Kraken offers advanced features with low fees." },
+  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges let you buy fractional XRP — as little as $1-10 worth. However, self-custody wallets need at least 1 XRP to activate an account on the XRP Ledger." },
+  { q: "What wallet should I use for XRP?", a: "Xaman (formerly XUMM) is the most popular — a free, self-custody mobile wallet built for the XRP Ledger. For hardware security, Ledger and Trezor both support XRP." },
+  { q: "Is it safe to buy XRP?", a: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding. All crypto investments carry risk." },
+  { q: "Why do I need 1 XRP to activate a wallet?", a: "The 1 XRP reserve is a protocol-level feature designed to prevent spam. It's locked in your account and not spendable, ensuring only serious users create accounts." },
+];
+
 const schemas = [
   buildHowToSchema({
     name: "How to Buy XRP",
@@ -49,20 +57,7 @@ const schemas = [
     { name: "Get Started" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/how-to-start" }),
-  buildFAQSchema([
-    { question: "What is the best exchange to buy XRP?", answer: "For beginners, Uphold is recommended for simplicity. Coinbase is the largest U.S. exchange. Kraken offers advanced features with low fees." },
-    { question: "What is the minimum amount of XRP I can buy?", answer: "Most exchanges allow fractional XRP — as little as $1-10 worth. XRP wallets require a 1 XRP reserve to activate." },
-    { question: "What wallet should I use for XRP?", answer: "Xaman (formerly XUMM) is the most popular XRP wallet. For hardware security, Ledger and Trezor both support XRP." },
-    { question: "Is it safe to buy XRP?", answer: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the best exchange to buy XRP?", a: "For beginners, Uphold is recommended for its simplicity and direct XRP purchases. Coinbase is the largest U.S. exchange with strong security. Kraken offers advanced features with low fees." },
-  { q: "What is the minimum amount of XRP I can buy?", a: "Most exchanges let you buy fractional XRP — as little as $1-10 worth. However, self-custody wallets need at least 1 XRP to activate an account on the XRP Ledger." },
-  { q: "What wallet should I use for XRP?", a: "Xaman (formerly XUMM) is the most popular — a free, self-custody mobile wallet built for the XRP Ledger. For hardware security, Ledger and Trezor both support XRP." },
-  { q: "Is it safe to buy XRP?", a: "Buying from a regulated exchange is generally safe. Enable 2FA, use strong passwords, and consider self-custody for long-term holding. All crypto investments carry risk." },
-  { q: "Why do I need 1 XRP to activate a wallet?", a: "The 1 XRP reserve is a protocol-level feature designed to prevent spam. It's locked in your account and not spendable, ensuring only serious users create accounts." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 const exchanges = [

@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What was the final settlement?", a: "The SEC vs Ripple case concluded with a settlement that preserved the landmark ruling: XRP is not a security on secondary markets. Ripple paid a reduced fine for its institutional sales but made no admission that XRP itself is a security." },
+  { q: "How much did Ripple pay?", a: "Ripple's fine was significantly reduced from the SEC's original $2 billion demand. The final amount reflected only penalties for institutional sales — not for XRP's existence or exchange trading." },
+  { q: "Did Ripple admit wrongdoing?", a: "Ripple acknowledged that some of its early institutional XRP sales constituted unregistered securities offerings. However, Ripple did NOT admit that XRP itself is a security — a critical distinction." },
+  { q: "What about the appeal?", a: "The SEC ultimately dropped its appeal of the Torres ruling, effectively accepting that XRP on exchanges is not a security. This was a major victory for Ripple and the crypto industry." },
+  { q: "What happens to XRP now?", a: "With the case fully resolved, XRP has the clearest regulatory status of any major cryptocurrency. This unlocks ETF approvals, institutional adoption, new exchange listings, and broader market participation." },
+  { q: "How does this affect other crypto projects?", a: "The Ripple settlement established that the 'manner of sale' matters more than the token itself. Other crypto projects are citing this precedent in their own regulatory battles." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "SEC Settlement" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What was the SEC vs Ripple settlement?", answer: "The SEC vs Ripple case ended with a settlement that included a reduced fine for Ripple's institutional XRP sales. Crucially, XRP's status as a non-security on secondary markets was preserved." },
-    { question: "How much did Ripple pay?", answer: "Ripple paid a significantly reduced fine compared to the SEC's original demands. The final amount was a fraction of the $2 billion the SEC initially sought." },
-    { question: "Did Ripple admit XRP is a security?", answer: "No. Ripple did not admit that XRP is a security. The settlement preserved the court's ruling that XRP sold on exchanges is not a security." },
-    { question: "Is the SEC case fully over?", answer: "Yes. The settlement and withdrawal of appeals finalized the case, ending years of legal uncertainty for XRP and the broader crypto industry." },
-    { question: "What does the settlement mean for XRP holders?", answer: "The settlement is overwhelmingly positive for XRP holders. It confirms XRP's legal status, removes regulatory uncertainty, and clears the path for ETF approvals and institutional adoption." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What was the final settlement?", a: "The SEC vs Ripple case concluded with a settlement that preserved the landmark ruling: XRP is not a security on secondary markets. Ripple paid a reduced fine for its institutional sales but made no admission that XRP itself is a security." },
-  { q: "How much did Ripple pay?", a: "Ripple's fine was significantly reduced from the SEC's original $2 billion demand. The final amount reflected only penalties for institutional sales — not for XRP's existence or exchange trading." },
-  { q: "Did Ripple admit wrongdoing?", a: "Ripple acknowledged that some of its early institutional XRP sales constituted unregistered securities offerings. However, Ripple did NOT admit that XRP itself is a security — a critical distinction." },
-  { q: "What about the appeal?", a: "The SEC ultimately dropped its appeal of the Torres ruling, effectively accepting that XRP on exchanges is not a security. This was a major victory for Ripple and the crypto industry." },
-  { q: "What happens to XRP now?", a: "With the case fully resolved, XRP has the clearest regulatory status of any major cryptocurrency. This unlocks ETF approvals, institutional adoption, new exchange listings, and broader market participation." },
-  { q: "How does this affect other crypto projects?", a: "The Ripple settlement established that the 'manner of sale' matters more than the token itself. Other crypto projects are citing this precedent in their own regulatory battles." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPSECSettlementPage() {

@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-clawback-feature" },
 };
 
+const faqItems = [
+  { q: "What is the XRPL clawback feature?", a: "Clawback lets token issuers recover tokens they've issued from holders' accounts. It's opt-in — issuers must enable it before issuing. It only applies to issued tokens on trust lines, never to native XRP." },
+  { q: "Can someone clawback my XRP?", a: "No. Clawback only applies to issued tokens, not native XRP. No entity can clawback, freeze, or seize your XRP holdings." },
+  { q: "Why does the XRPL need clawback?", a: "For regulatory compliance in real-world asset tokenization. Banks and stablecoin issuers need to recover tokens in cases of fraud, court orders, or sanctions — requirements from traditional finance." },
+  { q: "Is clawback mandatory?", a: "No — entirely opt-in. Issuers must explicitly enable the flag. Once enabled, it can't be disabled. Tokens without it enabled can never be clawed back." },
+  { q: "How does clawback affect decentralization?", a: "It's a deliberate trade-off. Decentralized tokens don't enable it. Regulated assets (stablecoins, securities) use it for compliance. It doesn't affect the rest of the XRPL." },
+  { q: "Does RLUSD use clawback?", a: "RLUSD, as a regulated stablecoin issued by Ripple under NYDFS supervision, has compliance tools including the ability to freeze and potentially clawback tokens as required by its regulatory framework." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Clawback Feature Explained: What It Means",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Clawback Feature" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-clawback-feature" }),
-  buildFAQSchema([
-    { question: "What is the XRPL clawback feature?", answer: "Clawback allows token issuers on the XRPL to recover (claw back) tokens they've issued from holders' accounts. It's an opt-in feature — issuers must enable it on their account before issuing tokens. It cannot be applied to XRP itself, only to issued tokens on trust lines." },
-    { question: "Can someone clawback my XRP?", answer: "No. Clawback only applies to issued tokens (tokens held via trust lines), not to native XRP. No one can clawback, freeze, or seize your XRP. Only the issuer of a specific token can clawback that token, and only if they enabled the feature before issuance." },
-    { question: "Why does the XRPL need clawback?", answer: "Clawback enables regulatory compliance for real-world asset tokenization. Regulated entities (banks, stablecoin issuers) need the ability to recover tokens in cases of fraud, court orders, sanctions compliance, or erroneous transactions — requirements that exist in traditional finance." },
-    { question: "Is clawback mandatory?", answer: "No. Clawback is entirely opt-in. Token issuers must explicitly enable the lsfAllowTrustLineClawback flag on their account. Once enabled, it cannot be disabled. Tokens from issuers who haven't enabled it cannot be clawed back." },
-    { question: "How does clawback affect decentralization?", answer: "Clawback is a deliberate trade-off. For fully decentralized tokens, issuers simply don't enable it. For regulated assets (stablecoins, securities tokens), clawback provides the compliance tools needed for institutional adoption — without affecting the rest of the XRPL." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the XRPL clawback feature?", a: "Clawback lets token issuers recover tokens they've issued from holders' accounts. It's opt-in — issuers must enable it before issuing. It only applies to issued tokens on trust lines, never to native XRP." },
-  { q: "Can someone clawback my XRP?", a: "No. Clawback only applies to issued tokens, not native XRP. No entity can clawback, freeze, or seize your XRP holdings." },
-  { q: "Why does the XRPL need clawback?", a: "For regulatory compliance in real-world asset tokenization. Banks and stablecoin issuers need to recover tokens in cases of fraud, court orders, or sanctions — requirements from traditional finance." },
-  { q: "Is clawback mandatory?", a: "No — entirely opt-in. Issuers must explicitly enable the flag. Once enabled, it can't be disabled. Tokens without it enabled can never be clawed back." },
-  { q: "How does clawback affect decentralization?", a: "It's a deliberate trade-off. Decentralized tokens don't enable it. Regulated assets (stablecoins, securities) use it for compliance. It doesn't affect the rest of the XRPL." },
-  { q: "Does RLUSD use clawback?", a: "RLUSD, as a regulated stablecoin issued by Ripple under NYDFS supervision, has compliance tools including the ability to freeze and potentially clawback tokens as required by its regulatory framework." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLClawbackFeaturePage() {

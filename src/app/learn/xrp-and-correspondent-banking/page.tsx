@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is correspondent banking?", a: "Correspondent banking is how banks move money internationally. Banks maintain pre-funded accounts at partner banks in different countries. To send money to Japan, your bank needs Japanese yen sitting in a Japanese bank account — ready to go." },
+  { q: "What are nostro/vostro accounts?", a: "Nostro ('our account at your bank') and vostro ('your account at our bank') are the pre-funded accounts banks maintain for cross-border payments. A large bank might maintain hundreds of these across dozens of countries and currencies." },
+  { q: "How does XRP eliminate pre-funding?", a: "With XRP's On-Demand Liquidity, the sending bank converts local currency to XRP, sends it in 3-5 seconds, and the receiving bank converts XRP to local currency instantly. No pre-funded accounts needed — XRP provides the liquidity on demand." },
+  { q: "How much capital does this free up?", a: "An estimated $27 trillion is locked in nostro/vostro accounts globally. Even partially replacing this system could free up trillions in capital that banks can redeploy for lending and investment." },
+  { q: "Why haven't banks switched already?", a: "Many are switching — 100+ institutions use Ripple's network. But banking infrastructure moves slowly. Regulatory clarity (now achieved post-SEC settlement), integration complexity, and institutional inertia are the main factors." },
+  { q: "Does this create demand for XRP?", a: "Yes. Every ODL transaction requires XRP to be purchased, transferred, and sold. Higher corridor volumes mean higher sustained XRP demand. This is the core economic thesis for XRP's long-term value." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished, dateModified: datePublished }),
   buildBreadcrumbSchema([
@@ -33,22 +42,7 @@ const schemas = [
     { name: "XRP & Correspondent Banking" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is correspondent banking?", answer: "Correspondent banking is the system where banks maintain pre-funded accounts (nostro/vostro) at other banks to facilitate cross-border payments. It requires trillions in trapped capital and takes 3-5 days per transaction." },
-    { question: "What are nostro and vostro accounts?", answer: "A nostro account is money your bank holds at a foreign bank. A vostro account is money a foreign bank holds at your bank. Together, they enable cross-border transfers but lock up enormous capital." },
-    { question: "How does XRP replace nostro/vostro accounts?", answer: "XRP provides on-demand liquidity — instead of pre-funding accounts in every currency, banks use XRP as a bridge currency to convert between currencies in 3-5 seconds, eliminating the need for pre-funded accounts." },
-    { question: "How much money is locked in nostro/vostro accounts?", answer: "An estimated $27 trillion is locked in nostro/vostro accounts globally. This is capital that banks cannot lend or invest, representing a massive opportunity cost." },
-    { question: "Is XRP actually being used for correspondent banking?", answer: "Yes. Ripple's On-Demand Liquidity (ODL) product uses XRP as a bridge currency in live payment corridors across 55+ countries, replacing the need for pre-funded nostro/vostro accounts." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is correspondent banking?", a: "Correspondent banking is how banks move money internationally. Banks maintain pre-funded accounts at partner banks in different countries. To send money to Japan, your bank needs Japanese yen sitting in a Japanese bank account — ready to go." },
-  { q: "What are nostro/vostro accounts?", a: "Nostro ('our account at your bank') and vostro ('your account at our bank') are the pre-funded accounts banks maintain for cross-border payments. A large bank might maintain hundreds of these across dozens of countries and currencies." },
-  { q: "How does XRP eliminate pre-funding?", a: "With XRP's On-Demand Liquidity, the sending bank converts local currency to XRP, sends it in 3-5 seconds, and the receiving bank converts XRP to local currency instantly. No pre-funded accounts needed — XRP provides the liquidity on demand." },
-  { q: "How much capital does this free up?", a: "An estimated $27 trillion is locked in nostro/vostro accounts globally. Even partially replacing this system could free up trillions in capital that banks can redeploy for lending and investment." },
-  { q: "Why haven't banks switched already?", a: "Many are switching — 100+ institutions use Ripple's network. But banking infrastructure moves slowly. Regulatory clarity (now achieved post-SEC settlement), integration complexity, and institutional inertia are the main factors." },
-  { q: "Does this create demand for XRP?", a: "Yes. Every ODL transaction requires XRP to be purchased, transferred, and sold. Higher corridor volumes mean higher sustained XRP demand. This is the core economic thesis for XRP's long-term value." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndCorrespondentBankingPage() {

@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-burn-rate" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP Burn Rate: Is XRP Deflationary?", description: "An analysis of XRP's transaction fee burn mechanism, current burn rate, and what it means for long-term supply.", url: "https://allaboutxrp.com/learn/xrp-burn-rate", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Burn Rate" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-burn-rate" }),
-  buildFAQSchema([
-    { question: "Does XRP burn tokens?", answer: "Yes. Every XRP transaction burns a small fee (minimum 0.00001 XRP, or 10 drops) that is permanently destroyed. This fee is not paid to validators or any entity — it's removed from existence. This makes XRP technically deflationary, though the burn rate is very slow." },
-    { question: "How many XRP have been burned?", answer: "Approximately 12 million XRP have been burned since the ledger's launch in 2012. Starting from 100 billion XRP, the total supply is now approximately 99,988,000,000. The burn rate averages about 10-20 XRP per day at current usage levels." },
-    { question: "Will XRP burn rate increase?", answer: "Yes, if transaction volume increases. More transactions = more fees burned. If the XRPL processes millions of daily transactions through ODL, DeFi, NFTs, and tokenized assets, the burn rate could increase significantly. However, even at massive scale, it would take centuries to meaningfully reduce the 100 billion supply." },
-    { question: "Is XRP deflationary?", answer: "Technically yes — the total supply can only decrease, never increase. But practically, the deflation is negligible. At the current burn rate of ~10-20 XRP/day, it would take millions of years to burn even 1% of the supply. XRP's price is driven by demand, not supply reduction." },
-    { question: "Why are XRP fees burned instead of paid to validators?", answer: "Burning fees prevents validators from being incentivized to include spam transactions for profit. It also creates a tiny deflationary pressure that benefits all XRP holders equally, rather than concentrating value among validators. This design choice aligns with XRP's purpose as a neutral payment medium." },
-  ]),
-];
-
 const faqItems = [
   { q: "Does XRP burn tokens?", a: "Yes. Every transaction burns a minimum fee of 0.00001 XRP (10 drops), permanently destroyed. Not paid to anyone." },
   { q: "How many XRP have been burned?", a: "About 12 million XRP total since 2012. Current rate: ~10-20 XRP/day. Starting supply was 100 billion." },
   { q: "Will the burn rate increase?", a: "Yes, with more transactions. But even at massive scale, it would take centuries to reduce supply meaningfully." },
   { q: "Is XRP deflationary?", a: "Technically yes — supply can only decrease. Practically, the deflation is negligible at current usage levels." },
   { q: "Why burn instead of paying validators?", a: "Prevents spam incentives and benefits all holders equally rather than concentrating value among validators." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP Burn Rate: Is XRP Deflationary?", description: "An analysis of XRP's transaction fee burn mechanism, current burn rate, and what it means for long-term supply.", url: "https://allaboutxrp.com/learn/xrp-burn-rate", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Burn Rate" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-burn-rate" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPBurnRatePage() {

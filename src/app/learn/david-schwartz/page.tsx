@@ -48,6 +48,15 @@ const personSchema = {
   ],
 };
 
+const faqItems = [
+  { q: "Who is David Schwartz?", a: "CTO of Ripple Labs and original architect of the XRP Ledger. Known online as 'JoelKatz'. One of three XRPL creators alongside Jed McCaleb and Arthur Britto. Designed the consensus protocol in 2011." },
+  { q: "Why is he called Joel Katz?", a: "JoelKatz was his online pseudonym on tech forums before Ripple made him publicly known. The XRP community still widely refers to him by this name." },
+  { q: "What did he do before Ripple?", a: "Software engineer and cryptographer. Held patents in distributed computing and cryptographic systems. Worked at technology companies including WebMaster Incorporated." },
+  { q: "What is his role at Ripple?", a: "As CTO, he oversees technology strategy and XRPL development. Deeply involved in protocol design, amendments, and bridging the technical community with Ripple's business goals." },
+  { q: "Did he create Bitcoin?", a: "No. He's consistently denied being Satoshi Nakamoto. He became aware of Bitcoin around 2011 and was inspired to create a more efficient alternative — the XRP Ledger." },
+  { q: "Is he active in the XRP community?", a: "Very much so. Schwartz is one of the most accessible CTOs in crypto, regularly engaging with the community on X/Twitter (@JoelKatz), answering technical questions, and sharing insights about XRPL development." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Who Is David Schwartz? XRP Ledger's Chief Architect",
@@ -63,22 +72,7 @@ const schemas = [
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/david-schwartz" }),
   personSchema,
-  buildFAQSchema([
-    { question: "Who is David Schwartz?", answer: "David Schwartz is the Chief Technology Officer (CTO) of Ripple Labs and the original architect of the XRP Ledger. Known online by the pseudonym 'JoelKatz', he designed the XRPL's consensus protocol in 2011 and has guided its technical evolution ever since. He's one of the three original creators of the XRP Ledger alongside Jed McCaleb and Arthur Britto." },
-    { question: "Why is David Schwartz called Joel Katz?", answer: "JoelKatz was David Schwartz's online pseudonym used on various tech forums and communities before his identity became publicly known through Ripple. The pseudonym has become so well-known in the XRP community that many fans and community members still refer to him as JoelKatz." },
-    { question: "What did David Schwartz do before Ripple?", answer: "Before Ripple, Schwartz was a software engineer and cryptographer. He held patents in areas including multi-level distributed computer network systems and was involved in early work on distributed computing, cryptographic systems, and cloud storage. He worked at various technology companies including WebMaster Incorporated." },
-    { question: "What is David Schwartz's role at Ripple?", answer: "As CTO, Schwartz oversees Ripple's technology strategy and the technical development of the XRP Ledger. He's deeply involved in XRPL protocol design, amendment proposals, and ensuring the ledger evolves to meet institutional and developer needs. He also serves as a bridge between the technical community and Ripple's business goals." },
-    { question: "Did David Schwartz create Bitcoin?", answer: "No. While some have speculated about his involvement due to his early cryptography work, Schwartz has consistently denied being Satoshi Nakamoto. He has said he became aware of Bitcoin around 2011 and was inspired to create a better, more efficient alternative — which became the XRP Ledger." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Who is David Schwartz?", a: "CTO of Ripple Labs and original architect of the XRP Ledger. Known online as 'JoelKatz'. One of three XRPL creators alongside Jed McCaleb and Arthur Britto. Designed the consensus protocol in 2011." },
-  { q: "Why is he called Joel Katz?", a: "JoelKatz was his online pseudonym on tech forums before Ripple made him publicly known. The XRP community still widely refers to him by this name." },
-  { q: "What did he do before Ripple?", a: "Software engineer and cryptographer. Held patents in distributed computing and cryptographic systems. Worked at technology companies including WebMaster Incorporated." },
-  { q: "What is his role at Ripple?", a: "As CTO, he oversees technology strategy and XRPL development. Deeply involved in protocol design, amendments, and bridging the technical community with Ripple's business goals." },
-  { q: "Did he create Bitcoin?", a: "No. He's consistently denied being Satoshi Nakamoto. He became aware of Bitcoin around 2011 and was inspired to create a more efficient alternative — the XRP Ledger." },
-  { q: "Is he active in the XRP community?", a: "Very much so. Schwartz is one of the most accessible CTOs in crypto, regularly engaging with the community on X/Twitter (@JoelKatz), answering technical questions, and sharing insights about XRPL development." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function DavidSchwartzPage() {

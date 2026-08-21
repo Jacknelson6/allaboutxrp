@@ -35,6 +35,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is an XRP ETF?", a: "An XRP ETF (Exchange-Traded Fund) is a regulated investment product that tracks the price of XRP and trades on traditional stock exchanges like the NYSE or Nasdaq. It allows investors to gain exposure to XRP through their existing brokerage accounts — without needing to buy, store, or manage cryptocurrency directly." },
+  { q: "Has an XRP ETF been approved?", a: "As of early 2026, XRP futures-based ETFs are already trading on U.S. markets. Multiple spot XRP ETF applications are under SEC review from firms including Bitwise, 21Shares, Canary Capital, and WisdomTree. Final decisions are expected throughout 2026." },
+  { q: "How would an XRP spot ETF affect the price?", a: "Bitcoin's spot ETF approval in January 2024 preceded massive institutional inflows and significant price appreciation. Analysts estimate a spot XRP ETF could bring billions in new institutional capital, potentially driving substantial price appreciation. However, markets often 'price in' anticipated events." },
+  { q: "What is the difference between a spot and futures XRP ETF?", a: "A spot XRP ETF holds actual XRP tokens in custody, directly affecting supply and demand. A futures ETF holds derivatives contracts that track XRP's price without purchasing the underlying asset. Spot ETFs are considered more impactful for price because they require buying real XRP." },
+  { q: "Who has filed for an XRP spot ETF?", a: "Major asset managers including Bitwise, 21Shares, Canary Capital, WisdomTree, and Grayscale have filed spot XRP ETF applications with the SEC. This level of institutional interest signals strong confidence in XRP's regulatory standing." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP ETF Explained: Everything You Need to Know",
@@ -49,21 +57,7 @@ const schemas = [
     { name: "XRP ETF Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-etf" }),
-  buildFAQSchema([
-    { question: "What is an XRP ETF?", answer: "An XRP ETF (Exchange-Traded Fund) is a regulated investment product that tracks the price of XRP and trades on traditional stock exchanges, allowing investors to gain exposure to XRP without directly buying or storing the cryptocurrency." },
-    { question: "Has an XRP ETF been approved?", answer: "As of early 2026, XRP futures ETFs are trading on U.S. markets. Multiple spot XRP ETF applications have been filed with the SEC by firms including Bitwise, 21Shares, Canary Capital, and WisdomTree, with decisions expected in 2026." },
-    { question: "How would an XRP spot ETF affect price?", answer: "Bitcoin's spot ETF approval in January 2024 led to significant price appreciation due to institutional inflows. Analysts expect a similar dynamic for XRP, with estimates of billions in potential new capital flowing into XRP through ETF products." },
-    { question: "What is the difference between a spot and futures XRP ETF?", answer: "A spot XRP ETF holds actual XRP tokens, directly impacting supply and demand. A futures ETF holds XRP futures contracts, providing price exposure without directly purchasing XRP. Spot ETFs are generally considered more impactful for price." },
-    { question: "Who has filed for an XRP spot ETF?", answer: "Major firms including Bitwise, 21Shares, Canary Capital, WisdomTree, and Grayscale have filed for spot XRP ETFs with the SEC. Franklin Templeton and other major asset managers have also expressed interest." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is an XRP ETF?", a: "An XRP ETF (Exchange-Traded Fund) is a regulated investment product that tracks the price of XRP and trades on traditional stock exchanges like the NYSE or Nasdaq. It allows investors to gain exposure to XRP through their existing brokerage accounts — without needing to buy, store, or manage cryptocurrency directly." },
-  { q: "Has an XRP ETF been approved?", a: "As of early 2026, XRP futures-based ETFs are already trading on U.S. markets. Multiple spot XRP ETF applications are under SEC review from firms including Bitwise, 21Shares, Canary Capital, and WisdomTree. Final decisions are expected throughout 2026." },
-  { q: "How would an XRP spot ETF affect the price?", a: "Bitcoin's spot ETF approval in January 2024 preceded massive institutional inflows and significant price appreciation. Analysts estimate a spot XRP ETF could bring billions in new institutional capital, potentially driving substantial price appreciation. However, markets often 'price in' anticipated events." },
-  { q: "What is the difference between a spot and futures XRP ETF?", a: "A spot XRP ETF holds actual XRP tokens in custody, directly affecting supply and demand. A futures ETF holds derivatives contracts that track XRP's price without purchasing the underlying asset. Spot ETFs are considered more impactful for price because they require buying real XRP." },
-  { q: "Who has filed for an XRP spot ETF?", a: "Major asset managers including Bitwise, 21Shares, Canary Capital, WisdomTree, and Grayscale have filed spot XRP ETF applications with the SEC. This level of institutional interest signals strong confidence in XRP's regulatory standing." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPETFPage() {

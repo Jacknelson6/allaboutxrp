@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "How does XRP connect to AI?", a: "XRP's fast, cheap transactions make it the ideal payment rail for AI agents. As AI systems become autonomous, they need a way to pay for services, data, and compute — XRP's 3-5 second settlement at sub-cent costs is perfectly designed for this." },
+  { q: "Can AI agents use XRP for payments?", a: "Yes. AI agents can programmatically send XRP transactions to pay for API calls, compute resources, data feeds, and other services. XRPL's payment channels enable even higher-frequency micropayment streams." },
+  { q: "What is the AI crypto payments thesis?", a: "As AI agents become autonomous economic actors, they'll need digital payment rails. Traditional banking (slow, expensive, requires human approval) doesn't work for machines. Crypto — especially fast, cheap networks like XRP — becomes the natural financial layer for AI." },
+  { q: "Is Ripple building AI features?", a: "Ripple is exploring AI integrations across its product suite, including AI-powered compliance screening, fraud detection, and optimized payment routing. The XRP Ledger itself serves as infrastructure for AI payment use cases." },
+  { q: "What are AI micropayments?", a: "AI micropayments are tiny, frequent transactions made by AI agents — paying per API call, per data point, or per compute cycle. XRP's near-zero fees make it economical to send payments as small as fractions of a cent." },
+  { q: "How could XRP benefit from the AI boom?", a: "If AI agents adopt XRP as a payment rail, transaction volume on the XRP Ledger could increase dramatically. More transactions mean more fee burns, more liquidity demand, and potentially higher XRP value." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished, dateModified: datePublished }),
   buildBreadcrumbSchema([
@@ -33,20 +42,7 @@ const schemas = [
     { name: "XRP & AI" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "How does XRP connect to AI?", answer: "XRP's fast, low-cost transactions make it ideal for AI agent micropayments, machine-to-machine transactions, and automated data marketplace payments. AI agents can use XRP to pay for services, APIs, and compute resources autonomously." },
-    { question: "Can AI agents use XRP for payments?", answer: "Yes. XRP's 3-5 second settlement and sub-cent fees make it one of the best payment rails for autonomous AI agents that need to make frequent, small transactions without human intervention." },
-    { question: "What is machine-to-machine payment?", answer: "Machine-to-machine (M2M) payment is when devices or software agents transact autonomously. XRP is well-suited for M2M payments because it settles in seconds, costs almost nothing, and requires no intermediaries." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How does XRP connect to AI?", a: "XRP's fast, cheap transactions make it the ideal payment rail for AI agents. As AI systems become autonomous, they need a way to pay for services, data, and compute — XRP's 3-5 second settlement at sub-cent costs is perfectly designed for this." },
-  { q: "Can AI agents use XRP for payments?", a: "Yes. AI agents can programmatically send XRP transactions to pay for API calls, compute resources, data feeds, and other services. XRPL's payment channels enable even higher-frequency micropayment streams." },
-  { q: "What is the AI crypto payments thesis?", a: "As AI agents become autonomous economic actors, they'll need digital payment rails. Traditional banking (slow, expensive, requires human approval) doesn't work for machines. Crypto — especially fast, cheap networks like XRP — becomes the natural financial layer for AI." },
-  { q: "Is Ripple building AI features?", a: "Ripple is exploring AI integrations across its product suite, including AI-powered compliance screening, fraud detection, and optimized payment routing. The XRP Ledger itself serves as infrastructure for AI payment use cases." },
-  { q: "What are AI micropayments?", a: "AI micropayments are tiny, frequent transactions made by AI agents — paying per API call, per data point, or per compute cycle. XRP's near-zero fees make it economical to send payments as small as fractions of a cent." },
-  { q: "How could XRP benefit from the AI boom?", a: "If AI agents adopt XRP as a payment rail, transaction volume on the XRP Ledger could increase dramatically. More transactions mean more fee burns, more liquidity demand, and potentially higher XRP value." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndAIPage() {

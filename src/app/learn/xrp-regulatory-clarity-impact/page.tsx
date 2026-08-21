@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "How has clarity changed XRP adoption?", a: "Night and day. Before the SEC case, exchanges delisted XRP, institutions avoided it, and innovation stalled. Since clarity, we've seen mass relistings, ETF filings, record partnerships, and institutional products like Ripple Prime launching." },
+  { q: "What specific changes happened post-clarity?", a: "Major exchanges relisted XRP (Coinbase, Gemini, etc.), multiple firms filed for XRP ETFs, banking partnerships expanded, RLUSD launched, Ripple acquired Hidden Road for $1.25B, and ODL volumes hit new records." },
+  { q: "Why did the SEC case hold back adoption?", a: "The lawsuit created existential uncertainty. Exchanges feared SEC enforcement for listing XRP. Banks wouldn't touch it. Fund managers couldn't justify the legal risk. Clarity removed all of these barriers simultaneously." },
+  { q: "Is this the catalyst for XRP's price?", a: "Regulatory clarity is widely considered the most important long-term catalyst for XRP. It enables every other catalyst — ETF approval, institutional adoption, exchange access — that drives demand." },
+  { q: "What's next for XRP adoption?", a: "The next major milestones include XRP ETF approval, broader banking integration, CBDC bridge partnerships, and continued growth in ODL volumes across new corridors." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,21 +40,7 @@ const schemas = [
     { name: "Regulatory Clarity Impact" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "How has regulatory clarity affected XRP adoption?", answer: "Since the SEC settlement, XRP has seen massive growth in exchange listings, ETF filings, institutional partnerships, and trading volume. Regulatory clarity removed the biggest barrier to adoption." },
-    { question: "What happened after the SEC case ended?", answer: "Major exchanges relisted XRP, multiple ETF applications were filed, institutional partnerships accelerated, and XRP's trading volume and market cap both increased significantly." },
-    { question: "Why does regulatory clarity matter for crypto?", answer: "Institutions, exchanges, and funds require clear legal status before they can offer, trade, or invest in an asset. Uncertainty equals risk, and risk means avoidance. Clarity unlocks participation." },
-    { question: "Is XRP the most legally clear cryptocurrency?", answer: "Yes. XRP has been through a full SEC lawsuit, received a favorable court ruling, and had that ruling survive settlement. No other major crypto has this level of judicial vetting." },
-    { question: "What adoption milestones has XRP hit since clarity?", answer: "Post-clarity milestones include major exchange relistings, multiple XRP ETF filings, new banking partnerships, RLUSD launch, Hidden Road acquisition, and record ODL volumes." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How has clarity changed XRP adoption?", a: "Night and day. Before the SEC case, exchanges delisted XRP, institutions avoided it, and innovation stalled. Since clarity, we've seen mass relistings, ETF filings, record partnerships, and institutional products like Ripple Prime launching." },
-  { q: "What specific changes happened post-clarity?", a: "Major exchanges relisted XRP (Coinbase, Gemini, etc.), multiple firms filed for XRP ETFs, banking partnerships expanded, RLUSD launched, Ripple acquired Hidden Road for $1.25B, and ODL volumes hit new records." },
-  { q: "Why did the SEC case hold back adoption?", a: "The lawsuit created existential uncertainty. Exchanges feared SEC enforcement for listing XRP. Banks wouldn't touch it. Fund managers couldn't justify the legal risk. Clarity removed all of these barriers simultaneously." },
-  { q: "Is this the catalyst for XRP's price?", a: "Regulatory clarity is widely considered the most important long-term catalyst for XRP. It enables every other catalyst — ETF approval, institutional adoption, exchange access — that drives demand." },
-  { q: "What's next for XRP adoption?", a: "The next major milestones include XRP ETF approval, broader banking integration, CBDC bridge partnerships, and continued growth in ODL volumes across new corridors." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPRegulatoryClarityPage() {

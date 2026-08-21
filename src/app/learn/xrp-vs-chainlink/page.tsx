@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-chainlink" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Chainlink (LINK): Key Differences (2026)", description: "Compare XRP and Chainlink — payments infrastructure vs oracle networks. Use cases, tokenomics, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-chainlink", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Chainlink" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-chainlink" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Chainlink?", answer: "XRP is a payment network designed for fast, low-cost cross-border transactions. Chainlink is a decentralized oracle network that feeds real-world data to smart contracts. They serve completely different purposes — XRP moves money, Chainlink moves data." },
-    { question: "Is XRP or Chainlink a better investment?", answer: "They serve different roles in a portfolio. XRP is a bet on cross-border payments and institutional adoption with 300+ bank partnerships. Chainlink is a bet on oracle infrastructure being essential to DeFi. XRP has a larger market cap (~$110B vs ~$8B) and more payment-specific utility." },
-    { question: "Can XRP and Chainlink work together?", answer: "Yes. Chainlink oracles could provide price feeds and external data to XRPL smart contracts via Hooks or the EVM sidechain. The XRPL already has native oracle support, but Chainlink's extensive data feeds could complement it." },
-    { question: "Which has more real-world adoption?", answer: "XRP has more adoption in traditional finance with 300+ institutional partners and live payment corridors. Chainlink has more adoption in DeFi, securing billions in value across 1,000+ projects on multiple blockchains." },
-    { question: "What is Chainlink's CCIP and how does it compare to XRP?", answer: "Chainlink's Cross-Chain Interoperability Protocol (CCIP) enables cross-chain messaging and token transfers. While it facilitates value transfer between blockchains, XRP focuses on fiat-to-fiat cross-border payments through financial institutions — different layers of the financial stack." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference between XRP and Chainlink?", a: "XRP is a payment network for cross-border transactions. Chainlink is an oracle network feeding real-world data to smart contracts. Completely different use cases." },
   { q: "Is XRP or Chainlink a better investment?", a: "Different bets — XRP on institutional payments (300+ bank partners), Chainlink on oracle infrastructure for DeFi (1,000+ integrations). XRP has ~14x larger market cap." },
   { q: "Can they work together?", a: "Yes. Chainlink oracles could provide data feeds to XRPL smart contracts, complementing XRPL's native oracle support." },
   { q: "Which has more real-world adoption?", a: "XRP in traditional finance (300+ partners). Chainlink in DeFi (1,000+ projects, billions secured)." },
   { q: "What is CCIP?", a: "Chainlink's Cross-Chain Interoperability Protocol enables cross-chain transfers — different from XRP's fiat-to-fiat institutional focus." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Chainlink (LINK): Key Differences (2026)", description: "Compare XRP and Chainlink — payments infrastructure vs oracle networks. Use cases, tokenomics, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-chainlink", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Chainlink" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-chainlink" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsChainlinkPage() {

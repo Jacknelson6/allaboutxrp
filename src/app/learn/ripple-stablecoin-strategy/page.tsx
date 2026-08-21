@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-stablecoin-strategy" },
 };
 
+const faqItems = [
+  { q: "What is Ripple's stablecoin strategy?", a: "Centers on RLUSD — a USD-backed stablecoin with NYDFS approval. Deployed on XRPL and Ethereum for institutional payments, DeFi, and complementing XRP in cross-border solutions." },
+  { q: "How does RLUSD help XRP?", a: "Complements, not competes. XRP bridges currencies; RLUSD provides stable settlement value. RLUSD also boosts XRPL DeFi activity, generating more XRP fees and utility." },
+  { q: "Why is NYDFS approval important?", a: "Gives RLUSD institutional credibility. Banks require regulated stablecoins — NYDFS means strict reserve, audit, and compliance requirements are met." },
+  { q: "Is RLUSD only on XRPL?", a: "No — deployed on XRPL and Ethereum. Multi-chain strategy accesses Ethereum DeFi while leveraging XRPL's speed. More chains planned." },
+  { q: "Can RLUSD compete with USDT/USDC?", a: "Targets institutional market. Advantages: NYDFS regulation, Ripple's bank relationships, Ripple Payments integration, native XRPL with near-zero fees." },
+  { q: "How big is RLUSD?", a: "RLUSD has grown rapidly since launch, surpassing $1 billion in market cap. It's one of the fastest-growing regulated stablecoins, driven by institutional demand." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple's Stablecoin Strategy: RLUSD and the Bigger Picture",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "Ripple Stablecoin Strategy" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-stablecoin-strategy" }),
-  buildFAQSchema([
-    { question: "What is Ripple's stablecoin strategy?", answer: "Ripple's stablecoin strategy centers on RLUSD — a USD-backed stablecoin approved by the New York Department of Financial Services (NYDFS). It's deployed on both the XRPL and Ethereum, designed for institutional payments, DeFi, and as a complement to XRP in Ripple's cross-border payment solutions." },
-    { question: "How does RLUSD help XRP?", answer: "RLUSD complements rather than competes with XRP. In Ripple's payment flows, XRP serves as the bridge currency while RLUSD provides stable value for settlement. RLUSD also increases XRPL DeFi activity (AMM pools, lending), which generates more XRP transaction fees and utility." },
-    { question: "Why did Ripple need NYDFS approval?", answer: "NYDFS approval gives RLUSD regulatory credibility that USDT and most other stablecoins lack. Banks and institutions require regulated stablecoins — NYDFS oversight means RLUSD meets the strict reserve, audit, and compliance requirements that institutional clients demand." },
-    { question: "Is RLUSD only on the XRP Ledger?", answer: "No. RLUSD is deployed on both the XRPL and Ethereum. This multi-chain strategy allows RLUSD to access Ethereum's DeFi ecosystem while leveraging the XRPL's speed and low costs for payments. Additional chain deployments are planned." },
-    { question: "Can RLUSD compete with USDT and USDC?", answer: "RLUSD targets the institutional market rather than competing directly with USDT/USDC on volume. Its competitive advantages are NYDFS regulation, Ripple's institutional relationships, integration with Ripple Payments, and native XRPL deployment with near-zero fees." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is Ripple's stablecoin strategy?", a: "Centers on RLUSD — a USD-backed stablecoin with NYDFS approval. Deployed on XRPL and Ethereum for institutional payments, DeFi, and complementing XRP in cross-border solutions." },
-  { q: "How does RLUSD help XRP?", a: "Complements, not competes. XRP bridges currencies; RLUSD provides stable settlement value. RLUSD also boosts XRPL DeFi activity, generating more XRP fees and utility." },
-  { q: "Why is NYDFS approval important?", a: "Gives RLUSD institutional credibility. Banks require regulated stablecoins — NYDFS means strict reserve, audit, and compliance requirements are met." },
-  { q: "Is RLUSD only on XRPL?", a: "No — deployed on XRPL and Ethereum. Multi-chain strategy accesses Ethereum DeFi while leveraging XRPL's speed. More chains planned." },
-  { q: "Can RLUSD compete with USDT/USDC?", a: "Targets institutional market. Advantages: NYDFS regulation, Ripple's bank relationships, Ripple Payments integration, native XRPL with near-zero fees." },
-  { q: "How big is RLUSD?", a: "RLUSD has grown rapidly since launch, surpassing $1 billion in market cap. It's one of the fastest-growing regulated stablecoins, driven by institutional demand." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleStablecoinStrategyPage() {

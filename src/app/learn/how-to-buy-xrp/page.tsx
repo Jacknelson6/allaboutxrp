@@ -36,6 +36,16 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is the easiest way to buy XRP?", a: "Use a venue that legally serves your location, supports XRP withdrawals, and shows the full fee and spread before confirmation. Complete identity checks, fund the account, place an order, and decide whether to use exchange custody or a self-custody wallet." },
+  { q: "Can I buy XRP in the United States?", a: "XRP is available through several U.S.-serving platforms, but eligibility varies by state, account, and product. Check the venue's current location rules and XRP withdrawal support before depositing money." },
+  { q: "What is the minimum amount of XRP I can buy?", a: "Minimum order sizes vary by venue. If you plan to withdraw to a new self-custody account, verify the XRP Ledger's current base reserve and the venue's withdrawal minimum before choosing an amount." },
+  { q: "Is it safe to buy XRP?", a: "Buying XRP carries market, platform, custody, fraud, and operational risks. Reduce avoidable risk by verifying the venue and URL, using a unique password and strong 2FA, checking every order preview, and planning custody and recovery before purchase." },
+  { q: "Should I store XRP on an exchange or in a wallet?", a: "Exchange custody is convenient but leaves control with the provider. Self-custody gives you the keys but makes you responsible for backups and recovery. Choose based on the risks you can manage, and test a small withdrawal first." },
+  { q: "Do I need to pay taxes on XRP?", a: "Tax treatment depends on your jurisdiction and the transaction. Buying, selling, exchanging, spending, receiving, or transferring XRP can have different reporting consequences. Keep dated records and consult current guidance or a qualified tax professional where you live." },
+  { q: "Can I buy XRP with a credit card?", a: "Some venues support card funding in some regions. Review the provider's checkout, your card issuer's treatment of crypto purchases, and the total fee before confirming because payment-method availability and charges vary." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP: Step-by-Step Guide",
@@ -71,23 +81,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "How to Buy XRP" },
   ]),
-  buildFAQSchema([
-    { question: "What is the easiest way to buy XRP?", answer: "Use a venue that legally serves your location, supports XRP withdrawals, and shows the full fee and spread before confirmation. Complete identity checks, fund the account, place an order, and decide whether to use exchange custody or a self-custody wallet." },
-    { question: "Can I buy XRP in the United States?", answer: "XRP is available through several U.S.-serving platforms, but eligibility varies by state, account, and product. Check the venue's current location rules and XRP withdrawal support before depositing money." },
-    { question: "What is the minimum amount of XRP I can buy?", answer: "Minimum order sizes vary by venue. If you plan to withdraw to a new self-custody account, verify the XRP Ledger's current base reserve and the venue's withdrawal minimum before choosing an amount." },
-    { question: "Is it safe to buy XRP?", answer: "Buying XRP carries market, platform, custody, fraud, and operational risks. Reduce avoidable risk by verifying the venue and URL, using a unique password and strong 2FA, checking every order preview, and planning custody and recovery before purchase." },
-    { question: "Should I store XRP on an exchange or in a wallet?", answer: "Exchange custody is convenient but leaves control with the provider. Self-custody gives you the keys but makes you responsible for backups and recovery. Choose based on the risks you can manage, and test a small withdrawal first." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the easiest way to buy XRP?", a: "Use a venue that legally serves your location, supports XRP withdrawals, and shows the full fee and spread before confirmation. Complete identity checks, fund the account, place an order, and decide whether to use exchange custody or a self-custody wallet." },
-  { q: "Can I buy XRP in the United States?", a: "XRP is available through several U.S.-serving platforms, but eligibility varies by state, account, and product. Check the venue's current location rules and XRP withdrawal support before depositing money." },
-  { q: "What is the minimum amount of XRP I can buy?", a: "Minimum order sizes vary by venue. If you plan to withdraw to a new self-custody account, verify the XRP Ledger's current base reserve and the venue's withdrawal minimum before choosing an amount." },
-  { q: "Is it safe to buy XRP?", a: "Buying XRP carries market, platform, custody, fraud, and operational risks. Reduce avoidable risk by verifying the venue and URL, using a unique password and strong 2FA, checking every order preview, and planning custody and recovery before purchase." },
-  { q: "Should I store XRP on an exchange or in a wallet?", a: "Exchange custody is convenient but leaves control with the provider. Self-custody gives you the keys but makes you responsible for backups and recovery. Choose based on the risks you can manage, and test a small withdrawal first." },
-  { q: "Do I need to pay taxes on XRP?", a: "Tax treatment depends on your jurisdiction and the transaction. Buying, selling, exchanging, spending, receiving, or transferring XRP can have different reporting consequences. Keep dated records and consult current guidance or a qualified tax professional where you live." },
-  { q: "Can I buy XRP with a credit card?", a: "Some venues support card funding in some regions. Review the provider's checkout, your card issuer's treatment of crypto purchases, and the total fee before confirming because payment-method availability and charges vary." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowToBuyXRPPage() {

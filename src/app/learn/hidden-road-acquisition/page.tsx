@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/hidden-road-acquisition" },
 };
 
+const faqItems = [
+  { q: "What is Hidden Road?", a: "A global prime brokerage and credit network serving hedge funds, asset managers, and institutions. Provides prime brokerage, clearing, lending, and cross-margining across traditional and crypto markets. Processes billions daily." },
+  { q: "How much did Ripple pay?", a: "Approximately $1.25 billion — Ripple's largest acquisition and one of the biggest in crypto history. Announced April 2025." },
+  { q: "Why did Ripple buy it?", a: "Adds institutional trading infrastructure — prime brokerage, clearing, credit. Completes Ripple's full-stack institutional platform alongside payments, custody, and RLUSD." },
+  { q: "How does it affect XRP?", a: "Institutional clients get seamless XRP access. RLUSD can be used as prime brokerage collateral. XRPL can serve as post-trade settlement infrastructure. New institutional demand channels." },
+  { q: "What is prime brokerage?", a: "Services banks offer institutional clients — lending, leveraged trading, clearing, custody, risk management. The infrastructure backbone of institutional trading." },
+  { q: "Who are Hidden Road's clients?", a: "Over 300 institutional clients including hedge funds, asset managers, and financial institutions. Multi-asset coverage across equities, FX, fixed income, and crypto." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple's Hidden Road Acquisition: What It Means for XRP",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "Hidden Road Acquisition" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/hidden-road-acquisition" }),
-  buildFAQSchema([
-    { question: "What is Hidden Road?", answer: "Hidden Road is a global prime brokerage and credit network that serves institutional clients — hedge funds, asset managers, and financial institutions. It provides prime brokerage services, clearing, lending, and cross-margining across traditional and crypto markets. It processes billions in daily volume." },
-    { question: "How much did Ripple pay for Hidden Road?", answer: "Ripple acquired Hidden Road for approximately $1.25 billion, making it the largest acquisition in Ripple's history and one of the largest in the crypto industry. The deal was announced in April 2025." },
-    { question: "Why did Ripple buy Hidden Road?", answer: "Hidden Road gives Ripple direct access to institutional trading infrastructure — prime brokerage, clearing, and credit services. This complements Ripple's existing payments, custody, and stablecoin products, creating a full-stack institutional crypto platform." },
-    { question: "How does the Hidden Road acquisition affect XRP?", answer: "Hidden Road's institutional clients gain seamless access to XRP through Ripple's ecosystem. RLUSD can be used as collateral in Hidden Road's prime brokerage services. The XRPL can serve as post-trade infrastructure, potentially settling trades on-chain. This creates new institutional demand channels for XRP." },
-    { question: "What is prime brokerage?", answer: "Prime brokerage is a suite of services that banks and financial firms offer to institutional clients — including lending, leveraged trading, clearing, custody, and risk management. It's the infrastructure backbone of institutional trading. Hidden Road provides these services across both traditional and crypto markets." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is Hidden Road?", a: "A global prime brokerage and credit network serving hedge funds, asset managers, and institutions. Provides prime brokerage, clearing, lending, and cross-margining across traditional and crypto markets. Processes billions daily." },
-  { q: "How much did Ripple pay?", a: "Approximately $1.25 billion — Ripple's largest acquisition and one of the biggest in crypto history. Announced April 2025." },
-  { q: "Why did Ripple buy it?", a: "Adds institutional trading infrastructure — prime brokerage, clearing, credit. Completes Ripple's full-stack institutional platform alongside payments, custody, and RLUSD." },
-  { q: "How does it affect XRP?", a: "Institutional clients get seamless XRP access. RLUSD can be used as prime brokerage collateral. XRPL can serve as post-trade settlement infrastructure. New institutional demand channels." },
-  { q: "What is prime brokerage?", a: "Services banks offer institutional clients — lending, leveraged trading, clearing, custody, risk management. The infrastructure backbone of institutional trading." },
-  { q: "Who are Hidden Road's clients?", a: "Over 300 institutional clients including hedge funds, asset managers, and financial institutions. Multi-asset coverage across equities, FX, fixed income, and crypto." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HiddenRoadAcquisitionPage() {

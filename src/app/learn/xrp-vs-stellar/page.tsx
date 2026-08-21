@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-stellar" },
 };
 
+const faqItems = [
+  { q: "What is the difference between XRP and Stellar?", a: "XRP targets institutional and bank-to-bank payments with enterprise-grade RippleNet and On-Demand Liquidity. Stellar targets individual and small business payments, financial inclusion, and connecting the unbanked. Both settle in seconds but serve different market segments." },
+  { q: "Is Stellar a fork of XRP?", a: "Not exactly. Stellar co-founder Jed McCaleb co-founded Ripple before leaving in 2014 to create Stellar. The original protocol was based on Ripple's code but was completely rewritten in 2015 with the Stellar Consensus Protocol. They share philosophical DNA but are technically independent." },
+  { q: "Which is faster, XRP or Stellar?", a: "Both settle in 3-5 seconds. The speed difference is negligible. Both are dramatically faster than Bitcoin (10+ minutes) or traditional banking (1-5 days)." },
+  { q: "Is XRP or Stellar a better investment?", a: "XRP has a significantly larger market cap and more institutional adoption. Stellar focuses on financial inclusion with a smaller market cap. XRP's institutional focus gives it more potential for large-scale volume." },
+  { q: "Why did Jed McCaleb leave Ripple to create Stellar?", a: "McCaleb left in 2014 due to disagreements about direction. He wanted to focus on financial inclusion and individual users, while Ripple focused on banks and enterprises. He created Stellar to pursue accessible, affordable financial services." },
+  { q: "Can XRP and Stellar coexist?", a: "Yes. They target fundamentally different markets — XRP focuses on institutional cross-border payments while Stellar focuses on financial inclusion and individual remittances. Their success is not mutually exclusive." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP vs Stellar (XLM): Key Differences Explained",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "XRP vs Stellar" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-stellar" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Stellar?", answer: "XRP (Ripple) targets institutional and bank-to-bank payments with its enterprise-grade RippleNet and On-Demand Liquidity. Stellar targets individual and small business payments, financial inclusion, and connecting the unbanked. Both settle in seconds, but they serve different market segments." },
-    { question: "Is Stellar a fork of XRP?", answer: "Not exactly. Stellar co-founder Jed McCaleb co-founded Ripple before leaving in 2014 to create Stellar. The original Stellar protocol was based on Ripple's code but was completely rewritten in 2015 with the Stellar Consensus Protocol (SCP). They share philosophical DNA but are technically independent." },
-    { question: "Which is faster, XRP or Stellar?", answer: "Both are extremely fast. XRP settles in 3-5 seconds, while Stellar settles in 3-5 seconds as well. The difference in speed is negligible. Both are dramatically faster than Bitcoin (10+ minutes) or traditional banking (1-5 days)." },
-    { question: "Is XRP or Stellar a better investment?", answer: "XRP has a significantly larger market cap and more institutional adoption through Ripple's enterprise partnerships. Stellar has a smaller market cap and focuses on financial inclusion and individual payments. XRP's institutional focus gives it more potential for large-scale volume, while Stellar's grassroots approach targets emerging markets." },
-    { question: "Why did Jed McCaleb leave Ripple to create Stellar?", answer: "Jed McCaleb co-founded Ripple (then OpenCoin) in 2012 but left in 2014 due to disagreements about the company's direction. McCaleb wanted to focus on financial inclusion and individual users, while Ripple focused on banks and enterprises. He created Stellar to pursue his vision of accessible, affordable financial services." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the difference between XRP and Stellar?", a: "XRP targets institutional and bank-to-bank payments with enterprise-grade RippleNet and On-Demand Liquidity. Stellar targets individual and small business payments, financial inclusion, and connecting the unbanked. Both settle in seconds but serve different market segments." },
-  { q: "Is Stellar a fork of XRP?", a: "Not exactly. Stellar co-founder Jed McCaleb co-founded Ripple before leaving in 2014 to create Stellar. The original protocol was based on Ripple's code but was completely rewritten in 2015 with the Stellar Consensus Protocol. They share philosophical DNA but are technically independent." },
-  { q: "Which is faster, XRP or Stellar?", a: "Both settle in 3-5 seconds. The speed difference is negligible. Both are dramatically faster than Bitcoin (10+ minutes) or traditional banking (1-5 days)." },
-  { q: "Is XRP or Stellar a better investment?", a: "XRP has a significantly larger market cap and more institutional adoption. Stellar focuses on financial inclusion with a smaller market cap. XRP's institutional focus gives it more potential for large-scale volume." },
-  { q: "Why did Jed McCaleb leave Ripple to create Stellar?", a: "McCaleb left in 2014 due to disagreements about direction. He wanted to focus on financial inclusion and individual users, while Ripple focused on banks and enterprises. He created Stellar to pursue accessible, affordable financial services." },
-  { q: "Can XRP and Stellar coexist?", a: "Yes. They target fundamentally different markets — XRP focuses on institutional cross-border payments while Stellar focuses on financial inclusion and individual remittances. Their success is not mutually exclusive." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsStellarPage() {

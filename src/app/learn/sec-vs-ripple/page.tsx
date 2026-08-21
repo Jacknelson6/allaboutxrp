@@ -35,6 +35,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Did Ripple win the SEC lawsuit?", a: "Largely yes. The most important ruling — that XRP sold on public exchanges is not a security — was a major victory for Ripple and the entire crypto industry. While Ripple paid $125 million in penalties for institutional sales, this was a fraction of the SEC's $2 billion demand. The ruling paved the way for exchange relistings, ETF filings, and institutional adoption." },
+  { q: "Is XRP a security?", a: "No. Judge Torres ruled that XRP itself is not a security. The distinction was in how it was sold: programmatic sales on exchanges to retail investors did not meet the Howey test's 'expectation of profits from the efforts of others' prong. Direct institutional sales by Ripple, however, were deemed unregistered securities offerings." },
+  { q: "What are the Hinman documents?", a: "Internal SEC emails and drafts from 2018 in which then-Director of Corporation Finance William Hinman discussed Ethereum not being a security. Ripple used these documents to argue the SEC had given inconsistent guidance — telling the industry ETH wasn't a security while suing Ripple for XRP." },
+  { q: "What does the ruling mean for other cryptocurrencies?", a: "The Torres ruling established a critical precedent: a digital asset token itself is not inherently a security — the context of the transaction determines whether securities laws apply. This reasoning has been cited in subsequent crypto cases and contributed to clearer regulatory frameworks." },
+  { q: "How much did Ripple pay in fines?", a: "Ripple was ordered to pay $125 million in civil penalties in August 2024. The SEC originally sought approximately $2 billion. The 93% reduction was widely viewed as a victory for Ripple and reflected the court's view that much of the SEC's case was overreaching." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "SEC vs Ripple: The Complete Timeline",
@@ -49,21 +57,7 @@ const schemas = [
     { name: "SEC vs Ripple" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/sec-vs-ripple" }),
-  buildFAQSchema([
-    { question: "Did Ripple win the SEC lawsuit?", answer: "Largely yes. In July 2023, Judge Torres ruled that XRP sold on public exchanges to retail investors is not a security. Ripple was ordered to pay $125 million in penalties — far less than the SEC's $2 billion demand. The case has effectively resolved with XRP gaining significant regulatory clarity." },
-    { question: "Is XRP a security?", answer: "No. Judge Analisa Torres ruled in July 2023 that XRP sold on public exchanges (programmatic sales) is not a security under the Howey test. However, direct institutional sales by Ripple were found to be unregistered securities offerings." },
-    { question: "What are the Hinman documents?", answer: "Internal SEC documents from 2018 where then-Director William Hinman stated that Ethereum was not a security. Ripple argued these showed the SEC had inconsistent and unfair enforcement. The documents were released during discovery and embarrassed the SEC." },
-    { question: "What does the Ripple ruling mean for other cryptos?", answer: "The Torres ruling established that a digital asset itself is not a security — only the manner of its sale can be. This precedent has been cited in other crypto cases and contributed to a more favorable regulatory environment for the entire industry." },
-    { question: "How much did Ripple pay in fines?", answer: "Ripple was ordered to pay $125 million in civil penalties in August 2024. The SEC had originally sought nearly $2 billion. The reduced penalty was seen as a significant victory for Ripple." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Did Ripple win the SEC lawsuit?", a: "Largely yes. The most important ruling — that XRP sold on public exchanges is not a security — was a major victory for Ripple and the entire crypto industry. While Ripple paid $125 million in penalties for institutional sales, this was a fraction of the SEC's $2 billion demand. The ruling paved the way for exchange relistings, ETF filings, and institutional adoption." },
-  { q: "Is XRP a security?", a: "No. Judge Torres ruled that XRP itself is not a security. The distinction was in how it was sold: programmatic sales on exchanges to retail investors did not meet the Howey test's 'expectation of profits from the efforts of others' prong. Direct institutional sales by Ripple, however, were deemed unregistered securities offerings." },
-  { q: "What are the Hinman documents?", a: "Internal SEC emails and drafts from 2018 in which then-Director of Corporation Finance William Hinman discussed Ethereum not being a security. Ripple used these documents to argue the SEC had given inconsistent guidance — telling the industry ETH wasn't a security while suing Ripple for XRP." },
-  { q: "What does the ruling mean for other cryptocurrencies?", a: "The Torres ruling established a critical precedent: a digital asset token itself is not inherently a security — the context of the transaction determines whether securities laws apply. This reasoning has been cited in subsequent crypto cases and contributed to clearer regulatory frameworks." },
-  { q: "How much did Ripple pay in fines?", a: "Ripple was ordered to pay $125 million in civil penalties in August 2024. The SEC originally sought approximately $2 billion. The 93% reduction was widely viewed as a victory for Ripple and reflected the court's view that much of the SEC's case was overreaching." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function SECvsRipplePage() {

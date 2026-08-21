@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-energy-consumption" },
 };
 
+const faqItems = [
+  { q: "How much energy does XRP use per transaction?", a: "Approximately 0.0079 kWh — making it roughly 250,000x more efficient than Bitcoin's 707 kWh per transaction." },
+  { q: "Is XRP environmentally friendly?", a: "Yes. XRP is one of the greenest major cryptocurrencies. Its consensus mechanism requires minimal energy, and the XRPL is carbon-neutral." },
+  { q: "Why does XRP use so little energy?", a: "XRP doesn't use mining. Validators cooperate through consensus rather than competing with energy-intensive puzzles." },
+  { q: "What is XRP's carbon footprint?", a: "The XRPL is carbon-neutral. Ripple offsets its minimal energy consumption through renewable energy certificates." },
+  { q: "How does XRP compare to Visa's energy?", a: "Similar range (0.001-0.01 kWh per transaction). XRP matches Visa's efficiency while adding decentralization and 24/7 operation." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Energy Consumption: How Green Is XRP?",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "XRP Energy Consumption" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-energy-consumption" }),
-  buildFAQSchema([
-    { question: "How much energy does XRP use per transaction?", answer: "XRP uses approximately 0.0079 kWh per transaction, making it one of the most energy-efficient cryptocurrencies. For comparison, Bitcoin uses approximately 707 kWh per transaction — making XRP roughly 250,000 times more energy-efficient." },
-    { question: "Is XRP environmentally friendly?", answer: "Yes. XRP is one of the most environmentally friendly cryptocurrencies due to its consensus mechanism that doesn't require energy-intensive mining. The entire XRP Ledger network's annual energy consumption is comparable to a small office building." },
-    { question: "Why does XRP use so much less energy than Bitcoin?", answer: "XRP doesn't use mining (proof-of-work). While Bitcoin miners burn massive electricity solving cryptographic puzzles, XRP validators simply verify transactions and vote on consensus. This cooperative approach requires minimal computational power." },
-    { question: "What is XRP's carbon footprint?", answer: "The XRP Ledger is carbon-neutral. Ripple has partnered with organizations like EW Zero to purchase renewable energy certificates that offset the XRPL's minimal energy consumption. The entire network's annual carbon output is negligible compared to Bitcoin or traditional banking." },
-    { question: "How does XRP compare to Visa's energy usage?", answer: "XRP uses roughly the same amount of energy per transaction as Visa (both in the range of 0.001-0.01 kWh per transaction). However, XRP offers decentralization, transparency, and 24/7 operation that centralized systems like Visa cannot match." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How much energy does XRP use per transaction?", a: "Approximately 0.0079 kWh — making it roughly 250,000x more efficient than Bitcoin's 707 kWh per transaction." },
-  { q: "Is XRP environmentally friendly?", a: "Yes. XRP is one of the greenest major cryptocurrencies. Its consensus mechanism requires minimal energy, and the XRPL is carbon-neutral." },
-  { q: "Why does XRP use so little energy?", a: "XRP doesn't use mining. Validators cooperate through consensus rather than competing with energy-intensive puzzles." },
-  { q: "What is XRP's carbon footprint?", a: "The XRPL is carbon-neutral. Ripple offsets its minimal energy consumption through renewable energy certificates." },
-  { q: "How does XRP compare to Visa's energy?", a: "Similar range (0.001-0.01 kWh per transaction). XRP matches Visa's efficiency while adding decentralization and 24/7 operation." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPEnergyConsumptionPage() {

@@ -29,6 +29,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/leadership" },
 };
 
+const faqItems = [
+  { q: "Who is the CEO of Ripple?", a: "Brad Garlinghouse has served as CEO since January 2017. He led Ripple through the SEC lawsuit, oversaw its expansion to 55+ countries, and guided the company to a ~$50 billion valuation." },
+  { q: "Who created the XRP Ledger?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Development began in 2011 and the ledger went live in June 2012." },
+  { q: "Who founded Ripple?", a: "The company (originally OpenCoin) was co-founded in September 2012 by Chris Larsen, Jed McCaleb, and Arthur Britto. Larsen served as the first CEO and now serves as Executive Chairman." },
+  { q: "Who is JoelKatz?", a: "JoelKatz is the online handle of David Schwartz, Ripple's CTO and co-creator of the XRP Ledger. He is a well-known figure in the XRP community." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple Leadership: Who Runs Ripple in 2026",
@@ -43,18 +50,7 @@ const schemas = [
     { name: "Leadership" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/leadership" }),
-  buildFAQSchema([
-    { question: "Who is the CEO of Ripple?", answer: "Brad Garlinghouse has served as CEO since January 2017. He led Ripple through the SEC lawsuit and the company's expansion to a $50 billion valuation." },
-    { question: "Who created the XRP Ledger?", answer: "The XRP Ledger was created by David Schwartz, Jed McCaleb, and Arthur Britto. Development began in 2011." },
-    { question: "Who founded Ripple?", answer: "Ripple (originally OpenCoin) was co-founded in September 2012 by Chris Larsen, Jed McCaleb, and Arthur Britto." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Who is the CEO of Ripple?", a: "Brad Garlinghouse has served as CEO since January 2017. He led Ripple through the SEC lawsuit, oversaw its expansion to 55+ countries, and guided the company to a ~$50 billion valuation." },
-  { q: "Who created the XRP Ledger?", a: "The XRP Ledger was created by David Schwartz (Ripple's CTO), Jed McCaleb (who later founded Stellar), and Arthur Britto. Development began in 2011 and the ledger went live in June 2012." },
-  { q: "Who founded Ripple?", a: "The company (originally OpenCoin) was co-founded in September 2012 by Chris Larsen, Jed McCaleb, and Arthur Britto. Larsen served as the first CEO and now serves as Executive Chairman." },
-  { q: "Who is JoelKatz?", a: "JoelKatz is the online handle of David Schwartz, Ripple's CTO and co-creator of the XRP Ledger. He is a well-known figure in the XRP community." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 interface Leader {

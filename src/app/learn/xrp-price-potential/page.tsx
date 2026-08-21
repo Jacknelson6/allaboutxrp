@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
+const faqItems = [
+  { q: "Can XRP realistically reach $100?", a: "At $100, XRP's market cap would be approximately $5.8 trillion — larger than Apple. This would require XRP to capture a massive share of global cross-border payments. While not physically impossible, $100 XRP is extremely unlikely in the near or medium term. A more realistic bull case targets $10-$30 in this market cycle." },
+  { q: "What market cap would XRP need to reach $10?", a: "At $10 per XRP with ~58 billion circulating supply, the market cap would be approximately $580 billion — comparable to major tech companies like Berkshire Hathaway. This is achievable in a strong crypto bull market with ETF approval and growing utility." },
+  { q: "What drives XRP's price?", a: "Key price drivers: utility demand from cross-border payments (ODL volume), speculative trading, regulatory clarity from the SEC case resolution, ETF approval and institutional inflows, Ripple's expanding partnerships, and overall crypto market momentum." },
+  { q: "Is XRP undervalued compared to other cryptos?", a: "By utility metrics — real institutional partnerships, live payment corridors, regulatory clarity — XRP arguably has one of the strongest fundamental cases in crypto. Whether the market has priced this in depends on your timeline and adoption assumptions." },
+  { q: "Does Ripple's XRP escrow affect the price?", a: "Yes. Ripple releases up to 1 billion XRP per month from escrow, but typically re-locks 80-90%. The predictable schedule provides transparency, but the potential for large releases creates a supply overhang that some investors view as a headwind. See our escrow explainer for details." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Can XRP Hit $100? The Real Math",
@@ -44,20 +52,7 @@ const schemas = [
     { name: "XRP Price Potential" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP realistically reach $100?", answer: "At $100, XRP's market cap would be approximately $5.8 trillion (58B circulating supply × $100). This would exceed Apple's market cap and require XRP to capture a significant portion of the $150 trillion daily cross-border payment market. While not impossible in a decades-long timeframe with massive adoption, $100 XRP is extremely unlikely in the near or medium term." },
-    { question: "What market cap would XRP need to reach $10?", answer: "At $10 per XRP with ~58 billion circulating supply, the market cap would be approximately $580 billion. This is comparable to major tech companies and achievable if XRP captures meaningful cross-border payment volume and receives ETF inflows." },
-    { question: "What drives XRP's price?", answer: "XRP's price is driven by: utility demand from ODL/cross-border payments, speculative trading, regulatory clarity (SEC case resolution), ETF approval and institutional investment, Ripple's partnerships, and overall crypto market conditions." },
-    { question: "Is XRP undervalued?", answer: "Many analysts argue XRP is undervalued relative to its utility and institutional adoption. With 300+ financial institution partnerships and live cross-border payment corridors, XRP's actual use case is stronger than most top-10 cryptocurrencies. However, 'undervalued' depends on your assumptions about future adoption rates." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Can XRP realistically reach $100?", a: "At $100, XRP's market cap would be approximately $5.8 trillion — larger than Apple. This would require XRP to capture a massive share of global cross-border payments. While not physically impossible, $100 XRP is extremely unlikely in the near or medium term. A more realistic bull case targets $10-$30 in this market cycle." },
-  { q: "What market cap would XRP need to reach $10?", a: "At $10 per XRP with ~58 billion circulating supply, the market cap would be approximately $580 billion — comparable to major tech companies like Berkshire Hathaway. This is achievable in a strong crypto bull market with ETF approval and growing utility." },
-  { q: "What drives XRP's price?", a: "Key price drivers: utility demand from cross-border payments (ODL volume), speculative trading, regulatory clarity from the SEC case resolution, ETF approval and institutional inflows, Ripple's expanding partnerships, and overall crypto market momentum." },
-  { q: "Is XRP undervalued compared to other cryptos?", a: "By utility metrics — real institutional partnerships, live payment corridors, regulatory clarity — XRP arguably has one of the strongest fundamental cases in crypto. Whether the market has priced this in depends on your timeline and adoption assumptions." },
-  { q: "Does Ripple's XRP escrow affect the price?", a: "Yes. Ripple releases up to 1 billion XRP per month from escrow, but typically re-locks 80-90%. The predictable schedule provides transparency, but the potential for large releases creates a supply overhang that some investors view as a headwind. See our escrow explainer for details." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPPricePotentialPage() {

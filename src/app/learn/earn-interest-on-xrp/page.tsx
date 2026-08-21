@@ -20,19 +20,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/earn-interest-on-xrp" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "How to Earn Interest on XRP: Every Method Compared (2026)", description: "Every way to earn interest on XRP in 2026. Lending platforms, XRPL AMM yields, DeFi protocols, and risk ratings for each.", url: "https://allaboutxrp.com/learn/earn-interest-on-xrp", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Earn Interest on XRP" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/earn-interest-on-xrp" }),
-  buildFAQSchema([
-    { question: "Best way to earn interest on XRP?", answer: "CeFi lending for ease (2-5%), XRPL AMM for on-chain yield (3-8%), DeFi for max returns with max risk." },
-    { question: "Is it safe?", answer: "No method is risk-free. CeFi = counterparty risk. AMM = impermanent loss. Diversify and limit exposure." },
-    { question: "How much can I earn?", answer: "2% (conservative CeFi) to 8%+ (AMM/DeFi). Higher yield = higher risk." },
-    { question: "Taxes?", answer: "Yes. Interest earned is ordinary income, taxed at your income rate." },
-    { question: "Can I keep custody?", answer: "Yes — XRPL AMM pools are on-chain. No middleman." },
-  ]),
-];
-
 const faqItems = [
   { q: "Best way to earn interest on XRP?", a: "CeFi lending for ease (2-5%), XRPL AMM for on-chain yield (3-8%), DeFi for max returns with max risk." },
   { q: "Is it safe?", a: "No method is risk-free. CeFi = counterparty risk. AMM = impermanent loss. Diversify and limit exposure." },
@@ -40,6 +27,13 @@ const faqItems = [
   { q: "Taxes?", a: "Yes. Interest earned is ordinary income, taxed at your income rate." },
   { q: "Can I keep custody?", a: "Yes — XRPL AMM pools are on-chain. No middleman." },
   { q: "What is impermanent loss?", a: "When price ratio of pool tokens changes, you may end up with less than just holding." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "How to Earn Interest on XRP: Every Method Compared (2026)", description: "Every way to earn interest on XRP in 2026. Lending platforms, XRPL AMM yields, DeFi protocols, and risk ratings for each.", url: "https://allaboutxrp.com/learn/earn-interest-on-xrp", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Earn Interest on XRP" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/earn-interest-on-xrp" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function Page() {

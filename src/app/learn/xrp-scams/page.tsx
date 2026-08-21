@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-scams" },
 };
 
+const faqItems = [
+  { q: "What are the most common XRP scams?", a: "The most common XRP scams include fake airdrop giveaways (\"send XRP to get double back\"), phishing websites mimicking legitimate wallets or exchanges, impersonator accounts pretending to be Ripple executives, fake investment schemes promising guaranteed returns, and rug pulls on XRPL-issued tokens." },
+  { q: "How do I spot a fake XRP giveaway?", a: "Any giveaway asking you to send XRP first is a scam — no legitimate entity will ask you to send crypto to receive more back. These often use fake profiles impersonating Brad Garlinghouse, David Schwartz, or the official Ripple account. Look for verified accounts, check follower counts, and never click links from unsolicited messages." },
+  { q: "Can I get my XRP back after being scammed?", a: "XRP transactions are irreversible on the blockchain. Once sent, funds cannot be recovered through the network. Report the scam to law enforcement, the platform where it occurred, and file reports with the FTC and IC3. Some victims have recovered funds if the scammer used a traceable exchange." },
+  { q: "Is the XRP Ledger itself safe?", a: "Yes, the XRP Ledger has operated since 2012 with zero security breaches at the protocol level. Scams target users through social engineering and phishing — not XRPL vulnerabilities. A hardware wallet and good security hygiene keep your XRP safe." },
+  { q: "How do I report an XRP scam?", a: "Report XRP scams to the FTC (reportfraud.ftc.gov), FBI's IC3 (ic3.gov), the social media platform hosting the scam, and your local law enforcement. If it involves a specific exchange, report it to that exchange's support team immediately." },
+  { q: "Are XRP airdrops legitimate?", a: "Some XRPL token airdrops are legitimate — projects distribute tokens to XRP holders via trust lines. However, any airdrop requiring you to send XRP, share your secret key, or connect your wallet to an unknown website is a scam. Always verify through official project channels." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Scams: How to Spot & Avoid Them (2026)",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRP Scams" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-scams" }),
-  buildFAQSchema([
-    { question: "What are the most common XRP scams?", answer: "The most common XRP scams include fake airdrop giveaways (send XRP to get double back), phishing websites that mimic legitimate wallets or exchanges, impersonator accounts pretending to be Ripple executives, fake investment schemes promising guaranteed returns, and rug pulls on XRPL-issued tokens." },
-    { question: "How do I spot a fake XRP giveaway?", answer: "Any giveaway asking you to send XRP first is a scam — no legitimate entity will ask you to send crypto to receive more back. These often use fake profiles impersonating Brad Garlinghouse, David Schwartz, or the official Ripple account on social media." },
-    { question: "Can I get my XRP back after being scammed?", answer: "XRP transactions are irreversible on the blockchain. Once sent, funds cannot be recovered through the network. You should report the scam to law enforcement, the platform where it occurred, and file reports with the FTC and IC3. Some victims have recovered funds through exchange cooperation if the scammer used a traceable exchange." },
-    { question: "Is the XRP Ledger itself safe?", answer: "Yes, the XRP Ledger has operated since 2012 with zero security breaches at the protocol level. Scams target users through social engineering and phishing, not through vulnerabilities in the XRPL itself. Using a hardware wallet and practicing good security hygiene keeps your XRP safe." },
-    { question: "How do I report an XRP scam?", answer: "Report XRP scams to the FTC (reportfraud.ftc.gov), FBI's IC3 (ic3.gov), the social media platform hosting the scam, and your local law enforcement. If the scam involves a specific exchange, report it to that exchange's support team immediately." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are the most common XRP scams?", a: "The most common XRP scams include fake airdrop giveaways (\"send XRP to get double back\"), phishing websites mimicking legitimate wallets or exchanges, impersonator accounts pretending to be Ripple executives, fake investment schemes promising guaranteed returns, and rug pulls on XRPL-issued tokens." },
-  { q: "How do I spot a fake XRP giveaway?", a: "Any giveaway asking you to send XRP first is a scam — no legitimate entity will ask you to send crypto to receive more back. These often use fake profiles impersonating Brad Garlinghouse, David Schwartz, or the official Ripple account. Look for verified accounts, check follower counts, and never click links from unsolicited messages." },
-  { q: "Can I get my XRP back after being scammed?", a: "XRP transactions are irreversible on the blockchain. Once sent, funds cannot be recovered through the network. Report the scam to law enforcement, the platform where it occurred, and file reports with the FTC and IC3. Some victims have recovered funds if the scammer used a traceable exchange." },
-  { q: "Is the XRP Ledger itself safe?", a: "Yes, the XRP Ledger has operated since 2012 with zero security breaches at the protocol level. Scams target users through social engineering and phishing — not XRPL vulnerabilities. A hardware wallet and good security hygiene keep your XRP safe." },
-  { q: "How do I report an XRP scam?", a: "Report XRP scams to the FTC (reportfraud.ftc.gov), FBI's IC3 (ic3.gov), the social media platform hosting the scam, and your local law enforcement. If it involves a specific exchange, report it to that exchange's support team immediately." },
-  { q: "Are XRP airdrops legitimate?", a: "Some XRPL token airdrops are legitimate — projects distribute tokens to XRP holders via trust lines. However, any airdrop requiring you to send XRP, share your secret key, or connect your wallet to an unknown website is a scam. Always verify through official project channels." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPScamsPage() {

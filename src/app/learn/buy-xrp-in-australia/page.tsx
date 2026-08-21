@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-in-australia" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in Australia?", a: "Yes. Fully legal. Exchanges must register with AUSTRAC and comply with AML/CTF requirements." },
+  { q: "Best exchange for Australians?", a: "CoinSpot (most popular, instant AUD), Swyftx (competitive fees), Kraken (0.16% maker), Binance (0.1%)." },
+  { q: "Can I use PayID?", a: "Yes. CoinSpot, Swyftx, and others support free, instant PayID deposits linked to your bank account." },
+  { q: "Do I pay tax on XRP?", a: "Yes. ATO treats crypto as a CGT asset. Hold 12+ months for 50% CGT discount." },
+  { q: "What's the crypto tax rate?", a: "Added to income at marginal rate (19-45%). 50% discount for 12+ month holdings." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP in Australia: AUD Guide (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP in Australia" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-in-australia" }),
-  buildFAQSchema([
-    { question: "Is XRP legal in Australia?", answer: "Yes. XRP is fully legal to buy, sell, and hold in Australia. Cryptocurrency exchanges must register with AUSTRAC (Australian Transaction Reports and Analysis Centre) and comply with AML/CTF requirements." },
-    { question: "What is the best exchange to buy XRP in Australia?", answer: "CoinSpot is Australia's most popular exchange with instant AUD deposits. Swyftx offers competitive fees. Kraken and Binance are also available. For lowest fees, use Kraken Pro (0.16% maker)." },
-    { question: "Can I buy XRP with PayID in Australia?", answer: "Yes. CoinSpot, Swyftx, and several other Australian exchanges support PayID for instant, free AUD deposits. PayID is linked to your bank account and processes deposits within minutes." },
-    { question: "Do I pay tax on XRP in Australia?", answer: "Yes. The ATO treats cryptocurrency as a CGT asset. Capital Gains Tax applies when you sell XRP for profit. Holding for 12+ months gives a 50% CGT discount. All transactions must be reported." },
-    { question: "What is the crypto tax rate in Australia?", answer: "Crypto gains are added to your income and taxed at your marginal rate (19-45%). If you hold for 12+ months, you get a 50% CGT discount — effectively halving your tax rate on those gains." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in Australia?", a: "Yes. Fully legal. Exchanges must register with AUSTRAC and comply with AML/CTF requirements." },
-  { q: "Best exchange for Australians?", a: "CoinSpot (most popular, instant AUD), Swyftx (competitive fees), Kraken (0.16% maker), Binance (0.1%)." },
-  { q: "Can I use PayID?", a: "Yes. CoinSpot, Swyftx, and others support free, instant PayID deposits linked to your bank account." },
-  { q: "Do I pay tax on XRP?", a: "Yes. ATO treats crypto as a CGT asset. Hold 12+ months for 50% CGT discount." },
-  { q: "What's the crypto tax rate?", a: "Added to income at marginal rate (19-45%). 50% discount for 12+ month holdings." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPInAustraliaPage() {

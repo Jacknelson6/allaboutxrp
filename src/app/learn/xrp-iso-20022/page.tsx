@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-iso-20022" },
 };
 
+const faqItems = [
+  { q: "What is ISO 20022?", a: "ISO 20022 is a global standard for financial messaging. It provides a universal language for financial institutions to communicate about payments with richer, more structured data than older standards like SWIFT MT messages." },
+  { q: "Is XRP ISO 20022 compliant?", a: "Yes. The XRP Ledger natively supports ISO 20022 messaging standards, meaning XRP transactions can carry the rich, structured data banks require for compliance and reconciliation." },
+  { q: "Why does ISO 20022 matter for XRP?", a: "ISO 20022 compliance is becoming mandatory for financial institutions worldwide. XRP's native compliance means it can integrate seamlessly with institutional payment systems like SWIFT, Fedwire, and TARGET2." },
+  { q: "Which cryptos are ISO 20022 compliant?", a: "XRP, Stellar (XLM), Hedera (HBAR), Quant (QNT), and IOTA are commonly cited. XRP and Stellar have the deepest integration due to their payment-focused architecture." },
+  { q: "Does ISO 20022 guarantee XRP bank adoption?", a: "No. ISO 20022 compliance is necessary but not sufficient. It opens the door for bank integration, but banks also need regulatory clarity, liquidity, and business justification." },
+  { q: "When is the ISO 20022 migration deadline?", a: "Most major payment systems have been migrating since 2022-2025. SWIFT's coexistence period with MT messages is ending, and full ISO 20022 adoption is expected by 2025-2026. Banks that can't communicate in ISO 20022 will be left behind." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP and ISO 20022: Why It Matters for Global Payments",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "XRP and ISO 20022" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-iso-20022" }),
-  buildFAQSchema([
-    { question: "What is ISO 20022?", answer: "ISO 20022 is a global standard for financial messaging developed by the International Organization for Standardization. It provides a universal language for financial institutions to communicate about payments, securities, trade finance, and other transactions. It replaces older standards like SWIFT MT messages with richer, more structured data." },
-    { question: "Is XRP ISO 20022 compliant?", answer: "Yes. The XRP Ledger natively supports ISO 20022 messaging standards. This means XRP transactions can carry the rich, structured data that banks and financial institutions require for compliance, reconciliation, and straight-through processing." },
-    { question: "Why does ISO 20022 matter for XRP?", answer: "ISO 20022 compliance is becoming mandatory for financial institutions worldwide. By 2025, most major payment systems (SWIFT, Fedwire, TARGET2) are migrating to ISO 20022. XRP's native compliance means it can integrate seamlessly with these institutional payment systems, giving it a major advantage over non-compliant cryptocurrencies." },
-    { question: "Which cryptocurrencies are ISO 20022 compliant?", answer: "Very few cryptocurrencies have native ISO 20022 compliance. XRP, Stellar (XLM), Hedera (HBAR), Quant (QNT), and IOTA are commonly cited as ISO 20022 compatible. However, the degree of compliance varies — XRP and Stellar have the deepest integration due to their payment-focused architecture." },
-    { question: "Does ISO 20022 guarantee XRP will be used by banks?", answer: "No. ISO 20022 compliance is necessary but not sufficient for bank adoption. It means XRP can technically integrate with banking payment systems, but banks also need regulatory clarity, liquidity, reliability, and business justification. Think of ISO 20022 as a prerequisite — it opens the door, but doesn't guarantee entry." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is ISO 20022?", a: "ISO 20022 is a global standard for financial messaging. It provides a universal language for financial institutions to communicate about payments with richer, more structured data than older standards like SWIFT MT messages." },
-  { q: "Is XRP ISO 20022 compliant?", a: "Yes. The XRP Ledger natively supports ISO 20022 messaging standards, meaning XRP transactions can carry the rich, structured data banks require for compliance and reconciliation." },
-  { q: "Why does ISO 20022 matter for XRP?", a: "ISO 20022 compliance is becoming mandatory for financial institutions worldwide. XRP's native compliance means it can integrate seamlessly with institutional payment systems like SWIFT, Fedwire, and TARGET2." },
-  { q: "Which cryptos are ISO 20022 compliant?", a: "XRP, Stellar (XLM), Hedera (HBAR), Quant (QNT), and IOTA are commonly cited. XRP and Stellar have the deepest integration due to their payment-focused architecture." },
-  { q: "Does ISO 20022 guarantee XRP bank adoption?", a: "No. ISO 20022 compliance is necessary but not sufficient. It opens the door for bank integration, but banks also need regulatory clarity, liquidity, and business justification." },
-  { q: "When is the ISO 20022 migration deadline?", a: "Most major payment systems have been migrating since 2022-2025. SWIFT's coexistence period with MT messages is ending, and full ISO 20022 adoption is expected by 2025-2026. Banks that can't communicate in ISO 20022 will be left behind." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPIso20022Page() {

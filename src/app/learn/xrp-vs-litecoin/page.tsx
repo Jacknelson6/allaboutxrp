@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-litecoin" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Litecoin (LTC): Digital Payments Showdown (2026)", description: "Compare XRP and Litecoin for digital payments — speed, fees, consensus, and adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-litecoin", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Litecoin" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-litecoin" }),
-  buildFAQSchema([
-    { question: "Is XRP better than Litecoin for payments?", answer: "For institutional cross-border payments, XRP is significantly better with 300+ bank partnerships, ODL corridors, and sub-cent fees. Litecoin is better positioned for retail point-of-sale payments with broader merchant acceptance and a simpler value proposition as 'digital silver.'" },
-    { question: "Which is faster, XRP or Litecoin?", answer: "XRP is much faster. XRP settles in 3-5 seconds with true finality. Litecoin has 2.5-minute block times and typically requires 6 confirmations (15 minutes) for security. XRP is approximately 180-300x faster." },
-    { question: "Does Litecoin have institutional adoption?", answer: "Litecoin has some institutional recognition — a Litecoin ETF has been filed, and it's widely available on exchanges. However, it lacks XRP's 300+ financial institution partnerships and purpose-built institutional payment infrastructure." },
-    { question: "Which has lower fees?", answer: "XRP has significantly lower fees at ~$0.0005 per transaction vs Litecoin's ~$0.01-0.05. Both are cheap compared to Bitcoin or Ethereum, but XRP is roughly 20-100x cheaper." },
-    { question: "Is Litecoin still relevant in 2026?", answer: "Litecoin maintains relevance as one of the oldest and most trusted cryptocurrencies. It's widely accepted by merchants, has strong liquidity, and benefits from its 'digital silver' narrative. However, newer payment-focused chains like XRP offer superior technology." },
-  ]),
-];
-
 const faqItems = [
   { q: "Is XRP better than Litecoin for payments?", a: "For institutional payments, yes — 300+ bank partners, ODL, sub-cent fees. Litecoin has broader retail merchant acceptance as 'digital silver.'" },
   { q: "Which is faster?", a: "XRP: 3-5 sec finality. Litecoin: 2.5-min blocks, 6 confirmations = ~15 min. XRP is 180-300x faster." },
   { q: "Which has lower fees?", a: "XRP at ~$0.0005 vs Litecoin at ~$0.01-0.05. XRP is 20-100x cheaper." },
   { q: "Does Litecoin have institutional adoption?", a: "Some (ETF filed, widely available), but nothing like XRP's 300+ financial institution partnerships." },
   { q: "Is Litecoin still relevant?", a: "Yes — trusted, widely accepted, strong liquidity. But technologically surpassed by XRP for payment use cases." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Litecoin (LTC): Digital Payments Showdown (2026)", description: "Compare XRP and Litecoin for digital payments — speed, fees, consensus, and adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-litecoin", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Litecoin" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-litecoin" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsLitecoinPage() {

@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-phishing-protection" },
 };
 
+const faqItems = [
+  { q: "What is XRP phishing?", a: "XRP phishing is a social engineering attack where scammers create fake websites, emails, or messages mimicking legitimate XRP services to trick you into entering your secret keys, seed phrases, or login credentials. The fake sites look nearly identical to real ones." },
+  { q: "How do I spot a phishing website?", a: "Check the URL carefully for misspellings or extra characters. Look for HTTPS and valid SSL certificates. Legitimate sites like xaman.app, xrpl.org, and major exchanges have specific domains. Always use bookmarks instead of clicking links. Check the domain registration date — phishing sites are usually newly registered." },
+  { q: "Can a hardware wallet protect against phishing?", a: "Yes — a hardware wallet is the best protection. Even if you visit a phishing site, your private keys remain on the hardware device. Transactions require physical confirmation on the device, preventing unauthorized access." },
+  { q: "What should I do if I entered my seed phrase on a suspicious site?", a: "Immediately create a new wallet and transfer all your XRP and tokens to the new address. Your compromised wallet should be considered permanently insecure. Attackers often have automated bots that drain wallets within minutes." },
+  { q: "How do XRP email phishing scams work?", a: "Scammers send emails pretending to be from exchanges, Ripple, or wallet providers claiming your account needs verification or there's a security issue. The emails contain links to fake websites designed to capture your credentials." },
+  { q: "Are browser extensions safe for managing XRP?", a: "Only use official, well-reviewed browser extensions from verified sources. Malicious browser extensions can read your clipboard, inject code into web pages, and capture your credentials. Use a hardware wallet as an additional security layer." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Phishing Attacks: Protect Your Wallet",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRP Phishing Protection" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-phishing-protection" }),
-  buildFAQSchema([
-    { question: "What is XRP phishing?", answer: "XRP phishing is a social engineering attack where scammers create fake websites, emails, or messages that mimic legitimate XRP services (wallets, exchanges, Ripple) to trick you into entering your secret keys, seed phrases, or login credentials." },
-    { question: "How do I spot a phishing website?", answer: "Check the URL carefully for misspellings or extra characters. Look for HTTPS and valid SSL certificates. Legitimate sites like xaman.app, xrpl.org, and major exchanges have specific domains. Use bookmarks instead of clicking links. Check the domain registration date — phishing sites are usually newly registered." },
-    { question: "Can a hardware wallet protect against phishing?", answer: "Yes, a hardware wallet is the best protection against phishing. Even if you visit a phishing site, your private keys remain on the hardware device. Transactions require physical confirmation on the device, so a phishing site cannot drain your wallet without your explicit approval on the hardware." },
-    { question: "What should I do if I entered my seed phrase on a suspicious site?", answer: "Immediately create a new wallet and transfer all your XRP and tokens to it. Your compromised wallet should be considered permanently insecure. Do not wait — attackers often have automated bots that drain wallets within minutes of obtaining seed phrases." },
-    { question: "How do XRP email phishing scams work?", answer: "Scammers send emails pretending to be from exchanges, Ripple, or wallet providers. They may claim your account needs verification, there's a security issue, or you've received an airdrop. The emails contain links to fake websites designed to capture your credentials." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is XRP phishing?", a: "XRP phishing is a social engineering attack where scammers create fake websites, emails, or messages mimicking legitimate XRP services to trick you into entering your secret keys, seed phrases, or login credentials. The fake sites look nearly identical to real ones." },
-  { q: "How do I spot a phishing website?", a: "Check the URL carefully for misspellings or extra characters. Look for HTTPS and valid SSL certificates. Legitimate sites like xaman.app, xrpl.org, and major exchanges have specific domains. Always use bookmarks instead of clicking links. Check the domain registration date — phishing sites are usually newly registered." },
-  { q: "Can a hardware wallet protect against phishing?", a: "Yes — a hardware wallet is the best protection. Even if you visit a phishing site, your private keys remain on the hardware device. Transactions require physical confirmation on the device, preventing unauthorized access." },
-  { q: "What should I do if I entered my seed phrase on a suspicious site?", a: "Immediately create a new wallet and transfer all your XRP and tokens to the new address. Your compromised wallet should be considered permanently insecure. Attackers often have automated bots that drain wallets within minutes." },
-  { q: "How do XRP email phishing scams work?", a: "Scammers send emails pretending to be from exchanges, Ripple, or wallet providers claiming your account needs verification or there's a security issue. The emails contain links to fake websites designed to capture your credentials." },
-  { q: "Are browser extensions safe for managing XRP?", a: "Only use official, well-reviewed browser extensions from verified sources. Malicious browser extensions can read your clipboard, inject code into web pages, and capture your credentials. Use a hardware wallet as an additional security layer." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPPhishingProtectionPage() {

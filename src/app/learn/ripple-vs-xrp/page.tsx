@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-vs-xrp" },
 };
 
+const faqItems = [
+  { q: "What is the difference between Ripple and XRP?", a: "Ripple is a private tech company that builds payment software. XRP is an independent open-source digital asset on the XRP Ledger. Ripple uses XRP in products like ODL but doesn't control the XRP Ledger." },
+  { q: "Does Ripple control XRP?", a: "No. The XRP Ledger is run by 150+ independent validators. Ripple holds XRP (mostly in escrow) but cannot alter ledger rules, reverse transactions, or freeze accounts." },
+  { q: "Can XRP exist without Ripple?", a: "Yes. The XRPL is open-source and would continue operating with independent validators even if Ripple ceased to exist." },
+  { q: "Why does Ripple hold so much XRP?", a: "Ripple was gifted 80 billion XRP in 2012. Most is locked in cryptographic escrow releasing up to 1 billion/month. It's used for ODL, ecosystem development, and operations." },
+  { q: "Is buying XRP the same as investing in Ripple?", a: "No. Buying XRP gives you no ownership in Ripple Labs. Ripple is a private company. XRP's price is set by market supply and demand." },
+  { q: "Will Ripple's IPO affect XRP price?", a: "Ripple has discussed a potential IPO. If it happens, it could increase visibility and legitimacy for the XRP ecosystem, potentially driving demand. But XRP and Ripple stock would be separate investments." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple vs XRP: What's the Difference?",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "Ripple vs XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-vs-xrp" }),
-  buildFAQSchema([
-    { question: "What is the difference between Ripple and XRP?", answer: "Ripple (Ripple Labs Inc.) is a private technology company based in San Francisco that builds enterprise payment software. XRP is an independent open-source digital asset that runs on the XRP Ledger, a decentralized blockchain. Ripple uses XRP in some of its products (like On-Demand Liquidity) but does not control the XRP Ledger or the XRP token." },
-    { question: "Does Ripple control XRP?", answer: "No. Ripple does not control the XRP Ledger or XRP transactions. The XRPL is an open-source, decentralized network run by 150+ independent validators. Ripple holds a large amount of XRP (mostly locked in escrow), but it cannot alter the ledger's rules, reverse transactions, or freeze accounts." },
-    { question: "Can XRP exist without Ripple?", answer: "Yes. The XRP Ledger is open-source software that would continue operating even if Ripple ceased to exist. Validators would continue processing transactions, and the network would function as designed. Ripple contributes to development but is not required for the network to operate." },
-    { question: "Why does Ripple hold so much XRP?", answer: "Ripple was gifted 80 billion XRP by the XRPL's creators in 2012. Most of this is locked in cryptographic escrow that releases up to 1 billion XRP per month. Ripple uses XRP for On-Demand Liquidity, ecosystem development, and operating expenses. The escrow ensures transparent, predictable release." },
-    { question: "Is buying XRP the same as investing in Ripple?", answer: "No. Buying XRP does not give you ownership or equity in Ripple Labs. Ripple is a private company — you cannot buy its stock on public exchanges. XRP's price is determined by market supply and demand, not directly by Ripple's revenue or valuation, though Ripple's success does influence XRP adoption." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the difference between Ripple and XRP?", a: "Ripple is a private tech company that builds payment software. XRP is an independent open-source digital asset on the XRP Ledger. Ripple uses XRP in products like ODL but doesn't control the XRP Ledger." },
-  { q: "Does Ripple control XRP?", a: "No. The XRP Ledger is run by 150+ independent validators. Ripple holds XRP (mostly in escrow) but cannot alter ledger rules, reverse transactions, or freeze accounts." },
-  { q: "Can XRP exist without Ripple?", a: "Yes. The XRPL is open-source and would continue operating with independent validators even if Ripple ceased to exist." },
-  { q: "Why does Ripple hold so much XRP?", a: "Ripple was gifted 80 billion XRP in 2012. Most is locked in cryptographic escrow releasing up to 1 billion/month. It's used for ODL, ecosystem development, and operations." },
-  { q: "Is buying XRP the same as investing in Ripple?", a: "No. Buying XRP gives you no ownership in Ripple Labs. Ripple is a private company. XRP's price is set by market supply and demand." },
-  { q: "Will Ripple's IPO affect XRP price?", a: "Ripple has discussed a potential IPO. If it happens, it could increase visibility and legitimacy for the XRP ecosystem, potentially driving demand. But XRP and Ripple stock would be separate investments." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleVsXRPPage() {

@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-market-cap-explained" },
 };
 
+const faqItems = [
+  { q: "What is XRP's market cap?", a: "Approximately $110 billion, making it the 4th-5th largest cryptocurrency. Calculated as price (~$1.93) × circulating supply (~58B)." },
+  { q: "How is market cap calculated?", a: "Market Cap = Price × Circulating Supply. Fully diluted uses total supply instead of circulating supply." },
+  { q: "What is XRP's fully diluted valuation?", a: "At $1.93, FDV = $1.93 × 100 billion = ~$193 billion. This accounts for escrowed XRP that isn't yet circulating." },
+  { q: "Why does market cap matter more than price?", a: "Price without supply context is meaningless. Market cap tells you the total value the market assigns to a cryptocurrency — the real comparison metric." },
+  { q: "What market cap would XRP need for $10?", a: "~$580 billion. That's larger than Ethereum's peak but potentially achievable with major institutional adoption and ETF inflows." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Market Cap Explained: What It Means",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "XRP Market Cap Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-market-cap-explained" }),
-  buildFAQSchema([
-    { question: "What is XRP's market cap?", answer: "XRP's market cap is approximately $110 billion (as of early 2026), calculated by multiplying the current price (~$1.93) by the circulating supply (~58 billion XRP). This makes XRP the 4th-5th largest cryptocurrency by market capitalization." },
-    { question: "How is crypto market cap calculated?", answer: "Market cap = Current Price × Circulating Supply. For XRP: ~$1.93 × ~58 billion = ~$110 billion. Fully diluted market cap uses total supply instead: ~$1.93 × 100 billion = ~$193 billion." },
-    { question: "What is fully diluted valuation (FDV) for XRP?", answer: "Fully diluted valuation assumes all 100 billion XRP are in circulation. At $1.93, XRP's FDV is ~$193 billion. This is higher than the circulating market cap because ~42 billion XRP is locked in Ripple's escrow." },
-    { question: "Why is market cap more important than unit price?", answer: "Unit price is meaningless without knowing supply. A $1 token with 1 billion supply has the same market cap as a $1,000 token with 1 million supply. Market cap tells you the total value the market assigns to a cryptocurrency — that's the real comparison metric." },
-    { question: "What market cap would XRP need to reach $10?", answer: "At $10 per XRP with ~58 billion circulating supply, XRP's market cap would be ~$580 billion. That would make it larger than Ethereum's peak and about half of Bitcoin's peak. It's ambitious but not impossible with significant institutional adoption." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is XRP's market cap?", a: "Approximately $110 billion, making it the 4th-5th largest cryptocurrency. Calculated as price (~$1.93) × circulating supply (~58B)." },
-  { q: "How is market cap calculated?", a: "Market Cap = Price × Circulating Supply. Fully diluted uses total supply instead of circulating supply." },
-  { q: "What is XRP's fully diluted valuation?", a: "At $1.93, FDV = $1.93 × 100 billion = ~$193 billion. This accounts for escrowed XRP that isn't yet circulating." },
-  { q: "Why does market cap matter more than price?", a: "Price without supply context is meaningless. Market cap tells you the total value the market assigns to a cryptocurrency — the real comparison metric." },
-  { q: "What market cap would XRP need for $10?", a: "~$580 billion. That's larger than Ethereum's peak but potentially achievable with major institutional adoption and ETF inflows." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPMarketCapExplainedPage() {

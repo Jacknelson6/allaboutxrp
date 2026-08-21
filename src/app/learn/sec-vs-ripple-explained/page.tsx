@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/sec-vs-ripple" },
 };
 
+const faqItems = [
+  { q: "Is XRP a security?", a: "No. Judge Analisa Torres ruled in July 2023 that programmatic sales of XRP on exchanges do not constitute securities transactions. Institutional direct sales were found to meet the Howey test, but the token itself when traded on secondary markets is not a security." },
+  { q: "What was the SEC vs Ripple case about?", a: "The SEC filed suit in December 2020 alleging Ripple raised $1.3 billion through unregistered securities sales of XRP. Ripple argued XRP is a digital currency used for cross-border payments, not an investment contract. The case lasted over four years." },
+  { q: "What did the Ripple settlement mean for crypto?", a: "The settlement established that secondary market sales of crypto tokens on exchanges are generally not securities transactions. This provided legal clarity that benefited the entire crypto industry and led to XRP's relisting on major US exchanges." },
+  { q: "Did Ripple win the SEC case?", a: "Largely yes. Ripple paid a reduced penalty for institutional sales, but the core ruling that retail/exchange sales of XRP are not securities was a landmark victory. XRP was relisted on all major US exchanges, and Ripple's business continued without registering XRP as a security." },
+  { q: "Is the SEC still appealing the Ripple decision?", a: "The SEC initially filed a notice of appeal on the institutional sales ruling but ultimately reached a settlement with Ripple that resolved all outstanding claims. Under the new SEC leadership in 2025, the agency shifted its approach to crypto regulation more broadly." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "The SEC Case That Changed Crypto Forever",
@@ -45,20 +53,7 @@ const schemas = [
     { name: "SEC vs Ripple Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/sec-vs-ripple" }),
-  buildFAQSchema([
-    { question: "Is XRP a security?", answer: "No. Judge Analisa Torres ruled in July 2023 that programmatic sales of XRP on exchanges do not constitute securities transactions. Institutional direct sales were found to be securities offerings, but the token itself is not a security. The SEC's subsequent settlement effectively accepted this framework." },
-    { question: "What was the SEC vs Ripple case about?", answer: "The SEC filed suit in December 2020 alleging Ripple raised $1.3 billion through unregistered securities sales of XRP. Ripple argued XRP is a digital currency, not a security. The case lasted over four years and resulted in a landmark ruling distinguishing between institutional and retail crypto sales." },
-    { question: "What did the Ripple settlement mean for crypto?", answer: "The settlement established that secondary market sales of crypto tokens on exchanges are generally not securities transactions. This provided a regulatory framework that other crypto projects and exchanges could reference, reducing legal uncertainty across the industry." },
-    { question: "Did Ripple win the SEC case?", answer: "Largely yes. While Ripple paid a reduced penalty for institutional sales, the core ruling — that XRP sold on exchanges to retail buyers is not a security — was a major victory. XRP was relisted on every major US exchange, and the ruling set favorable precedent for the broader crypto industry." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP a security?", a: "No. Judge Analisa Torres ruled in July 2023 that programmatic sales of XRP on exchanges do not constitute securities transactions. Institutional direct sales were found to meet the Howey test, but the token itself when traded on secondary markets is not a security." },
-  { q: "What was the SEC vs Ripple case about?", a: "The SEC filed suit in December 2020 alleging Ripple raised $1.3 billion through unregistered securities sales of XRP. Ripple argued XRP is a digital currency used for cross-border payments, not an investment contract. The case lasted over four years." },
-  { q: "What did the Ripple settlement mean for crypto?", a: "The settlement established that secondary market sales of crypto tokens on exchanges are generally not securities transactions. This provided legal clarity that benefited the entire crypto industry and led to XRP's relisting on major US exchanges." },
-  { q: "Did Ripple win the SEC case?", a: "Largely yes. Ripple paid a reduced penalty for institutional sales, but the core ruling that retail/exchange sales of XRP are not securities was a landmark victory. XRP was relisted on all major US exchanges, and Ripple's business continued without registering XRP as a security." },
-  { q: "Is the SEC still appealing the Ripple decision?", a: "The SEC initially filed a notice of appeal on the institutional sales ruling but ultimately reached a settlement with Ripple that resolved all outstanding claims. Under the new SEC leadership in 2025, the agency shifted its approach to crypto regulation more broadly." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function SECvsRipplePage() {

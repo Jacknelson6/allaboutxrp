@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-dogecoin" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Dogecoin (DOGE): Serious Comparison (2026)", description: "Compare XRP and Dogecoin — institutional utility vs meme-driven community. Technology, adoption, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-dogecoin", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Dogecoin" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-dogecoin" }),
-  buildFAQSchema([
-    { question: "Is XRP better than Dogecoin?", answer: "For institutional payments and real-world utility, XRP is objectively more capable with 300+ bank partnerships, ODL corridors, and purpose-built payment infrastructure. Dogecoin has stronger community-driven viral marketing and is accepted by some major companies like Tesla and SpaceX. 'Better' depends on what you value." },
-    { question: "Why does Dogecoin have such a large market cap?", answer: "Dogecoin's market cap (often $20-30B+) is driven primarily by community enthusiasm, celebrity endorsement (especially Elon Musk), meme culture, and retail speculation. It has unlimited supply with ~5 billion new DOGE mined annually, yet maintains value through strong community demand." },
-    { question: "Which is faster, XRP or Dogecoin?", answer: "XRP is significantly faster. XRP settles in 3-5 seconds with finality. Dogecoin has 1-minute block times and requires multiple confirmations (typically 6+) for security, making it 6-10 minutes for reliable settlement." },
-    { question: "Does Dogecoin have any real utility?", answer: "Dogecoin functions as a tipping currency, is accepted by Tesla, SpaceX, and some merchants for payments, and has an active community. However, it lacks XRP's institutional infrastructure, ISO 20022 compliance, and purpose-built payment features." },
-    { question: "Which is a better long-term investment?", answer: "XRP has clearer fundamental value drivers (institutional adoption, regulatory clarity, ETF filings). Dogecoin's value is more speculative and community-driven. XRP has more predictable catalysts; DOGE has more viral upside potential but also more downside risk. Not financial advice." },
-  ]),
-];
-
 const faqItems = [
   { q: "Is XRP better than Dogecoin?", a: "For institutional payments, yes — 300+ bank partnerships vs meme-driven community. But DOGE has powerful cultural momentum and retail brand recognition." },
   { q: "Why is Dogecoin's market cap so high?", a: "Community enthusiasm, Elon Musk endorsement, meme culture, and retail speculation. Despite unlimited supply (~5B new DOGE/year)." },
   { q: "Which is faster?", a: "XRP: 3-5 second finality. Dogecoin: 1-minute blocks, 6+ confirmations recommended (6-10 min total)." },
   { q: "Does Dogecoin have real utility?", a: "Some — accepted by Tesla, SpaceX, and merchants for tipping/payments. But it lacks XRP's institutional infrastructure." },
   { q: "Which is better long-term?", a: "XRP has clearer fundamentals (institutional adoption, ETF filings). DOGE is more speculative with viral upside but higher risk. Not financial advice." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Dogecoin (DOGE): Serious Comparison (2026)", description: "Compare XRP and Dogecoin — institutional utility vs meme-driven community. Technology, adoption, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-dogecoin", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Dogecoin" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-dogecoin" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsDogecoinPage() {

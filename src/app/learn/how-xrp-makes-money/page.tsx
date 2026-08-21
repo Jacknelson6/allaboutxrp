@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "How does XRP 'make money'?", a: "XRP doesn't make money like a company. It gains value through supply and demand. As more banks use it for payments, more people want to hold it, and the supply is limited — these forces push the price up." },
+  { q: "What drives XRP's price up?", a: "Four main things: (1) Real utility — banks using XRP for payments, (2) Growing adoption — more partnerships and corridors, (3) Limited supply — only 100B XRP will ever exist, with some burned forever, (4) Market sentiment and speculation." },
+  { q: "Can you earn passive income with XRP?", a: "Yes, but not from XRP itself. You can earn yield by providing liquidity in XRPL AMM pools, lending XRP on platforms, or participating in DeFi. These are separate activities from simply holding XRP." },
+  { q: "What makes XRP more valuable over time?", a: "If the thesis plays out: more banks adopt ODL → more XRP is needed for transactions → more demand with fixed supply → higher price. Plus ETF approvals, CBDC bridging, and tokenized assets all increase demand." },
+  { q: "Does XRP have a maximum supply?", a: "Yes. There will only ever be 100 billion XRP. A tiny amount is destroyed (burned) with every transaction. This means the total supply slowly decreases over time, making each remaining XRP slightly more scarce." },
+  { q: "How does Ripple make money from XRP?", a: "Ripple holds billions of XRP (mostly in escrow) and can sell them. Ripple also earns revenue from its enterprise software, RLUSD stablecoin, and Ripple Prime brokerage — XRP sales are just one revenue stream." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "How XRP Makes Money" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "How does XRP make money?", answer: "XRP itself doesn't 'make money' like a company does. XRP gains value through supply and demand. When more people and institutions want to buy XRP than sell it — because of its utility in payments, growing adoption, and limited supply — the price goes up." },
-    { question: "Where does XRP's value come from?", answer: "XRP's value comes from four main sources: utility (used for real cross-border payments), scarcity (limited supply of 100 billion, with some burned each transaction), adoption (growing institutional use), and market speculation." },
-    { question: "Does XRP pay dividends?", answer: "No. XRP is a digital currency, not a stock. It doesn't pay dividends. You can earn yield on XRP through DeFi protocols, AMM liquidity provision, or lending platforms, but XRP itself has no built-in yield mechanism." },
-    { question: "How does Ripple make money?", answer: "Ripple (the company) makes money by selling its software and services to banks, selling XRP from its reserves, and earning revenue from its products like RippleNet, RLUSD, and Ripple Prime." },
-    { question: "Is XRP's value tied to Ripple?", answer: "Partially. Ripple's partnerships and products drive adoption of XRP, which can increase demand. But XRP has value independent of Ripple — it's used in DeFi, NFTs, and peer-to-peer payments regardless of Ripple's activities." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How does XRP 'make money'?", a: "XRP doesn't make money like a company. It gains value through supply and demand. As more banks use it for payments, more people want to hold it, and the supply is limited — these forces push the price up." },
-  { q: "What drives XRP's price up?", a: "Four main things: (1) Real utility — banks using XRP for payments, (2) Growing adoption — more partnerships and corridors, (3) Limited supply — only 100B XRP will ever exist, with some burned forever, (4) Market sentiment and speculation." },
-  { q: "Can you earn passive income with XRP?", a: "Yes, but not from XRP itself. You can earn yield by providing liquidity in XRPL AMM pools, lending XRP on platforms, or participating in DeFi. These are separate activities from simply holding XRP." },
-  { q: "What makes XRP more valuable over time?", a: "If the thesis plays out: more banks adopt ODL → more XRP is needed for transactions → more demand with fixed supply → higher price. Plus ETF approvals, CBDC bridging, and tokenized assets all increase demand." },
-  { q: "Does XRP have a maximum supply?", a: "Yes. There will only ever be 100 billion XRP. A tiny amount is destroyed (burned) with every transaction. This means the total supply slowly decreases over time, making each remaining XRP slightly more scarce." },
-  { q: "How does Ripple make money from XRP?", a: "Ripple holds billions of XRP (mostly in escrow) and can sell them. Ripple also earns revenue from its enterprise software, RLUSD stablecoin, and Ripple Prime brokerage — XRP sales are just one revenue stream." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowXRPMakesMoneyPage() {

@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Is XRP centralized?", a: "No. The XRP Ledger is maintained by over 150 independent validators worldwide. Ripple operates only about 6% of them and has no special power over the network. Anyone can run a validator, and the default UNL is chosen by the community, not Ripple alone." },
+  { q: "Is XRP a security?", a: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges is not a security under U.S. law. The SEC case against Ripple resulted in a $125M fine for institutional sales, but XRP itself was not classified as a security." },
+  { q: "Can Ripple create more XRP?", a: "Absolutely not. The XRP Ledger protocol has no minting function. It is cryptographically impossible to create new XRP. All 100 billion XRP that will ever exist were created in the genesis ledger in 2012." },
+  { q: "Do banks actually use XRP?", a: "Yes. Through Ripple's ODL product, financial institutions in 55+ countries actively use XRP as a bridge currency. SBI Holdings (Japan), Tranglo (Southeast Asia), and many licensed payment providers use XRP for real cross-border transactions." },
+  { q: "Is XRP just a 'banker coin' with no utility?", a: "XRP has broad utility beyond banking: it powers the XRPL's built-in DEX, AMM, NFT marketplace, escrow system, and payment channels. It's also used for tokenized assets, stablecoins (RLUSD), and everyday payments via wallets like Xaman." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Myths & Misconceptions Debunked",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "XRP Myths Debunked" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-myths" }),
-  buildFAQSchema([
-    { question: "Is XRP centralized?", answer: "No. The XRP Ledger is maintained by over 150 independent validators worldwide. Ripple operates only about 6% of them and has no special power over the network. Anyone can run a validator." },
-    { question: "Is XRP a security?", answer: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security under U.S. law. This was affirmed in the SEC v. Ripple case." },
-    { question: "Does Ripple control the XRP Ledger?", answer: "No. The XRPL is open-source and decentralized. Ripple contributes to development but cannot unilaterally change the protocol. Validators must reach consensus for any changes." },
-    { question: "Can Ripple create more XRP?", answer: "No. It is cryptographically impossible to mint new XRP. The XRPL protocol has no minting function. All 100 billion XRP were created at genesis in 2012." },
-    { question: "Do banks actually use XRP?", answer: "Yes. Through Ripple's On-Demand Liquidity (ODL), financial institutions in 55+ countries use XRP as a bridge currency for cross-border payments. SBI Holdings, one of Japan's largest financial groups, is a notable example." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP centralized?", a: "No. The XRP Ledger is maintained by over 150 independent validators worldwide. Ripple operates only about 6% of them and has no special power over the network. Anyone can run a validator, and the default UNL is chosen by the community, not Ripple alone." },
-  { q: "Is XRP a security?", a: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges is not a security under U.S. law. The SEC case against Ripple resulted in a $125M fine for institutional sales, but XRP itself was not classified as a security." },
-  { q: "Can Ripple create more XRP?", a: "Absolutely not. The XRP Ledger protocol has no minting function. It is cryptographically impossible to create new XRP. All 100 billion XRP that will ever exist were created in the genesis ledger in 2012." },
-  { q: "Do banks actually use XRP?", a: "Yes. Through Ripple's ODL product, financial institutions in 55+ countries actively use XRP as a bridge currency. SBI Holdings (Japan), Tranglo (Southeast Asia), and many licensed payment providers use XRP for real cross-border transactions." },
-  { q: "Is XRP just a 'banker coin' with no utility?", a: "XRP has broad utility beyond banking: it powers the XRPL's built-in DEX, AMM, NFT marketplace, escrow system, and payment channels. It's also used for tokenized assets, stablecoins (RLUSD), and everyday payments via wallets like Xaman." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPMythsPage() {

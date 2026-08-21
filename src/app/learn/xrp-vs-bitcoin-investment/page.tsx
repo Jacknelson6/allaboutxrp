@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-bitcoin-investment" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Bitcoin: Which Is the Better Investment? (2026)", description: "Compare XRP and Bitcoin as investments — risk, reward, growth potential, and allocation strategy.", url: "https://allaboutxrp.com/learn/xrp-vs-bitcoin-investment", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Bitcoin Investment" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-bitcoin-investment" }),
-  buildFAQSchema([
-    { question: "Should I buy XRP or Bitcoin?", answer: "Different risk/reward profiles. Bitcoin is the established 'digital gold' with ETF inflows and institutional adoption — lower risk, potentially lower upside. XRP has more potential upside from a smaller market cap (~$110B vs $1T+) but carries more execution risk. Many investors hold both — Bitcoin as a core crypto holding and XRP as a higher-upside allocation." },
-    { question: "Which has more upside potential?", answer: "XRP likely has more upside potential in percentage terms due to its smaller market cap. XRP going from $2 to $10 (5x) requires ~$570B market cap. Bitcoin going 5x from $100K would require $10T+ market cap. Smaller assets have more room to grow but also more room to fall." },
-    { question: "Is Bitcoin safer than XRP?", answer: "Generally yes. Bitcoin has the longest track record (15+ years), the largest market cap, approved ETFs with billions in inflows, and is recognized as a legitimate asset class by major institutions. XRP has more regulatory clarity post-SEC but is more dependent on Ripple's execution." },
-    { question: "What percentage should I allocate to each?", answer: "Common approaches: Conservative (80% BTC / 20% XRP), Balanced (60% BTC / 40% XRP), or Aggressive (40% BTC / 60% XRP). Your allocation should reflect your risk tolerance, conviction, and investment timeline. Not financial advice." },
-    { question: "Can XRP outperform Bitcoin?", answer: "Historically, altcoins including XRP have outperformed Bitcoin during specific bull market phases (typically late in the cycle). XRP outperformed Bitcoin significantly in late 2017 and late 2024. However, Bitcoin has outperformed most altcoins over full market cycles." },
-  ]),
-];
-
 const faqItems = [
   { q: "Should I buy XRP or Bitcoin?", a: "Both serve different roles. Bitcoin = digital gold (lower risk). XRP = payment utility (higher upside, more risk). Many hold both." },
   { q: "Which has more upside?", a: "XRP in percentage terms — smaller market cap means more room to grow. 5x XRP = ~$570B. 5x BTC = ~$5T+." },
   { q: "Is Bitcoin safer?", a: "Generally yes — longer track record, larger market cap, approved ETFs, broader institutional acceptance." },
   { q: "How should I allocate?", a: "Conservative: 80/20 BTC/XRP. Balanced: 60/40. Aggressive: 40/60. Depends on risk tolerance." },
   { q: "Can XRP outperform Bitcoin?", a: "In specific phases, yes (late 2017, late 2024). Over full cycles, Bitcoin typically outperforms most altcoins." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Bitcoin: Which Is the Better Investment? (2026)", description: "Compare XRP and Bitcoin as investments — risk, reward, growth potential, and allocation strategy.", url: "https://allaboutxrp.com/learn/xrp-vs-bitcoin-investment", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Bitcoin Investment" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-bitcoin-investment" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsBitcoinInvestmentPage() {

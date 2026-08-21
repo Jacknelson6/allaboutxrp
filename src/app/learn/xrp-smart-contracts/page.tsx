@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-smart-contracts" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP Smart Contracts: Hooks & EVM Sidechain", description: "A comprehensive guide to smart contract capabilities on the XRP Ledger, including Hooks and the EVM-compatible sidechain.", url: "https://allaboutxrp.com/learn/xrp-smart-contracts", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Smart Contracts" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-smart-contracts" }),
-  buildFAQSchema([
-    { question: "Does XRP have smart contracts?", answer: "Yes, but differently from Ethereum. The XRP Ledger supports smart contract functionality through two approaches: (1) Hooks — lightweight, on-chain logic written in C/WebAssembly that attaches to XRPL transactions, and (2) an EVM-compatible sidechain for full Solidity smart contracts. The main XRPL also has built-in 'smart' features like escrow, payment channels, and the native DEX/AMM." },
-    { question: "What are XRPL Hooks?", answer: "Hooks are small, efficient pieces of code written in C that compile to WebAssembly and attach to XRP Ledger transactions. They can add logic like conditional payments, automatic forwarding, or compliance checks directly on the XRPL without the overhead of a full smart contract platform. Think of them as 'transaction middleware.'" },
-    { question: "What is the XRP EVM sidechain?", answer: "The XRP EVM sidechain is a separate blockchain compatible with Ethereum's Virtual Machine (EVM) that connects to the XRPL via a bridge. Developers can write Solidity smart contracts and deploy existing Ethereum dApps on it, while leveraging XRP for gas fees and bridging assets between the XRPL mainnet and the sidechain." },
-    { question: "Can you build DeFi on XRP?", answer: "Yes. The XRPL already has a built-in decentralized exchange (DEX) and automated market maker (AMM). With Hooks and the EVM sidechain, more complex DeFi applications are possible. The XRPL DeFi ecosystem includes lending, yield farming, and token swaps." },
-    { question: "How do XRP smart contracts compare to Ethereum?", answer: "Ethereum has the most mature smart contract ecosystem with thousands of dApps. XRP's approach is intentionally different — Hooks are lightweight and optimized for payment-adjacent logic, while the EVM sidechain provides full Ethereum compatibility for complex applications. XRP prioritizes payment performance over general-purpose computing." },
-  ]),
-];
-
 const faqItems = [
   { q: "Does XRP have smart contracts?", a: "Yes — through Hooks (lightweight on-chain logic) and an EVM-compatible sidechain. The XRPL also has built-in features like escrow, payment channels, and native DEX/AMM." },
   { q: "What are XRPL Hooks?", a: "Small, efficient C code compiled to WebAssembly that attaches to XRPL transactions. They add logic like conditional payments without full smart contract overhead." },
   { q: "What is the XRP EVM sidechain?", a: "A separate EVM-compatible blockchain bridged to the XRPL. Developers can deploy Solidity/Ethereum dApps using XRP for gas fees." },
   { q: "Can you build DeFi on XRP?", a: "Yes. Built-in DEX, AMM, plus Hooks and EVM sidechain enable lending, yield farming, and complex DeFi on the XRPL." },
   { q: "How do XRP contracts compare to Ethereum?", a: "Ethereum has the larger ecosystem. XRP's Hooks are optimized for payment logic; the EVM sidechain provides Ethereum compatibility. XRP prioritizes speed over general computing." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP Smart Contracts: Hooks & EVM Sidechain", description: "A comprehensive guide to smart contract capabilities on the XRP Ledger, including Hooks and the EVM-compatible sidechain.", url: "https://allaboutxrp.com/learn/xrp-smart-contracts", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Smart Contracts" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-smart-contracts" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPSmartContractsPage() {

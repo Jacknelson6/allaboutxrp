@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Does XRP have DeFi?", a: "Yes. The XRP Ledger has a native DEX and AMM built into the protocol. The XRPL EVM sidechain adds Ethereum-compatible smart contracts for more complex DeFi applications like lending, derivatives, and yield farming." },
+  { q: "What is the XRPL AMM?", a: "The XRPL AMM is a native automated market maker built directly into the ledger. Users can provide liquidity to pools and earn trading fees. Because it's protocol-native, there's no smart contract risk — it's validated by the same consensus that secures all XRP transactions." },
+  { q: "Can you earn yield on XRP?", a: "Yes — through XRPL AMM liquidity provision, DeFi protocols on the EVM sidechain, or lending platforms. Yields vary based on pool selection, market conditions, and risk level." },
+  { q: "How is XRPL DeFi different from Ethereum?", a: "XRPL DeFi is protocol-native (DEX and AMM are built into the ledger), making it faster and cheaper. Ethereum DeFi is more flexible through composable smart contracts but carries more smart contract risk and higher gas fees." },
+  { q: "What DeFi protocols are on XRPL?", a: "Key protocols include the native XRPL DEX, the native AMM, Sologenic (tokenized assets), and various lending/yield platforms on the XRPL EVM sidechain. The ecosystem is growing rapidly in 2026." },
+  { q: "Is impermanent loss a risk on XRPL AMM?", a: "Yes. Like all AMMs, XRPL liquidity providers face impermanent loss risk when token prices diverge. However, XRPL's AMM includes a unique auction mechanism that helps reduce losses compared to traditional AMM designs." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished, dateModified: datePublished }),
   buildBreadcrumbSchema([
@@ -33,22 +42,7 @@ const schemas = [
     { name: "XRP & DeFi" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "Does XRP have DeFi?", answer: "Yes. The XRP Ledger has a native decentralized exchange (DEX) and automated market maker (AMM) built directly into the protocol. Additional DeFi protocols for lending, yield, and derivatives are being built on XRPL and its EVM sidechain." },
-    { question: "What is the XRPL AMM?", answer: "The XRPL AMM (Automated Market Maker) is a native liquidity pool system built into the XRP Ledger protocol. It allows users to provide liquidity and earn trading fees without any third-party smart contracts." },
-    { question: "Can you earn yield on XRP?", answer: "Yes. You can earn yield by providing liquidity to XRPL AMM pools, participating in DeFi protocols on the XRPL EVM sidechain, or lending XRP on supported platforms." },
-    { question: "How is XRPL DeFi different from Ethereum DeFi?", answer: "XRPL DeFi features are built natively into the protocol rather than through smart contracts. This makes them faster, cheaper, and more secure — but currently less flexible than Ethereum's composable DeFi ecosystem." },
-    { question: "Is XRPL DeFi safe?", answer: "Native XRPL DeFi features (DEX, AMM) are part of the validated protocol itself, reducing smart contract risk. However, all DeFi carries risks including impermanent loss, market volatility, and protocol bugs." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Does XRP have DeFi?", a: "Yes. The XRP Ledger has a native DEX and AMM built into the protocol. The XRPL EVM sidechain adds Ethereum-compatible smart contracts for more complex DeFi applications like lending, derivatives, and yield farming." },
-  { q: "What is the XRPL AMM?", a: "The XRPL AMM is a native automated market maker built directly into the ledger. Users can provide liquidity to pools and earn trading fees. Because it's protocol-native, there's no smart contract risk — it's validated by the same consensus that secures all XRP transactions." },
-  { q: "Can you earn yield on XRP?", a: "Yes — through XRPL AMM liquidity provision, DeFi protocols on the EVM sidechain, or lending platforms. Yields vary based on pool selection, market conditions, and risk level." },
-  { q: "How is XRPL DeFi different from Ethereum?", a: "XRPL DeFi is protocol-native (DEX and AMM are built into the ledger), making it faster and cheaper. Ethereum DeFi is more flexible through composable smart contracts but carries more smart contract risk and higher gas fees." },
-  { q: "What DeFi protocols are on XRPL?", a: "Key protocols include the native XRPL DEX, the native AMM, Sologenic (tokenized assets), and various lending/yield platforms on the XRPL EVM sidechain. The ecosystem is growing rapidly in 2026." },
-  { q: "Is impermanent loss a risk on XRPL AMM?", a: "Yes. Like all AMMs, XRPL liquidity providers face impermanent loss risk when token prices diverge. However, XRPL's AMM includes a unique auction mechanism that helps reduce losses compared to traditional AMM designs." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndDeFiPage() {

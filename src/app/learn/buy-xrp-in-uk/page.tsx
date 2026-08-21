@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-in-uk" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in the UK?", a: "Yes. XRP is legal in the UK. Crypto exchanges must be FCA-registered. Major FCA-registered platforms supporting XRP include Bitstamp, Kraken, and Coinbase." },
+  { q: "What's the best exchange for GBP?", a: "Bitstamp and Kraken — both accept free Faster Payments and are FCA-registered. Binance offers GBP pairs but has faced FCA scrutiny." },
+  { q: "Do I pay tax on XRP in the UK?", a: "Yes. HMRC treats crypto as a capital asset. Capital Gains Tax applies on profits. £3,000 annual allowance. Rates: 10% (basic) or 20% (higher rate)." },
+  { q: "Can I use Faster Payments?", a: "Yes. Bitstamp, Kraken, and others accept free, instant Faster Payments for GBP deposits." },
+  { q: "Is the FCA banning crypto?", a: "No. The FCA regulates crypto through registration, not bans. Buying and holding XRP is fully legal in the UK." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP in the UK: GBP Guide (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP in UK" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-in-uk" }),
-  buildFAQSchema([
-    { question: "Is XRP legal in the UK?", answer: "Yes. XRP is legal to buy, sell, and hold in the UK. Crypto exchanges operating in the UK must be registered with the Financial Conduct Authority (FCA). Major FCA-registered platforms that support XRP include Bitstamp, Kraken, and Coinbase." },
-    { question: "What is the best exchange to buy XRP with GBP?", answer: "Bitstamp and Kraken are top choices for UK users. Both accept Faster Payments (free, instant GBP deposits) and are FCA-registered. Binance also offers GBP pairs but has faced FCA scrutiny." },
-    { question: "Do I pay tax on XRP in the UK?", answer: "Yes. HMRC treats cryptocurrency as a capital asset. You pay Capital Gains Tax on profits when you sell or trade XRP. The annual tax-free allowance is £3,000 (2024/25). Rates are 10% (basic rate) or 20% (higher rate)." },
-    { question: "Can I buy XRP with Faster Payments?", answer: "Yes. Bitstamp, Kraken, and several other exchanges accept Faster Payments for free, instant GBP deposits. This is the fastest and cheapest way to fund your account in the UK." },
-    { question: "Is the FCA banning crypto in the UK?", answer: "No. The FCA regulates crypto exchanges through a registration regime, not a ban. FCA-registered firms must meet anti-money laundering standards. The UK has introduced crypto-specific marketing rules, but buying and holding XRP remains fully legal." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in the UK?", a: "Yes. XRP is legal in the UK. Crypto exchanges must be FCA-registered. Major FCA-registered platforms supporting XRP include Bitstamp, Kraken, and Coinbase." },
-  { q: "What's the best exchange for GBP?", a: "Bitstamp and Kraken — both accept free Faster Payments and are FCA-registered. Binance offers GBP pairs but has faced FCA scrutiny." },
-  { q: "Do I pay tax on XRP in the UK?", a: "Yes. HMRC treats crypto as a capital asset. Capital Gains Tax applies on profits. £3,000 annual allowance. Rates: 10% (basic) or 20% (higher rate)." },
-  { q: "Can I use Faster Payments?", a: "Yes. Bitstamp, Kraken, and others accept free, instant Faster Payments for GBP deposits." },
-  { q: "Is the FCA banning crypto?", a: "No. The FCA regulates crypto through registration, not bans. Buying and holding XRP is fully legal in the UK." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPInUKPage() {

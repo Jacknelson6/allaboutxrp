@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-legal-status-by-country" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal?", a: "Yes, in most countries. XRP is legal in the US, UK, EU, Japan, Australia, Canada, and most of the world. Only countries with blanket crypto bans restrict XRP." },
+  { q: "Is XRP banned anywhere?", a: "Not specifically. But general crypto bans in China (trading), Algeria, Bangladesh, Egypt, Morocco, and Nepal affect XRP along with all cryptocurrencies." },
+  { q: "Is XRP a security?", a: "In the US, the court ruled XRP on exchanges is not a security (SEC v Ripple, 2023). Most other countries classify it as a virtual asset or commodity." },
+  { q: "Is XRP legal in the EU?", a: "Yes. Fully legal across all 27 EU states under the MiCA regulatory framework." },
+  { q: "Where is XRP most popular?", a: "Japan (#1 via SBI Holdings), South Korea, USA, UK, and the Philippines (remittance corridors)." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Is XRP Legal? XRP Legal Status by Country (2026)",
@@ -43,21 +51,7 @@ const schemas = [
     { name: "XRP Legal Status by Country" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country" }),
-  buildFAQSchema([
-    { question: "Is XRP legal?", answer: "Yes, in most countries. XRP is legal to buy, sell, and hold in the vast majority of countries worldwide, including the US, UK, EU, Japan, Australia, Canada, and most of Asia and South America. A small number of countries have banned all cryptocurrencies, which includes XRP." },
-    { question: "Is XRP banned in any country?", answer: "XRP is not specifically banned anywhere, but it falls under general cryptocurrency bans in countries like China (trading ban), Algeria, Bangladesh, Egypt, Morocco, Nepal, and a few others that have blanket bans on crypto trading." },
-    { question: "Is XRP a security?", answer: "In the US, Judge Torres ruled in July 2023 that XRP sales on exchanges are not securities transactions. This was a landmark ruling in the SEC v Ripple case. Other jurisdictions generally classify XRP as a virtual asset, cryptocurrency, or commodity — not a security." },
-    { question: "Is XRP legal in the European Union?", answer: "Yes. XRP is fully legal across all 27 EU member states. The Markets in Crypto-Assets (MiCA) regulation provides a comprehensive framework for crypto assets. Exchanges must register and comply with MiCA requirements." },
-    { question: "Where is XRP most popular?", answer: "XRP has the strongest adoption in Japan (via SBI Holdings partnership), South Korea, the United States, United Kingdom, and the Philippines (via remittance corridors). Japan's SBI Group has been Ripple's most active institutional partner." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal?", a: "Yes, in most countries. XRP is legal in the US, UK, EU, Japan, Australia, Canada, and most of the world. Only countries with blanket crypto bans restrict XRP." },
-  { q: "Is XRP banned anywhere?", a: "Not specifically. But general crypto bans in China (trading), Algeria, Bangladesh, Egypt, Morocco, and Nepal affect XRP along with all cryptocurrencies." },
-  { q: "Is XRP a security?", a: "In the US, the court ruled XRP on exchanges is not a security (SEC v Ripple, 2023). Most other countries classify it as a virtual asset or commodity." },
-  { q: "Is XRP legal in the EU?", a: "Yes. Fully legal across all 27 EU states under the MiCA regulatory framework." },
-  { q: "Where is XRP most popular?", a: "Japan (#1 via SBI Holdings), South Korea, USA, UK, and the Philippines (remittance corridors)." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLegalStatusPage() {

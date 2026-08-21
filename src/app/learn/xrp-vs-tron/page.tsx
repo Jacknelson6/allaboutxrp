@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-tron" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Tron (TRX): Payments & Transfers Compared (2026)", description: "Compare XRP and Tron for payments — speed, fees, stablecoin volume, and institutional adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-tron", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Tron" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-tron" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Tron?", answer: "XRP focuses on institutional cross-border payments through bank partnerships and On-Demand Liquidity. Tron focuses on peer-to-peer transfers, particularly USDT stablecoin transfers, where it dominates with ~50% of all USDT volume. Both are fast and cheap, but target different segments of the payment market." },
-    { question: "Which handles more transaction volume?", answer: "Tron processes more raw transactions daily (5-10M+ per day), largely driven by USDT transfers. XRP processes fewer transactions but they tend to be higher-value institutional transfers. Tron wins on volume; XRP wins on institutional value." },
-    { question: "Which is cheaper for transfers?", answer: "Both are very cheap. XRP costs ~$0.0005 per transaction. Tron transactions are free up to a bandwidth limit (from staking TRX), then ~$0.001. For most users, both are effectively free." },
-    { question: "Why does Tron dominate USDT transfers?", answer: "Tron's TRC-20 USDT transfers are faster and cheaper than Ethereum's ERC-20 USDT. This made Tron the default network for USDT transfers, especially in Asia and developing markets. Over 50% of all USDT circulation is on Tron." },
-    { question: "Is XRP or Tron more decentralized?", answer: "XRP is more decentralized. The XRPL has 150+ independent validators. Tron uses Delegated Proof of Stake with only 27 Super Representatives, making it more centralized. Tron's founder Justin Sun also holds significant influence over the network." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference?", a: "XRP targets institutional cross-border payments (300+ bank partners). Tron dominates peer-to-peer USDT stablecoin transfers (~50% of all USDT)." },
   { q: "Which handles more volume?", a: "Tron processes more daily transactions (5-10M+, mostly USDT). XRP handles higher-value institutional transfers." },
   { q: "Which is cheaper?", a: "Both nearly free. XRP: ~$0.0005. Tron: free with bandwidth (staking) or ~$0.001." },
   { q: "Why does Tron dominate USDT?", a: "Faster and cheaper than Ethereum for USDT transfers. Became the default for stablecoin transfers in Asia and developing markets." },
   { q: "Which is more decentralized?", a: "XRP — 150+ independent validators vs Tron's 27 Super Representatives. Tron is significantly more centralized." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Tron (TRX): Payments & Transfers Compared (2026)", description: "Compare XRP and Tron for payments — speed, fees, stablecoin volume, and institutional adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-tron", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Tron" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-tron" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsTronPage() {

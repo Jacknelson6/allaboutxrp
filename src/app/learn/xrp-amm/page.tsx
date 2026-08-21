@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-amm" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP AMM: Automated Market Maker on the XRPL", description: "Guide to the native AMM on the XRP Ledger — how it works, liquidity provision, fees, and comparison to Ethereum AMMs.", url: "https://allaboutxrp.com/learn/xrp-amm", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP AMM" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-amm" }),
-  buildFAQSchema([
-    { question: "What is the XRP AMM?", answer: "The XRP AMM (Automated Market Maker) is a native feature of the XRP Ledger that enables decentralized token trading through liquidity pools. Unlike Ethereum where AMMs like Uniswap are smart contracts, the XRPL AMM is built directly into the protocol, making it faster, cheaper, and more secure." },
-    { question: "How do I provide liquidity on the XRPL AMM?", answer: "You can provide liquidity by depositing equal value of two tokens into an AMM pool using a compatible XRPL wallet (like Xaman). You'll receive LP tokens representing your share. As trades occur, you earn a portion of the trading fees. You can withdraw your liquidity at any time." },
-    { question: "What fees do AMM liquidity providers earn on XRP?", answer: "The trading fee for XRPL AMM pools is set by the pool creator and can be voted on by liquidity providers. Typical fees range from 0.1% to 1% of each trade. These fees are distributed proportionally to all liquidity providers based on their pool share." },
-    { question: "Is the XRPL AMM safe?", answer: "The XRPL AMM is built into the protocol itself, not a smart contract. This eliminates smart contract risks like bugs and exploits that have drained billions from Ethereum DeFi. However, impermanent loss still applies — the risk that your deposited tokens change in relative value." },
-    { question: "How does the XRPL AMM compare to Uniswap?", answer: "The XRPL AMM is native protocol vs Uniswap's smart contracts. XRPL AMM has lower fees (near-zero gas), faster execution (3-5 sec), no smart contract risk, and integrates with the XRPL's built-in DEX orderbook. Uniswap has more liquidity, more trading pairs, and a larger DeFi ecosystem." },
-  ]),
-];
-
 const faqItems = [
   { q: "What is the XRP AMM?", a: "A native automated market maker built into the XRP Ledger protocol. It enables decentralized trading through liquidity pools without smart contracts." },
   { q: "How do I provide liquidity?", a: "Deposit equal value of two tokens into a pool via a compatible wallet (Xaman). You receive LP tokens and earn trading fees proportionally." },
   { q: "What fees do LPs earn?", a: "Trading fees (typically 0.1-1% per trade) are distributed to liquidity providers based on pool share. Fee rates are set by creators and votable by LPs." },
   { q: "Is it safe?", a: "Being protocol-native eliminates smart contract risk. But impermanent loss still applies — the risk of deposited tokens changing in relative value." },
   { q: "How does it compare to Uniswap?", a: "Native protocol (safer), lower gas, faster execution. But Uniswap has more liquidity, pairs, and a larger ecosystem." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP AMM: Automated Market Maker on the XRPL", description: "Guide to the native AMM on the XRP Ledger — how it works, liquidity provision, fees, and comparison to Ethereum AMMs.", url: "https://allaboutxrp.com/learn/xrp-amm", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP AMM" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-amm" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAMMPage() {

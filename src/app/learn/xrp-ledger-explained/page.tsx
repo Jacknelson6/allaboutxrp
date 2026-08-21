@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is the XRP Ledger?", a: "The XRP Ledger (XRPL) is an open-source, decentralized blockchain created in 2012 by David Schwartz, Jed McCaleb, and Arthur Britto. It's the native blockchain for XRP and was purpose-built for fast, efficient payments. Beyond simple transfers, the XRPL includes a built-in decentralized exchange, automated market maker, NFT support, token issuance, escrow, and more." },
+  { q: "How does XRPL consensus work?", a: "The XRPL uses the Federated Consensus Protocol. A network of 150+ independent validators proposes and votes on sets of transactions. Each validator maintains a Unique Node List (UNL) of validators it trusts. When 80% of validators on each UNL agree on a transaction set, the ledger closes and transactions are finalized — typically in 3-5 seconds. No mining or staking is required." },
+  { q: "Is the XRP Ledger decentralized?", a: "Yes. The XRPL has over 150 independent validators run by universities, exchanges, businesses, and individuals worldwide. Ripple operates approximately 6% of all validators. Anyone can run a validator without permission. The XRPL existed before Ripple was incorporated and would continue operating if Ripple ceased to exist." },
+  { q: "What is the difference between XRPL and Ripple?", a: "The XRPL is the decentralized, open-source blockchain. Ripple is a private company that builds products using the XRPL and XRP. Ripple contributes to XRPL development but does not control it. Think of it like the relationship between a company that builds apps on the internet — they use the infrastructure but don't control it." },
+  { q: "What are XRPL amendments?", a: "Amendments are the XRPL's governance mechanism for protocol upgrades. Any proposed change must receive continuous 80% supermajority support from validators over a two-week voting period before it activates. This ensures changes have broad consensus and gives the ecosystem time to prepare." },
+  { q: "How much does it cost to use the XRPL?", a: "Standard XRPL transactions cost approximately 0.00001 XRP (well under one cent). Accounts require a 1 XRP base reserve and 0.2 XRP per owned object (trust lines, offers, etc.). These reserves are set by validator vote and can be adjusted." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Ledger Explained: How XRPL Works",
@@ -44,23 +53,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP Ledger Explained" },
   ]),
-  buildFAQSchema([
-    { question: "What is the XRP Ledger?", answer: "The XRP Ledger (XRPL) is an open-source, decentralized blockchain created in 2012. It's the native blockchain for XRP and features a built-in decentralized exchange, automated market maker, NFT support, and more. It settles transactions in 3-5 seconds." },
-    { question: "How does XRPL consensus work?", answer: "The XRPL uses the Federated Consensus Protocol. Over 150 independent validators propose and vote on transaction sets. When 80% of validators on each Unique Node List agree, the ledger closes — typically in 3-5 seconds. No mining or staking is required." },
-    { question: "Is the XRP Ledger decentralized?", answer: "Yes. The XRPL has over 150 independent validators worldwide. Ripple operates approximately 6% of validators. Anyone can run a validator, and the network would continue operating without Ripple." },
-    { question: "What features does the XRPL have?", answer: "The XRPL includes a native decentralized exchange (DEX), automated market maker (AMM), NFT support (XLS-20), token issuance, escrow, multi-signing, payment channels, and more — all built into the protocol layer." },
-    { question: "Who controls the XRP Ledger?", answer: "No single entity controls the XRPL. Changes to the protocol require an 80% supermajority of validators to approve amendments over a two-week voting period. This is a decentralized governance model." },
-    { question: "How many transactions can the XRPL handle?", answer: "The XRP Ledger can process approximately 1,500 transactions per second (TPS) with current settings. This significantly exceeds Bitcoin (~7 TPS) and Ethereum (~30 TPS)." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the XRP Ledger?", a: "The XRP Ledger (XRPL) is an open-source, decentralized blockchain created in 2012 by David Schwartz, Jed McCaleb, and Arthur Britto. It's the native blockchain for XRP and was purpose-built for fast, efficient payments. Beyond simple transfers, the XRPL includes a built-in decentralized exchange, automated market maker, NFT support, token issuance, escrow, and more." },
-  { q: "How does XRPL consensus work?", a: "The XRPL uses the Federated Consensus Protocol. A network of 150+ independent validators proposes and votes on sets of transactions. Each validator maintains a Unique Node List (UNL) of validators it trusts. When 80% of validators on each UNL agree on a transaction set, the ledger closes and transactions are finalized — typically in 3-5 seconds. No mining or staking is required." },
-  { q: "Is the XRP Ledger decentralized?", a: "Yes. The XRPL has over 150 independent validators run by universities, exchanges, businesses, and individuals worldwide. Ripple operates approximately 6% of all validators. Anyone can run a validator without permission. The XRPL existed before Ripple was incorporated and would continue operating if Ripple ceased to exist." },
-  { q: "What is the difference between XRPL and Ripple?", a: "The XRPL is the decentralized, open-source blockchain. Ripple is a private company that builds products using the XRPL and XRP. Ripple contributes to XRPL development but does not control it. Think of it like the relationship between a company that builds apps on the internet — they use the infrastructure but don't control it." },
-  { q: "What are XRPL amendments?", a: "Amendments are the XRPL's governance mechanism for protocol upgrades. Any proposed change must receive continuous 80% supermajority support from validators over a two-week voting period before it activates. This ensures changes have broad consensus and gives the ecosystem time to prepare." },
-  { q: "How much does it cost to use the XRPL?", a: "Standard XRPL transactions cost approximately 0.00001 XRP (well under one cent). Accounts require a 1 XRP base reserve and 0.2 XRP per owned object (trust lines, offers, etc.). These reserves are set by validator vote and can be adjusted." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLedgerExplainedPage() {

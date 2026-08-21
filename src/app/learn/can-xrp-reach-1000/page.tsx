@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $1,000? Breaking Down the Claims", description: "Honest analysis of the $1,000 XRP price target — market cap math and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $1,000?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP reach $1,000?", answer: "No, not with any realistic market structure. $1,000 XRP = ~$57 trillion market cap. This is roughly equal to the ENTIRE US stock market and more than half of global GDP. No single asset has ever approached this valuation. The math simply doesn't support this target." },
-    { question: "Why do people predict $1,000 XRP?", answer: "These claims typically come from misunderstanding how market cap works, conflating payment volume with token price, or citing conspiracy theories about secret government adoption. Some viral social media posts also confuse XRP with being the 'global reserve currency' — a fundamental misunderstanding of monetary systems." },
-    { question: "What would $1,000 XRP mean for holders?", answer: "At $1,000 per XRP, holding just 1,000 XRP (~$2,000 investment at current prices) would be worth $1 million. While this fantasy is appealing, the math makes it virtually impossible. Focus on realistic targets like $5-20 instead." },
-    { question: "Is there ANY scenario where $1,000 is possible?", answer: "Only in an extreme hypothetical: massive XRP supply burn (removing 95%+ of supply), combined with hyperinflation of all fiat currencies, and XRP becoming the world's settlement layer. None of these scenarios are realistic or likely." },
-    { question: "What should I focus on instead?", answer: "Data-driven price targets of $5-20 in a bull market are supported by market cap analysis. $10 XRP (~$570B market cap) is an ambitious but achievable target. Focus on realistic analysis, not viral claims." },
-  ]),
-];
-
 const faqItems = [
   { q: "Can XRP reach $1,000?", a: "No. ~$57T market cap required — equal to the entire US stock market. No single asset has ever approached this." },
   { q: "Why do people claim $1,000?", a: "Misunderstanding market cap, conflating payment volume with price, conspiracy theories, and social media hype." },
   { q: "What would it mean for holders?", a: "1,000 XRP would = $1M. Appealing fantasy but mathematically impossible under current market structures." },
   { q: "Any scenario where it's possible?", a: "Only extreme hypotheticals: 95%+ supply burn + global hyperinflation + XRP as world settlement layer. None realistic." },
   { q: "What should I focus on?", a: "$5-20 is data-driven. $10 (~$570B cap) is an ambitious, achievable target. Focus on math, not memes." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "Can XRP Reach $1,000? Breaking Down the Claims", description: "Honest analysis of the $1,000 XRP price target — market cap math and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $1,000?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPReach1000Page() {

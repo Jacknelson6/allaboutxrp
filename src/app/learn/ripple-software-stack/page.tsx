@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-software-stack" },
 };
 
+const faqItems = [
+  { q: "What products does Ripple offer?", a: "Ripple offers RippleNet (global payments), On-Demand Liquidity (XRP-powered settlement), Ripple Prime (institutional brokerage), Ripple Custody (Metaco), RLUSD (stablecoin), Ripple Treasury (GTreasury), and a CBDC platform." },
+  { q: "How do Ripple's products benefit XRP?", a: "Each product drives XRP utility: ODL uses XRP as a bridge currency, Ripple Prime settles on XRPL, RLUSD lives on XRPL, Ripple Custody supports XRP. More products = more XRP ecosystem demand." },
+  { q: "What happened to xCurrent, xRapid, and xVia?", a: "They were consolidated into RippleNet in 2019. xRapid became On-Demand Liquidity (ODL). xCurrent and xVia were merged into the core RippleNet product." },
+  { q: "How much has Ripple spent on acquisitions?", a: "Over $3.7 billion — including Hidden Road ($1.25B), GTreasury ($1B), Metaco ($250M), Rail ($200M), Standard Custody ($100M), and Palisade." },
+  { q: "Is Ripple just a payments company?", a: "Not anymore. Ripple has evolved from a payments company into a full-stack financial infrastructure provider covering payments, custody, brokerage, treasury, stablecoins, and CBDCs." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple Software Stack: Complete Guide to Ripple's Products",
@@ -43,18 +51,7 @@ const schemas = [
     { name: "Ripple Software Stack" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-software-stack" }),
-  buildFAQSchema([
-    { question: "What products does Ripple offer?", answer: "Ripple offers RippleNet (payments), On-Demand Liquidity (XRP bridge), Ripple Prime (institutional brokerage), Ripple Custody (Metaco), RLUSD (stablecoin), Ripple Treasury (GTreasury), and a CBDC platform." },
-    { question: "How do Ripple's products benefit XRP?", answer: "Each product drives XRP utility: ODL uses XRP as a bridge currency, Ripple Prime settles on XRPL, RLUSD lives on XRPL, and Ripple Custody supports XRP. More products = more XRP demand." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What products does Ripple offer?", a: "Ripple offers RippleNet (global payments), On-Demand Liquidity (XRP-powered settlement), Ripple Prime (institutional brokerage), Ripple Custody (Metaco), RLUSD (stablecoin), Ripple Treasury (GTreasury), and a CBDC platform." },
-  { q: "How do Ripple's products benefit XRP?", a: "Each product drives XRP utility: ODL uses XRP as a bridge currency, Ripple Prime settles on XRPL, RLUSD lives on XRPL, Ripple Custody supports XRP. More products = more XRP ecosystem demand." },
-  { q: "What happened to xCurrent, xRapid, and xVia?", a: "They were consolidated into RippleNet in 2019. xRapid became On-Demand Liquidity (ODL). xCurrent and xVia were merged into the core RippleNet product." },
-  { q: "How much has Ripple spent on acquisitions?", a: "Over $3.7 billion — including Hidden Road ($1.25B), GTreasury ($1B), Metaco ($250M), Rail ($200M), Standard Custody ($100M), and Palisade." },
-  { q: "Is Ripple just a payments company?", a: "Not anymore. Ripple has evolved from a payments company into a full-stack financial infrastructure provider covering payments, custody, brokerage, treasury, stablecoins, and CBDCs." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleSoftwareStackPage() {

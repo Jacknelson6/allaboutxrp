@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in the US?", a: "Yes. XRP is fully legal in the United States. You can buy, sell, hold, trade, and transfer XRP freely. The SEC settlement confirmed XRP is not a security on exchanges." },
+  { q: "How is XRP taxed in the US?", a: "The IRS treats crypto as property. Short-term gains (held <1 year) are taxed as ordinary income. Long-term gains (held >1 year) get preferential rates of 0%, 15%, or 20% depending on income. You must report all transactions." },
+  { q: "Which exchanges offer XRP in the US?", a: "All major US exchanges offer XRP, including Coinbase, Kraken, Gemini, Uphold, Robinhood, and many others. Availability in specific states depends on the exchange's state licenses." },
+  { q: "What about New York?", a: "New York requires exchanges to hold a BitLicense. Not all exchanges have one, so XRP availability may be limited to specific platforms in NY. Coinbase and Gemini both operate in New York." },
+  { q: "Do I need to report XRP holdings?", a: "You must report all crypto transactions on your tax return. Starting in 2026, exchanges also report transactions to the IRS via Form 1099-DA. Holding XRP without selling doesn't trigger a taxable event." },
+  { q: "What about the CLARITY Act?", a: "The CLARITY Act would codify XRP's commodity classification into federal law, providing even stronger legal protection. It's progressing through Congress and has strong bipartisan support." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "US Regulation" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "Is XRP legal in the United States?", answer: "Yes. XRP is fully legal to buy, sell, hold, and trade in the United States. The SEC vs Ripple settlement confirmed that XRP is not a security when traded on exchanges." },
-    { question: "How is XRP classified in the US?", answer: "XRP is classified as a digital commodity/currency for exchange trading purposes, not as a security. It is subject to FinCEN regulations for anti-money laundering and IRS rules for tax reporting." },
-    { question: "Can I buy XRP in every US state?", answer: "XRP is available in most US states through major exchanges. Some states have additional crypto licensing requirements (like New York's BitLicense) that may limit which exchanges operate there." },
-    { question: "Do I need to pay taxes on XRP in the US?", answer: "Yes. The IRS treats cryptocurrency as property. You owe capital gains tax when you sell XRP for a profit, and you must report all crypto transactions on your tax return." },
-    { question: "What US agencies regulate XRP?", answer: "Multiple agencies oversee different aspects: FinCEN (anti-money laundering), IRS (taxation), CFTC (commodity oversight), state regulators (exchange licensing), and the SEC has limited jurisdiction over primary issuance." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in the US?", a: "Yes. XRP is fully legal in the United States. You can buy, sell, hold, trade, and transfer XRP freely. The SEC settlement confirmed XRP is not a security on exchanges." },
-  { q: "How is XRP taxed in the US?", a: "The IRS treats crypto as property. Short-term gains (held <1 year) are taxed as ordinary income. Long-term gains (held >1 year) get preferential rates of 0%, 15%, or 20% depending on income. You must report all transactions." },
-  { q: "Which exchanges offer XRP in the US?", a: "All major US exchanges offer XRP, including Coinbase, Kraken, Gemini, Uphold, Robinhood, and many others. Availability in specific states depends on the exchange's state licenses." },
-  { q: "What about New York?", a: "New York requires exchanges to hold a BitLicense. Not all exchanges have one, so XRP availability may be limited to specific platforms in NY. Coinbase and Gemini both operate in New York." },
-  { q: "Do I need to report XRP holdings?", a: "You must report all crypto transactions on your tax return. Starting in 2026, exchanges also report transactions to the IRS via Form 1099-DA. Holding XRP without selling doesn't trigger a taxable event." },
-  { q: "What about the CLARITY Act?", a: "The CLARITY Act would codify XRP's commodity classification into federal law, providing even stronger legal protection. It's progressing through Congress and has strong bipartisan support." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPUSRegulationPage() {

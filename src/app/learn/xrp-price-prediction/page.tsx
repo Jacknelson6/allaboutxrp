@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is the XRP price prediction for 2026?", a: "Analyst predictions for XRP in 2026 range widely from $2 to $15+, depending on ETF approvals, institutional adoption pace, and overall crypto market conditions. These are opinions from analysts, not guarantees. Always do your own research." },
+  { q: "Can XRP reach $10?", a: "At $10, XRP's market cap would be approximately $600 billion based on circulating supply. While ambitious, this is within the realm of possibility if institutional adoption accelerates significantly and spot ETF products launch successfully. It would require substantial market growth." },
+  { q: "What factors affect XRP's price the most?", a: "The biggest factors are: regulatory developments (SEC case resolution), ETF approvals, Ripple's institutional partnerships and ODL volume, overall crypto market sentiment (especially Bitcoin), RLUSD stablecoin adoption, and macroeconomic conditions." },
+  { q: "Is XRP price prediction reliable?", a: "No. Cryptocurrency markets are highly volatile and inherently unpredictable. Even the best analysts are frequently wrong. Treat all predictions as educated speculation, not investment advice." },
+  { q: "What was XRP's all-time high?", a: "XRP's all-time high was $3.84, reached on January 4, 2018 during the broader crypto bull market. XRP has come close to this level in subsequent rallies but has not yet sustained a breakout above it." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Price Prediction: What Analysts Are Saying",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "XRP Price Prediction" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-prediction" }),
-  buildFAQSchema([
-    { question: "What is the XRP price prediction for 2026?", answer: "Analyst predictions for XRP in 2026 range from $2 to $15+, depending on ETF approvals, institutional adoption, and overall market conditions. These are analyst opinions, not guarantees." },
-    { question: "Can XRP reach $10?", answer: "At $10, XRP's market cap would be approximately $600 billion (based on circulating supply). While ambitious, this is within the realm of possibility if institutional adoption accelerates and ETF products launch. It would require significant market growth." },
-    { question: "What factors affect XRP's price?", answer: "Key factors include: regulatory clarity, ETF approvals, Ripple's institutional partnerships, overall crypto market sentiment, Bitcoin price action, RLUSD adoption, and macroeconomic conditions." },
-    { question: "Is XRP price prediction reliable?", answer: "No price prediction is reliable. Cryptocurrency markets are highly volatile and unpredictable. Analyst predictions should be viewed as educated opinions, not financial advice. Always do your own research." },
-    { question: "What was XRP's all-time high?", answer: "XRP's all-time high was $3.84, reached in January 2018 during the broader crypto bull run. XRP would need significant catalysts to sustainably exceed this level." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the XRP price prediction for 2026?", a: "Analyst predictions for XRP in 2026 range widely from $2 to $15+, depending on ETF approvals, institutional adoption pace, and overall crypto market conditions. These are opinions from analysts, not guarantees. Always do your own research." },
-  { q: "Can XRP reach $10?", a: "At $10, XRP's market cap would be approximately $600 billion based on circulating supply. While ambitious, this is within the realm of possibility if institutional adoption accelerates significantly and spot ETF products launch successfully. It would require substantial market growth." },
-  { q: "What factors affect XRP's price the most?", a: "The biggest factors are: regulatory developments (SEC case resolution), ETF approvals, Ripple's institutional partnerships and ODL volume, overall crypto market sentiment (especially Bitcoin), RLUSD stablecoin adoption, and macroeconomic conditions." },
-  { q: "Is XRP price prediction reliable?", a: "No. Cryptocurrency markets are highly volatile and inherently unpredictable. Even the best analysts are frequently wrong. Treat all predictions as educated speculation, not investment advice." },
-  { q: "What was XRP's all-time high?", a: "XRP's all-time high was $3.84, reached on January 4, 2018 during the broader crypto bull market. XRP has come close to this level in subsequent rallies but has not yet sustained a breakout above it." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPPricePredictionPage() {

@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What are the biggest risks?", a: "The main risks are: (1) Competition from SWIFT, stablecoins, and CBDCs, (2) Ripple's large XRP holdings creating potential sell pressure, (3) Slower-than-expected bank adoption, (4) Global regulatory changes, (5) General crypto market volatility." },
+  { q: "Can XRP go to zero?", a: "It's extremely unlikely given the established infrastructure, institutional adoption, and community. But any investment can lose significant value. The XRP Ledger has run for 12+ years, but past performance doesn't guarantee the future." },
+  { q: "Is Ripple's XRP stash a problem?", a: "Ripple holds billions of XRP, mostly in escrow with monthly releases. Bears worry about selling pressure. Bulls argue Ripple has every incentive to support XRP's value. The truth is somewhere in between — it's a managed risk." },
+  { q: "What if banks don't adopt XRP?", a: "If bank adoption stalls, XRP's core thesis weakens. However, 100+ institutions already use Ripple's network, and regulatory clarity is accelerating new partnerships. Adoption risk exists but is decreasing." },
+  { q: "Is crypto itself risky?", a: "Yes. All cryptocurrency carries risk — regulatory changes, security breaches, market crashes, technology failures. Only invest what you can afford to lose. XRP is less risky than many cryptos but still volatile." },
+  { q: "How do I manage these risks?", a: "Diversify (don't put everything in XRP), dollar-cost average (buy regularly), secure your holdings (use proper wallets), and stay informed. Set a portfolio allocation you're comfortable with and stick to your plan." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "XRP Risks" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What are the main risks of buying XRP?", answer: "Key risks include price volatility, competition from other payment solutions, Ripple's large XRP holdings, global regulatory uncertainty, adoption speed, and general cryptocurrency market risks." },
-    { question: "Can XRP go to zero?", answer: "While extremely unlikely given XRP's institutional adoption and established infrastructure, any cryptocurrency can theoretically go to zero. The risk is very low for XRP but not zero." },
-    { question: "Is Ripple's XRP holdings a risk?", answer: "Ripple holds billions of XRP in escrow. While releases are predictable and transparent, large sales could create selling pressure. This is a commonly cited risk, though Ripple has incentives to support XRP's value." },
-    { question: "What about competition to XRP?", answer: "XRP faces competition from SWIFT's improvements (GPI), other crypto payment solutions (Stellar, stablecoins), and CBDCs. Any of these could reduce demand for XRP as a bridge currency." },
-    { question: "Is XRP too volatile?", answer: "Like all cryptocurrencies, XRP can experience significant price swings. This volatility is a risk for investors and can also make it challenging as a stable payment medium, though the bridge use case handles this." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are the biggest risks?", a: "The main risks are: (1) Competition from SWIFT, stablecoins, and CBDCs, (2) Ripple's large XRP holdings creating potential sell pressure, (3) Slower-than-expected bank adoption, (4) Global regulatory changes, (5) General crypto market volatility." },
-  { q: "Can XRP go to zero?", a: "It's extremely unlikely given the established infrastructure, institutional adoption, and community. But any investment can lose significant value. The XRP Ledger has run for 12+ years, but past performance doesn't guarantee the future." },
-  { q: "Is Ripple's XRP stash a problem?", a: "Ripple holds billions of XRP, mostly in escrow with monthly releases. Bears worry about selling pressure. Bulls argue Ripple has every incentive to support XRP's value. The truth is somewhere in between — it's a managed risk." },
-  { q: "What if banks don't adopt XRP?", a: "If bank adoption stalls, XRP's core thesis weakens. However, 100+ institutions already use Ripple's network, and regulatory clarity is accelerating new partnerships. Adoption risk exists but is decreasing." },
-  { q: "Is crypto itself risky?", a: "Yes. All cryptocurrency carries risk — regulatory changes, security breaches, market crashes, technology failures. Only invest what you can afford to lose. XRP is less risky than many cryptos but still volatile." },
-  { q: "How do I manage these risks?", a: "Diversify (don't put everything in XRP), dollar-cost average (buy regularly), secure your holdings (use proper wallets), and stay informed. Set a portfolio allocation you're comfortable with and stick to your plan." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPRisksPage() {

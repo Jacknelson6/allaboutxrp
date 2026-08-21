@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-nfts" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP NFTs: NFTs on the XRP Ledger (XLS-20)", description: "A comprehensive guide to NFTs on the XRP Ledger, covering XLS-20, minting, trading, and advantages over Ethereum-based NFTs.", url: "https://allaboutxrp.com/learn/xrp-nfts", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP NFTs" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-nfts" }),
-  buildFAQSchema([
-    { question: "Can you create NFTs on XRP?", answer: "Yes. The XRP Ledger supports native NFTs through the XLS-20 standard, which was activated in October 2022. Unlike Ethereum NFTs that require smart contracts, XRPL NFTs are built directly into the ledger protocol, making them faster, cheaper, and more energy-efficient to create and trade." },
-    { question: "How much does it cost to mint an NFT on XRP?", answer: "Minting an NFT on the XRP Ledger costs approximately 0.00001 XRP (a fraction of a cent) in transaction fees. This is dramatically cheaper than Ethereum, where minting can cost $10-100+ in gas fees depending on network congestion." },
-    { question: "What is XLS-20?", answer: "XLS-20 is the NFT standard for the XRP Ledger. It defines how non-fungible tokens are created, traded, and managed natively on the XRPL. Key features include built-in royalty enforcement, automatic transfers, and burn capabilities — all at the protocol level." },
-    { question: "What are the advantages of XRPL NFTs over Ethereum NFTs?", answer: "XRPL NFTs are cheaper to mint (fraction of a cent vs $10-100+), faster to transfer (3-5 seconds vs 12-15+ seconds), more energy-efficient (250,000x less energy than PoW Ethereum), and have built-in royalty enforcement at the protocol level (Ethereum royalties are optional and often bypassed)." },
-    { question: "Where can I buy XRP NFTs?", answer: "XRP NFTs can be purchased on XRPL-native marketplaces including xrp.cafe, Sologenic, OnXRP, and nftmaster.com. Some NFTs can also be traded directly peer-to-peer using the XRPL's built-in DEX and offer system." },
-  ]),
-];
-
 const faqItems = [
   { q: "Can you create NFTs on XRP?", a: "Yes. XLS-20 enables native NFTs on the XRP Ledger since October 2022. They're built into the protocol — no smart contracts needed." },
   { q: "How much does it cost to mint an NFT on XRP?", a: "About 0.00001 XRP (fraction of a cent). Dramatically cheaper than Ethereum's $10-100+ gas fees." },
   { q: "What is XLS-20?", a: "XLS-20 is the NFT standard for the XRP Ledger. It enables native NFT creation, trading, royalties, and burning at the protocol level." },
   { q: "What are XRPL NFT advantages?", a: "Cheaper minting, faster transfers (3-5 sec), energy-efficient, and built-in royalty enforcement at the protocol level." },
   { q: "Where can I buy XRP NFTs?", a: "XRPL marketplaces like xrp.cafe, Sologenic, OnXRP, and nftmaster.com. Also via peer-to-peer offers on the XRPL DEX." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP NFTs: NFTs on the XRP Ledger (XLS-20)", description: "A comprehensive guide to NFTs on the XRP Ledger, covering XLS-20, minting, trading, and advantages over Ethereum-based NFTs.", url: "https://allaboutxrp.com/learn/xrp-nfts", datePublished: "2026-02-15", dateModified: "2026-07-27" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP NFTs" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-nfts" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPNFTsPage() {

@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is the CLARITY Act?", a: "The CLARITY Act is proposed US legislation that provides clear definitions for when a digital asset is a security vs a commodity. It aims to replace the SEC's regulation-by-enforcement approach with clear, predictable rules." },
+  { q: "How does it affect XRP?", a: "The CLARITY Act would codify into law what the Ripple case established judicially — that digital assets sold on secondary markets are not necessarily securities. This gives XRP stronger legal protection and encourages institutional adoption." },
+  { q: "Is it law yet?", a: "As of early 2026, the CLARITY Act is progressing through the legislative process. Crypto-friendly majorities in Congress give it a strong chance of passage." },
+  { q: "Why does regulatory clarity matter for XRP?", a: "Without clear rules, exchanges feared listing XRP, institutions avoided it, and innovation moved offshore. Clear legislation removes this uncertainty and unlocks adoption." },
+  { q: "Does this replace the SEC vs Ripple ruling?", a: "It complements it. The Ripple ruling was a judicial precedent. The CLARITY Act would make similar protections statutory law — harder to challenge and applicable industry-wide, not just to XRP." },
+  { q: "How does this impact XRP's price?", a: "Regulatory clarity historically leads to increased exchange listings, institutional adoption, ETF approvals, and broader market participation — all positive catalysts for price." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "CLARITY Act" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is the CLARITY Act?", answer: "The CLARITY Act (Crypto Legal Alignment and Regulatory Innovation Through Yielding) is proposed US legislation that aims to provide clear regulatory definitions for digital assets, distinguishing between securities and commodities." },
-    { question: "How does the CLARITY Act affect XRP?", answer: "The CLARITY Act would formalize the distinction between digital assets as securities vs commodities. Since the Ripple case established XRP is not a security on secondary markets, the CLARITY Act would codify similar protections into law." },
-    { question: "Is the CLARITY Act passed?", answer: "As of early 2026, the CLARITY Act is progressing through Congress. Check our page for the latest status updates on this important crypto legislation." },
-    { question: "Who introduced the CLARITY Act?", answer: "The CLARITY Act was introduced by members of Congress seeking to provide regulatory clarity for the cryptocurrency industry, following years of regulation-by-enforcement by the SEC." },
-    { question: "How does the CLARITY Act differ from other crypto bills?", answer: "The CLARITY Act specifically focuses on clarifying when a digital asset is a security vs a commodity, which is the central question that affected XRP during the SEC lawsuit." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the CLARITY Act?", a: "The CLARITY Act is proposed US legislation that provides clear definitions for when a digital asset is a security vs a commodity. It aims to replace the SEC's regulation-by-enforcement approach with clear, predictable rules." },
-  { q: "How does it affect XRP?", a: "The CLARITY Act would codify into law what the Ripple case established judicially — that digital assets sold on secondary markets are not necessarily securities. This gives XRP stronger legal protection and encourages institutional adoption." },
-  { q: "Is it law yet?", a: "As of early 2026, the CLARITY Act is progressing through the legislative process. Crypto-friendly majorities in Congress give it a strong chance of passage." },
-  { q: "Why does regulatory clarity matter for XRP?", a: "Without clear rules, exchanges feared listing XRP, institutions avoided it, and innovation moved offshore. Clear legislation removes this uncertainty and unlocks adoption." },
-  { q: "Does this replace the SEC vs Ripple ruling?", a: "It complements it. The Ripple ruling was a judicial precedent. The CLARITY Act would make similar protections statutory law — harder to challenge and applicable industry-wide, not just to XRP." },
-  { q: "How does this impact XRP's price?", a: "Regulatory clarity historically leads to increased exchange listings, institutional adoption, ETF approvals, and broader market participation — all positive catalysts for price." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPClarityActPage() {

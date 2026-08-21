@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is XRP?", a: "XRP is digital money that lives on the internet. You can send it to anyone, anywhere in the world, in about 3 seconds. It costs less than a penny to send. Think of it like a super-fast, super-cheap way to move money." },
+  { q: "Who made XRP?", a: "XRP was created by three smart people: David Schwartz, Jed McCaleb, and Arthur Britto. They built it in 2012. A company called Ripple helps make XRP useful for banks, but Ripple doesn't own or control XRP." },
+  { q: "Why should I care about XRP?", a: "Imagine your grandma wants to send you birthday money from another country. Right now, it takes days and costs a lot. With XRP, she could send it in 3 seconds for almost free. That's why banks are interested too." },
+  { q: "Can XRP go up in value?", a: "It can — but it can also go down. The price changes every day. Many people believe XRP will become more valuable as more banks and companies use it. But nobody knows for sure. Never invest more than you can afford to lose." },
+  { q: "How do I get XRP?", a: "You can buy XRP on apps called 'exchanges' — like Coinbase or Kraken. You sign up, connect your bank account, and buy XRP with regular money. It takes about 5 minutes to get started." },
+  { q: "Where do I keep my XRP?", a: "You keep XRP in a 'wallet' — a digital app that stores your XRP safely. Some people keep it on the exchange where they bought it. Others use special wallet apps for extra security." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "XRP Explained Simply" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is XRP in simple terms?", answer: "XRP is digital money that can be sent to anyone in the world in about 3 seconds, for less than a penny. It's like sending a text message, but instead of words, you're sending money." },
-    { question: "Why does XRP exist?", answer: "XRP exists to make sending money around the world fast and cheap. Right now, sending money to another country takes days and costs a lot. XRP does it in seconds for almost nothing." },
-    { question: "How does XRP work?", answer: "When you send XRP, a network of computers around the world agrees that the transaction is real, and it's done in 3-5 seconds. No bank needed. No waiting. It just works." },
-    { question: "Is XRP real money?", answer: "XRP is digital money — you can't hold it in your hand like a dollar bill, but you can buy things with it, trade it for regular money, or send it to anyone in the world. It has real value." },
-    { question: "Is XRP safe?", answer: "XRP runs on a technology called blockchain that has been working without any downtime for over 12 years. It's very secure. But like any investment, the price can go up or down." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is XRP?", a: "XRP is digital money that lives on the internet. You can send it to anyone, anywhere in the world, in about 3 seconds. It costs less than a penny to send. Think of it like a super-fast, super-cheap way to move money." },
-  { q: "Who made XRP?", a: "XRP was created by three smart people: David Schwartz, Jed McCaleb, and Arthur Britto. They built it in 2012. A company called Ripple helps make XRP useful for banks, but Ripple doesn't own or control XRP." },
-  { q: "Why should I care about XRP?", a: "Imagine your grandma wants to send you birthday money from another country. Right now, it takes days and costs a lot. With XRP, she could send it in 3 seconds for almost free. That's why banks are interested too." },
-  { q: "Can XRP go up in value?", a: "It can — but it can also go down. The price changes every day. Many people believe XRP will become more valuable as more banks and companies use it. But nobody knows for sure. Never invest more than you can afford to lose." },
-  { q: "How do I get XRP?", a: "You can buy XRP on apps called 'exchanges' — like Coinbase or Kraken. You sign up, connect your bank account, and buy XRP with regular money. It takes about 5 minutes to get started." },
-  { q: "Where do I keep my XRP?", a: "You keep XRP in a 'wallet' — a digital app that stores your XRP safely. Some people keep it on the exchange where they bought it. Others use special wallet apps for extra security." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPExplainedSimplyPage() {

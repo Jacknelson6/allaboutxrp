@@ -30,6 +30,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/partnerships" },
 };
 
+const faqItems = [
+  { q: "What banks use Ripple and XRP?", a: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, Société Générale, RAKBANK, Al Rajhi Bank, Siam Commercial Bank, and many more across 55+ countries." },
+  { q: "Does Mastercard use XRP?", a: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain." },
+  { q: "How many partners does Ripple have?", a: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. The network has processed over $90 billion in payments." },
+  { q: "Is Ripple working with central banks?", a: "Yes. Ripple is engaged with over 20 central banks on CBDC pilot programs, including Palau, Bhutan, Colombia, and Montenegro." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple Partnerships: Complete XRP Partners List 2026",
@@ -44,18 +51,7 @@ const schemas = [
     { name: "Partnerships" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/partnerships" }),
-  buildFAQSchema([
-    { question: "What banks use Ripple and XRP?", answer: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, and many others across 55+ countries." },
-    { question: "How many partners does Ripple have?", answer: "Ripple has hundreds of partners across 55+ countries. Over $90 billion in global payments processed." },
-    { question: "Does Mastercard use XRP?", answer: "Yes. Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What banks use Ripple and XRP?", a: "Major banks include SBI Holdings, Banco Santander, BBVA, Standard Chartered, MUFG, Citibank, BNP Paribas, Société Générale, RAKBANK, Al Rajhi Bank, Siam Commercial Bank, and many more across 55+ countries." },
-  { q: "Does Mastercard use XRP?", a: "Yes. In November 2025, Ripple partnered with Mastercard and WebBank to use RLUSD on the XRP Ledger for settling fiat card transactions — one of the first regulated bank uses of stablecoins on a public blockchain." },
-  { q: "How many partners does Ripple have?", a: "Ripple has hundreds of partners across 55+ countries, including banks, payment providers, exchanges, and financial institutions. The network has processed over $90 billion in payments." },
-  { q: "Is Ripple working with central banks?", a: "Yes. Ripple is engaged with over 20 central banks on CBDC pilot programs, including Palau, Bhutan, Colombia, and Montenegro." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 interface Partner {

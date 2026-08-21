@@ -37,6 +37,15 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is XRP in simple terms?", a: "XRP is the native digital asset of the XRP Ledger. It pays transaction costs and can be used directly in payments or as a bridge between assets. The network usually closes a new ledger version in three to five seconds." },
+  { q: "Is XRP the same as Ripple?", a: "No. XRP is an asset native to the open-source XRP Ledger. Ripple is a private company that builds products and holds XRP. The asset, ledger, and company are related but distinct." },
+  { q: "How many XRP tokens exist?", a: "100 billion XRP were created at genesis and no additional XRP can be minted. The total supply gradually declines because transaction costs are destroyed. Circulating-supply estimates vary by provider and over time, so check the methodology and date behind any current figure." },
+  { q: "Is XRP a good investment?", a: "XRP is a volatile crypto asset and is not suitable for everyone. Evaluate its use case, supply, custody, liquidity, regulation, competition, and your capacity for loss instead of relying on price forecasts or promotional claims." },
+  { q: "What makes XRP different from Bitcoin?", a: "The XRP Ledger uses a validator-based consensus process instead of proof-of-work mining, usually closes ledgers in three to five seconds, and includes native exchange and issued-asset functions. Bitcoin uses proof of work and has a different monetary policy and design goal." },
+  { q: "How do I buy XRP?", a: "Choose a venue that serves your jurisdiction and supports XRP withdrawals, complete its identity checks, fund the account, and compare the total order cost before confirming. Plan whether you will use exchange custody or a self-custody wallet before purchasing." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "The Ultimate Guide to XRP in 2026: How It Actually Works",
@@ -58,22 +67,7 @@ const schemas = [
     { name: "What is XRP?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/what-is-xrp" }),
-  buildFAQSchema([
-    { question: "What is XRP in simple terms?", answer: "XRP is the native digital asset of the XRP Ledger. It pays transaction costs and can be used directly in payments or as a bridge between assets. The network usually closes a new ledger version in three to five seconds." },
-    { question: "Is XRP the same as Ripple?", answer: "No. XRP is an asset native to the open-source XRP Ledger. Ripple is a private company that builds products and holds XRP. The asset, ledger, and company are related but distinct." },
-    { question: "How many XRP tokens exist?", answer: "100 billion XRP were created at genesis. No more can ever be minted. XRP is slightly deflationary because small amounts are burned with every transaction." },
-    { question: "Is XRP a good investment?", answer: "XRP is a volatile crypto asset and is not suitable for everyone. Evaluate its use case, supply, custody, liquidity, regulation, competition, and your capacity for loss instead of relying on price forecasts or promotional claims." },
-    { question: "What makes XRP different from Bitcoin?", answer: "The XRP Ledger uses a validator-based consensus process instead of proof-of-work mining, usually closes ledgers in three to five seconds, and includes native exchange and issued-asset functions. Bitcoin uses proof of work and has a different monetary policy and design goal." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is XRP in simple terms?", a: "XRP is the native digital asset of the XRP Ledger. It pays transaction costs and can be used directly in payments or as a bridge between assets. The network usually closes a new ledger version in three to five seconds." },
-  { q: "Is XRP the same as Ripple?", a: "No. XRP is an asset native to the open-source XRP Ledger. Ripple is a private company that builds products and holds XRP. The asset, ledger, and company are related but distinct." },
-  { q: "How many XRP tokens exist?", a: "100 billion XRP were created at genesis and no additional XRP can be minted. The total supply gradually declines because transaction costs are destroyed. Circulating-supply estimates vary by provider and over time, so check the methodology and date behind any current figure." },
-  { q: "Is XRP a good investment?", a: "XRP is a volatile crypto asset and is not suitable for everyone. Evaluate its use case, supply, custody, liquidity, regulation, competition, and your capacity for loss instead of relying on price forecasts or promotional claims." },
-  { q: "What makes XRP different from Bitcoin?", a: "The XRP Ledger uses a validator-based consensus process instead of proof-of-work mining, usually closes ledgers in three to five seconds, and includes native exchange and issued-asset functions. Bitcoin uses proof of work and has a different monetary policy and design goal." },
-  { q: "How do I buy XRP?", a: "Choose a venue that serves your jurisdiction and supports XRP withdrawals, complete its identity checks, fund the account, and compare the total order cost before confirming. Plan whether you will use exchange custody or a self-custody wallet before purchasing." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function WhatIsXRPPage() {

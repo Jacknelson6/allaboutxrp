@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is a global liquidity network?", a: "Infrastructure that enables instant access to liquidity in any currency, anywhere, 24/7. Think of it as the financial layer of the internet — money moving as fast and cheaply as data. XRP is building to be this layer." },
+  { q: "How does XRP provide global liquidity?", a: "Through On-Demand Liquidity (ODL), XRP bridges any two currencies in 3-5 seconds. No pre-funded accounts needed. A payment from USD to PHP just uses XRP as the bridge — bought, transferred, and sold in one seamless flow." },
+  { q: "What is the Internet of Value?", a: "Ripple's vision where money moves as instantly and cheaply as email. The XRP Ledger is the settlement rail, XRP is the bridge currency, and RLUSD provides dollar stability — all working together 24/7." },
+  { q: "How does RLUSD complement XRP?", a: "RLUSD provides dollar-pegged stability for treasury management and settlement. XRP provides the volatile-but-liquid bridge between currencies. Together they serve different needs in the same liquidity ecosystem." },
+  { q: "What's the endgame for XRP liquidity?", a: "A world where any currency can be converted to any other currency in seconds, at near-zero cost, through XRP as the universal bridge. Every corridor online increases network value for all participants." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,21 +40,7 @@ const schemas = [
     { name: "Global Liquidity Network" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is a global liquidity network?", answer: "A global liquidity network is infrastructure that enables instant access to liquidity in any currency, anywhere in the world, 24/7. XRP aims to be this network — the 'internet of value' where money moves as easily as data." },
-    { question: "How does XRP provide global liquidity?", answer: "XRP provides on-demand liquidity through Ripple's ODL product. Instead of banks pre-funding accounts worldwide, XRP serves as a universal bridge currency that can be converted to any local currency in seconds." },
-    { question: "What is the Internet of Value?", answer: "The Internet of Value is Ripple's vision where money moves as instantly, cheaply, and reliably as information moves on the internet. XRP is the settlement layer that makes this possible." },
-    { question: "How does RLUSD fit in?", answer: "RLUSD (Ripple's stablecoin) complements XRP in the liquidity network. RLUSD provides dollar-pegged stability while XRP provides the bridge liquidity between currencies. Together, they serve different institutional needs." },
-    { question: "Is this actually happening?", answer: "Yes. Ripple's ODL is live in 55+ countries, processing billions in payments. RLUSD is approved and operational. Institutional partnerships continue to expand. The network is being built in real-time." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is a global liquidity network?", a: "Infrastructure that enables instant access to liquidity in any currency, anywhere, 24/7. Think of it as the financial layer of the internet — money moving as fast and cheaply as data. XRP is building to be this layer." },
-  { q: "How does XRP provide global liquidity?", a: "Through On-Demand Liquidity (ODL), XRP bridges any two currencies in 3-5 seconds. No pre-funded accounts needed. A payment from USD to PHP just uses XRP as the bridge — bought, transferred, and sold in one seamless flow." },
-  { q: "What is the Internet of Value?", a: "Ripple's vision where money moves as instantly and cheaply as email. The XRP Ledger is the settlement rail, XRP is the bridge currency, and RLUSD provides dollar stability — all working together 24/7." },
-  { q: "How does RLUSD complement XRP?", a: "RLUSD provides dollar-pegged stability for treasury management and settlement. XRP provides the volatile-but-liquid bridge between currencies. Together they serve different needs in the same liquidity ecosystem." },
-  { q: "What's the endgame for XRP liquidity?", a: "A world where any currency can be converted to any other currency in seconds, at near-zero cost, through XRP as the universal bridge. Every corridor online increases network value for all participants." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPGlobalLiquidityPage() {

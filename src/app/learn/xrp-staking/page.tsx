@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Can you stake XRP?", a: "No, XRP does not support traditional staking like Ethereum or Solana. The XRP Ledger uses a Federated Consensus Protocol, not Proof of Stake. There is no native mechanism to stake XRP and earn rewards directly from the XRPL network. However, there are alternative ways to earn yield on your XRP holdings." },
+  { q: "Why can't you stake XRP like Ethereum?", a: "The XRP Ledger was designed with a fundamentally different consensus mechanism called Federated Consensus. Unlike Proof of Stake systems where validators must lock up tokens as collateral, XRPL validators simply need to run a validator node — no XRP lockup required. This design choice makes the XRPL faster and more efficient, but it means there are no native staking rewards." },
+  { q: "How can I earn yield on XRP?", a: "Legitimate options include: (1) Providing liquidity on the XRPL's native AMM and earning trading fees, (2) Using centralized exchange earn/savings programs that offer interest on XRP deposits, (3) Lending XRP through DeFi protocols, and (4) Participating in DeFi protocols built on XRPL sidechains. Each carries different risk levels — always research thoroughly." },
+  { q: "Is 'XRP staking' a scam?", a: "Be extremely cautious. Any platform promising guaranteed high returns for 'staking XRP' is almost certainly a scam. XRP does not have native staking, period. Legitimate yield opportunities do exist, but they involve lending or liquidity provision with real risks, and they never guarantee returns. If it sounds too good to be true, it is." },
+  { q: "What is the XRPL AMM and how does it relate to staking?", a: "The XRPL's native Automated Market Maker (AMM) allows users to provide liquidity to trading pairs and earn a share of trading fees. While this is not 'staking,' it is the closest native XRPL mechanism to earning passive yield on your XRP. However, AMM liquidity provision carries impermanent loss risk." },
+  { q: "Will XRP ever support staking?", a: "There are no proposals or plans to change the XRPL's consensus mechanism to Proof of Stake. The Federated Consensus Protocol is a deliberate design choice that enables XRP's speed and efficiency. However, DeFi protocols and sidechains in the XRP ecosystem may offer staking-like mechanisms for their own tokens." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Staking Explained: Can You Stake XRP?",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP Staking" },
   ]),
-  buildFAQSchema([
-    { question: "Can you stake XRP?", answer: "No, XRP does not support traditional staking. The XRP Ledger uses a Federated Consensus Protocol, not Proof of Stake. There is no native mechanism to stake XRP and earn rewards directly from the network." },
-    { question: "Why can't you stake XRP?", answer: "XRP uses Federated Consensus, not Proof of Stake. Validators on the XRPL don't need to lock up XRP to participate in consensus — they simply need to run a validator node. This means there are no staking rewards built into the protocol." },
-    { question: "How can I earn yield on XRP?", answer: "You can earn yield on XRP through DeFi lending protocols, centralized exchange earn programs, providing liquidity on the XRPL's native AMM, or through third-party platforms that offer XRP interest accounts. Each option carries different risks." },
-    { question: "Is XRP staking a scam?", answer: "Any platform claiming to offer 'XRP staking' with guaranteed high returns is likely a scam. XRP does not have native staking. Legitimate yield opportunities exist through lending and liquidity provision, but they come with risks and typically offer modest returns." },
-    { question: "Will XRP ever have staking?", answer: "There are no current proposals to add Proof of Stake to the XRP Ledger. The Federated Consensus Protocol is a core design feature. However, DeFi protocols built on XRPL may offer staking-like mechanisms for their own tokens." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Can you stake XRP?", a: "No, XRP does not support traditional staking like Ethereum or Solana. The XRP Ledger uses a Federated Consensus Protocol, not Proof of Stake. There is no native mechanism to stake XRP and earn rewards directly from the XRPL network. However, there are alternative ways to earn yield on your XRP holdings." },
-  { q: "Why can't you stake XRP like Ethereum?", a: "The XRP Ledger was designed with a fundamentally different consensus mechanism called Federated Consensus. Unlike Proof of Stake systems where validators must lock up tokens as collateral, XRPL validators simply need to run a validator node — no XRP lockup required. This design choice makes the XRPL faster and more efficient, but it means there are no native staking rewards." },
-  { q: "How can I earn yield on XRP?", a: "Legitimate options include: (1) Providing liquidity on the XRPL's native AMM and earning trading fees, (2) Using centralized exchange earn/savings programs that offer interest on XRP deposits, (3) Lending XRP through DeFi protocols, and (4) Participating in DeFi protocols built on XRPL sidechains. Each carries different risk levels — always research thoroughly." },
-  { q: "Is 'XRP staking' a scam?", a: "Be extremely cautious. Any platform promising guaranteed high returns for 'staking XRP' is almost certainly a scam. XRP does not have native staking, period. Legitimate yield opportunities do exist, but they involve lending or liquidity provision with real risks, and they never guarantee returns. If it sounds too good to be true, it is." },
-  { q: "What is the XRPL AMM and how does it relate to staking?", a: "The XRPL's native Automated Market Maker (AMM) allows users to provide liquidity to trading pairs and earn a share of trading fees. While this is not 'staking,' it is the closest native XRPL mechanism to earning passive yield on your XRP. However, AMM liquidity provision carries impermanent loss risk." },
-  { q: "Will XRP ever support staking?", a: "There are no proposals or plans to change the XRPL's consensus mechanism to Proof of Stake. The Federated Consensus Protocol is a deliberate design choice that enables XRP's speed and efficiency. However, DeFi protocols and sidechains in the XRP ecosystem may offer staking-like mechanisms for their own tokens." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPStakingPage() {

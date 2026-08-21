@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-hedera" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Hedera (HBAR): Enterprise Crypto Comparison", description: "Comparison of XRP and Hedera for enterprise use, covering speed, governance, ISO 20022, and institutional adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-hedera", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Hedera" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-hedera" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Hedera?", answer: "XRP (Ripple) focuses on cross-border payments for banks using the XRP Ledger and On-Demand Liquidity. Hedera (HBAR) is a general-purpose enterprise distributed ledger using hashgraph consensus, governed by a council of major corporations. Both are ISO 20022 compatible, but XRP has far more institutional adoption for payments while Hedera targets broader enterprise use cases." },
-    { question: "Which is faster, XRP or Hedera?", answer: "Both are very fast. XRP settles in 3-5 seconds with finality. Hedera achieves finality in 3-5 seconds as well. Hedera claims higher theoretical TPS (10,000+) vs XRP's 1,500+, but real-world payment throughput is comparable for most use cases." },
-    { question: "Is XRP or Hedera better for payments?", answer: "XRP is significantly better positioned for payments. Ripple has 300+ financial institution partnerships, live payment corridors in 55+ countries, and On-Demand Liquidity specifically designed for cross-border settlement. Hedera's payment capabilities exist but lack the same institutional adoption and payment-specific infrastructure." },
-    { question: "Are both XRP and Hedera ISO 20022 compliant?", answer: "Both are listed among ISO 20022 compatible cryptocurrencies. XRP has deeper native integration through RippleNet's messaging infrastructure and the XRPL's transaction memo fields. Hedera's compatibility is at the data format level." },
-    { question: "Which has a larger market cap, XRP or Hedera?", answer: "XRP has a significantly larger market cap (~$110 billion) compared to Hedera (~$8-10 billion). XRP is consistently a top-5 crypto by market cap, while Hedera typically ranks in the top 20-30." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference between XRP and Hedera?", a: "XRP focuses on cross-border bank payments with 300+ institutional partners. Hedera is a general-purpose enterprise DLT governed by major corporations. Both have ISO 20022 compatibility." },
   { q: "Which is faster?", a: "Both settle in 3-5 seconds. Hedera claims higher theoretical TPS (10,000+) vs XRP's 1,500+, but real-world throughput is comparable." },
   { q: "Which is better for payments?", a: "XRP by far — 300+ bank partnerships, live ODL corridors, and payment-specific infrastructure. Hedera lacks equivalent payment adoption." },
   { q: "Both ISO 20022?", a: "Yes, both are listed as ISO 20022 compatible. XRP has deeper native integration through RippleNet." },
   { q: "Market cap comparison?", a: "XRP ~$110B (top 5) vs Hedera ~$8-10B (top 20-30). XRP is roughly 10-14x larger." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Hedera (HBAR): Enterprise Crypto Comparison", description: "Comparison of XRP and Hedera for enterprise use, covering speed, governance, ISO 20022, and institutional adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-hedera", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Hedera" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-hedera" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsHederaPage() {

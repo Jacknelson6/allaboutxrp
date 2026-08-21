@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools" },
 };
 
+const faqItems = [
+  { q: "How do XRPL AMM liquidity pools work?", a: "XRPL AMM pools use a constant product formula — deposit two tokens in equal value, and traders swap between them paying a 0.1-1% fee that goes to liquidity providers proportional to their pool share." },
+  { q: "What is impermanent loss?", a: "Impermanent loss occurs when deposited token price ratios change. The greater the price divergence, the more loss. It's 'impermanent' because it reverses if prices return to the original ratio — it only becomes permanent when you withdraw." },
+  { q: "How much can I earn?", a: "Earnings depend on trading volume, fee tier, and your pool share. High-volume pools like XRP/RLUSD can generate meaningful fees, but impermanent loss can offset earnings during volatile periods." },
+  { q: "How do I add liquidity?", a: "Use Xaman or a compatible XRPL DEX interface. Select the token pair, enter equal-value amounts of each token, and confirm. You receive LP tokens representing your pool share." },
+  { q: "What makes XRPL AMM unique?", a: "Native integration with the XRPL order book DEX — trades auto-route through whichever gives better price. Plus unique auction slots where traders bid for discounted fees, with proceeds going to LPs." },
+  { q: "Can I lose money providing liquidity?", a: "Yes. Impermanent loss can exceed fee earnings, especially in volatile markets. If one token drops significantly in value, you'll end up holding more of the declining token. Always understand the risks before depositing." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL AMM Liquidity Pools: How to Provide Liquidity",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL AMM Liquidity Pools" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-amm-liquidity-pools" }),
-  buildFAQSchema([
-    { question: "How do XRPL AMM liquidity pools work?", answer: "XRPL AMM pools use a constant product formula where two tokens are deposited in equal value. When traders swap between the tokens, they pay a fee (0.1-1%) that goes to liquidity providers proportional to their pool share. The pool automatically adjusts prices based on supply and demand." },
-    { question: "What is impermanent loss?", answer: "Impermanent loss occurs when the price ratio of your deposited tokens changes compared to when you deposited them. The greater the price change, the more impermanent loss you experience. It's called 'impermanent' because the loss only becomes permanent when you withdraw — if prices return to the original ratio, the loss disappears." },
-    { question: "How much can I earn providing liquidity on XRPL?", answer: "Earnings depend on trading volume, pool fee tier (0.1-1%), and your share of the pool. High-volume pools like XRP/RLUSD can generate meaningful fee income. However, returns vary daily and impermanent loss can offset fee earnings during high-volatility periods." },
-    { question: "How do I add liquidity to an XRPL AMM pool?", answer: "Use a compatible wallet like Xaman or the XRPL DEX interface. Select the token pair, enter the amount of each token (equal value), and confirm the transaction. You'll receive LP tokens representing your pool share, which you can later redeem to withdraw your liquidity plus earned fees." },
-    { question: "What makes XRPL AMM unique?", answer: "The XRPL AMM is unique because it's natively integrated with the XRPL's order book DEX. Trades automatically route through whichever offers a better price — AMM or order book. It also features auction slots where traders bid for discounted trading fees, with proceeds going to LPs." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How do XRPL AMM liquidity pools work?", a: "XRPL AMM pools use a constant product formula — deposit two tokens in equal value, and traders swap between them paying a 0.1-1% fee that goes to liquidity providers proportional to their pool share." },
-  { q: "What is impermanent loss?", a: "Impermanent loss occurs when deposited token price ratios change. The greater the price divergence, the more loss. It's 'impermanent' because it reverses if prices return to the original ratio — it only becomes permanent when you withdraw." },
-  { q: "How much can I earn?", a: "Earnings depend on trading volume, fee tier, and your pool share. High-volume pools like XRP/RLUSD can generate meaningful fees, but impermanent loss can offset earnings during volatile periods." },
-  { q: "How do I add liquidity?", a: "Use Xaman or a compatible XRPL DEX interface. Select the token pair, enter equal-value amounts of each token, and confirm. You receive LP tokens representing your pool share." },
-  { q: "What makes XRPL AMM unique?", a: "Native integration with the XRPL order book DEX — trades auto-route through whichever gives better price. Plus unique auction slots where traders bid for discounted fees, with proceeds going to LPs." },
-  { q: "Can I lose money providing liquidity?", a: "Yes. Impermanent loss can exceed fee earnings, especially in volatile markets. If one token drops significantly in value, you'll end up holding more of the declining token. Always understand the risks before depositing." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLAMMLiquidityPoolsPage() {

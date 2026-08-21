@@ -25,19 +25,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/how-much-xrp-to-be-a-millionaire" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "How Much XRP to Become a Millionaire?", description: "Calculate how much XRP you need to become a millionaire at different price targets.", url: "https://allaboutxrp.com/learn/how-much-xrp-to-be-a-millionaire", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How Much XRP to Be a Millionaire?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-much-xrp-to-be-a-millionaire" }),
-  buildFAQSchema([
-    { question: "How much XRP do I need to be a millionaire?", answer: "It depends on XRP's future price. At $10: 100,000 XRP needed. At $20: 50,000 XRP. At $50: 20,000 XRP. At $100: 10,000 XRP. At current prices (~$2), 100,000 XRP costs ~$200,000, while 50,000 XRP costs ~$100,000." },
-    { question: "How much would 10,000 XRP be worth?", answer: "At $5: $50,000. At $10: $100,000. At $20: $200,000. At $50: $500,000. At $100: $1,000,000. At the most realistic bull target of $10, 10,000 XRP would be worth $100,000." },
-    { question: "Is it realistic to become a millionaire from XRP?", answer: "It's possible but requires significant holdings and price appreciation. At the most realistic bull target of $10, you'd need 100,000 XRP (~$200K investment at $2). More ambitious targets like $50 or $100 require less XRP but are much less likely. Don't invest more than you can afford to lose." },
-    { question: "How much would 1,000 XRP be worth?", answer: "At $5: $5,000. At $10: $10,000. At $20: $20,000. At $50: $50,000. 1,000 XRP won't make you a millionaire at any realistic price target, but it could still provide meaningful returns." },
-    { question: "Should I buy more XRP to reach millionaire status?", answer: "Never over-invest to chase a millionaire dream. Only invest what you can afford to lose entirely. XRP reaching $10-20 is plausible but not guaranteed. Don't take on debt or use emergency funds. Dollar-cost averaging is safer than lump-sum investing." },
-  ]),
-];
-
 const faqItems = [
   { q: "How much XRP to be a millionaire?", a: "At $10: 100,000 XRP. At $20: 50,000 XRP. At $50: 20,000 XRP. At $100: 10,000 XRP." },
   { q: "How much would 10,000 XRP be worth?", a: "At $5: $50K. At $10: $100K. At $20: $200K. At $50: $500K. At $100: $1M." },
@@ -45,6 +32,13 @@ const faqItems = [
   { q: "How much would 1,000 XRP be worth?", a: "At $10: $10K. At $50: $50K. Not millionaire territory, but still meaningful returns if XRP appreciates." },
   { q: "Should I buy more to chase millionaire status?", a: "Never. Only invest what you can afford to lose. No price target is guaranteed. Dollar-cost average, don't YOLO." },
   { q: "Don't forget taxes!", a: "Capital gains taxes could take 15-37% of profits depending on your bracket and holding period. Plan accordingly." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "How Much XRP to Become a Millionaire?", description: "Calculate how much XRP you need to become a millionaire at different price targets.", url: "https://allaboutxrp.com/learn/how-much-xrp-to-be-a-millionaire", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "How Much XRP to Be a Millionaire?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-much-xrp-to-be-a-millionaire" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowMuchXRPMillionairePage() {

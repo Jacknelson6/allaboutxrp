@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-polygon" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Polygon (POL): Scaling vs Payments (2026)", description: "Compare XRP and Polygon on speed, fees, use cases, and adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-polygon", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Polygon" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-polygon" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Polygon?", answer: "XRP is a standalone payment network for cross-border institutional transfers. Polygon is an Ethereum scaling solution that makes Ethereum transactions faster and cheaper. XRP has its own ledger; Polygon depends on Ethereum for security." },
-    { question: "Is XRP or Polygon faster?", answer: "Both are fast. XRP settles in 3-5 seconds on its native ledger. Polygon achieves 2-second block times. For payment finality, XRP provides true finality while Polygon transactions inherit Ethereum's finality timeline for full security." },
-    { question: "Which has a larger market cap?", answer: "XRP has a significantly larger market cap (~$110B) compared to Polygon (~$4-5B). XRP is a top-5 crypto while Polygon typically ranks around top 20-30." },
-    { question: "Can XRP and Polygon work together?", answer: "Potentially. Polygon's Ethereum scaling could host XRP-related DeFi applications, and cross-chain bridges could connect the two ecosystems. They serve different enough purposes to coexist." },
-    { question: "What happened to MATIC? Is it now POL?", answer: "Polygon rebranded its native token from MATIC to POL in 2024 as part of Polygon 2.0. POL serves as the native gas and staking token across the Polygon ecosystem including the new zkEVM and CDK chains." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference between XRP and Polygon?", a: "XRP is a standalone payment network for institutional transfers. Polygon is an Ethereum L2 scaling solution. Different architectures, different purposes." },
   { q: "Which is faster?", a: "Comparable — XRP: 3-5 sec finality. Polygon: 2-sec blocks but full finality depends on Ethereum. XRP has stronger native finality." },
   { q: "Which has a larger market cap?", a: "XRP at ~$110B is roughly 20-25x larger than Polygon at ~$4-5B." },
   { q: "What happened to MATIC?", a: "Polygon rebranded MATIC to POL in 2024 as part of Polygon 2.0 — the token now powers all Polygon chains." },
   { q: "Which is better for payments?", a: "XRP was purpose-built for payments with 300+ institutional partners. Polygon handles payments on Ethereum but isn't specifically designed for cross-border settlement." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Polygon (POL): Scaling vs Payments (2026)", description: "Compare XRP and Polygon on speed, fees, use cases, and adoption.", url: "https://allaboutxrp.com/learn/xrp-vs-polygon", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Polygon" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-polygon" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsPolygonPage() {

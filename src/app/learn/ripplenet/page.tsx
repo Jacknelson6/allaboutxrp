@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripplenet" },
 };
 
+const faqItems = [
+  { q: "What is RippleNet?", a: "RippleNet is Ripple's global payment network that connects banks, payment providers, and financial institutions for fast, low-cost cross-border transactions. It serves 300+ institutions across 55+ countries." },
+  { q: "Does RippleNet use XRP?", a: "RippleNet offers XRP-powered On-Demand Liquidity (ODL) as an option for instant settlement without pre-funded accounts. Institutions can choose whether to use XRP for liquidity or use RippleNet for messaging-only payments." },
+  { q: "What happened to xCurrent, xRapid, and xVia?", a: "In 2019, Ripple consolidated xCurrent, xRapid, and xVia into a single unified platform called RippleNet. xRapid became On-Demand Liquidity (ODL), while xCurrent and xVia features were merged into the core RippleNet product." },
+  { q: "How many banks use RippleNet?", a: "Over 300 financial institutions globally use RippleNet, including SBI Holdings, Santander, Standard Chartered, Tranglo, and many regional banks and payment providers across 55+ countries." },
+  { q: "Is RippleNet better than SWIFT?", a: "RippleNet settles transactions in seconds vs SWIFT's 1-5 business days, costs a fraction of SWIFT's fees, and eliminates the need for pre-funded nostro/vostro accounts. However, SWIFT has a larger established network of 11,000+ institutions." },
+  { q: "How does RippleNet make money?", a: "Ripple charges transaction fees for payments processed through RippleNet. ODL transactions generate additional revenue through XRP liquidity provisioning." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "What is RippleNet? Complete Guide to Ripple's Payment Network",
@@ -44,21 +53,7 @@ const schemas = [
     { name: "RippleNet" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripplenet" }),
-  buildFAQSchema([
-    { question: "What is RippleNet?", answer: "RippleNet is Ripple's global payment network that connects banks, payment providers, and financial institutions for fast, low-cost cross-border transactions. It serves 300+ institutions across 55+ countries." },
-    { question: "Does RippleNet use XRP?", answer: "RippleNet offers XRP-powered On-Demand Liquidity (ODL) as an option for instant settlement without pre-funded accounts, but institutions can also use RippleNet for messaging-only payments." },
-    { question: "What happened to xCurrent, xRapid, and xVia?", answer: "In 2019, Ripple consolidated xCurrent, xRapid, and xVia into a single unified platform called RippleNet. xRapid became On-Demand Liquidity (ODL), while xCurrent and xVia features were merged into the core RippleNet product." },
-    { question: "How many banks use RippleNet?", answer: "Over 300 financial institutions globally use RippleNet, including SBI Holdings, Santander, Standard Chartered, and many others across 55+ countries." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is RippleNet?", a: "RippleNet is Ripple's global payment network that connects banks, payment providers, and financial institutions for fast, low-cost cross-border transactions. It serves 300+ institutions across 55+ countries." },
-  { q: "Does RippleNet use XRP?", a: "RippleNet offers XRP-powered On-Demand Liquidity (ODL) as an option for instant settlement without pre-funded accounts. Institutions can choose whether to use XRP for liquidity or use RippleNet for messaging-only payments." },
-  { q: "What happened to xCurrent, xRapid, and xVia?", a: "In 2019, Ripple consolidated xCurrent, xRapid, and xVia into a single unified platform called RippleNet. xRapid became On-Demand Liquidity (ODL), while xCurrent and xVia features were merged into the core RippleNet product." },
-  { q: "How many banks use RippleNet?", a: "Over 300 financial institutions globally use RippleNet, including SBI Holdings, Santander, Standard Chartered, Tranglo, and many regional banks and payment providers across 55+ countries." },
-  { q: "Is RippleNet better than SWIFT?", a: "RippleNet settles transactions in seconds vs SWIFT's 1-5 business days, costs a fraction of SWIFT's fees, and eliminates the need for pre-funded nostro/vostro accounts. However, SWIFT has a larger established network of 11,000+ institutions." },
-  { q: "How does RippleNet make money?", a: "Ripple charges transaction fees for payments processed through RippleNet. ODL transactions generate additional revenue through XRP liquidity provisioning." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleNetPage() {

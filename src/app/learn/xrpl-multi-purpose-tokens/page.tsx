@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-multi-purpose-tokens" },
 };
 
+const faqItems = [
+  { q: "What are Multi-Purpose Tokens (MPTs)?", a: "A new XRPL token standard (XLS-33) supporting complex tokenization — securities, real estate, loyalty points. They carry metadata, support efficient multi-holder management, and enable compliance features beyond basic trust lines." },
+  { q: "How are MPTs different from trust line tokens?", a: "Trust lines are bilateral issuer-holder relationships. MPTs are issued as token classes with metadata, support batch operations, have lower reserves, and handle diverse asset types more efficiently." },
+  { q: "What can MPTs be used for?", a: "Tokenized securities, real estate, loyalty points, carbon credits, event tickets, membership tokens, debt instruments — anything needing rich metadata and compliance features." },
+  { q: "Are MPTs live on mainnet?", a: "MPTs (XLS-33) are in the process of mainnet activation as of early 2026, with extensive testing on devnet and testnet and strong community support." },
+  { q: "Do MPTs replace trust lines?", a: "No — they complement trust lines. Simple fungible tokens like RLUSD still use trust lines. MPTs serve complex use cases needing metadata and advanced compliance controls." },
+  { q: "How do MPTs help institutional adoption?", a: "MPTs provide the metadata, compliance controls, and flexibility that institutions need for tokenized securities and RWAs — meeting regulatory requirements while using the XRPL's speed and low fees." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Multi-Purpose Tokens (MPTs): Next-Gen Tokenization",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Multi-Purpose Tokens" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-multi-purpose-tokens" }),
-  buildFAQSchema([
-    { question: "What are Multi-Purpose Tokens (MPTs)?", answer: "MPTs are a new token standard on the XRPL (XLS-33) designed to support complex tokenization use cases. Unlike traditional trust line-based tokens, MPTs can carry metadata, support multiple holders more efficiently, and enable features needed for securities, loyalty points, tokenized real-world assets, and more." },
-    { question: "How are MPTs different from trust line tokens?", answer: "Trust line tokens are bilateral relationships between issuer and holder. MPTs use a more flexible model — they're issued as a token class with metadata, support batch operations, have lower reserve requirements, and can represent diverse asset types without the overhead of individual trust lines." },
-    { question: "What can MPTs be used for?", answer: "MPTs are designed for tokenized securities, real estate tokens, loyalty points, carbon credits, event tickets, membership tokens, debt instruments, and any asset that needs rich metadata and compliance features built in." },
-    { question: "Are MPTs live on XRPL mainnet?", answer: "MPTs were introduced via the XLS-33 amendment. As of early 2026, they are in the process of mainnet activation with strong community support. They've been extensively tested on devnet and testnet." },
-    { question: "Do MPTs replace trust lines?", answer: "No — MPTs complement trust lines. Trust lines remain the standard for simple fungible tokens (like RLUSD). MPTs are better for complex use cases that need metadata, compliance controls, and advanced features not supported by basic trust lines." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are Multi-Purpose Tokens (MPTs)?", a: "A new XRPL token standard (XLS-33) supporting complex tokenization — securities, real estate, loyalty points. They carry metadata, support efficient multi-holder management, and enable compliance features beyond basic trust lines." },
-  { q: "How are MPTs different from trust line tokens?", a: "Trust lines are bilateral issuer-holder relationships. MPTs are issued as token classes with metadata, support batch operations, have lower reserves, and handle diverse asset types more efficiently." },
-  { q: "What can MPTs be used for?", a: "Tokenized securities, real estate, loyalty points, carbon credits, event tickets, membership tokens, debt instruments — anything needing rich metadata and compliance features." },
-  { q: "Are MPTs live on mainnet?", a: "MPTs (XLS-33) are in the process of mainnet activation as of early 2026, with extensive testing on devnet and testnet and strong community support." },
-  { q: "Do MPTs replace trust lines?", a: "No — they complement trust lines. Simple fungible tokens like RLUSD still use trust lines. MPTs serve complex use cases needing metadata and advanced compliance controls." },
-  { q: "How do MPTs help institutional adoption?", a: "MPTs provide the metadata, compliance controls, and flexibility that institutions need for tokenized securities and RWAs — meeting regulatory requirements while using the XRPL's speed and low fees." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLMultiPurposeTokensPage() {

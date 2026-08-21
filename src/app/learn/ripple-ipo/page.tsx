@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-ipo" },
 };
 
+const faqItems = [
+  { q: "When is the Ripple IPO?", a: "No specific date announced. The SEC case resolution cleared the main prerequisite. Most analysts expect 2026-2027, but Ripple may choose timing based on market conditions. A direct listing (like Coinbase) is also possible." },
+  { q: "Will the Ripple IPO affect XRP price?", a: "Likely yes — through increased media attention, business model validation, and investors buying XRP as a proxy for Ripple exposure. The Coinbase IPO drove significant crypto buying. However, Ripple stock and XRP are separate assets with an indirect relationship." },
+  { q: "What is Ripple's valuation?", a: "Last private valuation: ~$11 billion. Post-SEC resolution, with RLUSD growth and institutional adoption, public market estimates range from $15-50 billion depending on conditions." },
+  { q: "Can I buy Ripple stock now?", a: "Only on secondary markets (Linqto, Forge Global) for accredited investors. An IPO would make shares available to all investors on a public exchange like NYSE or NASDAQ." },
+  { q: "Is Ripple stock the same as XRP?", a: "No. Ripple Labs is a private company that develops software products and holds significant XRP. XRP is an independent digital asset on the XRP Ledger. Owning Ripple stock gives you equity in the company; owning XRP gives you the digital asset. They're related but separate investments." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple IPO: What Happens to XRP Price?",
@@ -44,20 +52,7 @@ const schemas = [
     { name: "Ripple IPO" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-ipo" }),
-  buildFAQSchema([
-    { question: "When is the Ripple IPO?", answer: "Ripple has not announced a specific IPO date. Brad Garlinghouse has confirmed that the SEC case resolution was a prerequisite, which is now cleared. Most analysts expect a potential IPO in 2026-2027, but Ripple may choose a direct listing or remain private if conditions aren't favorable." },
-    { question: "Will the Ripple IPO affect XRP price?", answer: "Likely yes. An IPO would bring massive media attention to Ripple and XRP, validate Ripple's business model, and potentially create a 'Coinbase effect' where investors buy XRP as a proxy for Ripple exposure. However, the relationship between Ripple stock and XRP price is indirect." },
-    { question: "What is Ripple's valuation?", answer: "Ripple's last private market valuation was approximately $11 billion. However, with the SEC case resolved, RLUSD growing, and institutional adoption accelerating, analysts estimate a public market valuation could range from $15-50 billion depending on market conditions." },
-    { question: "Can I buy Ripple stock?", answer: "Not yet on public markets. Ripple shares have traded on secondary markets (like Linqto and Forge Global) for accredited investors. An IPO or direct listing would make Ripple stock available to all investors on a public exchange." },
-  ]),
-];
-
-const faqItems = [
-  { q: "When is the Ripple IPO?", a: "No specific date announced. The SEC case resolution cleared the main prerequisite. Most analysts expect 2026-2027, but Ripple may choose timing based on market conditions. A direct listing (like Coinbase) is also possible." },
-  { q: "Will the Ripple IPO affect XRP price?", a: "Likely yes — through increased media attention, business model validation, and investors buying XRP as a proxy for Ripple exposure. The Coinbase IPO drove significant crypto buying. However, Ripple stock and XRP are separate assets with an indirect relationship." },
-  { q: "What is Ripple's valuation?", a: "Last private valuation: ~$11 billion. Post-SEC resolution, with RLUSD growth and institutional adoption, public market estimates range from $15-50 billion depending on conditions." },
-  { q: "Can I buy Ripple stock now?", a: "Only on secondary markets (Linqto, Forge Global) for accredited investors. An IPO would make shares available to all investors on a public exchange like NYSE or NASDAQ." },
-  { q: "Is Ripple stock the same as XRP?", a: "No. Ripple Labs is a private company that develops software products and holds significant XRP. XRP is an independent digital asset on the XRP Ledger. Owning Ripple stock gives you equity in the company; owning XRP gives you the digital asset. They're related but separate investments." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleIPOPage() {

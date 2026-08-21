@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "I'm scared to start. Is that normal?", a: "Completely normal! Everyone feels that way before their first crypto purchase. Start with a small amount ($10-$20) on a reputable exchange. You'll be surprised how easy it is once you do it." },
+  { q: "Can I lose all my money?", a: "Crypto is volatile — prices go up and down. You could lose some or all of your investment. That's why rule #1 is: only invest what you can afford to lose. Start small. Learn as you go." },
+  { q: "What's the minimum I can buy?", a: "Most exchanges let you buy as little as $1-$10 worth of XRP. You don't need thousands of dollars. Start with whatever amount won't stress you out if the price drops." },
+  { q: "How do I keep my XRP safe?", a: "For beginners, keeping XRP on a reputable exchange is fine. Enable 2FA (two-factor authentication), use a strong unique password, and never share your login. As you get more comfortable, explore hardware wallets for extra security." },
+  { q: "Do I need to pay taxes on XRP?", a: "Yes, in most countries. When you sell XRP at a profit, you owe capital gains tax. Many exchanges provide tax reports. Keep records of your purchases. See our tax guide for details." },
+  { q: "Why XRP as my first crypto?", a: "XRP has real-world utility (banks actually use it), regulatory clarity (the SEC case is settled), and it's affordable per coin so you can buy whole coins. It's also on all major exchanges, making it easy to buy." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "First Time Buying Crypto" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "How do I buy crypto for the first time?", answer: "Choose a reputable exchange (like Coinbase, Kraken, or Uphold), create an account, verify your identity, deposit money from your bank, and buy your first XRP. The whole process takes about 10-15 minutes." },
-    { question: "How much money do I need to buy XRP?", answer: "You can start with as little as $10-$20. You don't need to buy a whole XRP coin — you can buy fractions. Start small while you learn how everything works." },
-    { question: "Is it safe to buy crypto?", answer: "Buying crypto on regulated exchanges is generally safe. Use strong passwords, enable two-factor authentication, and only use reputable platforms. The biggest risk is price volatility, not theft — if you use proper security." },
-    { question: "What exchange should I use?", answer: "Popular beginner-friendly exchanges include Coinbase (easiest for beginners), Kraken (lower fees), and Uphold (simple interface). All are regulated and support XRP." },
-    { question: "Do I need to buy a whole XRP?", answer: "No! You can buy any fraction of XRP. If XRP costs $2, you can buy $10 worth and get 5 XRP. You can start with any amount you're comfortable with." },
-  ]),
-];
-
-const faqItems = [
-  { q: "I'm scared to start. Is that normal?", a: "Completely normal! Everyone feels that way before their first crypto purchase. Start with a small amount ($10-$20) on a reputable exchange. You'll be surprised how easy it is once you do it." },
-  { q: "Can I lose all my money?", a: "Crypto is volatile — prices go up and down. You could lose some or all of your investment. That's why rule #1 is: only invest what you can afford to lose. Start small. Learn as you go." },
-  { q: "What's the minimum I can buy?", a: "Most exchanges let you buy as little as $1-$10 worth of XRP. You don't need thousands of dollars. Start with whatever amount won't stress you out if the price drops." },
-  { q: "How do I keep my XRP safe?", a: "For beginners, keeping XRP on a reputable exchange is fine. Enable 2FA (two-factor authentication), use a strong unique password, and never share your login. As you get more comfortable, explore hardware wallets for extra security." },
-  { q: "Do I need to pay taxes on XRP?", a: "Yes, in most countries. When you sell XRP at a profit, you owe capital gains tax. Many exchanges provide tax reports. Keep records of your purchases. See our tax guide for details." },
-  { q: "Why XRP as my first crypto?", a: "XRP has real-world utility (banks actually use it), regulatory clarity (the SEC case is settled), and it's affordable per coin so you can buy whole coins. It's also on all major exchanges, making it easy to buy." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function FirstTimeBuyingCryptoPage() {

@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-prime" },
 };
 
+const faqItems = [
+  { q: "What is Ripple Prime?", a: "Ripple Prime is Ripple's institutional-grade prime brokerage service offering clearing, lending, and post-trade settlement. Built on the $1.25 billion Hidden Road acquisition, it clears over $3 trillion annually and serves 300+ institutional clients." },
+  { q: "How does Ripple Prime relate to Hidden Road?", a: "Ripple acquired Hidden Road in 2025 for $1.25 billion — the largest acquisition in crypto history at the time. Hidden Road's prime brokerage infrastructure became the foundation for Ripple Prime." },
+  { q: "How does Ripple Prime use XRP and the XRPL?", a: "Ripple is migrating Hidden Road's post-trade settlement to the XRP Ledger, leveraging XRPL's speed and low cost. RLUSD is also used as collateral within the platform." },
+  { q: "Who can use Ripple Prime?", a: "Institutional clients only — hedge funds, asset managers, banks, and large trading firms. It is not available to retail investors." },
+  { q: "What does Ripple Prime offer?", a: "Multi-asset prime brokerage including clearing, custody, financing, lending, and post-trade services across crypto and traditional assets." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "What is Ripple Prime? Enterprise Crypto Brokerage Explained",
@@ -43,19 +51,7 @@ const schemas = [
     { name: "Ripple Prime" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-prime" }),
-  buildFAQSchema([
-    { question: "What is Ripple Prime?", answer: "Ripple Prime is Ripple's institutional-grade prime brokerage service offering clearing, lending, and post-trade settlement. Built on the $1.25 billion Hidden Road acquisition, it clears over $3 trillion annually." },
-    { question: "How does Ripple Prime use XRP?", answer: "Ripple Prime is migrating post-trade settlement to the XRP Ledger, using XRPL's speed and low costs for institutional clearing. RLUSD is also used as collateral within the platform." },
-    { question: "Who can use Ripple Prime?", answer: "Ripple Prime serves institutional clients — hedge funds, asset managers, banks, and large trading firms. It is not a retail product." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is Ripple Prime?", a: "Ripple Prime is Ripple's institutional-grade prime brokerage service offering clearing, lending, and post-trade settlement. Built on the $1.25 billion Hidden Road acquisition, it clears over $3 trillion annually and serves 300+ institutional clients." },
-  { q: "How does Ripple Prime relate to Hidden Road?", a: "Ripple acquired Hidden Road in 2025 for $1.25 billion — the largest acquisition in crypto history at the time. Hidden Road's prime brokerage infrastructure became the foundation for Ripple Prime." },
-  { q: "How does Ripple Prime use XRP and the XRPL?", a: "Ripple is migrating Hidden Road's post-trade settlement to the XRP Ledger, leveraging XRPL's speed and low cost. RLUSD is also used as collateral within the platform." },
-  { q: "Who can use Ripple Prime?", a: "Institutional clients only — hedge funds, asset managers, banks, and large trading firms. It is not available to retail investors." },
-  { q: "What does Ripple Prime offer?", a: "Multi-asset prime brokerage including clearing, custody, financing, lending, and post-trade services across crypto and traditional assets." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RipplePrimePage() {

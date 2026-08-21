@@ -31,6 +31,17 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is RLUSD?", a: "RLUSD is Ripple's USD-pegged stablecoin, approved by the NYDFS in December 2024. It's backed 1:1 by U.S. dollar deposits, short-term treasuries, and cash equivalents with monthly third-party reserve attestations." },
+  { q: "How does RLUSD interact with XRP?", a: "On XRPL, RLUSD activity consumes XRP fees. Pools can contain XRP, and some paths can route through XRP. Those mechanics do not guarantee material demand or a price increase." },
+  { q: "What blockchain does RLUSD run on?", a: "RLUSD operates on both the XRP Ledger (XRPL) and Ethereum. Ripple expects XRPL volumes to grow as institutional DeFi matures." },
+  { q: "Is RLUSD regulated?", a: "Yes. RLUSD received NYDFS approval on December 10, 2024. Ripple publishes monthly reserve attestations and is pursuing additional banking licenses." },
+  { q: "How does RLUSD compare to USDT and USDC?", a: "RLUSD targets institutional settlements with NYDFS regulation, while USDT dominates trading and USDC leads DeFi. Only RLUSD directly benefits XRP through native XRPL integration." },
+  { q: "Does RLUSD burn XRP?", a: "Yes. Every RLUSD transaction on the XRPL burns a small XRP fee (~0.00001 XRP), permanently reducing supply. More RLUSD activity means more XRP burned." },
+  { q: "What is RLUSD's market cap?", a: "CoinGecko reported approximately $1.61 billion when this page was reviewed on August 8, 2026. Verify the current figure because supply and price change." },
+  { q: "Can an RLUSD and XRP pool generate fees?", a: "Providers can receive pool trading fees, but returns are not guaranteed and may be offset by impermanent loss, price changes, low volume, or other risks." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How Does RLUSD Help XRP? Ripple's Stablecoin Explained",
@@ -46,16 +57,7 @@ const schemas = [
     { name: "RLUSD & XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/rlusd" }),
-  buildFAQSchema([
-    { question: "What is RLUSD?", answer: "RLUSD is Ripple's USD-pegged stablecoin, approved by the New York Department of Financial Services (NYDFS) in December 2024. It's backed 1:1 by U.S. dollar deposits, short-term U.S. government treasuries, and cash equivalents, with monthly third-party reserve attestations." },
-    { question: "How does RLUSD interact with XRP?", answer: "RLUSD transactions on the XRP Ledger consume XRP fees. RLUSD/XRP pools use XRP inventory, and some exchange paths can route through XRP when that route offers better pricing. None of those mechanics guarantees material XRP demand or a price increase." },
-    { question: "What blockchain does RLUSD run on?", answer: "RLUSD operates on both the XRP Ledger (XRPL) and Ethereum. However, Ripple has indicated that RLUSD volumes could increasingly shift to the XRPL as institutional DeFi adoption grows, which would further benefit XRP." },
-    { question: "Is RLUSD regulated?", answer: "Yes. RLUSD received final approval from the New York Department of Financial Services (NYDFS) on December 10, 2024, under its limited purpose trust company charter. Ripple publishes monthly third-party attestations of reserves and is pursuing additional banking licenses." },
-    { question: "How does RLUSD compare to USDT and USDC?", answer: "RLUSD targets institutional settlements and tokenization, while USDT dominates trading volume and USDC leads in regulated U.S. DeFi. RLUSD's key advantages include NYDFS regulatory approval, native XRPL integration with auto-bridging through XRP, and partnerships with institutions like Franklin Templeton and DBS Bank." },
-    { question: "Does RLUSD burn XRP?", answer: "Yes, indirectly. Every transaction on the XRP Ledger — including RLUSD transfers, DEX trades, and AMM operations — requires a small XRP fee that is permanently burned. As RLUSD activity on the XRPL grows, more XRP gets destroyed, making XRP slightly more scarce over time." },
-    { question: "What is RLUSD's market cap?", answer: "CoinGecko reported a market capitalization around $1.61 billion when this page was reviewed on August 8, 2026. Market capitalization changes with circulating supply and price, so verify the current figure." },
-    { question: "Can an RLUSD and XRP liquidity pool generate fees?", answer: "Liquidity providers can receive a share of pool trading fees, but returns are not guaranteed and can be offset by impermanent loss, asset-price changes, low volume, or other market and protocol risks." },
-  ]),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RLUSDPage() {
@@ -343,16 +345,7 @@ export default function RLUSDPage() {
           <section id="faq">
             <h2 className="text-2xl font-bold text-text-primary">Frequently Asked Questions</h2>
             <div className="mt-6 space-y-6">
-              {[
-                { q: "What is RLUSD?", a: "RLUSD is Ripple's USD-pegged stablecoin, approved by the NYDFS in December 2024. It's backed 1:1 by U.S. dollar deposits, short-term treasuries, and cash equivalents with monthly third-party reserve attestations." },
-                { q: "How does RLUSD interact with XRP?", a: "On XRPL, RLUSD activity consumes XRP fees. Pools can contain XRP, and some paths can route through XRP. Those mechanics do not guarantee material demand or a price increase." },
-                { q: "What blockchain does RLUSD run on?", a: "RLUSD operates on both the XRP Ledger (XRPL) and Ethereum. Ripple expects XRPL volumes to grow as institutional DeFi matures." },
-                { q: "Is RLUSD regulated?", a: "Yes. RLUSD received NYDFS approval on December 10, 2024. Ripple publishes monthly reserve attestations and is pursuing additional banking licenses." },
-                { q: "How does RLUSD compare to USDT and USDC?", a: "RLUSD targets institutional settlements with NYDFS regulation, while USDT dominates trading and USDC leads DeFi. Only RLUSD directly benefits XRP through native XRPL integration." },
-                { q: "Does RLUSD burn XRP?", a: "Yes. Every RLUSD transaction on the XRPL burns a small XRP fee (~0.00001 XRP), permanently reducing supply. More RLUSD activity means more XRP burned." },
-                { q: "What is RLUSD's market cap?", a: "CoinGecko reported approximately $1.61 billion when this page was reviewed on August 8, 2026. Verify the current figure because supply and price change." },
-                { q: "Can an RLUSD and XRP pool generate fees?", a: "Providers can receive pool trading fees, but returns are not guaranteed and may be offset by impermanent loss, price changes, low volume, or other risks." },
-              ].map((faq, i) => (
+              {faqItems.map((faq, i) => (
                 <div key={i} className=" border border-surface-border bg-surface-card p-5">
                   <h3 className="text-base font-semibold text-text-primary">{faq.q}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{faq.a}</p>

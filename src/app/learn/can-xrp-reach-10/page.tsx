@@ -26,19 +26,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $10? Realistic Analysis (2026)", description: "Analyzing whether XRP can reach $10 — market cap requirements, catalysts, and realistic timeline.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $10?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP realistically reach $10?", answer: "Yes, $10 XRP is realistic. At ~57 billion circulating supply, $10 XRP = ~$570 billion market cap. This is comparable to where Ethereum has traded and roughly half of Bitcoin's peak market cap. It would require continued institutional adoption, ETF approval, and a strong crypto bull market, but it's within the realm of possibility." },
-    { question: "What market cap would XRP need at $10?", answer: "With ~57 billion XRP in circulation, a $10 price would require approximately $570 billion market cap. For context, Bitcoin has exceeded $1.5 trillion, and the entire crypto market has surpassed $3 trillion. $570B is ambitious but not unprecedented." },
-    { question: "When could XRP reach $10?", answer: "If it happens, most analysts suggest it could occur during the next major crypto bull cycle (potentially 2025-2027) coinciding with ETF approval, expanded institutional adoption, and broader market momentum. No guaranteed timeline exists." },
-    { question: "What catalysts could drive XRP to $10?", answer: "Key catalysts include: spot XRP ETF approval (institutional inflows), expanded ODL corridors, RLUSD stablecoin adoption, tokenized asset growth on XRPL, and a broader crypto bull market. Multiple catalysts aligning would be needed." },
-    { question: "Has XRP ever been close to $10?", answer: "XRP's all-time high is $3.84 (January 2018). So $10 would be ~2.6x the ATH. During the 2021 cycle, XRP was limited by the SEC lawsuit. With regulatory clarity, many believe XRP is positioned for a new ATH that could approach or exceed $10." },
-  ]),
-];
-
 const faqItems = [
   { q: "Can XRP realistically reach $10?", a: "Yes. $10 = ~$570B market cap. Ambitious but comparable to Ethereum's range and achievable with strong catalysts (ETF, adoption, bull market)." },
   { q: "What market cap is needed?", a: "~$570 billion at current circulating supply (~57B XRP). For context, Bitcoin has exceeded $1.5T." },
@@ -46,6 +33,13 @@ const faqItems = [
   { q: "What catalysts are needed?", a: "ETF approval, expanded ODL, RLUSD adoption, tokenized assets on XRPL, and a strong crypto bull market." },
   { q: "Has XRP been close to $10?", a: "ATH is $3.84 (Jan 2018). $10 = ~2.6x ATH. SEC lawsuit suppressed the 2021 cycle; post-clarity could change things." },
   { q: "What's the biggest risk?", a: "Broader market downturn, competition from other payment solutions, or slower-than-expected institutional adoption." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "Can XRP Reach $10? Realistic Analysis (2026)", description: "Analyzing whether XRP can reach $10 — market cap requirements, catalysts, and realistic timeline.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $10?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPReach10Page() {

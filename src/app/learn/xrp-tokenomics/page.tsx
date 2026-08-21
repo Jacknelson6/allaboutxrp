@@ -31,6 +31,16 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "How many XRP exist?", a: "100 billion XRP were created at the XRP Ledger's genesis in June 2012. This is a fixed, hard-capped supply — the protocol makes it impossible to mint additional XRP. The actual total supply is slightly less than 100 billion because transaction fees permanently burn (destroy) XRP with every transaction. Over 14 million XRP have been burned to date." },
+  { q: "How much XRP is in circulation?", a: "As of early 2026, approximately 57-58 billion XRP are in general circulation. This number gradually increases as Ripple releases XRP from escrow for operations and partnerships. The circulating supply figure is tracked by data providers like CoinMarketCap and XRPScan." },
+  { q: "What is XRP escrow and how does it work?", a: "In December 2017, Ripple locked 55 billion XRP into 55 cryptographic escrow contracts on the XRPL — 1 billion per month for 55 months. When each monthly escrow expires, up to 1 billion XRP becomes available to Ripple. However, Ripple typically uses only a fraction and re-escrows the rest, extending the escrow schedule. As of 2026, approximately 33.9 billion XRP remains in escrow." },
+  { q: "Is XRP inflationary or deflationary?", a: "XRP is deflationary. No new XRP can ever be created (the supply is hard-coded), and every transaction on the XRPL burns a small amount of XRP as a fee — typically 0.00001 XRP per transaction. This means the total supply of XRP permanently decreases over time, making it a mildly deflationary asset." },
+  { q: "How was XRP originally distributed?", a: "At genesis, the 100 billion XRP was distributed as follows: 80 billion to Ripple (then OpenCoin) for development and distribution, and 20 billion split among the three co-founders (Jed McCaleb, Chris Larsen, Arthur Britto). Ripple later locked 55 billion of its allocation into escrow in 2017." },
+  { q: "Does Ripple dump XRP on the market?", a: "Ripple's XRP sales are transparent and reported quarterly. Monthly escrow unlocks are predictable and publicly visible on the blockchain. Ripple typically uses a small fraction of unlocked XRP for operations and re-escrows the rest. Quarterly reports show Ripple's net sales relative to total XRP market volume are typically well under 1%." },
+  { q: "What happens when all escrow XRP is released?", a: "At the current rate, Ripple's escrow will continue releasing XRP for several more years. Even after all original escrow expires, the XRP re-escrowed by Ripple will continue on its own schedule. The releases are gradual and predictable — they don't represent a sudden supply shock." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Tokenomics: Supply, Escrow & Burns",
@@ -44,24 +54,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP Tokenomics" },
   ]),
-  buildFAQSchema([
-    { question: "How many XRP exist?", answer: "100 billion XRP were created at genesis in 2012. This is a fixed, hard-capped supply — no more XRP can ever be minted. The total supply is actually slightly less than 100 billion because transaction fees permanently burn XRP." },
-    { question: "How much XRP is in circulation?", answer: "As of early 2026, approximately 57-58 billion XRP are in circulation. The remainder is primarily held in Ripple's escrow system (~33.9 billion) or held by Ripple directly." },
-    { question: "What is XRP escrow?", answer: "In December 2017, Ripple locked 55 billion XRP into cryptographic escrow contracts on the XRPL. Up to 1 billion XRP unlocks each month, but Ripple typically re-escrows 60-80% immediately. As of 2026, approximately 33.9 billion XRP remains in escrow." },
-    { question: "Is XRP inflationary or deflationary?", answer: "XRP is deflationary. No new XRP can be created, and every transaction burns a small amount of XRP as a fee (typically 0.00001 XRP). Over 14 million XRP have been permanently burned to date. The total supply only decreases over time." },
-    { question: "How is XRP distributed?", answer: "Of the original 100 billion XRP: 80 billion was allocated to Ripple (now largely in escrow or distributed), and 20 billion was given to the three co-founders. Distribution has occurred through sales, partnerships, grants, and ecosystem development." },
-    { question: "What happens when all escrow XRP is released?", answer: "The escrow releases are predictable and gradual — up to 1 billion per month. At current rates, escrow releases will continue for years. Released XRP is used for Ripple's operations, partnerships, and ecosystem development, with unused portions re-escrowed." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How many XRP exist?", a: "100 billion XRP were created at the XRP Ledger's genesis in June 2012. This is a fixed, hard-capped supply — the protocol makes it impossible to mint additional XRP. The actual total supply is slightly less than 100 billion because transaction fees permanently burn (destroy) XRP with every transaction. Over 14 million XRP have been burned to date." },
-  { q: "How much XRP is in circulation?", a: "As of early 2026, approximately 57-58 billion XRP are in general circulation. This number gradually increases as Ripple releases XRP from escrow for operations and partnerships. The circulating supply figure is tracked by data providers like CoinMarketCap and XRPScan." },
-  { q: "What is XRP escrow and how does it work?", a: "In December 2017, Ripple locked 55 billion XRP into 55 cryptographic escrow contracts on the XRPL — 1 billion per month for 55 months. When each monthly escrow expires, up to 1 billion XRP becomes available to Ripple. However, Ripple typically uses only a fraction and re-escrows the rest, extending the escrow schedule. As of 2026, approximately 33.9 billion XRP remains in escrow." },
-  { q: "Is XRP inflationary or deflationary?", a: "XRP is deflationary. No new XRP can ever be created (the supply is hard-coded), and every transaction on the XRPL burns a small amount of XRP as a fee — typically 0.00001 XRP per transaction. This means the total supply of XRP permanently decreases over time, making it a mildly deflationary asset." },
-  { q: "How was XRP originally distributed?", a: "At genesis, the 100 billion XRP was distributed as follows: 80 billion to Ripple (then OpenCoin) for development and distribution, and 20 billion split among the three co-founders (Jed McCaleb, Chris Larsen, Arthur Britto). Ripple later locked 55 billion of its allocation into escrow in 2017." },
-  { q: "Does Ripple dump XRP on the market?", a: "Ripple's XRP sales are transparent and reported quarterly. Monthly escrow unlocks are predictable and publicly visible on the blockchain. Ripple typically uses a small fraction of unlocked XRP for operations and re-escrows the rest. Quarterly reports show Ripple's net sales relative to total XRP market volume are typically well under 1%." },
-  { q: "What happens when all escrow XRP is released?", a: "At the current rate, Ripple's escrow will continue releasing XRP for several more years. Even after all original escrow expires, the XRP re-escrowed by Ripple will continue on its own schedule. The releases are gradual and predictable — they don't represent a sudden supply shock." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPTokenomicsPage() {

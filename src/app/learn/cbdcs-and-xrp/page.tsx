@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/cbdcs-and-xrp" },
 };
 
+const faqItems = [
+  { q: "What is a CBDC?", a: "A Central Bank Digital Currency is a digital form of a country's fiat currency, issued and controlled by its central bank. Unlike crypto, CBDCs are centralized and government-backed. Over 130 countries are exploring CBDCs." },
+  { q: "How does XRP connect to CBDCs?", a: "XRP could serve as a neutral bridge currency between different national CBDCs. Instead of needing direct pairs between every CBDC, XRP enables instant conversion — the same role it plays for fiat currencies via ODL today." },
+  { q: "Which countries work with Ripple on CBDCs?", a: "Confirmed partnerships include Bhutan (Royal Monetary Authority), Palau, Montenegro, Colombia, and several undisclosed nations. These range from exploratory pilots to active platform development." },
+  { q: "Does Ripple's CBDC platform use XRP directly?", a: "The CBDC platforms themselves use private ledger technology. However, the bridge currency thesis proposes using XRP on the public ledger to connect different CBDCs for cross-border settlement — similar to how ODL bridges fiat currencies." },
+  { q: "Why do CBDCs need a bridge currency?", a: "With 130+ countries potentially launching CBDCs, you'd need 8,000+ direct trading pairs to connect them all. A single bridge currency like XRP reduces this to ~130 pairs, making the system dramatically simpler and more liquid." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "CBDCs and XRP: The Bridge Currency Thesis",
@@ -44,20 +52,7 @@ const schemas = [
     { name: "CBDCs and XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/cbdcs-and-xrp" }),
-  buildFAQSchema([
-    { question: "What is a CBDC?", answer: "A Central Bank Digital Currency (CBDC) is a digital form of a country's fiat currency issued and controlled by its central bank. Unlike cryptocurrencies, CBDCs are centralized and government-backed. Over 130 countries are exploring or developing CBDCs as of 2026." },
-    { question: "How does XRP connect to CBDCs?", answer: "XRP could serve as a neutral bridge currency between different national CBDCs. When Country A's CBDC needs to be exchanged for Country B's CBDC, XRP can facilitate instant conversion without requiring direct currency pairs — solving the interoperability challenge that CBDCs will face." },
-    { question: "Which countries work with Ripple on CBDCs?", answer: "Ripple has CBDC partnerships with Bhutan (Royal Monetary Authority), Palau, Montenegro, Colombia, and several others. These range from exploratory pilots to active development of CBDC platforms using Ripple's technology." },
-    { question: "Does Ripple's CBDC platform use XRP?", answer: "Ripple's CBDC Platform is built on private ledger technology derived from the XRPL. While the CBDCs themselves don't run on the public XRP Ledger, the bridge currency thesis proposes using XRP to connect different CBDCs for cross-border transactions — similar to how ODL works for fiat currencies today." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is a CBDC?", a: "A Central Bank Digital Currency is a digital form of a country's fiat currency, issued and controlled by its central bank. Unlike crypto, CBDCs are centralized and government-backed. Over 130 countries are exploring CBDCs." },
-  { q: "How does XRP connect to CBDCs?", a: "XRP could serve as a neutral bridge currency between different national CBDCs. Instead of needing direct pairs between every CBDC, XRP enables instant conversion — the same role it plays for fiat currencies via ODL today." },
-  { q: "Which countries work with Ripple on CBDCs?", a: "Confirmed partnerships include Bhutan (Royal Monetary Authority), Palau, Montenegro, Colombia, and several undisclosed nations. These range from exploratory pilots to active platform development." },
-  { q: "Does Ripple's CBDC platform use XRP directly?", a: "The CBDC platforms themselves use private ledger technology. However, the bridge currency thesis proposes using XRP on the public ledger to connect different CBDCs for cross-border settlement — similar to how ODL bridges fiat currencies." },
-  { q: "Why do CBDCs need a bridge currency?", a: "With 130+ countries potentially launching CBDCs, you'd need 8,000+ direct trading pairs to connect them all. A single bridge currency like XRP reduces this to ~130 pairs, making the system dramatically simpler and more liquid." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CBDCsAndXRPPage() {

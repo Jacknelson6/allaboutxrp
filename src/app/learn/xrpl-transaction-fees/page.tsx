@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-transaction-fees" },
 };
 
+const faqItems = [
+  { q: "How much does an XRP transaction cost?", a: "The minimum fee is 0.00001 XRP (10 drops) — a fraction of a penny. Most wallets set slightly higher fees (0.000012 XRP) for reliable processing." },
+  { q: "Where do fees go?", a: "Fees are permanently burned — destroyed forever. Not paid to validators or anyone. This makes XRP slightly deflationary over time." },
+  { q: "Why are fees so low?", a: "Fees exist as anti-spam protection, not revenue. Validators don't receive fees, so there's no incentive to keep them high. Just enough to prevent abuse." },
+  { q: "What is fee escalation?", a: "During congestion, the XRPL automatically raises required fees. Higher-fee transactions get priority. Self-regulating system that prevents spam during high demand." },
+  { q: "Will fees increase with XRP's price?", a: "The fee is in XRP drops, not USD. As price rises, USD equivalent goes up. But validators can vote to lower the minimum drop amount to keep transactions affordable." },
+  { q: "How many XRP have been burned?", a: "Millions of XRP have been burned since 2012. The original supply was 100 billion XRP. Every transaction permanently reduces this total, though the deflationary effect is very gradual." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Transaction Fees Explained: Why They're So Low",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Transaction Fees" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-transaction-fees" }),
-  buildFAQSchema([
-    { question: "How much does an XRP transaction cost?", answer: "The minimum XRPL transaction fee is 0.00001 XRP (10 drops), which is a fraction of a penny at any realistic XRP price. Most wallets and applications set slightly higher fees (0.000012 XRP) to ensure quick processing." },
-    { question: "Where do XRP transaction fees go?", answer: "XRP transaction fees are permanently destroyed (burned). They are not paid to validators, miners, or any entity. This makes XRP slightly deflationary over time — the total supply decreases with every transaction." },
-    { question: "Why are XRPL fees so low?", answer: "XRPL fees exist primarily as an anti-spam mechanism, not a revenue source. Since validators don't receive fees, there's no incentive to keep fees high. The fee is just enough to prevent network abuse while keeping transactions accessible." },
-    { question: "What is the fee escalation mechanism?", answer: "When the network is congested, XRPL automatically increases the required fee through open fee escalation. Transactions offering higher fees get priority. During normal operation, the base fee applies. This self-regulating system prevents spam during high-demand periods." },
-    { question: "Will XRP fees increase as the price rises?", answer: "The fee is denominated in XRP (drops), not USD. As XRP's price rises, the USD-equivalent cost increases. However, validators can vote to lower the minimum fee in drops to keep transactions affordable. The network adapts through governance." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How much does an XRP transaction cost?", a: "The minimum fee is 0.00001 XRP (10 drops) — a fraction of a penny. Most wallets set slightly higher fees (0.000012 XRP) for reliable processing." },
-  { q: "Where do fees go?", a: "Fees are permanently burned — destroyed forever. Not paid to validators or anyone. This makes XRP slightly deflationary over time." },
-  { q: "Why are fees so low?", a: "Fees exist as anti-spam protection, not revenue. Validators don't receive fees, so there's no incentive to keep them high. Just enough to prevent abuse." },
-  { q: "What is fee escalation?", a: "During congestion, the XRPL automatically raises required fees. Higher-fee transactions get priority. Self-regulating system that prevents spam during high demand." },
-  { q: "Will fees increase with XRP's price?", a: "The fee is in XRP drops, not USD. As price rises, USD equivalent goes up. But validators can vote to lower the minimum drop amount to keep transactions affordable." },
-  { q: "How many XRP have been burned?", a: "Millions of XRP have been burned since 2012. The original supply was 100 billion XRP. Every transaction permanently reduces this total, though the deflationary effect is very gradual." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLTransactionFeesPage() {

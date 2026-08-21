@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-self-custody-guide" },
 };
 
+const faqItems = [
+  { q: "What is XRP self-custody?", a: "Self-custody means you personally control the private keys to your XRP wallet. 'Not your keys, not your crypto' — XRP on an exchange is controlled by that company. With self-custody, only you can access your funds." },
+  { q: "Why should I move XRP off exchanges?", a: "Exchanges can be hacked (Mt. Gox), go bankrupt (FTX), freeze accounts, or face regulatory action. Self-custody means no third party can freeze, lose, or restrict your XRP access." },
+  { q: "What's the best self-custody wallet for XRP?", a: "Hardware wallets (Ledger Nano X, Trezor) offer maximum security. Xaman (formerly XUMM) is the best mobile option. For a balance, pair Xaman with Tangem cards for hardware-level security with mobile convenience." },
+  { q: "How much XRP do I need for a self-custody wallet?", a: "A minimum of 1 XRP as base reserve to activate an XRPL account. Each trust line or DEX offer requires an additional 0.2 XRP owner reserve. These reserves are recoverable if you remove the object or delete the account." },
+  { q: "What happens if I lose my hardware wallet?", a: "Your XRP lives on the ledger, not the device. If you have your seed phrase backed up, you can restore on a new device. The seed phrase is the actual key — the hardware wallet is just the access tool." },
+  { q: "Is self-custody safe for beginners?", a: "Yes, with proper setup. Start with a small amount, verify you can send and receive, and secure your seed phrase backup before transferring large amounts. The biggest risk is losing your seed phrase — not hackers." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Self-Custody Guide: Be Your Own Bank",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRP Self-Custody Guide" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-self-custody-guide" }),
-  buildFAQSchema([
-    { question: "What is XRP self-custody?", answer: "Self-custody means you personally control the private keys (secret key or seed phrase) to your XRP wallet — not an exchange or third party. The phrase 'not your keys, not your crypto' emphasizes that XRP on an exchange is controlled by that company, not you." },
-    { question: "Why should I move XRP off exchanges?", answer: "Exchange risks include hacking (Mt. Gox, FTX), bankruptcy, account freezes, and regulatory seizures. With self-custody, only you control your funds. No exchange can freeze, lose, or restrict access to your XRP." },
-    { question: "What's the best self-custody wallet for XRP?", answer: "For maximum security, use a hardware wallet like Ledger Nano X or Trezor Model T. For mobile convenience, Xaman (formerly XUMM) is the most popular XRP-specific wallet. For a balance, use Xaman paired with a Ledger via Tangem cards." },
-    { question: "How much XRP do I need for a self-custody wallet?", answer: "You need a minimum of 1 XRP as a base reserve to activate an XRPL account. This reserve is locked but recoverable if you delete the account. Each additional ledger object usually requires 0.2 XRP more in owner reserve." },
-    { question: "What happens to my XRP if I lose my hardware wallet?", answer: "If you have your seed phrase backed up, you can restore your wallet on a new device. The hardware wallet is just an access tool — your XRP lives on the XRP Ledger, not on the device. The seed phrase is the actual key." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is XRP self-custody?", a: "Self-custody means you personally control the private keys to your XRP wallet. 'Not your keys, not your crypto' — XRP on an exchange is controlled by that company. With self-custody, only you can access your funds." },
-  { q: "Why should I move XRP off exchanges?", a: "Exchanges can be hacked (Mt. Gox), go bankrupt (FTX), freeze accounts, or face regulatory action. Self-custody means no third party can freeze, lose, or restrict your XRP access." },
-  { q: "What's the best self-custody wallet for XRP?", a: "Hardware wallets (Ledger Nano X, Trezor) offer maximum security. Xaman (formerly XUMM) is the best mobile option. For a balance, pair Xaman with Tangem cards for hardware-level security with mobile convenience." },
-  { q: "How much XRP do I need for a self-custody wallet?", a: "A minimum of 1 XRP as base reserve to activate an XRPL account. Each trust line or DEX offer requires an additional 0.2 XRP owner reserve. These reserves are recoverable if you remove the object or delete the account." },
-  { q: "What happens if I lose my hardware wallet?", a: "Your XRP lives on the ledger, not the device. If you have your seed phrase backed up, you can restore on a new device. The seed phrase is the actual key — the hardware wallet is just the access tool." },
-  { q: "Is self-custody safe for beginners?", a: "Yes, with proper setup. Start with a small amount, verify you can send and receive, and secure your seed phrase backup before transferring large amounts. The biggest risk is losing your seed phrase — not hackers." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPSelfCustodyGuidePage() {

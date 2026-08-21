@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Is XRP faster than Bitcoin?", a: "Yes. XRP transactions settle in 3-5 seconds, while Bitcoin transactions typically take 10-60 minutes to confirm depending on network congestion and fee priority. This makes XRP significantly more practical for payments." },
+  { q: "Is XRP cheaper to send than Bitcoin?", a: "Yes. XRP transaction fees are typically less than $0.01 (around 0.00001 XRP per transaction), while Bitcoin fees can range from $1 to over $50 depending on network demand. This is because the XRPL doesn't rely on competitive fee markets like Bitcoin." },
+  { q: "Does XRP use mining like Bitcoin?", a: "No. XRP uses the Federated Consensus Protocol, which relies on a network of independent validators to agree on transaction validity. Bitcoin uses Proof of Work mining, requiring specialized hardware and massive energy consumption. The XRPL uses approximately 120,000 times less energy than the Bitcoin network." },
+  { q: "Can XRP replace Bitcoin?", a: "XRP and Bitcoin serve fundamentally different purposes. Bitcoin is primarily a store of value — often called 'digital gold.' XRP is designed for fast, low-cost payments and cross-border transfers. They are complementary technologies rather than direct competitors, and both can coexist in the broader cryptocurrency ecosystem." },
+  { q: "Which is a better investment, XRP or Bitcoin?", a: "Both have different risk and reward profiles. Bitcoin has the largest market cap, strongest brand recognition, and is seen as a macro hedge. XRP has stronger payment utility, growing institutional adoption through Ripple, and potential ETF products. All cryptocurrency investments carry risk — do your own research and never invest more than you can afford to lose." },
+  { q: "How many XRP exist compared to Bitcoin?", a: "There are 100 billion XRP (fixed supply created at genesis, slightly deflationary from transaction fee burns) versus 21 million Bitcoin (released gradually through mining, with the last Bitcoin expected to be mined around 2140). XRP's larger unit count means a lower per-unit price, but market cap is the more meaningful comparison." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP vs Bitcoin: Key Differences Explained",
@@ -44,23 +53,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP vs Bitcoin" },
   ]),
-  buildFAQSchema([
-    { question: "Is XRP faster than Bitcoin?", answer: "Yes. XRP transactions settle in 3-5 seconds, while Bitcoin transactions typically take 10-60 minutes to confirm depending on network congestion and fee priority." },
-    { question: "Is XRP cheaper to send than Bitcoin?", answer: "Yes. XRP transaction fees are typically less than $0.01, while Bitcoin fees can range from $1 to over $50 depending on network demand." },
-    { question: "Does XRP use mining like Bitcoin?", answer: "No. XRP uses the Federated Consensus Protocol, which doesn't require mining. Bitcoin uses Proof of Work mining, consuming significant energy. The XRPL uses approximately 120,000 times less energy than Bitcoin." },
-    { question: "Can XRP replace Bitcoin?", answer: "XRP and Bitcoin serve different purposes. Bitcoin is primarily a store of value and 'digital gold,' while XRP is designed for fast, low-cost payments and cross-border transfers. They are complementary rather than direct competitors." },
-    { question: "Which is a better investment, XRP or Bitcoin?", answer: "Both have different risk/reward profiles. Bitcoin has the largest market cap and brand recognition. XRP has stronger payment utility and institutional adoption through Ripple. All crypto investments carry risk — do your own research." },
-    { question: "How many XRP exist vs Bitcoin?", answer: "There are 100 billion XRP (fixed supply, slightly deflationary from fee burns) vs 21 million Bitcoin (released through mining over time, with the last Bitcoin expected around 2140)." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP faster than Bitcoin?", a: "Yes. XRP transactions settle in 3-5 seconds, while Bitcoin transactions typically take 10-60 minutes to confirm depending on network congestion and fee priority. This makes XRP significantly more practical for payments." },
-  { q: "Is XRP cheaper to send than Bitcoin?", a: "Yes. XRP transaction fees are typically less than $0.01 (around 0.00001 XRP per transaction), while Bitcoin fees can range from $1 to over $50 depending on network demand. This is because the XRPL doesn't rely on competitive fee markets like Bitcoin." },
-  { q: "Does XRP use mining like Bitcoin?", a: "No. XRP uses the Federated Consensus Protocol, which relies on a network of independent validators to agree on transaction validity. Bitcoin uses Proof of Work mining, requiring specialized hardware and massive energy consumption. The XRPL uses approximately 120,000 times less energy than the Bitcoin network." },
-  { q: "Can XRP replace Bitcoin?", a: "XRP and Bitcoin serve fundamentally different purposes. Bitcoin is primarily a store of value — often called 'digital gold.' XRP is designed for fast, low-cost payments and cross-border transfers. They are complementary technologies rather than direct competitors, and both can coexist in the broader cryptocurrency ecosystem." },
-  { q: "Which is a better investment, XRP or Bitcoin?", a: "Both have different risk and reward profiles. Bitcoin has the largest market cap, strongest brand recognition, and is seen as a macro hedge. XRP has stronger payment utility, growing institutional adoption through Ripple, and potential ETF products. All cryptocurrency investments carry risk — do your own research and never invest more than you can afford to lose." },
-  { q: "How many XRP exist compared to Bitcoin?", a: "There are 100 billion XRP (fixed supply created at genesis, slightly deflationary from transaction fee burns) versus 21 million Bitcoin (released gradually through mining, with the last Bitcoin expected to be mined around 2140). XRP's larger unit count means a lower per-unit price, but market cap is the more meaningful comparison." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsBitcoinPage() {

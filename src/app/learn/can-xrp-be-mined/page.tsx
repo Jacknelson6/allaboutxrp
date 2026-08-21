@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/can-xrp-be-mined" },
 };
 
+const faqItems = [
+  { q: "Can you mine XRP?", a: "No. All 100 billion XRP were created when the XRP Ledger launched in 2012. XRP uses consensus, not mining." },
+  { q: "Why can't XRP be mined?", a: "XRP was designed with a fixed, pre-created supply for maximum efficiency. This enables 3-5 second settlement, near-zero fees, and 250,000x less energy than Bitcoin." },
+  { q: "How do you get XRP?", a: "Buy on exchanges (Coinbase, Binance, Kraken), receive as payment, earn through XRPL DeFi, or receive airdrops." },
+  { q: "Is XRP proof of work or proof of stake?", a: "Neither. XRP uses its own Federated Consensus protocol where validators verify transactions and vote on ledger state without mining or staking." },
+  { q: "Can new XRP be created?", a: "No. The supply is permanently fixed at 100 billion. Transaction fees are burned, so supply actually decreases slightly over time." },
+  { q: "Does XRP have validators instead of miners?", a: "Yes. The XRPL has 150+ independent validators who confirm transactions through consensus. They don't earn rewards — they participate because they use the network." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Can XRP Be Mined? Why XRP Doesn't Use Mining",
@@ -44,22 +53,7 @@ const schemas = [
     { name: "Can XRP Be Mined?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/can-xrp-be-mined" }),
-  buildFAQSchema([
-    { question: "Can you mine XRP?", answer: "No, XRP cannot be mined. All 100 billion XRP tokens were created when the XRP Ledger launched in 2012. Unlike Bitcoin, which uses proof-of-work mining to create new coins, XRP uses a consensus protocol where validators cooperate to confirm transactions without receiving mining rewards." },
-    { question: "Why can't XRP be mined?", answer: "XRP was designed with a fixed, pre-created supply to maximize efficiency. Mining requires enormous energy to solve cryptographic puzzles and creates new coins slowly. XRP's approach — pre-creating all tokens and using lightweight consensus — enables 3-5 second settlement, near-zero fees, and 250,000x less energy than Bitcoin." },
-    { question: "How do you get XRP if you can't mine it?", answer: "You can acquire XRP by purchasing it on cryptocurrency exchanges (Coinbase, Binance, Kraken, etc.), receiving it as payment, earning it through XRPL DeFi participation, or receiving airdrops. The most common method is simply buying it on an exchange with fiat currency or other crypto." },
-    { question: "Is XRP proof of work or proof of stake?", answer: "Neither. XRP uses its own unique consensus mechanism called the XRP Ledger Consensus Protocol (sometimes called Federated Consensus). Validators don't mine (proof-of-work) or stake (proof-of-stake). They simply verify transactions and vote on the next ledger state." },
-    { question: "Can new XRP be created?", answer: "No. The total supply of XRP is permanently fixed at 100 billion tokens. No mechanism exists to create additional XRP. In fact, the supply decreases very slightly over time because transaction fees are burned (destroyed). Currently about 58 billion XRP are in circulation, with the rest held in Ripple's escrow." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Can you mine XRP?", a: "No. All 100 billion XRP were created when the XRP Ledger launched in 2012. XRP uses consensus, not mining." },
-  { q: "Why can't XRP be mined?", a: "XRP was designed with a fixed, pre-created supply for maximum efficiency. This enables 3-5 second settlement, near-zero fees, and 250,000x less energy than Bitcoin." },
-  { q: "How do you get XRP?", a: "Buy on exchanges (Coinbase, Binance, Kraken), receive as payment, earn through XRPL DeFi, or receive airdrops." },
-  { q: "Is XRP proof of work or proof of stake?", a: "Neither. XRP uses its own Federated Consensus protocol where validators verify transactions and vote on ledger state without mining or staking." },
-  { q: "Can new XRP be created?", a: "No. The supply is permanently fixed at 100 billion. Transaction fees are burned, so supply actually decreases slightly over time." },
-  { q: "Does XRP have validators instead of miners?", a: "Yes. The XRPL has 150+ independent validators who confirm transactions through consensus. They don't earn rewards — they participate because they use the network." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPBeMinedPage() {

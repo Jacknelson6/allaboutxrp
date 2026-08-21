@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Which banks use XRP?", a: "Major institutions include SBI Holdings (Japan's largest financial group), Santander (global banking giant), Standard Chartered, Tranglo (Asia-Pacific payments), and over 300 other financial institutions across 55+ countries connected through RippleNet." },
+  { q: "How does On-Demand Liquidity (ODL) work?", a: "ODL uses XRP as a bridge currency. The sender's local currency is converted to XRP, transferred across the XRP Ledger in 3-5 seconds, and converted to the recipient's local currency at the destination. This eliminates the need for pre-funded accounts in every currency corridor." },
+  { q: "Is XRP faster than SWIFT?", a: "Dramatically faster. XRP settles cross-border payments in 3-5 seconds with guaranteed finality. SWIFT transfers typically take 1-5 business days, pass through multiple intermediary banks, and can fail or get stuck in transit." },
+  { q: "How much do banks save by using XRP?", a: "Ripple estimates ODL reduces cross-border payment costs by 40-60% compared to traditional correspondent banking. Savings come from eliminating pre-funded nostro/vostro accounts, reducing intermediary fees, and faster settlement cycles." },
+  { q: "Will more banks adopt XRP in the future?", a: "Regulatory clarity from the SEC case, potential spot ETF products, and Ripple's growing infrastructure (including the Hidden Road acquisition) are expected to accelerate institutional adoption significantly in 2026 and beyond." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How Banks Use XRP for Cross-Border Payments",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "How Banks Use XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-banks-use-xrp" }),
-  buildFAQSchema([
-    { question: "Which banks use XRP?", answer: "Major institutions using Ripple's technology include SBI Holdings (Japan), Santander (Spain/Global), Standard Chartered, Tranglo (Asia-Pacific), and over 300 other financial institutions across 55+ countries." },
-    { question: "How does On-Demand Liquidity (ODL) work?", answer: "ODL uses XRP as a bridge currency. The sender's local currency is converted to XRP, transferred across the XRP Ledger in seconds, and converted to the recipient's local currency. This eliminates the need for pre-funded nostro/vostro accounts." },
-    { question: "Is XRP faster than SWIFT?", answer: "Yes. XRP settles cross-border payments in 3-5 seconds, while SWIFT transfers typically take 1-5 business days and involve multiple intermediary banks." },
-    { question: "How much do banks save using XRP?", answer: "Ripple estimates that ODL reduces cross-border payment costs by 40-60% compared to traditional correspondent banking. Savings come from eliminating pre-funded accounts, reducing intermediaries, and faster settlement." },
-    { question: "Will more banks adopt XRP?", answer: "With regulatory clarity from the SEC case and potential ETF products, institutional adoption is expected to accelerate. Ripple's acquisition of Hidden Road added $3 trillion in annual clearing volume to its ecosystem." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Which banks use XRP?", a: "Major institutions include SBI Holdings (Japan's largest financial group), Santander (global banking giant), Standard Chartered, Tranglo (Asia-Pacific payments), and over 300 other financial institutions across 55+ countries connected through RippleNet." },
-  { q: "How does On-Demand Liquidity (ODL) work?", a: "ODL uses XRP as a bridge currency. The sender's local currency is converted to XRP, transferred across the XRP Ledger in 3-5 seconds, and converted to the recipient's local currency at the destination. This eliminates the need for pre-funded accounts in every currency corridor." },
-  { q: "Is XRP faster than SWIFT?", a: "Dramatically faster. XRP settles cross-border payments in 3-5 seconds with guaranteed finality. SWIFT transfers typically take 1-5 business days, pass through multiple intermediary banks, and can fail or get stuck in transit." },
-  { q: "How much do banks save by using XRP?", a: "Ripple estimates ODL reduces cross-border payment costs by 40-60% compared to traditional correspondent banking. Savings come from eliminating pre-funded nostro/vostro accounts, reducing intermediary fees, and faster settlement cycles." },
-  { q: "Will more banks adopt XRP in the future?", a: "Regulatory clarity from the SEC case, potential spot ETF products, and Ripple's growing infrastructure (including the Hidden Road acquisition) are expected to accelerate institutional adoption significantly in 2026 and beyond." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowBanksUseXRPPage() {

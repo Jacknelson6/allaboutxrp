@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/ripple-liquidity-hub" },
 };
 
+const faqItems = [
+  { q: "What is Ripple Liquidity Hub?", a: "An enterprise platform providing single-API access to crypto liquidity from multiple sources — exchanges, market makers, DeFi. Businesses can buy, sell, and hold digital assets without building their own crypto infrastructure." },
+  { q: "How does it drive XRP demand?", a: "Supports XRP as a core asset, with some volume flowing through XRP. Integrates with Ripple Payments (ODL), which uses XRP as a bridge currency for cross-border settlements." },
+  { q: "Who can use it?", a: "B2B infrastructure for fintechs, neobanks, payment providers, and enterprises wanting to offer crypto services. Not a consumer product." },
+  { q: "What assets are supported?", a: "XRP, Bitcoin, Ethereum, USDT, USDC, and other major cryptocurrencies. The list expands based on demand and regulatory requirements." },
+  { q: "How is it different from an exchange?", a: "It's a liquidity aggregator, not an exchange. Sources best prices across multiple venues via a single API — enterprises don't need multiple exchange relationships." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Ripple Liquidity Hub: Enterprise Crypto Access Explained",
@@ -43,21 +51,7 @@ const schemas = [
     { name: "Ripple Liquidity Hub" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-liquidity-hub" }),
-  buildFAQSchema([
-    { question: "What is Ripple Liquidity Hub?", answer: "Ripple Liquidity Hub is an enterprise platform that gives businesses single-API access to crypto liquidity aggregated from multiple sources — exchanges, market makers, and DeFi venues. It enables companies to buy, sell, and hold digital assets without building their own crypto infrastructure." },
-    { question: "How does Liquidity Hub drive XRP demand?", answer: "Liquidity Hub supports XRP as one of its core assets. As enterprises use the platform to access crypto, some portion of volume flows through XRP. Additionally, the platform integrates with Ripple Payments (formerly ODL), which uses XRP as a bridge currency for cross-border transactions." },
-    { question: "Who can use Ripple Liquidity Hub?", answer: "Liquidity Hub is designed for businesses — fintech companies, neobanks, payment providers, and any enterprise that wants to offer crypto services to their customers. It's not a consumer product; it's B2B infrastructure." },
-    { question: "What assets does Liquidity Hub support?", answer: "Liquidity Hub supports a range of digital assets including XRP, Bitcoin, Ethereum, USDT, USDC, and other major cryptocurrencies. The asset list continues to expand based on client demand and regulatory requirements." },
-    { question: "How is Liquidity Hub different from an exchange?", answer: "Liquidity Hub is not an exchange — it's a liquidity aggregator for enterprises. It sources the best prices across multiple venues (exchanges, OTC desks, market makers) and presents a single API. The enterprise doesn't need to manage multiple exchange relationships." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is Ripple Liquidity Hub?", a: "An enterprise platform providing single-API access to crypto liquidity from multiple sources — exchanges, market makers, DeFi. Businesses can buy, sell, and hold digital assets without building their own crypto infrastructure." },
-  { q: "How does it drive XRP demand?", a: "Supports XRP as a core asset, with some volume flowing through XRP. Integrates with Ripple Payments (ODL), which uses XRP as a bridge currency for cross-border settlements." },
-  { q: "Who can use it?", a: "B2B infrastructure for fintechs, neobanks, payment providers, and enterprises wanting to offer crypto services. Not a consumer product." },
-  { q: "What assets are supported?", a: "XRP, Bitcoin, Ethereum, USDT, USDC, and other major cryptocurrencies. The list expands based on demand and regulatory requirements." },
-  { q: "How is it different from an exchange?", a: "It's a liquidity aggregator, not an exchange. Sources best prices across multiple venues via a single API — enterprises don't need multiple exchange relationships." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RippleLiquidityHubPage() {

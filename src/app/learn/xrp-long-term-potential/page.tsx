@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-long-term-potential" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP Long-Term Potential: 5-Year Outlook (2026-2031)", description: "XRP's long-term potential — adoption trajectory, technology roadmap, and price scenarios through 2031.", url: "https://allaboutxrp.com/learn/xrp-long-term-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Long-Term Potential" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-long-term-potential" }),
-  buildFAQSchema([
-    { question: "What is XRP's long-term potential?", answer: "XRP's long-term potential is driven by institutional payment adoption, ETF inflows, tokenized assets on XRPL, RLUSD stablecoin growth, and the broader crypto market maturation. If these catalysts materialize, XRP could reach $10-20+ over 5 years. The combination of regulatory clarity and real utility gives XRP one of the stronger long-term cases in crypto." },
-    { question: "Is XRP a good long-term hold?", answer: "XRP has strong long-term fundamentals: clear regulatory status, 300+ institutional partnerships, growing real-world utility, and multiple upcoming catalysts (ETF, RLUSD, tokenization). However, crypto markets are volatile and uncertain. Long-term holding reduces timing risk but doesn't eliminate market risk." },
-    { question: "Where will XRP be in 5 years?", answer: "Predicting exact prices is impossible, but realistic scenarios range from $5-20+ in a favorable environment to potentially lower if adoption stalls or competition intensifies. The $10 target (~$570B market cap) is the most commonly cited realistic bull case for the next 5 years." },
-    { question: "What could go wrong for XRP long-term?", answer: "Key long-term risks: CBDCs reducing need for private bridge currencies, stablecoins capturing cross-border settlement share, Ripple failing to execute on its roadmap, broader crypto bear market, or technological obsolescence from newer platforms." },
-    { question: "Should I hold XRP for 5+ years?", answer: "If you believe in the institutional payment adoption thesis and can handle 50-80% drawdowns along the way, long-term holding aligns with XRP's catalysts. But never invest more than you can afford to lose, and consider taking profits along the way. Not financial advice." },
-  ]),
-];
-
 const faqItems = [
   { q: "What is XRP's long-term potential?", a: "Driven by institutional adoption, ETF, RLUSD, tokenization. $10-20+ possible over 5 years with catalyst alignment." },
   { q: "Is XRP a good long-term hold?", a: "Strong fundamentals (regulatory clarity, 300+ partners, real utility). But volatile — long-term reduces timing risk, not market risk." },
   { q: "Where will XRP be in 5 years?", a: "Realistic range: $5-20+. $10 (~$570B cap) is the common bull case. Impossible to predict exactly." },
   { q: "What could go wrong?", a: "CBDCs reducing demand, stablecoin competition, Ripple execution failure, crypto bear market, technological obsolescence." },
   { q: "Should I hold 5+ years?", a: "If you believe the thesis and can handle 50-80% drawdowns. Take profits along the way. Not financial advice." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP Long-Term Potential: 5-Year Outlook (2026-2031)", description: "XRP's long-term potential — adoption trajectory, technology roadmap, and price scenarios through 2031.", url: "https://allaboutxrp.com/learn/xrp-long-term-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Long-Term Potential" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-long-term-potential" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLongTermPotentialPage() {

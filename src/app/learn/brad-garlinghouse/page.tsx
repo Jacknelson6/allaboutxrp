@@ -51,6 +51,15 @@ const personSchema = {
   ],
 };
 
+const faqItems = [
+  { q: "Who is Brad Garlinghouse?", a: "CEO of Ripple Labs since 2017. Led Ripple through the SEC lawsuit, secured XRP's regulatory clarity, and expanded Ripple into a full-stack institutional crypto platform including payments, custody, stablecoins, and prime brokerage." },
+  { q: "What is his background?", a: "University of Kansas grad, Harvard Business School MBA. Senior roles at AOL, CEO of Hightail, and SVP at Yahoo (where he wrote the famous 'Peanut Butter Manifesto'). Joined Ripple as COO in 2015, became CEO in 2017." },
+  { q: "What is the Peanut Butter Manifesto?", a: "A 2006 internal Yahoo memo arguing the company was spreading resources too thin ('like peanut butter') across too many products. It leaked, became one of tech's most famous corporate memos, and showed Garlinghouse's strategic thinking." },
+  { q: "How did he handle the SEC lawsuit?", a: "Chose to fight rather than settle despite being personally named. Led Ripple through 4+ years of litigation resulting in the landmark ruling that XRP is not a security on public exchanges — a precedent for the entire industry." },
+  { q: "What is his vision for XRP?", a: "XRP as the bridge currency for global finance, enabling instant cross-border payments. Ripple as a full institutional crypto infrastructure company — payments + custody + stablecoin + prime brokerage." },
+  { q: "Does Brad Garlinghouse own XRP?", a: "Yes. Garlinghouse has publicly stated he holds XRP. His XRP holdings were part of the SEC lawsuit allegations, though the court ultimately found no wrongdoing in his personal XRP sales." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Who Is Brad Garlinghouse? Ripple's CEO Profile",
@@ -66,22 +75,7 @@ const schemas = [
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/brad-garlinghouse" }),
   personSchema,
-  buildFAQSchema([
-    { question: "Who is Brad Garlinghouse?", answer: "Brad Garlinghouse is the CEO of Ripple Labs, the company behind the XRP cryptocurrency, XRP Ledger, and RLUSD stablecoin. He has led Ripple since 2017, guiding the company through the SEC lawsuit, securing regulatory clarity for XRP, and expanding Ripple into a full-stack institutional crypto platform." },
-    { question: "What is Brad Garlinghouse's background?", answer: "Garlinghouse graduated from the University of Kansas and earned his MBA from Harvard Business School. Before Ripple, he held senior roles at AOL, Hightail (CEO), and Yahoo — where he authored the famous 'Peanut Butter Manifesto' memo criticizing Yahoo's unfocused strategy." },
-    { question: "What is the Peanut Butter Manifesto?", answer: "In 2006, while a Senior VP at Yahoo, Garlinghouse wrote an internal memo arguing that Yahoo was spreading its resources too thin — like peanut butter — across too many products instead of focusing. The memo leaked and became one of the most famous corporate memos in tech history." },
-    { question: "How did Brad Garlinghouse handle the SEC lawsuit?", answer: "Garlinghouse chose to fight rather than settle, even as the lawsuit personally named him. He led Ripple through a 4+ year legal battle that resulted in a landmark ruling that XRP is not a security when sold on public exchanges — a precedent-setting victory for the entire crypto industry." },
-    { question: "What is Brad Garlinghouse's vision for XRP?", answer: "Garlinghouse envisions XRP as the bridge currency for the global financial system, enabling instant cross-border payments at near-zero cost. He sees Ripple as an institutional crypto infrastructure company — not just a payments company — with XRP, RLUSD, custody, and prime brokerage forming a complete platform." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Who is Brad Garlinghouse?", a: "CEO of Ripple Labs since 2017. Led Ripple through the SEC lawsuit, secured XRP's regulatory clarity, and expanded Ripple into a full-stack institutional crypto platform including payments, custody, stablecoins, and prime brokerage." },
-  { q: "What is his background?", a: "University of Kansas grad, Harvard Business School MBA. Senior roles at AOL, CEO of Hightail, and SVP at Yahoo (where he wrote the famous 'Peanut Butter Manifesto'). Joined Ripple as COO in 2015, became CEO in 2017." },
-  { q: "What is the Peanut Butter Manifesto?", a: "A 2006 internal Yahoo memo arguing the company was spreading resources too thin ('like peanut butter') across too many products. It leaked, became one of tech's most famous corporate memos, and showed Garlinghouse's strategic thinking." },
-  { q: "How did he handle the SEC lawsuit?", a: "Chose to fight rather than settle despite being personally named. Led Ripple through 4+ years of litigation resulting in the landmark ruling that XRP is not a security on public exchanges — a precedent for the entire industry." },
-  { q: "What is his vision for XRP?", a: "XRP as the bridge currency for global finance, enabling instant cross-border payments. Ripple as a full institutional crypto infrastructure company — payments + custody + stablecoin + prime brokerage." },
-  { q: "Does Brad Garlinghouse own XRP?", a: "Yes. Garlinghouse has publicly stated he holds XRP. His XRP holdings were part of the SEC lawsuit allegations, though the court ultimately found no wrongdoing in his personal XRP sales." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BradGarlinghousePage() {

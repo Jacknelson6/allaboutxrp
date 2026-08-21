@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/what-is-ripple" },
 };
 
+const faqItems = [
+  { q: "What is the difference between Ripple and XRP?", a: "Ripple is a private technology company. XRP is a decentralized digital asset on the XRP Ledger. Ripple uses XRP in its products but doesn't own or control the XRP Ledger. XRP would continue to function if Ripple ceased to exist." },
+  { q: "What does Ripple actually do?", a: "Ripple provides enterprise solutions for cross-border payments, digital asset custody, prime brokerage, treasury management, and stablecoins. It has processed over $90 billion in global payments and serves clients in 55+ countries." },
+  { q: "Who owns Ripple?", a: "Ripple is a privately held company. Co-founder Chris Larsen serves as Executive Chairman. Key investors include Fortress Investment Group, Citadel Securities, Pantera Capital, and Galaxy Digital. Valued at approximately $50 billion." },
+  { q: "Is Ripple a bank?", a: "No. Ripple is a technology company that provides payment infrastructure to banks and financial institutions. It holds various regulatory licenses but is not itself a bank." },
+  { q: "Did Ripple win the SEC lawsuit?", a: "Largely, yes. In July 2023, Judge Torres ruled that XRP sold on public exchanges is not a security. Ripple paid a $125 million penalty — far less than the SEC's $2 billion demand." },
+  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, and Kraken. Check our step-by-step guide at /how-to-start for everything you need to know." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "What is Ripple? Ripple vs XRP Explained",
@@ -44,21 +53,7 @@ const schemas = [
     { name: "What is Ripple?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/what-is-ripple" }),
-  buildFAQSchema([
-    { question: "What is the difference between Ripple and XRP?", answer: "Ripple is a private technology company headquartered in San Francisco. XRP is a decentralized digital asset on the XRP Ledger. Ripple uses XRP in its products but does not own or control the XRP Ledger." },
-    { question: "What does Ripple actually do?", answer: "Ripple provides enterprise solutions for cross-border payments, digital asset custody, prime brokerage, treasury management, and stablecoins." },
-    { question: "Who owns Ripple?", answer: "Ripple is a private company. Co-founder Chris Larsen serves as Executive Chairman. Key investors include Fortress Investment Group, Citadel Securities, Pantera Capital, Galaxy Digital." },
-    { question: "Is Ripple a bank?", answer: "No. Ripple is a technology company that provides payment infrastructure to banks and financial institutions." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the difference between Ripple and XRP?", a: "Ripple is a private technology company. XRP is a decentralized digital asset on the XRP Ledger. Ripple uses XRP in its products but doesn't own or control the XRP Ledger. XRP would continue to function if Ripple ceased to exist." },
-  { q: "What does Ripple actually do?", a: "Ripple provides enterprise solutions for cross-border payments, digital asset custody, prime brokerage, treasury management, and stablecoins. It has processed over $90 billion in global payments and serves clients in 55+ countries." },
-  { q: "Who owns Ripple?", a: "Ripple is a privately held company. Co-founder Chris Larsen serves as Executive Chairman. Key investors include Fortress Investment Group, Citadel Securities, Pantera Capital, and Galaxy Digital. Valued at approximately $50 billion." },
-  { q: "Is Ripple a bank?", a: "No. Ripple is a technology company that provides payment infrastructure to banks and financial institutions. It holds various regulatory licenses but is not itself a bank." },
-  { q: "Did Ripple win the SEC lawsuit?", a: "Largely, yes. In July 2023, Judge Torres ruled that XRP sold on public exchanges is not a security. Ripple paid a $125 million penalty — far less than the SEC's $2 billion demand." },
-  { q: "How do I buy XRP?", a: "You can buy XRP on major exchanges like Uphold, Coinbase, and Kraken. Check our step-by-step guide at /how-to-start for everything you need to know." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function WhatIsRipplePage() {

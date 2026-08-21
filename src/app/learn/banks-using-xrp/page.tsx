@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/how-banks-use-xrp" },
 };
 
+const faqItems = [
+  { q: "Which banks use XRP directly?", a: "Banks and institutions confirmed to use XRP directly through ODL include SBI Remit, Tranglo, Modulr, Azimo (now Papaya Global), FlashFX, and several others. Major banks like SBI Holdings have deep partnerships where XRP is used for specific corridors." },
+  { q: "How many banks use RippleNet?", a: "Over 300 financial institutions across 55+ countries are connected to RippleNet. This includes banks, payment providers, money transfer operators, and central banks. Not all use XRP directly — some only use the messaging layer." },
+  { q: "Is JP Morgan using XRP?", a: "No. JP Morgan has its own blockchain initiative (Onyx/JPM Coin). However, Ripple's competition has pushed JP Morgan to accelerate its blockchain payment solutions." },
+  { q: "What's the difference between 'using RippleNet' and 'using XRP'?", a: "RippleNet is Ripple's payment network for messaging and settlement. Institutions can use RippleNet without XRP for faster messaging. On-Demand Liquidity (ODL) is the product that uses XRP as a bridge currency. ODL is a subset of RippleNet usage." },
+  { q: "Will more banks adopt XRP in 2026?", a: "Very likely. The SEC case resolution removed the biggest barrier to institutional XRP adoption in the US. With ETF applications pending and RLUSD growing, banks have more reasons — and fewer risks — to integrate XRP than ever before." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How Banks Are Secretly Testing XRP",
@@ -45,20 +53,7 @@ const schemas = [
     { name: "Banks Using XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-banks-use-xrp" }),
-  buildFAQSchema([
-    { question: "Which banks use XRP directly?", answer: "Banks and financial institutions confirmed to use XRP directly through On-Demand Liquidity (ODL) include SBI Remit, Tranglo, Modulr, Azimo (now Papaya Global), FlashFX, and several others. Major banks like SBI Holdings and Santander use RippleNet, with some corridors leveraging XRP for liquidity." },
-    { question: "How many banks use RippleNet?", answer: "Over 300 financial institutions across 55+ countries are connected to RippleNet. This includes banks, payment providers, money transfer operators, and central banks. Not all of them use XRP directly — some use RippleNet's messaging capabilities without the ODL/XRP component." },
-    { question: "Is JP Morgan using XRP?", answer: "JP Morgan has its own blockchain initiative (Onyx/JPM Coin) and is not currently a RippleNet partner. However, the competitive pressure from Ripple has pushed JP Morgan to accelerate its own blockchain payment solutions." },
-    { question: "Why don't banks announce XRP usage publicly?", answer: "Many banks pilot new payment technologies quietly to avoid regulatory scrutiny, competitive attention, or customer concern. Some institutions use RippleNet/ODL through white-label integrations where the XRP component isn't customer-facing. As regulatory clarity improves, more public announcements are expected." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Which banks use XRP directly?", a: "Banks and institutions confirmed to use XRP directly through ODL include SBI Remit, Tranglo, Modulr, Azimo (now Papaya Global), FlashFX, and several others. Major banks like SBI Holdings have deep partnerships where XRP is used for specific corridors." },
-  { q: "How many banks use RippleNet?", a: "Over 300 financial institutions across 55+ countries are connected to RippleNet. This includes banks, payment providers, money transfer operators, and central banks. Not all use XRP directly — some only use the messaging layer." },
-  { q: "Is JP Morgan using XRP?", a: "No. JP Morgan has its own blockchain initiative (Onyx/JPM Coin). However, Ripple's competition has pushed JP Morgan to accelerate its blockchain payment solutions." },
-  { q: "What's the difference between 'using RippleNet' and 'using XRP'?", a: "RippleNet is Ripple's payment network for messaging and settlement. Institutions can use RippleNet without XRP for faster messaging. On-Demand Liquidity (ODL) is the product that uses XRP as a bridge currency. ODL is a subset of RippleNet usage." },
-  { q: "Will more banks adopt XRP in 2026?", a: "Very likely. The SEC case resolution removed the biggest barrier to institutional XRP adoption in the US. With ETF applications pending and RLUSD growing, banks have more reasons — and fewer risks — to integrate XRP than ever before." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BanksUsingXRPPage() {

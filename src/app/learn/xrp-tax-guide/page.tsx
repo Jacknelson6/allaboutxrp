@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "Do I have to pay taxes on XRP?", a: "Yes. In the United States, the IRS treats XRP (and all cryptocurrency) as property. Selling, trading, or spending XRP triggers a taxable event. You owe capital gains tax on any profit. You can deduct capital losses to offset gains. Simply holding XRP is not taxable." },
+  { q: "How are XRP staking rewards taxed?", a: "Staking rewards are taxed as ordinary income at the fair market value when received. Your cost basis becomes the fair market value at the time of receipt. When you later sell, any additional gain or loss is treated as a capital gain or loss." },
+  { q: "What is the best cost basis method for XRP?", a: "FIFO (First In, First Out) is the IRS default and simplest method. HIFO (Highest In, First Out) can minimize taxable gains but requires specific identification and detailed records. LIFO (Last In, First Out) may benefit in rising markets. Consult a tax professional for your specific situation." },
+  { q: "Are XRP airdrops taxable?", a: "Yes. Airdrops are treated as ordinary income at the fair market value when you receive and have control over the tokens. You must report this as income on your tax return, even if you don't sell the airdropped tokens." },
+  { q: "Does the wash sale rule apply to XRP?", a: "Historically, crypto was exempt from wash sale rules (which prevent claiming a loss if you rebuy within 30 days). However, new legislation may extend wash sale rules to cryptocurrency starting in 2026. Check current rules or consult a tax advisor, as this is an evolving area." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Tax Guide 2026: What You Need to Know",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "XRP Tax Guide 2026" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-tax-guide" }),
-  buildFAQSchema([
-    { question: "Do I have to pay taxes on XRP?", answer: "Yes. In the United States, XRP is treated as property by the IRS. Selling, trading, or spending XRP triggers a taxable event. You owe capital gains tax on any profit and can deduct capital losses." },
-    { question: "How are XRP staking rewards taxed?", answer: "Staking rewards are taxed as ordinary income at the fair market value when you receive them. When you later sell the staking rewards, you also owe capital gains tax on any price appreciation since receipt." },
-    { question: "What is the best cost basis method for XRP?", answer: "It depends on your situation. FIFO (First In, First Out) is the IRS default. HIFO (Highest In, First Out) minimizes taxable gains but requires specific identification. Consult a tax professional for your specific circumstances." },
-    { question: "Are XRP airdrops taxable?", answer: "Yes. Airdrops are treated as ordinary income, taxed at the fair market value of the tokens when you receive them. You must report airdrop income even if you don't sell the tokens." },
-    { question: "Do I need to report XRP if I didn't sell?", answer: "Simply holding XRP is not a taxable event. However, you may still need to report your holdings on certain forms, particularly if held on foreign exchanges (FBAR/FATCA requirements)." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Do I have to pay taxes on XRP?", a: "Yes. In the United States, the IRS treats XRP (and all cryptocurrency) as property. Selling, trading, or spending XRP triggers a taxable event. You owe capital gains tax on any profit. You can deduct capital losses to offset gains. Simply holding XRP is not taxable." },
-  { q: "How are XRP staking rewards taxed?", a: "Staking rewards are taxed as ordinary income at the fair market value when received. Your cost basis becomes the fair market value at the time of receipt. When you later sell, any additional gain or loss is treated as a capital gain or loss." },
-  { q: "What is the best cost basis method for XRP?", a: "FIFO (First In, First Out) is the IRS default and simplest method. HIFO (Highest In, First Out) can minimize taxable gains but requires specific identification and detailed records. LIFO (Last In, First Out) may benefit in rising markets. Consult a tax professional for your specific situation." },
-  { q: "Are XRP airdrops taxable?", a: "Yes. Airdrops are treated as ordinary income at the fair market value when you receive and have control over the tokens. You must report this as income on your tax return, even if you don't sell the airdropped tokens." },
-  { q: "Does the wash sale rule apply to XRP?", a: "Historically, crypto was exempt from wash sale rules (which prevent claiming a loss if you rebuy within 30 days). However, new legislation may extend wash sale rules to cryptocurrency starting in 2026. Check current rules or consult a tax advisor, as this is an evolving area." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPTaxGuidePage() {

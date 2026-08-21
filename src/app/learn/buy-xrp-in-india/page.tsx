@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-in-india" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in India?", a: "Yes. Legal since the Supreme Court's 2020 ruling overturning the RBI ban. Subject to 30% flat tax on gains and 1% TDS." },
+  { q: "Best exchange for Indians?", a: "WazirX, CoinDCX, ZebPay — all support XRP/INR pairs with UPI and bank transfer deposits." },
+  { q: "What is the crypto tax in India?", a: "Flat 30% on all crypto gains. No deductions allowed except acquisition cost. Plus 1% TDS on transactions above ₹10,000." },
+  { q: "Can I buy XRP with UPI?", a: "Yes. WazirX, CoinDCX, and ZebPay all support free, instant UPI deposits." },
+  { q: "Can I offset crypto losses?", a: "No. Losses cannot be offset against gains or other income. One of the strictest tax regimes globally." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP in India: INR Guide (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP in India" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-in-india" }),
-  buildFAQSchema([
-    { question: "Is XRP legal in India?", answer: "Yes. Cryptocurrency is legal in India following the Supreme Court's 2020 ruling overturning the RBI banking ban. However, crypto is subject to a 30% flat tax on gains and 1% TDS on transactions. India has not banned crypto but has implemented heavy taxation." },
-    { question: "What is the best exchange to buy XRP in India?", answer: "WazirX, CoinDCX, and ZebPay are the top Indian exchanges supporting XRP with INR pairs. Binance also serves Indian users. All support UPI and bank transfers for INR deposits." },
-    { question: "What is the crypto tax in India?", answer: "India imposes a flat 30% tax on all cryptocurrency gains with no deductions allowed except the cost of acquisition. Additionally, 1% TDS (Tax Deducted at Source) is applied on all crypto transactions above ₹10,000." },
-    { question: "Can I buy XRP with UPI in India?", answer: "Yes. Major Indian exchanges like WazirX, CoinDCX, and ZebPay support UPI deposits for instant, free INR funding. This is the most popular deposit method among Indian crypto investors." },
-    { question: "Can I offset crypto losses against gains in India?", answer: "No. Under India's current tax law, crypto losses cannot be offset against crypto gains or any other income. Each profitable transaction is taxed at 30% independently. This is one of the strictest crypto tax regimes globally." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in India?", a: "Yes. Legal since the Supreme Court's 2020 ruling overturning the RBI ban. Subject to 30% flat tax on gains and 1% TDS." },
-  { q: "Best exchange for Indians?", a: "WazirX, CoinDCX, ZebPay — all support XRP/INR pairs with UPI and bank transfer deposits." },
-  { q: "What is the crypto tax in India?", a: "Flat 30% on all crypto gains. No deductions allowed except acquisition cost. Plus 1% TDS on transactions above ₹10,000." },
-  { q: "Can I buy XRP with UPI?", a: "Yes. WazirX, CoinDCX, and ZebPay all support free, instant UPI deposits." },
-  { q: "Can I offset crypto losses?", a: "No. Losses cannot be offset against gains or other income. One of the strictest tax regimes globally." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPInIndiaPage() {

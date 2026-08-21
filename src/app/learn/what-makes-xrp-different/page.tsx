@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What makes XRP different from Bitcoin?", a: "Speed (3-5 seconds vs 10-60 minutes), cost ($0.0002 vs $1-50), energy (no mining vs massive electricity), and purpose (payments vs store of value). They're fundamentally different tools." },
+  { q: "What makes XRP different from Ethereum?", a: "XRP is purpose-built for payments. Ethereum is a general-purpose platform for smart contracts and dApps. XRP is faster, cheaper, and focused on institutional finance rather than DeFi and NFTs." },
+  { q: "Is XRP centralized?", a: "No. The XRP Ledger is decentralized with 150+ validators worldwide. Ripple runs only a handful of them. No single entity can control or reverse transactions. It's a common myth that XRP is centralized." },
+  { q: "Why do banks prefer XRP?", a: "Banks need fast, cheap, reliable payment rails. XRP settles in 3-5 seconds for fractions of a cent. It's also the most legally vetted crypto (post-SEC settlement) and compliant with ISO 20022 banking standards." },
+  { q: "Does XRP have smart contracts?", a: "XRPL has native smart features (DEX, AMM, escrow, NFTs) built into the protocol. The XRPL EVM sidechain adds full Ethereum-compatible smart contracts. It's different from Ethereum's approach but increasingly capable." },
+  { q: "Is XRP a good investment?", a: "XRP has unique advantages — institutional adoption, regulatory clarity, and a specific use case in cross-border payments. Whether it's right for you depends on your goals and risk tolerance. This isn't financial advice." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -33,22 +42,7 @@ const schemas = [
     { name: "What Makes XRP Different" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What makes XRP different from Bitcoin?", answer: "XRP settles in 3-5 seconds (vs Bitcoin's 10-60 minutes), costs a fraction of a cent per transaction (vs Bitcoin's $1-50), uses no mining (vs Bitcoin's massive energy consumption), and was built specifically for payments (vs Bitcoin's store of value focus)." },
-    { question: "What makes XRP different from Ethereum?", answer: "XRP is purpose-built for payments and settlement, while Ethereum is a general-purpose smart contract platform. XRP is faster (3-5s vs 12-15s), cheaper ($0.0002 vs $1-50), and doesn't use mining or staking for consensus." },
-    { question: "Is XRP better than other cryptocurrencies?", answer: "XRP is better for payments and cross-border settlement specifically. Other cryptos are better for different things — Ethereum for smart contracts, Bitcoin for store of value. XRP's advantage is speed, cost, and institutional adoption." },
-    { question: "Why was XRP created?", answer: "XRP was created to solve cross-border payment problems. While Bitcoin was created as 'digital gold' and Ethereum as a 'world computer,' XRP was purpose-built to move money across borders instantly and cheaply." },
-    { question: "Does XRP use mining?", answer: "No. XRP uses a unique consensus mechanism where trusted validators agree on transactions in 3-5 seconds. No mining means no massive energy consumption — XRP is one of the most energy-efficient cryptocurrencies." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What makes XRP different from Bitcoin?", a: "Speed (3-5 seconds vs 10-60 minutes), cost ($0.0002 vs $1-50), energy (no mining vs massive electricity), and purpose (payments vs store of value). They're fundamentally different tools." },
-  { q: "What makes XRP different from Ethereum?", a: "XRP is purpose-built for payments. Ethereum is a general-purpose platform for smart contracts and dApps. XRP is faster, cheaper, and focused on institutional finance rather than DeFi and NFTs." },
-  { q: "Is XRP centralized?", a: "No. The XRP Ledger is decentralized with 150+ validators worldwide. Ripple runs only a handful of them. No single entity can control or reverse transactions. It's a common myth that XRP is centralized." },
-  { q: "Why do banks prefer XRP?", a: "Banks need fast, cheap, reliable payment rails. XRP settles in 3-5 seconds for fractions of a cent. It's also the most legally vetted crypto (post-SEC settlement) and compliant with ISO 20022 banking standards." },
-  { q: "Does XRP have smart contracts?", a: "XRPL has native smart features (DEX, AMM, escrow, NFTs) built into the protocol. The XRPL EVM sidechain adds full Ethereum-compatible smart contracts. It's different from Ethereum's approach but increasingly capable." },
-  { q: "Is XRP a good investment?", a: "XRP has unique advantages — institutional adoption, regulatory clarity, and a specific use case in cross-border payments. Whether it's right for you depends on your goals and risk tolerance. This isn't financial advice." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function WhatMakesXRPDifferentPage() {

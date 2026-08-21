@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-western-union" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Western Union: Remittance Comparison (2026)", description: "Compare XRP and Western Union for sending money internationally — fees, speed, and accessibility.", url: "https://allaboutxrp.com/learn/xrp-vs-western-union", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Western Union" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-western-union" }),
-  buildFAQSchema([
-    { question: "Is XRP cheaper than Western Union?", answer: "Yes, dramatically. XRP transfers cost ~$0.0005. Western Union charges $5-50+ per transfer depending on amount, destination, and payment method, plus a 1-5% FX markup. On a $500 remittance, XRP saves $25-50+ compared to Western Union." },
-    { question: "Is XRP faster than Western Union?", answer: "Yes. XRP settles in 3-5 seconds. Western Union's speed varies — bank transfers take 1-5 days, while cash pickups can be available in minutes. However, XRP's settlement is truly final in seconds." },
-    { question: "Can Western Union reach more places than XRP?", answer: "Western Union has 500,000+ physical agent locations in 200+ countries. This physical infrastructure reaches people without internet or bank access. XRP requires internet access and a crypto exchange — limiting its reach in unbanked areas. This is Western Union's biggest advantage." },
-    { question: "Will XRP replace Western Union?", answer: "XRP won't fully replace Western Union soon because WU's physical infrastructure serves unbanked populations. However, XRP is capturing an increasing share of digital remittances through Ripple's ODL corridors, especially in Asian remittance corridors where costs are highest." },
-    { question: "Does Western Union use XRP?", answer: "Western Union tested Ripple's technology in 2018 but didn't adopt it at scale, citing insufficient cost savings. As of 2026, Western Union does not use XRP or Ripple technology for its core transfer services." },
-  ]),
-];
-
 const faqItems = [
   { q: "Is XRP cheaper?", a: "Yes — XRP: ~$0.0005 per transfer. Western Union: $5-50+ per transfer + 1-5% FX markup. XRP saves 95-99%." },
   { q: "Is XRP faster?", a: "XRP: 3-5 seconds. Western Union: minutes to 5 days depending on method. XRP wins on settlement speed." },
   { q: "Can Western Union reach more places?", a: "Yes — 500,000+ physical locations in 200+ countries. Critical for unbanked populations without internet access." },
   { q: "Will XRP replace Western Union?", a: "Not fully — WU's physical infrastructure is irreplaceable for unbanked users. But XRP is capturing digital remittance share." },
   { q: "Does Western Union use XRP?", a: "No. They tested Ripple in 2018 but didn't adopt it. They use their own proprietary systems." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Western Union: Remittance Comparison (2026)", description: "Compare XRP and Western Union for sending money internationally — fees, speed, and accessibility.", url: "https://allaboutxrp.com/learn/xrp-vs-western-union", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Western Union" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-western-union" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsWesternUnionPage() {

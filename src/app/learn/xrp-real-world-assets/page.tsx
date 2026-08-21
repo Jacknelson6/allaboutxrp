@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-real-world-assets" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP and Real-World Assets: Tokenization on the XRPL", description: "How the XRP Ledger enables tokenization of real-world assets including stocks, bonds, real estate, and commodities.", url: "https://allaboutxrp.com/learn/xrp-real-world-assets", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP and Real-World Assets" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-real-world-assets" }),
-  buildFAQSchema([
-    { question: "What are real-world assets (RWAs) on the XRP Ledger?", answer: "Real-world assets (RWAs) on the XRPL are tokenized representations of physical or traditional financial assets — like stocks, bonds, real estate, commodities, and art — created as XRPL tokens. They can be traded, transferred, and settled using the XRP Ledger's fast, cheap infrastructure." },
-    { question: "How does XRP enable RWA tokenization?", answer: "The XRPL has native token issuance capabilities — anyone can create tokens representing real-world assets. These tokens inherit the XRPL's 3-5 second settlement, near-zero fees, and built-in DEX trading. Ripple's institutional partnerships and compliance tools make it suitable for regulated asset tokenization." },
-    { question: "What is the market size for tokenized real-world assets?", answer: "The tokenized RWA market is projected to reach $10-16 trillion by 2030, according to BCG and McKinsey estimates. This includes tokenized securities, real estate, commodities, and private credit. Even a small share of this market would represent massive value flowing through enabling blockchains like the XRPL." },
-    { question: "Is Ripple involved in RWA tokenization?", answer: "Yes. Ripple has made RWA tokenization a strategic priority. Its acquisition of Metaco (institutional custody) and partnerships with tokenization platforms position the XRPL as infrastructure for regulated asset tokenization. Ripple Custody supports tokenized asset management." },
-    { question: "What advantages does XRPL have for RWA tokenization?", answer: "The XRPL offers native token issuance, 3-5 second settlement, near-zero fees, built-in DEX for secondary trading, ISO 20022 compliance for institutional integration, regulatory clarity (XRP is not a security), and Ripple's institutional partnerships and compliance infrastructure." },
-  ]),
-];
-
 const faqItems = [
   { q: "What are RWAs on the XRP Ledger?", a: "Tokenized representations of real-world assets — stocks, bonds, real estate, commodities — created as XRPL tokens that can be traded using the ledger's fast, cheap infrastructure." },
   { q: "How does XRP enable RWA tokenization?", a: "The XRPL has native token issuance with 3-5 second settlement, near-zero fees, and a built-in DEX. Ripple's institutional tools add compliance and custody." },
   { q: "How big is the RWA market?", a: "Projected to reach $10-16 trillion by 2030 (BCG/McKinsey). Even a small share would represent massive value flowing through the XRPL." },
   { q: "Is Ripple involved in RWAs?", a: "Yes — it's a strategic priority. Ripple acquired Metaco for custody, has tokenization partnerships, and positions XRPL as institutional RWA infrastructure." },
   { q: "What XRPL advantages matter for RWAs?", a: "Native token issuance, fast settlement, near-zero fees, built-in DEX, ISO 20022 compliance, regulatory clarity, and Ripple's institutional relationships." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP and Real-World Assets: Tokenization on the XRPL", description: "How the XRP Ledger enables tokenization of real-world assets including stocks, bonds, real estate, and commodities.", url: "https://allaboutxrp.com/learn/xrp-real-world-assets", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP and Real-World Assets" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-real-world-assets" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPRealWorldAssetsPage() {

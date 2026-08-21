@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-cardano" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Cardano (ADA): Complete Comparison", description: "A thorough comparison of XRP and Cardano covering technology, speed, use cases, adoption, and investment perspective.", url: "https://allaboutxrp.com/learn/xrp-vs-cardano", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Cardano" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-cardano" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Cardano?", answer: "XRP is designed primarily for fast, low-cost cross-border payments and institutional use through Ripple's enterprise network. Cardano (ADA) is a smart contract platform focused on academic research-driven development, DeFi, and decentralized applications. They serve fundamentally different purposes." },
-    { question: "Which is faster, XRP or Cardano?", answer: "XRP is faster. XRP settles transactions in 3-5 seconds with guaranteed finality. Cardano's block time is about 20 seconds, and most applications wait for multiple confirmations. XRP also has higher throughput at 1,500+ TPS vs Cardano's ~250 TPS base layer." },
-    { question: "Is XRP or Cardano a better investment?", answer: "They target different markets. XRP benefits from institutional payment adoption, regulatory clarity, and pending ETF applications. Cardano benefits from smart contract ecosystem growth and DeFi development. XRP has a larger market cap and more institutional backing, while Cardano has a stronger DeFi/dApp narrative." },
-    { question: "Does XRP have smart contracts like Cardano?", answer: "XRP has smart contract capabilities through Hooks (lightweight on-chain logic) and an EVM-compatible sidechain. However, Cardano's smart contract ecosystem (Plutus) is more mature and purpose-built. XRP's primary strength is payments, not smart contracts." },
-    { question: "Which has more real-world adoption, XRP or Cardano?", answer: "XRP has significantly more institutional and enterprise adoption through Ripple's 300+ financial institution partnerships and live payment corridors in 55+ countries. Cardano has growing DeFi adoption and government partnerships in developing nations (notably in Africa), but fewer large-scale enterprise deployments." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference between XRP and Cardano?", a: "XRP is for fast cross-border payments and institutional use. Cardano is a smart contract platform for DeFi and dApps. Different purposes entirely." },
   { q: "Which is faster, XRP or Cardano?", a: "XRP — 3-5 seconds with finality vs Cardano's ~20-second blocks. XRP also has higher throughput (1,500+ TPS vs ~250 TPS)." },
   { q: "Is XRP or Cardano better to invest in?", a: "Different thesis. XRP benefits from institutional payments and ETF potential. Cardano benefits from smart contract ecosystem growth. XRP has larger market cap." },
   { q: "Does XRP have smart contracts?", a: "Yes, through Hooks and EVM sidechain, but Cardano's Plutus smart contracts are more mature. XRP's primary strength is payments." },
   { q: "Which has more adoption?", a: "XRP has far more institutional adoption (300+ partners). Cardano has growing DeFi and government partnerships, mainly in Africa." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Cardano (ADA): Complete Comparison", description: "A thorough comparison of XRP and Cardano covering technology, speed, use cases, adoption, and investment perspective.", url: "https://allaboutxrp.com/learn/xrp-vs-cardano", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Cardano" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-cardano" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsCardanoPage() {

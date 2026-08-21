@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-reserves-explained" },
 };
 
+const faqItems = [
+  { q: "Why does a wallet need 1 XRP?", a: "The 1 XRP base reserve activates your XRPL account and prevents ledger spam by giving every account an economic cost." },
+  { q: "Can I get the 1 XRP back?", a: "You can delete an eligible account using AccountDelete and send its remaining XRP to another account, but the deletion transaction currently costs 0.2 XRP and has protocol conditions." },
+  { q: "What is the owner reserve?", a: "Usually 0.2 XRP locked per ledger object your account owns, including trust lines, DEX offers, escrows, and payment channels." },
+  { q: "Can reserve amounts change?", a: "Yes. Validators can vote to change reserves. The current 1 XRP base reserve and 0.2 XRP owner reserve took effect on December 2, 2024." },
+  { q: "How do I minimize locked XRP?", a: "Remove unused trust lines, cancel open DEX offers, close payment channels, and remove expired escrows. Each removed object frees 0.2 XRP." },
+  { q: "Is the reserve lost forever?", a: "No — it's locked, not lost. You can recover it by removing objects (owner reserve) or deleting your account (base reserve)." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Reserve Requirements: Current 1 XRP Minimum",
@@ -48,22 +57,7 @@ const schemas = [
     { name: "XRPL Reserves Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-reserves-explained" }),
-  buildFAQSchema([
-    { question: "Why does an XRP wallet need 1 XRP?", answer: "The 1 XRP base reserve is required to activate an XRPL account. It exists to prevent ledger spam by giving every account an economic cost." },
-    { question: "Can I get the 1 XRP reserve back?", answer: "An eligible account can use AccountDelete to send its remaining XRP to another account. The deletion transaction currently has a special 0.2 XRP cost and protocol conditions, so you do not recover the entire 1 XRP reserve." },
-    { question: "What is the owner reserve?", answer: "The owner reserve is usually an additional 0.2 XRP locked for each object your account owns on the ledger, including trust lines, DEX offers, escrows, and payment channels." },
-    { question: "Can the reserve amounts change?", answer: "Yes. Reserve amounts are network parameters that validators can vote to change. The current 1 XRP base reserve and 0.2 XRP owner reserve took effect on December 2, 2024." },
-    { question: "How do I minimize my locked XRP?", answer: "Remove unused trust lines, cancel open DEX offers, close unused payment channels, and finish or cancel eligible escrows. Each removed object usually frees 0.2 XRP of owner reserve." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Why does a wallet need 1 XRP?", a: "The 1 XRP base reserve activates your XRPL account and prevents ledger spam by giving every account an economic cost." },
-  { q: "Can I get the 1 XRP back?", a: "You can delete an eligible account using AccountDelete and send its remaining XRP to another account, but the deletion transaction currently costs 0.2 XRP and has protocol conditions." },
-  { q: "What is the owner reserve?", a: "Usually 0.2 XRP locked per ledger object your account owns, including trust lines, DEX offers, escrows, and payment channels." },
-  { q: "Can reserve amounts change?", a: "Yes. Validators can vote to change reserves. The current 1 XRP base reserve and 0.2 XRP owner reserve took effect on December 2, 2024." },
-  { q: "How do I minimize locked XRP?", a: "Remove unused trust lines, cancel open DEX offers, close payment channels, and remove expired escrows. Each removed object frees 0.2 XRP." },
-  { q: "Is the reserve lost forever?", a: "No — it's locked, not lost. You can recover it by removing objects (owner reserve) or deleting your account (base reserve)." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLReservesExplainedPage() {

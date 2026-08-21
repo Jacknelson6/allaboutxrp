@@ -28,6 +28,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-use-cases" },
 };
 
+const faqItems = [
+  { q: "What are the main use cases for XRP?", a: "XRP's primary use cases include: cross-border payments via Ripple's On-Demand Liquidity (ODL), DeFi on the XRP Ledger (native DEX, AMMs, lending), the RLUSD stablecoin, NFTs and tokenized assets on XRPL, micropayments, and bridge currency for institutional liquidity." },
+  { q: "How does Ripple use XRP for cross-border payments?", a: "Ripple's ODL uses XRP as a bridge currency. Fiat in Country A is converted to XRP, transferred in 3-5 seconds across the XRP Ledger, and converted back to fiat in Country B. This eliminates the need for pre-funded nostro/vostro accounts that tie up billions in capital." },
+  { q: "What is RLUSD and how does it use XRP?", a: "RLUSD is Ripple's USD-pegged stablecoin on the XRP Ledger. It provides on-chain dollar stability while leveraging XRPL's speed and low fees. RLUSD increases network activity and creates additional utility for the entire XRPL ecosystem." },
+  { q: "Can you build DeFi on the XRP Ledger?", a: "Yes. The XRPL has a built-in decentralized exchange (DEX), native AMMs, and supports tokenization. DeFi on XRPL benefits from 3-5 second finality and fees under $0.01, making it far more accessible than Ethereum-based DeFi." },
+  { q: "Are there NFTs on the XRP Ledger?", a: "Yes. The XRPL supports native NFTs through the XLS-20 standard with low minting costs (fractions of a cent), fast transfers, and built-in royalty enforcement — features that require complex smart contracts on other chains." },
+  { q: "How many companies use XRP?", a: "RippleNet includes over 300 financial institutions across 55+ countries. Key users include SBI Holdings, Tranglo, and numerous banks and payment providers using XRP through On-Demand Liquidity for real commercial transactions." },
+  { q: "Is XRP just for banks?", a: "No. While Ripple focuses on institutional payments, XRP and the XRPL are used for DeFi, NFTs, micropayments, gaming, and more. Anyone can build on the open-source XRP Ledger — it's not restricted to banks or financial institutions." },
+  { q: "What gives XRP its value?", a: "XRP derives value from its utility in cross-border payments (real commercial demand), its role as the native asset of the XRPL ecosystem, growing DeFi and NFT usage, potential ETF demand, and its fixed 100 billion supply with deflationary burning mechanism." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Use Cases: How XRP Is Used in the Real World",
@@ -42,25 +53,7 @@ const schemas = [
     { name: "XRP Use Cases" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-use-cases" }),
-  buildFAQSchema([
-    { question: "What are the main use cases for XRP?", answer: "XRP's primary use cases include: cross-border payments via Ripple's On-Demand Liquidity (ODL), DeFi on the XRP Ledger (native DEX, AMMs, lending), the RLUSD stablecoin, NFTs and tokenized assets on XRPL, micropayments, and bridge currency for institutional liquidity." },
-    { question: "How does Ripple use XRP for cross-border payments?", answer: "Ripple's On-Demand Liquidity (ODL) product uses XRP as a bridge currency. When a bank in Country A sends money to Country B, the fiat is converted to XRP, transferred in 3-5 seconds, and converted back to the destination currency — eliminating pre-funded accounts (nostro/vostro)." },
-    { question: "What is RLUSD and how does it use XRP?", answer: "RLUSD is Ripple's USD-pegged stablecoin built on the XRP Ledger. It provides a stable on-chain dollar that leverages the XRPL's speed and low fees. RLUSD increases activity on the XRP Ledger and creates additional utility for the network." },
-    { question: "Can you build DeFi on the XRP Ledger?", answer: "Yes. The XRP Ledger has a built-in decentralized exchange (DEX), native automated market makers (AMMs), and supports tokenization. DeFi protocols on XRPL benefit from 3-5 second finality and fees under $0.01, making it more accessible than Ethereum-based DeFi." },
-    { question: "Are there NFTs on the XRP Ledger?", answer: "Yes. The XRP Ledger supports native NFTs through the XLS-20 standard. XRPL NFTs benefit from low minting costs (fractions of a cent), fast transfers, and built-in royalty enforcement — features that require complex smart contracts on other chains." },
-    { question: "How many companies use XRP?", answer: "Ripple's network, RippleNet, includes over 300 financial institutions across 55+ countries. Key users include SBI Holdings (Japan), Tranglo (Southeast Asia), and numerous banks and payment providers using XRP through On-Demand Liquidity." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are the main use cases for XRP?", a: "XRP's primary use cases include: cross-border payments via Ripple's On-Demand Liquidity (ODL), DeFi on the XRP Ledger (native DEX, AMMs, lending), the RLUSD stablecoin, NFTs and tokenized assets on XRPL, micropayments, and bridge currency for institutional liquidity." },
-  { q: "How does Ripple use XRP for cross-border payments?", a: "Ripple's ODL uses XRP as a bridge currency. Fiat in Country A is converted to XRP, transferred in 3-5 seconds across the XRP Ledger, and converted back to fiat in Country B. This eliminates the need for pre-funded nostro/vostro accounts that tie up billions in capital." },
-  { q: "What is RLUSD and how does it use XRP?", a: "RLUSD is Ripple's USD-pegged stablecoin on the XRP Ledger. It provides on-chain dollar stability while leveraging XRPL's speed and low fees. RLUSD increases network activity and creates additional utility for the entire XRPL ecosystem." },
-  { q: "Can you build DeFi on the XRP Ledger?", a: "Yes. The XRPL has a built-in decentralized exchange (DEX), native AMMs, and supports tokenization. DeFi on XRPL benefits from 3-5 second finality and fees under $0.01, making it far more accessible than Ethereum-based DeFi." },
-  { q: "Are there NFTs on the XRP Ledger?", a: "Yes. The XRPL supports native NFTs through the XLS-20 standard with low minting costs (fractions of a cent), fast transfers, and built-in royalty enforcement — features that require complex smart contracts on other chains." },
-  { q: "How many companies use XRP?", a: "RippleNet includes over 300 financial institutions across 55+ countries. Key users include SBI Holdings, Tranglo, and numerous banks and payment providers using XRP through On-Demand Liquidity for real commercial transactions." },
-  { q: "Is XRP just for banks?", a: "No. While Ripple focuses on institutional payments, XRP and the XRPL are used for DeFi, NFTs, micropayments, gaming, and more. Anyone can build on the open-source XRP Ledger — it's not restricted to banks or financial institutions." },
-  { q: "What gives XRP its value?", a: "XRP derives value from its utility in cross-border payments (real commercial demand), its role as the native asset of the XRPL ecosystem, growing DeFi and NFT usage, potential ETF demand, and its fixed 100 billion supply with deflationary burning mechanism." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPUseCasesPage() {

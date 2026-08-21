@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-in-canada" },
 };
 
+const faqItems = [
+  { q: "Is XRP legal in Canada?", a: "Yes. XRP is fully legal. Crypto platforms must register with provincial securities regulators and comply with FINTRAC." },
+  { q: "Best exchange for Canadians?", a: "Kraken (OSC-registered, low fees), Coinbase, Bitbuy (Canadian-owned), Newton (free Interac e-Transfer). Kraken Pro for lowest fees." },
+  { q: "Can I use Interac e-Transfer?", a: "Yes. Newton, Bitbuy, and NDAX accept free Interac e-Transfer deposits. Most convenient for Canadians." },
+  { q: "Do I pay tax on XRP?", a: "Yes. CRA treats crypto as a commodity. 50% of capital gains are taxable at your marginal rate." },
+  { q: "What's the crypto tax rate?", a: "50% inclusion rate. In a 30% bracket with $10K profit: $10K × 50% × 30% = ~$1,500 tax owed." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP in Canada: CAD Guide (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP in Canada" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-in-canada" }),
-  buildFAQSchema([
-    { question: "Is XRP legal in Canada?", answer: "Yes. XRP is legal to buy, sell, and hold in Canada. Crypto trading platforms must register with provincial securities regulators and comply with FINTRAC anti-money laundering requirements." },
-    { question: "What is the best exchange to buy XRP in Canada?", answer: "Top Canadian options include Kraken (registered with OSC, low fees), Coinbase (easy to use), Bitbuy (Canadian-owned), and Newton (free Interac e-Transfer deposits). For lowest fees, use Kraken Pro." },
-    { question: "Can I buy XRP with Interac e-Transfer?", answer: "Yes. Several exchanges accept Interac e-Transfer for free or low-cost CAD deposits, including Newton, Bitbuy, and NDAX. This is the most convenient deposit method for Canadians." },
-    { question: "Do I pay tax on XRP in Canada?", answer: "Yes. The CRA treats cryptocurrency as a commodity. 50% of capital gains are taxable at your marginal income tax rate. You must report all crypto dispositions on your tax return." },
-    { question: "What is the Canadian crypto tax rate?", answer: "Only 50% of your capital gains are included in taxable income (the 'inclusion rate'). So if you're in a 30% tax bracket and make $10,000 profit on XRP, you'd owe roughly $1,500 in tax ($10,000 × 50% × 30%)." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP legal in Canada?", a: "Yes. XRP is fully legal. Crypto platforms must register with provincial securities regulators and comply with FINTRAC." },
-  { q: "Best exchange for Canadians?", a: "Kraken (OSC-registered, low fees), Coinbase, Bitbuy (Canadian-owned), Newton (free Interac e-Transfer). Kraken Pro for lowest fees." },
-  { q: "Can I use Interac e-Transfer?", a: "Yes. Newton, Bitbuy, and NDAX accept free Interac e-Transfer deposits. Most convenient for Canadians." },
-  { q: "Do I pay tax on XRP?", a: "Yes. CRA treats crypto as a commodity. 50% of capital gains are taxable at your marginal rate." },
-  { q: "What's the crypto tax rate?", a: "50% inclusion rate. In a 30% bracket with $10K profit: $10K × 50% × 30% = ~$1,500 tax owed." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPInCanadaPage() {

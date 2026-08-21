@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/buy-xrp-on-uphold" },
 };
 
+const faqItems = [
+  { q: "Did Uphold delist XRP during the SEC lawsuit?", a: "No. Uphold was one of the few US platforms that continued to support XRP trading throughout the entire SEC v Ripple lawsuit, making it a go-to for US-based XRP buyers." },
+  { q: "What are Uphold's fees for buying XRP?", a: "Uphold uses a spread-based fee model. The typical spread for XRP is 0.8-1.2%, built into the exchange rate. No additional commissions." },
+  { q: "Can I withdraw XRP from Uphold?", a: "Yes. Uphold supports XRP withdrawals to external wallets. The withdrawal fee is typically 0.1 XRP, and transactions settle in 3-5 seconds." },
+  { q: "Is Uphold good for buying XRP?", a: "Excellent for beginners due to its simple interface. Spread-based fees are higher than pro platforms, but the convenience is unmatched." },
+  { q: "What countries does Uphold support?", a: "Uphold is available in 150+ countries including all 50 US states, with GBP, EUR, and other local currency deposits." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Buy XRP on Uphold: Fastest Method (2026)",
@@ -44,21 +52,7 @@ const schemas = [
     { name: "Buy XRP on Uphold" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-on-uphold" }),
-  buildFAQSchema([
-    { question: "Did Uphold delist XRP during the SEC lawsuit?", answer: "No. Uphold was one of the few US platforms that continued to support XRP trading throughout the entire SEC v Ripple lawsuit. This made it a go-to platform for US-based XRP buyers during 2021-2023." },
-    { question: "What are Uphold's fees for buying XRP?", answer: "Uphold uses a spread-based fee model rather than explicit trading fees. The typical spread for XRP is 0.8-1.2%, which is built into the exchange rate. There are no additional commission fees." },
-    { question: "Can I withdraw XRP from Uphold to my own wallet?", answer: "Yes. Uphold supports XRP withdrawals to external wallets on the XRP Ledger. The withdrawal fee is typically 0.1 XRP, and transactions settle in 3-5 seconds." },
-    { question: "Is Uphold good for buying XRP?", answer: "Uphold is excellent for beginners due to its simple interface and the ability to buy XRP directly with a bank account, debit card, or even other cryptos. However, the spread-based fees are higher than limit orders on Kraken or Binance." },
-    { question: "What countries does Uphold support?", answer: "Uphold is available in 150+ countries. In the US, it's available in all 50 states. It also supports GBP, EUR, and other local currency deposits." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Did Uphold delist XRP during the SEC lawsuit?", a: "No. Uphold was one of the few US platforms that continued to support XRP trading throughout the entire SEC v Ripple lawsuit, making it a go-to for US-based XRP buyers." },
-  { q: "What are Uphold's fees for buying XRP?", a: "Uphold uses a spread-based fee model. The typical spread for XRP is 0.8-1.2%, built into the exchange rate. No additional commissions." },
-  { q: "Can I withdraw XRP from Uphold?", a: "Yes. Uphold supports XRP withdrawals to external wallets. The withdrawal fee is typically 0.1 XRP, and transactions settle in 3-5 seconds." },
-  { q: "Is Uphold good for buying XRP?", a: "Excellent for beginners due to its simple interface. Spread-based fees are higher than pro platforms, but the convenience is unmatched." },
-  { q: "What countries does Uphold support?", a: "Uphold is available in 150+ countries including all 50 US states, with GBP, EUR, and other local currency deposits." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function BuyXRPOnUpholdPage() {

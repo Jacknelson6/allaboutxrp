@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-hooks-explained" },
 };
 
+const faqItems = [
+  { q: "What are XRPL Hooks?", a: "Hooks are small, efficient pieces of code (C compiled to WebAssembly) attached to XRPL accounts. They execute before or after transactions, enabling smart contract-like logic — conditional payments, spending limits, automated responses — directly on the XRP Ledger." },
+  { q: "How are Hooks different from Ethereum smart contracts?", a: "Hooks are lightweight and transaction-triggered — they run only when a transaction touches the account. Ethereum smart contracts are general-purpose programs with independent state. Hooks are more efficient but less flexible, optimized for payment logic." },
+  { q: "Are Hooks live on XRPL mainnet?", a: "As of early 2026, Hooks are live on the Xahau sidechain and under consideration for XRPL mainnet via an amendment. The Hooks testnet has been running successfully." },
+  { q: "What programming language are Hooks written in?", a: "Hooks are written in C and compiled to WebAssembly (Wasm). The Hooks Builder tool provides a web-based IDE for writing, testing, and deploying Hooks without local setup." },
+  { q: "What can Hooks do?", a: "Spending limits, multi-sig approval, recurring payments, carbon offsetting, conditional escrows, spam filtering, automated treasury management, and any transaction-level logic you can imagine." },
+  { q: "Do Hooks increase transaction fees?", a: "Hooks add a small computational overhead to transactions they process, but the XRPL's fee model keeps costs extremely low. The Wasm execution engine is highly optimized for efficiency." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Hooks Explained: Smart Logic on the XRP Ledger",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Hooks Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-hooks-explained" }),
-  buildFAQSchema([
-    { question: "What are XRPL Hooks?", answer: "XRPL Hooks are small, efficient pieces of code (written in C and compiled to WebAssembly) that can be attached to XRPL accounts. They execute before or after transactions, enabling smart contract-like logic directly on the XRP Ledger — such as conditional payments, spending limits, and automated responses." },
-    { question: "How are Hooks different from Ethereum smart contracts?", answer: "Hooks are lightweight and transaction-triggered, running only when a transaction touches the account. Ethereum smart contracts are general-purpose programs that can hold state and be called independently. Hooks are more efficient but less flexible — designed for the specific needs of payment logic rather than general computation." },
-    { question: "Are Hooks live on the XRPL mainnet?", answer: "As of early 2026, Hooks are live on the Xahau sidechain (a Hooks-enabled XRPL sidechain) and under consideration for XRPL mainnet via an amendment. The Hooks testnet has been running successfully, and the community is evaluating mainnet activation." },
-    { question: "What can Hooks do?", answer: "Hooks can enforce spending limits, require multi-signature approval, automate recurring payments, implement carbon offsetting on transactions, create conditional escrows, filter spam transactions, and much more — essentially any logic that should trigger on incoming or outgoing transactions." },
-    { question: "Do Hooks make XRP a 'smart contract platform'?", answer: "Hooks add programmability but in a focused, efficient way. Unlike Ethereum's general-purpose VM, Hooks are specifically designed for transaction-level logic. The XRPL also supports the EVM sidechain for full Ethereum-compatible smart contracts, giving developers both options." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are XRPL Hooks?", a: "Hooks are small, efficient pieces of code (C compiled to WebAssembly) attached to XRPL accounts. They execute before or after transactions, enabling smart contract-like logic — conditional payments, spending limits, automated responses — directly on the XRP Ledger." },
-  { q: "How are Hooks different from Ethereum smart contracts?", a: "Hooks are lightweight and transaction-triggered — they run only when a transaction touches the account. Ethereum smart contracts are general-purpose programs with independent state. Hooks are more efficient but less flexible, optimized for payment logic." },
-  { q: "Are Hooks live on XRPL mainnet?", a: "As of early 2026, Hooks are live on the Xahau sidechain and under consideration for XRPL mainnet via an amendment. The Hooks testnet has been running successfully." },
-  { q: "What programming language are Hooks written in?", a: "Hooks are written in C and compiled to WebAssembly (Wasm). The Hooks Builder tool provides a web-based IDE for writing, testing, and deploying Hooks without local setup." },
-  { q: "What can Hooks do?", a: "Spending limits, multi-sig approval, recurring payments, carbon offsetting, conditional escrows, spam filtering, automated treasury management, and any transaction-level logic you can imagine." },
-  { q: "Do Hooks increase transaction fees?", a: "Hooks add a small computational overhead to transactions they process, but the XRPL's fee model keeps costs extremely low. The Wasm execution engine is highly optimized for efficiency." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLHooksExplainedPage() {

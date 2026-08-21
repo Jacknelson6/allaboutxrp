@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is the total supply of XRP?", a: "100 billion XRP were created at the XRP Ledger's genesis in 2012. No more can ever be created. The actual total is slightly less than 100 billion due to transaction fee burns — over 14 million XRP have been permanently destroyed to date." },
+  { q: "How much XRP is in circulation?", a: "Approximately 60 billion XRP is in circulation as of early 2026. The remaining supply is held in Ripple's cryptographically enforced escrow system, with up to 1 billion unlocking monthly." },
+  { q: "Is XRP inflationary?", a: "No, XRP is actually deflationary. No new XRP can ever be minted, and every transaction on the XRPL burns a small amount of XRP as a fee. Over time, the total supply only decreases." },
+  { q: "How does XRP escrow work?", a: "In December 2017, Ripple locked 55 billion XRP into on-ledger escrow contracts enforced by the protocol itself. Up to 1 billion XRP unlocks automatically each month, but Ripple typically re-escrows 60-80% immediately. About 33.9 billion XRP remains in escrow." },
+  { q: "Can Ripple create more XRP?", a: "No. It is cryptographically impossible to create new XRP. The XRP Ledger's protocol does not have a minting function. All 100 billion XRP that will ever exist were created at genesis in 2012." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Supply & Inflation Explained",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "XRP Supply Explained" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-supply-explained" }),
-  buildFAQSchema([
-    { question: "What is the total supply of XRP?", answer: "100 billion XRP were created at the XRP Ledger's genesis in 2012. No more can ever be created. The actual total is slightly less due to transaction fee burns — over 14 million XRP have been permanently destroyed." },
-    { question: "How much XRP is in circulation?", answer: "Approximately 60 billion XRP is in circulation as of early 2026. The remaining supply is held in Ripple's cryptographically enforced escrow system." },
-    { question: "Is XRP inflationary?", answer: "No, XRP is deflationary. No new XRP can be minted, and every transaction burns a small amount of XRP as a fee. The total supply decreases over time." },
-    { question: "How does XRP escrow work?", answer: "In December 2017, Ripple locked 55 billion XRP into on-ledger escrow. Up to 1 billion XRP unlocks monthly, but Ripple typically re-escrows 60-80%. About 33.9 billion remains in escrow as of 2026." },
-    { question: "How does XRP supply compare to Bitcoin?", answer: "Bitcoin has a 21 million cap reached through mining over ~140 years. XRP's 100 billion was created at genesis with no mining. Both are deflationary — Bitcoin through halving events, XRP through fee burns." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the total supply of XRP?", a: "100 billion XRP were created at the XRP Ledger's genesis in 2012. No more can ever be created. The actual total is slightly less than 100 billion due to transaction fee burns — over 14 million XRP have been permanently destroyed to date." },
-  { q: "How much XRP is in circulation?", a: "Approximately 60 billion XRP is in circulation as of early 2026. The remaining supply is held in Ripple's cryptographically enforced escrow system, with up to 1 billion unlocking monthly." },
-  { q: "Is XRP inflationary?", a: "No, XRP is actually deflationary. No new XRP can ever be minted, and every transaction on the XRPL burns a small amount of XRP as a fee. Over time, the total supply only decreases." },
-  { q: "How does XRP escrow work?", a: "In December 2017, Ripple locked 55 billion XRP into on-ledger escrow contracts enforced by the protocol itself. Up to 1 billion XRP unlocks automatically each month, but Ripple typically re-escrows 60-80% immediately. About 33.9 billion XRP remains in escrow." },
-  { q: "Can Ripple create more XRP?", a: "No. It is cryptographically impossible to create new XRP. The XRP Ledger's protocol does not have a minting function. All 100 billion XRP that will ever exist were created at genesis in 2012." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPSupplyExplainedPage() {

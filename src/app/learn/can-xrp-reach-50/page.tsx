@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $50? What It Would Take", description: "Analyzing whether XRP can reach $50 — market cap math, required conditions, and honest assessment.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $50?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP realistically reach $50?", answer: "Possible but very ambitious. $50 XRP = ~$2.85 trillion market cap. This exceeds Bitcoin's all-time high market cap (~$1.5T). It would require XRP to become the dominant asset in crypto alongside massive growth in the overall crypto market, potentially requiring a $10T+ total crypto market." },
-    { question: "What market cap would XRP need at $50?", answer: "Approximately $2.85 trillion with ~57 billion circulating supply. For perspective, this exceeds the market cap of nearly every public company except Apple and Microsoft. It would make XRP larger than Bitcoin has ever been." },
-    { question: "What would need to happen for $50 XRP?", answer: "Multiple catalysts: ETF approval with massive institutional inflows, XRP becoming the standard for cross-border settlement (capturing significant share of the $150T+ annual cross-border payment market), tokenized asset explosion on XRPL, and the total crypto market growing to $10T+." },
-    { question: "How long would it take for XRP to reach $50?", answer: "If ever achievable, this would likely be a 5-10+ year outcome requiring fundamental transformation of global payments. Most analysts consider this a very long-term, low-probability outcome." },
-    { question: "Is $50 XRP more realistic than $100 XRP?", answer: "Yes, but both are very ambitious. $50 requires ~$2.85T market cap while $100 requires ~$5.7T. Both exceed current crypto market norms. $50 is roughly 2x less ambitious than $100 but still requires significant market expansion." },
-  ]),
-];
-
 const faqItems = [
   { q: "Can XRP realistically reach $50?", a: "Possible but very ambitious. ~$2.85T market cap required — exceeding Bitcoin's all-time high. Would need total crypto market at $10T+." },
   { q: "What market cap is needed?", a: "~$2.85 trillion. Larger than Bitcoin's ATH. Comparable to Apple or Microsoft in traditional markets." },
   { q: "What would need to happen?", a: "ETF + massive institutional adoption + dominant cross-border settlement position + $10T+ total crypto market." },
   { q: "How long would it take?", a: "If ever — likely 5-10+ years requiring fundamental transformation of global payments." },
   { q: "Is $50 more realistic than $100?", a: "Somewhat — $50 = ~$2.85T vs $100 = ~$5.7T. Both very ambitious. $50 is the outer edge of optimistic scenarios." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "Can XRP Reach $50? What It Would Take", description: "Analyzing whether XRP can reach $50 — market cap math, required conditions, and honest assessment.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $50?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPReach50Page() {

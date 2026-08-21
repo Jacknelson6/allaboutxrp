@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/how-to-run-xrpl-validator" },
 };
 
+const faqItems = [
+  { q: "What does an XRPL validator do?", a: "Validators participate in consensus — proposing, validating, and agreeing on transaction ordering for each ledger. They use the XRP Ledger Consensus Protocol (Byzantine agreement) to achieve consensus in 3-5 seconds. No mining involved." },
+  { q: "Do validators earn rewards?", a: "No — unlike PoW/PoS, XRPL validators receive no block rewards or fees. Running a validator is a public service that supports decentralization and gives you a voice in network governance." },
+  { q: "What hardware do I need?", a: "Minimum: 8+ CPU cores, 64GB RAM, 500GB+ NVMe SSD, 100Mbps+ internet. Cloud instances like AWS c5.2xlarge work well. Enterprise-grade hardware for UNL-listed validators." },
+  { q: "How do I get on the UNL?", a: "Demonstrate 99.9%+ uptime, contribute to the XRPL community, be a known/trusted entity, and apply through the XRPL Foundation's validator program. It's trust-based, not automatic." },
+  { q: "Can I run a validator at home?", a: "Technically yes, but not recommended for production. Use a data center or cloud provider for reliability. A non-validating stock node for development is fine at home." },
+    { q: "How many validators does the XRPL have?", a: "The XRPL has 100+ validators globally, with 35+ on the default UNL. The network is designed to work with a diverse set of validators run by universities, businesses, exchanges, and individuals." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "How to Run an XRPL Validator: Complete Setup Guide",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "How to Run an XRPL Validator" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/how-to-run-xrpl-validator" }),
-  buildFAQSchema([
-    { question: "What does an XRPL validator do?", answer: "XRPL validators participate in the consensus process — they propose, validate, and agree on the order of transactions to be included in each ledger. Validators don't mine blocks; they use the XRP Ledger Consensus Protocol (a form of Byzantine agreement) to achieve consensus in 3-5 seconds." },
-    { question: "Do XRPL validators earn rewards?", answer: "No, XRPL validators do not receive block rewards or transaction fees. Unlike proof-of-work or proof-of-stake systems, running an XRPL validator is a public service. Organizations run validators to support network decentralization, ensure their transactions are processed, and have a voice in network governance." },
-    { question: "What hardware do I need to run an XRPL validator?", answer: "Minimum recommended: 8+ CPU cores, 64GB RAM, 500GB+ SSD (NVMe preferred), and a reliable internet connection with 100Mbps+ bandwidth. Enterprise-grade hardware is recommended for UNL-listed validators. Cloud instances like AWS c5.2xlarge or equivalent work well." },
-    { question: "How do I get my validator on the UNL?", answer: "Getting on the default Unique Node List (dUNL) requires demonstrating sustained reliability (99.9%+ uptime), contributing to the XRPL community, being a known and trusted entity, and applying through the XRPL Foundation's validator program. It's a trust-based process, not automatic." },
-    { question: "Can I run a validator at home?", answer: "Technically yes, but it's not recommended for production validators. Home internet lacks the reliability, bandwidth, and uptime guarantees needed. Use a professional data center or cloud provider. A stock server (non-validating node) for monitoring or development is fine at home." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What does an XRPL validator do?", a: "Validators participate in consensus — proposing, validating, and agreeing on transaction ordering for each ledger. They use the XRP Ledger Consensus Protocol (Byzantine agreement) to achieve consensus in 3-5 seconds. No mining involved." },
-  { q: "Do validators earn rewards?", a: "No — unlike PoW/PoS, XRPL validators receive no block rewards or fees. Running a validator is a public service that supports decentralization and gives you a voice in network governance." },
-  { q: "What hardware do I need?", a: "Minimum: 8+ CPU cores, 64GB RAM, 500GB+ NVMe SSD, 100Mbps+ internet. Cloud instances like AWS c5.2xlarge work well. Enterprise-grade hardware for UNL-listed validators." },
-  { q: "How do I get on the UNL?", a: "Demonstrate 99.9%+ uptime, contribute to the XRPL community, be a known/trusted entity, and apply through the XRPL Foundation's validator program. It's trust-based, not automatic." },
-  { q: "Can I run a validator at home?", a: "Technically yes, but not recommended for production. Use a data center or cloud provider for reliability. A non-validating stock node for development is fine at home." },
-    { q: "How many validators does the XRPL have?", a: "The XRPL has 100+ validators globally, with 35+ on the default UNL. The network is designed to work with a diverse set of validators run by universities, businesses, exchanges, and individuals." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function HowToRunXRPLValidatorPage() {

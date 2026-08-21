@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/recover-lost-xrp" },
 };
 
+const faqItems = [
+  { q: "Can you recover XRP if you lost your seed phrase?", a: "If you've lost your seed phrase and have no other backup of your secret key, the XRP is likely permanently inaccessible. No one — not Ripple, not the XRPL Foundation — can recover it. This is why securely backing up your seed phrase with multiple physical copies is critical." },
+  { q: "What if I forgot my destination tag when sending XRP?", a: "Contact the exchange's support team immediately with your transaction hash, the amount sent, your account details, and when you sent it. Most major exchanges can manually credit your account, though the process may take days to weeks." },
+  { q: "Can I recover XRP from a dead exchange?", a: "It depends on the exchange's legal proceedings. For bankruptcies (like FTX), you may file a claim through the bankruptcy trustee. Keep all records of your holdings, emails, and transaction history as evidence." },
+  { q: "Is there a way to brute-force an XRP wallet?", a: "No. XRP uses cryptographic key pairs with 2^256 possible combinations. Brute-forcing is mathematically impossible. Any service claiming to do this is a scam trying to steal your money." },
+  { q: "Can Ripple recover my lost XRP?", a: "No. Ripple has no control over individual wallets. The XRP Ledger is decentralized — only the holder of the secret key can control the funds. No entity can access, freeze, or recover funds in someone else's wallet." },
+  { q: "What about XRP recovery services I see advertised?", a: "The vast majority of 'crypto recovery services' are scams. They charge upfront fees and deliver nothing. Legitimate recovery help is limited to specific scenarios like exchange support or wallet software bugs — never seed phrase recovery." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Can You Recover Lost XRP? What to Do",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "Recover Lost XRP" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/recover-lost-xrp" }),
-  buildFAQSchema([
-    { question: "Can you recover XRP if you lost your seed phrase?", answer: "If you've lost your seed phrase and have no other backup of your secret key, the XRP is likely permanently inaccessible. No one — not Ripple, not the XRPL Foundation — can recover it. This is why securely backing up your seed phrase is critical." },
-    { question: "What if I forgot my destination tag when sending XRP?", answer: "If you sent XRP to an exchange without a destination tag, contact the exchange's support team immediately. Most major exchanges can manually credit your account, though the process may take days to weeks and some charge a recovery fee." },
-    { question: "Can I recover XRP from a dead exchange?", answer: "It depends on the exchange's legal proceedings. If the exchange went through bankruptcy (like FTX), you may be able to file a claim through the bankruptcy trustee. Keep all records of your holdings, emails, and transaction history." },
-    { question: "Is there a way to brute-force an XRP wallet?", answer: "No. XRP wallets use cryptographic key pairs with 2^256 possible combinations. It would take longer than the age of the universe to brute-force even one wallet. Services claiming to brute-force wallets are scams." },
-    { question: "Can Ripple recover my lost XRP?", answer: "No. Ripple has no control over individual XRP wallets. The XRP Ledger is decentralized — no single entity can access, freeze, or recover funds in someone else's wallet. Only the holder of the secret key can control the funds." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Can you recover XRP if you lost your seed phrase?", a: "If you've lost your seed phrase and have no other backup of your secret key, the XRP is likely permanently inaccessible. No one — not Ripple, not the XRPL Foundation — can recover it. This is why securely backing up your seed phrase with multiple physical copies is critical." },
-  { q: "What if I forgot my destination tag when sending XRP?", a: "Contact the exchange's support team immediately with your transaction hash, the amount sent, your account details, and when you sent it. Most major exchanges can manually credit your account, though the process may take days to weeks." },
-  { q: "Can I recover XRP from a dead exchange?", a: "It depends on the exchange's legal proceedings. For bankruptcies (like FTX), you may file a claim through the bankruptcy trustee. Keep all records of your holdings, emails, and transaction history as evidence." },
-  { q: "Is there a way to brute-force an XRP wallet?", a: "No. XRP uses cryptographic key pairs with 2^256 possible combinations. Brute-forcing is mathematically impossible. Any service claiming to do this is a scam trying to steal your money." },
-  { q: "Can Ripple recover my lost XRP?", a: "No. Ripple has no control over individual wallets. The XRP Ledger is decentralized — only the holder of the secret key can control the funds. No entity can access, freeze, or recover funds in someone else's wallet." },
-  { q: "What about XRP recovery services I see advertised?", a: "The vast majority of 'crypto recovery services' are scams. They charge upfront fees and deliver nothing. Legitimate recovery help is limited to specific scenarios like exchange support or wallet software bugs — never seed phrase recovery." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function RecoverLostXRPPage() {

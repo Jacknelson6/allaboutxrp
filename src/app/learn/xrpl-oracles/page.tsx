@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-oracles" },
 };
 
+const faqItems = [
+  { q: "What are price oracles?", a: "Services that bring off-chain data (prices, rates, external info) onto the XRP Ledger. XRPL has native oracle support (XLS-47d) for publishing price data directly as ledger objects." },
+  { q: "Why does XRPL need oracles?", a: "DeFi needs real-world data — collateral values, exchange rates, liquidation triggers. Blockchains can't access external data natively; oracles bridge this gap." },
+  { q: "How do native oracles work?", a: "XLS-47d lets accounts create Oracle objects storing price data on-chain. Providers publish updates via OracleSet transactions. Apps read data from the ledger." },
+  { q: "What providers work with XRPL?", a: "Band Protocol is integrated for decentralized oracle data. The native amendment also lets any trusted entity publish price feeds directly." },
+  { q: "Are they decentralized?", a: "Multiple providers can publish data, and apps can aggregate from several sources. Band Protocol adds additional decentralization with its own validator network." },
+  { q: "How do oracles affect DeFi on XRPL?", a: "Oracles unlock advanced DeFi — lending protocols need price feeds for liquidations, derivatives need price data, and RWA tokenization needs asset valuations. They're a critical DeFi building block." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Price Oracles: Bringing Off-Chain Data On-Chain",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Oracles" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-oracles" }),
-  buildFAQSchema([
-    { question: "What are price oracles on the XRPL?", answer: "Price oracles are services that bring off-chain data (like asset prices, exchange rates, weather data) onto the XRP Ledger. The XRPL has native oracle support (XLS-47d amendment) that allows accounts to publish price data directly on-chain as ledger objects." },
-    { question: "Why does the XRPL need oracles?", answer: "Blockchains can't access external data natively. DeFi applications need real-world price data for lending (collateral values), AMM pricing, liquidation triggers, and tokenized asset valuation. Oracles bridge this gap by feeding trusted external data onto the ledger." },
-    { question: "How do XRPL native oracles work?", answer: "The XLS-47d Price Oracle amendment allows XRPL accounts to create Oracle objects that store price data on-chain. Oracle providers publish price updates using OracleSet transactions. Applications can read this data from the ledger for their DeFi logic." },
-    { question: "What oracle providers work with XRPL?", answer: "Band Protocol has integrated with the XRPL to provide decentralized oracle data. Additionally, the native oracle amendment allows any trusted entity to publish price feeds directly on-chain without third-party infrastructure." },
-    { question: "Are XRPL oracles decentralized?", answer: "The native oracle system allows multiple providers to publish price data, and applications can aggregate feeds from multiple sources for decentralization. Band Protocol provides additional decentralized oracle infrastructure with its own validator network." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are price oracles?", a: "Services that bring off-chain data (prices, rates, external info) onto the XRP Ledger. XRPL has native oracle support (XLS-47d) for publishing price data directly as ledger objects." },
-  { q: "Why does XRPL need oracles?", a: "DeFi needs real-world data — collateral values, exchange rates, liquidation triggers. Blockchains can't access external data natively; oracles bridge this gap." },
-  { q: "How do native oracles work?", a: "XLS-47d lets accounts create Oracle objects storing price data on-chain. Providers publish updates via OracleSet transactions. Apps read data from the ledger." },
-  { q: "What providers work with XRPL?", a: "Band Protocol is integrated for decentralized oracle data. The native amendment also lets any trusted entity publish price feeds directly." },
-  { q: "Are they decentralized?", a: "Multiple providers can publish data, and apps can aggregate from several sources. Band Protocol adds additional decentralization with its own validator network." },
-  { q: "How do oracles affect DeFi on XRPL?", a: "Oracles unlock advanced DeFi — lending protocols need price feeds for liquidations, derivatives need price data, and RWA tokenization needs asset valuations. They're a critical DeFi building block." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLOraclesPage() {

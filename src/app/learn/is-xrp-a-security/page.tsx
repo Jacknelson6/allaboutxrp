@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/is-xrp-a-security" },
 };
 
+const faqItems = [
+  { q: "Is XRP classified as a security?", a: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail buyers is not a security under the Howey Test. However, Ripple's direct institutional sales of XRP were found to be unregistered securities offerings. The case settled in 2025 with Ripple paying a reduced penalty." },
+  { q: "What is the Howey Test and how does it apply to XRP?", a: "The Howey Test is a four-part legal test from a 1946 Supreme Court case. It defines a security as (1) an investment of money, (2) in a common enterprise, (3) with an expectation of profits, (4) derived from the efforts of others. The court found that retail XRP buyers on exchanges did not meet all four prongs." },
+  { q: "Did Ripple win or lose the SEC lawsuit?", a: "It was a mixed outcome. Ripple won on the key question — retail sales of XRP are not securities transactions. The case settled in 2025 with Ripple paying approximately $50 million, far less than the SEC's original demand." },
+  { q: "Can the SEC still classify XRP as a security?", a: "The court ruling established that XRP itself is not a security — it's a digital token. However, the manner in which it's sold can constitute a securities transaction. Under the current pro-crypto regulatory environment, further action against XRP is unlikely." },
+  { q: "How does XRP's legal status compare to Bitcoin and Ethereum?", a: "Bitcoin and Ethereum have been declared non-securities by the SEC. XRP now has judicial precedent that retail exchange sales are not securities transactions. All three are considered commodities or digital assets rather than securities on secondary markets." },
+  { q: "What does this mean for XRP holders?", a: "The ruling is overwhelmingly positive for XRP holders. It means holding and trading XRP on exchanges is not a securities transaction. This paved the way for XRP ETF applications, exchange re-listings, and broader institutional adoption." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Is XRP a Security? The SEC Ruling Explained",
@@ -45,22 +54,7 @@ const schemas = [
     { name: "Is XRP a Security?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/is-xrp-a-security" }),
-  buildFAQSchema([
-    { question: "Is XRP classified as a security?", answer: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail buyers is not a security under the Howey Test. However, Ripple's direct institutional sales of XRP were found to be unregistered securities offerings. The case settled in 2025 with Ripple paying a reduced penalty." },
-    { question: "What is the Howey Test and how does it apply to XRP?", answer: "The Howey Test is a four-part legal test from a 1946 Supreme Court case. It defines a security as (1) an investment of money, (2) in a common enterprise, (3) with an expectation of profits, (4) derived from the efforts of others. The court found that retail XRP buyers on exchanges did not meet all four prongs because they had no contract with or expectation from Ripple." },
-    { question: "Did Ripple win or lose the SEC lawsuit?", answer: "It was a mixed outcome. Ripple won on the key question — retail sales of XRP are not securities transactions. But the court found that Ripple's direct sales to institutional investors were unregistered securities offerings. The case settled in 2025 with Ripple paying approximately $50 million, far less than the SEC's original demand." },
-    { question: "Can the SEC still classify XRP as a security?", answer: "The court ruling established that XRP itself is not a security — it's a digital token. However, the manner in which it's sold can constitute a securities transaction. This distinction is crucial. Under the current pro-crypto regulatory environment and SEC leadership, further action against XRP is unlikely." },
-    { question: "How does XRP's legal status compare to Bitcoin and Ethereum?", answer: "Bitcoin and Ethereum have been declared non-securities by the SEC (Bitcoin in 2018, Ethereum more recently). XRP now has judicial precedent that retail exchange sales are not securities transactions. All three are considered commodities or digital assets rather than securities when traded on secondary markets." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Is XRP classified as a security?", a: "No. In July 2023, Judge Analisa Torres ruled that XRP sold on public exchanges to retail buyers is not a security under the Howey Test. However, Ripple's direct institutional sales of XRP were found to be unregistered securities offerings. The case settled in 2025 with Ripple paying a reduced penalty." },
-  { q: "What is the Howey Test and how does it apply to XRP?", a: "The Howey Test is a four-part legal test from a 1946 Supreme Court case. It defines a security as (1) an investment of money, (2) in a common enterprise, (3) with an expectation of profits, (4) derived from the efforts of others. The court found that retail XRP buyers on exchanges did not meet all four prongs." },
-  { q: "Did Ripple win or lose the SEC lawsuit?", a: "It was a mixed outcome. Ripple won on the key question — retail sales of XRP are not securities transactions. The case settled in 2025 with Ripple paying approximately $50 million, far less than the SEC's original demand." },
-  { q: "Can the SEC still classify XRP as a security?", a: "The court ruling established that XRP itself is not a security — it's a digital token. However, the manner in which it's sold can constitute a securities transaction. Under the current pro-crypto regulatory environment, further action against XRP is unlikely." },
-  { q: "How does XRP's legal status compare to Bitcoin and Ethereum?", a: "Bitcoin and Ethereum have been declared non-securities by the SEC. XRP now has judicial precedent that retail exchange sales are not securities transactions. All three are considered commodities or digital assets rather than securities on secondary markets." },
-  { q: "What does this mean for XRP holders?", a: "The ruling is overwhelmingly positive for XRP holders. It means holding and trading XRP on exchanges is not a securities transaction. This paved the way for XRP ETF applications, exchange re-listings, and broader institutional adoption." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function IsXRPASecurityPage() {

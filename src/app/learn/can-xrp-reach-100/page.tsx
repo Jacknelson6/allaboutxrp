@@ -31,6 +31,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
+const faqItems = [
+  { q: "Can XRP realistically reach $100?", a: "At current circulating supply (~58 billion tokens), XRP at $100 would require a market cap of approximately $5.8 trillion — larger than any single asset has ever achieved. While not mathematically impossible long-term, it would require extraordinary adoption. It's not realistic in the near to medium term." },
+  { q: "What market cap would XRP need to reach $100?", a: "With ~58 billion XRP in circulation, a $100 price means a ~$5.8 trillion market cap. Bitcoin peaked at ~$2 trillion, Apple at ~$3.5 trillion, and the entire crypto market at ~$3 trillion." },
+  { q: "What price can XRP realistically reach?", a: "Most analysts consider $5-$20 a realistic medium-term range (2-5 years), with $50+ possible in a very bullish long-term scenario. Anything beyond requires extraordinary adoption assumptions." },
+  { q: "Does XRP burning help reach $100?", a: "XRP transaction fees are burned, but the rate is tiny — about 10-20 XRP per day. Over decades, this won't meaningfully reduce the 100 billion total supply enough to drive price to $100." },
+  { q: "Could institutional adoption push XRP to $100?", a: "Massive institutional adoption would significantly increase price, but $100 requires a market cap exceeding the entire current crypto market. More realistic institutional-driven targets are $10-$50 over the long term." },
+  { q: "What's the highest price XRP has ever reached?", a: "XRP's all-time high was approximately $3.65 in January 2025. This represented a market cap of roughly $200 billion, making XRP briefly the third-largest cryptocurrency." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "Can XRP Reach $100? Realistic Price Analysis",
@@ -45,22 +54,7 @@ const schemas = [
     { name: "Can XRP Reach $100?" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP realistically reach $100?", answer: "At current circulating supply (~58 billion tokens), XRP at $100 would require a market cap of approximately $5.8 trillion — larger than any single company or cryptocurrency has ever achieved. While not mathematically impossible in a future where crypto captures trillions in payment flow value, it would require extraordinary adoption over many years. It's not realistic in the near to medium term." },
-    { question: "What market cap would XRP need to reach $100?", answer: "With approximately 58 billion XRP in circulation, a $100 price would mean a market cap of ~$5.8 trillion. For context, Bitcoin's all-time high market cap was ~$2 trillion, Apple peaked at ~$3.5 trillion, and the entire crypto market cap peaked at ~$3 trillion." },
-    { question: "What price can XRP realistically reach?", answer: "Based on institutional adoption trends, ETF inflows, and payment volume growth, most analysts consider $5-$20 a realistic medium-term range (2-5 years), with $50+ possible in a very bullish long-term scenario where XRP captures significant global payment flow. Anything beyond $50 requires extraordinary adoption assumptions." },
-    { question: "Will XRP supply reduction help the price reach $100?", answer: "XRP fees are burned, removing tokens from supply permanently, but the burn rate is extremely small — about 10-20 XRP per day. Even over decades, this won't meaningfully reduce the 100 billion total supply. The escrow schedule releases 1 billion XRP monthly, though most is returned to escrow. Supply reduction alone won't drive XRP to $100." },
-    { question: "Could XRP reach $100 if it replaces SWIFT?", answer: "Even if XRP captured 100% of SWIFT's daily volume ($150 trillion), the price wouldn't necessarily reach $100. Payment volume and market cap are different metrics. XRP's velocity (how fast it's reused) means a relatively small amount of XRP could facilitate enormous payment volumes. However, massive payment adoption would significantly increase demand and price." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Can XRP realistically reach $100?", a: "At current circulating supply (~58 billion tokens), XRP at $100 would require a market cap of approximately $5.8 trillion — larger than any single asset has ever achieved. While not mathematically impossible long-term, it would require extraordinary adoption. It's not realistic in the near to medium term." },
-  { q: "What market cap would XRP need to reach $100?", a: "With ~58 billion XRP in circulation, a $100 price means a ~$5.8 trillion market cap. Bitcoin peaked at ~$2 trillion, Apple at ~$3.5 trillion, and the entire crypto market at ~$3 trillion." },
-  { q: "What price can XRP realistically reach?", a: "Most analysts consider $5-$20 a realistic medium-term range (2-5 years), with $50+ possible in a very bullish long-term scenario. Anything beyond requires extraordinary adoption assumptions." },
-  { q: "Does XRP burning help reach $100?", a: "XRP transaction fees are burned, but the rate is tiny — about 10-20 XRP per day. Over decades, this won't meaningfully reduce the 100 billion total supply enough to drive price to $100." },
-  { q: "Could institutional adoption push XRP to $100?", a: "Massive institutional adoption would significantly increase price, but $100 requires a market cap exceeding the entire current crypto market. More realistic institutional-driven targets are $10-$50 over the long term." },
-  { q: "What's the highest price XRP has ever reached?", a: "XRP's all-time high was approximately $3.65 in January 2025. This represented a market cap of roughly $200 billion, making XRP briefly the third-largest cryptocurrency." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPReach100Page() {

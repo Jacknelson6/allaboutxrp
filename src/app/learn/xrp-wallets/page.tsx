@@ -33,6 +33,16 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "What is the best XRP wallet?", a: "There is no universal best XRP wallet. Choose by custody model, signing frequency, recovery ability, required XRPL features, and the financial impact of loss. Compare official documentation and test the complete recovery and transfer process with a small amount." },
+  { q: "What is the 1 XRP wallet reserve?", a: "The XRP Ledger requires a base reserve of 1 XRP to activate any account. This amount is locked and cannot be spent while the account exists. Each additional object you create on the XRPL (trust lines, offers, etc.) requires an additional 0.2 XRP owner reserve. The reserve amounts are set by validator vote and could be lowered in the future — in fact, they were already reduced from 20 XRP in 2021." },
+  { q: "Can I store XRP on a Ledger hardware wallet?", a: "Yes. Both the Ledger Nano S Plus and Ledger Nano X support XRP natively. You can manage your XRP through Ledger Live software. For even more functionality, you can connect your Ledger to Xaman for the best of both worlds — hardware security with full XRPL feature access." },
+  { q: "What happens if I lose my wallet recovery phrase?", a: "If you lose your recovery phrase (also called seed phrase or secret numbers) and also lose access to your wallet device, your XRP is permanently and irreversibly lost. There is no password reset, no customer support, and no way to recover the funds. This is why securely backing up your recovery phrase is the single most important thing you can do." },
+  { q: "Do I need a destination tag when sending XRP?", a: "When sending XRP to an exchange or custodial service, you almost always need a destination tag — it's how the exchange identifies which account the XRP belongs to. Missing the destination tag can result in lost funds (though some exchanges can recover them with support tickets). When sending to a personal self-custody wallet like Xaman, a destination tag is not required." },
+  { q: "Is it safe to store XRP on an exchange?", a: "Exchanges like Coinbase, Kraken, and Uphold are generally safe for moderate amounts and active trading. However, you don't control the private keys — the exchange does. If the exchange is hacked, goes bankrupt, or freezes withdrawals, your funds could be at risk. For long-term storage of significant amounts, self-custody is recommended." },
+  { q: "What is Xaman (XUMM)?", a: "Xaman (formerly known as XUMM) is the most popular self-custody wallet for the XRP Ledger, developed by XRPL Labs. It's available on iOS and Android, supports all native XRPL features (DEX, NFTs, AMM, trust lines), and allows you to interact with XRPL decentralized applications. It's free to use and widely regarded as the best XRP-specific wallet." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Wallets: Best Options Explained",
@@ -51,23 +61,7 @@ const schemas = [
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "XRP Wallets" },
   ]),
-  buildFAQSchema([
-    { question: "What is the best XRP wallet?", answer: "There is no universal best XRP wallet. Choose by custody model, signing frequency, recovery ability, required XRPL features, and the financial impact of loss. Compare official documentation and test the complete recovery and transfer process with a small amount." },
-    { question: "What is the 1 XRP wallet reserve?", answer: "The XRP Ledger requires a base reserve of 1 XRP to activate any account. This XRP is locked and cannot be spent while the account exists. The reserve amount is set by validator vote and may be reduced in the future." },
-    { question: "Can I store XRP on a Ledger?", answer: "Yes. Ledger hardware wallets (Nano S Plus and Nano X) support XRP natively. You can manage your XRP through Ledger Live software, which provides a secure way to send, receive, and manage your XRP holdings." },
-    { question: "What happens if I lose my wallet recovery phrase?", answer: "If you lose your recovery phrase (seed phrase) and also lose access to your wallet device, your XRP is permanently lost. There is no password reset or account recovery. Always store your recovery phrase securely offline in multiple locations." },
-    { question: "Do I need a destination tag when sending XRP?", answer: "It depends. When sending XRP to an exchange or custodial service, you typically need a destination tag to identify your account. When sending to a personal self-custody wallet like Xaman, a destination tag is usually not required." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the best XRP wallet?", a: "There is no universal best XRP wallet. Choose by custody model, signing frequency, recovery ability, required XRPL features, and the financial impact of loss. Compare official documentation and test the complete recovery and transfer process with a small amount." },
-  { q: "What is the 1 XRP wallet reserve?", a: "The XRP Ledger requires a base reserve of 1 XRP to activate any account. This amount is locked and cannot be spent while the account exists. Each additional object you create on the XRPL (trust lines, offers, etc.) requires an additional 0.2 XRP owner reserve. The reserve amounts are set by validator vote and could be lowered in the future — in fact, they were already reduced from 20 XRP in 2021." },
-  { q: "Can I store XRP on a Ledger hardware wallet?", a: "Yes. Both the Ledger Nano S Plus and Ledger Nano X support XRP natively. You can manage your XRP through Ledger Live software. For even more functionality, you can connect your Ledger to Xaman for the best of both worlds — hardware security with full XRPL feature access." },
-  { q: "What happens if I lose my wallet recovery phrase?", a: "If you lose your recovery phrase (also called seed phrase or secret numbers) and also lose access to your wallet device, your XRP is permanently and irreversibly lost. There is no password reset, no customer support, and no way to recover the funds. This is why securely backing up your recovery phrase is the single most important thing you can do." },
-  { q: "Do I need a destination tag when sending XRP?", a: "When sending XRP to an exchange or custodial service, you almost always need a destination tag — it's how the exchange identifies which account the XRP belongs to. Missing the destination tag can result in lost funds (though some exchanges can recover them with support tickets). When sending to a personal self-custody wallet like Xaman, a destination tag is not required." },
-  { q: "Is it safe to store XRP on an exchange?", a: "Exchanges like Coinbase, Kraken, and Uphold are generally safe for moderate amounts and active trading. However, you don't control the private keys — the exchange does. If the exchange is hacked, goes bankrupt, or freezes withdrawals, your funds could be at risk. For long-term storage of significant amounts, self-custody is recommended." },
-  { q: "What is Xaman (XUMM)?", a: "Xaman (formerly known as XUMM) is the most popular self-custody wallet for the XRP Ledger, developed by XRPL Labs. It's available on iOS and Android, supports all native XRPL features (DEX, NFTs, AMM, trust lines), and allows you to interact with XRPL decentralized applications. It's free to use and widely regarded as the best XRP-specific wallet." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPWalletsPage() {

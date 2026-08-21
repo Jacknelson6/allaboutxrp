@@ -24,6 +24,13 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "Who created XRP?", a: "XRP was created by Jed McCaleb, Arthur Britto, and David Schwartz in 2011-2012. They designed the XRP Ledger as a faster alternative to Bitcoin, capable of settling transactions in seconds." },
+  { q: "Who runs Ripple today?", a: "Brad Garlinghouse is CEO, Monica Long is President, and Stuart Alderoty is Chief Legal Officer. David Schwartz serves as CTO Emeritus after transitioning in 2025." },
+  { q: "Did the founders keep any XRP?", a: "Yes. The founders allocated 20B XRP to themselves. Jed McCaleb received 9B and completed selling his allocation by 2022. Arthur Britto and David Schwartz retain portions of their allocations." },
+  { q: "Who is the CTO of Ripple?", a: "David Schwartz served as CTO from Ripple's founding through 2025, when he transitioned to CTO Emeritus. He remains active in XRPL protocol development." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,18 +39,7 @@ const schemas = [
     { name: "Key People" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "Who created XRP?", answer: "XRP was created by Jed McCaleb, Arthur Britto, and David Schwartz in 2011-2012. They built the XRP Ledger as a faster, more efficient alternative to Bitcoin." },
-    { question: "Who is the CEO of Ripple?", answer: "Brad Garlinghouse has been CEO of Ripple since 2017. He led the company through the SEC lawsuit and its growth to a $50B+ valuation." },
-    { question: "Is David Schwartz still at Ripple?", answer: "Yes. David Schwartz transitioned to CTO Emeritus in 2025 but continues to contribute to XRPL protocol development." },
-  ]),
-];
-
-const faqItems = [
-  { q: "Who created XRP?", a: "XRP was created by Jed McCaleb, Arthur Britto, and David Schwartz in 2011-2012. They designed the XRP Ledger as a faster alternative to Bitcoin, capable of settling transactions in seconds." },
-  { q: "Who runs Ripple today?", a: "Brad Garlinghouse is CEO, Monica Long is President, and Stuart Alderoty is Chief Legal Officer. David Schwartz serves as CTO Emeritus after transitioning in 2025." },
-  { q: "Did the founders keep any XRP?", a: "Yes. The founders allocated 20B XRP to themselves. Jed McCaleb received 9B and completed selling his allocation by 2022. Arthur Britto and David Schwartz retain portions of their allocations." },
-  { q: "Who is the CTO of Ripple?", a: "David Schwartz served as CTO from Ripple's founding through 2025, when he transitioned to CTO Emeritus. He remains active in XRPL protocol development." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function KeyPeoplePage() {

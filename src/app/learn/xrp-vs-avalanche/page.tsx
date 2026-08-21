@@ -25,25 +25,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-vs-avalanche" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "XRP vs Avalanche (AVAX): Which Is Better? (2026)", description: "Compare XRP and Avalanche on speed, fees, DeFi, enterprise adoption, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-avalanche", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Avalanche" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-avalanche" }),
-  buildFAQSchema([
-    { question: "What is the difference between XRP and Avalanche?", answer: "XRP is a payment-focused network for cross-border institutional transfers with 300+ bank partnerships. Avalanche is a smart contract platform designed for DeFi, subnets, and customizable blockchains. XRP has a much larger market cap (~$110B vs ~$9B)." },
-    { question: "Which is faster, XRP or Avalanche?", answer: "Both are very fast. XRP settles in 3-5 seconds. Avalanche achieves sub-second finality on its X-Chain and C-Chain. For raw speed, Avalanche has a slight edge, but XRP's finality is more than sufficient for payment settlement." },
-    { question: "Is XRP or Avalanche better for DeFi?", answer: "Avalanche has a much larger DeFi ecosystem with billions in TVL across Trader Joe, Aave, and many other protocols. XRP's DeFi ecosystem is growing with its native AMM and DEX, but it's significantly smaller. For DeFi, Avalanche is the clear choice." },
-    { question: "Which has more institutional adoption?", answer: "XRP has far more institutional adoption with 300+ financial institution partnerships and live payment corridors. Avalanche has enterprise subnet partnerships (Deloitte, institutional subnets) but far fewer deployed institutional solutions." },
-    { question: "Can XRP and Avalanche coexist?", answer: "Yes. They serve different primary purposes — XRP for institutional payments and Avalanche for DeFi and customizable blockchains. Both could thrive in a multi-chain future." },
-  ]),
-];
-
 const faqItems = [
   { q: "What's the difference between XRP and Avalanche?", a: "XRP focuses on cross-border payments for banks (300+ partners). Avalanche focuses on DeFi and customizable subnets. XRP has ~12x larger market cap." },
   { q: "Which is faster?", a: "Both are fast. XRP: 3-5 seconds. Avalanche: sub-second finality. Slight edge to Avalanche on raw speed." },
   { q: "Which is better for DeFi?", a: "Avalanche by far — billions in TVL, mature ecosystem. XRP's DeFi is growing but much smaller." },
   { q: "Which has more institutional adoption?", a: "XRP with 300+ bank/FI partnerships and live ODL corridors. Avalanche has some enterprise subnets but fewer deployed solutions." },
   { q: "Should I invest in both?", a: "They serve different purposes and could coexist. Many investors hold both for diversified exposure. Not financial advice." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "XRP vs Avalanche (AVAX): Which Is Better? (2026)", description: "Compare XRP and Avalanche on speed, fees, DeFi, enterprise adoption, and investment outlook.", url: "https://allaboutxrp.com/learn/xrp-vs-avalanche", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP vs Avalanche" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-vs-avalanche" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPvsAvalanchePage() {

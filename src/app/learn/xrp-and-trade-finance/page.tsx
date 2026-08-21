@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is trade finance?", a: "Trade finance covers all the financial instruments that make international trade possible — letters of credit, export financing, trade insurance, factoring. It's a $10+ trillion market that still runs largely on paper documents and multi-day settlement." },
+  { q: "How can XRP improve trade finance?", a: "XRP enables instant settlement between trading parties, reduces letter of credit processing from weeks to hours, provides real-time payment tracking, and eliminates the need for multiple intermediary banks in trade transactions." },
+  { q: "What is the trade finance gap?", a: "The trade finance gap is $2.5 trillion — unmet demand from businesses (especially SMEs) that can't access traditional trade finance. Blockchain solutions like XRP can help close this gap by reducing costs and improving accessibility." },
+  { q: "Can XRPL handle trade documents?", a: "While XRPL isn't designed for document storage, it can provide the settlement layer while other systems handle documentation. XRPL's escrow feature is particularly relevant for conditional trade payments." },
+  { q: "How does XRP escrow help trade finance?", a: "XRPL's native escrow feature allows conditional payments — funds are locked and released only when conditions are met (like shipment confirmation). This is ideal for trade finance where payment depends on delivery." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,21 +40,7 @@ const schemas = [
     { name: "XRP & Trade Finance" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is trade finance?", answer: "Trade finance is the financial instruments and products used to facilitate international trade. It includes letters of credit, trade insurance, factoring, and supply chain financing — a $10+ trillion annual market." },
-    { question: "How can XRP improve trade finance?", answer: "XRP can speed up trade finance by enabling instant settlement of letters of credit, reducing the documentation cycle from weeks to hours, and providing real-time payment tracking across supply chains." },
-    { question: "What are letters of credit?", answer: "Letters of credit are bank guarantees that a buyer's payment to a seller will be received on time and for the correct amount. They're essential in international trade but currently take 5-10 days to process." },
-    { question: "Is XRP being used in trade finance today?", answer: "XRP's cross-border payment capabilities are being explored for trade finance applications. While direct trade finance products are still emerging, the underlying ODL infrastructure can dramatically improve trade settlement." },
-    { question: "How big is the trade finance market?", answer: "Global trade finance is a $10+ trillion annual market. The trade finance gap (unmet demand) is estimated at $2.5 trillion, particularly affecting SMEs in developing countries." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is trade finance?", a: "Trade finance covers all the financial instruments that make international trade possible — letters of credit, export financing, trade insurance, factoring. It's a $10+ trillion market that still runs largely on paper documents and multi-day settlement." },
-  { q: "How can XRP improve trade finance?", a: "XRP enables instant settlement between trading parties, reduces letter of credit processing from weeks to hours, provides real-time payment tracking, and eliminates the need for multiple intermediary banks in trade transactions." },
-  { q: "What is the trade finance gap?", a: "The trade finance gap is $2.5 trillion — unmet demand from businesses (especially SMEs) that can't access traditional trade finance. Blockchain solutions like XRP can help close this gap by reducing costs and improving accessibility." },
-  { q: "Can XRPL handle trade documents?", a: "While XRPL isn't designed for document storage, it can provide the settlement layer while other systems handle documentation. XRPL's escrow feature is particularly relevant for conditional trade payments." },
-  { q: "How does XRP escrow help trade finance?", a: "XRPL's native escrow feature allows conditional payments — funds are locked and released only when conditions are met (like shipment confirmation). This is ideal for trade finance where payment depends on delivery." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndTradeFinancePage() {

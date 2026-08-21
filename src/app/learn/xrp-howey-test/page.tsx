@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "What is the Howey Test?", a: "A four-part test from the 1946 Supreme Court case SEC v. W.J. Howey Co. A transaction is a security if there's: (1) investment of money, (2) in a common enterprise, (3) with expectation of profits, (4) from the efforts of others. All four prongs must be met." },
+  { q: "Did XRP pass the Howey Test?", a: "Yes, for secondary market sales. Judge Torres ruled that people buying XRP on exchanges didn't know if they were buying from Ripple and didn't have a contractual expectation of profits from Ripple's efforts. The third and fourth prongs failed." },
+  { q: "Why did Ripple's institutional sales fail?", a: "Ripple sold XRP directly to institutional investors with contracts and expectations. Those buyers knew they were buying from Ripple and expected Ripple's efforts to increase XRP's value — meeting all four Howey prongs." },
+  { q: "Is XRP itself a security?", a: "No. The court made a crucial distinction: XRP the token is not a security. How XRP is sold can make a specific transaction a securities offering. This 'manner of sale' doctrine was groundbreaking." },
+  { q: "What does this mean for other cryptos?", a: "The ruling established that a digital asset can be sold as a security in one context and not in another. This 'manner of sale' analysis applies to all cryptocurrencies and is being cited in cases involving other tokens." },
+  { q: "How does this affect XRP investors?", a: "Positively. XRP on exchanges is definitively not a security, meaning exchanges can list it freely, ETFs can be structured around it, and institutional investors can buy it without securities law complications." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -32,22 +41,7 @@ const schemas = [
     { name: "XRP & Howey Test" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "What is the Howey Test?", answer: "The Howey Test is a legal framework from the 1946 Supreme Court case SEC v. W.J. Howey Co. It determines whether a transaction qualifies as an investment contract (security). The test has four prongs: investment of money, in a common enterprise, with expectation of profits, derived from the efforts of others." },
-    { question: "Did XRP pass the Howey Test?", answer: "In 2023, Judge Torres ruled that XRP sales on public exchanges did NOT meet the Howey Test because buyers on exchanges didn't know if they were buying from Ripple and couldn't reasonably expect profits from Ripple's efforts specifically." },
-    { question: "Is XRP a security?", answer: "No. The court ruled that XRP itself is not a security. However, Ripple's direct institutional sales of XRP were found to be unregistered securities offerings because those buyers DID have expectations tied to Ripple's efforts." },
-    { question: "What does the Howey Test mean for crypto?", answer: "The Howey Test ruling created a legal distinction between a token itself and how it's sold. This precedent applies to all cryptocurrencies, not just XRP." },
-    { question: "Can the Howey Test ruling be overturned?", answer: "While judicial precedents can be challenged, the settlement between SEC and Ripple largely finalized the matter. Legislative efforts like the CLARITY Act aim to codify similar protections into law." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What is the Howey Test?", a: "A four-part test from the 1946 Supreme Court case SEC v. W.J. Howey Co. A transaction is a security if there's: (1) investment of money, (2) in a common enterprise, (3) with expectation of profits, (4) from the efforts of others. All four prongs must be met." },
-  { q: "Did XRP pass the Howey Test?", a: "Yes, for secondary market sales. Judge Torres ruled that people buying XRP on exchanges didn't know if they were buying from Ripple and didn't have a contractual expectation of profits from Ripple's efforts. The third and fourth prongs failed." },
-  { q: "Why did Ripple's institutional sales fail?", a: "Ripple sold XRP directly to institutional investors with contracts and expectations. Those buyers knew they were buying from Ripple and expected Ripple's efforts to increase XRP's value — meeting all four Howey prongs." },
-  { q: "Is XRP itself a security?", a: "No. The court made a crucial distinction: XRP the token is not a security. How XRP is sold can make a specific transaction a securities offering. This 'manner of sale' doctrine was groundbreaking." },
-  { q: "What does this mean for other cryptos?", a: "The ruling established that a digital asset can be sold as a security in one context and not in another. This 'manner of sale' analysis applies to all cryptocurrencies and is being cited in cases involving other tokens." },
-  { q: "How does this affect XRP investors?", a: "Positively. XRP on exchanges is definitively not a security, meaning exchanges can list it freely, ETFs can be structured around it, and institutional investors can buy it without securities law complications." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPHoweyTestPage() {

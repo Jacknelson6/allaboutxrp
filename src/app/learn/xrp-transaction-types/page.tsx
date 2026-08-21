@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
 };
 
+const faqItems = [
+  { q: "How many transaction types does the XRPL support?", a: "The XRPL supports over 25 transaction types including Payment, OfferCreate, OfferCancel, TrustSet, EscrowCreate, EscrowFinish, EscrowCancel, AccountSet, SetRegularKey, SignerListSet, NFTokenMint, NFTokenBurn, AMMCreate, AMMDeposit, AMMWithdraw, and more. New types are added through the amendment process." },
+  { q: "How much does an XRP transaction cost?", a: "The minimum transaction fee is 0.00001 XRP (10 drops), typically less than $0.01 USD. Some transaction types like multi-signed transactions or account deletions have higher minimum fees. All fees are permanently burned — they're not paid to validators." },
+  { q: "What is a transaction hash on the XRPL?", a: "A transaction hash is a unique 64-character hexadecimal string (SHA-512Half) that identifies every transaction. You can look up any transaction by its hash on explorers like XRPScan, Bithomp, or the XRPL.org Explorer." },
+  { q: "What is a TrustSet transaction?", a: "TrustSet creates or modifies a trust line between your account and a token issuer. It's required before you can hold any issued token (like RLUSD or other stablecoins) on the XRPL. Each trust line increases your account reserve by 0.2 XRP." },
+  { q: "Can I cancel an XRP transaction after sending?", a: "No. Once a transaction is validated and included in a closed ledger (3-5 seconds), it is permanent and irreversible. However, you can cancel pending DEX offers with OfferCancel, and escrows can be cancelled before completion with EscrowCancel." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRP Transaction Types Explained",
@@ -48,21 +56,7 @@ const schemas = [
     { name: "XRP Transaction Types" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-transaction-types" }),
-  buildFAQSchema([
-    { question: "How many transaction types does the XRPL support?", answer: "The XRPL supports over 25 transaction types including Payment, OfferCreate, OfferCancel, TrustSet, EscrowCreate, EscrowFinish, EscrowCancel, AccountSet, SetRegularKey, SignerListSet, NFTokenMint, NFTokenBurn, AMMCreate, AMMDeposit, AMMWithdraw, and more." },
-    { question: "How much does an XRP transaction cost?", answer: "The minimum transaction fee on the XRPL is 0.00001 XRP (10 drops), typically less than $0.01. Some transaction types like multi-signed transactions or account deletions have higher fees. All fees are permanently burned." },
-    { question: "What is a transaction hash on the XRPL?", answer: "A transaction hash is a unique 64-character hexadecimal identifier for every transaction on the XRPL. You can look up any transaction by its hash on explorers like XRPScan, Bithomp, or XRPL.org Explorer." },
-    { question: "What is a TrustSet transaction?", answer: "TrustSet creates or modifies a trust line between your account and an issuer. It's required before you can hold any issued token (stablecoins, NFTs on the DEX, etc.) on the XRPL. Each trust line increases your account reserve by 0.2 XRP." },
-    { question: "Can I cancel an XRP transaction?", answer: "No. Once a transaction is validated and included in a closed ledger (3-5 seconds), it cannot be reversed. However, you can cancel pending offers (OfferCancel) and finish or cancel escrows before they expire." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How many transaction types does the XRPL support?", a: "The XRPL supports over 25 transaction types including Payment, OfferCreate, OfferCancel, TrustSet, EscrowCreate, EscrowFinish, EscrowCancel, AccountSet, SetRegularKey, SignerListSet, NFTokenMint, NFTokenBurn, AMMCreate, AMMDeposit, AMMWithdraw, and more. New types are added through the amendment process." },
-  { q: "How much does an XRP transaction cost?", a: "The minimum transaction fee is 0.00001 XRP (10 drops), typically less than $0.01 USD. Some transaction types like multi-signed transactions or account deletions have higher minimum fees. All fees are permanently burned — they're not paid to validators." },
-  { q: "What is a transaction hash on the XRPL?", a: "A transaction hash is a unique 64-character hexadecimal string (SHA-512Half) that identifies every transaction. You can look up any transaction by its hash on explorers like XRPScan, Bithomp, or the XRPL.org Explorer." },
-  { q: "What is a TrustSet transaction?", a: "TrustSet creates or modifies a trust line between your account and a token issuer. It's required before you can hold any issued token (like RLUSD or other stablecoins) on the XRPL. Each trust line increases your account reserve by 0.2 XRP." },
-  { q: "Can I cancel an XRP transaction after sending?", a: "No. Once a transaction is validated and included in a closed ledger (3-5 seconds), it is permanent and irreversible. However, you can cancel pending DEX offers with OfferCancel, and escrows can be cancelled before completion with EscrowCancel." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPTransactionTypesPage() {

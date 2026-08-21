@@ -26,25 +26,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrp-price-potential" },
 };
 
-const schemas = [
-  buildArticleSchema({ headline: "Can XRP Reach $500? The Math Explained", description: "Honest analysis of whether XRP can reach $500 — market cap math, common arguments, and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
-  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $500?" }]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
-  buildFAQSchema([
-    { question: "Can XRP reach $500?", answer: "Extremely unlikely with current market structures. $500 XRP = ~$28.5 trillion market cap. This exceeds Apple, Microsoft, and Google COMBINED. It would require XRP to be worth more than the entire current crypto market by ~9x. Standard market cap analysis makes this virtually impossible in any foreseeable timeframe." },
-    { question: "What about the 'utility value' argument?", answer: "Some argue that if XRP settles trillions in daily payment volume, the 'velocity' creates a higher utility valuation than market cap implies. While there's some economic theory behind this (the equation of exchange), no asset has ever been valued this way in practice. The argument has theoretical merit but no real-world precedent." },
-    { question: "What market cap would $500 XRP require?", answer: "Approximately $28.5 trillion with ~57 billion circulating supply. For context: Apple is ~$3T, the entire US stock market is ~$50T, and global GDP is ~$100T. $500 XRP would be the most valuable single asset on Earth." },
-    { question: "Why do people claim XRP can reach $500?", answer: "Common arguments include: XRP settling trillions in cross-border payments (velocity argument), token burn reducing supply over decades, institutional demand exceeding available supply, and theories about XRP replacing SWIFT. These arguments have varying degrees of merit but all face mathematical challenges." },
-    { question: "What price target IS realistic for XRP?", answer: "Most data-driven analyses suggest $5-20 as realistic near-to-medium-term targets, with $10 being a commonly cited bull case. $50+ enters very optimistic territory. See our other price target analyses for detailed breakdowns." },
-  ]),
-];
-
 const faqItems = [
   { q: "Can XRP reach $500?", a: "Extremely unlikely. ~$28.5T market cap required — exceeding Apple, Microsoft, and Google combined. No foreseeable path." },
   { q: "What about utility/velocity arguments?", a: "Some theoretical merit (equation of exchange), but no asset has ever been valued this way. Interesting theory, no real-world precedent." },
   { q: "What market cap would that be?", a: "~$28.5 trillion. Would be the most valuable single asset on Earth by far." },
   { q: "Why do people claim $500?", a: "Settlement volume arguments, token burn, supply/demand theories, SWIFT replacement narratives. Varying merit but mathematical challenges." },
   { q: "What IS realistic?", a: "$5-20 near-to-medium term. $10 is a common bull case. $50+ very optimistic. $500 not supported by standard valuation." },
+];
+
+const schemas = [
+  buildArticleSchema({ headline: "Can XRP Reach $500? The Math Explained", description: "Honest analysis of whether XRP can reach $500 — market cap math, common arguments, and reality.", url: "https://allaboutxrp.com/learn/xrp-price-potential", datePublished: "2026-02-15", dateModified: "2026-02-15" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "Can XRP Reach $500?" }]),
+  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-price-potential" }),
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function CanXRPReach500Page() {

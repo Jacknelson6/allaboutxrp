@@ -29,6 +29,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/learn/xrpl-credentials-did" },
 };
 
+const faqItems = [
+  { q: "What are DIDs on the XRPL?", a: "Decentralized Identifiers anchored to the XRP Ledger — self-sovereign identity documents that allow verifiable, portable identity without centralized providers. Activated via XLS-40d." },
+  { q: "What are XRPL Credentials?", a: "On-chain verifiable credentials (XLS-70d) issued by trusted entities — KYC verification, accredited investor status, age verification. Can gate access to DeFi features, DEX trading, etc." },
+  { q: "How do DIDs help with compliance?", a: "Enable 'verify once, use everywhere' KYC. Complete verification once, get a credential, and prove verified status to any accepting service without re-submitting documents." },
+  { q: "Are DIDs mandatory?", a: "No — completely optional. XRPL remains pseudonymous by default. DIDs serve those needing verifiable identity for compliance or institutional services." },
+  { q: "How is privacy maintained?", a: "Credentials prove you're verified without revealing personal information. Zero-knowledge techniques can further minimize data exposure while maintaining verifiability." },
+  { q: "Who issues credentials?", a: "Trusted entities — KYC providers, exchanges, regulators, accreditation bodies. Any XRPL account can issue credentials, but their value depends on the issuer's trustworthiness." },
+];
+
 const schemas = [
   buildArticleSchema({
     headline: "XRPL Decentralized Identity (DID): Credentials on the Ledger",
@@ -43,22 +52,7 @@ const schemas = [
     { name: "XRPL Credentials & DID" },
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrpl-credentials-did" }),
-  buildFAQSchema([
-    { question: "What are DIDs on the XRPL?", answer: "Decentralized Identifiers (DIDs) on the XRPL are self-sovereign identity documents anchored to the ledger. They allow XRPL accounts to create verifiable, portable identities without relying on a centralized identity provider. The DID specification (XLS-40d) was activated on the XRPL mainnet." },
-    { question: "What are XRPL Credentials?", answer: "XRPL Credentials (XLS-70d) allow trusted entities to issue verifiable credentials on-chain — such as KYC verification, accredited investor status, or age verification. These credentials can be checked by smart logic, DEX rules, or other XRPL features to gate access." },
-    { question: "How do DIDs help with compliance?", answer: "DIDs enable 'verify once, use everywhere' KYC. A user completes KYC with one provider, receives a verifiable credential on the XRPL, and can prove their verified status to any service that accepts it — without re-submitting documents each time." },
-    { question: "Are DIDs mandatory on the XRPL?", answer: "No. DIDs are completely optional. The XRPL remains pseudonymous by default. DIDs are available for users and entities that want or need verifiable identity — particularly for regulatory compliance in DeFi, securities trading, and institutional services." },
-    { question: "How do XRPL Credentials differ from traditional KYC?", answer: "Traditional KYC requires submitting personal documents to every service separately. XRPL Credentials are portable, privacy-preserving, and verifiable on-chain. You prove you're verified without revealing your actual personal information to each service." },
-  ]),
-];
-
-const faqItems = [
-  { q: "What are DIDs on the XRPL?", a: "Decentralized Identifiers anchored to the XRP Ledger — self-sovereign identity documents that allow verifiable, portable identity without centralized providers. Activated via XLS-40d." },
-  { q: "What are XRPL Credentials?", a: "On-chain verifiable credentials (XLS-70d) issued by trusted entities — KYC verification, accredited investor status, age verification. Can gate access to DeFi features, DEX trading, etc." },
-  { q: "How do DIDs help with compliance?", a: "Enable 'verify once, use everywhere' KYC. Complete verification once, get a credential, and prove verified status to any accepting service without re-submitting documents." },
-  { q: "Are DIDs mandatory?", a: "No — completely optional. XRPL remains pseudonymous by default. DIDs serve those needing verifiable identity for compliance or institutional services." },
-  { q: "How is privacy maintained?", a: "Credentials prove you're verified without revealing personal information. Zero-knowledge techniques can further minimize data exposure while maintaining verifiability." },
-  { q: "Who issues credentials?", a: "Trusted entities — KYC providers, exchanges, regulators, accreditation bodies. Any XRPL account can issue credentials, but their value depends on the issuer's trustworthiness." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPLCredentialsDIDPage() {

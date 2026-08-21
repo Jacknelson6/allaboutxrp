@@ -25,6 +25,15 @@ export const metadata: Metadata = {
   alternates: { canonical: url },
 };
 
+const faqItems = [
+  { q: "How does XRP bridge CBDCs?", a: "XRP acts as a neutral intermediary. Country A's CBDC converts to XRP, transfers in 3-5 seconds, and converts to Country B's CBDC. Neither country needs to hold the other's currency — XRP provides the bridge liquidity." },
+  { q: "What is Ripple's CBDC platform?", a: "Ripple offers a turnkey CBDC platform built on XRPL technology. Central banks can use it to design, issue, manage, and settle their digital currencies. It includes minting, distribution, and redemption capabilities." },
+  { q: "Why can't CBDCs just talk to each other?", a: "Every CBDC is built differently — different tech stacks, different monetary policies, different regulations. Without a neutral bridge, you'd need bilateral agreements between every pair of countries. XRP provides a universal settlement layer." },
+  { q: "Which countries use Ripple's CBDC platform?", a: "Bhutan, Palau, Montenegro, and Colombia have all explored or piloted CBDC solutions with Ripple. More partnerships are being announced as CBDC development accelerates globally." },
+  { q: "What does this mean for XRP's value?", a: "If XRP bridges even a fraction of global CBDC transactions, the volume would be enormous. Cross-border payments total $150B+ daily — CBDCs could increase this further as digital currencies make international transfers more accessible." },
+  { q: "Is this the same as what XRP already does?", a: "Yes, the concept is identical to ODL — XRP as a bridge currency. The difference is the counterparties: instead of commercial banks, it's central banks and their national digital currencies. The scale would be significantly larger." },
+];
+
 const schemas = [
   buildArticleSchema({ headline: title, description, url, datePublished: dp, dateModified: dp }),
   buildBreadcrumbSchema([
@@ -33,22 +42,7 @@ const schemas = [
     { name: "XRP & CBDC Bridge" },
   ]),
   buildSpeakableSchema({ url }),
-  buildFAQSchema([
-    { question: "How does XRP bridge CBDCs?", answer: "XRP serves as a neutral bridge currency between different central bank digital currencies (CBDCs). When two countries have different CBDCs, XRP can facilitate instant conversion and settlement without either country needing to hold the other's CBDC." },
-    { question: "What is Ripple's CBDC platform?", answer: "Ripple offers a CBDC platform built on XRPL technology that helps central banks design, issue, and manage their digital currencies. Multiple countries have piloted the platform." },
-    { question: "Why do CBDCs need a bridge?", answer: "Each country's CBDC will be different — different technology, different rules, different currencies. Without a bridge, CBDCs become isolated systems that can't interoperate. XRP provides the neutral settlement layer between them." },
-    { question: "Which countries are piloting Ripple's CBDC platform?", answer: "Several countries including Bhutan, Palau, Montenegro, Colombia, and others have explored or piloted CBDC solutions with Ripple's technology." },
-    { question: "Does this increase demand for XRP?", answer: "Yes. If XRP becomes the bridge between CBDCs, every cross-border CBDC transaction would require XRP for settlement — potentially driving enormous transaction volume." },
-  ]),
-];
-
-const faqItems = [
-  { q: "How does XRP bridge CBDCs?", a: "XRP acts as a neutral intermediary. Country A's CBDC converts to XRP, transfers in 3-5 seconds, and converts to Country B's CBDC. Neither country needs to hold the other's currency — XRP provides the bridge liquidity." },
-  { q: "What is Ripple's CBDC platform?", a: "Ripple offers a turnkey CBDC platform built on XRPL technology. Central banks can use it to design, issue, manage, and settle their digital currencies. It includes minting, distribution, and redemption capabilities." },
-  { q: "Why can't CBDCs just talk to each other?", a: "Every CBDC is built differently — different tech stacks, different monetary policies, different regulations. Without a neutral bridge, you'd need bilateral agreements between every pair of countries. XRP provides a universal settlement layer." },
-  { q: "Which countries use Ripple's CBDC platform?", a: "Bhutan, Palau, Montenegro, and Colombia have all explored or piloted CBDC solutions with Ripple. More partnerships are being announced as CBDC development accelerates globally." },
-  { q: "What does this mean for XRP's value?", a: "If XRP bridges even a fraction of global CBDC transactions, the volume would be enormous. Cross-border payments total $150B+ daily — CBDCs could increase this further as digital currencies make international transfers more accessible." },
-  { q: "Is this the same as what XRP already does?", a: "Yes, the concept is identical to ODL — XRP as a bridge currency. The difference is the counterparties: instead of commercial banks, it's central banks and their national digital currencies. The scale would be significantly larger." },
+  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
 export default function XRPAndCBDCBridgePage() {
