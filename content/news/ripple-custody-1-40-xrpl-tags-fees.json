@@ -1,0 +1,249 @@
+{
+  "slug": "ripple-custody-1-40-xrpl-tags-fees",
+  "title": "Ripple Custody 1.40 Adds XRPL Tags and Changes Fee Estimation",
+  "description": "Ripple Custody 1.40 adds destination-tag handling and duplicate endpoint checks for XRPL integrations, while its fee-estimation and indexer changes give custodians a new implementation checklist.",
+  "category": "Institutional Infrastructure",
+  "publishedAt": "2026-08-22T14:14:00-04:00",
+  "modifiedAt": "2026-08-22T14:14:00-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-custody-tag-register-editorial.webp",
+  "imageAlt": "A pale-gold dovetail address register holds a cobalt glass address puck and one water-blue tag while a second tag meets a vermilion stop pin on ivory stone",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "custody-dovetail-tag-register-still-life",
+  "imageSetting": "A silent bleached-stone address registry with a long ivory stone sill and narrow east slit in clear winter-noon light, viewed from the rear short end at low sill height",
+  "imageMetaphor": "A pale-gold dovetail register holds one cobalt shared address and a valid blue tag while a second tag meets a vermilion stop, representing XRPL tag routing and duplicate endpoint prevention",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain Ripple Custody version 1.40's XRPL integration changes through one sparse, physically believable still-life mechanism. The story is about endpoint destination-tag support, tag routing, and duplicate endpoint prevention for institutional custody integrations. The image must communicate one shared XRPL address with a valid tag assigned and a repeated endpoint identity stopped before duplication. Scene: a silent bleached-stone address registry, a new setting unlike every registered AllAboutXRP news and guide scene. Place one broad matte ivory stone sill in the lower half, with broad calm negative space across the upper-left. Use a narrow east-facing slit of hard clear winter-noon light, a clean cobalt reflected shadow, and physically coherent contact shadows. View from a low rear short-end angle at sill height, looking along the long axis of the register toward the right, a viewpoint not used by the existing scenes. Keep the mechanism small and sharply legible in the lower-right third. Exactly five deliberate visible objects, no extras: one elongated pale-gold dovetail address-register plate with two parallel grooves and one central opening, resting flat on the ivory stone; one smooth cobalt-blue glass address puck partially seated beneath the central opening; one small water-blue glass tag tab seated cleanly in the first groove; one second matching water-blue glass tag tab halted just before the same first groove, showing a duplicate endpoint attempt; and one single restrained vermilion stop pin between the halted tab and the occupied groove. The second groove remains visibly empty as negative space. Sublime Classical Oil, luminous academic and classical-revival oil painting, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on pale-gold metal, glass, and stone edge, extraordinary clarity, jewel-toned cobalt and ultramarine shadow, warm ivory, pale gold, and one restrained vermilion status accent. Fine translucent fields made only from 1, 0, and x may appear inside a few atmospheric or cast-shadow transitions and dissolve into white space. Never apply all-over ASCII, dither, halftone, pixel blocks, or retro-game texture. No readable text, letters, numbers, logos, currency symbols, XRP mark, literal crypto coin, dashboard, chart, interface, politician, person, bank building, temple, columns, harbor, coast, terrace, observatory, archive room, archive table, workshop, laboratory, bridge, city, fantasy ruin, impossible geometry, cyber cube, neon, watermark, border, rounded frame, photographic realism, sepia wash, muddy gray, excessive craquelure, mushy detail, coarse halftone, duplicated elements, extra tools, extra tags, or decorative clutter. Do not import content from the style references. The address-register setting, low rear short-end viewpoint, hard winter-noon slit light, dovetail plate, shared address puck, two tag tabs, empty second groove, and vermilion stop-pin metaphor must remain unique to this article.",
+  "keywords": [
+    "Ripple Custody 1.40",
+    "XRPL destination tags",
+    "XRP Ledger custody",
+    "XRPL transaction fees",
+    "institutional XRP infrastructure",
+    "Ripple Custody endpoint API"
+  ],
+  "keyTakeaways": [
+    "Ripple Custody 1.40, released as a short-term SaaS version on August 17, adds destination-tag and memo support for XRPL endpoints and transfers, alongside duplicate endpoint prevention.",
+    "For XRPL, a destinationTag is stored with an endpoint or supplied on a transfer to a plain address or untagged endpoint. The documented range is 0 to 4,294,967,295.",
+    "The release removes Ripple Custody's default 200-drop fee padding and says no transaction can consume more than 50 XRP in fees. Those are custody-platform rules, not new XRP Ledger fee settings.",
+    "Its Unified Indexer rewrite stops populating rawTransaction and senderLedgerSpecificMetadata for affected chains. The release creates an integration migration task, not proof of a protocol upgrade, customer adoption, or XRP price impact."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Ripple Custody 1.40 changes the integration contract",
+      "paragraphs": [
+        "[Confirmed fact] Ripple Custody 1.40, released for SaaS on August 17, adds XRPL destination-tag handling to endpoints and transfers, prevents duplicate endpoint keys, and changes fee estimation. It is a custody-platform release, not an XRP Ledger protocol amendment or proof of new XRP adoption. The operational impact is for integrators and custodians. [1][2][3]",
+        "The primary record is Ripple's version 1.40 changelog. Independent XRP Ledger documentation supplies the protocol context: destination tags are 32-bit unsigned integers used by off-ledger systems to identify beneficiaries behind a shared address, while transaction fees are specified in the signed XRP Ledger transaction and destroyed when validated. [1][2][3]",
+        "That source order matters. Ripple's changelog establishes what the product changed and which migration warnings it gives customers. The XRPL documentation establishes what a destination tag and a ledger fee mean outside that product. The second set of records does not turn a Ripple Custody feature into a network amendment, and the first does not establish that any named institution has deployed it in production. [1][2][3]",
+        "[Bounded inference] The release makes a custody integration more explicit at the address-book layer. A platform can store a tag with an endpoint, inherit it when a transfer uses that endpoint, and reject a repeated endpoint identity before a second record is created. That should reduce some custom routing glue, but it also makes setup code that assumes duplicate creation is harmless more likely to fail visibly. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost"
+      ]
+    },
+    {
+      "heading": "XRPL destination tags become endpoint state, not just transfer input",
+      "paragraphs": [
+        "[Confirmed fact] Ripple Custody 1.40 lets an XRPL endpoint store `destinationTag` in its `parameters` field. The changelog gives the accepted value as an integer from 0 through 4,294,967,295, matching the XRP Ledger's 32-bit unsigned tag format. When a transfer uses a tagged endpoint, the endpoint supplies the tag and the transfer cannot override it. [1][2]",
+        "The alternative path is a plain XRPL address or an endpoint without a tag. In that case, the transfer output can carry an optional typed `tag` object. Ripple says customers no longer need to use its separate Payments transaction-order flow merely to set an XRPL destination tag. That is an API and workflow change inside the custody product, not a change to how the XRPL Payment transaction encodes the field. [1][2]",
+        "The distinction is useful for hosted-account operators. XRPL documentation says tags do not have direct on-ledger behavior. They tell an off-ledger system which customer, invoice, quote, or return payment to associate with a transaction sent to a multi-purpose address. A custody platform that stores the tag with the endpoint is therefore moving routing policy into a reusable control record. The ledger still sees a payment and a 32-bit tag; the business still has to credit the right internal account. [2]"
+      ],
+      "table": {
+        "caption": "The three endpoint and transfer paths to test",
+        "headers": [
+          "Destination setup",
+          "Ripple Custody behavior",
+          "Integration question"
+        ],
+        "rows": [
+          [
+            "Endpoint with destinationTag",
+            "The tag is read from the endpoint and cannot be overridden on the transfer",
+            "Does the existing endpoint contain the correct tag?"
+          ],
+          [
+            "Plain address or untagged endpoint",
+            "A transfer can provide an optional tag when the ledger supports tags",
+            "Is tag selection included in approval and signing policy?"
+          ],
+          [
+            "Same endpoint identity repeated",
+            "The create or update operation can report a conflict before submission",
+            "Does setup check for an existing endpoint first?"
+          ]
+        ],
+        "sourceNote": "Sources: Ripple Custody 1.40, published August 17, 2026, and the undated XRP Ledger Source and Destination Tags reference. [1][2]"
+      },
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags"
+      ]
+    },
+    {
+      "heading": "Duplicate endpoint prevention turns idempotent setup into a migration task",
+      "paragraphs": [
+        "[Confirmed fact] Version 1.40 defines an endpoint as unique by domain, address, ledger, and destination tag. An empty tag counts as a value, so only one tagless endpoint can exist for a given domain, address, and ledger. Ripple says the product does not delete duplicates created before the release, and that transaction history is attributed by endpoint ID using the full uniqueness key. [1]",
+        "The practical change is easy to miss in a release note. An automation that used create as an idempotent registration step may now receive a conflict instead of a second endpoint. The documented remedy is to check for an existing endpoint first or handle the rejection. Ripple also says a dry run can report the conflict before the intent is submitted. [1]",
+        "[For institutions and custodians] The endpoint address book is part of the control plane for deposits and payouts. A duplicate record can split operational ownership, create reconciliation ambiguity, or route a tag to the wrong internal customer if the system chooses the wrong record. The new uniqueness key helps prevent that future ambiguity, but it does not repair historical records or prove that an institution's existing data is clean. [1][2]",
+        "[For developers] The safe migration sequence is read, compare the full identity tuple, decide whether the desired tag is empty or populated, then create or update only after the result is known. Tests should cover a same-address different-tag case, a same-address same-tag case, and a tagless endpoint case. [Unresolved uncertainty] The changelog does not publish every error payload or a universal migration script, so teams need to verify those details against the versioned API behavior they actually run. [1]"
+      ],
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags"
+      ]
+    },
+    {
+      "heading": "Fee estimation shifts the congestion tradeoff for XRPL custody flows",
+      "paragraphs": [
+        "[Confirmed fact] Ripple says version 1.40 no longer pads XRPL transaction estimates to a default 200 drops. Its stated consequence is that standard payments submitted during network congestion are more likely to remain pending until the network clears. The same release says the specified-fee strategy validation no longer applies below 50 XRP, while no transaction can consume more than 50 XRP in fees. [1]",
+        "The 200-drop figure is a Ripple Custody default, not the XRP Ledger's universal transaction cost. The XRPL fee method reports current values such as `base_fee`, `minimum_fee`, and `open_ledger_fee` in drops of XRP. The transaction-cost documentation also explains that a signed transaction destroys the exact `Fee` amount when it is included in a validated ledger, even if that amount is much higher than the minimum at the time. [3][4]",
+        "That distinction gives the release a narrower and more useful meaning. Ripple Custody is changing how its product selects and validates a fee before signing or broadcasting. It is not announcing a validator vote, a new network fee schedule, or a 50-XRP ledger protocol ceiling. A custody operator should treat the 50 XRP statement as the product's documented protection boundary and still model ordinary load-based fees in drops and fee levels. [1][3][4]",
+        "[For developers and operations teams] Fee tests should cover a quiet ledger, a queued transaction, and a congested open ledger. The XRPL documentation recommends looking up the current load-based cost before signing, using a `LastLedgerSequence` so a transaction does not remain unresolved indefinitely, and applying a maximum fee policy. Those controls matter more after a product stops adding a fixed padding amount, because a lower estimate can trade overpayment for a higher chance of waiting. [3][4]",
+        "No dated XRP price snapshot is included here. The release documents custody fee behavior, not a market event, and the available record does not support attributing any XRP price movement or demand change to version 1.40."
+      ],
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/fee"
+      ]
+    },
+    {
+      "heading": "The Unified Indexer rewrite changes transaction-response assumptions",
+      "paragraphs": [
+        "[Confirmed fact] Version 1.40 also rewrites Ripple Custody's Unified Indexer Service for chains served by that service. In the `ledgerTransactionData` object, `rawTransaction` and `senderLedgerSpecificMetadata` are no longer populated. Ripple directs customers who need to inspect a confirmed transaction on-chain to use `ledgerTransactionData.ledgerTransactionId` with a blockchain explorer. [1]",
+        "This is separate from the XRPL destination-tag feature. A client can correctly assign a tag and still break if its reconciliation code expects the old transaction response fields. The release describes `rawTransaction` as the ledger-native encoding previously returned, and `senderLedgerSpecificMetadata` as data previously persisted during preparation and used when broadcasting. The refactor says it no longer requires the latter. [1]",
+        "For an institutional integration, the right response is to identify which fields are authoritative for each job. The ledger transaction ID is a durable lookup key for a confirmed record. A locally stored raw blob may still be useful if a client captured it before signing, but the primary release no longer promises that Ripple Custody will return it for every UIS-served chain. That is an integration contract boundary, not evidence that XRPL transaction serialization changed. [1][5]"
+      ],
+      "table": {
+        "caption": "Response fields affected by the v1.40 UIS rewrite",
+        "headers": [
+          "Field",
+          "Documented v1.40 behavior",
+          "Safer integration path"
+        ],
+        "rows": [
+          [
+            "rawTransaction",
+            "No longer populated for chains served by the UIS",
+            "Retain local signed data when required and use the ledger transaction ID for confirmed lookup"
+          ],
+          [
+            "senderLedgerSpecificMetadata",
+            "No longer persisted for the refactored preparation and broadcast path",
+            "Do not make reconciliation depend on this field being present"
+          ],
+          [
+            "ledgerTransactionData.ledgerTransactionId",
+            "The changelog identifies it as the route to inspect a confirmed on-chain transaction",
+            "Use it as the post-confirmation reference and test explorer or ledger readback"
+          ]
+        ],
+        "sourceNote": "Source: Ripple Custody 1.40, published August 17, 2026. The field descriptions and migration boundary are product documentation, not a claim about every chain or every deployment. [1]"
+      },
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/references/protocol/transactions/common-fields"
+      ]
+    },
+    {
+      "heading": "Implications for institutions, developers, and XRP readers",
+      "paragraphs": [
+        "[For institutions] Version 1.40 is a due-diligence checkpoint for custody operations, not a customer-adoption announcement. A bank, exchange, or fintech evaluating the release should map every endpoint's domain, XRPL address, ledger, and tag; decide whether tag inheritance matches its approval policy; and rehearse conflict handling before an environment receives the new behavior. The release date does not disclose any customer rollout or transaction volume. [1]",
+        "[For developers] The minimum test plan spans three surfaces: endpoint creation and update, transfer output construction, and transaction response reconciliation. Add a test for a tagged endpoint whose transfer tries to override the tag, a plain address with an explicit tag, a duplicate full identity tuple, a tagless endpoint, and a response that lacks the two deprecated fields. Also capture the fee values used before signing and apply an application-level maximum. [1][2][3][4]",
+        "[For validators and XRPL protocol watchers] Nothing in the v1.40 changelog describes an amendment, a new transaction type, a change to tag width, or a change to the network's consensus rules. The XRP Ledger still treats destination tags as information used by off-ledger systems, and its fee mechanics remain defined by the signed transaction and current network load. The relevant production question is whether custody products integrate those rules correctly. [1][2][3]",
+        "[For XRP holders and general readers] No wallet action follows from this release. Ripple Custody is institutional infrastructure, and XRPL activity inside a custody product would require separate evidence such as a public deployment, customer disclosure, or on-ledger transaction record. The release does not establish new XRP demand, a supply change, or a causal relationship with the XRP price. XRP remains the asset used to pay XRPL transaction costs, but a custody software update is not itself a market catalyst. [1][3]",
+        "[Bounded inference] The release is still material because operational correctness is part of institutional market structure. Tags, endpoint identity, fee selection, and transaction-response records determine whether a custody system can reconcile an XRPL payment without manual repair. But that value is measured through reliable production behavior, not through the version number alone."
+      ],
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/fee"
+      ]
+    },
+    {
+      "heading": "The evidence boundary around Ripple Custody 1.40",
+      "paragraphs": [
+        "[Confirmed fact] The dated primary record supports four concrete changes: the Unified Indexer response-field rewrite, revised XRPL fee estimation, destination-tag and memo support for endpoints and transfers, and duplicate endpoint prevention. Ripple says SaaS deployment began progressively on August 17, 2026. The release is short-term support, and on-premises availability of the rewritten UIS is deferred until the next long-term-support release. [1]",
+        "[Bounded inference] The most defensible benefit is less ambiguity in hosted-account routing and more predictable failure at the endpoint-registration boundary. The most defensible cost is migration work for setup automations, reconciliation code, and fee policies that relied on the prior response or estimate behavior. Neither conclusion requires assuming that the product is live for every customer or that a production incident has occurred. [1][2][3]",
+        "[Unresolved uncertainty] The public changelog does not identify every SaaS environment that has completed rollout, publish a universal API error schema for endpoint conflicts, disclose customer transaction volume, or show a production XRPL transaction generated by the release. It also does not say that the new tag handling changes the XRP Ledger itself. Those are open evidence gaps, not negative proof. [1]",
+        "The clean editorial conclusion is therefore narrower than a product-launch slogan. Ripple Custody 1.40 gives institutional XRPL integrations a new set of routing, fee, duplicate-detection, and transaction-response rules to test. Whether those rules translate into broader XRP Ledger use will be answered by deployment records, public customer evidence, and on-ledger activity that can be independently checked."
+      ],
+      "sourceUrls": [
+        "https://docs.ripple.com/products/custody/support/change-history/v140",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Ripple Custody's next long-term-support release notes, including the on-premises UIS migration date and required updates for blockchains configured with type: \"uis\".",
+    "The supported-chains list and a versioned integration test showing which SaaS environments have completed the v1.40 rollout.",
+    "Endpoint conflict responses and dry-run behavior for the same domain, address, ledger, and destination tag, including tagless endpoints.",
+    "XRPL fee API values such as open_ledger_fee and minimum_fee during a congestion event, plus whether application-level expiry and maximum-fee policies behave as intended.",
+    "A public customer, production transaction, or volume record. Until one exists, do not translate the release into XRP adoption, supply change, or price impact."
+  ],
+  "sources": [
+    {
+      "name": "Ripple Custody 1.40 changelog",
+      "url": "https://docs.ripple.com/products/custody/support/change-history/v140",
+      "type": "primary",
+      "publishedAt": "2026-08-17"
+    },
+    {
+      "name": "XRP Ledger Docs: Source and Destination Tags",
+      "url": "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger Docs: Transaction Cost",
+      "url": "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger Docs: fee method",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/fee",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger Docs: Transaction Common Fields",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/common-fields",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/ripple-custody",
+      "label": "Ripple Custody explained",
+      "topic": "Institutional infrastructure",
+      "description": "Understand Ripple's custody platform and its role in digital-asset operations."
+    },
+    {
+      "href": "/learn/xrp-destination-tag-guide",
+      "label": "XRP destination tag guide",
+      "topic": "Payment routing",
+      "description": "See how tags identify customers behind shared XRPL addresses."
+    },
+    {
+      "href": "/learn/xrpl-transaction-fees",
+      "label": "XRPL transaction fees",
+      "topic": "Ledger mechanics",
+      "description": "Review drops, load-based fees, reserves, and fee risk."
+    },
+    {
+      "href": "/learn/xrp-institutional-custody",
+      "label": "XRP institutional custody",
+      "topic": "Custody",
+      "description": "Compare the operational and security questions institutions must answer."
+    },
+    {
+      "href": "/learn/xrp-wallets",
+      "label": "XRP wallets and custody",
+      "topic": "Reader context",
+      "description": "Connect institutional custody choices with self-custody and recovery risk."
+    }
+  ]
+}
