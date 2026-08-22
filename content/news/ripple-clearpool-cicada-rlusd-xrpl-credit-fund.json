@@ -1,0 +1,294 @@
+{
+  "slug": "ripple-clearpool-cicada-rlusd-xrpl-credit-fund",
+  "title": "Ripple Backs Clearpool and Cicada’s RLUSD Credit Plan for XRPL",
+  "description": "Ripple is joining Clearpool and Cicada Partners on a proposed RLUSD credit platform for XRPL. Devnet testing is underway, while Mainnet deployment depends on XLS-65 and XLS-66 amendments.",
+  "category": "Institutional Markets",
+  "publishedAt": "2026-08-22T06:42:19-04:00",
+  "modifiedAt": "2026-08-22T06:42:19-04:00",
+  "author": "Jack Nelson",
+  "image": "/news/rlusd-three-party-coupling-editorial.webp",
+  "imageAlt": "A pale-gold three-arm coupling connects three cobalt vessels on an ivory shelf while a detached wafer with one vermilion notch marks the pending XRPL activation step",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "rlusd-three-party-coupling-still-life",
+  "imageSetting": "A compact white-enamel credit laboratory with an ivory stone service shelf and a narrow frosted north slit at clean predawn blue hour, viewed along the shelf axis",
+  "imageMetaphor": "A pale-gold three-arm coupling joins three cobalt terminals while a detached ivory activation wafer marks the proposed RLUSD credit platform’s three-party structure and its unresolved Mainnet dependency",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain the August 20, 2026 announcement that Ripple, Clearpool, and Cicada Partners are building a proposed institutional RLUSD credit platform on the XRP Ledger, with development and Devnet testing still preceding any Mainnet activation. Use one sparse, physically believable mechanism rather than a scene collage. Setting: a compact white-enamel credit laboratory with a long ivory stone service shelf and a narrow frosted north slit at clean predawn blue hour, viewed directly from the left end of the shelf looking along its axis. Put the mechanism in the right half and leave a broad calm nearly empty ivory plane on the left. Exactly five deliberate objects and no extras: one pale-gold three-arm coupling spindle with three radial arms and a central axle; three separate small cobalt-blue glazed ceramic terminal cups, one at the end of each arm, each unmarked and empty; one slim ivory activation wafer set just outside the coupling, not touching it, with a single restrained vermilion status notch. A single small water-blue glass bead may be seated inside the central axle as part of the spindle mechanism, not a separate object. The coupling represents infrastructure, credit underwriting, and capital meeting; the blue bead represents RLUSD moving through the proposed credit path; the unseated wafer represents protocol activation still required. Cool cobalt predawn light, one narrow warm reflected strip on the pale-gold metal, soft ivory ambient fill, sharp contact shadows, restrained cobalt reflected shadow, strong thumbnail silhouette, broad negative space. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, enamel-like cobalt ceramic, physically modeled pale-gold metal, warm ivory stone, saturated cobalt and ultramarine shadow, selective impasto, and ordered detail without clutter. Extremely subtle translucent 1, 0, and x stipple may appear only inside a few atmospheric or cast-shadow transitions and must dissolve into white space, never across the objects and never as an all-over filter. No readable text, letters, numbers, logos, currency symbols, cryptocurrency coins, XRP mark, dashboard, chart, interface, politician, generic cyber cube, impossible building, fantasy ruin, watermark, border, rounded frame, photographic realism, sepia wash, muddy gray, coarse halftone, repeated objects, extra vessels, extra tools, or decorative clutter.",
+  "keywords": [
+    "XRP Ledger news",
+    "XRPL lending",
+    "RLUSD credit",
+    "Ripple institutional lending",
+    "Clearpool XRP Ledger",
+    "Cicada Partners",
+    "XLS-65 Single Asset Vaults",
+    "XLS-66 Lending Protocol"
+  ],
+  "keyTakeaways": [
+    "Ripple, Clearpool, and Cicada Partners announced a proposed institutional credit platform that would use RLUSD for working-capital loans on the XRP Ledger.",
+    "Clearpool is building the platform and isolated credit-market infrastructure, Cicada is responsible for origination and servicing, and Ripple says it will participate as a pari passu limited partner alongside other investors.",
+    "The integration is in development and Devnet testing. XLS-65 Single Asset Vaults and XLS-66 Lending Protocol remain amendment-dependent, so this is not a live XRPL Mainnet lending launch.",
+    "The parties have not disclosed a fund size, Ripple’s dollar commitment, named borrowers, loan volume on XRPL, first-loss terms for this platform, or a Mainnet deployment date."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: this is a proposed credit deployment, not a Mainnet launch",
+      "paragraphs": [
+        "[Confirmed fact] Ripple, Clearpool, and Cicada Partners announced on August 20 a plan to build an institutional credit platform that would lend RLUSD to vetted fintech and payments borrowers through XRPL’s proposed XLS-65 and XLS-66 features. The integration is in Devnet testing, not live on XRPL Mainnet; fund size, Ripple’s commitment, and borrower roster remain undisclosed. [1][2][8]",
+        "The announcement is material because it attaches named institutional roles to a real use case for the XRP Ledger’s proposed native lending stack. It is also easy to overstate. Clearpool’s official announcement describes a platform being built with Ripple and Cicada, while the detailed partnership account says Clearpool is building and testing the integration on XRPL Devnet. News.Bitcoin.com independently reports the same development status and says the lending market has not launched on Mainnet. [1][2][8]",
+        "The editorial boundary is therefore clear: the record supports a proposed RLUSD credit deployment and a technical integration effort. It does not support saying that XRPL now has a live institutional loan book, that Ripple has committed a disclosed amount of capital, that a borrower has drawn funds, or that XRP has received a measurable price or demand benefit. Those would be separate events requiring separate evidence.",
+        "The companies have framed the project around working capital for fintech and payments companies using RLUSD on XRPL. That makes the proposed credit asset RLUSD, not XRP. The network, permissions, vault accounting, and loan lifecycle are the XRPL components under discussion; the commercial underwriting and borrower relationship remain off-chain responsibilities. [1][8]"
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://t.me/clearpoolannounce/1161",
+        "https://www.linkedin.com/company/ripple",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/"
+      ]
+    },
+    {
+      "heading": "Three roles define the proposed institutional credit market",
+      "paragraphs": [
+        "[Confirmed fact, company-reported] Clearpool says it will provide the curator-driven platform, with isolated credit markets managed by independent risk managers. Its announcement says Clearpool has facilitated more than $930 million in institutional loans since 2021. That figure describes Clearpool’s prior platform history, not loans already originated through XRPL. [1][2][8]",
+        "Cicada Partners is assigned the credit-work function. The partnership announcement says Cicada will originate and service credit, source borrowers, structure covenants, monitor borrower health, and act as fund general partner and credit-pool manager. Cicada reports more than $860 million in underwritten credit. That is a company-reported track record, not a forecast of the new XRPL platform’s volume or performance. [1][8]",
+        "Ripple’s role is capital participation. The announcement describes Ripple as a limited partner investing pari passu alongside other co-investors, and explicitly distinguishes that position from a backstop. That distinction matters for readers evaluating risk. A limited-partner allocation is not the same as a repayment guarantee, credit enhancement, insurance policy, or promise to absorb losses. The amount, timing, and conditions of Ripple’s commitment were not disclosed in the reviewed sources. [1][8][9]",
+        "The arrangement is a division of labor rather than a single-company product launch. Clearpool brings the market structure, Cicada brings underwriting and servicing, and Ripple supplies capital alongside other investors. [Bounded inference] If the design reaches Mainnet, its credibility will depend on whether those roles remain legible in the legal documents, permission model, loan disclosures, servicing reports, and on-chain records. The announcement alone cannot answer that operational question."
+      ],
+      "table": {
+        "caption": "What each named participant is described as doing",
+        "headers": [
+          "Participant",
+          "Announced role",
+          "Evidence boundary"
+        ],
+        "rows": [
+          [
+            "Clearpool",
+            "Build platform and isolated, curator-driven credit markets",
+            "Prior loan volume is not XRPL loan volume"
+          ],
+          [
+            "Cicada Partners",
+            "Originate, underwrite, service, and manage credit pools",
+            "Underwritten track record is not a new-fund result"
+          ],
+          [
+            "Ripple",
+            "Participate as a pari passu limited partner",
+            "No disclosed commitment or repayment backstop"
+          ]
+        ],
+        "sourceNote": "Sources: Cicada Partners announcement published August 20, 2026; Clearpool announcement published August 20, 2026; News.Bitcoin.com report published August 21, 2026. The role descriptions are announced or company-reported, not independently audited performance claims. [1][2][8]"
+      },
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://t.me/clearpoolannounce/1161",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://finance.yahoo.com/markets/crypto/articles/ripple-turning-rlusd-payment-token-093338770.html"
+      ]
+    },
+    {
+      "heading": "XLS-65 and XLS-66 supply the proposed on-ledger plumbing",
+      "paragraphs": [
+        "[Confirmed fact] The proposed design relies on two native XRPL features. Single Asset Vaults, specified in XLS-65 and documented by the XRP Ledger, pool one asset from multiple depositors and issue vault shares. The vault can then supply that asset to protocols such as Lending Protocol. The asset may be XRP, a trust-line token, or a Multi-Purpose Token, but the partnership announcement names RLUSD as the proposed credit asset. [1][5]",
+        "XLS-66 Lending Protocol describes fixed-term, uncollateralized loans funded by pooled assets from a Single Asset Vault. It assigns underwriting and risk management off-chain, while the ledger records loan issuance, repayments, vault accounting, maturity, and default-related actions. The design can include first-loss capital, but the protocol does not automatically liquidate collateral because these loans are not collateralized in the usual on-chain sense. [4][6]",
+        "The partnership’s architecture claim is that loan issuance, repayment, LP-token accounting, and optional first-loss features can use native XRPL infrastructure rather than smart contracts or third-party protocol dependencies. That is a proposed integration design, not a production audit. The announcement also describes Permissioned Domains, Credentials, and Clawback as tools for participant eligibility and asset controls. Their exact implementation, governance, and borrower-facing terms still need to be documented for this platform. [1][4][5]",
+        "[Bounded inference] This structure could make a credit market easier to separate by curator, asset, borrower policy, and loss waterfall than a single undifferentiated lending pool. It could also concentrate risk in the off-chain underwriting, servicing, legal enforceability, and permission controls that the protocol intentionally does not automate. The technical novelty is not a replacement for credit diligence."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/"
+      ]
+    },
+    {
+      "heading": "Devnet testing and amendment status are the decisive qualifiers",
+      "paragraphs": [
+        "[Confirmed fact] Cicada’s detailed announcement says Clearpool is building and testing the integration on the XRPL Devnet, with a technical demonstration of the end-to-end flow still to come. It also says the Lending Protocol and Single Asset Vault amendments are in the amendment-voting process. News.Bitcoin.com independently reports that the product is not yet live on Mainnet. [1][8]",
+        "The XRP Ledger amendment process separates software availability from network activation. The official guidance says validators must support an amendment for more than 80 percent of the network for two weeks before it can activate, and support can later fall. That process is why a draft specification, a code integration, or a Devnet test cannot be rewritten as a production launch. [7]",
+        "The XLS-66 specification is marked Draft, and the official Single Asset Vault and Lending Protocol documentation describes amendment requirements. Those records establish a dependency, not a launch date. The public announcement does not disclose a validator-support threshold, activation ledger, stable-release version, Mainnet transaction, fund close, or named borrower. [4][5][6]",
+        "[Unresolved uncertainty] The next status change could be technical, governance-related, or commercial. The system may reach a completed Devnet demonstration before amendment activation. The amendments may activate before the named partnership publishes a live pool. Or the commercial arrangement may change before any on-chain deployment. A responsible article must leave all three possibilities open until the corresponding record exists."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "RLUSD is the proposed loan asset, while XRP remains a network utility",
+      "paragraphs": [
+        "[Confirmed fact] The named borrowers are described as fintech and payments companies seeking working capital in RLUSD. That means the proposed credit exposure is denominated in a Ripple-issued stablecoin, subject to the platform’s eligibility, custody, underwriting, repayment, and loss terms. The announcement does not disclose the amount of RLUSD to be lent, the source of every dollar of capital, or the expected number of pools. [1][8][9]",
+        "XRP still has a separate role at the network layer. The XRP Ledger’s transaction-cost documentation says transaction costs are paid in XRP and destroyed, while the proposed loan asset can be a trust-line token such as RLUSD. That distinction prevents a common analytical shortcut: a lending platform using XRPL does not by itself prove that borrowers must acquire XRP as their credit asset or that the project creates a measurable XRP demand shock. [4][10]",
+        "[Bounded inference] A live, permissioned RLUSD lending market could create more ledger activity and make XRPL relevant to institutional credit operations. Whether that activity matters economically for XRP would depend on transaction volume, account and reserve requirements, liquidity behavior, custody arrangements, and the share of activity that actually settles on-ledger. None of those variables is disclosed for this proposal, and none should be inferred from the partnership announcement.",
+        "There is also no defensible basis for connecting the announcement to a price move. No dated XRP price snapshot is used in this report because it would not improve understanding of the proposed credit architecture. The important measurement boundary is deployment evidence, not a same-day market chart."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://finance.yahoo.com/markets/crypto/articles/ripple-turning-rlusd-payment-token-093338770.html",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost"
+      ]
+    },
+    {
+      "heading": "Implications for institutions, developers, validators, and XRP readers",
+      "paragraphs": [
+        "[For institutions and credit allocators] The proposed model offers a named path from capital to permissioned RLUSD working-capital loans, but the critical diligence questions remain off-chain. Readers need the fund documents, borrower eligibility rules, concentration limits, covenants, servicing cadence, default procedure, first-loss priority, redemption terms, custody arrangement, and legal claim on repayment before evaluating yield or risk. A Ripple association does not answer any of those questions. [1][4][8]",
+        "[For developers and integrators] The implementation target is not a generic token transfer. It requires testing the exact XLS-65 and XLS-66 amendment state, vault share accounting, loan lifecycle, Permissioned Domains and Credentials, Clawback behavior, maturity, default handling, and the result codes exposed by the server. The official protocol documentation says underwriting remains off-chain, so an integration that checks only ledger transactions would omit the core risk control. [4][5][6]",
+        "[For validators and protocol watchers] The signal to monitor is not another partnership post. It is amendment support and activation, followed by a reproducible Devnet or Mainnet flow. A validator vote, a stable server release, a first activation ledger, and a public feature demonstration answer different questions and should be reported separately. The XRP Ledger amendment process makes that sequencing explicit. [7]",
+        "[For XRP holders and general readers] No wallet action follows from this announcement, and no verified direct price or supply effect has been reported. The development is relevant as a possible institutional use case for XRPL and RLUSD, not as proof that XRP is the loan principal, that a fund is already earning yield, or that a commercial outcome is guaranteed. [Bounded inference] The strongest near-term signal is better documentation, not a promotional forecast."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: what is confirmed, inferred, and still missing",
+      "paragraphs": [
+        "[Confirmed fact] On August 20, 2026, Clearpool and Cicada Partners published a partnership announcement naming Ripple as a capital participant in a proposed institutional lending platform on XRPL. The announced use case is RLUSD working-capital credit for vetted fintech and payments borrowers. Clearpool is described as the platform builder, Cicada as credit originator and servicer, and Ripple as a pari passu limited partner. Independent coverage published on August 21 describes the same plan and its pre-Mainnet status. [1][2][8][9]",
+        "[Confirmed fact] The technical path depends on XRPL Single Asset Vaults and Lending Protocol. Official documentation describes pooled single-asset vaults, fixed-term uncollateralized loans, off-chain underwriting, optional first-loss protection, and amendment requirements. The official amendment guidance requires sustained validator support before activation. [4][5][6][7]",
+        "[Bounded inference] The proposal could give institutional credit managers a more transparent ledger for loan balances, repayments, vault shares, and permissioned participation. It could also make the quality of off-chain underwriting more important, because the protocol does not replace borrower diligence, legal enforcement, servicing, or loss allocation. This is an analytical implication, not a reported platform result.",
+        "[Unresolved uncertainty] The public record does not disclose the proposed fund size, Ripple’s contribution, co-investor identities, named borrowers, initial pool composition, fees, first-loss amount, custody setup, legal jurisdiction, expected yield, Devnet demonstration date, stable-release dependency, or Mainnet launch date. It also does not show an executed XRPL loan. Those omissions are not evidence of failure. They are simply the boundary of what can be responsibly claimed today.",
+        "Source precedence is important. The Cicada and Clearpool posts own the announcement and role descriptions. XRP Ledger documentation owns the protocol mechanics and amendment process. News.Bitcoin.com and Yahoo Finance provide independent coverage of the announcement and its status. None of these sources alone can prove a production loan book, investment return, borrower outcome, or XRP market effect."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://t.me/clearpoolannounce/1161",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://finance.yahoo.com/markets/crypto/articles/ripple-turning-rlusd-payment-token-093338770.html",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "The next evidence will be deployment, not announcement momentum",
+      "paragraphs": [
+        "The next useful updates should be concrete records that move the proposal from roles and architecture toward testable operation. Readers should distinguish a technical demo from a fund close, amendment activation from a product launch, and a first loan from a general claim that institutional lending has arrived. The following checkpoints would materially change the story:",
+        "[What to watch] First, Clearpool or Cicada should publish the end-to-end Devnet demonstration promised in the announcement, including which XRPL amendments, vault configuration, credentials, and loan states were exercised. Second, the XRP Ledger’s official amendment and release records should show the exact support, activation, and server-version path for XLS-65 and XLS-66. Third, the partnership should disclose the legal and economic terms that determine who bears borrower losses.",
+        "[What to watch] Fourth, a live deployment would need an identifiable pool, an on-chain loan or repayment record, and a clear statement of whether the activity is permissioned. Fifth, independent reporting or auditable platform data should separate the parties’ historical Clearpool and Cicada figures from new XRPL-originated volume. Sixth, any claim about XRP demand, fees, or market impact would require dated ledger and market evidence rather than the existence of the partnership alone.",
+        "Until those records appear, the highest-confidence headline is the narrow one: three named participants are building and testing a proposed RLUSD credit platform around XRPL’s amendment-dependent lending infrastructure. That is a material institutional signal, but it is still a development milestone with open commercial, technical, and governance steps."
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Clearpool or Cicada’s promised end-to-end XRPL Devnet demonstration, including the exact vault, credentials, amendment, and loan states exercised.",
+    "An official XLS-65 and XLS-66 amendment record showing validator support, activation timing, and the stable rippled release required for production use.",
+    "A public fund document disclosing pool size, Ripple’s actual commitment, co-investors, borrower eligibility, fees, first-loss terms, custody, and legal repayment rights.",
+    "A named permissioned pool and verifiable XRPL loan or repayment transaction, clearly separated from the companies’ historical Clearpool and Cicada credit totals.",
+    "Independent evidence for any later claim about borrower outcomes, credit performance, XRPL activity, XRP fees, XRP demand, or market impact."
+  ],
+  "sources": [
+    {
+      "name": "Cicada Partners, Real-World Yield: Institutional Lending Comes to XRPL, published August 20, 2026",
+      "url": "https://www.linkedin.com/pulse/real-world-yield-institutional-lending-comes-xrpl-cicada-partners-4ugac?trk=organization_guest_main-feed-card_reshare_feed-article-content",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "Clearpool Official Announcements, partnership announcement, published August 20, 2026",
+      "url": "https://t.me/clearpoolannounce/1161",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "Ripple company announcement feed, undated reference checked August 22, 2026",
+      "url": "https://www.linkedin.com/company/ripple",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, Lending Protocol, undated reference checked August 22, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, Single Asset Vaults, undated reference checked August 22, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-66 Lending Protocol specification, Draft updated January 14, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "name": "XRP Ledger, Amendment process, undated reference checked August 22, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, Known Amendments status, undated reference checked August 22, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "News.Bitcoin.com, Ripple Backs RLUSD Lending Push on XRP Ledger With Clearpool, Cicada, published August 21, 2026",
+      "url": "https://news.bitcoin.com/defi/ripple-backs-rlusd-lending-push-on-xrp-ledger-with-clearpool-cicada/",
+      "type": "supporting",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "Yahoo Finance, Ripple Is Turning RLUSD Into a Payment and Lending Asset, published August 21, 2026",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/ripple-turning-rlusd-payment-token-093338770.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "XRP Ledger, Transaction cost, undated reference checked August 22, 2026",
+      "url": "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP Ledger lending platforms work",
+      "topic": "XRPL lending",
+      "description": "Review the proposed lending architecture, underwriting boundary, and risks around XRPL credit markets."
+    },
+    {
+      "href": "/learn/xrpl-defi",
+      "label": "DeFi on the XRP Ledger",
+      "topic": "XRPL ecosystem",
+      "description": "Understand how native liquidity, issued assets, and proposed lending features fit together on XRPL."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works",
+      "topic": "Ledger mechanics",
+      "description": "Use the core ledger guide to separate XRP network utility from application-level assets such as RLUSD."
+    },
+    {
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs",
+      "label": "What XLS-66’s first-loss documentation clarifies",
+      "topic": "Related XRPL coverage",
+      "description": "Read the earlier source-led report on first-loss capital and the XLS-66 field-type clarification."
+    },
+    {
+      "href": "/news/ripple-prime-275-million-senior-notes",
+      "label": "Ripple Prime’s institutional debt milestone",
+      "topic": "Institutional markets",
+      "description": "Compare a disclosed Ripple-linked financing event with this separate proposed XRPL credit platform."
+    }
+  ]
+}
