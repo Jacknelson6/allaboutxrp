@@ -14,6 +14,7 @@ For a full, one-line-per-page index of every guide, article, and tool, see [llms
 - [Editorial standards](https://allaboutxrp.com/editorial): Sourcing, review, corrections, and independence policy.
 - [Accountable publisher](https://allaboutxrp.com/authors/jack-nelson): Jack Nelson, the publisher responsible for editorial standards and disclosures.
 - [Corrections log](https://allaboutxrp.com/corrections): Public record of material corrections.
+- [Contact](https://allaboutxrp.com/contact): Editorial desk and general inbox, with what each one handles.
 - [Trusted sources](https://allaboutxrp.com/learn/trusted-sources): Official documents and data sources used by the publisher.
 
 ## Learning paths
@@ -55,6 +56,13 @@ For a full, one-line-per-page index of every guide, article, and tool, see [llms
 - [XRP profit calculator](https://allaboutxrp.com/tools/xrp-profit-calculator): Model profit, loss, and return from purchase price, exit price, and amount.
 - [XRP transaction fee calculator](https://allaboutxrp.com/tools/xrp-fee-calculator): Estimate XRP Ledger fee costs for one transaction or a batch.
 - [XRP holder distribution](https://allaboutxrp.com/holders): Major balances, known accounts, and concentration methodology.
+
+## Machine access
+
+- Send \`Accept: text/markdown\` to any page URL to receive a Markdown representation of that page instead of HTML. Responses carry \`Content-Type: text/markdown; charset=utf-8\` and \`Vary: Accept\`.
+- Append \`.md\` to any path for the same Markdown representation without content negotiation, for example [https://allaboutxrp.com/learn/what-is-xrp.md](https://allaboutxrp.com/learn/what-is-xrp.md).
+- [Sitemap](https://allaboutxrp.com/sitemap.xml) and [news sitemap](https://allaboutxrp.com/news-sitemap.xml) list every canonical URL.
+- Unknown paths return HTTP 404 with a short Markdown recovery document when Markdown is requested.
 
 ## Citation guidance
 

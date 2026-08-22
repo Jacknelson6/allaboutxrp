@@ -31,9 +31,9 @@ export default function HomeFAQ() {
                 <span className="w-8 shrink-0 font-sans text-xs font-[650] tabular-nums text-text-secondary">
                   Q{String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="min-w-0 flex-1 font-display text-base leading-snug font-normal transition-colors duration-150 group-hover:text-cobalt sm:text-lg">
+                <h3 className="min-w-0 flex-1 font-display text-base leading-snug font-normal transition-colors duration-150 group-hover:text-cobalt sm:text-lg">
                   {item.question}
-                </span>
+                </h3>
                 <Plus
                   className="h-4 w-4 shrink-0 text-text-secondary transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
                   aria-hidden="true"

@@ -38,7 +38,12 @@ const newsSlug = pickNewsSlug();
 /** @type {{ path: string; label: string; expectedTypes: string[] }[]} */
 const PAGES = [
   { path: "/", label: "Homepage", expectedTypes: ["Organization", "WebSite", "FAQPage"] },
-  { path: "/about", label: "About page", expectedTypes: ["Organization"] },
+  { path: "/about", label: "About page", expectedTypes: ["Organization", "BreadcrumbList"] },
+  {
+    path: "/contact",
+    label: "Contact page",
+    expectedTypes: ["ContactPage", "BreadcrumbList", "Organization", "ContactPoint", "PostalAddress"],
+  },
   { path: "/authors/jack-nelson", label: "Author page", expectedTypes: ["Person"] },
   { path: "/learn/what-is-xrp", label: "Learn guide", expectedTypes: ["Article", "BreadcrumbList"] },
   { path: "/learn/basics", label: "Learn hub", expectedTypes: ["CollectionPage", "BreadcrumbList"] },

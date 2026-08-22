@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { BookOpenText, Mail, SearchCheck, ShieldCheck } from "lucide-react";
 import SEOSchema from "@/components/shared/SEOSchema";
-import { accountablePublisher } from "@/lib/editorial";
+import { EDITORIAL_EMAIL, SITE_URL } from "@/lib/seo/organization";
 
 export const dynamic = "force-static";
 
@@ -20,28 +20,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://allaboutxrp.com/about" },
 };
 
-const orgSchema = {
+// The Organization entity itself is emitted site-wide by the root layout with
+// the same "@id", so this page only adds its own breadcrumb trail.
+const breadcrumbSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://allaboutxrp.com/#organization",
-  name: "AllAboutXRP",
-  url: "https://allaboutxrp.com",
-  foundingDate: "2026-02",
-  description:
-    "Independent educational resource providing source-led information about XRP and the XRP Ledger.",
-  founder: accountablePublisher,
-  sameAs: [],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "team@allaboutxrp.com",
-    contactType: "editorial",
-  },
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+  ],
 };
 
 export default function AboutPage() {
   return (
     <>
-      <SEOSchema schema={orgSchema} />
+      <SEOSchema schema={breadcrumbSchema} />
       <main id="main-content" className="min-h-screen bg-surface-primary">
         <article className="reading-container py-16 sm:py-24">
           <header className="border-b border-surface-border pb-10">
@@ -151,15 +144,17 @@ export default function AboutPage() {
 
             <h2>Contact</h2>
             <p>
-              Have a question, correction, or suggestion? We&apos;d love to hear from you.
+              Have a question, correction, or suggestion? We&apos;d love to hear from you. The{" "}
+              <Link href="/contact">contact page</Link> lists every route, including corrections and
+              privacy requests; the editorial desk is reachable directly.
             </p>
             <p className="not-prose mt-4">
               <a
-                href="mailto:team@allaboutxrp.com"
+                href={`mailto:${EDITORIAL_EMAIL}`}
                 className="inline-flex min-h-11 items-center gap-2 font-semibold text-xrp-accent-bright underline decoration-xrp-accent/30 underline-offset-4 hover:decoration-xrp-accent-bright"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
-                team@allaboutxrp.com
+                {EDITORIAL_EMAIL}
               </a>
             </p>
 

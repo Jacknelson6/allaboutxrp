@@ -90,6 +90,15 @@ AllAboutXRP is an independent publisher and is not affiliated with Ripple. Conte
 
 See [llms.txt](${SITE_URL}/llms.txt) for a shorter, curated overview.
 
+Every URL below also serves Markdown: send \`Accept: text/markdown\`, or append \`.md\` to the path.
+
+## Publisher and contact
+
+- [About AllAboutXRP](${SITE_URL}/about): Mission, scope, and independence policy.
+- [Contact](${SITE_URL}/contact): Editorial desk and general inbox, with what each one handles.
+- [Editorial standards](${SITE_URL}/editorial): Sourcing, review, corrections, and independence policy.
+- [Corrections log](${SITE_URL}/corrections): Public record of material corrections.
+
 ## Learning paths
 
 ${LEARN_HUBS.map(buildHubSection).join("\n\n")}

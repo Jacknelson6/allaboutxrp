@@ -8,6 +8,16 @@
 [functions]
   node_bundler = "esbuild"
 
+# Every page serves two representations at the same URL — HTML for browsers,
+# Markdown under `Accept: text/markdown` — so shared caches have to key on
+# Accept. Next.js overwrites the Vary header it manages on App Router page
+# responses, so the full set is restated here at the CDN edge: Next's own RSC
+# tokens plus Accept.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Vary = "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding, Accept"
+
 [[headers]]
   for = "/_next/static/*"
   [headers.values]

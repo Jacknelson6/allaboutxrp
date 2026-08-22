@@ -64,9 +64,9 @@ export default function FeatureGrid() {
                 </Badge>
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block font-display text-lg leading-snug font-normal text-ink">
+                <h3 className="block font-display text-lg leading-snug font-normal text-ink">
                   {item.title}
-                </span>
+                </h3>
                 <span className="mt-1.5 block text-sm leading-6 text-text-secondary">
                   {item.description}
                 </span>

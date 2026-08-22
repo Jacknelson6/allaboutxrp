@@ -17,7 +17,13 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "The Independent Guide to XRP: How It Works | AllAboutXRP",
   description: "Learn what XRP is and how the XRP Ledger works with source-led guides, direct answers, live data, practical tools, holder analytics, and XRP news.",
+  // Page-level openGraph replaces the root layout's object rather than merging
+  // into it, so type, siteName, and locale must be restated here or the
+  // homepage ships without og:type at all.
   openGraph: {
+    type: "website",
+    siteName: "AllAboutXRP",
+    locale: "en_US",
     title: "The Independent Guide to XRP: How It Works | AllAboutXRP",
     description: "Source-led XRP guides, direct answers, live data, practical tools, holder analytics, and independent news.",
     url: "https://allaboutxrp.com",

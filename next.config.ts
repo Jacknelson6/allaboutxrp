@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+          // Both representations of a page live at the same URL, so shared
+          // caches must key on Accept or an agent can be handed the cached
+          // HTML. Next.js rewrites the Vary header it manages on App Router
+          // page responses, so this covers route handlers and static assets;
+          // the CDN rule in netlify.toml covers the pages themselves.
+          { key: "Vary", value: "Accept" },
         ],
       },
       ...[...NOINDEX_PATHS].map((source) => ({
