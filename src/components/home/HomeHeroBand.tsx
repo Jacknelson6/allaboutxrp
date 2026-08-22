@@ -50,7 +50,7 @@ export default function HomeHeroBand() {
         </div>
 
         <div className="border-l-0 border-t border-hairline pt-6 lg:border-l lg:border-t-0 lg:pt-0 lg:pl-10">
-          <p className={LABEL}>What this publication commits to</p>
+          <h2 className={LABEL}>What this publication commits to</h2>
           <p className="mt-3 text-sm leading-6 text-text-secondary">
             Every time-sensitive claim points back to its source. Data views disclose their feed,
             their window, and their limits.

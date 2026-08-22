@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description:
     "Get answers to the most common questions about XRP, the XRP Ledger, Ripple, and cryptocurrency. Comprehensive FAQ covering everything from basics to advanced topics.",
   openGraph: {
+    type: "website",
+    siteName: "AllAboutXRP",
+    locale: "en_US",
     title: "XRP FAQ — Frequently Asked Questions | AllAboutXRP",
     description: "Answers to the most common questions about XRP and the XRP Ledger.",
     url: "https://allaboutxrp.com/learn/faq",

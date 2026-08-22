@@ -17,6 +17,7 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
   const pageOwnsMain =
     pathname === "/" ||
     pathname === "/about" ||
+    pathname === "/contact" ||
     pathname === "/corrections" ||
     pathname.startsWith("/authors/") ||
     pathname === "/answers" ||

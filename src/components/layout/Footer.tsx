@@ -27,6 +27,7 @@ const footerSections = [
     title: "About",
     links: [
       { href: "/about", label: "Our mission" },
+      { href: "/contact", label: "Contact" },
       { href: "/editorial", label: "Editorial standards" },
       { href: "/authors/jack-nelson", label: "Accountable publisher" },
       { href: "/corrections", label: "Corrections" },

@@ -84,7 +84,7 @@ export default function HomeTopStories() {
           </article>
 
           <div>
-            <p className={`${LABEL} pb-3`}>More from the desk</p>
+            <h3 className={`${LABEL} pb-3`}>More from the desk</h3>
             <DataList ariaLabel="More XRP reporting">
               {rail.map((article) => (
                 <NewsListItem
@@ -103,7 +103,7 @@ export default function HomeTopStories() {
 
         {earlier.length > 0 ? (
           <div className="mt-12">
-            <p className={`${LABEL} pb-3`}>Earlier reporting</p>
+            <h3 className={`${LABEL} pb-3`}>Earlier reporting</h3>
             <div className="grid gap-x-12 md:grid-cols-2">
               <DataList ariaLabel="Earlier XRP reporting, first column">
                 {earlier.slice(0, Math.ceil(earlier.length / 2)).map((article) => (

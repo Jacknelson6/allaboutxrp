@@ -68,7 +68,7 @@ export default function HomeEducationPaths() {
         </div>
 
         <div className="mt-12 border-t border-hairline pt-10">
-          <p className={LABEL}>Start here / featured research paths</p>
+          <h3 className={LABEL}>Start here / featured research paths</h3>
           <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredGuides.map((item) => (
               <Link key={item.href} href={item.href} className="group block">
@@ -85,9 +85,9 @@ export default function HomeEducationPaths() {
                   />
                 </span>
                 <span className={`${LABEL} mt-3 block`}>{item.eyebrow}</span>
-                <span className="mt-1.5 block font-display text-lg leading-snug font-normal text-ink transition-colors duration-150 group-hover:text-cobalt">
+                <h4 className="mt-1.5 block font-display text-lg leading-snug font-normal text-ink transition-colors duration-150 group-hover:text-cobalt">
                   {item.label}
-                </span>
+                </h4>
               </Link>
             ))}
           </div>
