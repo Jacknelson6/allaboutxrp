@@ -1,0 +1,253 @@
+{
+  "slug": "xrpl-clio-2-8-0-mpt-history-rpc-reverted",
+  "title": "Clio 2.8.0 Extends XRPL Data Access, but One History RPC Was Reverted",
+  "description": "XRPLF’s August 20 Clio 2.8.0 release adds MPT issuance filtering, history indexing, Lending Protocol support, and Confidential Transfer fields. It also reverts a history RPC. QuickNode schedules an upgrade for August 27.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-23T13:08:00-05:00",
+  "modifiedAt": "2026-08-23T13:08:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-index-drawer-editorial.webp",
+  "imageAlt": "A pale-gold selector carriage draws two cobalt record tablets into an ivory stone archive drawer while a vermilion stop marks an empty endpoint slot.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clio-index-drawer-reverted-rpc-still-life",
+  "imageSetting": "A silent white-tufa records stair beneath a narrow sawtooth skylight at first clear spring morning, viewed from low landing height across a shallow ivory stone archive drawer with broad negative space above.",
+  "imageMetaphor": "A pale-gold selector carriage draws two cobalt record tablets into a shallow ivory stone drawer while a third bay is sealed by one restrained vermilion stop, representing Clio’s MPT history and filtering path and the history RPC reverted before release.",
+  "imagePrompt": "Use case: stylized-concept for generation. Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Input images: the AllAboutXRP homepage hero and bundled Sublime Classical Oil references are style-only references for palette, light, surface, and finish. Primary request: explain XRPLF’s Clio 2.8.0 API-server release through one sparse, physically believable still life. Scene/backdrop: a silent white-tufa records stair beneath a narrow sawtooth skylight at first clear spring morning, a setting unlike every registered guide and news scene, viewed from low landing height across one shallow ivory stone archive drawer, with broad untouched warm-ivory negative space above and to the left. Subject: one open shallow ivory stone drawer with realistic depth; one pale-gold selector carriage seated on its track; exactly two cobalt glazed record tablets drawn into the selected channel; one clearly empty third bay; and exactly one small restrained vermilion stop at the empty endpoint. The selected tablets represent MPT history storage and mpt_issuance_id filtering. The empty bay and vermilion stop represent the mptoken_issuance_history RPC that the Clio 2.8.0 release notes say was reverted before release. Style/medium: luminous academic classical-revival oil painting with crisp sculptural modeling, rich glazing, enamel-like stone and metal passages, selective impasto only on the gold carriage and tufa grain, saturated cobalt and ultramarine shadows, warm ivory, pale gold, and one restrained vermilion status mark. Composition/framing: wide 16:9 landscape, low stair-level viewpoint, drawer slightly right of center, selector carriage and two tablets clearly readable at thumbnail size, empty bay visibly separate, generous negative space. Lighting/mood: hard but believable clear spring morning light from the narrow sawtooth skylight, pale-gold rim light on the carriage, cool cobalt cast shadow falling down the stair. ASCII treatment: extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions and must dissolve into white space; never apply all-over ASCII, dither, halftone, or pixel texture. Constraints: preserve the exact object count, low stair-level viewpoint, empty endpoint bay, left-side negative space, physical contact shadows, no readable text, no logo, no XRP symbol, no crypto coin, no dashboard, no screen, no circuitry, no people, no politicians, no robes, no columns, no temple, no harbor, no coast, no bank, no Greek city, no mountain panorama, no water vista, no repeated laboratory, chamber, terrace, quay, workshop, quarry, vault, amphora, balance, comb, wheel, ribbon, gate, hinge, iris, register, counterboard, or prior article metaphor, no generic cyber cube, neon, impossible floating parts, duplicate tablets, extra red marks, title, watermark, embedded border, rounded frame, photographic realism, sepia, muddy gray cast, coarse halftone, retro pixel art, or all-over dither. Do not reuse any registered setting, scene key, image setting, image metaphor, primary object, camera position, or lighting arrangement from content/news or content/editorial-art.json.",
+  "keywords": [
+    "XRP Ledger Clio 2.8.0",
+    "XRPL API server",
+    "MPT issuance history",
+    "mpt_issuance_id",
+    "Lending Protocol",
+    "Confidential Transfer",
+    "XRP Ledger news"
+  ],
+  "keyTakeaways": [
+    "[Confirmed fact] XRPLF published Clio 2.8.0 on August 20, 2026. It is built with libxrpl 3.3.0 and adds data-model support for six amendments, but that compatibility layer does not activate any amendment.",
+    "[Confirmed fact] The release adds MPT issuance filtering, storage and indexing for issuance history, Lending Protocol support, and Confidential Transfer fields. It also explicitly says the mptoken_issuance_history RPC was reverted before release.",
+    "[Confirmed fact] QuickNode posted an August 27, 2026 maintenance window for its XRPL Mainnet and Testnet Clio 2.8.0 upgrade, showing that provider rollout is a separate dated milestone.",
+    "[Unresolved uncertainty] The records reviewed do not establish current Clio adoption across providers, activation of the six amendments, a live lending market, an XRP demand change, or a price effect caused by the release."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Clio 2.8.0 is an API milestone, not a consensus upgrade",
+      "paragraphs": [
+        "Clio 2.8.0 is a dated XRP Ledger API-server release, not a new consensus rule. XRPLF published it August 20 with libxrpl 3.3.0 compatibility, Lending Protocol and Confidential Transfer data support, MPT issuance filtering and history indexing. It also reverted one history RPC before release. QuickNode’s August 27 schedule shows operator rollout remains ahead, not complete. [1][2]",
+        "[Confirmed fact] The primary release says Clio 2.8.0 is an API server optimized for HTTP and WebSocket calls. It lists support for six amendment-related data models, adds MPT and lending features, and records multiple fixes for query behavior, caching, request validation, and clustered operation. Those are changes to the software that reads and serves validated ledger history. They are not a statement that validators have enabled any of the six amendments. [1][3][4]",
+        "[Bounded inference] The material audience is therefore the infrastructure layer around XRPL: node and API operators, indexers, wallet and custody developers, token issuers, and teams that need consistent historical queries. The release can reduce incompatibility between Clio and newer ledger models once providers deploy it. It cannot by itself prove that an application is using the new paths, that a lending venue is live, or that XRP demand changed. [1][2][3]",
+        "[Unresolved uncertainty] The reviewed records do not provide a network-wide census of Clio 2.8.0 adoption, a current cross-provider API test, or an activation result for BatchV1_1, ConfidentialTransfer, DynamicMPT, PermissionDelegationV1_1, Sponsor, or fixCleanup3_3_0. The release directs readers to the live amendment status record for that separate question. [1][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://status.quicknode.com/",
+        "https://github.com/XRPLF/clio",
+        "https://xrpl.org/docs/references/http-websocket-apis",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "What XRPLF released on August 20",
+      "paragraphs": [
+        "[Confirmed fact] The August 20 release is built with libxrpl 3.3.0. That matters because Clio stores and serves validated historical ledger and transaction data, while libxrpl supplies the protocol models that let the API server understand new transaction and ledger fields. Clio’s own repository describes it as a read-optimized XRP Ledger API server that can share a dataset across multiple nodes for scalable read throughput. [1][3]",
+        "[Confirmed fact] Clio 2.8.0 adds support for Lending Protocol data and Confidential Transfer fields. It also updates the MPToken ETL to support all transaction types, adds storage and backend work for mpt_issuance_history, and adds ETL indexing for that history. The release is broad, but its most actionable change for data users is the combination of a filterable MPT identifier and a prepared historical index. [1][2]",
+        "[Bounded inference] This is best understood as a compatibility and observability release. A data provider can expose more precise MPT queries and preserve more structured history without asking every downstream client to parse raw ledger objects in the same way. The benefit is conditional on the provider deploying the release, completing its ETL work, and documenting the exact endpoint behavior. [1][2][5]"
+      ],
+      "table": {
+        "caption": "What Clio 2.8.0 changes, and the boundary around each claim",
+        "headers": [
+          "Release area",
+          "Confirmed change",
+          "What it does not establish"
+        ],
+        "rows": [
+          [
+            "Protocol models",
+            "Clio 2.8.0 is built with libxrpl 3.3.0 and supports six amendment-related models",
+            "Validator support or amendment activation"
+          ],
+          [
+            "MPT data access",
+            "mpt_issuance_id filtering plus issuance-history storage and ETL indexing",
+            "A stable mptoken_issuance_history RPC in the final release"
+          ],
+          [
+            "Operator reliability",
+            "Writer selection, fallback recovery, cache limits, and request-validation fixes",
+            "Zero downtime or identical behavior at every provider"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF Clio 2.8.0 release notes, Clio repository documentation, XRPL metadata reference, and QuickNode’s independent rollout notice. See sources [1], [2], [3], and [5]."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://github.com/XRPLF/clio",
+        "https://status.quicknode.com/",
+        "https://xrpl.org/docs/references/protocol/transactions/metadata"
+      ]
+    },
+    {
+      "heading": "The central data story: history was indexed, one RPC was removed",
+      "paragraphs": [
+        "[Confirmed fact] The release adds the ability to filter transactions by mpt_issuance_id. That identifier matters because the XRPL metadata reference describes MPTokenIssuanceID as the identifier used to specify an issuance in RPCs, and says a synthetically parsed mpt_issuance_id field can appear in JSON responses. The same reference lists tx, account_tx, subscribe, and ledger as affected APIs for successful MPTokenIssuanceCreate metadata. [1][5]",
+        "[Confirmed fact] The release notes also say Clio added storage and backend support for mpt_issuance_history and ETL indexing for that history. In the same list, however, they note that the mptoken_issuance_history RPC was added and later reverted in this release. The final record therefore contains a meaningful distinction: the data layer was prepared, while one public query method was not retained. [1]",
+        "[Bounded inference] For an issuer, analytics provider, or custody team, that split is more important than a generic “MPT support” label. A provider may be able to index and filter records while still lacking the exact convenience method an integration expected. Engineers should treat storage, ETL indexing, and public RPC exposure as separate compatibility checks rather than assuming one implies the others. [1][2][5]",
+        "[Unresolved uncertainty] The release identifies the reverted RPC and links the underlying change, but the final notes do not state a replacement endpoint, a reintroduction date, or the reason the method was removed. It would be unsafe to infer a stable public history query from the existence of the backend and index alone. [1]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://xrpl.org/docs/references/protocol/transactions/metadata",
+        "https://status.quicknode.com/"
+      ]
+    },
+    {
+      "heading": "Why amendment compatibility matters to Clio operators",
+      "paragraphs": [
+        "[Confirmed fact] Clio 2.8.0’s release notes say it supports six amendments introduced since Clio 2.7.1 and warn that an older Clio can become amendment-blocked if any of those amendments becomes enabled. In that state, the ETL cannot continue processing new ledgers. This is an operational compatibility warning, not an activation announcement. [1]",
+        "[Confirmed fact] The XRPL Known Amendments page says amendments can be open for voting on Mainnet and can become enabled after holding a supermajority for at least two weeks. It separately lists amendments in development and warns that the page is updated manually. That source hierarchy matters: the live ledger and validator responses are stronger evidence for current status than a release note or a manually edited description. [6]",
+        "[Bounded inference] A responsible operator should pin at least four fields in its deployment record: Clio version, libxrpl version, network, and each relevant amendment’s support and enabled state. The same matrix should include whether MPT history indexing completed and whether the provider exposes the specific filter or method that the application calls. This approach turns a broad release upgrade into testable compatibility gates. [1][3][6]",
+        "[Unresolved uncertainty] Nothing in the Clio 2.8.0 release proves that a particular validator, public API provider, or private indexer has upgraded. It also does not prove that any of the six amendments has crossed the activation threshold. Those claims require current feature responses, deployment records, and validated ledger evidence. [1][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://github.com/XRPLF/clio",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "What QuickNode’s August 27 schedule confirms, and what it does not",
+      "paragraphs": [
+        "[Confirmed fact] QuickNode, an independent infrastructure provider, posted a notice on August 20 scheduling an XRP Ledger Mainnet and Testnet upgrade to Clio 2.8.0 for August 27 from 14:00 to 22:00 UTC. The notice says brief RPC interruptions may occur during maintenance. That is a dated operational milestone separate from XRPLF’s software release. [2]",
+        "[Confirmed fact] QuickNode’s notice independently lists the same practical areas highlighted by XRPLF: Lending Protocol support, Confidential Transfer fields, MPT issuance-history tracking and filtering, writer-node selection and failover work, Loan and LoanBroker filters, mpt_issuance_id filtering in account_tx, and corrected MPToken UInt64 serialization. The notice links back to the official release. [1][2]",
+        "[Bounded inference] The independent schedule makes the release more than a source-code event for at least one production-facing provider. It is evidence that a provider planned to move the release into infrastructure, not evidence that the change had already completed or that every public XRPL endpoint would behave the same way. [2][7]",
+        "[Unresolved uncertainty] Until QuickNode posts completion and endpoint checks show the deployed version, the record does not support saying that QuickNode is already serving Clio 2.8.0. The same caution applies to other providers whose upgrade schedules, versions, ETL backfills, and API compatibility policies were not reviewed here. [2][3]"
+      ],
+      "sourceUrls": [
+        "https://status.quicknode.com/",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://github.com/XRPLF/clio",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Implications for developers, data providers, issuers, and XRP readers",
+      "paragraphs": [
+        "For developers, the practical change is a narrower query contract. [Bounded inference] An application that tracks one MPT issuance can use the new filter where the provider has deployed the relevant Clio version, but it should not silently assume that the reverted mptoken_issuance_history RPC exists. Record the provider, server version, API version, network, and response shape in integration tests. The XRPL API documentation says Clio and rippled expose mostly the same JSON-RPC and WebSocket functionality, but it also distinguishes their data paths and API-version behavior. [1][2][4][5]",
+        "For data providers, the release creates a migration and validation task rather than an automatic feature flag. [Confirmed fact] Clio’s repository says it defaults to validated data and forwards requests that require peer-to-peer access, such as fee or submit, to rippled. [Bounded inference] Indexers should therefore test both historical reads and forwarded methods, including cache keys, api_version propagation, pagination, and the serialization type of MPToken amounts. A successful binary upgrade is not the same as a verified data contract. [1][3][4]",
+        "For issuers and institutional teams exploring MPTs, Lending Protocol, or Confidential Transfer, [Unresolved uncertainty] the release is infrastructure readiness, not evidence of a customer deployment, live credit market, privacy workflow, or regulatory approval. The new fields and indexes may lower integration friction once a provider exposes them, but policy controls, disclosure requirements, client-library support, and amendment state remain separate decisions. [1][2][6]",
+        "For XRP readers, the most defensible conclusion is deliberately limited. [Confirmed fact] Clio 2.8.0 improves how some XRP Ledger history and newer ledger models can be served. [Unresolved uncertainty] The reviewed sources contain no measured XRP purchase, transaction-volume shift, validator activation, institutional contract, or price response attributable to the release. This is a software and data-availability milestone, not a verified XRP market catalyst. [1][2][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://status.quicknode.com/",
+        "https://github.com/XRPLF/clio",
+        "https://xrpl.org/docs/references/http-websocket-apis",
+        "https://xrpl.org/docs/references/protocol/transactions/metadata",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Source precedence: what is confirmed, inferred, and still missing",
+      "paragraphs": [
+        "[Confirmed fact] The XRPLF release page is the primary source for what Clio 2.8.0 contains and what it says was reverted. The Clio repository and XRPL documentation provide the architecture and API context. QuickNode’s status notice is independent evidence of a named provider’s planned deployment. XRPL Brew is useful secondary context for the earlier MPT filter work, but it does not outrank the final tagged release. [1][2][3][4][5][7]",
+        "[Bounded inference] Taken together, the sources support a coherent but bounded interpretation: XRPL data infrastructure is being updated to handle the 3.3.0 feature surface, while operators still have to coordinate release versions, ETL state, API behavior, and amendment activation. That interpretation explains why a provider can announce a scheduled Clio upgrade without announcing new Mainnet consensus behavior. [1][2][6]",
+        "[Unresolved uncertainty] The record remains incomplete on production adoption, backfill duration, performance changes, endpoint-level error rates, and the future of the reverted history RPC. It is also incomplete on whether developers will use the new MPT and lending fields at scale. Those gaps are not reasons to dismiss the release. They are reasons to describe it as a compatibility milestone rather than a completed adoption outcome. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://status.quicknode.com/",
+        "https://github.com/XRPLF/clio",
+        "https://xrpl.org/docs/references/http-websocket-apis",
+        "https://xrpl.org/docs/references/protocol/transactions/metadata",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "What to watch next: deployment, API behavior, and amendment status",
+      "paragraphs": [
+        "[Confirmed fact] The next dated checkpoint is QuickNode’s August 27 maintenance window. A completion notice, the deployed Clio version, and successful Mainnet and Testnet readbacks would turn the schedule into deployment evidence. A maintenance notice by itself only establishes intent and timing. [2]",
+        "[Bounded inference] The most useful technical follow-up is a small compatibility matrix: query one known MPT issuance through account_tx with mpt_issuance_id, verify the returned amount types, test historical issuance data, and confirm which methods are actually advertised. The matrix should be run against each named provider rather than copied from one endpoint to another. [1][2][4][5]",
+        "[Unresolved uncertainty] The longer-term milestone is not a headline count of supported amendments. It is the combination of a current validator-support record, any supermajority and activation window, a stable Clio deployment, an indexed data set, and a documented public API. Until those records exist, the accurate story is that Clio 2.8.0 expands XRPL data infrastructure while leaving adoption and network outcomes open. [1][6]"
+      ],
+      "sourceUrls": [
+        "https://status.quicknode.com/",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+        "https://xrpl.org/docs/references/http-websocket-apis",
+        "https://xrpl.org/docs/references/protocol/transactions/metadata",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "QuickNode’s August 27 Mainnet and Testnet maintenance completion notice, deployed Clio version, and post-upgrade RPC health.",
+    "Provider-level tests of account_tx filtering by mpt_issuance_id, MPT issuance-history indexing, MPToken amount serialization, and pagination behavior.",
+    "A documented replacement or future reintroduction for the mptoken_issuance_history RPC, rather than an assumption that backend storage implies public endpoint access.",
+    "Current validator support, supermajority timing, and activation evidence for each of the six amendment-related models in Clio 2.8.0.",
+    "Named applications or data providers demonstrating sustained use of Lending Protocol, Confidential Transfer, or other new fields, with the network and server version identified."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF Clio 2.8.0 release notes, published August 20, 2026",
+      "url": "https://github.com/XRPLF/clio/releases/tag/2.8.0",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "QuickNode Status: scheduled XRP Ledger Clio 2.8.0 upgrade, posted August 20, 2026",
+      "url": "https://status.quicknode.com/",
+      "type": "supporting",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPLF Clio repository architecture notes, undated reference checked August 23, 2026",
+      "url": "https://github.com/XRPLF/clio",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger HTTP and WebSocket API reference, undated reference checked August 23, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger transaction metadata reference, undated reference checked August 23, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/metadata",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 23, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Brew, Developments Weekly Summary for August 3–9, 2026",
+      "url": "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-09"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-clio-nightly-mpt-filtering-2-8-0",
+      "label": "Clio’s MPT issuance filter in the nightly build"
+    },
+    {
+      "href": "/news/xrpl-clio-mpt-issuance-history-backfill-gate",
+      "label": "Why MPT issuance history needs a backfill gate"
+    },
+    {
+      "href": "/news/xrpl-py-5-1-0-feature-signing-support",
+      "label": "xrpl-py feature signing support and its limits"
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works"
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources"
+    }
+  ]
+}
