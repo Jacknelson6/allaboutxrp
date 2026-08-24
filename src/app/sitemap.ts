@@ -16,6 +16,7 @@ const BASE_URL = "https://allaboutxrp.com";
 const JULY_29_REVIEW = new Date("2026-07-29T12:00:00Z");
 const AUGUST_8_REVIEW = new Date("2026-08-08T12:00:00Z");
 const AUGUST_11_RECOVERY = new Date("2026-08-11T00:00:00Z");
+const AUGUST_24_INDEX_RECOVERY = new Date("2026-08-24T12:00:00Z");
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
 /**
@@ -154,6 +155,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/tools/whale-tracker",
 
   ];
+  const august24RecoveryPaths = new Set([
+    "/best",
+    "/best/xrp-staking-platforms",
+    "/tools/whale-tracker",
+    ...getAllFAQSlugs().map((slug) => `/learn/faq/${slug}`),
+  ]);
 
   // ── Dynamic: learn pages (filesystem-discovered) ─────────────────────
   const learnSlugs = getAllLearnSlugs();
@@ -172,6 +179,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${BASE_URL}${pagePath}`,
         lastModified:
           contentHubDates.get(pagePath) ||
+          (august24RecoveryPaths.has(pagePath) && AUGUST_24_INDEX_RECOVERY) ||
           (indexingRecoveryPaths.has(pagePath) && AUGUST_11_RECOVERY) ||
           (augustTrustReviewPaths.has(pagePath) && AUGUST_8_REVIEW) ||
           (reviewedStaticPaths.has(pagePath) && JULY_29_REVIEW) ||
