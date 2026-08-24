@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "id": "aaxrp",
+    "name": "All About XRP",
+    "origin": "https://allaboutxrp.com",
+    "catalogAdapter": "aaxrp-next-app",
+    "repoRoot": ".",
+    "rankPromptUrl": "https://app.rankprompt.com"
+  },
+  "brandTerms": [
+    "aaxrp",
+    "all about xrp",
+    "allaboutxrp"
+  ],
+  "thresholds": {
+    "minimumImpressions": 50,
+    "minimumCtrRows": 25,
+    "minimumAssessmentImpressions": 50,
+    "minimumControls": 3,
+    "winningClickLift": 0.1,
+    "losingClickLift": -0.1
+  }
+}
