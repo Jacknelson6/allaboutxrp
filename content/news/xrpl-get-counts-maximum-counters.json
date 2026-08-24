@@ -1,0 +1,241 @@
+{
+  "slug": "xrpl-get-counts-maximum-counters",
+  "title": "XRPLF PR #8095 Would Add Peak Object Counts to `get_counts`",
+  "description": "XRPLF's open PR #8095 would refactor xrpld's CountedObject registry and nest per-type current and maximum counts inside get_counts. The API change is proposed for develop, not a released Mainnet upgrade.",
+  "category": "XRP Ledger Infrastructure",
+  "publishedAt": "2026-08-23T22:16:00-05:00",
+  "modifiedAt": "2026-08-23T22:16:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-countedobject-peak-tally-editorial.webp",
+  "imageAlt": "A pale-gold lyre-shaped counting instrument holds two cobalt sliders at different heights beside a vermilion high-water mark on ivory stone",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "countedobject-lyre-highwater-still-life",
+  "imageSetting": "A silent basalt echo court with a low ivory stone plinth under a single winter-solstice light slit, viewed at near-floor height from the left with broad untouched space to the right",
+  "imageMetaphor": "A pale-gold lyre-shaped counting instrument carries one cobalt slider at a live level and another at a higher vermilion high-water mark, representing xrpld's proposed current and maximum per-type object counts",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Primary request: explain XRPLF pull request #8095 through one sparse, physically believable symbolic still life about xrpld CountedObject telemetry and the proposed get_counts current-versus-maximum response. State-specific metaphor: a per-type live count is shown at one height while the process high-water count remains at a higher marked height. Setting: a silent basalt echo court with a low ivory stone plinth under a single narrow winter-solstice light slit, a setting that does not duplicate any registered AllAboutXRP guide or news scene. Composition: one clear focal object slightly left of center and broad untouched warm ivory negative space to the right, viewed at near-floor height from the left in a restrained side three-quarter profile. Show exactly one deliberate object group: one physically believable pale-gold lyre-shaped counting instrument with six taut strings, two small cobalt glass sliding weights fixed on separate strings at clearly different heights, and one restrained vermilion wax high-water mark on the upper position; the lower cobalt weight is the current live count and the upper marked position is the maximum count retained by the process. The strings, sliders, frame, contacts, and shadows must be physically connected and believable. No readable labels or numbers are needed. Use crisp winter-solstice light entering from the slit, long clean contact shadows, pale-gold edge light, deep cobalt reflections, and matte ivory stone. Style: lavish academic and classical-revival oil painting, jewel-toned cobalt and ultramarine, warm ivory, pale gold, one restrained vermilion status mark, crisp sculptural modeling, rich glazing, smooth enamel-like passages, ordered detail, selective impasto on gold and stone edges, extraordinary atmospheric clarity. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few basalt shadow transitions and must dissolve into white space. Never use an all-over ASCII or dither filter. Constraints: one sparse instrument group only; no second instrument, extra weights, extra strings, extra marks, text, letters, numbers, currency symbols, logos, XRP symbol, literal crypto coin, token coin, dashboard, chart, screen, UI, computer, code, circuitry, cyber cube, server hardware, person, politician, bank, temple, columns, robes, harbor, coast, terrace, panoramic Greek city, mountain, fantasy ruin, bridge, gate, lock, key, latch, clasp, yoke, rail, prism, manifold, hourglass, scale, caliper, clepsydra, amphora, compass, shutter, ribbon, capsule, waterworks channel, archive room, instrument room, quarry, salt pan, kiln yard, workshop, conservatory, bookbindery, counting niche, calibration chamber, pressure gauge, gauge, ratchet, groma, weir, transfer roller, cam, comb, trellis, ledger tablet, ledger sheet, or generic crypto imagery. No watermark, border, rounded frame, photographic realism, sepia cast, muddy gray, coarse halftone, retro pixel art, duplicated elements, floating parts, impossible geometry, or suggestion that the proposed API is already released. Bundled references are style-only and must not leak their content or compositions.",
+  "keywords": [
+    "XRP Ledger infrastructure",
+    "xrpld get_counts",
+    "CountedObject",
+    "XRP Ledger node monitoring",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "XRPLF opened PR #8095 against develop on August 24, 2026 UTC, proposing a new CountedObject registry and counter accounting model.",
+    "The proposed get_counts response nests per-type entries under counters and adds current and maximum values, changing the documented flat response shape.",
+    "The maximum value is a process-level high-water signal for counted objects, not a direct measurement of RAM, disk, CPU, validator count, or XRP activity.",
+    "The code uses atomic updates, debug assertions, a constinit registry, CRTP constraints, and Boost demangling, but the PR has no reviews and is not merged.",
+    "Node operators and monitoring tools should wait for a merged commit, release notes, updated API documentation, and observed output before changing production parsers."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: peak counts are proposed, not released",
+      "paragraphs": [
+        "[Confirmed] XRPLF opened PR #8095 on August 24, 2026 UTC to replace xrpld's CountedObject registry plumbing and expose current and maximum per-type counts through get_counts. The pull request targets the develop branch and remains open, so it is proposed code, not a released xrpld change. Operators should treat the new response shape as unsettled until release. [1][2]",
+        "The timing matters. GitHub records the first PR commit at 01:58 UTC on August 24, the second at 02:37 UTC, and the pull request as open after those commits. In Central Time, those events fell on the evening of August 23. The record is therefore genuinely newer than the prior SHAMap acquisition report, but it is still a code-review event rather than a network event. [1][3]",
+        "[Confirmed] The material change is observability. XRPLF says the proposal replaces a lazy singleton with a constinit registry of per-type static counters, fixes a concurrency bug during counter insertion, tracks current and maximum counts, and changes the get_counts JSON shape. [1] [Bounded inference] That makes the proposal relevant to node operators and monitoring authors who use object counts as an early warning signal, but it does not establish a performance gain, a memory leak, a validator incident, or any XRP market effect. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+        "https://github.com/XRPLF/rippled/commit/1250e51548319b2329e7691fc6477debebad0bed",
+        "https://xrpl.org/docs/infrastructure/installation/capacity-planning"
+      ]
+    },
+    {
+      "heading": "What CountedObject measures inside an xrpld server",
+      "paragraphs": [
+        "[Confirmed] CountedObject is an internal C++ base that increments a per-type counter when a counted object is constructed and decrements it when the object is destroyed. The PR changes those counters from signed integers to 32-bit unsigned atomics, adds a maximum value, and registers each counter in a global intrusive list that can be iterated by the RPC handler. These are implementation details in the proposed branch, not fields that a public XRP transaction can set. [1]",
+        "The existing get_counts method is an administrator-only health endpoint. XRPL documentation describes it as returning statistics about what the server currently holds in memory, including object counts and other health fields, and accepts min_count as an unsigned threshold. The documentation's sample is an illustration of response format, not a live Mainnet measurement. [2]",
+        "[Independent technical context] C++ atomic operations make concurrent reads and writes to an atomic object well-defined, but the selected memory order determines what else is ordered around them. cppreference describes relaxed operations as guaranteeing atomicity without synchronizing unrelated memory accesses. That distinction is useful here: the PR's atomic counters can make increments and decrements safe to observe, but the source does not by itself prove that every snapshot across all server subsystems is simultaneous or globally consistent. [6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+        "https://en.cppreference.com/cpp/atomic/memory_order"
+      ]
+    },
+    {
+      "heading": "The get_counts response would become a compatibility boundary",
+      "paragraphs": [
+        "[Confirmed] Today, the published get_counts example places names such as Transaction, Ledger, and NodeObject directly inside result alongside status, uptime, database statistics, and cache metrics. PR #8095 moves counted-object entries under a counters object. Each returned type becomes an object with current and maximum values, while the PR leaves the other health fields at the response's top level. [1][2]",
+        "That is a schema change, not a cosmetic rename. A monitoring script that currently reads result.Transaction would need to look under result.counters and then select either current or maximum. A parser that assumes every result member is numeric could also fail when it meets the counters object. The min_count filter remains part of the request, but the filtering target becomes the current counter value. [1][2]",
+        "The proposed difference is easier to see as a contract comparison:",
+        "[Bounded inference] The new structure is more expressive because it can distinguish a live count from a retained high-water count. It is also more demanding for integrators because a field that was previously a number becomes a nested object. The current documentation has not yet been updated to show this proposal, and the PR's open status means the exact released names, ordering, and compatibility policy could still change. [1][2]"
+      ],
+      "table": {
+        "caption": "Documented get_counts shape versus the open PR",
+        "headers": [
+          "Concern",
+          "Current documentation",
+          "Proposed PR #8095"
+        ],
+        "rows": [
+          [
+            "Per-type object count",
+            "A flat numeric field under result",
+            "A current value under counters and a type-specific object"
+          ],
+          [
+            "Peak history",
+            "Not shown in the documented response",
+            "A maximum value retained alongside current"
+          ],
+          [
+            "Threshold",
+            "min_count filters returned fields",
+            "min_count filters counters by current count"
+          ],
+          [
+            "Other health fields",
+            "Top-level status, uptime, cache, and database fields",
+            "Still top-level in the proposed handler"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF PR #8095 and the published get_counts reference, checked August 23 to 24, 2026. The proposed shape is not a released API contract. [1][2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts"
+      ]
+    },
+    {
+      "heading": "What a maximum count can tell an operator, and what it cannot",
+      "paragraphs": [
+        "[Confirmed] In the proposed code, increment raises the current count and updates maxCount when the new value is higher. The RPC response reports maximum as the greater of the stored maximum and the current value. Decrement lowers current and triggers an assertion if the counter would underflow. The result is a high-water signal for each counted type over the life of the running process. [1]",
+        "[Bounded inference] A high-water value could help an operator distinguish a normal burst from a population that never returns toward its previous baseline. It could support a troubleshooting timeline alongside uptime, ledger sync, database, and cache metrics. That is a diagnostic use, not proof of a leak. A maximum can rise because traffic, history queries, synchronization, or a legitimate workload temporarily created more objects. [1][2][4]",
+        "The ceiling is just as important as the signal. The proposed maximum is a count of instrumented C++ objects, not bytes of resident memory. It does not measure disk usage, CPU utilization, network bandwidth, peer count, validator count, transaction throughput, or XRP held by a server. XRPL's capacity guidance says memory requirements also depend on node size and client traffic, while get_counts is one source of additional health information. [4]",
+        "[Unresolved] The PR does not say whether maximum counts will be persisted across restart, exported through a new public schema, or used by official alert thresholds. Because the counter is held in process memory and the proposal does not describe persistence, readers should not assume it is an archival metric. A future release note or documentation update must answer that operational question. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+        "https://xrpl.org/docs/infrastructure/installation/capacity-planning"
+      ]
+    },
+    {
+      "heading": "The registry rewrite addresses initialization and concurrency risks",
+      "paragraphs": [
+        "[Confirmed] The proposal removes CountedObjects::getInstance and replaces the lazy singleton with an inline constinit registry whose counters form an intrusive lock-free list. The PR says the old insertion path had a concurrency bug that could corrupt the list of counters. It also makes counters non-copyable and non-movable because their addresses are published in that list. [1]",
+        "[Independent technical context] cppreference explains that constant initialization is guaranteed to finish before other static or thread-local dynamic initialization begins. That helps explain the design goal behind constinit: the registry object is available without relying on a function-local singleton being created at first use. It does not mean every per-type counter or every counted object is safe to construct during global initialization. [5]",
+        "The code comments preserve that caveat. The proposed CountedObject template warns that objects created during dynamic initialization in other translation units can have increments discarded when their counter is dynamically initialized, and advises against creating counted objects before main begins. This is an important boundary for reviewers: the PR narrows one registry race while documenting a separate initialization rule that callers still need to respect. [1]",
+        "[Unresolved] No independent benchmark in the reviewed record quantifies the old corruption risk, the new registry's overhead, or the effect of relaxed counter updates on a production node. The proposal includes tests and assertions, but open code review is not the same as a completed release qualification. Those measurements remain a watch item, not an established outcome. [1][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://en.cppreference.com/cpp/language/constant_initialization",
+        "https://en.cppreference.com/cpp/atomic/memory_order"
+      ]
+    },
+    {
+      "heading": "Boost demangling and CRTP checks tighten the developer-facing edge",
+      "paragraphs": [
+        "[Confirmed] A second commit removes xrpld's Beast type-name helper and routes type-name rendering through boost::core::demangle. The PR says that removes a low-level dependency and manual memory management. It also acknowledges one compatibility distinction: Boost's helper does not reconstruct top-level const, volatile, or reference qualifiers, although the author says existing callers did not pass those decorated types. [1][3]",
+        "[Independent technical context] Boost documents demangle as a conventional way to turn implementation-specific typeid names into human-readable names, while cppreference warns that type_info::name itself is implementation-defined and can return mangled names on GCC and Clang. The replacement therefore standardizes the project utility around a maintained external facility, but it does not turn C++ type names into a cross-platform protocol identifier. [7][8]",
+        "The CountedObject template also gains a CRTP constraint requiring the template parameter to be a class, and a friend relationship that rejects the copy-paste error of deriving one class from another class's counter. A static assertion checks that CountedObject remains an empty base class. Those changes protect compile-time accounting assumptions; they do not add a new ledger transaction, amendment, RPC permission, or consensus rule. [1]",
+        "For application developers, the practical lesson is to separate internal diagnostics from stable API contracts. A release that carries this work could improve names and debugging signals, but libraries should not depend on the current PR's class names, counter ordering, or JSON shape until XRPLF publishes a merged implementation and updated reference documentation. [1][2][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://github.com/XRPLF/rippled/commit/981c61c5cfb445085387e0cf5d283efd52ad556a",
+        "https://www.boost.org/doc/libs/1_62_0/libs/core/doc/html/core/demangle.html",
+        "https://en.cppreference.com/cpp/types/type_info/name"
+      ]
+    },
+    {
+      "heading": "Implications for node operators, monitoring tools, and XRP readers",
+      "paragraphs": [
+        "For node operators, the immediate action is review rather than upgrade. PR #8095 is open against develop, has no listed reviews on the public page, and is not a release tag. Operators should wait for a merged commit, a tagged xrpld release, and explicit upgrade guidance before changing a production node or treating a maximum counter as an established operational metric. [1]",
+        "For monitoring authors, the likely work is a compatibility layer. A robust parser can accept the current flat fields and the proposed counters object, record whether a maximum is available, and avoid treating an object-valued counters field as a numeric health value. It should record server version, uptime, threshold, and collection time beside any current or maximum count so a restart is not mistaken for a drop in workload. [1][2][4]",
+        "For indexers, explorers, and infrastructure vendors, the proposal is relevant only to admin telemetry, not ledger data. It does not change transaction serialization, validated ledger contents, amendment voting, account balances, or the XRP Ledger's consensus process. [Confirmed] No source reviewed reports a Mainnet rollout, validator instruction, user-facing deployment, XRP transaction effect, XRP demand change, or price response tied to PR #8095. [1][2]",
+        "For XRP holders and market readers, the defensible conclusion is therefore limited. Better object accounting could eventually help maintainers diagnose server behavior, but that is a possible reliability benefit, not present adoption or a market catalyst. [Unresolved] The release status, final response schema, compatibility window, and any measured production impact remain unknown. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+        "https://xrpl.org/docs/infrastructure/installation/capacity-planning"
+      ]
+    },
+    {
+      "heading": "What to watch before calling the new telemetry live",
+      "paragraphs": [
+        "[Confirmed] The first milestone is review and merge. Watch PR #8095 for reviewer comments, changed commits, and a move from an open request into XRPLF's develop history. A merge would establish that the code entered a development branch; it would not by itself establish a stable release or Mainnet deployment. [1]",
+        "The second milestone is documentation and release treatment. The get_counts reference should show the nested counters object, current and maximum fields, threshold behavior, and any compatibility note. A tagged xrpld release should identify whether the response change is breaking, whether old field names remain temporarily, and whether operators must update parsers. [1][2]",
+        "The third milestone is evidence from tests and running nodes. Look for concurrency tests, underflow and overflow assertions, initialization coverage, API response fixtures, and an observed maximum that behaves predictably across object creation, destruction, and restart. A benchmark comparing the old and new registry is useful, but it should not be confused with a claim about ledger throughput or XRP demand. [1][5][6]",
+        "[Unresolved] As of the source snapshot reviewed August 23 to 24, 2026, PR #8095 is an open develop-branch proposal with no published release, no documented Mainnet activation, and no independent evidence of a production incident or performance outcome. The accountable description remains: XRPLF is proposing richer per-type server object telemetry and a new get_counts contract, with the useful peak signal still awaiting review, release, and field verification. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8095",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+        "https://en.cppreference.com/cpp/language/constant_initialization",
+        "https://en.cppreference.com/cpp/atomic/memory_order"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Whether PR #8095 receives review, changes, and a merge into XRPLF's develop branch",
+    "A tagged xrpld release that documents the nested counters response and compatibility policy",
+    "Updated get_counts documentation showing current, maximum, min_count, and other health fields",
+    "Concurrency, initialization, underflow, overflow, and API fixture results from the final implementation",
+    "Observed node output across object creation, destruction, uptime, and restart, without conflating telemetry with XRP activity"
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8095: Modernize CountedObject infrastructure, open August 24, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/pull/8095",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF commit 1250e515: CountedObject registry and maximum-count proposal, August 24, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/commit/1250e51548319b2329e7691fc6477debebad0bed",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF commit 981c61c5: Remove beast::typeName, August 24, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/commit/981c61c5cfb445085387e0cf5d283efd52ad556a",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPL get_counts API reference, undated live documentation checked August 23, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/get_counts",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL capacity planning guidance, undated live documentation checked August 23, 2026",
+      "url": "https://xrpl.org/docs/infrastructure/installation/capacity-planning",
+      "type": "primary"
+    },
+    {
+      "name": "cppreference: Constant initialization and constinit, undated technical reference checked August 23, 2026",
+      "url": "https://en.cppreference.com/cpp/language/constant_initialization",
+      "type": "supporting"
+    },
+    {
+      "name": "cppreference: std::memory_order and relaxed atomics, undated technical reference checked August 23, 2026",
+      "url": "https://en.cppreference.com/cpp/atomic/memory_order",
+      "type": "supporting"
+    },
+    {
+      "name": "Boost.Core demangle documentation, undated technical reference checked August 23, 2026",
+      "url": "https://www.boost.org/doc/libs/1_62_0/libs/core/doc/html/core/demangle.html",
+      "type": "supporting"
+    },
+    {
+      "name": "cppreference: std::type_info::name, undated technical reference checked August 23, 2026",
+      "url": "https://en.cppreference.com/cpp/types/type_info/name",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/learn/xrp-ledger-explained", "label": "XRP Ledger explained" },
+    { "href": "/learn/xrpl-validators", "label": "XRPL validators" },
+    { "href": "/learn/xrp-block-explorers", "label": "XRP Ledger block explorers" },
+    { "href": "/learn/xrp-developer-resources", "label": "XRP Ledger developer resources" },
+    { "href": "/learn/xrpl-consensus-mechanism", "label": "How XRPL consensus works" }
+  ]
+}
