@@ -158,6 +158,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const august24RecoveryPaths = new Set([
     "/best",
     "/best/xrp-staking-platforms",
+    "/tools/escrow-tracker",
     "/tools/whale-tracker",
     ...getAllFAQSlugs().map((slug) => `/learn/faq/${slug}`),
   ]);
