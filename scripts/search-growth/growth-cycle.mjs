@@ -1,6 +1,6 @@
 import { stableId, round } from "./utils.mjs";
 
-const ENGINE_VERSION = "1.0.0";
+const ENGINE_VERSION = "1.1.0";
 
 function isBranded(query, terms) {
   return terms.some((term) => query.includes(term.toLocaleLowerCase("en-US")));
@@ -120,9 +120,12 @@ export function runGrowthCycle({ config, currentRows, previousRows, catalog, per
     .map(({ query, page, clicks, impressions, ctr, position }) => ({ query, page, clicks, impressions, ctr, position }));
   for (const opportunity of opportunities) {
     opportunity.minimumControls = thresholds.minimumControls;
+    opportunity.minimumAssessmentImpressions = thresholds.minimumAssessmentImpressions;
     opportunity.comparisonCandidates = controlPool.filter((item) => item.page !== opportunity.page).length;
     opportunity.approvalState = opportunity.verificationState !== "live_verified"
       ? "verification_required"
+      : opportunity.current.impressions < thresholds.minimumAssessmentImpressions
+        ? "insufficient_baseline"
       : opportunity.comparisonCandidates < thresholds.minimumControls
         ? "insufficient_comparisons"
         : "candidate";

@@ -48,6 +48,7 @@ export async function approveOpportunity({ ledgerPath, report, opportunityId, no
   invariant(opportunity, `Opportunity not found in report: ${opportunityId}`);
   invariant(opportunity.verificationState === "live_verified", "Interventions require a report generated with --verify-live");
   invariant(report.periods?.settlementState !== "unsettled_override", "Interventions cannot be approved from an unsettled diagnostic report");
+  invariant(opportunity.current.impressions >= report.policy.minimumAssessmentImpressions, `Intervention baseline requires at least ${report.policy.minimumAssessmentImpressions} impressions. Found: ${opportunity.current.impressions}`);
   const controls = selectControls(report, opportunity);
   invariant(controls.length >= report.policy.minimumControls, `Intervention requires at least ${report.policy.minimumControls} verified comparison rows. Found: ${controls.length}`);
   return mutateLedger(ledgerPath, async (ledger) => {

@@ -18,6 +18,13 @@ function opportunityCard(item, reportJsonPath, ledgerPath) {
     item.verificationState !== "live_verified" ? "live verification required" : null
   ].filter(Boolean);
   const command = `npm run growth:approve -- --report ${shellQuote(reportJsonPath)} --opportunity ${shellQuote(item.id)} --ledger ${shellQuote(ledgerPath)}`;
+  const approvalMessage = item.approvalState === "candidate"
+    ? command
+    : item.approvalState === "verification_required"
+      ? "Rerun this evidence with --verify-live before approval."
+      : item.approvalState === "insufficient_baseline"
+        ? `At least ${item.minimumAssessmentImpressions} baseline impressions are required. Found ${item.current.impressions}.`
+        : `At least ${item.minimumControls} verified comparison rows are required. Found ${item.comparisonCandidates}.`;
   return `<article class="card opportunity">
     <div class="card-top"><span class="priority">Priority ${item.priority}</span><span class="state ${escapeHtml(item.evidenceState)}">${escapeHtml(item.evidenceState)}</span></div>
     <h3>${escapeHtml(item.query)}</h3>
@@ -30,7 +37,7 @@ function opportunityCard(item, reportJsonPath, ledgerPath) {
       ${metric("Position", item.current.position, item.previous ? `was ${item.previous.position}` : "")}
     </div>
     <div class="flags">${flags.map((flag) => `<span>${escapeHtml(flag)}</span>`).join("")}</div>
-    <details><summary>${item.approvalState === "candidate" ? "Human approval command" : "Approval unavailable"}</summary><code>${item.approvalState === "candidate" ? escapeHtml(command) : item.approvalState === "verification_required" ? "Rerun this evidence with --verify-live before approval." : `At least ${escapeHtml(item.minimumControls)} verified comparison rows are required. Found ${escapeHtml(item.comparisonCandidates)}.`}</code></details>
+    <details><summary>${item.approvalState === "candidate" ? "Human approval command" : "Approval unavailable"}</summary><code>${escapeHtml(approvalMessage)}</code></details>
   </article>`;
 }
 

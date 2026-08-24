@@ -14,8 +14,8 @@
     "allaboutxrp"
   ],
   "thresholds": {
-    "minimumImpressions": 50,
-    "minimumCtrRows": 25,
+    "minimumImpressions": 10,
+    "minimumCtrRows": 8,
     "minimumAssessmentImpressions": 50,
     "minimumControls": 3,
     "winningClickLift": 0.1,

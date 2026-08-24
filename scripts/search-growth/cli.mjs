@@ -3,6 +3,7 @@ import path from "node:path";
 import { mkdir } from "node:fs/promises";
 import { buildAaxrpCatalog, verifyCatalogLive } from "./catalog.mjs";
 import { loadSearchEvidence } from "./evidence.mjs";
+import { authorizeSearchConsole, DEFAULT_GSC_TOKEN_PATH, listSearchConsoleSites, pullSearchConsoleEvidence } from "./gsc.mjs";
 import { runGrowthCycle } from "./growth-cycle.mjs";
 import { activateIntervention, approveOpportunity, closeIntervention, loadLedger } from "./ledger.mjs";
 import { sendNotification } from "./notifiers.mjs";
@@ -23,6 +24,15 @@ Run a report:
   npm run growth:run -- --current <csv|json> --previous <csv|json> \\
     --current-start YYYY-MM-DD --current-end YYYY-MM-DD \\
     --previous-start YYYY-MM-DD --previous-end YYYY-MM-DD --out <directory>
+
+Authorize Google Search Console with a Desktop OAuth client:
+  npm run growth:gsc-auth -- --client <client-secret.json>
+
+List the authorized Search Console properties:
+  npm run growth:gsc-sites
+
+Pull finalized daily query-page evidence:
+  npm run growth:gsc-pull -- --start YYYY-MM-DD --end YYYY-MM-DD --out <evidence.json>
 
 Approve one bounded intervention:
   npm run growth:approve -- --report <report.json> --opportunity <id> --ledger <ledger.json>
@@ -124,9 +134,49 @@ async function notify(options) {
   console.log(JSON.stringify(result, null, 2));
 }
 
+async function gscAuth(options) {
+  const clientPath = required(options, "client");
+  const tokenPath = path.resolve(options.token || DEFAULT_GSC_TOKEN_PATH);
+  const result = await authorizeSearchConsole({
+    clientPath,
+    tokenPath,
+    onAuthorizationUrl(url) {
+      console.log(`AUTHORIZATION_URL=${url}`);
+    }
+  });
+  console.log(JSON.stringify({ authorized: true, tokenPath: result.tokenPath, scope: result.scope }, null, 2));
+}
+
+async function gscSites(options) {
+  const tokenPath = path.resolve(options.token || DEFAULT_GSC_TOKEN_PATH);
+  const sites = await listSearchConsoleSites({ tokenPath });
+  console.log(JSON.stringify({ sites: sites.map(({ siteUrl, permissionLevel }) => ({ siteUrl, permissionLevel })) }, null, 2));
+}
+
+async function gscPull(options) {
+  const configPath = path.resolve(options.config || "search-growth.config.json");
+  const config = await readJson(configPath);
+  validateConfig(config);
+  invariant(options.start && options.end, "Missing required options: --start and --end");
+  const tokenPath = path.resolve(options.token || DEFAULT_GSC_TOKEN_PATH);
+  const evidence = await pullSearchConsoleEvidence({
+    tokenPath,
+    origin: config.site.origin,
+    preferredProperty: options.property || config.site.gscProperty,
+    startDate: String(options.start),
+    endDate: String(options.end)
+  });
+  const out = required(options, "out");
+  await writeJsonAtomic(out, evidence);
+  console.log(JSON.stringify({ property: evidence.property, rows: evidence.rows.length, requestCount: evidence.requestCount, out }, null, 2));
+}
+
 const { command, options } = parseArgs(process.argv.slice(2));
 try {
   if (command === "run") await run(options);
+  else if (command === "gsc-auth") await gscAuth(options);
+  else if (command === "gsc-sites") await gscSites(options);
+  else if (command === "gsc-pull") await gscPull(options);
   else if (command === "approve") await approve(options);
   else if (command === "activate") await activate(options);
   else if (command === "close") await close(options);

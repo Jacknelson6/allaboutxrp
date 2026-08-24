@@ -6,6 +6,8 @@ The Search Growth Engine converts first-party search evidence into a human-revie
 
 - GSC query-page CSV ingestion.
 - Raw Search Analytics API JSON ingestion when dimensions are ordered as `query`, then `page`.
+- Direct Google Search Console authorization using only the read-only scope.
+- Daily, paginated Search Analytics pulls with automatic AAXRP property discovery.
 - AAXRP route and indexability matching.
 - Optional live HTTP, canonical, robots, redirect, and sitemap verification.
 - Branded-query separation.
@@ -47,6 +49,34 @@ Raw Search Analytics JSON:
 ```
 
 When requesting the official Search Analytics API, set `dimensions` to `["query", "page"]`. Paginate with `startRow` and `rowLimit` when the response reaches the requested row limit. Keep the API's top-row limitation in mind.
+
+## Connect Google Search Console
+
+Create a Google Desktop OAuth client with the Search Console API enabled. Keep the downloaded client JSON outside this repository. Authorize once:
+
+```bash
+npm run growth:gsc-auth -- --client /absolute/path/client-secret.json
+```
+
+The command prints an authorization URL and waits for the loopback callback. Open that URL in Ego Lite and allow the single permission, `View Search Console data for your verified sites`. The refresh credential is stored locally at `~/.config/aaxrp-search-growth/gsc-oauth.json` with owner-only file permissions. Neither credential file belongs in Git or chat.
+
+Confirm the account's available properties:
+
+```bash
+npm run growth:gsc-sites
+```
+
+Pull each settled comparison window directly. The connector queries one day at a time to reduce top-row loss and paginates every 25,000 rows:
+
+```bash
+npm run growth:gsc-pull -- \
+  --start YYYY-MM-DD --end YYYY-MM-DD \
+  --out .search-growth/aaxrp-current.json
+```
+
+The AAXRP domain property is preferred automatically. Set `site.gscProperty` in `search-growth.config.json` or pass `--property` only if a specific URL-prefix property is required.
+
+AAXRP uses a 10-impression discovery threshold because it is the low-volume test case. A surfaced row still needs at least 50 baseline impressions before it can be approved as a measured intervention. This distinction keeps useful early signals visible without presenting thin evidence as experiment-ready.
 
 ## Run the bundled AAXRP demonstration
 
@@ -146,4 +176,4 @@ The primary result is non-branded organic clicks, shown both raw and normalized 
 
 ## Product boundary
 
-This release does not include autonomous editing, publishing, a database, Google OAuth, GA4 ingestion, a deployed dashboard, programmatic page generation, RankPrompt ingestion, AI citation crawling, or interactive chat approvals. Those features require measured workflow evidence before they are worth their cost and risk.
+This release does not include autonomous editing, publishing, a database, GA4 ingestion, a deployed dashboard, programmatic page generation, RankPrompt ingestion, AI citation crawling, or interactive chat approvals. Those features require measured workflow evidence before they are worth their cost and risk.

@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
-import { mkdtemp, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, stat, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { buildAaxrpCatalog, verifyCatalogLive } from "../search-growth/catalog.mjs";
 import { loadSearchEvidence } from "../search-growth/evidence.mjs";
 import { assessLedger, runGrowthCycle } from "../search-growth/growth-cycle.mjs";
+import { buildAuthorizationUrl, listSearchConsoleSites, querySearchAnalytics, SEARCH_CONSOLE_READONLY_SCOPE, selectSearchConsoleProperty } from "../search-growth/gsc.mjs";
 import { activateIntervention, approveOpportunity, closeIntervention, loadLedger } from "../search-growth/ledger.mjs";
 import { buildNotification, sendNotification } from "../search-growth/notifiers.mjs";
 import { renderHtmlReport } from "../search-growth/report-html.mjs";
@@ -89,7 +90,7 @@ test("growth cycle excludes branded demand and distinguishes observed from estim
   assert.equal(recovery.signals.observedClickLoss, 15);
   assert.equal(report.methodology.aeoGeoSystemOfRecord, "RankPrompt");
   assert.equal(report.methodology.contentWritesEnabled, false);
-  assert.equal(report.engineVersion, "1.0.0");
+  assert.equal(report.engineVersion, "1.1.0");
   assert.ok(report.controlPool.length >= 3);
   assert.deepEqual(Object.keys(recovery.scoreComponents), ["impact", "confidence", "riskDeduction"]);
 });
@@ -161,6 +162,16 @@ test("approval rejects an experiment that cannot support its comparison policy",
   await assert.rejects(approveOpportunity({ ledgerPath: path.join(directory, "ledger.json"), report, opportunityId: report.opportunities[0].id }), /requires at least 2 verified comparison rows/);
 });
 
+test("approval rejects a surfaced candidate with an insufficient experiment baseline", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "aaxrp-growth-"));
+  const lowVolumeConfig = { ...config, thresholds: { ...config.thresholds, minimumImpressions: 10, minimumAssessmentImpressions: 50 } };
+  const row = { query: "xrp example", page: `${origin}/learn/example`, clicks: 1, impressions: 20, ctr: 0.05, position: 12 };
+  const report = runGrowthCycle({ config: lowVolumeConfig, currentRows: [row], previousRows: [], catalog: catalogFor([row]), periods, ledger: { schemaVersion: 1, interventions: [] }, verificationMode: "live" });
+  assert.equal(report.opportunities[0].approvalState, "insufficient_baseline");
+  assert.match(renderHtmlReport(report, { reportJsonPath: "/tmp/report.json", ledgerPath: "/tmp/ledger.json" }), /At least 50 baseline impressions are required\. Found 20\./);
+  await assert.rejects(approveOpportunity({ ledgerPath: path.join(directory, "ledger.json"), report, opportunityId: report.opportunities[0].id }), /baseline requires at least 50 impressions/);
+});
+
 test("HTML report escapes untrusted evidence and safely embeds JSON", async () => {
   const { currentRows, previousRows } = await fixtureRows();
   currentRows[0].query = "</script><script>alert(1)</script>";
@@ -192,6 +203,75 @@ test("raw Search Analytics JSON accepts query and page dimensions", async () => 
   const [row] = await loadSearchEvidence(file, origin);
   assert.equal(row.clicks, 8);
   assert.equal(row.position, 5.2);
+});
+
+test("Google OAuth authorization requests only read-only Search Console access", () => {
+  const url = new URL(buildAuthorizationUrl({ clientId: "client-id", redirectUri: "http://127.0.0.1:1234/oauth2/callback", state: "state", codeChallenge: "challenge" }));
+  assert.equal(url.searchParams.get("scope"), SEARCH_CONSOLE_READONLY_SCOPE);
+  assert.equal(url.searchParams.get("access_type"), "offline");
+  assert.equal(url.searchParams.get("code_challenge_method"), "S256");
+  assert.ok(!url.href.includes("cloud-platform"));
+});
+
+test("Search Console property selection prefers the exact domain property", () => {
+  const selected = selectSearchConsoleProperty([
+    { siteUrl: "https://allaboutxrp.com/", permissionLevel: "siteFullUser" },
+    { siteUrl: "sc-domain:allaboutxrp.com", permissionLevel: "siteOwner" }
+  ], { origin });
+  assert.equal(selected.siteUrl, "sc-domain:allaboutxrp.com");
+});
+
+test("Search Console property fallback selects the broadest secure URL prefix", () => {
+  const selected = selectSearchConsoleProperty([
+    { siteUrl: "https://allaboutxrp.com/learn/", permissionLevel: "siteOwner" },
+    { siteUrl: "http://allaboutxrp.com/", permissionLevel: "siteOwner" },
+    { siteUrl: "https://allaboutxrp.com/", permissionLevel: "siteOwner" }
+  ], { origin });
+  assert.equal(selected.siteUrl, "https://allaboutxrp.com/");
+});
+
+test("Search Console evidence queries each finalized day and paginates", async () => {
+  const requests = [];
+  const fetchImpl = async (_url, options) => {
+    const body = JSON.parse(options.body);
+    requests.push(body);
+    const rows = body.startRow === 0
+      ? [
+          { keys: ["what is xrp", `${origin}/learn/what-is-xrp`], clicks: 2, impressions: 20, ctr: 0.1, position: 5 },
+          { keys: ["xrp ledger", `${origin}/learn/xrp-ledger`], clicks: 1, impressions: 20, ctr: 0.05, position: 8 }
+        ]
+      : [{ keys: ["xrp wallet", `${origin}/learn/xrp-wallets`], clicks: 1, impressions: 10, ctr: 0.1, position: 7 }];
+    return { ok: true, status: 200, text: async () => JSON.stringify({ rows }) };
+  };
+  const evidence = await querySearchAnalytics({
+    siteUrl: "sc-domain:allaboutxrp.com",
+    startDate: "2026-08-01",
+    endDate: "2026-08-02",
+    token: "redacted",
+    fetchImpl,
+    rowLimit: 2
+  });
+  assert.equal(evidence.rows.length, 6);
+  assert.equal(evidence.requestCount, 4);
+  assert.deepEqual(requests.map(({ startDate, startRow }) => [startDate, startRow]), [["2026-08-01", 0], ["2026-08-01", 2], ["2026-08-02", 0], ["2026-08-02", 2]]);
+  assert.ok(requests.every((request) => request.dataState === "final" && request.dimensions.join(",") === "query,page"));
+});
+
+test("Search Console access refreshes expired credentials without loosening file permissions", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "aaxrp-gsc-"));
+  const tokenPath = path.join(directory, "token.json");
+  await writeFile(tokenPath, JSON.stringify({ schemaVersion: 1, clientId: "client", clientSecret: "secret", refreshToken: "refresh", accessToken: "expired", expiresAt: 0, scope: SEARCH_CONSOLE_READONLY_SCOPE }), { mode: 0o600 });
+  const requests = [];
+  const fetchImpl = async (url, options) => {
+    requests.push({ url: String(url), authorization: options.headers?.authorization });
+    if (String(url).includes("oauth2.googleapis.com")) return { ok: true, status: 200, text: async () => JSON.stringify({ access_token: "fresh", expires_in: 3600, token_type: "Bearer" }) };
+    return { ok: true, status: 200, text: async () => JSON.stringify({ siteEntry: [{ siteUrl: "sc-domain:allaboutxrp.com", permissionLevel: "siteOwner" }] }) };
+  };
+  const sites = await listSearchConsoleSites({ tokenPath, fetchImpl });
+  assert.equal(sites[0].siteUrl, "sc-domain:allaboutxrp.com");
+  assert.equal(requests[1].authorization, "Bearer fresh");
+  assert.equal(JSON.parse(await readFile(tokenPath, "utf8")).accessToken, "fresh");
+  assert.equal((await stat(tokenPath)).mode & 0o777, 0o600);
 });
 
 test("date parsing rejects impossible calendar dates", () => {
