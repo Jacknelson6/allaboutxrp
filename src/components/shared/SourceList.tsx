@@ -21,7 +21,7 @@ export default function SourceList({ sources }: SourceListProps) {
             <a href={source.href} data-source-link="true" rel="noopener noreferrer" className="font-medium text-xrp-accent underline decoration-xrp-accent/30 hover:decoration-xrp-accent">
               {source.label}
             </a>
-            {source.note ? <span className="text-text-secondary"> — {source.note}</span> : null}
+            {source.note ? <span className="text-text-secondary">: {source.note}</span> : null}
           </li>
         ))}
       </ul>
