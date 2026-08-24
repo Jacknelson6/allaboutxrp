@@ -1,0 +1,210 @@
+{
+  "slug": "xrpl-lending-impairment-due-date-fix",
+  "title": "XRPL Lending Proposal Would Stop Impairment From Rewriting Due Dates",
+  "description": "An open XLS-66 standards PR would require overdue payments before impairment and keep impairment from resetting a loan's scheduled due date. The change is not a Mainnet release.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-24T06:15:00-05:00",
+  "modifiedAt": "2026-08-24T06:15:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-lending-impairment-sundial-editorial.webp",
+  "imageAlt": "A pale-gold gnomon casts a cobalt shadow beyond an ivory deadline notch while a vermilion peg rests on a sunlit stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "impairment-sundial-fixed-deadline-still-life",
+  "imageSetting": "A silent white-porphyry shadow chamber with one high west-facing slit at late-afternoon winter light, viewed directly overhead across a broad ivory stone slab, with the object cluster at the far-left third and broad untouched negative space toward the right",
+  "imageMetaphor": "A pale-gold gnomon casts a cobalt shadow beyond a fixed ivory deadline notch while a separate vermilion reset peg lies inert, showing an overdue payment without rewriting the loan's scheduled due date",
+  "imagePrompt": "Create a 16:9 editorial still life for a source-led XRP Ledger standards article. Use one sparse, physically believable symbolic mechanism on a broad ivory stone slab: a small pale-gold sundial gnomon and circular base at the far-left third, a precise ivory deadline notch crossed by its cobalt shadow, and one separate restrained vermilion peg lying inert beside the base. The scene is viewed directly overhead in a silent white-porphyry shadow chamber with one high west-facing slit and late-afternoon winter light. Leave broad untouched negative space across the right two-thirds. The gnomon must visibly cast a real shadow beyond the fixed notch, while the red peg must be visibly disconnected and unable to move the notch. Crisp classical oil modeling, tactile stone and brushed metal, warm ivory, cobalt blue and pale gold, at most one vermilion status mark, sharp silhouette, calm measured geometry, no gradients used as decoration. Any 1/0/x stipple is extremely subtle and limited to a few atmospheric or shadow transitions only. Do not include XRP or crypto coins, logos, text, letters, numbers, dashboards, screens, politicians, people, buildings, temples, Greek ruins, city panoramas, cyber cubes, circuitry, fantasy architecture, all-over ASCII, all-over dither, extra objects, or an impossible mechanism.",
+  "keywords": [
+    "XRP Ledger",
+    "XRPL lending",
+    "XLS-66",
+    "loan impairment",
+    "NextPaymentDueDate",
+    "Single Asset Vault",
+    "XRPL security"
+  ],
+  "keyTakeaways": [
+    "XRPL Standards PR #496 remains open. Its August 24, 2026 update proposes allowing impairment only after a payment is overdue and removing due-date changes from impairment and unimpairment.",
+    "The proposal targets a schedule-integrity problem: the prior XLS-66 wording lets impairment and a later payment interact with NextPaymentDueDate, creating a path that an independent proof of concept says can extend a loan schedule.",
+    "This is a draft standards change, not a merged rippled patch, an enabled LendingProtocol amendment, a Mainnet incident report, or proof that borrowers or brokers are using the path in production.",
+    "The useful confirmation sequence is a reviewed spec merge, matching implementation and tests, a release, amendment status, and then observable ledger behavior around overdue payments, impairment, grace periods, and default."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a draft timing correction, not a live lending fix",
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://github.com/XRPLF/XRPL-Standards/commit/1567ef0aba7070fd49f21fab986f5f535f388eb0",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ],
+      "paragraphs": [
+        "An open XRPL Standards PR would narrow XLS-66 loan impairment to payments that are already overdue and would stop impairment or unimpairment from moving NextPaymentDueDate. That addresses a reported schedule-extension path, but it remains a draft specification change. It is not a merged rippled fix, a Mainnet activation, or evidence of a live lending market. [1][2][3]",
+        "[Confirmed fact] The record is XRPL-Standards pull request #496, titled Update impairment logic. GitHub shows it was opened on March 11, 2026 and was updated on August 24, 2026 by a commit that corrects the impairment description in section 3.2.10 of the XLS-0066 document. The pull request is still open. [1][2]",
+        "[Editorial boundary] That status matters. A standards proposal can explain the intended behavior and identify a defect without showing that the change has entered the rippled codebase, passed a release process, or become available on a public ledger. The current evidence supports a timely protocol-correctness report. It does not support a claim that XRPL lending has been exploited, that a particular borrower lost funds, or that an amendment is imminent."
+      ]
+    },
+    {
+      "heading": "What PR #496 would change in XLS-0066",
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://github.com/XRPLF/XRPL-Standards/commit/1567ef0aba7070fd49f21fab986f5f535f388eb0",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ],
+      "paragraphs": [
+        "[Confirmed fact] The current XLS-0066 description treats impairment as a broker's paper-loss signal when the broker believes a borrower cannot make an upcoming payment. The existing wording moves the loan's NextPaymentDueDate to the impairment time, while a payment clears the impairment status. The XRPL.org lending documentation checked for this report still describes that earlier behavior. [3][4]",
+        "[Confirmed fact] PR #496 proposes two linked corrections. First, a broker would be able to impair a loan only after the current ledger time is later than the loan's NextPaymentDueDate. In the proposed validation path, an impairment submitted while the payment is not overdue returns a too-soon result. Second, impairment would increase the vault's LossUnrealized value without changing NextPaymentDueDate. Unimpairment would also stop rewriting that date. [1][2]",
+        "The distinction is more precise than a general promise to make lending safer. XLS-0066 uses a fixed-term loan schedule, a PaymentInterval, and a GracePeriod. Under the proposed text, default timing remains tied to the scheduled date and grace period. Impairment records a loss expectation for the vault. It does not become a second way to move the contract's clock. [1][4]",
+        "[Bounded inference] Because the latest PR commit changes the standards document rather than presenting a rippled implementation or release note, the most defensible description is a specification-level correction. The pull request itself shows one changed file and an open review state. That is enough to explain the proposed rule, but not enough to say the network behavior has changed."
+      ]
+    },
+    {
+      "heading": "Why a due-date reset is a schedule-integrity issue",
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://gist.github.com/Joshua-Medvinsky/d1ba435e91147307d50b801bb56b2f25"
+      ],
+      "paragraphs": [
+        "[Confirmed fact] In a fixed-term lending system, a due date is not just a display field. It participates in the timing rules that determine when a payment is late, when a grace period can expire, and when a broker can seek default. Separately, impairment lets a broker communicate that a vault may face a loss before the final outcome is known. Keeping those state transitions separate is the core logic of the proposal. [1][3][4]",
+        "[Independent technical evidence] Joshua Medvinsky's undated proof of concept describes a payment path in which LoanPay clears impairment before validating the payment schedule, and unimpairment sets the next due date to the current time plus the payment interval. Under the test parameters shown in the reproduction, a 600-second interval and a delayed payment produced a roughly 1,330-second extension compared with the original schedule. The calculation is specific to that test, not a forecast for every loan or a measurement of Mainnet activity. [5]",
+        "[Bounded inference] The practical risk is a pair of competing clocks. The original schedule says when the next payment is due. The impairment and unimpairment path can then move that schedule after the fact. If a late payment clears impairment and also receives a fresh interval, a borrower may obtain more time than the original schedule allowed. The broker's paper-loss record and the vault's eventual default decision are no longer anchored to one stable date.",
+        "PR #496 addresses that interaction by making impairment conditional on an overdue payment and keeping NextPaymentDueDate unchanged. It does not eliminate missed-payment risk, make a borrower solvent, or guarantee recovery for depositors. It removes one state mutation from the timing path. That is a narrower and more testable claim than saying the proposal solves XRPL lending risk."
+      ]
+    },
+    {
+      "heading": "What the independent evidence does and does not establish",
+      "sourceUrls": [
+        "https://xrplbrew.com/2026-03-09_2026-03-15.html",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+        "https://gist.github.com/Joshua-Medvinsky/d1ba435e91147307d50b801bb56b2f25",
+        "https://github.com/XRPLF/XRPL-Standards/pull/496"
+      ],
+      "paragraphs": [
+        "[Independent corroboration] The XRPL Monday Brew weekly digest for March 9 through March 15, 2026 described the impairment issue as a bug-bounty finding. Its summary said the then-current 60-second grace period could let a broker force a default before a realistic first payment, and that XRPL-Standards PR #496 was addressing the specification. This independently confirms that the issue was discussed in the ecosystem before the August documentation update. [6]",
+        "[Independent audit context] Halborn's Lending Protocol Re-Audit page, last updated June 12, 2026, says its review covered transaction validation, state consistency and accounting, permissions, timing, edge cases, and specification-to-implementation mismatches. The page reports five findings, including one medium, two low, and two informational findings, and says all reported findings were addressed or accepted. It specifically lists a Grace Period Equals Payment Interval edge case among the informational findings. [7]",
+        "[Unresolved uncertainty] Halborn's public report is not a confirmation that PR #496 is merged or that its exact due-date proposal passed that audit. The independent proof of concept is also not a production incident report. Neither source establishes a live borrower, broker, vault, or depositor loss on the XRP Ledger. Together, they show why timing and state transitions deserve scrutiny, while the official PR supplies the exact proposed remedy.",
+        "That evidence hierarchy is important for readers. The primary record establishes what is proposed. The independent reproduction makes the state interaction concrete. The ecosystem digest and audit establish that the concern sits within a recognized lending-security review surface. None of them should be converted into a claim about adoption, exploitation, or market size without ledger records and implementation evidence."
+      ]
+    },
+    {
+      "heading": "Implications for brokers, borrowers, vaults, and depositors",
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ],
+      "paragraphs": [
+        "[For loan brokers] If the proposed rule is adopted and implemented, a broker would need to distinguish an expected future payment problem from an actually overdue payment before submitting impairment. A broker could still record a paper loss once the payment is late, but the impairment operation would no longer be the mechanism that advances the scheduled due date. Monitoring and operational tooling would need to display the loss flag and the contractual schedule as separate facts. [1][3]",
+        "[For borrowers] The proposal would remove a path by which an impairment or subsequent unimpairment could rewrite the next scheduled date. It would not erase a missed payment, cancel a grace period, or change the borrower obligations described by XLS-0066. A borrower should not read the PR as a new extension policy. It is a proposed constraint on state transitions. [1][4]",
+        "[For vault managers and depositors] The important change is accounting clarity. LossUnrealized can still communicate exposure before a default decision, but the date used for default timing would remain tied to the loan schedule. That should make it easier to test whether a vault's loss accounting, payment handling, and default paths agree. It does not make first-loss capital unnecessary or guarantee that a vault can recover an impaired loan. Those are separate economic and governance questions. [3][4]",
+        "[For developers and auditors] The implementation test plan should cover the boundary between current time and NextPaymentDueDate, payments before and after the due date, the entire GracePeriod, repeated impairment and unimpairment attempts, and the case where PaymentInterval equals GracePeriod. The Halborn review's methodology supports treating preflight checks, doApply state transitions, and invariants as first-class test surfaces. A passing unit test for one transaction is not evidence that all orderings are safe. [7]",
+        "[Key takeaway] The likely benefit is not a new lending feature. It is a smaller and more deterministic state machine. Whether that benefit reaches users depends on a completed specification review, matching code, regression tests, release availability, and eventual amendment status."
+      ]
+    },
+    {
+      "heading": "Mainnet status: the lending amendment is supported but not enabled in the checked snapshot",
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ],
+      "paragraphs": [
+        "[Confirmed fact] A feature RPC request to the public s1.ripple.com server returned LendingProtocol with supported set to true and enabled set to false at validated ledger 106510262 when checked on August 24, 2026. SingleAssetVault was also returned as supported but not enabled in that same response. This is a dated network snapshot, not a claim about every server or every future ledger. [8]",
+        "[Confirmed fact] The official lending documentation and the XLS-0066 page checked for this report still expose the prior impairment wording, while PR #496 proposes correcting it. That is consistent with an open standards proposal. [Unresolved uncertainty] It does not prove that no private branch, test network, or unreleased build contains a partial implementation. It does establish that the public evidence reviewed here does not show the proposed behavior as an enabled Mainnet lending amendment. [1][3][4]",
+        "No XRP price snapshot is included because it would not improve the explanation. The development record is about loan-state timing and amendment readiness, not a verified market move. A price number could add false urgency without answering whether the proposed state transition has been reviewed or deployed."
+      ]
+    },
+    {
+      "heading": "What would turn this proposal into a confirmed network change",
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/496",
+        "https://github.com/XRPLF/XRPL-Standards/commit/1567ef0aba7070fd49f21fab986f5f535f388eb0",
+        "https://s1.ripple.com:51234/",
+        "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2"
+      ],
+      "paragraphs": [
+        "[What to watch] First, watch PR #496 for review comments, a merge, a replacement proposal, or a closure that changes the stated remedy. The August 24 commit improves the description, but a documentation update alone is not a release. Second, look for a corresponding rippled implementation and regression tests that preserve NextPaymentDueDate through impairment, payment, and unimpairment paths. [1][2]",
+        "Third, check whether the official XLS-0066 page and XRPL.org documentation converge on the new rule, then verify the release version that contains the behavior. Fourth, check amendment and feature status on a validated public server after any release. The feature response should be treated as a snapshot with a ledger index, not as a permanent guarantee. [3][4][8]",
+        "Fifth, look for actual ledger records before making claims about use or impact. Loan, LoanBroker, and vault objects, transaction metadata, payment timing, impairment state, and default outcomes would be needed to establish production behavior. Finally, watch for follow-up audit coverage after a material implementation change, particularly around grace-period boundaries and the ordering of payment and impairment operations. [5][7]",
+        "[Bottom line] The best current reading is a source-led security and protocol-correctness update: XRPL contributors are proposing to keep a loan's schedule fixed while recording impairment separately. The issue is material for anyone evaluating XLS-66, but the public record remains pre-deployment. The next credible milestone is verified implementation and network availability, not the existence of the pull request itself."
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "PR #496 review, merge, replacement, or closure, with attention to whether the final text still blocks due-date changes.",
+    "A matching rippled implementation, regression tests, and a release that covers overdue-only impairment plus stable NextPaymentDueDate.",
+    "Convergence between the XRPL.org docs, XLS-0066, implementation behavior, and amendment status.",
+    "Validated ledger evidence for Loan, LoanBroker, and vault payment, impairment, grace-period, and default transitions.",
+    "Follow-up security review of grace-period boundaries and payment versus impairment ordering after any material implementation change."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF XRPL-Standards PR #496, Update impairment logic, opened March 11, 2026, updated August 24, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/pull/496",
+      "type": "primary",
+      "publishedAt": "2026-03-11"
+    },
+    {
+      "name": "XRPLF XRPL-Standards commit 1567ef0, specification wording correction, August 24, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/commit/1567ef0aba7070fd49f21fab986f5f535f388eb0",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPL.org Lending Protocol documentation, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0066 Lending Protocol specification, metadata updated January 14, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "name": "Joshua Medvinsky, XRPL Lending impairment-reset proof of concept, undated technical reference checked August 24, 2026",
+      "url": "https://gist.github.com/Joshua-Medvinsky/d1ba435e91147307d50b801bb56b2f25",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Monday Brew, March 9-15, 2026, impairment logic bug-bounty summary",
+      "url": "https://xrplbrew.com/2026-03-09_2026-03-15.html",
+      "type": "supporting",
+      "publishedAt": "2026-03-15"
+    },
+    {
+      "name": "Halborn, Lending Protocol Re-Audit, last updated June 12, 2026",
+      "url": "https://www.halborn.com/audits/ripple/lending-protocol-re-audit-2769d2",
+      "type": "supporting",
+      "publishedAt": "2026-06-12"
+    },
+    {
+      "name": "XRPL public server feature response, s1.ripple.com ledger 106510262, checked August 24, 2026",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "XLS-66 voting status",
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026"
+    },
+    {
+      "label": "XLS-66 first-loss capital",
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs"
+    },
+    {
+      "label": "XRPL loan-default freeze fix",
+      "href": "/news/xrpl-loan-default-freeze-fixcleanup3-4-0"
+    },
+    {
+      "label": "XRP lending platforms",
+      "href": "/learn/xrp-lending-platforms"
+    }
+  ]
+}
