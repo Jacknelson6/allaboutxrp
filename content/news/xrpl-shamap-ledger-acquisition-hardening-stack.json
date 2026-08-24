@@ -1,0 +1,247 @@
+{
+  "slug": "xrpl-shamap-ledger-acquisition-hardening-stack",
+  "title": "XRPLF Opens 14-Part SHAMap Hardening Stack for Ledger Acquisition",
+  "description": "XRPLF opened a 14-part draft stack to reject malformed SHAMap data, prevent unsafe ledger completion, and stop futile retries. The work targets node reliability, not a released Mainnet fix or XRP market event.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-23T21:15:00-05:00",
+  "modifiedAt": "2026-08-23T21:15:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-shamap-depth-shear-editorial.webp",
+  "imageAlt": "A pale-gold branching depth frame rejects one malformed cobalt path before it reaches an ivory ledger tablet on a moonlit stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "shamap-depth-shear-frame-still-life",
+  "imageSetting": "A silent white-tufa stereotomy chamber under a thin south-facing roof slit at cold moonrise, viewed from an elevated front-left angle across an ivory stone drafting block, with the object cluster at the far right and broad untouched negative space to the left",
+  "imageMetaphor": "A pale-gold branching depth frame holds three cobalt nodes on valid arms while an ivory shear blade intercepts a fourth impossible arm before it reaches an unmarked ledger tablet, representing SHAMap invalid-state detection and safe abandonment of a bad acquisition rather than a live network breach",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape in the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Primary request: explain XRPLF's August 23, 2026 14-part draft SHAMap ledger-acquisition hardening stack through one sparse, physically believable symbolic still life. State-specific metaphor: malformed tree depth is intercepted before an acquired ledger can be accepted or a retry can continue. Setting: a silent white-tufa stereotomy chamber under a thin south-facing roof slit at cold moonrise, a setting that does not duplicate any registered AllAboutXRP guide or news scene. Viewpoint: elevated front-left three-quarter angle across a broad ivory stone drafting block, with the object cluster confined to the far right third and broad untouched warm ivory negative space to the left. Show exactly four deliberate visible object groups: one pale-gold branching depth frame with three clean arms and one short impossible arm, one small ivory shear blade positioned across the impossible arm, one linked group of three cobalt glass node beads seated on the valid arms, and one unmarked ivory ledger tablet just beyond the frame. The three cobalt beads must form a valid descending path into the frame; the fourth short arm must stop visibly before the tablet. Make the contact between the blade and malformed arm physically believable, with no floating parts. Use cold clear moonrise entering through the roof slit, crisp long contact shadows, pale-gold edge light, deep cobalt glass reflections, and a quiet ivory stone surface. Style: luminous academic and classical-revival oil painting, polished jewel-toned finish, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on gold and stone edges, extraordinary atmospheric clarity. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few distant atmosphere and deep-shadow transitions and must dissolve into white space. Never use an all-over ASCII or dither filter. The image should explain invalid SHAMap depth, safe rejection, and a ledger-acquisition path that stops instead of crashing or retrying forever. Constraints: no readable text, letters, numbers, currency symbols, logos, XRP symbol, literal crypto coin, token coin, dashboard, chart, screen, UI, computer, circuitry, cyber cube, politician, person, bank, temple, columns, robes, harbor, coast, terrace, panoramic Greek city, mountain, fantasy ruin, bridge, gate, lock, key, latch, clasp, yoke, rail, prism, manifold, hourglass, scale, caliper, clepsydra, amphora, passport folio, compass, shutter, ribbon, capsule array, waterworks channel, archive room, instrument room, quarry, salt pan, kiln yard, workshop, conservatory, bookbindery, counting niche, calibration chamber, pressure gauge, gauge, ratchet, groma, weir, transfer roller, cam, comb, trellis, or generic server hardware. No watermark, border, rounded frame, photographic realism, sepia cast, muddy gray, coarse halftone, retro pixel art, duplicated objects, extra beads, impossible geometry, or visual suggestion that the proposed code is already live. Bundled references are style-only and must not leak their content or compositions.",
+  "keywords": [
+    "XRP Ledger security",
+    "SHAMap",
+    "xrpld",
+    "ledger acquisition",
+    "XRP node security",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "On August 23, 2026, XRPLF opened a 14-part draft pull-request stack that targets SHAMap and ledger-acquisition failure handling on develop branches.",
+    "PR #8086 describes a conditioned remote denial-of-service path in which an invalid tree shape could make a worker thread terminate; the proposed fix marks the map invalid and abandons the walk.",
+    "PR #8083 makes key SHAMap synchronization fields atomic, while PR #8085 refuses to make invalid maps or ledgers immutable and PR #8088 settles an acquired ledger before publishing completion.",
+    "PRs #8092 and #8093 keep failed acquisitions from exposing partial ledgers or retrying hashes that no peer can satisfy, while limiting charges for honest late replies.",
+    "No source reviewed establishes a merged stable release, a Mainnet exploit, a network outage, validator activation, XRP demand, or a price response from this draft stack."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a 14-part draft hardening stack, not a release",
+      "paragraphs": [
+        "[Confirmed] On August 23, 2026, XRPLF opened a 14-part draft pull-request stack for SHAMap and ledger-acquisition hardening. The proposed changes reject malformed tree shapes, prevent unsafe completion, and stop futile retries. They target node reliability and a conditioned denial-of-service path, but they are develop-branch drafts, not a merged release, Mainnet incident report, or XRP market event. [1][2][3]",
+        "The newest official primary record is pull request #8093, labeled part 14/14 of the stack. Its predecessor, #8092, prevents a failed acquisition from returning a partially built ledger, while the earlier parts add the state, validation, and completion guards that make that outcome possible. The pull-request pages show draft status and custom stack branches rather than a merge into the stable release line. [1][6]",
+        "This is material XRP Ledger news because every validator and tracking server depends on acquiring, checking, and publishing ledger data safely. It is also a narrow story. The records do not announce an XRP transaction, a new asset market, a network-wide disruption, a customer deployment, or a change to XRP supply. The accountable headline is therefore about XRPLF's proposed node hardening, not about an unverified event in the market. [1][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8093",
+        "https://github.com/XRPLF/rippled/pull/8092",
+        "https://github.com/XRPLF/rippled/pull/8080",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history"
+      ]
+    },
+    {
+      "heading": "How a malformed SHAMap can become a node-safety problem",
+      "paragraphs": [
+        "[Confirmed] The XRP Ledger documentation says a server first obtains a complete copy of the latest validated ledger, then fills gaps by requesting missing data from peers and checking that data with cryptographic hashes. This acquisition path is part of ordinary node operation, not an optional analytics feature. A server that cannot safely complete the path can fall behind, discard data, or expose downstream callers to an incomplete result. The documentation is an undated reference checked August 23, 2026. [7]",
+        "[Independent context] XRPL Commons describes SHAMap as a hybrid Merkle and Patricia structure used for the account state tree and transaction tree. Its Merkle root lets nodes compare state and verify data integrity, while the NodeStore supplies persistent data. That explanation is an undated supporting reference, so it helps explain the mechanism but does not independently confirm what the August 23 pull requests change. [8]",
+        "[Confirmed] PR #8086 identifies a specific failure path. During getMissingNodes(), an inner node can reach a depth where only a leaf is valid. Before the proposed guard, the code could let SHAMapNodeID::getChildNodeID() throw std::logic_error out of a worker path and reach std::terminate(). The pull request says an unsolicited liAS_NODE reply could seed a fetch pack with a parseable but unrelated node, allowing the walk to reach that shape without passing through the normal addKnownNode() guard. [2]",
+        "The pull request calls the result a conditioned remote denial of service, not a one-packet universal exploit. Its own explanation says the attacker would need to influence the acquisition environment, including peer slots or trusted-validator conditions, before steering a node toward the malformed shape. That qualification matters. It is a proposed threat model in a draft code review, not evidence that anyone exploited Mainnet on August 23. [2]",
+        "[Unresolved] The reviewed records do not state whether this path has been observed in production, assigned a CVE, or reproduced against a live Mainnet server. They do show targeted tests, including sanitizer-oriented coverage and explicit invalid-state handling. The correct editorial conclusion is that XRPLF is hardening a documented code path before treating it as safe, while the operational severity and real-world exposure remain unreported. [2][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8086",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://www.xrpl-commons.org/core-dev-module/data-architecture-shamap-and-nodestore",
+        "https://crypto.news/xrp-ledger-upgrade-exposes-hidden-flaws-across-network/"
+      ]
+    },
+    {
+      "heading": "What the 14 patches change across the acquisition lifecycle",
+      "paragraphs": [
+        "[Confirmed] The stack is layered. Part 4, PR #8083, makes state_, full_, ledgerSeq_, and fullBelowGen_ atomic on the SHAMap synchronization path, addressing concurrent reads and writes that ThreadSanitizer can observe. Part 6, PR #8085, changes SHAMap and Ledger immutability setters to refuse an already invalid structure, so invalid data cannot be promoted into something treated as persistable. [3][4]",
+        "Part 9, PR #8088, moves ledger settlement ahead of the complete_ flag. The pull request describes a race in which a reader could see an acquisition as complete while its maps were still being synchronized. The proposed order makes the ledger immutable before completion is published. Part 13, PR #8092, then makes getLedger() return nothing after failure so a caller cannot accidentally consume the partial object left behind for diagnostic reporting. [5][6]",
+        "The last part, PR #8093, closes the lifecycle. Once a map is proven invalid, the acquisition stops trying to revive a root that no peer can satisfy. The same change moves peer charging to the point where the code knows whether data was malformed, merely invalid, useful, or late. A reply already in flight from a peer that was asked is free once, while repeated late replies can receive the useless-data charge. That is a fairness rule around cleanup, not a promise that malformed peers are harmless. [1]",
+        "[Bounded inference] Taken together, the stack appears designed to make bad peer data fail closed at several handoff points: tree insertion, synchronization, persistence, publication, and retry. That is a stronger design posture than a single exception catch. It is still an inference about the combined effect of draft changes. Only review, merge, release testing, and live deployment can establish whether the protections work under the network's real concurrency and peer behavior. [1][2][3][4][5][6]"
+      ],
+      "table": {
+        "caption": "Lifecycle protections proposed in the August 23 draft stack",
+        "headers": [
+          "Lifecycle boundary",
+          "Proposed protection",
+          "Evidence status"
+        ],
+        "rows": [
+          [
+            "Concurrent SHAMap reads and writes",
+            "Atomic synchronization fields and sanitizer coverage",
+            "Draft PR #8083, August 23, 2026"
+          ],
+          [
+            "Malformed tree shape",
+            "Mark the map invalid and abandon the walk before a worker exception",
+            "Draft PR #8086, August 23, 2026"
+          ],
+          [
+            "Persistence and publication",
+            "Refuse invalid immutability and settle before complete",
+            "Draft PRs #8085 and #8088, August 23, 2026"
+          ],
+          [
+            "Failed acquisition recovery",
+            "Do not return a partial ledger or revive an unsatisfiable root",
+            "Draft PRs #8092 and #8093, August 23, 2026"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF rippled draft PRs #8083, #8085, #8086, #8088, #8092, and #8093, all commented August 23, 2026. This table summarizes proposed code behavior and is not a release or Mainnet status record. [1][2][3][4][5][6]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8083",
+        "https://github.com/XRPLF/rippled/pull/8085",
+        "https://github.com/XRPLF/rippled/pull/8086",
+        "https://github.com/XRPLF/rippled/pull/8088",
+        "https://github.com/XRPLF/rippled/pull/8092",
+        "https://github.com/XRPLF/rippled/pull/8093"
+      ]
+    },
+    {
+      "heading": "The security context is real, but the status is still draft",
+      "paragraphs": [
+        "[Confirmed context] XRPL's March 23, 2026 vulnerability disclosure report says earlier transaction-set handling bugs could affect liveness and allow a compromised UNL validator to trigger crashes in receiving validators. The report says those fixes shipped in rippled 3.0.0 after responsible disclosure by Common Prefix. That history does not prove the August 23 SHAMap stack addresses the same defect, but it shows why ledger-data validation and liveness are consequential subjects for XRPL operators. [10]",
+        "[Independent context] A June 20, 2026 Crypto.news report described synchronization failures and other node-operations concerns after the xrpld 3.2.0 rollout, while noting that maintainers had not reported a network-wide disruption at the time. The report is a secondary account of earlier issues, not evidence about these new draft PRs. Its value here is the operational distinction between a node bug, a rollout problem, and a network outage. [9]",
+        "[Independent research] A peer-reviewed study of the XRP Ledger overlay network published in 2023 from measurements collected in 2022 found that topology affects security and robustness, and warned that a small group of influential nodes could matter under targeted attack. That paper studies connectivity, not SHAMap parsing. It supports the broader point that peer acquisition and node handling are part of the network's security surface, not merely implementation detail. [11]",
+        "[Unresolved] Nothing in the current primary record gives a severity score, a CVE number, an affected-version range, a release date, or a validator-upgrade instruction. The 14 pull requests are individually marked draft and are arranged as a branch stack. Until that status changes, readers should not describe the work as a deployed security patch, a confirmed exploit, or a completed network upgrade. [1][2][3][10]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-mar2026",
+        "https://crypto.news/xrp-ledger-upgrade-exposes-hidden-flaws-across-network/",
+        "https://arxiv.org/abs/2205.00869",
+        "https://github.com/XRPLF/rippled/pull/8093"
+      ]
+    },
+    {
+      "heading": "Implications for node operators, developers, data providers, and XRP holders",
+      "paragraphs": [
+        "For node operators, the immediate implication is watchful release management. A draft branch is not a stable upgrade instruction, and the pull-request pages do not establish that the code has passed the project's final review or release pipeline. Operators should wait for a signed release or official deployment guidance, then compare the release notes with the exact behavior they need: invalid-map handling, synchronization, retry timers, and completion publication. [1][2][3][5]",
+        "For developers building validators, indexers, explorers, and ledger APIs, the proposed semantics reinforce a basic rule: an empty result, a failed acquisition, and a ledger with no locally available history are not interchangeable. The official ledger-history reference says a server may not have every ledger locally and may need to fetch missing data from peers. PR #8092 adds a second boundary by refusing to hand callers a partial ledger after failure. Applications should model those states explicitly rather than turning every missing response into a zero balance or a successful empty result. [6][7]",
+        "For infrastructure and security teams, the affected test matrix is more useful than a headline about a crash. It should include valid and malformed SHAMap paths, local and peer-supplied data, synchronous and asynchronous reads, map invalidation before and after completion, delayed peer replies, and retry after a timed-out acquisition. The PRs mention ThreadSanitizer, address-sanitizer-specific defines, and targeted tests. Those details point to the kinds of evidence to request before trusting a future release. [2][3][5]",
+        "For XRP holders and market readers, the direct conclusion is limited. The stack concerns the software that helps nodes obtain and verify ledger structures. It does not report XRP purchases, XRP transfers, escrow changes, token issuance, validator voting, user growth, or a price response. [Bounded inference] If the work is later merged and deployed, fewer malformed-data failure modes could improve reliability for future applications. That possibility is not present XRP demand, adoption, or a market catalyst. [1][7][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8083",
+        "https://github.com/XRPLF/rippled/pull/8086",
+        "https://github.com/XRPLF/rippled/pull/8088",
+        "https://github.com/XRPLF/rippled/pull/8092",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-mar2026"
+      ]
+    },
+    {
+      "heading": "What to watch next before calling the hardening live",
+      "paragraphs": [
+        "[Confirmed] The next observable milestone is pull-request status. The 14 parts need to move from draft branches through review and merge, with a final commit history that can be compared against the individual PR descriptions. A merged pull request would still be a code milestone, not proof of Mainnet activation. [1][2][3]",
+        "The second milestone is a tagged release and operator guidance. Look for a release note that names the SHAMap and acquisition fixes, identifies affected versions if applicable, and tells operators whether an upgrade is recommended or required. A release tag is stronger evidence than a branch name, while an enabled feature or amendment record would be a separate status question. [1][7][10]",
+        "The third milestone is test and deployment evidence. Relevant signals include the project's final CI results, ThreadSanitizer and address-sanitizer coverage, integration tests with malformed peer data, and a live multi-node test that confirms failed acquisitions do not publish partial ledgers or retry impossible roots. Those results should be read alongside independent review or a formal disclosure if the maintainers classify the path as security-sensitive. [2][3][5][9]",
+        "[Unresolved] The records reviewed on August 23, 2026 do not provide a merge date, production rollout date, validator adoption measurement, incident disclosure, or XRP-related outcome. Until one of those records appears, the defensible description remains: XRPLF has opened a substantial draft hardening stack for SHAMap ledger acquisition, with a specific conditioned denial-of-service concern and several proposed fail-closed defenses. [1][2][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8093",
+        "https://github.com/XRPLF/rippled/pull/8086",
+        "https://github.com/XRPLF/rippled/pull/8083",
+        "https://github.com/XRPLF/rippled/pull/8088",
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-mar2026"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Whether all 14 draft pull requests move through review and merge as one coherent stack",
+    "A tagged rippled or xrpld release that names the SHAMap and ledger-acquisition fixes",
+    "Final CI, ThreadSanitizer, address-sanitizer, and malformed-peer integration results",
+    "Operator guidance, affected-version ranges, or a formal security disclosure or CVE",
+    "Live multi-node evidence that failed acquisitions stop safely without partial-ledger publication or futile retries"
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8080: add SHAMapAddNode verdict-count tests",
+      "url": "https://github.com/XRPLF/rippled/pull/8080",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8093: stop retrying unsatisfiable ledger acquisitions",
+      "url": "https://github.com/XRPLF/rippled/pull/8093",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8092: do not return a ledger after acquisition failure",
+      "url": "https://github.com/XRPLF/rippled/pull/8092",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8086: refuse an invalid SHAMap walk",
+      "url": "https://github.com/XRPLF/rippled/pull/8086",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8085: refuse invalid SHAMap or Ledger immutability",
+      "url": "https://github.com/XRPLF/rippled/pull/8085",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8083: make SHAMap synchronization state atomic",
+      "url": "https://github.com/XRPLF/rippled/pull/8083",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPLF rippled PR #8088: settle an acquired ledger before completion",
+      "url": "https://github.com/XRPLF/rippled/pull/8088",
+      "type": "primary",
+      "publishedAt": "2026-08-23"
+    },
+    {
+      "name": "XRPL documentation: Ledger History, undated live reference checked August 23, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL vulnerability disclosure: Transaction Set Handling, published March 23, 2026",
+      "url": "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-mar2026",
+      "type": "primary",
+      "publishedAt": "2026-03-23"
+    },
+    {
+      "name": "XRPL Commons SHAMap and NodeStore data architecture, undated supporting reference checked August 23, 2026",
+      "url": "https://www.xrpl-commons.org/core-dev-module/data-architecture-shamap-and-nodestore",
+      "type": "supporting"
+    },
+    {
+      "name": "Crypto.news report on xrpld rollout synchronization and node issues, published June 20, 2026",
+      "url": "https://crypto.news/xrp-ledger-upgrade-exposes-hidden-flaws-across-network/",
+      "type": "supporting",
+      "publishedAt": "2026-06-20"
+    },
+    {
+      "name": "Topology Analysis of the XRP Ledger, published May 2, 2022",
+      "url": "https://arxiv.org/abs/2205.00869",
+      "type": "supporting",
+      "publishedAt": "2022-05-02"
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/learn/xrp-ledger-explained", "label": "XRP Ledger explained" },
+    { "href": "/learn/xrpl-consensus-mechanism", "label": "How XRPL consensus works" },
+    { "href": "/learn/xrpl-validators", "label": "XRPL validators" },
+    { "href": "/learn/xrp-developer-resources", "label": "XRP Ledger developer resources" },
+    { "href": "/learn/xrp-block-explorers", "label": "XRP Ledger block explorers" }
+  ]
+}
