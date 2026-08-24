@@ -89,8 +89,8 @@ export default function BestHubPage() {
             Best XRP Products &amp; Services
           </h1>
           <p className="text-lg text-zinc-400 mb-12 max-w-2xl">
-            Expert-reviewed wallets, exchanges, hardware wallets, and earning platforms for
-            the XRP ecosystem. Every product is independently evaluated.
+            Evidence-led comparisons of wallets, exchanges, hardware devices, and risk-bearing
+            XRP yield methods. Product availability and fees are reviewed by region and date.
           </p>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -118,11 +118,21 @@ export default function BestHubPage() {
 
           <div className="mt-16  border border-zinc-800 bg-zinc-950 p-8">
             <h2 className="text-xl font-semibold text-white mb-3">How We Review</h2>
-            <p className="text-zinc-400 leading-relaxed">
-              Every product on AllAboutXRP is independently researched and evaluated. We consider
-              security, ease of use, fees, XRP-specific features, community reputation, and
-              regulatory compliance. Our rankings are based purely on merit and independent research.
-            </p>
+            <div className="space-y-4 text-zinc-400 leading-relaxed">
+              <p>
+                Reviews start with current first-party documentation. For exchanges, we verify the regional entity, XRP listing and withdrawal support, fee schedule, order type, payment rail, and destination-tag instructions. For wallets, we verify supported devices, XRP transaction support, custody model, recovery design, and current firmware or application requirements.
+              </p>
+              <p>
+                Yield comparisons begin with the protocol fact that XRP has no native proof-of-stake reward. AMM liquidity provision, lending, and provider rewards are scored as different activities with separate custody, counterparty, issuer, liquidity, and loss risks. An advertised rate is never treated as guaranteed.
+              </p>
+              <p>
+                Dynamic facts are snapshots, not permanent promises. Each child review identifies its evidence and limitations, and readers should recheck the provider&apos;s final quote and regional terms. AllAboutXRP does not accept payment for ranking position. Reviewed August 24, 2026.
+              </p>
+            </div>
+            <div className="mt-5 flex flex-col gap-2 text-sm">
+              <a href="https://xrpl.org/docs/concepts/transactions/transaction-cost" target="_blank" rel="noopener noreferrer" className="text-[#0085FF] hover:underline">XRPL transaction-cost and reserve documentation</a>
+              <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/crypto-asset-securities" target="_blank" rel="noopener noreferrer" className="text-[#0085FF] hover:underline">Investor.gov crypto-asset risk alert</a>
+            </div>
             <div className="mt-4 flex gap-4">
               <Link href="/learn/what-is-xrp" className="text-sm text-[#0085FF] hover:underline">
                 What is XRP? →

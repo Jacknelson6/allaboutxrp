@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "Are XRP Airdrops Taxable? What You Need to Know | AllAboutXRP",
   description: "Are XRP airdrops taxable? Yes — here's exactly when, how much, and how to report XRPL airdrop income on your tax return.",
   keywords: ["XRP airdrop tax","are airdrops taxable","XRPL airdrop tax","crypto airdrop tax rules"],

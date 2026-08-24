@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP in Insurance: Blockchain Claims & Settlements | AllAboutXRP",
   description: "How XRP and the XRPL are being explored for insurance — instant claims settlement, parametric insurance, and cross-border reinsurance.",
   keywords: ["XRP insurance","blockchain insurance XRP","XRPL insurance use case"],
@@ -26,19 +25,19 @@ const schemas = [
   buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Insurance" }]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-insurance-use-cases" }),
   buildFAQSchema([
-    { question: "How can XRP be used in insurance?", answer: "Instant claims settlement, parametric insurance with automatic payouts, and cross-border reinsurance at reduced cost." },
-    { question: "What is parametric insurance?", answer: "Insurance that auto-pays based on a trigger (e.g., earthquake magnitude) rather than claim assessment. Perfect for blockchain automation." },
-    { question: "Is this being used today?", answer: "Still exploratory. Pilot programs and proofs of concept exist, but widespread adoption is years away." },
-    { question: "How does it reduce costs?", answer: "Eliminates manual claims processing, reduces fraud, and speeds settlement from weeks to seconds." },
+    { question: "How could XRP be used in insurance?", answer: "XRPL can transfer value after an insurer or authorized system approves a payment. It does not itself validate a loss, supply an oracle, or satisfy insurance regulation." },
+    { question: "What is parametric insurance?", answer: "A contract whose payout depends on a defined external measurement. A reliable data source, legal contract, and insurer controls are still required." },
+    { question: "Is this being used today?", answer: "This page documents technical design patterns, not a verified broad insurer deployment." },
+    { question: "Does XRPL prove cost savings?", answer: "No. Ledger settlement cost is only one component of underwriting, claims, compliance, data, fraud, and payout expense." },
     { question: "Why XRPL specifically?", answer: "Low fees, fast settlement, and the ability to issue tokens for insurance contracts on-chain." },
   ]),
 ];
 
 const faqItems = [
-  { q: "How can XRP be used in insurance?", a: "Instant claims settlement, parametric insurance with automatic payouts, and cross-border reinsurance at reduced cost." },
-  { q: "What is parametric insurance?", a: "Insurance that auto-pays based on a trigger (e.g., earthquake magnitude) rather than claim assessment. Perfect for blockchain automation." },
-  { q: "Is this being used today?", a: "Still exploratory. Pilot programs and proofs of concept exist, but widespread adoption is years away." },
-  { q: "How does it reduce costs?", a: "Eliminates manual claims processing, reduces fraud, and speeds settlement from weeks to seconds." },
+  { q: "How could XRP be used in insurance?", a: "XRPL can transfer value after an insurer or authorized system approves a payment. It does not validate the underlying claim." },
+  { q: "What is parametric insurance?", a: "A contract whose payout depends on a defined external measurement, which still requires reliable data and legal controls." },
+  { q: "Is this being used today?", a: "This page presents technical design patterns, not a verified broad insurer deployment." },
+  { q: "Does XRPL prove cost savings?", a: "No. Ledger cost is only one part of underwriting, claims, compliance, data, fraud, and payout expense." },
   { q: "Why XRPL specifically?", a: "Low fees, fast settlement, and the ability to issue tokens for insurance contracts on-chain." },
 ];
 
@@ -51,11 +50,11 @@ export default function Page() {
           <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
         </LearnHero>
 
-        <TLDRBox><p>XRP and the XRPL can transform insurance through instant claims settlement, smart parametric insurance (automatic payouts), and efficient cross-border reinsurance. Still early stage but significant potential.</p></TLDRBox>
+        <TLDRBox><p>XRPL can serve as a payment rail in a proposed insurance architecture, but it does not validate a loss, provide an oracle, approve a claim, or prove insurer adoption. The examples below are design patterns, not documented production deployments.</p></TLDRBox>
 
         <KeyFactsTable facts={[
-          { label: "Claims Speed", value: "Seconds vs weeks" },
-          { label: "Cost Reduction", value: "30-50%" },
+          { label: "Ledger close", value: "Several seconds" },
+          { label: "Cost Reduction", value: "Not established" },
           { label: "Type", value: "Parametric" },
           { label: "Cross-Border", value: "Instant" },
           { label: "Stage", value: "Exploratory" },
@@ -72,7 +71,7 @@ export default function Page() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Settlement" value="Seconds" delay={0.00} />
-          <StatPill label="Cost Save" value="30-50%" delay={0.06} />
+          <StatPill label="Cost Save" value="Unverified" delay={0.06} />
           <StatPill label="Automation" value="Smart logic" delay={0.12} />
           <StatPill label="Stage" value="Early" delay={0.18} />
         </div>
@@ -86,18 +85,18 @@ export default function Page() {
 
           <RevealSection id="claims" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Instant Claims Settlement</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Traditional claims take weeks. On XRPL, verified claims can be settled in seconds via XRP payments. Reduces cost 30-50%.</p>
-            <div className="mt-6"><DataTable headers={["Metric","Traditional","XRPL"]} rows={[["Settlement Time","2-4 weeks","3-5 seconds"],["Processing Cost","$50-500","<$0.01"],["Fraud Risk","Manual checks","On-chain verification"],["Cross-Border","Complex, slow","Instant, global"]]} highlightCol={2} /></div>
+            <p className="mt-4 text-text-secondary leading-relaxed">After a claim is approved, XRPL can record and transfer value in a validated ledger. End-to-end timing still includes data collection, coverage review, fraud controls, legal authorization, currency conversion, and payout access.</p>
+            <div className="mt-6"><DataTable headers={["Function","What XRPL can do","What remains external"]} rows={[["Value transfer","Record a validated payment","Approve the claim"],["Data","Store submitted ledger fields","Verify an external event"],["Compliance","Provide an auditable transaction hash","Apply insurance and sanctions rules"],["Cost","Expose the ledger transaction cost","Establish total processing savings"]]} highlightCol={1} /></div>
           </RevealSection>
 
           <RevealSection id="parametric" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Parametric Insurance</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Auto-pays when a trigger is met (earthquake &gt;6.0, flight delayed &gt;2 hours). No claims process — instant payout via XRP.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">A proposed parametric design can submit a payment after an authorized data source establishes a contract trigger. The oracle, contract interpretation, insurer authorization, and dispute process remain outside XRPL.</p>
           </RevealSection>
 
           <RevealSection id="reinsurance" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Cross-Border Reinsurance</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">Reinsurance involves massive cross-border payments. XRP can settle these in seconds instead of days, reducing counterparty risk.</p>
+            <p className="mt-4 text-text-secondary leading-relaxed">XRP could bridge currencies in a reinsurance payment flow, but that does not remove counterparty, liquidity, credit, legal, or settlement-chain risk. A named deployment and measured process would be required to claim a real-world improvement.</p>
           </RevealSection>
 
           <RevealSection id="future" delay={0.05}>

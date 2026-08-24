@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP on Robinhood: What to Know (2026) | AllAboutXRP",
   description: "How to buy XRP on Robinhood — setup, fees, limitations, and why you may want to transfer to a real wallet.",
   keywords: ["buy XRP Robinhood", "XRP Robinhood", "Robinhood crypto XRP"],
@@ -46,7 +45,7 @@ const schemas = [
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-on-robinhood" }),
   buildFAQSchema([
     { question: "Can I withdraw XRP from Robinhood?", answer: "Yes. Robinhood now supports crypto withdrawals through its Robinhood Wallet feature. You can transfer XRP to an external wallet, though the process is more limited than dedicated crypto exchanges." },
-    { question: "Is Robinhood free for buying XRP?", answer: "Robinhood charges no explicit commission for crypto trades. However, they make money through a spread built into the execution price, typically 0.4-0.8%. So while it's 'commission-free,' it's not truly free." },
+    { question: "Is Robinhood free for buying XRP?", answer: "Robinhood charges no explicit commission for crypto trades. However, they make money through a spread built into the execution price, typically variable by quote. So while it's 'commission-free,' it's not truly free." },
     { question: "Is Robinhood safe for XRP?", answer: "Robinhood is a publicly traded company (NASDAQ: HOOD) regulated by FINRA and the SEC. Crypto assets are held by Robinhood Crypto, LLC. While the platform is legitimate, dedicated crypto exchanges offer more robust security features." },
     { question: "Can I buy XRP on Robinhood in all US states?", answer: "Robinhood crypto is available in most US states, but availability varies. Some states have restrictions on specific cryptocurrencies. Check the Robinhood app for current XRP availability in your state." },
     { question: "Should I buy XRP on Robinhood or a crypto exchange?", answer: "Robinhood is convenient if you already use it for stocks, but dedicated exchanges like Coinbase, Kraken, or Uphold offer lower spreads, more XRP features, better withdrawal options, and deeper liquidity." },
@@ -55,7 +54,7 @@ const schemas = [
 
 const faqItems = [
   { q: "Can I withdraw XRP from Robinhood?", a: "Yes. Robinhood now supports crypto withdrawals through its Robinhood Wallet feature. You can transfer XRP to an external wallet, though it's more limited than dedicated exchanges." },
-  { q: "Is Robinhood free for buying XRP?", a: "No explicit commission, but Robinhood earns through a spread of 0.4-0.8% built into the execution price. 'Commission-free' isn't truly free." },
+  { q: "Is Robinhood free for buying XRP?", a: "No explicit commission, but Robinhood earns through a spread of variable by quote built into the execution price. 'Commission-free' isn't truly free." },
   { q: "Is Robinhood safe for XRP?", a: "Robinhood is publicly traded (NASDAQ: HOOD) and regulated by FINRA/SEC. Crypto assets are held by Robinhood Crypto, LLC." },
   { q: "Can I buy XRP on Robinhood in all US states?", a: "Available in most US states, but some have restrictions. Check the Robinhood app for current XRP availability in your state." },
   { q: "Should I buy XRP on Robinhood or a crypto exchange?", a: "Dedicated exchanges offer lower spreads, more features, better withdrawals, and deeper liquidity. Robinhood is convenient if you already use it for stocks." },
@@ -79,13 +78,13 @@ export default function BuyXRPOnRobinhoodPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Robinhood</strong> offers XRP trading with no explicit commissions, but charges a <strong className="text-text-primary">0.4-0.8% spread</strong>. It&apos;s the most convenient option if you already use Robinhood for stocks, but dedicated <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">crypto exchanges</Link> offer lower costs, better features, and superior withdrawal options. Robinhood now supports crypto withdrawals via Robinhood Wallet.</p>
+          <p><strong className="text-text-primary">Robinhood</strong> offers XRP trading with no explicit commissions, but charges a <strong className="text-text-primary">variable by quote spread</strong>. It&apos;s the most convenient option if you already use Robinhood for stocks, but dedicated <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">crypto exchanges</Link> offer lower costs, better features, and superior withdrawal options. Robinhood now supports crypto withdrawals via Robinhood Wallet.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Platform", value: "Robinhood" },
           { label: "Commission", value: "$0 (spread-based)" },
-          { label: "Spread", value: "~0.4-0.8%" },
+          { label: "Spread", value: "~variable by quote" },
           { label: "Withdrawals", value: "✅ Via Robinhood Wallet" },
           { label: "Regulation", value: "FINRA, SEC (NASDAQ: HOOD)" },
           { label: "Min Purchase", value: "$1" },
@@ -139,7 +138,7 @@ export default function BuyXRPOnRobinhoodPage() {
               <DataTable
                 headers={["✅ Pros", "❌ Cons"]}
                 rows={[
-                  ["No explicit commission fees", "Hidden spread costs (0.4-0.8%)"],
+                  ["No explicit commission fees", "Hidden spread costs (variable by quote)"],
                   ["Familiar interface for stock traders", "Limited crypto features"],
                   ["$1 minimum purchase", "No limit orders for crypto (basic)"],
                   ["FDIC-insured USD balances", "No staking or DeFi features"],
@@ -207,7 +206,7 @@ export default function BuyXRPOnRobinhoodPage() {
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
                 { title: "Coinbase", desc: "Largest US exchange, Advanced Trade has 0.05% maker fees. Best for most US users." },
-                { title: "Kraken", desc: "Never been hacked, 0.16% maker fees. Best for security-conscious buyers." },
+                { title: "Kraken", desc: "Never been hacked, published tiered fees. Best for security-conscious buyers." },
                 { title: "Uphold", desc: "Never delisted XRP, simple interface. Best for XRP community loyalty." },
                 { title: "Binance", desc: "Lowest fees (0.1%), deepest liquidity. Best for international users." },
               ]} />

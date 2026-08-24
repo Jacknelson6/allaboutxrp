@@ -11,6 +11,7 @@ interface WhaleTx {
   from: string;
   to: string;
   timestamp: string;
+  ledgerIndex: number;
 }
 
 interface WhaleResponse {
@@ -19,6 +20,7 @@ interface WhaleResponse {
   updatedAt: string;
   error?: string;
   transactions: WhaleTx[];
+  ledgersScanned: number;
 }
 
 const FAQ_SCHEMA = {
@@ -88,6 +90,8 @@ export default function WhaleTrackerPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [dataSource, setDataSource] = useState<string | null>(null);
+  const [ledgersScanned, setLedgersScanned] = useState(0);
 
   const fetchWhaleTransactions = useCallback(async () => {
     setLoading(true);
@@ -102,10 +106,14 @@ export default function WhaleTrackerPage() {
       const data = (await response.json()) as WhaleResponse;
       setTransactions(data.transactions ?? []);
       setLastUpdate(new Date(data.updatedAt));
+      setDataSource(data.source);
+      setLedgersScanned(data.ledgersScanned ?? 0);
       if (!data.available) setError(data.error ?? "Live transaction providers are temporarily unavailable.");
     } catch {
       setTransactions([]);
       setLastUpdate(null);
+      setDataSource(null);
+      setLedgersScanned(0);
       setError("Live transaction providers are temporarily unavailable. No estimated or sample transactions are shown.");
     }
     setLoading(false);
@@ -150,7 +158,7 @@ export default function WhaleTrackerPage() {
           <div className="flex items-center gap-4 text-sm text-zinc-500 mb-8">
             <span>AllAboutXRP Editorial</span>
             <span className="text-white/15">·</span>
-            <span>Provider data — auto-refreshes every 60s</span>
+            <span>Validated ledger data, auto-refreshes every 60s</span>
             {lastUpdate && (
               <>
                 <span className="text-white/15">·</span>
@@ -165,6 +173,12 @@ export default function WhaleTrackerPage() {
               Refresh
             </button>
           </div>
+
+          {dataSource && (
+            <p className="mb-6 text-xs text-zinc-500">
+              Source: {dataSource}. Reviewed {ledgersScanned} recent validated ledgers. A blank table means no qualifying payment appeared in that scan window.
+            </p>
+          )}
 
           {error && (
             <div className="mb-6  border border-yellow-500/20 bg-yellow-500/5 px-4 py-3 flex items-center gap-3 text-sm text-yellow-400">
@@ -257,9 +271,32 @@ export default function WhaleTrackerPage() {
               </p>
               <p>
                 <strong className="text-white">Verify every record.</strong> Open the transaction hash in the explorer and
-                review the validated ledger result. This page stays out of search until its provider normalization and
-                address-label methodology have been independently checked.
+                review the validated ledger result. The table shows only transactions returned by the live provider and
+                clears its rows when the provider is unavailable. It does not substitute sample or estimated transfers.
               </p>
+            </div>
+          </section>
+
+          <section className="mb-12 border border-white/[0.06] bg-white/[0.02] p-6">
+            <h2 className="text-2xl font-bold text-white">Methodology and limitations</h2>
+            <div className="mt-4 space-y-4 text-zinc-400 leading-relaxed">
+              <p>
+                The display threshold is 1,000,000 XRP. The page requests recent payment data from the site&apos;s whale-activity API every 60 seconds, then shows the amount, source address, destination address, timestamp, and transaction hash returned by that service. Each hash links to the public XRP Ledger explorer for independent verification.
+              </p>
+              <p>
+                This is a filtered view, not a complete ownership database. XRP Ledger accounts are pseudonymous, exchanges may use pooled addresses, and a single operator can control many accounts. We do not label an owner or infer a buy, sale, deposit, or withdrawal unless a reliable public record supports that conclusion.
+              </p>
+              <p>
+                Provider outages, pagination, API limits, and the selected threshold can omit valid transactions. Use the XRP Ledger&apos;s official transaction and subscription documentation when reproducing or extending the analysis.
+              </p>
+            </div>
+            <div className="mt-5 flex flex-col gap-2 text-sm">
+              <a href="https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xrp-accent hover:text-white">
+                XRPL transaction lookup reference <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a href="https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/subscription-methods/subscribe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xrp-accent hover:text-white">
+                XRPL subscription reference <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
             </div>
           </section>
 

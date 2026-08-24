@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP Futures Trading Explained: Leverage & Contracts | AllAboutXRP",
   description: "How to trade XRP futures — perpetuals, funding rates, leverage management, and top platforms for XRP derivatives.",
   keywords: ["XRP futures","XRP futures trading","XRP perpetual","leveraged XRP trading"],

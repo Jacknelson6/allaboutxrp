@@ -1,7 +1,7 @@
 [
   {
     "question": "What is XRP?",
-    "answer": "XRP is a digital asset and cryptocurrency native to the XRP Ledger, an open-source blockchain launched in June 2012. It was designed for fast, low-cost cross-border payments, settling transactions in 3–5 seconds with fees under $0.01.",
+    "answer": "XRP is the native digital asset of the XRP Ledger, an open-source public ledger launched in June 2012. Validated ledgers usually close in several seconds, while transaction cost and reserve settings can change through network governance.",
     "page": "home"
   },
   {
@@ -16,12 +16,12 @@
   },
   {
     "question": "Is XRP a security?",
-    "answer": "In July 2023, U.S. District Judge Analisa Torres ruled that XRP sold on public exchanges to retail investors is not a security. However, certain direct institutional sales by Ripple were found to violate securities laws. The ruling was a landmark moment for crypto regulation.",
+    "answer": "The U.S. Ripple case produced transaction-specific results. Ripple's institutional sales violated securities law, while the record did not establish an investment contract for its programmatic exchange sales. The final $125,035,150 judgment and injunction remain in effect after both appeals were dismissed.",
     "page": "home"
   },
   {
     "question": "How fast are XRP transactions?",
-    "answer": "XRP transactions settle in 3–5 seconds on the XRP Ledger, which can handle approximately 1,500 transactions per second. This makes it one of the fastest major cryptocurrencies for transferring value.",
+    "answer": "The XRP Ledger usually closes validated ledgers in several seconds. A transaction should be treated as final only after it appears in a validated ledger with a successful result.",
     "page": "home"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "question": "What is the total supply of XRP?",
-    "answer": "The total supply is 100 billion XRP, all created at the ledger's launch in 2012. No new XRP can ever be minted. As of early 2025, approximately 57 billion XRP are in circulation, with the remainder in Ripple's escrow or company holdings.",
+    "answer": "The XRP Ledger began with 100 billion XRP. No mining or staking process creates more XRP, and transaction costs destroy small amounts. Circulating and escrow figures need a dated ledger source because they change over time.",
     "page": "home"
   },
   {
@@ -41,7 +41,7 @@
   },
   {
     "question": "What happened with the SEC lawsuit against Ripple?",
-    "answer": "The SEC sued Ripple in December 2020, alleging XRP was an unregistered security. In July 2023, Judge Torres ruled XRP is not a security when sold on exchanges. Ripple was fined $125 million (later settled at $50 million) for institutional sales. The case was fully resolved in August 2025.",
+    "answer": "The SEC sued Ripple in December 2020 over offers and sales of XRP. The district court reached different results for institutional, programmatic, and other transactions. After both appeals were dismissed in August 2025, the $125,035,150 final judgment and injunction remained in effect.",
     "page": "home"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "question": "Is there an XRP ETF?",
-    "answer": "Multiple firms filed for spot XRP ETFs starting in October 2024, including Bitwise, Canary Capital, 21Shares, and others. XRP futures ETFs launched in May 2025. The first spot XRP ETF (Canary Capital) debuted in November 2025 with nearly $250 million in first-day inflows.",
+    "answer": "U.S.-listed XRP investment products now exist, including products with different spot, derivatives, or strategy structures. Verify each ticker through its effective SEC prospectus and official exchange listing before comparing fees, custody, or exposure.",
     "page": "home"
   },
   {
@@ -81,22 +81,22 @@
   },
   {
     "question": "What makes XRP different from Bitcoin?",
-    "answer": "XRP settles in 3–5 seconds (vs. Bitcoin's ~10 minutes), costs fractions of a cent (vs. Bitcoin's variable fees), handles ~1,500 TPS (vs. Bitcoin's ~7), and uses no mining. XRP was designed for payments; Bitcoin was designed as a store of value.",
+    "answer": "XRPL uses consensus without mining and began with a fixed original XRP supply. Bitcoin uses proof-of-work mining and scheduled issuance. Their validation, fee, feature, and finality models differ, so comparisons should use dated and equivalent measurements.",
     "page": "home"
   },
   {
     "question": "Can I Stake My XRP?",
-    "answer": "XRP doesn't support traditional proof-of-stake staking because the XRP Ledger uses a unique consensus protocol, not PoS. However, you can earn yield on your XRP through XRPL's built-in AMM liquidity pools, lending platforms, and emerging DeFi options.",
+    "answer": "XRP cannot be staked to secure the XRP Ledger because XRPL is not proof-of-stake. AMM liquidity provision and third-party lending are separate risk-bearing activities, not native staking rewards.",
     "page": "home"
   },
   {
     "question": "Best Ways to Stake XRP",
-    "answer": "While XRP can't be staked in the traditional sense, you can earn yield through XRPL AMM liquidity provision, lending platforms like Nexo and Crypto.com, sidechain opportunities, and upcoming DeFi developments on the XRP Ledger ecosystem.",
+    "answer": "There is no native XRP staking reward. Compare AMM liquidity provision and any current third-party lending product by custody, loss exposure, jurisdiction, withdrawal terms, and the verified source of returns.",
     "page": "home"
   },
   {
     "question": "When Should I Sell My XRP?",
-    "answer": "This is not financial advice, but many long-term XRP holders believe in holding through market cycles due to growing utility, regulatory clarity, yield-earning opportunities, and increasing institutional adoption. If you need to take profits, dollar-cost averaging out is a common strategy.",
+    "answer": "A sale decision depends on cash needs, concentration, loss capacity, taxes, custody, and whether the evidence behind the original thesis has changed. Product or legal developments do not guarantee future XRP price performance.",
     "page": "home"
   }
 ]

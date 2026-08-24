@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 
-// Cache whale data for 5 minutes
 let cache: { data: WhaleData; ts: number } | null = null;
-const CACHE_MS = 5 * 60 * 1000;
-const WHALE_THRESHOLD = 1_000_000; // 1M XRP
+const CACHE_MS = 60 * 1000;
+const WHALE_THRESHOLD = 1_000_000;
+const LEDGERS_TO_SCAN = 12;
+const XRPL_ENDPOINTS = ["https://s1.ripple.com:51234/", "https://s2.ripple.com:51234/"];
 
 interface WhaleTx {
   hash: string;
@@ -11,8 +12,7 @@ interface WhaleTx {
   from: string;
   to: string;
   timestamp: string;
-  fromLabel?: string;
-  toLabel?: string;
+  ledgerIndex: number;
 }
 
 interface WhaleData {
@@ -25,122 +25,136 @@ interface WhaleData {
   count: number;
   largest: number;
   hourlyVolume: { hour: number; volume: number }[];
+  ledgersScanned: number;
 }
 
-async function fetchWhaleData(): Promise<WhaleData> {
-  // Use Bithomp API for recent large XRP transactions
-  // Fallback: use XRPL websocket for recent transactions
-  const transactions: WhaleTx[] = [];
-  let providerResponded = false;
-  let source: string | null = null;
+interface RpcResponse {
+  result?: Record<string, unknown>;
+}
 
-  try {
-    // Try XRPScan API for recent payments
-    const res = await fetch("https://api.xrpscan.com/api/v1/payments?limit=100", {
-      headers: { "Accept": "application/json" },
-      signal: AbortSignal.timeout(10000),
-    });
+async function rpc(endpoint: string, method: string, params: Record<string, unknown>) {
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ method, params: [params] }),
+    signal: AbortSignal.timeout(10_000),
+    cache: "no-store",
+  });
+  if (!response.ok) throw new Error(`XRPL RPC returned ${response.status}`);
+  const payload = (await response.json()) as RpcResponse;
+  if (!payload.result || payload.result.status === "error") throw new Error("XRPL RPC returned an error result");
+  return payload.result;
+}
 
-    if (res.ok) {
-      providerResponded = true;
-      source = "XRPScan";
-      const payments = await res.json();
-      const now = Date.now();
-      const oneDayAgo = now - 24 * 60 * 60 * 1000;
+function rippleTimeToIso(date: unknown): string | null {
+  if (typeof date !== "number" || !Number.isFinite(date)) return null;
+  return new Date((date + 946_684_800) * 1000).toISOString();
+}
 
-      for (const p of payments) {
-        const time = new Date(p.time || p.date || p.executed_time).getTime();
-        if (!Number.isFinite(time)) continue;
-        if (time < oneDayAgo) continue;
+function deliveredXrp(meta: Record<string, unknown>): number | null {
+  const raw = meta.delivered_amount ?? meta.DeliveredAmount;
+  if (typeof raw !== "string" || !/^\d+$/.test(raw)) return null;
+  const xrp = Number(raw) / 1_000_000;
+  return Number.isFinite(xrp) ? xrp : null;
+}
 
-        const amount = parseFloat(p.amount) || (parseFloat(p.delivered_amount) / 1_000_000) || 0;
-        if (amount >= WHALE_THRESHOLD) {
-          transactions.push({
-            hash: p.hash || p.tx_hash,
-            amount,
-            from: p.source || p.account || p.sender,
-            to: p.destination || p.recipient,
-            timestamp: new Date(time).toISOString(),
-            fromLabel: p.source_tag_name || p.source_name || undefined,
-            toLabel: p.destination_tag_name || p.destination_name || undefined,
-          });
-        }
-      }
-    }
-  } catch (e) {
-    console.error("XRPScan API failed:", e);
-  }
-
-  // Fallback: try Bithomp whale transactions
-  if (transactions.length === 0) {
-    try {
-      const res = await fetch("https://bithomp.com/api/v2/transactions?type=Payment&amount_min=1000000&limit=50", {
-        headers: { "Accept": "application/json" },
-        signal: AbortSignal.timeout(10000),
-      });
-      if (res.ok) {
-        providerResponded = true;
-        source = "Bithomp";
-        const data = await res.json();
-        const txs = data.transactions || data.payments || data || [];
-        for (const t of (Array.isArray(txs) ? txs : [])) {
-          const amount = (parseFloat(t.amount) || 0) / (t.amount > 1_000_000_000 ? 1_000_000 : 1);
-          if (amount >= WHALE_THRESHOLD) {
-            transactions.push({
-              hash: t.hash,
-              amount,
-              from: t.account || t.source,
-              to: t.destination,
-              timestamp: t.date || t.time || new Date().toISOString(),
-            });
-          }
-        }
-      }
-    } catch (e) {
-      console.error("Bithomp API failed:", e);
-    }
-  }
-
-  // Sort by time descending
-  transactions.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
-
-  // Calculate hourly volume for chart
-  const hourlyMap = new Map<number, number>();
-  for (let h = 0; h < 24; h++) hourlyMap.set(h, 0);
-  
-  const now = Date.now();
-  for (const tx of transactions) {
-    const hoursAgo = Math.floor((now - new Date(tx.timestamp).getTime()) / 3600000);
-    if (hoursAgo >= 0 && hoursAgo < 24) {
-      hourlyMap.set(hoursAgo, (hourlyMap.get(hoursAgo) || 0) + tx.amount);
-    }
-  }
-
-  const hourlyVolume = Array.from(hourlyMap.entries())
-    .map(([hour, volume]) => ({ hour: 23 - hour, volume }))
-    .sort((a, b) => a.hour - b.hour);
-
-  const totalMoved = transactions.reduce((s, t) => s + t.amount, 0);
-  const largest = transactions.reduce((m, t) => Math.max(m, t.amount), 0);
-
+function emptyData(error: string): WhaleData {
   return {
-    available: providerResponded,
-    source,
+    available: false,
+    source: null,
     updatedAt: new Date().toISOString(),
-    ...(!providerResponded ? { error: "Live transaction providers are temporarily unavailable." } : {}),
-    transactions: transactions.slice(0, 20),
-    totalMoved,
-    count: transactions.length,
-    largest,
-    hourlyVolume,
+    error,
+    transactions: [],
+    totalMoved: 0,
+    count: 0,
+    largest: 0,
+    hourlyVolume: [],
+    ledgersScanned: 0,
   };
 }
 
-export async function GET() {
-  if (cache && Date.now() - cache.ts < CACHE_MS) {
-    return NextResponse.json(cache.data);
+async function fetchFromEndpoint(endpoint: string): Promise<WhaleData> {
+  const validated = await rpc(endpoint, "ledger", {
+    ledger_index: "validated",
+    transactions: false,
+    expand: false,
+  });
+  const latest = Number((validated.ledger as Record<string, unknown> | undefined)?.ledger_index ?? validated.ledger_index);
+  if (!Number.isInteger(latest) || latest <= 0) throw new Error("Validated ledger index was unavailable");
+
+  const indexes = Array.from({ length: LEDGERS_TO_SCAN }, (_, offset) => latest - offset);
+  const ledgers = await Promise.all(
+    indexes.map((ledgerIndex) =>
+      rpc(endpoint, "ledger", {
+        ledger_index: ledgerIndex,
+        transactions: true,
+        expand: true,
+      }),
+    ),
+  );
+
+  const transactions: WhaleTx[] = [];
+  for (const result of ledgers) {
+    const ledger = result.ledger as Record<string, unknown> | undefined;
+    if (!ledger || ledger.closed !== true) continue;
+    const ledgerIndex = Number(ledger.ledger_index);
+    const entries = Array.isArray(ledger.transactions) ? ledger.transactions : [];
+
+    for (const entryValue of entries) {
+      if (!entryValue || typeof entryValue !== "object") continue;
+      const entry = entryValue as Record<string, unknown>;
+      const tx = (entry.tx && typeof entry.tx === "object" ? entry.tx : entry) as Record<string, unknown>;
+      const meta = (entry.metaData ?? entry.meta) as Record<string, unknown> | undefined;
+      if (tx.TransactionType !== "Payment" || !meta || meta.TransactionResult !== "tesSUCCESS") continue;
+
+      const amount = deliveredXrp(meta);
+      const timestamp = rippleTimeToIso(tx.date);
+      if (amount === null || amount < WHALE_THRESHOLD || !timestamp) continue;
+      if (typeof tx.Account !== "string" || typeof tx.Destination !== "string") continue;
+      const hash = typeof tx.hash === "string" ? tx.hash : typeof entry.hash === "string" ? entry.hash : null;
+      if (!hash || !Number.isInteger(ledgerIndex)) continue;
+
+      transactions.push({
+        hash,
+        amount,
+        from: tx.Account,
+        to: tx.Destination,
+        timestamp,
+        ledgerIndex,
+      });
+    }
   }
 
+  transactions.sort((a, b) => b.ledgerIndex - a.ledgerIndex);
+  const totalMoved = transactions.reduce((sum, tx) => sum + tx.amount, 0);
+  const largest = transactions.reduce((max, tx) => Math.max(max, tx.amount), 0);
+
+  return {
+    available: true,
+    source: `Ripple-operated XRP Ledger JSON-RPC (${new URL(endpoint).hostname})`,
+    updatedAt: new Date().toISOString(),
+    transactions,
+    totalMoved,
+    count: transactions.length,
+    largest,
+    hourlyVolume: [],
+    ledgersScanned: ledgers.length,
+  };
+}
+
+async function fetchWhaleData(): Promise<WhaleData> {
+  for (const endpoint of XRPL_ENDPOINTS) {
+    try {
+      return await fetchFromEndpoint(endpoint);
+    } catch (error) {
+      console.error(`Validated XRPL scan failed for ${endpoint}:`, error);
+    }
+  }
+  return emptyData("Validated XRP Ledger endpoints are temporarily unavailable. No estimated or sample transactions are shown.");
+}
+
+export async function GET() {
+  if (cache && Date.now() - cache.ts < CACHE_MS) return NextResponse.json(cache.data);
   const data = await fetchWhaleData();
   cache = { data, ts: Date.now() };
   return NextResponse.json(data);

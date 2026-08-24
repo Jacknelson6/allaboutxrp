@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     description: "Expert comparison of Ledger, Trezor, and Tangem hardware wallets for XRP storage.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/hardware-wallets-for-xrp" },
-  robots: { index: false, follow: true },
 };
 
 const wallets = [

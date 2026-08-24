@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP in Australia: AUD Guide (2026) | AllAboutXRP",
   description: "How to buy XRP in Australia with AUD. Top exchanges, PayID deposits, tax reporting, and AUSTRAC-regulated options.",
   keywords: ["buy XRP Australia", "how to buy XRP in Australia", "XRP AUD"],
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: "Is XRP legal in Australia?", a: "Yes. Fully legal. Exchanges must register with AUSTRAC and comply with AML/CTF requirements." },
-  { q: "Best exchange for Australians?", a: "CoinSpot (most popular, instant AUD), Swyftx (competitive fees), Kraken (0.16% maker), Binance (0.1%)." },
+  { q: "Best exchange for Australians?", a: "CoinSpot (most popular, instant AUD), Swyftx (competitive fees), Kraken (current maker rate), Binance (0.1%)." },
   { q: "Can I use PayID?", a: "Yes. CoinSpot, Swyftx, and others support free, instant PayID deposits linked to your bank account." },
   { q: "Do I pay tax on XRP?", a: "Yes. ATO treats crypto as a CGT asset. Hold 12+ months for 50% CGT discount." },
   { q: "What's the crypto tax rate?", a: "Added to income at marginal rate (19-45%). 50% discount for 12+ month holdings." },
@@ -112,7 +111,7 @@ export default function BuyXRPInAustraliaPage() {
                 rows={[
                   ["CoinSpot", "✅", "PayID (free)", "0.1%", "✅"],
                   ["Swyftx", "✅", "PayID (free)", "0.6% spread", "✅"],
-                  ["Kraken", "✅", "OSKO/PayID", "0.16-0.26%", "XRP/AUD ✅"],
+                  ["Kraken", "✅", "OSKO/PayID", "Variable", "XRP/AUD ✅"],
                   ["Binance", "✅", "PayID (free)", "0.1%", "XRP/AUD ✅"],
                   ["Independent Reserve", "✅", "PayID (free)", "0.5%", "✅"],
                 ]}
@@ -122,7 +121,7 @@ export default function BuyXRPInAustraliaPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇦🇺 Our Top Pick for Australians" variant="accent">
-                <p><strong className="text-text-primary">CoinSpot</strong> — Australia&apos;s most popular exchange with 2.5M+ users, free PayID deposits, and 0.1% trading fees. AUSTRAC-registered with an excellent track record. For lowest pro fees, <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken</a> at 0.16% is hard to beat.</p>
+                <p><strong className="text-text-primary">CoinSpot</strong> — Australia&apos;s most popular exchange with 2.5M+ users, free PayID deposits, and 0.1% trading fees. AUSTRAC-registered with an excellent track record. For lowest pro fees, <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken</a> at Variable is hard to beat.</p>
               </HighlightBox>
             </div>
           </RevealSection>

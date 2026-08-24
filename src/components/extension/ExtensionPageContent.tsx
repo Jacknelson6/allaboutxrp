@@ -1,149 +1,98 @@
-"use client";
+import Link from "next/link";
+import { Bell, ChartNoAxesCombined, ExternalLink, ShieldCheck } from "lucide-react";
 
-import {
-  ArrowRight,
-  Chrome,
-  Monitor,
-  TrendingUp,
-  BarChart3,
-  Globe,
-  Activity,
-  Lightbulb,
-  Zap,
-} from "lucide-react";
-
-const features = [
+const plannedFeatures = [
   {
-    icon: Monitor,
-    title: "Persistent Standalone Window",
-    description:
-      "Not an ephemeral popup — a real standalone window that stays open while you browse. It remembers its position and size, so your trading dashboard is always where you left it.",
+    icon: ChartNoAxesCombined,
+    title: "Compact XRP market view",
+    description: "A small price and market-context panel sourced from the same providers used by the public site.",
   },
   {
-    icon: TrendingUp,
-    title: "Live Price Tracker Strip",
-    description:
-      "Always-visible top strip showing the current XRP price, 24-hour percentage change, and the day's high and low. Powered by Binance WebSocket for real-time updates.",
+    icon: Bell,
+    title: "User-controlled alerts",
+    description: "Optional threshold alerts that the user creates, edits, and removes. No trading or wallet access is planned.",
   },
   {
-    icon: BarChart3,
-    title: "Chart Tab",
-    description:
-      "Your default view. Switch between a full TradingView embed with professional tools or a fast native lightweight chart. Candlesticks, indicators, and timeframes — all built in.",
-  },
-  {
-    icon: Globe,
-    title: "Globe Tab — Live XRPL Transactions",
-    description:
-      "Watch XRP Ledger transactions arc across an interactive 3D globe in real time. The same visualization from the AllAboutXRP homepage, now in your extension with a live transaction feed.",
-  },
-  {
-    icon: Activity,
-    title: "Compact Live Trades Tape",
-    description:
-      "A scrolling 20-row tape of real-time XRP trades. See the flow of buys and sells as they happen — price, size, and direction at a glance.",
-  },
-  {
-    icon: Zap,
-    title: "Real-Time Data Pipeline",
-    description:
-      "Primary data from Binance WebSocket with automatic Binance US fallback. Sub-second price updates, no polling, no delays.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Contextual Tips",
-    description:
-      "One-time tips that appear when you first use each feature, then auto-dismiss forever. Learn the interface without reading a manual.",
+    icon: ShieldCheck,
+    title: "Minimum permissions",
+    description: "The product plan calls for only the browser permissions required for its core purpose, with optional capabilities requested at the moment they are used.",
   },
 ];
 
 export default function ExtensionPageContent() {
   return (
-    <div className="min-h-screen bg-black">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0085FF]/[0.06] to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0085FF]/[0.04]  blur-3xl" />
-        <div className="relative mx-auto max-w-4xl px-5 py-20 sm:py-28 text-center">
-          <div className="inline-flex items-center gap-2  border border-[#0085FF]/20 bg-[#0085FF]/[0.06] px-4 py-1.5 text-[13px] font-medium text-[#0085FF] mb-6">
-            <Chrome className="h-4 w-4" />
-            Chrome Extension
-          </div>
-          <h1 className="text-[36px] sm:text-[52px] font-bold tracking-[-0.04em] text-text-primary leading-[1.1]">
-            All About XRP
+    <main className="min-h-screen bg-black text-white">
+      <section className="border-b border-white/[0.06]">
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-xrp-accent">Product plan</p>
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+            The AllAboutXRP browser monitor is not available yet
           </h1>
-          <p className="mt-3 text-[20px] sm:text-[24px] font-medium text-[#0085FF] tracking-[-0.02em]">
-            Live XRP trader monitor
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">
+            This page documents the proposed product, its privacy requirements, and the verification work required before release. There is currently no AllAboutXRP listing in the Chrome Web Store and no extension download on this site.
           </p>
-          <p className="mt-5 text-[16px] sm:text-[17px] text-text-secondary leading-relaxed max-w-2xl mx-auto">
-            A persistent XRP trading dashboard that lives in your browser. Real-time price, professional charts, live XRPL transaction globe, and a streaming trades tape — always one click away.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2  bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover: hover:gap-3"
-            >
-              <Chrome className="h-4.5 w-4.5" />
-              Install Extension
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <span className="text-[13px] text-text-secondary">
-              Free · Chrome Web Store
-            </span>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/live-chart" className="bg-xrp-accent px-5 py-3 font-semibold text-black transition-opacity hover:opacity-90">Use the live XRP chart</Link>
+            <Link href="/tools" className="border border-white/15 px-5 py-3 font-semibold text-white transition-colors hover:border-xrp-accent/50">Browse current tools</Link>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="mx-auto max-w-5xl px-5 pb-20">
-        <div className="text-center mb-14">
-          <h2 className="text-[28px] sm:text-[34px] font-bold tracking-[-0.03em] text-text-primary">
-            Everything you need, nothing you don&apos;t
-          </h2>
-          <p className="mt-3 text-[15px] text-text-secondary max-w-xl mx-auto">
-            Built for XRP traders who want live data without tab-switching or clutter.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className=" border border-white/[0.06] bg-[#0A0A0B] p-6 hover:border-[#0085FF]/20 transition-colors group"
-            >
-              <div className="inline-flex items-center justify-center w-10 h-10  border border-white/[0.06] bg-white/[0.02] text-[#0085FF] mb-4 group-hover:bg-[#0085FF]/10 group-hover:border-[#0085FF]/20 transition-colors">
-                <feature.icon className="h-5 w-5" />
-              </div>
-              <h3 className="text-[17px] font-bold text-text-primary mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-[14px] text-text-secondary leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
+      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold">Proposed scope</h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-zinc-400">
+          The concept is a read-only market companion. It would show XRP market data and optional price alerts without connecting to a wallet, requesting a seed phrase, placing trades, or reading unrelated browsing activity. These boundaries are requirements, not claims about a released product.
+        </p>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {plannedFeatures.map(({ icon: Icon, title, description }) => (
+            <article key={title} className="border border-white/[0.08] bg-white/[0.02] p-6">
+              <Icon className="h-6 w-6 text-xrp-accent" aria-hidden="true" />
+              <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{description}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="mx-auto max-w-3xl px-5 pb-20">
-        <div className=" border border-[#0085FF]/20 bg-gradient-to-b from-[#0085FF]/[0.04] to-transparent p-10 sm:p-14 text-center">
-          <h2 className="text-[26px] sm:text-[32px] font-bold tracking-[-0.03em] text-text-primary">
-            Ready to trade smarter?
-          </h2>
-          <p className="mt-3 text-[15px] text-text-secondary max-w-md mx-auto">
-            Install the All About XRP extension and get live market data without leaving your browser.
-          </p>
-          <a
-            href="#"
-            className="mt-8 inline-flex items-center gap-2  bg-[#0085FF] px-8 py-3 text-[15px] font-bold text-white hover:bg-[#0070DD] transition-all hover: hover:gap-3"
-          >
-            <Chrome className="h-4.5 w-4.5" />
-            Install Extension
-            <ArrowRight className="h-4 w-4" />
-          </a>
+      <section className="border-y border-white/[0.06] bg-white/[0.015]">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold">Release criteria</h2>
+          <div className="mt-6 grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-semibold">Privacy and security</h3>
+              <ul className="mt-3 space-y-3 text-zinc-400">
+                <li>Request only permissions necessary for the feature being used.</li>
+                <li>Explain every permission in plain language before the request.</li>
+                <li>Never request wallet credentials, private keys, or recovery phrases.</li>
+                <li>Publish a specific privacy disclosure before collecting any telemetry.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">Data quality</h3>
+              <ul className="mt-3 space-y-3 text-zinc-400">
+                <li>Identify the market-data provider and its update time.</li>
+                <li>Show an unavailable state instead of invented or cached-as-live values.</li>
+                <li>Separate market observations from predictions or financial advice.</li>
+                <li>Test alert delivery, rate limits, and provider failure behavior before release.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+
+      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold">Primary references</h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-zinc-400">
+          The proposed permission model follows Chrome&apos;s own guidance to minimize required permissions and request optional access only when a user enables a feature. Market data would be treated as third-party information and visibly labeled with its source and timestamp.
+        </p>
+        <div className="mt-6 flex flex-col gap-3">
+          <a href="https://developer.chrome.com/docs/extensions/develop/security-privacy/user-privacy" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xrp-accent hover:text-white">Chrome extension privacy guidance <ExternalLink className="h-4 w-4" aria-hidden="true" /></a>
+          <a href="https://developer.chrome.com/docs/extensions/reference/api/permissions" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xrp-accent hover:text-white">Chrome optional permissions reference <ExternalLink className="h-4 w-4" aria-hidden="true" /></a>
+        </div>
+        <p className="mt-8 text-sm text-zinc-500">
+          Status reviewed August 24, 2026. This page will be updated only when a verified store listing or release artifact exists.
+        </p>
+      </section>
+    </main>
   );
 }

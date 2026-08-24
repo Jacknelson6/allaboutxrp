@@ -1,24 +1,18 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import ExtensionPageContent from "@/components/extension/ExtensionPageContent";
 
 export const metadata: Metadata = {
-  title: "Chrome Extension — Live XRP Trader Monitor",
+  title: "XRP Browser Monitor: Product Plan and Current Tools",
   description:
-    "Track XRP price, live charts, XRPL transaction globe, and real-time trades with the All About XRP Chrome extension. A persistent trading dashboard right in your browser.",
+    "Review the planned AllAboutXRP browser monitor, its proposed privacy model, and the live XRP chart and research tools available today.",
+  alternates: { canonical: "/extension" },
   openGraph: {
-    title: "All About XRP Chrome Extension — Live XRP Trader Monitor",
+    title: "XRP Browser Monitor: Product Plan and Current Tools",
     description:
-      "Persistent XRP trading dashboard: live price, charts, XRPL globe, and real-time trade tape — all in a Chrome extension.",
+      "An honest product brief for the planned AllAboutXRP browser monitor, plus links to live tools you can use now.",
     url: "https://allaboutxrp.com/extension",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "All About XRP Chrome Extension",
-    description:
-      "Live XRP price, charts, XRPL globe, and trade tape in a persistent Chrome extension.",
-  },
-  alternates: { canonical: "https://allaboutxrp.com/extension" },
 };
 
 export default function ExtensionPage() {

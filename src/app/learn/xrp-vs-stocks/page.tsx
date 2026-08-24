@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP vs Stocks: Key Differences for Investors | AllAboutXRP",
   description: "XRP vs stocks comparison — volatility, returns, trading hours, risks, and how to decide between crypto and traditional equities in your portfolio.",
   keywords: ["XRP vs stocks","crypto vs stocks","XRP compared to stocks","should I buy XRP or stocks"],
@@ -105,14 +104,13 @@ export default function Page() {
 
           <RevealSection id="returns" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Return Comparison</h2>
-            <div className="mt-6"><HighlightBox title="Context Matters" variant="info"><p>XRP has seen years of 1000%+ gains and 90%+ drops. The S&P 500 averages ~10% annually. XRP's potential upside is massive but so is the downside. Compare: $1000 in S&P in 2017 → ~$2000 in 2026. $1000 in XRP in 2017 → depends entirely on when you bought.</p></HighlightBox></div>
-            <div className="mt-6"><DataTable headers={["Period","S&P 500","XRP"]} rows={[
-              ["2017","~20%","~36,000% (ATH)"],
-              ["2018","~-6%","~-84%"],
-              ["2020","~16%","~14%"],
-              ["2021","~27%","~250%"],
-              ["2024","~24%","~240%"],
-            ]} highlightCol={2} /></div>
+            <div className="mt-6"><HighlightBox title="Use equivalent data" variant="info"><p>A return comparison must name the index version, dividends, XRP venue and pair, start and end timestamps, currency, fees, and rebalancing assumptions. Without those inputs, a percentage table is not reproducible and can mislead.</p></HighlightBox></div>
+            <div className="mt-6"><DataTable headers={["Dimension","Stock or index fund","XRP"]} rows={[
+              ["Economic claim","Issuer ownership or a defined basket","Digital asset, not Ripple equity"],
+              ["Cash flows","May include dividends or company earnings","No contractual dividend or issuer cash flow"],
+              ["Trading","Exchange and fund market hours vary","Crypto venues often operate continuously"],
+              ["Measurement","Specify total-return index and fees","Specify venue, pair, candle, and fees"],
+            ]} highlightCol={0} /></div>
           </RevealSection>
 
           <RevealSection id="risks" delay={0.05}>

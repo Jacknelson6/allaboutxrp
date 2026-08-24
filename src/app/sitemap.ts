@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { LEARN_HUBS } from "@/data/learn-hubs";
 import { getPublishedNewsEntries } from "@/lib/seo/published-content";
+import { getAllFAQSlugs } from "@/lib/utils/faq";
 import {
   CANONICAL_ALIAS_PATHS,
   NOINDEX_LEARN_SLUGS,
@@ -124,9 +125,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Learn hub
     "/learn",
     "/learn/faq",
+    ...getAllFAQSlugs().map((slug) => `/learn/faq/${slug}`),
     ...LEARN_HUBS.map((hub) => `/learn/${hub.slug}`),
 
-    // Best / recommendations (noindexed — excluded from sitemap)
+    // Best / recommendations
+    "/best",
+    "/best/xrp-exchanges",
+    "/best/xrp-wallets",
+    "/best/hardware-wallets-for-xrp",
+    "/best/xrp-staking-platforms",
 
     // Trust / E-E-A-T pages
     "/about",
@@ -144,6 +151,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/tools/escrow-tracker",
     "/tools/xrp-profit-calculator",
     "/tools/xrp-fee-calculator",
+    "/tools/whale-tracker",
 
   ];
 

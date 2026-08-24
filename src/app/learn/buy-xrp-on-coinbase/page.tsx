@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP on Coinbase: Step-by-Step Guide (2026) | AllAboutXRP",
   description: "Step-by-step guide to buying XRP on Coinbase. Fees, limits, verification, and pro tips. Takes under 5 minutes.",
   keywords: ["buy XRP Coinbase", "XRP Coinbase", "how to buy XRP on Coinbase", "Coinbase XRP"],
@@ -45,7 +44,7 @@ const schemas = [
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-on-coinbase" }),
   buildFAQSchema([
-    { question: "Can I buy XRP on Coinbase in the US?", answer: "Yes. Coinbase relisted XRP in 2023 after the SEC v Ripple ruling clarified XRP's legal status. US residents in all 50 states can buy, sell, and trade XRP on Coinbase." },
+    { question: "Can I buy XRP on Coinbase in the US?", answer: "Coinbase lists XRP, but users must confirm current state, account, trading, and transfer eligibility before depositing." },
     { question: "What are Coinbase's fees for buying XRP?", answer: "Coinbase charges a spread of about 0.5% plus a flat fee ranging from $0.99 to $2.99 depending on transaction size. Coinbase Advanced Trade offers maker/taker fees as low as 0.05%/0.08% for high-volume traders." },
     { question: "Is there a minimum amount of XRP I can buy on Coinbase?", answer: "The minimum purchase on Coinbase is $2 worth of XRP. There is no minimum in terms of XRP units — you can buy fractional amounts." },
     { question: "Can I withdraw XRP from Coinbase to my own wallet?", answer: "Yes. You can withdraw XRP to any self-custody wallet that supports the XRP Ledger. You'll need the destination wallet address and, if sending to an exchange, the destination tag. Coinbase charges a small network fee for withdrawals." },
@@ -55,7 +54,7 @@ const schemas = [
 ];
 
 const faqItems = [
-  { q: "Can I buy XRP on Coinbase in the US?", a: "Yes. Coinbase relisted XRP in 2023 after the SEC v Ripple ruling clarified XRP's legal status. US residents in all 50 states can buy, sell, and trade XRP on Coinbase." },
+  { q: "Can I buy XRP on Coinbase in the US?", a: "Coinbase lists XRP, but eligibility and transfer support should be verified for the user's state and account." },
   { q: "What are Coinbase's fees for buying XRP?", a: "Coinbase charges a spread of about 0.5% plus a flat fee ranging from $0.99 to $2.99 depending on transaction size. Coinbase Advanced Trade offers maker/taker fees as low as 0.05%/0.08% for high-volume traders." },
   { q: "Is there a minimum amount of XRP I can buy on Coinbase?", a: "The minimum purchase on Coinbase is $2 worth of XRP. There is no minimum in terms of XRP units — you can buy fractional amounts." },
   { q: "Can I withdraw XRP from Coinbase to my own wallet?", a: "Yes. You can withdraw XRP to any self-custody wallet that supports the XRP Ledger. You'll need the destination wallet address and, if sending to an exchange, the destination tag." },
@@ -92,7 +91,7 @@ export default function BuyXRPOnCoinbasePage() {
           { label: "Minimum Purchase", value: "$2" },
           { label: "Deposit Methods", value: "Bank, Debit Card, Wire, PayPal" },
           { label: "Verification Time", value: "5-15 minutes" },
-          { label: "US States Supported", value: "All 50" },
+          { label: "US Availability", value: "Verify by state" },
         ]} />
 
         <SectionNav items={[
@@ -132,7 +131,7 @@ export default function BuyXRPOnCoinbasePage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Coinbase" variant="accent">
-                <p><a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Sign up for Coinbase →</a> Create your free account and buy XRP in minutes. Available in all 50 US states and 100+ countries worldwide.</p>
+                <p><a href="https://www.coinbase.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Review Coinbase →</a> Confirm country, state, account, XRP transfer support, and the final order quote before depositing.</p>
               </HighlightBox>
             </div>
           </RevealSection>

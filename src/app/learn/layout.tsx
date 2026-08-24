@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NoIndexHead from "@/components/learn/NoIndexHead";
+import LearnVerificationPanel from "@/components/learn/LearnVerificationPanel";
 
 export const metadata: Metadata = {
   title: "XRP Learning Center — Source-Led XRP Guides",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 export default function LearnLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <NoIndexHead />
       <main id="main-content">
         {children}
+        <LearnVerificationPanel />
       </main>
     </>
   );

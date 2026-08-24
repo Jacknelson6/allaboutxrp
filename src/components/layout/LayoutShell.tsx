@@ -43,7 +43,7 @@ export default function LayoutShell({ megaMenu, footer, children }: LayoutShellP
       ) : (
         <main id="main-content" className="min-h-[80vh]">{children}</main>
       )}
-      <EditorialReviewPanel pathname={pathname} />
+      {!pathname.startsWith("/learn/") && <EditorialReviewPanel pathname={pathname} />}
       {footer}
       <BackToTop />
     </>

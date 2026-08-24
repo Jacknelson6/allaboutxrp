@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP in Canada: CAD Guide (2026) | AllAboutXRP",
   description: "Buy XRP in Canada — best CAD exchanges, Interac e-Transfer options, tax rules, and FINTRAC-compliant platforms.",
   keywords: ["buy XRP Canada", "how to buy XRP in Canada", "XRP CAD", "XRP Canadian exchange"],
@@ -73,7 +72,7 @@ export default function BuyXRPInCanadaPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Canadians</strong> can buy XRP easily using <strong className="text-text-primary">Interac e-Transfer</strong> (free on many platforms). Best options: <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (OSC-registered, 0.16% maker fees) or Canadian platforms like Newton and Bitbuy. CRA taxes 50% of capital gains at your marginal rate. Use a <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</Link> for long-term holding.</p>
+          <p><strong className="text-text-primary">Canadians</strong> can buy XRP easily using <strong className="text-text-primary">Interac e-Transfer</strong> (free on many platforms). Best options: <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (OSC-registered, published tiered fees) or Canadian platforms like Newton and Bitbuy. CRA taxes 50% of capital gains at your marginal rate. Use a <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">hardware wallet</Link> for long-term holding.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -100,7 +99,7 @@ export default function BuyXRPInCanadaPage() {
           <StatPill label="Legal" value="✅ Yes" delay={0} />
           <StatPill label="Interac" value="Free" delay={0.06} />
           <StatPill label="Tax Rate" value="50% incl." delay={0.12} />
-          <StatPill label="Best Fee" value="0.16%" delay={0.18} />
+          <StatPill label="Best Fee" value="Variable" delay={0.18} />
         </div>
 
         <div className="cv-auto mt-14 space-y-14">
@@ -110,7 +109,7 @@ export default function BuyXRPInCanadaPage() {
               <DataTable
                 headers={["Exchange", "Registered", "CAD Deposit", "Fee", "XRP/CAD"]}
                 rows={[
-                  ["Kraken", "✅ OSC", "Interac, Wire", "0.16-0.26%", "✅"],
+                  ["Kraken", "✅ OSC", "Interac, Wire", "Variable", "✅"],
                   ["Newton", "✅ OSC", "Interac (free)", "~0.5% spread", "✅"],
                   ["Bitbuy", "✅ OSC", "Interac (free)", "0.20%", "✅"],
                   ["NDAX", "✅ FINTRAC", "Interac (free)", "0.20%", "✅"],
@@ -122,7 +121,7 @@ export default function BuyXRPInCanadaPage() {
 
             <div className="mt-6">
               <HighlightBox title="🇨🇦 Our Top Pick for Canadians" variant="accent">
-                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken →</a> OSC-registered, never hacked, 0.16% maker fees. Supports Interac e-Transfer and wire for CAD deposits. <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Kraken guide</Link>.</p>
+                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Kraken →</a> OSC-registered, never hacked, published tiered fees. Supports Interac e-Transfer and wire for CAD deposits. <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Read our full Kraken guide</Link>.</p>
               </HighlightBox>
             </div>
           </RevealSection>

@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP in the UK: GBP Guide (2026) | AllAboutXRP",
   description: "How to buy XRP in the UK with GBP. Best platforms, FCA-regulated exchanges, bank transfers, and fees.",
   keywords: ["buy XRP UK", "how to buy XRP in UK", "XRP United Kingdom", "XRP GBP"],
@@ -73,7 +72,7 @@ export default function BuyXRPInUKPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">UK residents</strong> can buy XRP easily using GBP via <strong className="text-text-primary">Faster Payments</strong> (free, instant). Best options: <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> (FCA-registered, free GBP deposits, 0.30% fees) or <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (never hacked, 0.16% maker fees). Capital Gains Tax applies on profits above the <strong className="text-text-primary">£3,000 allowance</strong>. Always use an <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">FCA-registered exchange</Link>.</p>
+          <p><strong className="text-text-primary">UK residents</strong> can buy XRP easily using GBP via <strong className="text-text-primary">Faster Payments</strong> (free, instant). Best options: <a href="https://www.bitstamp.net/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Bitstamp</a> (FCA-registered, free GBP deposits, 0.30% fees) or <a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-semibold">Kraken</a> (never hacked, published tiered fees). Capital Gains Tax applies on profits above the <strong className="text-text-primary">£3,000 allowance</strong>. Always use an <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">FCA-registered exchange</Link>.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
@@ -100,7 +99,7 @@ export default function BuyXRPInUKPage() {
           <StatPill label="Legal" value="✅ Yes" delay={0} />
           <StatPill label="Deposit" value="Free" delay={0.06} />
           <StatPill label="CGT Free" value="£3K" delay={0.12} />
-          <StatPill label="Best Fee" value="0.16%" delay={0.18} />
+          <StatPill label="Best Fee" value="Variable" delay={0.18} />
         </div>
 
         <div className="cv-auto mt-14 space-y-14">
@@ -111,7 +110,7 @@ export default function BuyXRPInUKPage() {
                 headers={["Exchange", "FCA Registered", "GBP Deposit", "Fee", "GBP Pair"]}
                 rows={[
                   ["Bitstamp", "✅", "Free (FP)", "0.30%", "XRP/GBP ✅"],
-                  ["Kraken", "✅", "Free (FP)", "0.16-0.26%", "XRP/GBP ✅"],
+                  ["Kraken", "✅", "Free (FP)", "Variable", "XRP/GBP ✅"],
                   ["Coinbase", "✅", "Free (FP)", "0.05-0.60%", "XRP/GBP ✅"],
                   ["Uphold", "✅", "Free (FP)", "~1% spread", "Via GBP card"],
                   ["Binance", "⚠️ Restricted", "Free (FP)", "0.1%", "XRP/GBP ✅"],

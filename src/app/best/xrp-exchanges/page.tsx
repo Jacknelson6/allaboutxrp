@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     description: "Compare fees, features, and availability across the top exchanges for XRP.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/xrp-exchanges" },
-  robots: { index: false, follow: true },
 };
 
 const exchanges = [
@@ -29,7 +28,7 @@ const exchanges = [
     bestFor: "Direct XRP Purchases",
     keyFeature: "Buy XRP directly with fiat — no conversion steps",
     rating: 9.5,
-    tradingFees: "Spread: 0.8%–1.2%",
+    tradingFees: "Variable; shown in quote",
     depositMethods: "Bank, Card, Crypto",
     xrpWithdrawal: "Yes (XRP Ledger native)",
     countries: "150+",
@@ -40,7 +39,7 @@ const exchanges = [
     cons: ["Higher spread-based fees", "Less transparent fee structure", "Limited advanced trading features"],
     analysis: [
       "Uphold has long been a favorite in the XRP community — and for good reason. When other major exchanges delisted XRP during the SEC's lawsuit against Ripple, Uphold stood firm and never removed XRP from its platform. That loyalty earned them deep trust within the XRP community. Unlike many exchanges where you first buy USDT and then trade for XRP, Uphold lets you go directly from fiat currency to XRP in a single transaction.",
-      "The trade-off is cost. Uphold uses a spread-based fee model (typically 0.8%–1.2% for XRP) rather than explicit trading fees. This makes the actual cost less transparent than Kraken or Coinbase Advanced, but the convenience factor is high — especially for recurring DCA (dollar-cost averaging) purchases.",
+      "Uphold publishes service fees that vary by asset, region, liquidity, and market conditions. Review the complete XRP quote before confirming, then verify withdrawal support and network charges separately.",
       "Uphold supports XRP Ledger native withdrawals and is one of the few platforms that also supports trading other XRPL-issued tokens. The platform also offers auto-recurring purchases, making it ideal for a set-and-forget XRP accumulation strategy.",
     ],
   },
@@ -67,9 +66,9 @@ const exchanges = [
   {
     name: "Kraken",
     bestFor: "Low Fees + Advanced Trading",
-    keyFeature: "0.00%–0.26% fees with Pro",
+    keyFeature: "Published tiered fee schedule",
     rating: 9.3,
-    tradingFees: "0.00%–0.26%",
+    tradingFees: "Variable by tier and order type",
     depositMethods: "Bank, Wire, Crypto",
     xrpWithdrawal: "Yes (XRP Ledger native)",
     countries: "190+",
@@ -80,7 +79,7 @@ const exchanges = [
     cons: ["No debit card purchases in US", "Interface can overwhelm beginners", "Limited payment options vs Coinbase"],
     analysis: [
       "Kraken consistently ranks among the most secure and cost-effective exchanges globally. Founded in 2011, it has never suffered a major security breach — a remarkable track record in the crypto industry. For XRP traders focused on minimizing fees, Kraken is hard to beat.",
-      "The fee structure starts at 0.26% for takers and 0.16% for makers, dropping to 0.00%/0.10% at higher volumes. Compared to Coinbase's simple buy fees of up to 0.60%, the savings add up quickly for regular XRP purchases. Kraken Pro provides a professional trading interface with advanced order types.",
+      "Kraken publishes a tiered maker and taker schedule that changes with rolling volume and product. Check the current schedule, the order preview, and the separate XRP withdrawal minimum and fee before trading.",
       "Kraken also offers XRP earning opportunities in select regions, allowing you to earn yield on your holdings. The exchange supports XRP Ledger native withdrawals with clear destination tag handling. Customer support is available 24/7 via live chat — a rarity among exchanges.",
     ],
   },
@@ -189,7 +188,7 @@ const exchanges = [
 const faqItems = [
   {
     q: "What is the cheapest exchange to buy XRP?",
-    a: "Binance offers the lowest fees at 0.00%–0.10%, but is not available in the US. For US users, Kraken offers the best rates at 0.00%–0.26% on Kraken Pro. Coinbase Advanced also offers competitive rates at 0.00%–0.05% for high-volume traders.",
+    a: "There is no permanent lowest-fee venue. Compare the current maker or taker tier, spread, payment rail, withdrawal charge, region, and the final order quote for the same XRP amount.",
   },
   {
     q: "Can I buy XRP in the United States?",
@@ -197,7 +196,7 @@ const faqItems = [
   },
   {
     q: "Should I leave my XRP on an exchange?",
-    a: "For small amounts you actively trade, keeping XRP on a reputable exchange is acceptable. For larger holdings, we recommend withdrawing to a self-custody wallet — ideally a hardware wallet. Remember: 'not your keys, not your crypto.' See our best XRP wallets guide for recommendations.",
+    a: "Exchange custody adds platform and access risk. Compare those risks with the key-management responsibilities of self-custody. See our XRP wallets guide for the tradeoffs.",
   },
   {
     q: "What is a destination tag and why do I need it?",
@@ -440,7 +439,7 @@ export default function BestXRPExchangesPage() {
                 ["🇺🇸 Based in the US?", "Coinbase for beginners, Kraken for lower fees, Gemini for maximum security."],
                 ["🇪🇺 Based in Europe?", "Bitstamp for SEPA integration, Kraken for low fees, Binance for advanced trading."],
                 ["🌍 Rest of world?", "Binance for the lowest fees and deepest liquidity, KuCoin for altcoin variety."],
-                ["💰 Want the lowest fees?", "Binance (0.10%), Kraken Pro (0.16%), or KuCoin (0.10%)."],
+                ["💰 Comparing total cost?", "Check the current order quote, spread, payment fee, and XRP withdrawal charge together."],
                 ["🔄 Want recurring purchases?", "Uphold or Coinbase both offer automatic DCA schedules."],
                 ["👥 Want social trading?", "eToro is the only option with copy trading for XRP."],
               ].map(([title, desc]) => (

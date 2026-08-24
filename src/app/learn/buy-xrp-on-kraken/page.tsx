@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP on Kraken: Step-by-Step (2026) | AllAboutXRP",
   description: "Buy XRP on Kraken with this step-by-step guide. Covers Pro vs Basic, staking options, and lowest-fee methods.",
   keywords: ["buy XRP Kraken", "XRP Kraken", "Kraken XRP guide"],
@@ -45,8 +44,8 @@ const schemas = [
   ]),
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/buy-xrp-on-kraken" }),
   buildFAQSchema([
-    { question: "Is Kraken good for buying XRP?", answer: "Yes. Kraken is one of the most trusted and longest-running crypto exchanges, operating since 2011. It offers competitive fees (0.16%/0.26% maker/taker), strong security with no major hacks in its history, and deep XRP liquidity across multiple trading pairs." },
-    { question: "What are Kraken's fees for XRP?", answer: "Kraken's Instant Buy charges 1.5% for crypto purchases. Kraken Pro offers much lower fees: 0.16% maker / 0.26% taker for trades under $50K in 30-day volume. Fees decrease with higher volume tiers." },
+    { question: "Is Kraken good for buying XRP?", answer: "Yes. Kraken is one of the most trusted and longest-running crypto exchanges, operating since 2011. It offers competitive fees (variable by tier maker/taker), strong security with no major hacks in its history, and deep XRP liquidity across multiple trading pairs." },
+    { question: "What are Kraken's fees for XRP?", answer: "Kraken's Instant Buy charges 1.5% for crypto purchases. Kraken Pro offers much lower fees: the current maker and taker rates for trades under $50K in 30-day volume. Fees decrease with higher volume tiers." },
     { question: "Can I stake XRP on Kraken?", answer: "Kraken previously offered XRP staking rewards, but this varies by region and regulatory environment. Check Kraken's current staking offerings for the most up-to-date availability in your country." },
     { question: "Does Kraken support XRP withdrawals?", answer: "Yes. Kraken supports XRP withdrawals to external wallets. The withdrawal fee is minimal (0.02 XRP), and transactions typically confirm in under 5 seconds on the XRP Ledger." },
     { question: "Is Kraken available in the US?", answer: "Yes. Kraken is available in all US states except New York and Washington (due to specific licensing requirements). US users have access to XRP spot trading and most platform features." },
@@ -54,8 +53,8 @@ const schemas = [
 ];
 
 const faqItems = [
-  { q: "Is Kraken good for buying XRP?", a: "Yes. Kraken is one of the most trusted exchanges, operating since 2011 with no major hacks. It offers competitive fees (0.16%/0.26% maker/taker) and deep XRP liquidity." },
-  { q: "What are Kraken's fees for XRP?", a: "Instant Buy charges 1.5%. Kraken Pro offers 0.16% maker / 0.26% taker for trades under $50K in 30-day volume. Fees decrease with higher volume tiers." },
+  { q: "Is Kraken good for buying XRP?", a: "Yes. Kraken is one of the most trusted exchanges, operating since 2011 with no major hacks. It offers competitive fees (variable by tier maker/taker) and deep XRP liquidity." },
+  { q: "What are Kraken's fees for XRP?", a: "Instant Buy charges 1.5%. Kraken Pro offers the current maker and taker rates for trades under $50K in 30-day volume. Fees decrease with higher volume tiers." },
   { q: "Can I stake XRP on Kraken?", a: "Staking availability varies by region and regulatory environment. Check Kraken's current staking offerings for the most up-to-date availability." },
   { q: "Does Kraken support XRP withdrawals?", a: "Yes. Withdrawal fee is minimal (0.02 XRP), and transactions typically confirm in under 5 seconds on the XRP Ledger." },
   { q: "Is Kraken available in the US?", a: "Yes, in all US states except New York and Washington due to specific licensing requirements." },
@@ -79,18 +78,18 @@ export default function BuyXRPOnKrakenPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Kraken</strong> is a top choice for security-conscious XRP buyers. Use <strong className="text-text-primary">Kraken Pro</strong> for fees as low as 0.16% maker / 0.26% taker — far cheaper than the 1.5% Instant Buy fee. Fund your account via bank transfer (free), then place a limit order on the XRP/USD pair. Kraken has <strong className="text-text-primary">never been hacked</strong> since launching in 2011. After purchase, consider <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody storage</Link> for extra security.</p>
+          <p><strong className="text-text-primary">Kraken</strong> is a top choice for security-conscious XRP buyers. Use <strong className="text-text-primary">Kraken Pro</strong> for fees as low as the current maker and taker rates — far cheaper than the 1.5% Instant Buy fee. Fund your account via bank transfer (free), then place a limit order on the XRP/USD pair. Kraken has <strong className="text-text-primary">never been hacked</strong> since launching in 2011. After purchase, consider <Link href="/learn/how-to-store-xrp-safely" className="text-xrp-accent underline decoration-xrp-accent/30">self-custody storage</Link> for extra security.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Exchange", value: "Kraken" },
           { label: "Founded", value: "2011 (San Francisco)" },
-          { label: "Pro Maker Fee", value: "0.16%" },
-          { label: "Pro Taker Fee", value: "0.26%" },
+          { label: "Pro Maker Fee", value: "Variable" },
+          { label: "Pro Taker Fee", value: "Variable" },
           { label: "Instant Buy Fee", value: "1.5%" },
           { label: "Deposit (ACH)", value: "Free" },
           { label: "XRP Withdrawal", value: "0.02 XRP" },
-          { label: "Security Record", value: "Never hacked" },
+          { label: "Security", value: "Review current disclosures" },
         ]} />
 
         <SectionNav items={[
@@ -105,7 +104,7 @@ export default function BuyXRPOnKrakenPage() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Founded" value="2011" delay={0} />
-          <StatPill label="Maker Fee" value="0.16%" delay={0.06} />
+          <StatPill label="Maker Fee" value="Variable" delay={0.06} />
           <StatPill label="Security" value="No hacks" delay={0.12} />
           <StatPill label="Countries" value="190+" delay={0.18} />
         </div>
@@ -120,7 +119,7 @@ export default function BuyXRPOnKrakenPage() {
             <div className="mt-6">
               <FeatureGrid columns={2} items={[
                 { title: "Unmatched Security", desc: "15+ years operating, never been hacked. Full proof-of-reserves audits." },
-                { title: "Low Pro Fees", desc: "0.16% maker / 0.26% taker — among the lowest in the industry." },
+                { title: "Low Pro Fees", desc: "the current maker and taker rates — among the lowest in the industry." },
                 { title: "Deep Liquidity", desc: "Top-5 exchange by XRP volume with tight bid-ask spreads." },
                 { title: "Regulated", desc: "Licensed money services business, SOC 2 certified." },
                 { title: "Proof of Reserves", desc: "Cryptographic proof that all customer assets are fully backed." },
@@ -142,7 +141,7 @@ export default function BuyXRPOnKrakenPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Kraken" variant="accent">
-                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Kraken account →</a> One of the most trusted exchanges in crypto, with 15+ years and zero security breaches.</p>
+                <p><a href="https://www.kraken.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Review Kraken →</a> Check the current fee tier, XRP withdrawal minimum, destination-tag instructions, regional eligibility, custody, and security disclosures.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -180,7 +179,7 @@ export default function BuyXRPOnKrakenPage() {
                 headers={["Feature", "Instant Buy", "Kraken Pro"]}
                 rows={[
                   ["Difficulty", "Beginner-friendly", "Intermediate"],
-                  ["Fee", "1.5%", "0.16-0.26%"],
+                  ["Fee", "1.5%", "Variable"],
                   ["Order Types", "Market only", "Market, Limit, Stop"],
                   ["Price Control", "None", "Set your own price"],
                   ["Savings on $500", "~$0", "Save ~$6.20"],
@@ -208,7 +207,7 @@ export default function BuyXRPOnKrakenPage() {
                 { title: "Select XRP/USD pair", desc: "Search for XRP or navigate to the XRP/USD market. You can also use XRP/EUR, XRP/BTC, or XRP/GBP." },
                 { title: "Choose 'Limit' order type", desc: "A limit order lets you set the exact price you want to pay. It only executes when the market reaches your price." },
                 { title: "Set your price", desc: "Enter the price per XRP you're willing to pay. Check the order book for current market depth." },
-                { title: "Enter amount", desc: "Specify how much XRP to buy (in XRP or USD). Review the total cost including the 0.16% maker fee." },
+                { title: "Enter amount", desc: "Specify how much XRP to buy (in XRP or USD). Review the total cost including the current maker fee." },
                 { title: "Submit order", desc: "Click 'Buy XRP.' Your order sits in the order book until filled. You can cancel anytime if unfilled." },
               ]} variant="zap" />
             </div>

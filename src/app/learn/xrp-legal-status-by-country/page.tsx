@@ -1,274 +1,98 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import SEOSchema from "@/components/shared/SEOSchema";
 import AuthorByline from "@/components/shared/AuthorByline";
-import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
-import {
-  LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
-  TLDRBox, KeyFactsTable, LastUpdated,
-} from "@/components/learn/LearnPageShell";
+import { LearnHero, TLDRBox, LastUpdated, FAQAccordion, LearnLinkGrid } from "@/components/learn/LearnPageShell";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "@/lib/utils/seo";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Is XRP Legal? XRP Legal Status by Country (2026) | AllAboutXRP",
-  description: "Is XRP legal in your country? Complete breakdown of XRP's legal status across 50+ countries. Bans, restrictions, and full legality.",
-  keywords: ["is XRP legal", "XRP legal status", "XRP banned countries", "XRP legal by country"],
-  openGraph: {
-    title: "Is XRP Legal? XRP Legal Status by Country (2026)",
-    description: "Complete breakdown of XRP's legal status across 50+ countries. Bans, restrictions, and full legality.",
-    url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "XRP Legal Status by Country (2026)",
-    description: "Is XRP legal in your country? Status across 50+ countries — bans, restrictions, and full legality.",
-  },
-  alternates: { canonical: "https://allaboutxrp.com/learn/xrp-legal-status-by-country" },
+  title: "XRP Legal Status by Country: A Source-Led Guide (2026)",
+  description: "A jurisdiction-by-jurisdiction XRP legal guide using current regulator, tax, and court sources for the US, EU, UK, Canada, Australia, India, Bolivia, and Nigeria.",
+  alternates: { canonical: "/learn/xrp-legal-status-by-country" },
 };
 
-const faqItems = [
-  { q: "Is XRP legal?", a: "Yes, in most countries. XRP is legal in the US, UK, EU, Japan, Australia, Canada, and most of the world. Only countries with blanket crypto bans restrict XRP." },
-  { q: "Is XRP banned anywhere?", a: "Not specifically. But general crypto bans in China (trading), Algeria, Bangladesh, Egypt, Morocco, and Nepal affect XRP along with all cryptocurrencies." },
-  { q: "Is XRP a security?", a: "In the US, the court ruled XRP on exchanges is not a security (SEC v Ripple, 2023). Most other countries classify it as a virtual asset or commodity." },
-  { q: "Is XRP legal in the EU?", a: "Yes. Fully legal across all 27 EU states under the MiCA regulatory framework." },
-  { q: "Where is XRP most popular?", a: "Japan (#1 via SBI Holdings), South Korea, USA, UK, and the Philippines (remittance corridors)." },
+const faq = [
+  { q: "Is XRP legal everywhere?", a: "There is no worldwide answer. Treatment depends on jurisdiction, activity, provider, customer, and transaction structure." },
+  { q: "Did a US court declare XRP universally not a security?", a: "No. The Ripple case reached different results for different offers and sales. The final $125,035,150 judgment and injunction remain in effect." },
+  { q: "Does MiCA declare XRP legal across the EU?", a: "MiCA regulates in-scope issuers and service providers. It is not a one-line asset approval and does not replace each user's product and provider checks." },
+  { q: "Is crypto still fully banned in Bolivia?", a: "No. Bolivia's central bank announced Resolution 082/2024, which lifted the prior prohibition on payment instruments for virtual-asset transactions." },
 ];
+
+const sources = [
+  ["United States", "Transaction-specific Ripple holdings; final penalty and injunction remain", "SEC litigation release", "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369"],
+  ["European Union", "MiCA framework for in-scope issuers and crypto-asset service providers", "EU MiCA regulation", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32023R1114"],
+  ["United Kingdom", "Cryptoasset businesses may need FCA registration; registration is not endorsement", "FCA registration scope", "https://www.fca.org.uk/firms/cryptoassets/who-needs-register"],
+  ["Canada", "Provider registration and tax treatment must be checked separately", "CSA registration search", "https://info.securities-administrators.ca/nrsmobile/nrssearch.aspx?lang=EN"],
+  ["Australia", "Provider registration and tax treatment must be checked separately", "AUSTRAC provider register", "https://www.austrac.gov.au/virtual-asset-service-provider-register-goes-public"],
+  ["India", "VDA tax rules and FIU provider registration apply; this is not a universal approval", "Income Tax Act section 115BBH", "https://www.incometaxindia.gov.in/w/section-115bbh-3"],
+  ["Bolivia", "The prior central-bank prohibition was lifted in 2024", "Central Bank Resolution 082/2024 announcement", "https://www.bcb.gob.bo/?q=node%2F235234"],
+  ["Nigeria", "Banks may service compliant VASPs under guidelines but may not trade or hold virtual assets for their own account", "CBN VASP account guidelines", "https://www.cbn.gov.ng/out/2024/fprd/guidelines%20on%20operations%20of%20bank%20accounts%20for%20virtual%20asset%20providers.pdf"],
+] as const;
 
 const schemas = [
-  buildArticleSchema({
-    headline: "Is XRP Legal? XRP Legal Status by Country (2026)",
-    description: "Complete breakdown of XRP's legal status across 50+ countries.",
-    url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country",
-    datePublished: "2026-02-15",
-    dateModified: "2026-08-08",
-  }),
-  buildBreadcrumbSchema([
-    { name: "Home", url: "https://allaboutxrp.com" },
-    { name: "Learn", url: "https://allaboutxrp.com/learn" },
-    { name: "XRP Legal Status by Country" },
-  ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country" }),
-  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
+  buildArticleSchema({ headline: "XRP Legal Status by Country: A Source-Led Guide", description: metadata.description as string, url: "https://allaboutxrp.com/learn/xrp-legal-status-by-country", datePublished: "2026-02-15", dateModified: "2026-08-24" }),
+  buildBreadcrumbSchema([{ name: "Home", url: "https://allaboutxrp.com" }, { name: "Learn", url: "https://allaboutxrp.com/learn" }, { name: "XRP Legal Status by Country" }]),
+  buildFAQSchema(faq.map((item) => ({ question: item.q, answer: item.a }))),
 ];
 
-export default function XRPLegalStatusPage() {
+export default function XrpLegalStatusByCountryPage() {
   return (
     <>
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
-        <LearnHero
-          title="Is XRP Legal?"
-          titleAccent="XRP Legal Status by Country (2026)"
-          subtitle="XRP is legal in the vast majority of countries worldwide. Following the SEC v Ripple ruling, regulatory clarity has never been better. Here's the complete breakdown of XRP's legal status across 50+ countries."
-          breadcrumbLabel="XRP Legal Status by Country"
-        >
-          <div className="mt-5">
-            <AuthorByline date="2026-02-15" modified="2026-08-08" />
-            <LastUpdated date="August 8, 2026" />
-          </div>
+        <LearnHero title="XRP Legal Status" titleAccent="A country-by-country source guide" subtitle="Legal treatment depends on the jurisdiction, activity, provider, and transaction. This page limits its table to claims supported by current primary records." breadcrumbLabel="XRP Legal Status by Country">
+          <div className="mt-5"><AuthorByline date="2026-02-15" modified="2026-08-24" /><LastUpdated date="August 24, 2026" /></div>
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">There is no single worldwide legal status for XRP.</strong> Treatment can differ by activity, product, customer type, regulator, and date. The country table below is an editorial orientation tool, not a verified legal database or legal opinion. This page is temporarily excluded from search indexing while each jurisdiction is rechecked against current regulator records.</p>
+          <p><strong className="text-text-primary">There is no single legal status for XRP worldwide.</strong> A country&apos;s rules may regulate exchanges, promotions, custody, payments, taxation, or a particular offer without assigning one permanent label to every XRP transaction. Verify the activity you plan to conduct, not just the asset name.</p>
         </TLDRBox>
 
-        <KeyFactsTable facts={[
-          { label: "Countries Legal", value: "170+ countries" },
-          { label: "Countries Restricted", value: "~10 (blanket crypto bans)" },
-          { label: "XRP-Specific Ban", value: "None" },
-          { label: "US Status", value: "Legal (not a security)" },
-          { label: "EU Status", value: "Legal (MiCA regulated)" },
-          { label: "Japan Status", value: "Legal (payment method)" },
-          { label: "SEC Ruling", value: "July 2023" },
-          { label: "Most XRP-Friendly", value: "Japan, UAE, Singapore" },
-        ]} />
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-text-primary">Verified jurisdiction notes</h2>
+          <p className="mt-4 leading-relaxed text-text-secondary">The table intentionally excludes countries for which we did not locate a current enacted instrument or regulator record. It does not infer legality from exchange availability.</p>
+          <div className="mt-6 overflow-x-auto border border-white/[0.08]">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-white/[0.04] text-text-primary"><tr><th className="p-4">Jurisdiction</th><th className="p-4">What the source supports</th><th className="p-4">Primary record</th></tr></thead>
+              <tbody className="divide-y divide-white/[0.06] text-text-secondary">
+                {sources.map(([country, note, label, href]) => (
+                  <tr key={country}><td className="p-4 font-semibold text-text-primary">{country}</td><td className="p-4 leading-relaxed">{note}</td><td className="p-4"><a href={href} target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline">{label}</a></td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-        <SectionNav items={[
-          { id: "overview", label: "Overview" },
-          { id: "fully-legal", label: "Fully Legal" },
-          { id: "regulated", label: "Regulated" },
-          { id: "restricted", label: "Restricted" },
-          { id: "banned", label: "Banned Countries" },
-          { id: "sec-ruling", label: "SEC Ruling Impact" },
-          { id: "faq", label: "FAQ" },
-        ]} />
+        <section className="mt-12 space-y-5 text-text-secondary leading-relaxed">
+          <h2 className="text-2xl font-bold text-text-primary">United States: what the Ripple case means</h2>
+          <p>The court analyzed different offers and sales separately. Ripple&apos;s institutional sales violated securities law, while the record did not establish the required expectation of profits for its programmatic exchange sales. The case does not supply a universal answer for every seller, promotion, product, or future transaction.</p>
+          <p>In August 2025, both appeals were dismissed. The SEC states that the $125,035,150 final judgment and injunction remain in effect. A proposed $50 million modification was not implemented.</p>
+        </section>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Legal In" value="170+" delay={0} />
-          <StatPill label="Banned In" value="~10" delay={0.06} />
-          <StatPill label="XRP-Specific Ban" value="0" delay={0.12} />
-          <StatPill label="SEC Clarity" value="✅" delay={0.18} />
-        </div>
+        <section className="mt-12 space-y-5 text-text-secondary leading-relaxed">
+          <h2 className="text-2xl font-bold text-text-primary">Corrections to common country claims</h2>
+          <p><strong className="text-text-primary">Bolivia:</strong> calling the country a current full ban is incorrect. The central bank announced that Resolution 082/2024 lifted the prior prohibition.</p>
+          <p><strong className="text-text-primary">Nigeria:</strong> the 2023 VASP account guidelines changed the earlier banking position. Financial institutions may open designated accounts for compliant VASPs, while they remain prohibited from trading or holding virtual assets for their own account.</p>
+          <p><strong className="text-text-primary">Morocco:</strong> Bank Al-Maghrib described work on a draft crypto-asset law in its 2024 reporting. A draft is not an enacted instrument, so this page does not assign a conclusive current status without the final official text.</p>
+        </section>
 
-        <div className="cv-auto mt-14 space-y-14">
-          <RevealSection id="overview">
-            <h2 className="text-2xl font-bold text-text-primary">Global XRP Legal Status Overview</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              XRP&apos;s legal standing improved dramatically after the <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> in 2023. No country has ever specifically banned XRP — restrictions come only from countries that ban all cryptocurrency trading. Here&apos;s the full picture.
-            </p>
+        <section className="mt-12">
+          <h2 className="mb-5 text-2xl font-bold text-text-primary">Frequently asked questions</h2>
+          <FAQAccordion items={faq} />
+        </section>
 
-            <div className="mt-6">
-              <FeatureGrid columns={3} items={[
-                { title: "🟢 Fully Legal", desc: "Most countries: buy, sell, hold, trade freely with varying regulation" },
-                { title: "🟡 Restricted", desc: "Some limitations: heavy taxation, partial bans, or limited exchange access" },
-                { title: "🔴 Banned", desc: "Blanket crypto bans: all crypto including XRP prohibited" },
-              ]} />
-            </div>
-          </RevealSection>
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-text-primary">Continue learning</h2>
+          <LearnLinkGrid links={[
+            { href: "/learn/sec-vs-ripple", label: "SEC v Ripple", desc: "The case and final judgment" },
+            { href: "/learn/buy-xrp-in-usa", label: "Buy XRP in the US", desc: "State and provider checks" },
+            { href: "/learn/buy-xrp-in-uk", label: "Buy XRP in the UK", desc: "FCA and HMRC sources" },
+            { href: "/learn/buy-xrp-in-canada", label: "Buy XRP in Canada", desc: "Registration and tax sources" },
+          ]} />
+        </section>
 
-          <RevealSection id="fully-legal" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Countries Where XRP Is Fully Legal</h2>
-            <div className="mt-6">
-              <DataTable
-                headers={["Country", "Status", "Classification", "Key Exchange", "Notes"]}
-                rows={[
-                  ["🇺🇸 United States", "✅ Legal", "Not a security", "Coinbase, Kraken", "SEC ruling 2023 clarified status"],
-                  ["🇬🇧 United Kingdom", "✅ Legal", "Cryptoasset", "Bitstamp, Kraken", "FCA registration required"],
-                  ["🇯🇵 Japan", "✅ Legal", "Payment method", "SBI VC Trade", "Most XRP-friendly nation"],
-                  ["🇨🇦 Canada", "✅ Legal", "Commodity", "Kraken, Newton", "OSC-registered exchanges"],
-                  ["🇦🇺 Australia", "✅ Legal", "CGT asset", "CoinSpot, Kraken", "AUSTRAC regulated"],
-                  ["🇸🇬 Singapore", "✅ Legal", "Digital payment token", "Binance, Crypto.com", "MAS licensed"],
-                  ["🇰🇷 South Korea", "✅ Legal", "Virtual asset", "Upbit, Bithumb", "Massive XRP community"],
-                  ["🇦🇪 UAE", "✅ Legal", "Virtual asset", "Binance, Bybit", "VARA/FSRA regulated, very friendly"],
-                  ["🇧🇷 Brazil", "✅ Legal", "Virtual asset", "Binance, Mercado", "Central Bank framework"],
-                  ["🇲🇽 Mexico", "✅ Legal", "Virtual asset", "Bitso", "Major ODL corridor"],
-                  ["🇨🇭 Switzerland", "✅ Legal", "Payment token", "SIX Exchange", "FINMA regulated, crypto-friendly"],
-                  ["🇵🇭 Philippines", "✅ Legal", "Virtual currency", "Coins.ph", "BSP regulated, major remittance corridor"],
-                  ["🇹🇭 Thailand", "✅ Legal", "Digital asset", "Bitkub", "SEC regulated"],
-                ]}
-                highlightCol={1}
-              />
-            </div>
-          </RevealSection>
-
-          <RevealSection id="regulated" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">European Union: MiCA Regulation</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              All 27 EU member states regulate crypto under the <Link href="/learn/xrp-european-regulation" className="text-xrp-accent underline decoration-xrp-accent/30">Markets in Crypto-Assets (MiCA)</Link> framework. XRP is fully legal across the EU with clear rules for exchanges and token issuers.
-            </p>
-
-            <div className="mt-6">
-              <DataTable
-                headers={["EU Country", "Status", "Key Exchange", "Notes"]}
-                rows={[
-                  ["🇩🇪 Germany", "✅ Legal", "Bitstamp, Kraken", "BaFin regulated, crypto-progressive"],
-                  ["🇫🇷 France", "✅ Legal", "Binance, Coinhouse", "AMF registered"],
-                  ["🇳🇱 Netherlands", "✅ Legal", "Bitvavo", "DNB registered"],
-                  ["🇮🇪 Ireland", "✅ Legal", "Coinbase (EU HQ)", "CBI registered"],
-                  ["🇪🇸 Spain", "✅ Legal", "Binance, Bit2Me", "Bank of Spain registered"],
-                  ["🇮🇹 Italy", "✅ Legal", "Young Platform", "OAM registered"],
-                  ["🇵🇹 Portugal", "✅ Legal", "Binance", "Was tax-free, now 28% CGT"],
-                  ["🇸🇪 Sweden", "✅ Legal", "Safello", "SFSA registered"],
-                ]}
-                highlightCol={1}
-              />
-            </div>
-          </RevealSection>
-
-          <RevealSection id="restricted" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Countries with Restrictions</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              Some countries allow crypto ownership but impose significant restrictions, heavy taxation, or partial bans:
-            </p>
-
-            <div className="mt-6">
-              <DataTable
-                headers={["Country", "Status", "Restriction Type", "Details"]}
-                rows={[
-                  ["🇮🇳 India", "🟡 Legal but taxed", "Heavy taxation", "30% flat tax, 1% TDS, no loss offset"],
-                  ["🇨🇳 China", "🟡 Holding legal", "Trading banned", "Exchanges banned since 2021, holding not illegal"],
-                  ["🇹🇷 Turkey", "🟡 Legal", "Payment ban", "Can trade but can't use crypto for payments"],
-                  ["🇷🇺 Russia", "🟡 Legal to hold", "Payment banned", "Mining legal, payments banned, trading grey area"],
-                  ["🇳🇬 Nigeria", "🟡 Legal (P2P)", "Bank restrictions", "CBN restricted banks, but P2P trading thrives"],
-                  ["🇮🇩 Indonesia", "🟡 Legal", "Investment only", "Can trade as commodity, can't use for payments"],
-                ]}
-                highlightCol={1}
-              />
-            </div>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              Learn more about <Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">buying XRP in India</Link> — the most notable restricted market.
-            </p>
-          </RevealSection>
-
-          <RevealSection id="banned" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Countries Where Crypto (Including XRP) Is Banned</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              A small number of countries have outright bans on cryptocurrency trading. These are <strong className="text-text-primary">blanket crypto bans</strong> — XRP has never been specifically targeted by any country.
-            </p>
-
-            <div className="mt-6">
-              <DataTable
-                headers={["Country", "Ban Type", "Since", "Details"]}
-                rows={[
-                  ["🇧🇩 Bangladesh", "Full ban", "2017", "Bangladesh Bank prohibits all crypto transactions"],
-                  ["🇩🇿 Algeria", "Full ban", "2018", "All crypto purchase, sale, and holding banned"],
-                  ["🇲🇦 Morocco", "Full ban", "2017", "Bank Al-Maghrib banned crypto (reviewing in 2025)"],
-                  ["🇳🇵 Nepal", "Full ban", "2017", "Nepal Rastra Bank prohibits crypto trading"],
-                  ["🇪🇬 Egypt", "De facto ban", "2018", "Religious ruling + Central Bank restrictions"],
-                  ["🇧🇴 Bolivia", "Full ban", "2014", "One of the first countries to ban crypto"],
-                  ["🇶🇦 Qatar", "Full ban", "2018", "QCB prohibits crypto trading"],
-                ]}
-                highlightCol={0}
-              />
-            </div>
-
-            <div className="mt-6">
-              <HighlightBox title="Important Context" variant="info">
-                <p>Even in &quot;banned&quot; countries, enforcement varies widely. Many residents use VPNs and P2P platforms to access crypto. These bans are <strong className="text-text-primary">not XRP-specific</strong> — they apply to all cryptocurrencies. Several banned countries (like Morocco) are actively reviewing their stance as global crypto adoption grows.</p>
-              </HighlightBox>
-            </div>
-          </RevealSection>
-
-          <RevealSection id="sec-ruling" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">The SEC Ruling&apos;s Global Impact</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              The <Link href="/learn/sec-vs-ripple" className="text-xrp-accent underline decoration-xrp-accent/30">SEC v Ripple ruling</Link> had implications far beyond the US. It established a legal framework that other jurisdictions have referenced, and it removed the biggest cloud of uncertainty hanging over XRP globally.
-            </p>
-
-            <div className="mt-6">
-              <IconList items={[
-                { title: "US exchanges relisted XRP", desc: "Coinbase, Kraken, and others immediately relisted XRP after the ruling, restoring access to the world's largest crypto market." },
-                { title: "International confidence boost", desc: "Regulators in other countries were watching the US case closely. The ruling gave them confidence to classify XRP clearly." },
-                { title: "ETF applications filed", desc: "Multiple XRP ETF applications followed the ruling, potentially opening XRP to traditional investors via brokerage accounts." },
-                { title: "Institutional adoption accelerated", desc: "Banks and financial institutions that were hesitant during the lawsuit began engaging with Ripple and XRP." },
-                { title: "Ripple expanded partnerships", desc: "Ripple signed new partnerships in Dubai, Singapore, and across Asia following the regulatory clarity." },
-              ]} variant="zap" />
-            </div>
-          </RevealSection>
-
-          <RevealSection id="faq" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
-            <FAQAccordion items={faqItems} />
-          </RevealSection>
-
-          <RevealSection delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <LearnLinkGrid links={[
-              { href: "/learn/sec-vs-ripple", label: "SEC v Ripple", desc: "The lawsuit explained" },
-              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in USA", desc: "US buying guide" },
-              { href: "/learn/how-to-buy-xrp", label: "Buy XRP in UK", desc: "UK buying guide" },
-              { href: "/learn/xrp-european-regulation", label: "EU Regulation", desc: "MiCA framework" },
-              { href: "/learn/crypto-regulation-xrp-impact", label: "Regulation Impact", desc: "How rules affect XRP" },
-              { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete guide" },
-            ]} />
-          </RevealSection>
-        </div>
-
-        <LearnCTA
-          title="XRP Is Legal Almost Everywhere"
-          description="Ready to buy XRP? Check our country-specific guides or compare the best exchanges."
-          primaryHref="/learn/how-to-buy-xrp"
-          primaryLabel="Best Exchanges →"
-          secondaryHref="/learn/how-to-buy-xrp"
-          secondaryLabel="How to Buy XRP"
-        />
-
-        <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: August 8, 2026. Temporarily excluded from indexing pending jurisdiction-by-jurisdiction primary-source review. This page has not been reviewed by an attorney and is not legal advice.</em>
-        </p>
+        <p className="mt-10 text-xs text-text-secondary/70">Editorial legal overview reviewed August 24, 2026. Not legal advice. Consult a qualified professional for a specific transaction or jurisdiction.</p>
       </div>
     </>
   );

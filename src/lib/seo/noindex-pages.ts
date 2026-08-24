@@ -3,56 +3,6 @@
  * These are thin, duplicative, or low-value pages that dilute crawl budget.
  */
 export const NOINDEX_PATHS = new Set([
-  // ── Buy XRP regional/exchange pages ──────────────────────────────────
-  "/learn/buy-xrp-in-australia",
-  "/learn/buy-xrp-in-canada",
-  "/learn/buy-xrp-in-india",
-  "/learn/buy-xrp-in-uk",
-  "/learn/buy-xrp-in-usa",
-  "/learn/buy-xrp-on-binance",
-  "/learn/buy-xrp-on-bitstamp",
-  "/learn/buy-xrp-on-coinbase",
-  "/learn/buy-xrp-on-kraken",
-  "/learn/buy-xrp-on-robinhood",
-  "/learn/buy-xrp-on-uphold",
-
-  // ── XRP vs * comparison pages ────────────────────────────────────────
-  "/learn/xrp-vs-bitcoin-investment",
-  "/learn/xrp-vs-stocks",
-
-  // ── Low-value page without a distinct canonical destination ──────────
-  "/learn/best-xrp-trading-pairs",
-
-  // ── Low-value deep cuts ──────────────────────────────────────────────
-  "/learn/xrp-developer-resources",
-  "/learn/xrp-block-explorers",
-  "/learn/xrp-portfolio-trackers",
-  "/learn/xrp-order-types-explained",
-  "/learn/xrp-cost-basis-methods",
-  "/learn/xrp-airdrop-taxes",
-  "/learn/xrp-tax-loss-harvesting",
-  "/learn/xrp-in-retirement-accounts",
-  "/learn/xrp-legal-status-by-country",
-  "/learn/xrp-futures-trading",
-  "/learn/xrp-day-trading-guide",
-  "/learn/xrp-on-chain-analysis",
-  "/learn/xrp-sell-or-hold",
-  "/learn/xrp-micropayments",
-  "/learn/xrp-insurance-use-cases",
-  "/learn/xrp-institutional-custody",
-  "/learn/xrpl-gaming",
-  "/learn/xrpl-nft-marketplaces",
-  "/learn/xrp-and-correspondent-banking",
-
-  // ── Best / recommendation pages ───────────────────────────────────────
-  "/best",
-  "/best/xrp-exchanges",
-  "/best/xrp-wallets",
-  "/best/hardware-wallets-for-xrp",
-  "/best/xrp-staking-platforms",
-
-  // ── Utility pages ────────────────────────────────────────────────────
-  "/tools/whale-tracker",
   "/privacy-policy",
   "/terms",
   "/extension",

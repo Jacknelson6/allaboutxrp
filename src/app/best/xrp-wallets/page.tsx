@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     description: "Expert-reviewed XRP wallets — hardware, mobile, and desktop options compared.",
   },
   alternates: { canonical: "https://allaboutxrp.com/best/xrp-wallets" },
-  robots: { index: false, follow: true },
 };
 
 const wallets = [

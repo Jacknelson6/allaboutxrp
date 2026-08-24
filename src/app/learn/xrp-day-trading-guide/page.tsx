@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "XRP Day Trading Guide: Intraday Strategies (2026) | AllAboutXRP",
   description: "Complete XRP day trading guide — intraday setups, volatility patterns, exchange selection, and risk management for active traders.",
   keywords: ["XRP day trading","day trade XRP","XRP intraday","XRP scalping"],
@@ -95,7 +94,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="exchanges" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Best Exchanges</h2>
-            <div className="mt-6"><DataTable headers={["Exchange","Maker","Taker","Vol"]} rows={[["Binance","0.02%","0.04%","Highest"],["Bybit","0.02%","0.055%","High"],["Kraken","0.16%","0.26%","Med"]]} highlightCol={0} /></div>
+            <div className="mt-6"><DataTable headers={["Exchange","Maker","Taker","Vol"]} rows={[["Binance","0.02%","0.04%","Highest"],["Bybit","0.02%","0.055%","High"],["Kraken","Variable","Variable","Med"]]} highlightCol={0} /></div>
             <p className="mt-4 text-text-secondary leading-relaxed"><Link href="/learn/how-to-buy-xrp" className="text-xrp-accent underline decoration-xrp-accent/30">Full comparison</Link></p>
           </RevealSection>
           <RevealSection id="mistakes" delay={0.05}>

@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Hold XRP in a Retirement Account (IRA/401k) | AllAboutXRP",
   description: "Can you hold XRP in a retirement account? How to add XRP to self-directed IRAs, Roth IRAs, and crypto-friendly 401k plans.",
   keywords: ["XRP IRA","XRP retirement account","XRP 401k","crypto IRA XRP","XRP Roth IRA"],
@@ -27,7 +26,7 @@ const schemas = [
   buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/xrp-in-retirement-accounts" }),
   buildFAQSchema([
     { question: "XRP in IRA?", answer: "Yes. iTrustCapital, BitcoinIRA support XRP." },
-    { question: "Roth or Traditional?", answer: "Roth if you expect big gains (tax-free)." },
+    { question: "Roth or Traditional?", answer: "The choice depends on eligibility, tax timing, distribution rules, fees, and the custodian. Roth treatment is tax-free only when qualification requirements are met." },
     { question: "401k?", answer: "Not most. Solo 401k for self-employed. ETF changes this." },
     { question: "Fees?", answer: "~1% per trade + possible monthly." },
     { question: "ETF replace?", answer: "Partially. ETF = any standard IRA." },
@@ -36,7 +35,7 @@ const schemas = [
 
 const faqItems = [
   { q: "XRP in IRA?", a: "Yes. iTrustCapital, BitcoinIRA support XRP." },
-  { q: "Roth or Traditional?", a: "Roth if you expect big gains (tax-free)." },
+  { q: "Roth or Traditional?", a: "Compare eligibility, tax timing, qualified-distribution rules, fees, custody, and prohibited-transaction controls with a qualified adviser." },
   { q: "401k?", a: "Not most. Solo 401k for self-employed. ETF changes this." },
   { q: "Fees?", a: "~1% per trade + possible monthly." },
   { q: "ETF replace?", a: "Partially. ETF = any standard IRA." },
@@ -51,7 +50,7 @@ export default function Page() {
           <div className="mt-5"><AuthorByline date="2026-02-15" /><LastUpdated date="February 15, 2026" /></div>
         </LearnHero>
 
-        <TLDRBox><p>Yes. iTrustCapital, BitcoinIRA offer XRP in IRAs. <strong className="text-text-primary">Roth IRA = tax-free growth</strong>. XRP ETF will make this easier via any brokerage.</p></TLDRBox>
+        <TLDRBox><p>Some self-directed custodians or brokerage products may provide XRP exposure, but asset eligibility, custody, fees, insurance, and prohibited-transaction controls must be verified directly. For 2026, the IRA contribution limit is $7,500 before applicable catch-up rules. Roth tax treatment depends on qualified-distribution requirements.</p></TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Types", value: "IRA, Roth, 401k" },
@@ -72,9 +71,9 @@ export default function Page() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="Tax Save" value="Up to 37%" delay={0.00} />
-          <StatPill label="Roth" value="Tax-Free" delay={0.06} />
+          <StatPill label="Roth" value="Qualified withdrawals" delay={0.06} />
           <StatPill label="Platforms" value="3+" delay={0.12} />
-          <StatPill label="Limit" value="$7K/yr" delay={0.18} />
+          <StatPill label="2026 IRA Limit" value="$7,500*" delay={0.18} />
         </div>
 
         <div className="cv-auto mt-14 space-y-14">
@@ -85,7 +84,8 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="types" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Account Types</h2>
-            <div className="mt-6"><DataTable headers={["Account","Benefit","Limit","For"]} rows={[["Traditional","Deductible","$7K","Tax break now"],["Roth","Tax-free growth","$7K","Big gains expected"],["SEP","Self-employed","$69K","Business"],["Solo 401k","Highest","$69K","Self-employed"]]} highlightCol={1} /></div>
+            <div className="mt-6"><DataTable headers={["Account","Tax timing","2026 IRA limit","Key check"]} rows={[["Traditional IRA","Potential deduction","$7,500*","Eligibility and distributions"],["Roth IRA","After-tax contribution","$7,500*","Qualified distributions"],["SEP IRA","Employer contribution","Separate limit","Self-employed plan rules"],["Solo 401(k)","Plan-specific","Separate limit","Employee and employer limits"]]} highlightCol={1} /></div>
+            <p className="mt-3 text-xs text-text-muted">*Combined Traditional and Roth IRA contribution limit before applicable catch-up rules. Verify current limits with the IRS.</p>
           </RevealSection>
           <RevealSection id="platforms" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Platforms</h2>
@@ -94,7 +94,7 @@ export default function Page() {
           </RevealSection>
           <RevealSection id="roth" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">Roth Strategy</h2>
-            <div className="mt-6"><IconList items={[{title:"Tax-Free Growth",desc:"No cap gains tax."},{title:"Tax-Free Withdrawal",desc:"After 59½."},{title:"No RMDs",desc:"No forced distributions."},{title:"Contribution Access",desc:"Withdraw contributions anytime."}]} variant="check" /></div>
+            <div className="mt-6"><IconList items={[{title:"Tax timing",desc:"Roth contributions use after-tax dollars."},{title:"Qualified distributions",desc:"Tax treatment depends on age and holding-period rules."},{title:"No lifetime RMDs for owner",desc:"Confirm current beneficiary and inherited-account rules."},{title:"Contribution access",desc:"Ordering and excess-contribution rules still apply."}]} variant="check" /></div>
           </RevealSection>
           <RevealSection id="etf" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">ETF Alternative</h2>
@@ -119,7 +119,7 @@ export default function Page() {
           </RevealSection>
         </div>
 
-        <LearnCTA title="Open a Crypto IRA" description="Tax-free XRP growth." primaryHref="https://itrustcapital.com/" primaryLabel="iTrustCapital →" secondaryHref="/learn/xrp-etf" secondaryLabel="ETF Odds" />
+        <LearnCTA title="Verify retirement-account rules" description="Check IRS limits, custodian terms, custody, fees, and prohibited transactions before opening an account." primaryHref="https://www.irs.gov/retirement-plans/individual-retirement-arrangements-iras" primaryLabel="IRS IRA guidance →" secondaryHref="/learn/xrp-etf" secondaryLabel="XRP product structures" />
         <p className="mt-8 text-xs text-text-secondary/60"><em>Last updated: February 15, 2026. Written by the AllAboutXRP Editorial Team.</em></p>
       </div>
     </>

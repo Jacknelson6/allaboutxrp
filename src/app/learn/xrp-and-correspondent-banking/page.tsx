@@ -13,12 +13,11 @@ export const dynamic = "force-static";
 
 const slug = "xrp-and-correspondent-banking";
 const title = "XRP & Correspondent Banking: Replacing Nostro/Vostro";
-const description = "How XRP eliminates the need for pre-funded nostro/vostro accounts in correspondent banking. The core economic thesis explained.";
+const description = "How XRP can function as a bridge asset in Ripple payment flows, what correspondent banking friction it may address, and why prefunding and demand claims need qualification.";
 const url = `https://allaboutxrp.com/learn/${slug}`;
 const datePublished = "2026-02-15";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title, description,
   openGraph: { title: `${title} | AllAboutXRP`, description, url, type: "article" },
   twitter: { card: "summary_large_image", title, description },
@@ -28,8 +27,8 @@ export const metadata: Metadata = {
 const faqItems = [
   { q: "What is correspondent banking?", a: "Correspondent banking is how banks move money internationally. Banks maintain pre-funded accounts at partner banks in different countries. To send money to Japan, your bank needs Japanese yen sitting in a Japanese bank account — ready to go." },
   { q: "What are nostro/vostro accounts?", a: "Nostro ('our account at your bank') and vostro ('your account at our bank') are the pre-funded accounts banks maintain for cross-border payments. A large bank might maintain hundreds of these across dozens of countries and currencies." },
-  { q: "How does XRP eliminate pre-funding?", a: "With XRP's On-Demand Liquidity, the sending bank converts local currency to XRP, sends it in 3-5 seconds, and the receiving bank converts XRP to local currency instantly. No pre-funded accounts needed — XRP provides the liquidity on demand." },
-  { q: "How much capital does this free up?", a: "An estimated $27 trillion is locked in nostro/vostro accounts globally. Even partially replacing this system could free up trillions in capital that banks can redeploy for lending and investment." },
+  { q: "How can XRP change a payment flow?", a: "In a documented ODL flow, XRP can bridge source and destination currencies. Ripple also states that the source exchange is prefunded, so the product does not eliminate every prefunding requirement." },
+  { q: "Does XRP eliminate all prefunding?", a: "No. Ripple's own ODL documentation says the source exchange is prefunded. The product can change where and how liquidity is sourced, but a universal freed-capital total is not supported." },
   { q: "Why haven't banks switched already?", a: "Many are switching — 100+ institutions use Ripple's network. But banking infrastructure moves slowly. Regulatory clarity (now achieved post-SEC settlement), integration complexity, and institutional inertia are the main factors." },
   { q: "Does this create demand for XRP?", a: "Yes. Every ODL transaction requires XRP to be purchased, transferred, and sold. Higher corridor volumes mean higher sustained XRP demand. This is the core economic thesis for XRP's long-term value." },
 ];
@@ -53,7 +52,7 @@ export default function XRPAndCorrespondentBankingPage() {
         <LearnHero
           title="XRP &"
           titleAccent="Correspondent Banking"
-          subtitle="The $27 trillion problem: how XRP replaces the world's most capital-intensive payment system with instant, on-demand liquidity."
+          subtitle="How XRP can act as a bridge asset in a payment flow, which correspondent-banking frictions remain, and what Ripple's own documentation says about prefunding."
           breadcrumbLabel="Correspondent Banking"
         >
           <div className="mt-5">
@@ -63,11 +62,11 @@ export default function XRPAndCorrespondentBankingPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p>Correspondent banking locks up <strong className="text-text-primary">$27 trillion</strong> in pre-funded nostro/vostro accounts. XRP eliminates this requirement entirely. Through <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link>, banks use XRP as a bridge currency — converting, sending, and settling in 3-5 seconds instead of 3-5 days. This is the <strong className="text-text-primary">core economic thesis</strong> for XRP.</p>
+          <p>Correspondent payment chains can be slow, costly, and difficult to trace. In documented <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">On-Demand Liquidity</Link> flows, XRP can serve as a bridge between source and destination currencies. Ripple&apos;s own documentation also says the source exchange is prefunded and the payment user need not hold or transact XRP directly, so the product should not be described as eliminating every prefunding requirement or guaranteeing investor demand.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
-          { label: "Trapped Capital", value: "$27 trillion in nostro/vostro accounts" },
+          { label: "Prefunding", value: "Flow and provider specific" },
           { label: "Traditional Speed", value: "3-5 days per transfer" },
           { label: "XRP Speed", value: "3-5 seconds" },
           { label: "Traditional Cost", value: "$25-65 per transaction" },
@@ -97,7 +96,7 @@ export default function XRPAndCorrespondentBankingPage() {
             </p>
             <div className="mt-5">
               <HighlightBox title="The Nostro/Vostro Problem" variant="info">
-                <p>Imagine you&apos;re a US bank that needs to send payments to 50 countries. You need pre-funded accounts in 50 different currencies at 50 different banks. Each account needs enough funds to cover daily transaction volume. Multiply this across every bank in the world, and you get <strong>$27 trillion in idle capital</strong> — money that could be lent, invested, or used productively.</p>
+                <p>Cross-border payments may involve correspondent accounts, intermediary institutions, currency conversion, compliance review, and different operating hours. The number of accounts and amount of prefunding depend on the institution, corridor, providers, and liquidity model. This page does not assign a universal capital total.</p>
               </HighlightBox>
             </div>
             <div className="mt-5">
@@ -124,7 +123,7 @@ export default function XRPAndCorrespondentBankingPage() {
               ]} />
             </div>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              The entire process takes seconds. No pre-funded accounts. No intermediary banks. No 3-5 day delays. Learn more about the technology on our <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL page</Link>.
+              The ledger transfer can validate in several seconds, while the end-to-end payment also depends on exchanges, liquidity, compliance, banking rails, and the destination payout. Learn more about the documented flow on our <Link href="/learn/on-demand-liquidity" className="text-xrp-accent underline decoration-xrp-accent/30">ODL page</Link>.
             </p>
           </RevealSection>
 
@@ -164,7 +163,7 @@ export default function XRPAndCorrespondentBankingPage() {
         </div>
 
         <LearnCTA
-          title="The $27 Trillion Opportunity"
+          title="Verify the exact payment flow"
           description="XRP is replacing the world's most capital-intensive payment system."
           primaryHref="/how-to-start"
           primaryLabel="How to Buy XRP →"

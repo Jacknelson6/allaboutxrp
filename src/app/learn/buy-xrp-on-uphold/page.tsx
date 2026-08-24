@@ -12,7 +12,6 @@ import {
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  robots: { index: false, follow: true },
   title: "How to Buy XRP on Uphold: Fastest Method (2026) | AllAboutXRP",
   description: "Uphold was one of the first US platforms to relist XRP. Learn how to buy, fees, withdrawal to self-custody, and limits.",
   keywords: ["buy XRP Uphold", "XRP Uphold", "Uphold XRP guide"],
@@ -32,10 +31,10 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { q: "Did Uphold delist XRP during the SEC lawsuit?", a: "No. Uphold was one of the few US platforms that continued to support XRP trading throughout the entire SEC v Ripple lawsuit, making it a go-to for US-based XRP buyers." },
-  { q: "What are Uphold's fees for buying XRP?", a: "Uphold uses a spread-based fee model. The typical spread for XRP is 0.8-1.2%, built into the exchange rate. No additional commissions." },
+  { q: "What are Uphold's fees for buying XRP?", a: "Uphold uses a spread-based fee model. The typical spread for XRP is variable by quote, built into the exchange rate. No additional commissions." },
   { q: "Can I withdraw XRP from Uphold?", a: "Yes. Uphold supports XRP withdrawals to external wallets. The withdrawal fee is typically 0.1 XRP, and transactions settle in 3-5 seconds." },
   { q: "Is Uphold good for buying XRP?", a: "Excellent for beginners due to its simple interface. Spread-based fees are higher than pro platforms, but the convenience is unmatched." },
-  { q: "What countries does Uphold support?", a: "Uphold is available in 150+ countries including all 50 US states, with GBP, EUR, and other local currency deposits." },
+  { q: "Where is Uphold available?", a: "Availability depends on country, state, account, asset, and payment rail. Confirm current XRP trading and withdrawal support in Uphold's regional terms." },
 ];
 
 const schemas = [
@@ -73,15 +72,15 @@ export default function BuyXRPOnUpholdPage() {
         </LearnHero>
 
         <TLDRBox>
-          <p><strong className="text-text-primary">Uphold</strong> is the XRP community&apos;s favorite platform — it <strong className="text-text-primary">never delisted XRP</strong> during the SEC lawsuit. Buy XRP instantly with bank transfer, debit card, or even by swapping other crypto. Spread-based fees of <strong className="text-text-primary">0.8-1.2%</strong> are higher than pro platforms but the simplicity is unmatched. Full <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">XRP withdrawal support</Link> to self-custody wallets.</p>
+          <p><strong className="text-text-primary">Uphold</strong> is the XRP community&apos;s favorite platform — it <strong className="text-text-primary">never delisted XRP</strong> during the SEC lawsuit. Buy XRP instantly with bank transfer, debit card, or even by swapping other crypto. Spread-based fees of <strong className="text-text-primary">variable by quote</strong> are higher than pro platforms but the simplicity is unmatched. Full <Link href="/learn/xrp-wallets" className="text-xrp-accent underline decoration-xrp-accent/30">XRP withdrawal support</Link> to self-custody wallets.</p>
         </TLDRBox>
 
         <KeyFactsTable facts={[
           { label: "Exchange", value: "Uphold" },
           { label: "XRP Support", value: "Never delisted" },
-          { label: "Fee Model", value: "Spread (0.8-1.2%)" },
+          { label: "Fee Model", value: "Spread (variable by quote)" },
           { label: "Deposit Methods", value: "Bank, Card, Crypto" },
-          { label: "US Available", value: "All 50 states" },
+          { label: "US Available", value: "Verify by state" },
           { label: "Countries", value: "150+" },
           { label: "XRP Withdrawal", value: "✅ (0.1 XRP fee)" },
           { label: "Cross-Asset Trading", value: "Crypto, stocks, metals" },
@@ -99,7 +98,7 @@ export default function BuyXRPOnUpholdPage() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatPill label="XRP Loyalty" value="Never delisted" delay={0} />
-          <StatPill label="Spread" value="0.8-1.2%" delay={0.06} />
+          <StatPill label="Spread" value="variable by quote" delay={0.06} />
           <StatPill label="States" value="50/50" delay={0.12} />
           <StatPill label="Assets" value="250+" delay={0.18} />
         </div>
@@ -117,7 +116,7 @@ export default function BuyXRPOnUpholdPage() {
                 { title: "Cross-Asset Trading", desc: "Trade between 250+ assets: crypto, stocks, precious metals, fiat currencies" },
                 { title: "Instant Swaps", desc: "Swap any asset for any other — XRP to gold, Bitcoin to stocks, all in one place" },
                 { title: "Transparent Reserves", desc: "Uphold publishes real-time reserve data showing their asset backing" },
-                { title: "US-Wide Access", desc: "Available in all 50 states including restricted states like NY" },
+                { title: "Regional Access", desc: "Verify XRP trading, withdrawals, and payment methods for the user's state and account." },
                 { title: "XRP Withdrawals", desc: "Full withdrawal support to self-custody wallets — not just a trading IOU" },
               ]} />
             </div>
@@ -135,7 +134,7 @@ export default function BuyXRPOnUpholdPage() {
 
             <div className="mt-6">
               <HighlightBox title="🔗 Sign Up for Uphold" variant="accent">
-                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Create your Uphold account →</a> The platform that never abandoned XRP. Buy XRP in minutes — available in all 50 US states.</p>
+                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Review Uphold →</a> Confirm current regional eligibility, the complete XRP quote, payment fees, and withdrawal support before depositing.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -160,7 +159,7 @@ export default function BuyXRPOnUpholdPage() {
 
             <div className="mt-6">
               <HighlightBox title="🚀 Buy XRP Now" variant="accent">
-                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Buy XRP on Uphold →</a> Simple, fast, and available in all 50 states.</p>
+                <p><a href="https://uphold.com/" className="text-xrp-accent underline decoration-xrp-accent/30 font-bold" target="_blank" rel="noopener noreferrer">Review XRP on Uphold →</a> Verify regional availability, pricing, and transfers at the point of use.</p>
               </HighlightBox>
             </div>
           </RevealSection>
@@ -175,8 +174,8 @@ export default function BuyXRPOnUpholdPage() {
               <DataTable
                 headers={["Cost Type", "Uphold", "Coinbase", "Kraken Pro"]}
                 rows={[
-                  ["Trading Fee", "0% (spread-based)", "0.5-4%", "0.16-0.26%"],
-                  ["Spread", "0.8-1.2%", "~0.5%", "~0.1%"],
+                  ["Trading Fee", "0% (spread-based)", "0.5-4%", "Variable"],
+                  ["Spread", "variable by quote", "~0.5%", "~0.1%"],
                   ["Effective Total", "~1%", "~1.5-4%", "~0.3%"],
                   ["Deposit (Bank)", "Free", "Free", "Free"],
                   ["Deposit (Card)", "3.99%", "2.49%", "3.75%"],

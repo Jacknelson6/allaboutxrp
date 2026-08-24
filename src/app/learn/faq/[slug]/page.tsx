@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${faq.question} — XRP FAQ`,
     description: faq.answer.slice(0, 160),
-    robots: { index: false, follow: true },
+    alternates: { canonical: `/learn/faq/${slug}` },
     openGraph: {
       title: `${faq.question} | AllAboutXRP FAQ`,
       description: faq.answer.slice(0, 160),
@@ -46,6 +46,8 @@ export default async function FAQBlogPage({ params }: Props) {
     headline: faq.question,
     description: faq.answer,
     url: `https://allaboutxrp.com/learn/faq/${slug}`,
+    datePublished: "2026-02-15",
+    dateModified: "2026-08-24",
     publisher: {
       "@type": "Organization",
       name: "AllAboutXRP",
@@ -98,6 +100,7 @@ export default async function FAQBlogPage({ params }: Props) {
         <h1 className="text-3xl font-bold tracking-tight text-text-primary md:text-4xl leading-tight">
           {faq.question}
         </h1>
+        <p className="mt-3 text-sm text-text-secondary/70">Reviewed by AllAboutXRP Editorial on August 24, 2026</p>
 
         {/* Quick answer box */}
         <div className="mt-6  border border-xrp-accent/20 bg-xrp-accent/[0.03] p-5">
