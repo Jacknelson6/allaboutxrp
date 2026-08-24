@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { checkHostNormalization, fetchWithRetry } from "../lib/http-checks.mjs";
+import {
+  checkHostNormalization,
+  fetchWithRetry,
+  selectDeterministicSample,
+} from "../lib/http-checks.mjs";
 
 const response = (status, headers = {}) => new Response(null, { status, headers });
 
@@ -130,4 +134,22 @@ test("retries thrown network errors before returning success", async () => {
 
   assert.equal(result.status, 200);
   assert.equal(attempts, 3);
+});
+
+test("selects priority URLs before a deterministic spread", () => {
+  const values = Array.from({ length: 10 }, (_, index) => `/page-${index}`);
+  const sample = selectDeterministicSample(values, {
+    limit: 5,
+    priority: ["/page-8", "/page-2"],
+  });
+
+  assert.deepEqual(sample, ["/page-8", "/page-2", "/page-0", "/page-5", "/page-9"]);
+});
+
+test("sampling removes duplicates and respects bounds", () => {
+  assert.deepEqual(
+    selectDeterministicSample(["/a", "/a", "/b"], { limit: 10, priority: ["/b"] }),
+    ["/a", "/b"],
+  );
+  assert.deepEqual(selectDeterministicSample(["/a"], { limit: 0 }), []);
 });

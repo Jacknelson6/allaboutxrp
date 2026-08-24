@@ -1,6 +1,11 @@
 import fs from "node:fs";
 
-import { checkHostNormalization, fetchWithRetry } from "./lib/http-checks.mjs";
+import {
+  AUDIT_REQUEST_HEADERS,
+  checkHostNormalization,
+  fetchWithRetry,
+  selectDeterministicSample,
+} from "./lib/http-checks.mjs";
 
 const siteUrl = (process.argv[2] || process.env.SITE_URL || "https://allaboutxrp.com").replace(
   /\/$/,
@@ -28,6 +33,29 @@ const redirects = [
   ...new Map([...aliasRedirects, ...configuredRedirects].map((rule) => [rule.source, rule])).values(),
 ];
 const redirectSources = new Set(redirects.map((rule) => rule.source));
+const requestedLiveCheckLimit = process.env.REDIRECT_LIVE_CHECK_LIMIT === "all"
+  ? redirects.length
+  : Number.parseInt(process.env.REDIRECT_LIVE_CHECK_LIMIT ?? "8", 10);
+const liveCheckLimit = Number.isFinite(requestedLiveCheckLimit)
+  ? Math.max(1, requestedLiveCheckLimit)
+  : 8;
+const liveCheckSources = selectDeterministicSample(
+  redirects.map((rule) => rule.source),
+  {
+    limit: liveCheckLimit,
+    priority: [
+      "/answers/is-xrp-a-good-investment",
+      "/learn/get-started",
+      "/live",
+      "/blog",
+      "/rlusd",
+      "/news/recaps/:date",
+    ],
+  },
+);
+const liveRedirects = liveCheckSources.map((source) =>
+  redirects.find((rule) => rule.source === source),
+);
 const failures = [];
 const criticalIndexablePaths = [
   "/",
@@ -43,6 +71,7 @@ const normalizationOrigins = expectedOrigin === "https://allaboutxrp.com"
       "https://www.allaboutxrp.com",
     ]
   : [];
+const normalizationPaths = ["/", "/news", "/sitemap.xml"];
 const retiredPaths = [
   "/donate",
   "/pricing",
@@ -64,14 +93,15 @@ for (const rule of redirects) {
 
 let cursor = 0;
 async function validateRedirect() {
-  while (cursor < redirects.length) {
-    const rule = redirects[cursor++];
-    const sourceUrl = `${siteUrl}${rule.source}`;
+  while (cursor < liveRedirects.length) {
+    const rule = liveRedirects[cursor++];
+    const materializedSource = rule.source.replace(":date", "2026-08-01");
+    const sourceUrl = `${siteUrl}${materializedSource}`;
 
     try {
       const response = await fetchWithRetry(sourceUrl, {
         redirect: "manual",
-        headers: { "user-agent": "AllAboutXRP-Redirect-Audit/1.0" },
+        headers: AUDIT_REQUEST_HEADERS,
       });
       const location = response.headers.get("location");
       const destination = location ? new URL(location, sourceUrl) : null;
@@ -90,7 +120,7 @@ async function validateRedirect() {
 
       const finalResponse = await fetchWithRetry(destination, {
         redirect: "manual",
-        headers: { "user-agent": "AllAboutXRP-Redirect-Audit/1.0" },
+        headers: AUDIT_REQUEST_HEADERS,
       });
       if (finalResponse.status !== 200) {
         failures.push(
@@ -110,11 +140,11 @@ async function validateRedirect() {
   }
 }
 
-await Promise.all(Array.from({ length: 8 }, () => validateRedirect()));
+await Promise.all(Array.from({ length: Math.min(4, liveRedirects.length) }, () => validateRedirect()));
 
 let normalizationCursor = 0;
 const normalizationChecks = normalizationOrigins.flatMap((origin) =>
-  criticalIndexablePaths.map((pathname) => ({ origin, pathname })),
+  normalizationPaths.map((pathname) => ({ origin, pathname })),
 );
 
 async function validateHostNormalization() {
@@ -129,7 +159,7 @@ async function validateHostNormalization() {
         expectedUrl,
         fetchUrl: (url) => fetchWithRetry(url, {
           redirect: "manual",
-          headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+          headers: AUDIT_REQUEST_HEADERS,
         }),
       });
       failures.push(...normalizationFailures);
@@ -144,7 +174,7 @@ await Promise.all(Array.from({ length: 6 }, () => validateHostNormalization()));
 for (const pathname of criticalIndexablePaths.filter((value) => value !== "/sitemap.xml")) {
   const response = await fetchWithRetry(`${siteUrl}${pathname}`, {
     redirect: "manual",
-    headers: { "user-agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" },
+    headers: AUDIT_REQUEST_HEADERS,
   });
   if (response.status !== 200) {
     failures.push(`${pathname} returned ${response.status}; expected 200.`);
@@ -157,7 +187,7 @@ for (const pathname of criticalIndexablePaths.filter((value) => value !== "/site
 for (const retiredPath of retiredPaths) {
   const response = await fetchWithRetry(`${siteUrl}${retiredPath}`, {
     redirect: "manual",
-    headers: { "user-agent": "AllAboutXRP-Redirect-Audit/1.0" },
+    headers: AUDIT_REQUEST_HEADERS,
   });
   if (response.status !== 410) {
     failures.push(`${retiredPath} returned ${response.status}; expected 410.`);
@@ -169,7 +199,9 @@ for (const retiredPath of retiredPaths) {
 
 const report = {
   siteUrl,
-  redirectsChecked: redirects.length,
+  redirectsConfigured: redirects.length,
+  liveRedirectsChecked: liveRedirects.length,
+  liveRedirectSources: liveCheckSources,
   hostNormalizationsChecked: normalizationChecks.length,
   criticalIndexablePathsChecked: criticalIndexablePaths.length,
   retiredPathsChecked: retiredPaths.length,

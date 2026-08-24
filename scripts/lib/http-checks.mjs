@@ -1,5 +1,40 @@
 const RETRYABLE_STATUSES = new Set([429, 500, 502, 503, 504]);
 
+export const AUDIT_REQUEST_HEADERS = {
+  "user-agent":
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+  "x-aaxrp-audit": "production-seo-validation",
+};
+
+export function selectDeterministicSample(values, { limit, priority = [] }) {
+  const uniqueValues = [...new Set(values)];
+  const cappedLimit = Math.max(0, Math.min(Math.floor(limit), uniqueValues.length));
+  if (cappedLimit === 0) return [];
+  if (cappedLimit === uniqueValues.length) return uniqueValues;
+
+  const valueSet = new Set(uniqueValues);
+  const selected = [];
+  const selectedSet = new Set();
+  const add = (value) => {
+    if (!valueSet.has(value) || selectedSet.has(value) || selected.length >= cappedLimit) return;
+    selected.push(value);
+    selectedSet.add(value);
+  };
+
+  priority.forEach(add);
+
+  const candidates = uniqueValues.filter((value) => !selectedSet.has(value));
+  const remaining = cappedLimit - selected.length;
+  for (let index = 0; index < remaining; index += 1) {
+    const candidateIndex = remaining === 1
+      ? 0
+      : Math.round((index * (candidates.length - 1)) / (remaining - 1));
+    add(candidates[candidateIndex]);
+  }
+
+  return selected;
+}
+
 export async function fetchWithRetry(
   url,
   options,

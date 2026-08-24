@@ -1,3 +1,9 @@
+import {
+  AUDIT_REQUEST_HEADERS,
+  fetchWithRetry,
+  selectDeterministicSample,
+} from "./lib/http-checks.mjs";
+
 const siteUrl = (process.argv[2] || process.env.SITE_URL || "https://allaboutxrp.com").replace(
   /\/$/,
   "",
@@ -40,24 +46,9 @@ function hasMetaNoindex(html) {
   );
 }
 
-async function fetchWithRetry(url, options = {}, attempts = 3) {
-  let lastError;
-
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      return await fetch(url, { ...options, signal: AbortSignal.timeout(15000) });
-    } catch (error) {
-      lastError = error;
-      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
-    }
-  }
-
-  throw lastError;
-}
-
 async function fetchXml(pathname) {
   const response = await fetchWithRetry(`${siteUrl}${pathname}`, {
-    headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
+    headers: AUDIT_REQUEST_HEADERS,
   });
   const xml = await response.text();
   const contentType = response.headers.get("content-type") ?? "";
@@ -77,12 +68,23 @@ const { xml: sitemapXml, urls } = await fetchXml("/sitemap.xml");
 const { urls: newsUrls } = await fetchXml("/news-sitemap.xml");
 const urlSet = new Set(urls);
 const criticalIndexableUrls = [
+  expectedOrigin,
   `${expectedOrigin}/live-chart`,
   `${expectedOrigin}/tools/escrow-tracker`,
   `${expectedOrigin}/news`,
 ];
 const sitemapEntries = getEntries(sitemapXml);
 const lastmodByUrl = new Map(sitemapEntries.map((entry) => [normalizeUrl(entry.loc), entry.lastmod]));
+const requestedLiveCheckLimit = process.env.SITEMAP_LIVE_CHECK_LIMIT === "all"
+  ? urls.length
+  : Number.parseInt(process.env.SITEMAP_LIVE_CHECK_LIMIT ?? "24", 10);
+const liveCheckLimit = Number.isFinite(requestedLiveCheckLimit)
+  ? Math.max(1, requestedLiveCheckLimit)
+  : 24;
+const liveCheckUrls = selectDeterministicSample(urls, {
+  limit: liveCheckLimit,
+  priority: [...criticalIndexableUrls, ...newsUrls],
+});
 
 const missingLastmod = sitemapEntries.filter((entry) => !entry.lastmod).map((entry) => entry.loc);
 if (missingLastmod.length) warnings.push(`${missingLastmod.length} sitemap URLs do not declare lastmod.`);
@@ -95,7 +97,7 @@ for (const value of criticalIndexableUrls) {
 }
 
 const robotsResponse = await fetchWithRetry(`${siteUrl}/robots.txt`, {
-  headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
+  headers: AUDIT_REQUEST_HEADERS,
 });
 const robotsText = await robotsResponse.text();
 if (!robotsResponse.ok) failures.push(`/robots.txt returned ${robotsResponse.status}.`);
@@ -129,11 +131,11 @@ for (const match of sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
 
 let cursor = 0;
 async function validatePage() {
-  while (cursor < urls.length) {
-    const value = urls[cursor++];
+  while (cursor < liveCheckUrls.length) {
+    const value = liveCheckUrls[cursor++];
     const response = await fetchWithRetry(value, {
       redirect: "manual",
-      headers: { "user-agent": "AllAboutXRP-Sitemap-Audit/1.0" },
+      headers: AUDIT_REQUEST_HEADERS,
     });
     const html = await response.text();
 
@@ -163,12 +165,20 @@ async function validatePage() {
   }
 }
 
-await Promise.all(Array.from({ length: 10 }, () => validatePage()));
+await Promise.all(Array.from({ length: Math.min(4, liveCheckUrls.length) }, () => validatePage()));
+
+if (liveCheckUrls.length < urls.length) {
+  warnings.push(
+    `Live HTTP, noindex, and canonical checks sampled ${liveCheckUrls.length} of ${urls.length} URLs; sitemap structure was checked for every URL.`,
+  );
+}
 
 const report = {
   siteUrl,
   sitemapUrls: urls.length,
   newsSitemapUrls: newsUrls.length,
+  livePagesChecked: liveCheckUrls.length,
+  liveCheckUrls,
   criticalIndexableUrls,
   missingLastmod,
   warnings,

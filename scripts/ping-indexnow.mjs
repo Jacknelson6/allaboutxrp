@@ -4,13 +4,15 @@
  * discovery by Bing and other participating search engines.
  */
 
+import { AUDIT_REQUEST_HEADERS } from "./lib/http-checks.mjs";
+
 const SITEMAP_URL = "https://allaboutxrp.com/sitemap.xml";
 const INDEXNOW_KEY = "b322e7df8c6466108fb262799fdb4273";
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 
 async function main() {
   console.log("Fetching production sitemap...");
-  const response = await fetch(SITEMAP_URL);
+  const response = await fetch(SITEMAP_URL, { headers: AUDIT_REQUEST_HEADERS });
   if (!response.ok) {
     throw new Error(`Failed to fetch sitemap: ${response.status}`);
   }
