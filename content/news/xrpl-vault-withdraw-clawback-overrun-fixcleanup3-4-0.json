@@ -1,0 +1,281 @@
+{
+  "slug": "xrpl-vault-withdraw-clawback-overrun-fixcleanup3-4-0",
+  "title": "XRPLF Proposes Truncated Share Math for Vault Withdrawals and Clawbacks",
+  "description": "Open rippled PR #8075 would truncate shares in asset-denominated VaultWithdraw and VaultClawback paths so the round trip cannot deliver more than requested.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-24T05:15:44-05:00",
+  "modifiedAt": "2026-08-24T05:15:44-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-vault-overrun-assay-editorial.webp",
+  "imageAlt": "A pale-gold assay sieve holds one small cobalt glass fragment above an ivory tray containing three cobalt beads on a sunlit limestone bench",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "vault-overrun-assay-sieve-still-life",
+  "imageSetting": "A quiet white-limestone gem-assay room with one long matte ivory stone bench under clean late-afternoon cross-light from a low north-facing slit, viewed from a high rear-left three-quarter angle with broad untouched negative space toward the upper right",
+  "imageMetaphor": "A fine pale-gold assay sieve lets only complete cobalt glass beads fall into a lower ivory catch tray while one fractional fragment remains above the mesh, representing truncating shares so an asset-denominated VaultWithdraw or VaultClawback cannot return more than requested",
+  "imagePrompt": "Create a finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape, using the aaxrp-classical-ascii-v2 Sublime Classical Oil system. Use the references for painterly finish, rich classical oil modeling, glazing, jewel-like cobalt and pale gold, and crisp sculptural edges only. Do not copy any reference subject, setting, people, animal, architecture, or composition. Explain this exact story through one sparse, physically believable still life: an open XRPLF rippled proposal would change asset-denominated Single Asset VaultWithdraw and VaultClawback conversions from round-to-nearest shares to truncated shares so the round trip cannot deliver more assets than requested. Show a fine pale-gold assay sieve with a shallow rectangular ivory catch tray directly beneath it on a broad matte ivory limestone bench. Three complete cobalt glass beads have passed through the mesh into the tray, while one visibly smaller cobalt glass fragment remains on the upper mesh, making the fractional remainder physically clear. Add one small separate ivory sample tile beside the tray as a quiet reference boundary. Exactly four deliberate visible object groups, tightly connected by gravity and contact shadows, no floating parts. The image must read as a controlled assay of whole units versus a retained fraction, not as a generic laboratory or finance graphic. Use a new setting and viewpoint: a quiet white-limestone gem-assay room with one long matte ivory stone bench, clean late-afternoon cross-light entering from a low north-facing slit, viewed from a high rear-left three-quarter angle so the sieve and tray sit in the lower-left quadrant and broad untouched ivory negative space opens toward the upper-right. Use warm ivory and pale gold in the light, cobalt and water-blue glass in the shadows, with one extremely restrained vermilion speck at the edge of the retained fragment only if needed. Luminous academic classical-revival oil, polished jewel-toned finish, crisp modeling, rich glazing, smooth enamel-like transitions, selective impasto on gold edge, glass, and limestone, physically consistent cast shadows. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions, never as a visible pattern. Never apply all-over ASCII, dithering, halftone, or pixel texture. No readable text, letters, digits, currency symbols, logos, XRP symbols, literal crypto coins, dashboards, charts, screens, computers, circuitry, cyber cubes, politicians, banks, buildings, Greek temples, columns, robes, people, animals, bridges, locks, keys, gates, rails, wheels, ratchets, gauges, scales, hourglasses, ribbons, capsules, prisms, manifolds, shutters, folios, compasses, amphorae, ledgers with text, measuring rulers, balance beams, calipers, punches, blades, shears, combs, counters, archive drawers, record tablets, architectural panoramas, fantasy ruins, photographic realism, sepia, muddy gray, duplicated objects, impossible geometry, or content leakage from the references. Preserve the exact sparse object count, high rear-left viewpoint, broad negative space, and clean assay mechanism.",
+  "keywords": [
+    "XRP Ledger",
+    "VaultWithdraw",
+    "VaultClawback",
+    "Single Asset Vault",
+    "fixCleanup3_4_0",
+    "rippled",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "Open XRPLF rippled PR #8075 would change asset-denominated VaultWithdraw and VaultClawback conversion to truncate shares under fixCleanup3_4_0. [1][2]",
+    "In the PR's 7-assets, 5-shares example, a request for 4 assets can round through 3 shares to 4.2 assets today, while truncation produces 2 shares and 2.8 assets. [1]",
+    "The share-denominated path is not the target. If truncation produces zero shares, the existing tecPRECISION_LOSS behavior remains the failure boundary. [1][3]",
+    "The proposal is open on the develop branch, not a stable release or proof of enabled Mainnet vault activity. Independent audit and attackathon records establish a security-relevant surface, not a live exploit or adoption event. [1][7][8][9]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: an open protocol guard, not a live Mainnet fix",
+      "paragraphs": [
+        "XRPLF has an open rippled pull request that would floor the share calculation used by asset-denominated VaultWithdraw and VaultClawback calls when fixCleanup3_4_0 is active. Its stated example turns a requested 4 assets from a 7-assets/5-shares vault into a 2.8-asset maximum, instead of 4.2. The proposal is not in a release or live on Mainnet. [1][7][10]",
+        "Pull request #8075, titled \"fix: Prevent vault clawback and withdraw overrun,\" is the newest official primary record for this angle. GitHub shows it open, with seven commits targeting the rippled develop branch as of August 24, 2026. The proposed change is narrow: in the asset-denominated branch, it selects TruncateShares::Yes when fixCleanup3_4_0 is enabled. The share-denominated branch is left unchanged. [1][2]",
+        "That status language is the central fact. A pull request can document intended protocol behavior and include passing maintainer tests without being part of a stable binary, an enabled amendment, or a validated Mainnet transaction. The reviewed records contain no evidence that this specific correction has shipped to public validators, been activated by consensus, or produced a measurable change in vault balances, lending volume, XRP demand, or price. [1][7][10]",
+        "The story matters because a conversion that returns more than the requested asset amount is not ordinary rounding trivia. It creates a mismatch between what a caller asks the ledger to deliver and what the round trip actually transfers. The proposed floor is therefore an accounting boundary for developers and operators, not an announcement of a new XRP product. [1][3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://github.com/XRPLF/rippled/commit/e6d156752a9212e0cfcc180b7020e94184031cd9",
+        "https://github.com/XRPLF/rippled/commit/1613cf8e3b297a6161ce03398143ff836624e3d1",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "The overrun is a round-trip problem in asset-denominated requests",
+      "paragraphs": [
+        "A Single Asset Vault holds one underlying asset and issues shares that represent proportional claims. The exchange rate depends on the vault's total assets and total shares, so a request can move between two granular systems: the caller names an asset amount, and the ledger calculates the share amount required to deliver it. The official documentation describes that asset-to-share conversion as part of the vault's withdrawal mechanics. [1][4][5]",
+        "PR #8075 isolates the asset-denominated branch. Its example uses assetsTotal equal to 7 and sharesTotal equal to 5. A request for 4 assets requires the intermediate calculation 4 x 5 / 7, or 20/7. With round-to-nearest behavior, that becomes 3 shares. Converting 3 shares back at the same vault state gives 7 x 3 / 5, or 4.2 assets. The round trip has overshot the caller's request by 0.2 asset units. [1]",
+        "[Derived arithmetic] The arithmetic is simple, but the direction matters. Rounding the intermediate share count upward is what creates the overrun. Truncating 20/7 instead produces 2 shares, and 7 x 2 / 5 produces 2.8 assets. That result is below the requested amount, but it cannot exceed it. The proposal chooses the conservative side of the boundary because an under-delivery can be handled as an explicit result, while an over-delivery changes the amount transferred. [1]",
+        "The example is not a claim that every vault has a 7-to-5 ratio or that every withdrawal currently over-delivers. It is a reproducible illustration from the official pull request of how discrete share math can create an overshoot under a particular vault state. Real outcomes depend on the asset, totals, transfer fees, loss accounting, permissions, liquidity, and the exact transaction path. [1][3]"
+      ],
+      "table": {
+        "caption": "The 7:5 round trip described in XRPLF PR #8075",
+        "headers": ["Step", "Round-to-nearest path", "Truncated path"],
+        "rows": [
+          ["Requested asset amount", "4 asset units", "4 asset units"],
+          ["Intermediate shares", "round(20/7) = 3 shares", "floor(20/7) = 2 shares"],
+          ["Asset amount after conversion back", "7 x 3 / 5 = 4.2 asset units", "7 x 2 / 5 = 2.8 asset units"],
+          ["Direction versus request", "0.2 asset units over", "1.2 asset units under"]
+        ],
+        "sourceNote": "Source: XRPLF rippled PR #8075, opened August 21 and updated August 24, 2026. The calculations reproduce the pull request's example and do not describe a price, a universal vault ratio, or a Mainnet observation. [1]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw"
+      ]
+    },
+    {
+      "heading": "Why the same conversion can affect Withdraw and Clawback differently",
+      "paragraphs": [
+        "VaultWithdraw is the user-facing path in which a depositor or holder asks to redeem a specified amount. When the request is denominated in the underlying asset, the ledger must find a share debit that can fund that amount. PR #8075 says the old round-to-nearest step can make the final asset transfer strictly larger than the request. That is a correctness problem even when the caller is authorized and the vault remains solvent. [1][3]",
+        "The pull request identifies a second consequence for VaultWithdraw. A preclaim check can validate the requested destination amount against trust-line or Multi-Purpose Token limits, but a later rounded-up conversion can produce a larger transfer. The proposal therefore describes a possible path around that preclaim boundary. This is a code-level rationale in an open pull request, not evidence that a public account used the path or that a live exploit occurred. [1]",
+        "VaultClawback reverses the direction of the operational relationship. The official reference says an issuer can force redemption of a holder's vault shares and receive the underlying issued asset, while the implementation performs the withdrawal on the holder's behalf. If the asset-denominated clawback request is rounded upward, the issuer-side operation can remove more of the specified asset amount than intended. The same truncation rule keeps the actual transfer at or below the request. [1][6]",
+        "The distinction is important for affected readers. A depositor may see an unexpected excess payout, while an issuer or compliance operator may see an excessive recovery from a holder. Neither sentence means that an unauthorized party can call either transaction. The proposal addresses conversion size after the ordinary authorization and vault checks, and it explicitly leaves share-denominated conversion outside this change. [1][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults"
+      ]
+    },
+    {
+      "heading": "What the proposed code changes, and what it leaves alone",
+      "paragraphs": [
+        "The implementation changes the asset-denominated branches in VaultWithdraw and VaultClawback so the share conversion uses TruncateShares::Yes under the fixCleanup3_4_0 gate. The PR does not introduce a new amendment, a new transaction type, or a general rounding policy for every XRPL transfer. It is a compatibility-gated correction to two vault operations. [1][2]",
+        "The conservative result has a clear small-value edge case. If truncation calculates zero shares for a positive requested amount, the existing precision-loss boundary remains relevant. PR #8075 says the path continues to return tecPRECISION_LOSS when the requested asset amount cannot be represented by a positive share debit. That prevents the ledger from pretending it can satisfy a request with no share movement, rather than silently converting the request into an over-delivery. [1][5]",
+        "The pull request also adds and updates regression coverage for the two operations, including the 7:5 round-trip reproductions and amendment-gated behavior. Those tests are evidence that maintainers exercised the stated boundary in code. They are not a production incident count, a security certification, or a guarantee that every combination of asset precision, fees, loss, freeze, and authorization has been covered. [1]",
+        "The practical design choice is easy to summarize: if the ledger must choose between returning slightly less than an asset-denominated request and returning more, the proposed path chooses less. That may require an application to retry with a different amount or inform a user that the requested precision is unavailable. It is more explicit than allowing a share count rounded upward to create an unexpected excess transfer. [Bounded inference][1]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://github.com/XRPLF/rippled/commit/e6d156752a9212e0cfcc180b7020e94184031cd9",
+        "https://github.com/XRPLF/rippled/commit/1613cf8e3b297a6161ce03398143ff836624e3d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback"
+      ]
+    },
+    {
+      "heading": "This is distinct from the earlier Vault precision fixes",
+      "paragraphs": [
+        "The new proposal is close enough to recent XRPL vault coverage that the difference deserves a direct explanation. The earlier VaultWithdraw precision report on AllAboutXRP covered a fixed-share request whose computed asset value rounded down to zero. That path moved toward an explicit tecPRECISION_LOSS result for an unrepresentable payout. PR #8075 covers the opposite direction: an asset-denominated request whose intermediate share count rounds up and can return too much. [1][5]",
+        "The earlier VaultDeposit report covered another boundary, where a share credit could be representable even when the corresponding asset debit rounded to zero. That is a deposit accounting case, not a withdrawal or clawback overrun. Linking these reports is useful for builders because the three paths share conversion vocabulary but have different caller intent, balance movement, and safe failure behavior. [1][4]",
+        "This distinction also avoids turning every fixCleanup3_4_0 change into one undifferentiated security headline. The amendment gate is a common release boundary, but the code paths, failure codes, and user-visible consequences are different. A reader evaluating an integration should start with the transaction type and denomination of the request, then check the exact release and amendment state rather than assume one vault patch changes all operations. [1][5][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://github.com/XRPLF/rippled/commit/e6d156752a9212e0cfcc180b7020e94184031cd9",
+        "https://github.com/XRPLF/rippled/commit/1613cf8e3b297a6161ce03398143ff836624e3d1",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw"
+      ]
+    },
+    {
+      "heading": "Independent security context supports caution, not an exploit claim",
+      "paragraphs": [
+        "Halborn's independent Single Asset Vault assessment for Ripple reviewed the vault ledger entry and the Create, Set, Delete, Deposit, Withdraw, and Clawback transaction surface. Its summary records findings across authorization, arithmetic, transfer behavior, and asset-management controls, with the page last updated June 27, 2025. That history makes rounding and invariant behavior a legitimate security-review topic, but it does not independently confirm PR #8075 or describe a current exploit. [8]",
+        "Immunefi's XRPL Lending Protocol Attackathon page provides separate context. It describes the proposed fixed-term lending protocol and lists a known VaultWithdraw issue involving an invariant failure when a fee matches a withdrawal amount, last updated October 10, 2025. That record predates the current pull request and concerns a different condition. It shows why withdrawal edge cases receive adversarial attention, not that the overrun case has been exploited in production. [9]",
+        "The responsible editorial conclusion is therefore bounded. [Confirmed fact] XRPLF's open PR describes a round-trip overrun and proposes truncation. [Bounded inference] The change should make the maximum delivered amount easier to reason about because the final amount cannot exceed the requested asset amount in the affected branch. [Unresolved uncertainty] The records reviewed do not establish a live incident, affected customer, loss amount, or public Mainnet exploit. [1][8][9]"
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+        "https://github.com/XRPLF/rippled/pull/8075"
+      ]
+    },
+    {
+      "heading": "Release and Mainnet status: the gate is not activated by a pull request",
+      "paragraphs": [
+        "PR #8075 is open and targets develop, so its proposed behavior has not crossed the stable-release boundary. The latest commit listed on the pull request was updated August 24, 2026, but the record still describes a reviewable change rather than a tagged release. The branch location matters because code that exists on develop is not automatically present in the version a public validator is running. [1][2]",
+        "The official Known Amendments page lists protocol features and separates amendments in development from those enabled on a network. Its status is a useful map of the pipeline, but it is manually maintained and should not be treated as a real-time validator census. The stronger claim remains the one supported by the PR itself: fixCleanup3_4_0 is a gate in proposed code, not proof that the gate is active on Mainnet. [1][7]",
+        "A public XRPL Clio endpoint checked at 10:09 UTC on August 24 reported rippled 3.3.0 and showed SingleAssetVault and LendingProtocol as supported but disabled. That snapshot is consistent with the documentation boundary, while also carrying the normal limitation of one endpoint at one time. It does not answer whether a future release or a different network has changed status after the check. [10]",
+        "There is no defensible basis here to say that XRPL lending is live, that a named institution is using the proposed fix, or that XRP has gained demand from it. Those would require a stable release record, amendment support and activation evidence, validated transactions, and independent deployment or balance data. None of those records was found for PR #8075 in this review. [1][7][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://github.com/XRPLF/rippled/commit/1613cf8e3b297a6161ce03398143ff836624e3d1",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, issuers, and XRP readers",
+      "paragraphs": [
+        "For developers, the immediate task is to model the denomination and the failure boundary. A client submitting an asset-denominated VaultWithdraw should not assume that a successful request always returns the exact requested amount, and it should distinguish a bounded under-delivery or tecPRECISION_LOSS result from a missing vault, insufficient liquidity, freeze, authorization, transfer-fee, or network error. Tests should cover both amendment states and both VaultWithdraw and VaultClawback paths. [1][3][5]",
+        "For vault builders and lending integrators, the proposal changes what a safe maximum means. Under the affected branch, a successful conversion should not return more than the requested underlying asset, but it may return less when the share grid cannot represent the request exactly. [Bounded inference] That should reduce ambiguity at the application boundary. The reviewed records do not quantify retries, user impact, fees, or economic performance after the patch. [1][8][9]",
+        "For issuers and compliance teams, VaultClawback remains a controlled protocol operation, not a general freeze bypass. The official reference describes it as a forced redemption of vault shares into the issuer's underlying issued asset, and the PR changes only the amount conversion in the asset-denominated branch. Ordinary authorization, asset type, freeze, liquidity, and vault-state checks remain separate questions. [1][6]",
+        "For node operators and data providers, the relevant action is release tracking. Pin the exact commit when testing, record whether the feature gate is supported and enabled, and keep develop, Devnet, and Mainnet observations in separate datasets. A parser or alert that treats a pull request, a test result, and a validated transaction as the same status will overstate deployment. [1][7][10]",
+        "For XRP holders and market readers, the material takeaway is about protocol correctness, not a market catalyst. The primary record contains no price, issuance, institutional allocation, customer, borrower, or volume claim. A more conservative share conversion can matter to future vault software while having no demonstrated effect on XRP demand today. [1][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF has an open PR, #8075, that changes the asset-denominated share conversion in VaultWithdraw and VaultClawback to truncate shares when fixCleanup3_4_0 is active. The pull request gives a 7-assets/5-shares example in which a request for 4 assets can produce 4.2 assets with round-to-nearest behavior and 2.8 assets with truncation. [1]",
+        "[Confirmed fact] The share-denominated branch is not the target, and the pull request says a zero-share result remains a precision-loss condition. [Confirmed fact] The proposal includes regression coverage and does not claim a new amendment, stable release, Mainnet activation, or customer deployment. [1][2][5]",
+        "[Bounded inference] Truncation makes the maximum delivered amount easier to reason about in the affected asset-denominated paths because the calculated share amount cannot round upward past the request. It may also require callers to accept an under-delivery or retry with a different amount. These are consequences of the stated arithmetic, not measured production outcomes. [1]",
+        "[Unresolved uncertainty] The records reviewed do not show when PR #8075 will merge, whether it will land unchanged, which stable release would contain it, when fixCleanup3_4_0 could activate, or whether any public vault has encountered the described overrun. The independent audit and attackathon pages do not supply those missing facts. [1][7][8][9][10]",
+        "The defensible conclusion is modest but useful: XRPLF is proposing a precise upper bound for two future or separately gated vault operations. It is a meaningful protocol-correctness change for builders who convert between assets and shares. It is not evidence of a live lending market, an exploit, institutional adoption, or a change in XRP market structure. [1][7][8][9][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8075",
+        "https://github.com/XRPLF/rippled/commit/e6d156752a9212e0cfcc180b7020e94184031cd9",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Whether XRPLF merges, revises, or closes PR #8075, and whether the relevant commits appear on develop or a tagged rippled release.",
+    "A release note that documents the fixCleanup3_4_0 compatibility boundary and the final VaultWithdraw and VaultClawback rounding behavior.",
+    "Feature responses and Known Amendments updates that show SingleAssetVault, LendingProtocol, and fixCleanup3_4_0 support and enabled states separately.",
+    "Regression evidence for asset-denominated requests, overrun prevention, zero-share precision loss, transfer fees, frozen assets, and ordinary authorization checks.",
+    "Validated Mainnet transactions, named vaults, public balances, borrower activity, or independent deployment records before drawing conclusions about lending adoption or XRP demand."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8075, Prevent vault clawback and withdraw overrun, opened August 21 and updated August 24, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8075",
+      "type": "primary",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "XRPLF rippled commit e6d1567, initial VaultClawback and VaultWithdraw overrun correction, published August 21, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/e6d156752a9212e0cfcc180b7020e94184031cd9",
+      "type": "primary",
+      "publishedAt": "2026-08-21"
+    },
+    {
+      "name": "XRPLF rippled commit 1613cf8, latest PR #8075 test-setup refactor, published August 24, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/1613cf8e3b297a6161ce03398143ff836624e3d1",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vault documentation, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger VaultWithdraw documentation, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/vaultwithdraw",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger VaultClawback documentation, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Halborn Single Asset Vault security assessment for Ripple, last updated June 27, 2025",
+      "url": "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+      "type": "supporting",
+      "publishedAt": "2025-06-27"
+    },
+    {
+      "name": "Immunefi XRPL Lending Protocol Attackathon, dated program page checked August 24, 2026",
+      "url": "https://immunefi.com/audit-competition/xrpl-ripple-attackathon/information/",
+      "type": "supporting"
+    },
+    {
+      "name": "Public XRPL Clio feature and server snapshot, checked August 24, 2026 at 10:09 UTC",
+      "url": "https://s1.ripple.com:51234",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-vaultwithdraw-precision-loss-fixcleanup3-4-0",
+      "label": "XRPL's earlier VaultWithdraw precision fix",
+      "topic": "Related protocol correctness",
+      "description": "Compare the fixed-share zero-output case with this asset-denominated overrun proposal."
+    },
+    {
+      "href": "/news/xrpl-vaultdeposit-no-op-precision-fixcleanup3-4-0",
+      "label": "XRPL's VaultDeposit precision fix",
+      "topic": "Related vault accounting",
+      "description": "See why a deposit-side zero debit is a different conversion boundary."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XRPL Lending Protocol voting status",
+      "topic": "Activation context",
+      "description": "Separate lending amendment consensus from code-level vault corrections."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "XRP lending platforms",
+      "topic": "Lending context",
+      "description": "Review lending models before treating a gated protocol patch as live credit activity."
+    },
+    {
+      "href": "/learn/xrpl-trust-lines-explained",
+      "label": "XRPL trust lines explained",
+      "topic": "Asset mechanics",
+      "description": "Review the issued-asset controls that remain separate from this rounding change."
+    }
+  ]
+}
