@@ -1,0 +1,264 @@
+{
+  "slug": "xrpl-online-deletion-ledger-gap-guard",
+  "title": "XRPLF Merges Online-Deletion Guard for Recent Ledger Gaps",
+  "description": "XRPLF merged PR #5531 into the rippled develop branch on August 24, adding a bounded pause for online deletion when recent ledgers are missing. The safeguard is not yet a stable release or Mainnet incident report.",
+  "category": "XRP Ledger Infrastructure",
+  "publishedAt": "2026-08-25T06:11:00-05:00",
+  "modifiedAt": "2026-08-25T06:11:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-online-deletion-gap-switch-editorial.webp",
+  "imageAlt": "A raised pale-gold knife switch leaves a cobalt contact bar beside four glass ledger tiles and one empty ivory notch on a rain-lit stone bench.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "online-deletion-gap-switch-still-life",
+  "imageSetting": "A quiet roofless white-plaster switching court after a cool rain, with a broad warm-ivory stone bench under one oblique blue-hour opening, viewed from a high rear-right angle",
+  "imageMetaphor": "A raised pale-gold knife switch leaves a cobalt contact bar when one empty position interrupts four ledger tiles, showing online deletion pausing until recent ledger history is complete",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain XRPLF rippled PR #5531, merged into the develop branch on August 24, 2026, which makes local online ledger deletion pause when recent ledger history contains gaps. Use one sparse, physically believable symbolic still life in a quiet roofless white-plaster switching court after a cool rain, with a broad warm-ivory stone bench and generous untouched negative space across the upper-left. This setting, viewpoint, lighting, object set, and metaphor are new and must not resemble any registered AllAboutXRP news or guide image. Show exactly five deliberate visible object groups: one pale-gold knife switch mounted on two small ivory ceramic insulators, visibly raised and disengaged; one short dark-cobalt contact bar beneath the switch; exactly four separate translucent cobalt glass ledger tiles in a straight five-position row, leaving exactly one empty ivory notch between the second and third tiles; one thin ivory bridge marker standing beside the empty notch without filling it; and one tiny restrained vermilion status mark on the switch base. The tiles are unmarked and contain no text or symbols. View from a high rear-right three-quarter angle at shallow overhead depth, with the switch and contact bar in the lower-right quadrant, the interrupted tile row running diagonally toward center, and broad clean negative space toward the upper-left. Use clear late-evening sidelight immediately after rain, one narrow warm beam from a low west opening, cool cobalt reflected fill from wet plaster, crisp contact shadows, luminous academic classical-revival oil modeling, rich glazing, polished pale-gold metal, physically refracting cobalt glass, warm ivory stone, saturated ultramarine shadow, and selective impasto on metal edges and wet highlights. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or cast-shadow transitions and must dissolve into clean white space. Never apply all-over ASCII, dither, halftone, pixel blocks, or retro game texture. Preserve exactly one raised knife switch, one contact bar, four glass tiles with one empty position, one ivory marker, and one vermilion mark. No readable text, numerals, labels, letters, version strings, logos, XRP symbols, literal crypto coins, token coins, dashboards, screens, charts, UI, code, circuitry beyond the simple physical switch, cyber cubes, politicians, people, banks, temples, columns, robes, harbors, coasts, terraces, observatories, archives, relay cellars, quarries, salt pans, kiln yards, bookbinderies, counting boards, calibration slabs, gauges, locks, gates, keys, latches, rails, combs, calipers, ratchets, shutters, ribbons, wheels, bridges, water channels, generic server hardware, impossible buildings, fantasy ruins, mountains, extra tiles, extra switches, duplicated objects, impossible geometry, watermark, title, border, rounded frame, photographic realism, sepia cast, muddy gray, coarse halftone, or all-over dither.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "xrpld",
+    "online deletion",
+    "ledger history",
+    "node operators",
+    "XRP Ledger infrastructure",
+    "XRPLF"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #5531 into the rippled develop branch on August 24, 2026, adding a gap-aware health check to online deletion.",
+    "The new path can wait when recent ledgers are missing and abandon a stalled rotation after a bounded ledger window, preserving sync at the cost of slower deletion.",
+    "The commit adds LedgerMaster range checks, configuration validation, and tests for complete ranges and gaps, but it is not a stable release or proof of a Mainnet incident.",
+    "Operators should watch for a tagged release, upgrade guidance, and evidence that historical API services retain the intended range after a rotation pause."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: PR #5531 adds a develop-branch guard to online deletion",
+      "paragraphs": [
+        "XRPLF merged PR #5531 into the develop branch on August 24, adding a circuit breaker to xrpld online deletion. The server can now pause rotation when recent ledger history has gaps, wait for recovery, and abandon a stalled attempt after a bounded ledger window. It is a develop-branch reliability change, not a stable release or Mainnet incident.",
+        "[Confirmed fact] XRPLF’s PR #5531 was marked merged into the develop branch on August 24, 2026. The pull request describes an operational problem: some nodes can struggle to stay in sync while online deletion is doing heavy storage work, and a long-running rotation can leave gaps in recent history. The proposed remedy is to make the deletion process wait for a healthy, complete recent range. [1]",
+        "[Confirmed fact] The resulting commit, 764cbe7, changed 11 files, adding 734 lines and removing 87. The diff touches SHAMapStore, LedgerMaster, configuration comments and validation, and tests. That scope is larger than a version-string change, but it still lives in the develop branch. XRPLF’s release record lists 3.3.0, published August 6, as the latest stable rippled release reviewed for this report. [2][3]",
+        "[Editorial boundary] This is a node-storage and data-availability safeguard. It is not an amendment vote, a ledger-state change, a stable upgrade instruction, or a report that the XRP Ledger lost consensus. The wording matters because local online deletion can be paused without deleting history from the public network. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/infrastructure/configuration/data-retention/online-deletion"
+      ]
+    },
+    {
+      "heading": "Why online deletion can expose a local ledger-history gap",
+      "paragraphs": [
+        "[Confirmed fact] XRPL documentation defines online deletion as a way for an xrpld server to remove old local ledger versions so disk usage does not grow without limit. The server keeps the complete current state, including balances and settings, while older transactions and older state versions fall outside the retained window. This is local data retention, not a network-wide deletion event. [4]",
+        "[Confirmed fact] The same documentation says ledger data is deduplicated and that identifying records used only by outdated ledger versions is time-consuming and affects disk I/O and application cache. Online deletion therefore cannot run after every ledger close. It rotates storage on a schedule, while the server continues building and validating new ledgers. [4]",
+        "[Confirmed fact] XRPL’s ledger-history guide says gaps can occur when a server becomes too busy, loses network connectivity, or experiences another temporary problem. The server requests missing data from peers and verifies it with cryptographic hashes, but backfilling is a low-priority task that can take time. A server can query only the history it has locally available, even though the public ledger data exists elsewhere. [5]",
+        "[Independent context] XRPL Commons’ January 19, 2026 explanation of full-history nodes draws the same operational distinction from another direction. A full-history node preserves the entire record and is expensive to run, while other access nodes keep more limited history and are cheaper to operate. That makes the boundary in PR #5531 important: the issue is not whether every node should keep everything, but whether a node that is intentionally pruning can avoid creating avoidable holes in its recent working range. [6]",
+        "[Bounded inference] The new guard sits between those two realities. A planned retention window is normal. An accidental gap inside the recent range used for rotation is a health signal. The patch appears designed to prioritize recovery and current data continuity over finishing a deletion cycle on schedule. [1][4][5][6]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/infrastructure/configuration/data-retention/online-deletion",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://www.xrpl-commons.org/newsroom/building-a-full-history-node-on-the-xrp-ledger",
+        "https://github.com/XRPLF/rippled/pull/5531"
+      ]
+    },
+    {
+      "heading": "What the new xrpld health check actually measures",
+      "paragraphs": [
+        "[Confirmed fact] PR #5531 adds LedgerMaster::missingFromCompleteLedgerRange(), a helper that compares a requested ledger interval with the ranges the node considers complete. The online-deletion path uses that information alongside its existing synchronization and validated-ledger-age checks. If recent ledgers are missing, the storage rotation does not treat the node as healthy simply because the latest validated ledger is moving forward. [1][2]",
+        "[Confirmed fact] The commit also adds lastGoodValidatedLedger_ and lastSuccessfulHealthCheck_ state to SHAMapStoreImp, changes the health result to distinguish stopping, expiration, and continued work, and allows rendezvous to return whether the background operation finished. These changes give the deletion worker a way to wait, recognize that its wait budget has expired, and try again later rather than treating every non-success condition as a permanent shutdown. [2]",
+        "[Bounded inference] The important design shift is from a single freshness test to a compound health test. A node can be close to the network’s head and still lack one or more recent ledger versions. For an operation that rotates and removes local data, that distinction matters: freshness says the node is advancing, while complete-range coverage says the local history is usable for the interval being managed. [1][2][5]"
+      ],
+      "table": {
+        "caption": "The main boundaries introduced by the August 24 online-deletion change",
+        "headers": [
+          "Lifecycle boundary",
+          "Proposed behavior",
+          "Evidence status"
+        ],
+        "rows": [
+          [
+            "Health before rotation",
+            "Keep synchronization and age checks, then also inspect recent complete-ledger coverage",
+            "Merged develop code, August 24, 2026"
+          ],
+          [
+            "Recent-history gap",
+            "Wait rather than proceed while the range is incomplete",
+            "PR #5531 and SHAMapStoreImp diff"
+          ],
+          [
+            "Bounded wait",
+            "Use max_waiting_ledgers to abandon a stalled rotation attempt and retry later",
+            "New configuration and HealthResult::Expired path"
+          ],
+          [
+            "Verification",
+            "Exercise complete ranges, missing ranges, and repeated rotation in new tests",
+            "LedgerMaster_test and SHAMapStore_test"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF rippled PR #5531 and merged commit 764cbe7, both dated August 24, 2026. The table summarizes develop-branch behavior and is not a stable-release or Mainnet-status record. [1][2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history"
+      ]
+    },
+    {
+      "heading": "The circuit breaker changes a storage tradeoff, not the protocol",
+      "paragraphs": [
+        "[Confirmed fact] Online deletion operates on a server’s local ledger store. XRPL’s documentation distinguishes that local retention process from full-history service, where operators keep all available history and do not use online deletion. The August 24 change therefore does not alter the consensus rules, XRP balances, transaction fees, amendment status, or the public availability of the ledger on other servers. [4][5]",
+        "[Confirmed fact] The PR’s author describes the tradeoff directly: if deletion takes a long time, the node may develop recent gaps, and the new check can keep it more up to date even though online deletion may take longer to complete. That is a reliability choice, not a promise that storage costs disappear. [1]",
+        "[Confirmed fact] The example configuration adds max_waiting_ledgers. It describes the setting as the maximum number of ledgers that may validate while online deletion waits for the node to become fully synchronized. If that budget is exceeded, the current rotation attempt gives up and tries again later. The setting applies to wait-triggering cases such as going out of sync or missing ledgers, while ordinary forward progress is not meant to be penalized. [2]",
+        "[Unresolved uncertainty] The primary records do not quantify how often this condition occurs on production nodes, how much extra disk space a paused rotation may consume, or how quickly a later attempt normally succeeds. They also do not publish a benchmark showing that the new health gate eliminates every recent-history gap. Those are deployment questions, not conclusions available from a merged code diff. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://xrpl.org/docs/infrastructure/configuration/data-retention/online-deletion",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history"
+      ]
+    },
+    {
+      "heading": "Why the new tests matter, and where they stop",
+      "paragraphs": [
+        "[Confirmed fact] The commit adds a LedgerMaster test for complete-ledger ranges and a SHAMapStore test for ledger gaps. The tests create short online-deletion intervals, close additional ledgers, check which sequences are complete, and exercise the store’s rendezvous behavior as rotation progresses. The code also changes the test helper so online deletion and its recovery wait can be configured consistently. [2]",
+        "[Confirmed fact] The new range assertions distinguish a fully covered interval from an interval that extends beyond the available range. That is a useful boundary for application infrastructure. A node can report a current validated ledger while still returning a non-contiguous complete-ledger range, and the patch gives the storage worker an explicit way to count what is missing. [2][5]",
+        "[Bounded inference] This is stronger evidence than a documentation-only change because the proposed behavior is exercised in code. It is still not production evidence. Unit tests do not establish how a large database behaves under real disk pressure, peer churn, backfill demand, or an operator’s custom retention settings. A stable release, integration results, and live observations remain separate proof stages. [1][2]",
+        "[Independent research] A peer-reviewed XRP Ledger topology study published in 2022 and revised in 2023 examined how peer connectivity shapes network robustness. It does not evaluate PR #5531, but it supports a broader infrastructure point: node relationships and data exchange are part of the system’s security and availability surface. The patch’s concern with local gaps and peer-based backfill belongs to that operational layer, not to XRP price analysis. [7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://arxiv.org/abs/2205.00869"
+      ]
+    },
+    {
+      "heading": "Implications for node operators and ledger data providers",
+      "paragraphs": [
+        "[Implication for node operators] PR #5531 is a reason to monitor the next release boundary, not to upgrade a production server immediately. Operators should wait for a signed release or official upgrade guidance that names the change, then compare the release notes with their own online_delete, ledger_history, fetch-depth, and advisory-deletion settings. The current primary record does not identify an affected stable version or require an emergency rollout. [1][3][4]",
+        "[Implication for node operators] The most useful operational signal is the node’s complete-ledger range, exposed through server information and related history methods. A current head number alone is not enough to show that the recent range is contiguous. If a service depends on historical queries, operators should monitor missing ranges, peer availability, storage pressure, and backfill progress together rather than interpreting one healthy-looking status field as proof of complete local history. [5]",
+        "[Implication for data providers] Full-history infrastructure and pruned access nodes serve different jobs. XRPL Commons describes full-history nodes as costly but comprehensive, while the official documentation explains that limited-history servers can still keep current state and process new transactions. A provider serving explorers, compliance review, or historical account analysis should define which queries require full history and which can be routed to a node with an intentional retention window. [4][5][6]",
+        "[Implication for application developers] Treat a missing ledger, a partial response, an unavailable peer range, and a valid empty result as different states. The new code is aimed at preventing local deletion from racing with the recovery of recent history. Applications should still make their own data-availability decisions, record the source node and ledger range, and avoid turning a history miss into a claim that an XRP transaction or account event never existed. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/infrastructure/configuration/data-retention/online-deletion",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://www.xrpl-commons.org/newsroom/building-a-full-history-node-on-the-xrp-ledger"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, traders, and market readers",
+      "paragraphs": [
+        "[Confirmed fact] The August 24 primary record contains no XRP transfer, balance change, fee change, escrow event, amendment vote, customer deployment, user count, trading flow, or price observation. It changes how a local rippled process decides whether to rotate and delete stored history. That makes it relevant to XRP Ledger infrastructure, but not a direct XRP market event. [1][2]",
+        "[Bounded inference] If the change is later released and adopted, fewer online-deletion rotations may compete with recent-history recovery on affected nodes. That could improve the reliability of some applications and data services. It would still be an infrastructure effect, not proof of new XRP demand, transaction growth, institutional adoption, or a price catalyst. Any market claim would require separate dated market and usage evidence. [1][4][5]",
+        "[Unresolved uncertainty] The reviewed records do not say whether a production incident motivated this merge, how many nodes have experienced the described gap pattern, which future stable version will contain the code, or whether all operators will enable the relevant settings. The only safe current status is that a substantial change was merged into develop and remains ahead of a stable-release and deployment proof. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: what to watch before calling the guard live",
+      "paragraphs": [
+        "[Confirmed fact] PR #5531 is merged into develop, and commit 764cbe7 contains the new gap checks, bounded wait, configuration path, and tests. That establishes a code milestone. It does not establish that the change is present in the latest stable binary, enabled on public infrastructure, or observable across the Mainnet node population. [1][2][3]",
+        "First, watch for a tagged rippled release and release notes that name the online-deletion guard, its supported configuration, and any operator action. A release tag is the next clean boundary between source-branch evidence and software that an operator can obtain through the project’s normal distribution path. [2][3]",
+        "Second, watch for configuration and test evidence. The useful details are the final default and minimum for max_waiting_ledgers, the behavior when a node falls behind for longer than that budget, and integration tests that cover large stores, slow backfill, peer churn, and repeated rotation. The current unit tests are a positive signal, not a substitute for those deployment conditions. [1][2]",
+        "Third, watch the data-availability evidence. A future live check should compare a node’s validated head with its complete-ledger range, query known ledger gaps through more than one provider, and show whether a paused deletion lets backfill catch up. An independent operator report would be stronger than a release note alone for the practical effect on explorers and API services. [5][6]",
+        "[Unresolved uncertainty] Until those records arrive, the defensible description is narrow: XRPLF has merged a develop-branch safeguard that pauses local online deletion when recent ledger coverage is incomplete and gives the wait a bounded exit. It is a meaningful reliability milestone, but not a stable release, a confirmed incident remediation, or an XRP investment signal. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/5531",
+        "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+        "https://www.xrpl-commons.org/newsroom/building-a-full-history-node-on-the-xrp-ledger"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled release that includes PR #5531 and names any required operator action",
+    "Final max_waiting_ledgers defaults, minimums, and behavior after the wait budget expires",
+    "Integration results under large stores, slow backfill, peer churn, and repeated online-deletion rotation",
+    "A live comparison of validated head numbers, complete-ledger ranges, and historical query results across providers",
+    "Independent operator or API-provider evidence that recent ledger gaps recover without creating a new retention problem"
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #5531: Pause online delete if there are gaps in recent ledger history",
+      "url": "https://github.com/XRPLF/rippled/pull/5531",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF rippled commit 764cbe7: online-deletion gap guard implementation",
+      "url": "https://github.com/XRPLF/rippled/commit/764cbe7c295637e56c383ccf0c83313961328d43",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 stable release record",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRPL documentation: Online Deletion, undated live reference checked August 25, 2026",
+      "url": "https://xrpl.org/docs/infrastructure/configuration/data-retention/online-deletion",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: Ledger History, undated live reference checked August 25, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/ledger-history",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons: Building a Full History Node on the XRP Ledger, published January 19, 2026",
+      "url": "https://www.xrpl-commons.org/newsroom/building-a-full-history-node-on-the-xrp-ledger",
+      "type": "supporting",
+      "publishedAt": "2026-01-19"
+    },
+    {
+      "name": "Topology Analysis of the XRP Ledger, published May 2, 2022 and revised January 10, 2023",
+      "url": "https://arxiv.org/abs/2205.00869",
+      "type": "supporting",
+      "publishedAt": "2022-05-02"
+    },
+    {
+      "name": "XRPLF rippled wiki: Reducing disk usage with online_delete, undated reference checked August 25, 2026",
+      "url": "https://github.com/XRPLF/rippled/wiki/Reducing-disk-usage-with-online_delete",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "XRP Ledger explained"
+    },
+    {
+      "href": "/learn/xrpl-validators",
+      "label": "How XRPL validators work"
+    },
+    {
+      "href": "/learn/xrp-block-explorers",
+      "label": "How XRP Ledger block explorers use history"
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources"
+    },
+    {
+      "href": "/learn/xrpl-consensus-mechanism",
+      "label": "How XRPL consensus works"
+    }
+  ]
+}
