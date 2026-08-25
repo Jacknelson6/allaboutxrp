@@ -1,0 +1,214 @@
+{
+  "slug": "xrpl-340-b1-first-beta-not-stable-release",
+  "title": "XRPLF Moves Develop to 3.4.0-b1, but No Stable Release Exists",
+  "description": "XRPLF merged PR #8102 on August 24 to move the develop branch from 3.4.0-b0 to 3.4.0-b1. It marks the first beta of the next software track, not a stable release, Mainnet activation, feature, or evidence of XRP demand.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-24T22:11:27-05:00",
+  "modifiedAt": "2026-08-24T22:11:27-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-340-beta-proofing-frame-editorial.webp",
+  "imageAlt": "A pale-gold hinged proofing frame holds a cobalt glass plate half-seated beside an ivory press weight and one intact vermilion wax seal on an alabaster slab.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpl-340-b1-split-proofing-frame-still-life",
+  "imageSetting": "A silent white-alabaster lithography room at frosted-clerestory daylight, viewed from a shallow front-right corner over a broad ivory stone slab",
+  "imageMetaphor": "A half-seated cobalt plate inside an open pale-gold proofing frame, with an unused ivory press weight and intact vermilion seal, represents a first beta awaiting final release",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration in a cinematic 16:9 landscape. Show exactly four deliberate object groups on a broad warm-ivory stone slab in a silent white-alabaster lithography room: an open pale-gold hinged proofing frame, one cobalt-blue glass plate visibly half-seated and shifted forward, one separate unmarked ivory press weight, and one intact restrained vermilion wax seal attached to the hinge. Use a shallow front-right three-quarter view with the cluster in the lower-left third and broad untouched negative space across the upper-right. Use diffuse frosted-clerestory daylight after rain, crisp contact shadows, luminous Sublime Classical Oil modeling, rich glazing, selective impasto, saturated cobalt and ultramarine, warm ivory, pale gold, and one vermilion mark. Extremely subtle translucent 1/0/x stipple may appear only in a few atmospheric or shadow transitions and dissolve into white space. No readable text, letters, numerals, version labels, currency symbols, logo, watermark, title, coin, XRP symbol, token, dashboard, chart, UI, person, bank, city, harbor, coast, terrace, observatory, archive room, generic workshop, temple, columns, ruins, fantasy architecture, cyber cube, neon, photographic realism, sepia, muddy gray cast, coarse halftone, duplicated objects, extra tools, or impossible geometry.",
+  "keywords": ["XRP news", "XRP Ledger", "xrpld 3.4.0", "XRPLF", "XRP Ledger development", "Mainnet activation", "node operators"],
+  "keyTakeaways": [
+    "XRPLF merged PR #8102 on August 24, 2026, changing one version string in BuildInfo.cpp from 3.4.0-b0 to 3.4.0-b1 on the develop branch.",
+    "The XRPLF public releases page listed 3.3.0 as the latest release when checked for this report. The 3.4.0-b1 merge is not a stable downloadable release or a node-upgrade instruction.",
+    "The first-beta label does not add a protocol amendment, change validator votes, activate a feature, or prove new XRP Ledger activity. Those outcomes require separate records.",
+    "The useful next signals are a signed 3.4.0 release record, release notes, matching SDK or Clio support, and live feature or validator evidence. None follows from this one-line version bump."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: 3.4.0-b1 is a first-beta milestone, not a network release",
+      "paragraphs": [
+        "XRPLF moved the develop branch to 3.4.0-b1 on August 24, 2026 by merging PR #8102. That is a first-beta software milestone, not a public stable release, a Mainnet amendment activation, or evidence of new XRP demand. Node operators and application teams should wait for the official release record before treating it as deployable.",
+        "[Confirmed fact] The pull request was merged into the XRPLF rippled develop branch with one commit. Its description says, plainly, that it updates the release version to the first beta. The resulting commit changes the version string in src/libxrpl/protocol/BuildInfo.cpp from 3.4.0-b0 to 3.4.0-b1. The reviewed diff is one addition and one deletion, not a new transaction type, amendment definition, RPC method, or ledger rule.",
+        "[Bounded inference] The change matters because software projects use version labels to tell operators and downstream maintainers which line is being prepared. Moving from beta zero to beta one signals that the upcoming 3.4.0 track has crossed a packaging milestone. It does not, by itself, tell readers what features are ready, whether compatibility is complete, whether a release candidate is scheduled, or whether the network has changed."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+        "https://github.com/XRPLF/rippled/releases"
+      ]
+    },
+    {
+      "heading": "What the August 24 XRPLF record actually changed",
+      "paragraphs": [
+        "[Confirmed fact] GitHub records PR #8102 as merged on August 24, 2026. The pull request moved one commit into develop from the bthomee-patch-1 branch, and the merge commit is 0fdaf69. The review conversation describes the edit as a simple change from 3.4.0-b0 to 3.4.0-b1 and records no correctness, security, or quality concern because the change is only a version bump.",
+        "[Confirmed fact] The companion commit page shows exactly one changed file, BuildInfo.cpp, with the old release string removed and the new beta string added. That narrow scope is the most important editorial fact. It prevents a common category error in crypto coverage: turning a software identifier into a claim that a network feature has shipped. The record supports a lifecycle update and nothing more expansive.",
+        "[Confirmed fact] At the time of this report, XRPLF's public releases page listed 3.3.0 as the latest release and did not list 3.4.0-b1. The page records 3.3.0 as an immutable signed release from August 6. That is stronger evidence about deployability than a branch label. A beta can exist in source control before maintainers publish a tag, binaries, release notes, or operator instructions.",
+        "[Independent context] The independently maintained XRPL Monday Brew summary for August 3 through August 9 described the post-3.3.0 work as the beginning of the 3.4.0 development cycle. It also stated that rippled changes merged to develop are not live on the network until a tagged release is available. I use that summary as secondary context, not as the source of the exact 3.4.0-b1 claim, which comes from XRPLF's own record.",
+        "[Bounded inference] The correct headline therefore has two parts: XRPLF has marked the next server-software track as first beta, and XRPLF has not published that beta as the current stable release in the public release record reviewed here. Saying that 3.4.0 has launched, that validators must upgrade, or that XRP has gained new utility would exceed the evidence."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+        "https://github.com/XRPLF/rippled/releases",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Why the beta boundary matters after XRP Ledger 3.3.0",
+      "paragraphs": [
+        "[Confirmed fact] XRP Ledger 3.3.0 is the relevant control group. The official August 6 release announcement describes it as a release of the reference server implementation and names six new amendment packages: BatchV1_1, ConfidentialTransfer, DynamicMPT, PermissionDelegationV1_1, Sponsor, and fixCleanup3_3_0. That release record demonstrates what a public software release looks like: a tagged version, release notes, named changes, and instructions that can be evaluated by operators.",
+        "[Confirmed fact] A release can carry an amendment definition without making that amendment active on the ledger. The XRP Ledger amendment process requires a proposed change to reach at least 80 percent support from trusted validators and hold that majority for 14 consecutive days before activation. An independent live dashboard uses the same distinction between released software, in-flight support, and an activation countdown. The beta version string contains no vote record and no activation event.",
+        "[Implication for the current report] The 3.4.0-b1 merge is one layer earlier than even that release-and-vote sequence. It changes the identity of the software branch. It does not change the amendment ledger object, the feature response from a live server, the validated ledger, or the balances and transactions that XRP holders can observe. A reader can follow the development signal without treating it as a network-state signal.",
+        "[Bounded inference] This distinction also explains why the milestone can matter to technical readers while remaining neutral for XRP markets. Developers may care about the timing of the next compatibility window, and node operators may track whether a stable build is approaching. Those are reasonable planning implications. They are not evidence that 3.4.0 will activate a named feature on a given date, that application demand will rise, or that XRP will move in response."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://github.com/XRPLF/rippled/releases",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "What 3.4.0-b1 means for node operators and application developers",
+      "paragraphs": [
+        "[Implication for node operators] The practical instruction from PR #8102 is restraint. A version-string merge is not a release notice, and the public releases page still identifies 3.3.0 as the latest published release. Operators can monitor the develop branch or test a beta in an explicitly isolated environment if that fits their own process, but this record does not require a production upgrade. A safe operational claim needs the official tag, artifacts, release notes, and compatibility guidance.",
+        "[Implication for application teams] Developers should separate three questions that often get collapsed into one. First, is a feature defined in source code? Second, is the feature present in a tagged server or SDK release? Third, is it active on the network that an application actually serves? The 3.4.0-b1 record answers none of those feature questions. It only identifies the branch as the first beta of the next server-software line.",
+        "[Confirmed fact] The pull request's review comment says the change is a simple version bump and raises no correctness, security, or quality concern. That is not the same as a security review of the entire 3.4.0 codebase. Readers should not describe 3.4.0-b1 as a security release, an audited build, or a fix for a named vulnerability based on this record. The absence of a concern about the one-line diff cannot be expanded into a claim about all pending code.",
+        "[Bounded inference] The first-beta marker can still be useful for release planning. It gives documentation authors, SDK maintainers, explorers, and infrastructure vendors a common label for compatibility work that may follow. The secondary weekly report points to the volume of post-3.3.0 development across rippled and related repositories, but that activity is a pipeline signal. It does not establish a final feature list or a delivery date for 3.4.0."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+        "https://github.com/XRPLF/rippled/releases",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, traders, and XRPL reporters",
+      "paragraphs": [
+        "[Implication for XRP holders] Nothing in the one-line version change creates XRP, moves XRP, changes an account reserve, alters a fee, or confirms a live amendment. The XRP Ledger transaction layer is where a network activity claim must be tested. The beta label is a software-development fact, not a ledger event. Holders therefore have no evidence-based reason to treat PR #8102 as a direct custody, supply, payment, or adoption event.",
+        "[Implication for traders] A new beta marker is also not a dated XRP price catalyst on its own. The primary record contains no price, volume, flow, partnership, user count, transaction count, or institutional deployment. A market reaction could occur for many reasons, but attributing one to this commit would be speculation unless contemporaneous market data and a credible causal record supported that conclusion. No such record is part of PR #8102.",
+        "[Implication for ecosystem teams] Teams building around XRP Ledger can treat the milestone as a prompt to watch the next release boundary, not as permission to advertise 3.4.0 functionality. If a future release adds an amendment or API behavior, the relevant evidence will include the release notes, source diff, SDK or Clio compatibility, and the live network status. That evidence chain is more useful than a headline that simply repeats the beta label.",
+        "[Implication for reporters] The cleanest attribution is to write what XRPLF changed, where it changed it, and what the record does not show. Use XRPLF for the exact version transition, the release page for published availability, the amendment documentation for activation mechanics, and independent monitoring for context. That source precedence preserves the distinction between Ripple, XRPLF, the develop branch, the released server, and the live XRP Ledger."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+        "https://github.com/XRPLF/rippled/releases",
+        "https://xrpl.org/docs/concepts/transactions",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed fact, bounded inference, unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8102 into develop on August 24, 2026. The merge contains one commit. That commit changes BuildInfo.cpp from 3.4.0-b0 to 3.4.0-b1. The public releases page reviewed for this article lists 3.3.0 as the latest published release. These are the durable facts of the report.",
+        "[Bounded inference] The beta marker likely helps the XRPLF development process coordinate testing, documentation, and downstream compatibility around one named software line. It is reasonable to call that a release-readiness signal. It is not reasonable to turn the signal into a forecast that a stable 3.4.0 release, a particular amendment, or a specific market outcome will follow on a known schedule.",
+        "[Unresolved uncertainty] The reviewed record does not identify the final contents of 3.4.0, a release date, a release candidate date, a binary distribution, a required upgrade path, or a Mainnet activation plan. It also does not say which downstream SDKs, API servers, explorers, or validators will adopt the beta. Those questions remain open until separate dated records answer them.",
+        "[Unresolved uncertainty] The article also makes no claim about XRP price or demand because the evidence does not connect the version string to transactions, balances, trading flows, or customer use. A later release could matter if it changes live capabilities and those capabilities are adopted. That is a future hypothesis, not a result contained in the August 24 merge."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+        "https://github.com/XRPLF/rippled/releases",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "What to watch before calling XRP Ledger 3.4.0 live",
+      "paragraphs": [
+        "[Watch 1] Look first for an official 3.4.0 tag or release entry with signed artifacts, release notes, and an operator-facing upgrade instruction. A version string in develop is not a substitute for that record. The public releases page is the simplest checkpoint because it distinguishes a published server build from branch activity.",
+        "[Watch 2] Compare the beta's eventual release notes with the source history rather than assuming the first beta contains every change developed in the cycle. Pay attention to any named amendment, API change, migration requirement, database or configuration note, and compatibility statement. Those details are what application teams and node operators can act on.",
+        "[Watch 3] For protocol claims, check the live feature response, validator support, and the amendment ledger object after a tagged release. The official amendment process requires the defined threshold and sustained voting period. A release can prepare an amendment, but only the network's governance and ledger records can establish activation.",
+        "[Watch 4] For ecosystem claims, look for matching SDK and Clio releases, explorer support, and a named production deployment. The independent weekly report's distinction between merged development work and tagged availability is a useful reporting test. A new beta should increase the number of questions being checked, not lower the evidence standard.",
+        "[Watch 5] For XRP market claims, require a separate dated record showing transactions, liquidity, custody, flows, or customer use. If the only new evidence is 3.4.0-b1 in BuildInfo.cpp, the defensible conclusion remains narrow: XRPLF advanced the next software track to its first beta."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/releases",
+        "https://github.com/XRPLF/rippled/pull/8102",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+        "https://xrpl.org/docs/concepts/transactions"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "An official XRPLF 3.4.0 tag or release entry with signed artifacts, release notes, and a dated node-operator instruction.",
+    "The final 3.4.0 feature and amendment list, including any API changes, migration requirements, and matching SDK or Clio releases.",
+    "Live feature responses, validator support, and the amendment ledger object that could establish whether a named protocol change is active.",
+    "A named production deployment or independently verifiable XRPL transaction and usage record, rather than a branch label, before claiming ecosystem adoption.",
+    "Separate dated XRP market evidence, such as transactions, liquidity, custody, or flows, before connecting 3.4.0 development to XRP demand or price."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8102, Bump version to 3.4.0-b1, merged August 24, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8102",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF rippled commit 0fdaf69, Bump version to 3.4.0-b1, August 24, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/0fdaf69e2c2e92b447368e5cfc2872429dc4d934",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF rippled public releases, current list checked August 24, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger, Introducing XRP Ledger version 3.3.0, August 6, 2026",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRP Ledger, Amendments, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Monday Brew, XRPL Developments Weekly Summary for August 3 through August 9, 2026",
+      "url": "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-09"
+    },
+    {
+      "name": "xrpldashboard, Current XRPL amendment status, undated reference checked August 24, 2026",
+      "url": "https://xrpldashboard.com/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger, Transactions, undated reference checked August 24, 2026",
+      "url": "https://xrpl.org/docs/concepts/transactions",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "What XRPL 3.3.0 shipped before activation"
+    },
+    {
+      "href": "/news/xrpl-shamap-ledger-acquisition-hardening-stack",
+      "label": "How an XRPL develop hardening stack differs from a Mainnet incident"
+    },
+    {
+      "href": "/news/xrpl-get-counts-maximum-counters",
+      "label": "How to read an open XRPL telemetry proposal"
+    },
+    {
+      "href": "/news/xrpl-go-0-3-0-rippled-3-3-0-migration",
+      "label": "Why XRPL software-version migrations need evidence"
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works"
+    }
+  ]
+}
