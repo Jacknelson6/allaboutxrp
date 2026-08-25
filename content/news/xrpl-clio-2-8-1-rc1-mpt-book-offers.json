@@ -1,0 +1,344 @@
+{
+  "slug": "xrpl-clio-2-8-1-rc1-mpt-book-offers",
+  "title": "Clio 2.8.1-rc1 Adds MPT Order-Book IDs, but Is Not Production-Ready",
+  "description": "Clio 2.8.1-rc1 adds MPT issuance IDs to book_offers and bundles API reliability fixes, but XRPLF warns it is a release candidate, not a production upgrade.",
+  "category": "XRP Ledger Infrastructure",
+  "publishedAt": "2026-08-25T14:09:16-05:00",
+  "modifiedAt": "2026-08-25T14:09:16-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-mpt-bookoffers-editorial.webp",
+  "imageAlt": "A pale-gold twin-well mould holds two cobalt glass markers beside an empty ivory bay and a single vermilion clay pin on a sunlit stone apothecary ledge.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mpt-bookoffers-twinwell-mould-still-life",
+  "imageSetting": "A quiet white-plaster apothecary ledge under high midsummer zenith light filtered through a reed screen, viewed straight along the long edge of a broad ivory stone shelf",
+  "imageMetaphor": "A pale-gold twin-well casting mould holds two cobalt asset markers in matched pockets while an empty ivory bay and one vermilion clay pin separate valid pairing, missing input, and release-candidate status",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain XRPLF Clio 2.8.1-rc1, a release candidate that adds mpt_issuance_id support to the book_offers API, restores MPT issuance history, adds delegated-transaction filtering, and carries API reliability fixes without being a production release. Scene: a quiet white-plaster apothecary ledge under high midsummer zenith light filtered through an unseen reed screen, with a broad warm-ivory limestone shelf and generous clean wall space. Show exactly one small pale-gold bronze twin-well casting mould with two rounded wells and one shallow third bay, exactly two unmarked cobalt glass asset markers seated in the two wells, exactly one separate unmarked ivory ceramic marker outside the empty third bay, and exactly one tiny restrained vermilion clay pin beside the mould. The two cobalt markers represent paired asset inputs to an order-book query; the empty bay represents a missing or not-yet-compatible path; the vermilion pin marks release-candidate status. Use a new straight-on 35-degree shelf-height viewpoint, mould in the lower-right third, markers aligned toward center, and broad negative space upper-left. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, physically believable bronze, refracting cobalt glass, matte ivory ceramic, porous limestone, saturated cobalt and ultramarine shadows, pale-gold highlights, one vermilion accent. Extremely subtle translucent 1, 0, x fields may appear only in a few atmospheric or cast-shadow transitions and must dissolve into clean white space. No readable text, numerals, labels, logos, XRP symbols, coins, dashboards, screens, charts, code, circuitry, people, banks, politicians, temples, columns, robes, harbors, coasts, terraces, observatories, archives, vaults, workshops, laboratories, markets, counting boards, calibration slabs, gauges, locks, gates, keys, latches, rails, switches, channels, bridges, bellows, combs, calipers, ratchets, shutters, ribbons, wheels, prisms, clepsydras, balance beams, sieves, amphorae, generic cyber cubes, impossible buildings, fantasy ruins, panoramic Greek cities, or any registered setting, object arrangement, viewpoint, lighting, or metaphor already present in content/news or content/editorial-art.json. No all-over ASCII, dither, coarse halftone, pixel blocks, retro game texture, photographic realism, sepia, muddy gray, excessive craquelure, border, rounded frame, watermark, duplicated objects, extra markers, extra bays, or extra vermilion marks.",
+  "keywords": [
+    "XRP Ledger news",
+    "Clio 2.8.1",
+    "MPTokensV2",
+    "book_offers",
+    "mpt_issuance_id",
+    "XRP Ledger API",
+    "XRPLF",
+    "Multi-Purpose Tokens"
+  ],
+  "keyTakeaways": [
+    "XRPLF published Clio 2.8.1-rc1 on August 25, 2026, with a clear warning that the release candidate is not recommended for production use.",
+    "The main API addition lets book_offers identify MPT assets with mpt_issuance_id, validate that field against currency and issuer inputs, and calculate funded MPT offers.",
+    "The same candidate restores an MPT issuance-history endpoint, adds delegated-transaction filters to account_tx, and fixes subscription, send-queue, and coroutine behavior.",
+    "MPTokensV2 remains listed as In Development, so this code milestone does not prove that MPT order books, new trading activity, or XRP demand are live on Mainnet."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Clio 2.8.1-rc1 widens the API surface without making MPT DEX support live",
+      "paragraphs": [
+        "Clio 2.8.1-rc1, published by XRPLF on August 25, adds MPT issuance IDs to the book_offers API and bundles history, delegation, subscription, queue, and coroutine fixes. It is still a release candidate, so developers can test the direction, but operators should not treat it as a production upgrade or evidence that MPTokensV2 is live on Mainnet. [1][2][3][11]",
+        "[Confirmed fact] XRPLF's release record identifies 2.8.1-rc1 as a release candidate and explicitly says it is not recommended for production use. Its target commit is 7d33ec, the merge that brought the latest Clio changes together. That establishes a dated software milestone, not a stable-version recommendation. [1][3]",
+        "[Confirmed fact] The XRP Ledger's Known Amendments page lists MPTokensV2 as In Development. The amendment is designed to extend the decentralized exchange to Multi-Purpose Tokens, but its development status remains separate from a client or API server accepting the fields that a future feature may need. [11]",
+        "[Editorial boundary] Clio is an API server for validated ledger data. It extracts data from one or more xrpld servers and does not replace the peer-to-peer server that participates in consensus. An independent XRP infrastructure guide makes the same separation between Clio's query layer and rippled's network role. [9][17]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/commit/7d33ecac0f026a050ac315f021da141f30be0f6c",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://www.xrplnode.org/concepts"
+      ]
+    },
+    {
+      "heading": "The headline change: book_offers can identify MPT assets directly",
+      "paragraphs": [
+        "[Confirmed fact] PR #3190 adds MPTokensV2 support to Clio's book_offers handler. Its request shape lets taker_gets and taker_pays use mpt_issuance_id as the asset identifier, mutually exclusive with the currency and issuer fields used by older issued-asset queries. The pull request was merged on August 25, 2026. [2]",
+        "[Confirmed fact] The implementation converts the request into XRPL Asset values, routes the order-book lookup through a new Asset-aware parse path, and applies MPT balances when post-processing whether offers are funded. The patch also adds validation and tests for valid MPT input, conflicting fields, parsing, and funding cases. Those details come from the primary code review record, not from a live Mainnet endpoint. [2][3]",
+        "[Protocol context] XLS-82 describes the same conceptual boundary: an MPT order book uses mpt_issuance_id in place of the currency and issuer pair for taker_gets and taker_pays. An independent XRPL Commons guide describes the issuance ID as the identifier that ties an MPT's creation, balances, and later operations to one issuance. Together, those records explain why the new field is more than a cosmetic rename. [12][15]",
+        "[Unresolved uncertainty] PR #3190 records one known difference from the mirrored rippled behavior. An MPT issuer's own offers are treated as fully funded in the Clio path, while a separate rippled fix that bounds self-issued funds by remaining issuance is noted for later porting. That caveat matters to anyone testing issuer-side order books before a stable release. [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/commit/7d33ecac0f026a050ac315f021da141f30be0f6c",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken"
+      ]
+    },
+    {
+      "heading": "Why a single asset identifier changes order-book integration",
+      "paragraphs": [
+        "[Confirmed fact] The official book_offers reference describes the method as a query for offers between two assets and says the response omits unfunded offers. Traditional issued assets can be identified with a currency and issuer, but an MPT is represented by its issuance identifier. The Clio patch therefore moves the query boundary closer to the asset model already defined in XLS-82. [10][12]",
+        "[Confirmed fact] The new validator rejects ambiguous combinations. A request must provide either the familiar currency form or mpt_issuance_id, and it cannot attach issuer to an MPT identifier. That is a practical API contract for wallets, explorers, and trading interfaces because a malformed request fails at the boundary instead of silently selecting one interpretation. [2]",
+        "[Bounded inference] If this path reaches a stable release and is paired with compatible server and amendment support, an indexer could use one order-book request model for XRP, trust-line assets, and MPTs while retaining each asset's own funding rules. That could reduce adapter code, but it does not establish that any public service has deployed the candidate or that an MPT market has liquidity. [2][9][15]",
+        "[Independent context] XRPLMeta's public API documentation already treats an MPT issuance ID as a first-class token identifier in token lookups. That does not verify Clio's new handler, but it independently supports the reader-facing distinction between an MPT identifier and the currency-plus-issuer representation used for older issued assets. [16]"
+      ],
+      "table": {
+        "caption": "What Clio 2.8.1-rc1 changes, and what it does not prove",
+        "headers": [
+          "Layer",
+          "Evidence in the RC",
+          "Boundary"
+        ],
+        "rows": [
+          [
+            "API request",
+            "book_offers accepts mpt_issuance_id in both taker asset positions",
+            "A code-path milestone, not proof of a live public endpoint"
+          ],
+          [
+            "Offer funding",
+            "Clio reads MPT holder balances when post-processing offers",
+            "Issuer self-funding caveat remains documented in PR #3190"
+          ],
+          [
+            "Protocol status",
+            "MPTokensV2 is listed as In Development",
+            "No Mainnet amendment activation is established"
+          ],
+          [
+            "Release status",
+            "2.8.1-rc1 is labeled a release candidate",
+            "XRPLF says it is not recommended for production use"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF Clio release and PR #3190, published or merged August 25, 2026, plus the undated live Known Amendments and XLS-82 references. The table separates software evidence from network status. [1][2][11][12]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+        "https://xrplmeta.org/docs/rest/get-token"
+      ]
+    },
+    {
+      "heading": "The same candidate restores history and filters delegated transactions",
+      "paragraphs": [
+        "[Confirmed fact] PR #3188 adds the mptoken_issuance_history RPC handler back to Clio after the feature had been reverted around the 2.8.0 release. The merge adds the handler to the RPC registry and unit-test build, so the release candidate carries both a new order-book path and a restored history path for MPT issuance data. [4]",
+        "[Confirmed fact] PR #2827 adds a delegate object to account_tx. Its delegate_filter can distinguish transactions where the queried account acted as the delegate from transactions where it was the delegator, with an optional counter_party address. The current XRPL account_tx reference describes those same actor and authorizer roles and requires the PermissionDelegationV1_1 amendment. [5][13]",
+        "[Protocol context] Permission delegation lets one account sign and submit an allowed transaction on behalf of another account. That relationship can be important to compliance systems and account-history viewers, but a filter that makes the relationship easier to query is not itself a new permission or a change to who can sign. The official permission-delegation guide and the Clio PR keep those layers distinct. [5][14]",
+        "[Implication for data providers] A Clio operator testing the candidate would need to evaluate three separate data paths: MPT order-book requests, issuance-history pagination and backfill behavior, and delegated account history. These paths can be useful together for tokenized-asset analytics, but the release record does not claim that a public explorer, exchange, or institutional data provider has adopted them. [1][4][5][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3188",
+        "https://github.com/XRPLF/clio/pull/2827",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_tx",
+        "https://xrpl.org/docs/concepts/accounts/permission-delegation",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server"
+      ]
+    },
+    {
+      "heading": "Reliability fixes target API behavior, not XRP Ledger consensus",
+      "paragraphs": [
+        "[Confirmed fact] PR #3176 fixes a rare subscription deadlock in Clio's legacy web stack. The reported failure could stop subscription messages while HTTP RPC continued to work; the patch copies the signal under the mutex, releases the lock before emission, keeps the signal alive through re-entrant disconnect behavior, and adds a regression test. [6]",
+        "[Confirmed fact] PR #3181 moves the WebServer NG send-queue limit into the queue that owns queued messages, then passes the configured size through the connection upgrade path. Its stated goal is to make ws_max_sending_queue_size measure queue depth rather than in-flight coroutines, with a timed-out connection failure when the limit is exceeded. [7]",
+        "[Confirmed fact] PR #3187 addresses a segfault caused by retry logic used through coroutines during cache loading. That is a service-behavior fix, not a consensus amendment, and it belongs in the same operational category as the subscription and queue corrections. [8]",
+        "[Bounded inference] For a data service, the cluster of fixes is more meaningful than any one line item. A deadlocked feed, an ineffective send limit, or a cache-load crash can make an otherwise correct ledger dataset appear unavailable to clients. Independent XRPL infrastructure guidance supports that operational reading, while the primary PRs limit the claim to Clio's API and connection behavior. [6][7][8][17]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3176",
+        "https://github.com/XRPLF/clio/pull/3181",
+        "https://github.com/XRPLF/clio/pull/3187",
+        "https://www.xrplnode.org/concepts"
+      ]
+    },
+    {
+      "heading": "What release-candidate status means for operators and developers",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF's release note is unusually clear about the operational boundary: 2.8.1-rc1 is not recommended for production use. The Clio documentation also explains that Clio serves validated data and depends on an xrpld source, so a candidate upgrade touches a query and storage service rather than the validator consensus process itself. [1][9]",
+        "[Implication for operators] The safe next step is a controlled test environment that mirrors the production database, ledger range, websocket settings, and upstream xrpld version. Operators should exercise MPT issuer and holder funding, mixed XRP and MPT books, invalid field combinations, issuance-history pagination, delegated account filters, subscription reconnects, queue saturation, and cache-load retry behavior before considering a stable release. This is a recommended test plan based on the changed paths, not an XRPLF upgrade instruction. [2][4][5][6][7][8]",
+        "[Implication for application developers] Treat a successful request against a release candidate as compatibility evidence for that candidate only. Pin the Clio version, record the upstream server version, capture whether each response is validated, and distinguish an empty order book from an unsupported asset, an unavailable historical range, and a failed API request. Those distinctions are especially important while MPTokensV2 remains in development. [9][10][11]",
+        "[Unresolved uncertainty] The reviewed release record does not provide production benchmarks, public deployment counts, latency measurements, or a date for a stable 2.8.1 release. It also does not establish that MPT order books are active on Mainnet. Those facts would require later release notes, operator evidence, and a live amendment-status check. [1][11]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/pull/3188",
+        "https://github.com/XRPLF/clio/pull/2827",
+        "https://github.com/XRPLF/clio/pull/3176",
+        "https://github.com/XRPLF/clio/pull/3181",
+        "https://github.com/XRPLF/clio/pull/3187",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Implications for MPT builders, indexers, and XRP market readers",
+      "paragraphs": [
+        "[Implication for MPT builders] The candidate gives JavaScript, Python, and service-layer developers a clearer target for future MPT DEX integration: an asset identifier can flow through book_offers without being disguised as a currency code and issuer pair. The practical value is forward compatibility and testability. It is not a statement that the network has accepted MPT trading or that an application can safely switch its production endpoint today. [2][10][12]",
+        "[Implication for indexers and explorers] The restored issuance-history handler and delegate filter could make entity-level research more precise. An indexer can associate an issuance with historical events and separately expose delegated transaction relationships. It still needs to document the Clio history range, pagination rules, upstream source, and amendment compatibility because Clio returns validated data available to its configured infrastructure rather than a magical copy of every possible ledger record. [4][5][9][15]",
+        "[Implication for XRP holders and traders] The release contains no XRP price, transfer volume, new market, customer, adoption, or liquidity observation. It may eventually improve software used to read or serve XRPL data, but that is an infrastructure hypothesis, not evidence of fresh XRP demand or a price catalyst. A reader should not turn a Clio release candidate into a trading conclusion. [1][9][11][17]",
+        "[Confirmed fact versus inference] The confirmed record is a dated Clio software milestone. The bounded inference is that better MPT and delegated-history APIs could lower integration friction if they reach a stable release and compatible network state. The unresolved question is whether operators adopt them and whether the underlying protocol features become active. Keeping those three statements separate is the useful takeaway. [1][2][11]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/pull/3188",
+        "https://github.com/XRPLF/clio/pull/2827",
+        "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+        "https://xrpl.org/resources/known-amendments",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+        "https://www.xrplnode.org/concepts"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: what to watch before calling Clio 2.8.1 live",
+      "paragraphs": [
+        "[Confirmed fact] Clio 2.8.1-rc1 contains the MPT book_offers path, restored issuance history, delegated account filtering, and the listed reliability fixes in a release candidate published August 25, 2026. That is enough to justify testing and technical analysis. It is not enough to describe the code as a stable release, a Mainnet amendment, or a live market integration. [1][2][3][4][5][6][7][8]",
+        "[Unresolved uncertainty] The next primary record should answer whether a stable tag includes the same commits, whether the documented issuer-funding caveat has been closed, and whether the final release changes any configuration or migration steps. A release candidate can change before stable publication, so readers should not infer that every detail in the candidate is final. [1][2]",
+        "[What to watch] The most useful external proof will be a stable Clio release, updated API documentation for mpt_issuance_id in book_offers, a live amendment record for MPTokensV2, and independent operator evidence from an explorer or indexer that can serve funded MPT books and issuance history consistently. Those are separate checkpoints, not one announcement. [1][10][11][15][16]",
+        "[Bottom line] Clio 2.8.1-rc1 is a meaningful infrastructure release candidate because it connects a future MPT order-book model with concrete API validation, history, delegation, and reliability work. The defensible claim ends there. Until stable-release and network-status evidence arrives, it should be read as a testable implementation boundary, not as proof of live MPT trading, new XRP demand, or a market outcome. [1][2][11]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+        "https://github.com/XRPLF/clio/pull/3190",
+        "https://github.com/XRPLF/clio/commit/7d33ecac0f026a050ac315f021da141f30be0f6c",
+        "https://github.com/XRPLF/clio/pull/3188",
+        "https://github.com/XRPLF/clio/pull/2827",
+        "https://github.com/XRPLF/clio/pull/3176",
+        "https://github.com/XRPLF/clio/pull/3181",
+        "https://github.com/XRPLF/clio/pull/3187",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers",
+        "https://xrpl.org/resources/known-amendments",
+        "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+        "https://xrplmeta.org/docs/rest/get-token"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable Clio 2.8.1 release and release notes confirming which candidate commits shipped",
+    "Whether the issuer self-funding caveat in PR #3190 is closed before stable publication",
+    "Updated book_offers documentation and live validation for mpt_issuance_id requests across XRP, issued assets, and MPT pairs",
+    "The live MPTokensV2 amendment record and any documented activation or test-network boundary",
+    "Independent explorer or indexer evidence covering funded MPT books, issuance history, delegated account filters, and subscription recovery"
+  ],
+  "sources": [
+    {
+      "name": "XRPLF Clio 2.8.1-rc1 release record",
+      "url": "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc1",
+      "type": "primary",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "XRPLF Clio PR #3190: MPT issuance IDs in book_offers",
+      "url": "https://github.com/XRPLF/clio/pull/3190",
+      "type": "primary",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "XRPLF Clio commit 7d33ec: 2.8.1-rc1 merge target",
+      "url": "https://github.com/XRPLF/clio/commit/7d33ecac0f026a050ac315f021da141f30be0f6c",
+      "type": "primary",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "XRPLF Clio PR #3188: restore mptoken_issuance_history",
+      "url": "https://github.com/XRPLF/clio/pull/3188",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF Clio PR #2827: delegate filter for account_tx",
+      "url": "https://github.com/XRPLF/clio/pull/2827",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF Clio PR #3176: subscription deadlock fix",
+      "url": "https://github.com/XRPLF/clio/pull/3176",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF Clio PR #3181: WebServer NG send queue fix",
+      "url": "https://github.com/XRPLF/clio/pull/3181",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPLF Clio PR #3187: coroutine cache-load crash fix",
+      "url": "https://github.com/XRPLF/clio/pull/3187",
+      "type": "primary",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "The Clio Server, XRP Ledger documentation, undated live reference",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/the-clio-server",
+      "type": "primary"
+    },
+    {
+      "name": "book_offers API reference, XRP Ledger documentation, undated live reference",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/path-and-order-book-methods/book_offers",
+      "type": "primary"
+    },
+    {
+      "name": "Known Amendments, XRP Ledger documentation, undated live reference",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-82 MPT Integration into DEX, undated live specification",
+      "url": "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+      "type": "primary"
+    },
+    {
+      "name": "account_tx API reference, XRP Ledger documentation, undated live reference",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_tx",
+      "type": "primary"
+    },
+    {
+      "name": "Permission Delegation, XRP Ledger documentation, undated live reference",
+      "url": "https://xrpl.org/docs/concepts/accounts/permission-delegation",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons Multi-Purpose Token guide, undated supporting reference",
+      "url": "https://docs.xrpl-commons.org/xrpl-basics/mptoken",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPLMeta token API documentation, undated supporting reference",
+      "url": "https://xrplmeta.org/docs/rest/get-token",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger Networks and Servers, XRPL Node independent guide, undated supporting reference",
+      "url": "https://www.xrplnode.org/concepts",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens explained",
+      "topic": "MPT foundation",
+      "description": "Review MPT issuance, holder balances, authorization, transfer controls, and lifecycle fields before reading an API release."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRPL DEX",
+      "topic": "Order books",
+      "description": "Connect book_offers, Offers, payments, and liquidity mechanics to the ledger-native trading paths Clio serves."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources",
+      "topic": "Build on XRPL",
+      "description": "Find the official tools, API references, libraries, and test networks used to evaluate a client release."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "XRP Ledger explained",
+      "topic": "Protocol context",
+      "description": "Review validators, consensus, ledgers, XRP, and issued assets before treating an API change as a network change."
+    },
+    {
+      "href": "/news/xrpl-clio-2-8-0-mpt-history-rpc-reverted",
+      "label": "Clio 2.8.0 history and filtering boundaries",
+      "topic": "Related coverage",
+      "description": "Compare the current release candidate with the earlier Clio history and filtering report without conflating the two milestones."
+    }
+  ]
+}
