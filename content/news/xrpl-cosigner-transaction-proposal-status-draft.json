@@ -1,0 +1,217 @@
+{
+  "slug": "xrpl-cosigner-transaction-proposal-status-draft",
+  "title": "XRPL Cosigner Draft Adds Per-Account Signing Status, but Is Not Live",
+  "description": "XRPLF merged a redesign of the proposed transaction_proposal RPC into its cosign branch, adding per-account signing status while the On-Chain Cosigner draft remains outside stable rippled and Mainnet.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-26T06:16:07-05:00",
+  "modifiedAt": "2026-08-26T06:16:07-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-cosigner-signing-status-editorial.webp",
+  "imageAlt": "A pale-gold four-slot rotary register holds four cobalt glass witness tiles while a detached vermilion freshness pin rests on an ivory stone shelf.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "cosigner-four-slot-rotary-register-still-life",
+  "imageSetting": "A silent shell-lined white-limestone niche with one broad ivory stone shelf under a narrow high opening at clear late-spring mid-afternoon, viewed from a low near-ground left-front angle with wide negative space to the left",
+  "imageMetaphor": "A pale-gold four-slot rotary register holds four separate cobalt witness tiles while one vermilion freshness pin rests outside the wheel, representing per-account signing rows and the point-in-time ledger-state caveat of transaction_proposal",
+  "imagePrompt": "Use case: a fact-safe editorial still life for an XRP Ledger technical news article about the Draft On-Chain Cosigner proposal and its redesigned transaction_proposal RPC. Show one physically believable pale-gold rotary tally register with exactly four radial slots, each holding a separate cobalt-blue glass witness tile, plus one detached restrained vermilion freshness pin resting on the ivory shelf beside it. Place the register in the right third of a silent shell-lined white-limestone niche, under a narrow high opening, with a low near-ground left-front viewpoint and broad clean negative space to the left. Light it with crisp blue-white late-spring mid-afternoon light, using luminous academic classical-revival oil modeling, warm ivory stone, pale gold metal, cobalt and ultramarine glass, and one small vermilion status mark. The four separate slots must read as per-account authorization rows, while the detached pin reads as a ledger-freshness caveat. Use only extremely subtle 1, 0, or x stipple inside a few atmospheric or shadow transitions, never all-over dithering. No text, letters, numbers, logos, XRP coins, cryptocurrency symbols, dashboard, chart, screen, interface, politician, person, animal, temple, column, Greek city, harbor, coast, mountain, panoramic landscape, cyber cube, fantasy ruin, impossible architecture, wires, circuitry, photographic realism, or pixel art. Keep the composition sparse, precise, calm, and physically grounded.",
+  "keywords": ["XRP Ledger", "XRPL", "On-Chain Cosigner", "transaction_proposal", "multisigning", "XRP Ledger development", "RippleX", "ledger security"],
+  "keyTakeaways": [
+    "XRPLF merged PR #603 into the cosign branch on August 25, 2026, redesigning the proposed transaction_proposal RPC around per-account authorization rows.",
+    "The On-Chain Cosigner specification is still marked Draft, with its XLS number listed as TBD and a dependency on XLS-0049 Multiple Signer Lists.",
+    "The redesign improves proposed signing-state visibility, but it does not establish an amendment, a rippled release, validator voting, Mainnet availability, or a price implication."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF merged an RPC redesign, not a live amendment",
+      "paragraphs": [
+        "XRPLF merged a redesign of the proposed `transaction_proposal` RPC into the `cosign` branch on August 25, 2026. It replaces one flat signing-progress result with per-account authorization rows, but the wider On-Chain Cosigner remains a Draft proposal: no `Cosign` amendment, stable `rippled` release, validator vote, or Mainnet availability is established.",
+        "[Confirmed fact] The primary record is XRPL Standards PR #603, titled “Design transaction_proposal RPC around per-account signing status.” GitHub records the pull request as merged on August 25, 2026, into a branch named `cosign`, with merge commit `476aafcbae7ff13e54b1ca735f0397e7c67c3dd1`. The merge therefore records a design update in the proposal branch. It does not, by itself, show that the change entered the default specification branch or a released XRPL server. [1][2]",
+        "[Confirmed fact] The underlying On-Chain Cosigner discussion is dated July 23, 2026 and remains labeled Draft. Its metadata lists the XLS number as TBD and identifies XLS-0049 Multiple Signer Lists as a requirement. A current inspection of the `rippled` develop feature registry also finds no `Cosign` amendment entry. Those are separate records, but they point to the same editorial boundary: this is active protocol design, not a network activation notice. [3][5][6]",
+        "[Independent evidence] The Crypto Guardian and DigitalToday both described the broader on-chain cosigning proposal on August 6, before PR #603 merged. Their coverage supports the proposal’s basic purpose, including on-ledger collection of signatures and later ordinary submission, but it cannot verify the August 25 RPC redesign. The new per-account status model comes from the primary XRPL Standards record, not from those earlier reports. [8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://thecryptoguardian.com/ripplex-engineers-propose-on-chain-multisig-coordination-for-xrp-ledger/",
+        "https://www.digitaltoday.co.kr/en/view/89932/xrp-ledger-overhauls-multisig-approval-structure-to-boost-institutional-use"
+      ]
+    },
+    {
+      "heading": "What the transaction_proposal redesign changes",
+      "paragraphs": [
+        "[Confirmed fact] The merged design replaces a single aggregate signing result with a structured status model. The proposed response adds `proposal_status`, which distinguishes `pending`, `complete`, and `expired`, plus an `expired_reason` when the proposal is no longer usable. It also adds a `signing_status` array with one row for every required authorization, keyed by the pair `(account, role)`. A completed proposal can include `tx_blob`, allowing a client to retrieve the fully assembled transaction for ordinary submission. [1][2]",
+        "[Confirmed fact] The redesign also renames the request field `ticket` to `ticket_seq`. That looks small, but precise names matter in a protocol API because a client needs to distinguish a ticket sequence from a generic application label. The design further lists the authorization roles that completeness must evaluate, including the proposing account, a counterparty, a sponsor, and a batch participant. The status array is consequently a map of obligations, not just a meter that rises toward one quorum number. [1][2]",
+        "[Technical analysis] A scalar such as `signed_weight` can answer whether one signer list has accumulated enough weight. It cannot cleanly express which independent account has signed, which role remains incomplete, or why a multi-party transaction is still pending when one group already satisfies its local threshold. The proposed array gives a wallet or custody service a stable place to show those distinctions. It is an observability improvement and a clearer state machine. It is not new signature mathematics, and it does not remove the need to validate the transaction against the current ledger immediately before submission. [1][2][4]",
+        "[Bounded inference] If this design is eventually implemented as written, integrations should be able to give each participant an actionable status instead of forwarding an opaque blob and asking a coordinator to interpret it. That could reduce avoidable coordination errors. The inference stops there. The branch does not establish an implementation, client library, endpoint, performance result, or production incident reduction. Those claims require later code, tests, release notes, and live network evidence."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+        "https://xrpl.org/docs/concepts/accounts/multi-signing"
+      ]
+    },
+    {
+      "heading": "Why Batch and co-signers expose the old scalar’s limits",
+      "paragraphs": [
+        "[Confirmed fact] XRPL’s existing multi-signing model is built around a SignerList. The public documentation describes lists with one to 32 signer entries, individual weights, and a quorum. A transaction is ready for that path when the collected signatures satisfy the list’s rules, while the serialized transaction must leave `SigningPubKey` empty and carry the required `Signers` array. The model is concrete and useful, but its natural unit is one account’s signer list. [4]",
+        "[Confirmed fact] The Cosigner draft expands the coordination problem by storing a proposed transaction and its signatures on the ledger. Its RPC redesign names the required authorizations separately, using `(account, role)` rows for the proposing account, counterparty, sponsor, and batch participant cases. This means a client may need to answer two questions at once: has a particular account’s signer list reached its local requirement, and has the complete set of roles required by this proposal been satisfied? [1][2][3]",
+        "[Reader map] For an ordinary multisigned transaction, the useful status is primarily the signer-list result: which entries signed, what weight they contributed, and whether the quorum is met. For a Batch-style proposal, the useful status must also identify which account or role is incomplete, because a completed authorization by one participant cannot stand in for another participant. For a sponsored or counterparty flow, the same distinction tells the client whether it is waiting on an external account rather than on another key from the initiator’s list. [1][2][4]",
+        "[Technical analysis] That separation explains why the merge matters even though the proposal is not live. The old aggregate shape can be adequate when one list is the whole authorization story. It becomes ambiguous when several accounts contribute separate obligations. `signing_status` makes the obligations addressable, while `proposal_status` provides the overall lifecycle. The design is therefore closer to a per-account transaction state ledger than to a cosmetic RPC rename. Its value will depend on clients preserving the role labels and displaying incomplete, invalid, and expired states distinctly. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://xrpl.org/docs/concepts/accounts/multi-signing"
+      ]
+    },
+    {
+      "heading": "Why complete is only a point-in-time verdict",
+      "paragraphs": [
+        "[Confirmed fact] The draft distinguishes a signature’s cryptographic validity from the account authorization that exists when a proposal is submitted. A signer can be removed from a SignerList, a master key can be disabled, or a regular key can be rotated after a signature is collected. The draft warns that a previously collected set can then become unsatisfiable. In that situation, a reported weight or quorum can look sufficient while a particular `signed` authorization remains false, and the assembled transaction can be rejected rather than executed. [1][2][3]",
+        "[Confirmed fact] The proposed evaluation is also terminal-first. If the proposal’s expiration or `LastLedgerSequence` has passed, the response should report it as expired even if the authorization requirements otherwise appear complete. The commit notes that the client must re-evaluate against the most recent validated ledger immediately before submission. That caveat is central to the design because the status is a view of ledger state at a point in time, not a reservation of future execution. [1][2]",
+        "[Implication] Wallets and custody systems should treat `complete` as permission to attempt the next validation step, not as a promise of inclusion. A robust integration would re-fetch the proposal, check the latest validated ledger, inspect any expiry reason, rebuild or cancel when signer authorization changed, and only then submit the completed transaction through the normal path. The proposed RPC can make that workflow visible. It cannot freeze key governance, prevent expiration, or guarantee consensus acceptance."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589"
+      ]
+    },
+    {
+      "heading": "The ledger collects signatures, but does not execute the transaction",
+      "paragraphs": [
+        "[Confirmed fact] The draft’s lifecycle has separate create, sign, and cancel operations for a `TransactionProposal` ledger object. The proposed object holds an immutable transaction payload and its collected signatures, with expiration rules for proposals that are not completed in time. A participant can add a signature without handing the transaction to the consensus engine, and a client can cancel a proposal rather than leave it open indefinitely. [3]",
+        "[Confirmed fact] A completed proposal is not an automatic payment, offer, loan action, or other ledger-side execution. The draft says that anyone who has the fully signed proposed transaction can copy it and submit it through the ordinary transaction path. That boundary matters for readers who see “on-chain cosigning” and infer an on-ledger workflow that bypasses standard transaction processing. The proposal is a coordination record; submission remains a separate act. [3][8][9]",
+        "[Bounded inference] The architecture could help organizations share a common, auditable signing object instead of moving separate partially signed payloads through an off-chain coordinator. It could also make expiration and cancellation inspectable. Neither benefit is a measured production outcome today. The independent August 6 reports discuss the general mechanism, while the August 25 primary merge refines its status API. Neither source proves a deployed validator network, an institutional integration, or user adoption. [1][3][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://thecryptoguardian.com/ripplex-engineers-propose-on-chain-multisig-coordination-for-xrp-ledger/",
+        "https://www.digitaltoday.co.kr/en/view/89932/xrp-ledger-overhauls-multisig-approval-structure-to-boost-institutional-use"
+      ]
+    },
+    {
+      "heading": "Implications for developers, custody teams, and XRP readers",
+      "paragraphs": [
+        "[For XRPL developers] The immediate implication is conceptual rather than operational. Anyone designing a client around the proposal should expect more than a single “signed enough” field. It will need to model a proposal-level state, one or more role-specific authorization rows, expiration reasons, and the possibility that a formerly valid signature set becomes invalid after account configuration changes. Developers should also avoid treating the current PR as an available RPC contract, because the design is still in a proposal branch and may change before implementation. [1][2][3][6]",
+        "[For wallets and custody teams] If the design reaches code, per-account rows could make approval screens clearer for shared custody, treasury controls, and counterparties. A participant could see whether it is waiting for its own account, another account, or a specific role. But an enterprise integration would still need policies for key rotation, signer-list changes, expiration windows, transaction fees, reserve implications, audit logs, and the re-check before submission. Better status does not replace governance or security review. The current XRPL multi-signing rules remain the reference point for the deployed model. [4][5]",
+        "[For validators and protocol reviewers] The next meaningful evidence is implementation and review, not another headline about the branch merge. Reviewers will need to test each authorization role, the behavior when a signer is removed or rotated, the terminal ordering of expiration, and the serialization of a completed `tx_blob`. If the proposal later becomes an amendment, the amendment process matters: XRPL documentation says protocol changes are built into a release before validators vote, and an amendment needs more than 80 percent support for two weeks to enable. [7]",
+        "[For XRP holders and market readers] This is infrastructure and authorization design. It may be relevant to how multi-party transactions could be coordinated in the future, but the available records do not establish XRP demand, a new payment corridor, a partnership, a revenue outcome, or a price catalyst. No XRP price snapshot is included because a dated market number would not improve understanding of this protocol-state change. Treat any immediate market narrative as speculation unless it is supported by separate primary evidence."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://xrpl.org/docs/concepts/accounts/multi-signing",
+        "https://xls.xrpl.org/xls/XLS-0049-multiple-signer-lists.html",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed facts, inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] The dated primary event is the August 25 merge of PR #603 into the `cosign` branch. The merge commit explicitly replaces the prior aggregate signing representation with `signing_status` and adds the proposal-state distinctions described above. The primary discussion remains a Draft, its XLS identifier is TBD, and it depends on XLS-0049. The current `rippled` develop feature registry does not list `Cosign`. [1][2][3][5][6]",
+        "[Independent evidence] Two independent reports published August 6 describe the proposal’s broad intent, including on-chain signature coordination and ordinary submission of a completed transaction. Their dates make their role clear: they are supporting context for the original concept, not confirmation of the later RPC schema. The official PR and merge commit have source precedence for the new field names, status values, and branch state. [8][9]",
+        "[Unresolved uncertainty] The final XLS number, final specification branch, implementation status, API compatibility, test coverage, reserve and fee behavior, and client adoption are not established in the records reviewed for this article. It is also unresolved whether the proposal will proceed to amendment review, a testnet deployment, a stable `rippled` release, or validator voting. Absence from the current feature registry is a bounded code-state observation, not proof that future work will not occur. [1][3][6][7]",
+        "[Editorial conclusion] The defensible claim is narrow but useful: XRPLF’s cosign proposal now has a more expressive way to report who still needs to authorize a transaction, especially when multiple accounts or roles are involved. The defensible claim is not that XRPL has launched on-chain multisig coordination. That distinction protects developers from integrating a draft and protects XRP readers from turning a branch-level design merge into a live-network narrative."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://thecryptoguardian.com/ripplex-engineers-propose-on-chain-multisig-coordination-for-xrp-ledger/",
+        "https://www.digitaltoday.co.kr/en/view/89932/xrp-ledger-overhauls-multisig-approval-structure-to-boost-institutional-use",
+        "https://xls.xrpl.org/xls/XLS-0049-multiple-signer-lists.html"
+      ]
+    },
+    {
+      "heading": "What to watch next for the On-Chain Cosigner proposal",
+      "paragraphs": [
+        "[What to watch] First, look for a dated change in the XRPL Standards record: movement of the `cosign` work into the default specification flow, assignment of a real XLS number, a status change from Draft, or a new review record that supersedes PR #603. That is the cleanest way to tell whether the design is advancing as a specification rather than remaining an isolated branch merge. [1][3]",
+        "[What to watch] Second, look for implementation in `rippled`, corresponding protocol tests, and an updated feature registry or API reference. A real implementation should make the response fields observable in code and should test ordinary multisigning alongside separate account roles, expired proposals, changed SignerLists, and invalidated keys. Until that evidence exists, clients should not present the proposed RPC as a supported production endpoint. [1][6]",
+        "[What to watch] Third, distinguish a tagged release or testnet endpoint from a proposal update. A release note, testnet instructions, and a reproducible response would establish a new evidence level. Fourth, if the feature becomes amendment-ready, follow the amendment record and validator support window rather than relying on social summaries. XRPL’s documented threshold is more than 80 percent support for two weeks after the change is built into a release. [7]",
+        "[What to watch] Finally, follow actual integration evidence from wallets, custody providers, and operators. The most useful proof would show role-specific status in a real client, safe behavior after key rotation or signer-list changes, correct expiration handling, and ordinary submission only after a fresh validated-ledger check. Those records would turn today’s well-defined draft improvement into evidence about reliability or adoption. No such outcome is established by the August 25 merge."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/603",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A dated XRPL Standards update that assigns an XLS number, advances the Draft status, or moves the cosign work into the default specification flow.",
+    "rippled implementation, protocol tests, and an updated feature registry or API reference exposing transaction_proposal and signing_status.",
+    "A tagged release or testnet record with reproducible behavior for per-account roles, changed SignerLists, key rotation, and expiration.",
+    "An amendment record and validator support window, including the documented more-than-80-percent threshold for two weeks.",
+    "Wallet, custody, or operator evidence showing fresh-ledger rechecks and safe ordinary submission after every required authorization is valid."
+  ],
+  "sources": [
+    {
+      "name": "XRPL Standards PR #603, Design transaction_proposal RPC around per-account signing status, merged August 25, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/pull/603",
+      "type": "primary",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "XRPL Standards merge commit 476aafc, transaction_proposal redesign, August 25, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/commit/476aafcbae7ff13e54b1ca735f0397e7c67c3dd1",
+      "type": "primary",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "XRPL Standards discussion 589, On-Chain Cosigner, Draft discussion dated July 23, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/discussions/589",
+      "type": "primary",
+      "publishedAt": "2026-07-23"
+    },
+    {
+      "name": "XRP Ledger Multi-Signing documentation, undated live reference checked August 26, 2026",
+      "url": "https://xrpl.org/docs/concepts/accounts/multi-signing",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0049 Multiple Signer Lists, updated February 20, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0049-multiple-signer-lists.html",
+      "type": "primary",
+      "publishedAt": "2026-02-20"
+    },
+    {
+      "name": "XRPLF rippled develop feature registry, undated live reference checked August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Amendments documentation, undated live reference checked August 26, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "The Crypto Guardian, RippleX Engineers Propose On-Chain Multisig Coordination for XRP Ledger, August 6, 2026",
+      "url": "https://thecryptoguardian.com/ripplex-engineers-propose-on-chain-multisig-coordination-for-xrp-ledger/",
+      "type": "supporting",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "DigitalToday, XRP Ledger Overhauls Multisig Approval Structure to Boost Institutional Use, August 6, 2026",
+      "url": "https://www.digitaltoday.co.kr/en/view/89932/xrp-ledger-overhauls-multisig-approval-structure-to-boost-institutional-use",
+      "type": "supporting",
+      "publishedAt": "2026-08-06"
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/learn/xrp-addresses-and-keys", "label": "XRP addresses and keys" },
+    { "href": "/learn/xrpl-transaction-fees", "label": "XRPL transaction fees" },
+    { "href": "/learn/how-to-run-xrpl-validator", "label": "How to run an XRPL validator" },
+    { "href": "/learn/xrp-institutional-custody", "label": "XRP institutional custody" },
+    { "href": "/news/xrpl-340-b1-first-beta-not-stable-release", "label": "Why an XRPL beta is not a stable release" }
+  ]
+}
