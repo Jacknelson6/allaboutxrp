@@ -1,0 +1,280 @@
+{
+  "slug": "xrpl-loanbroker-open-ended-vault-gate",
+  "title": "XRPLF Merges LoanBrokerSet Gate Requiring Closed-Ended Vaults",
+  "description": "XRPLF merged a develop-branch guard that returns tecNO_PERMISSION when LendingProtocolV1_1 tries to attach a new LoanBroker to an open-ended vault. The protocol remains in development.",
+  "publishedAt": "2026-08-25T22:13:18-05:00",
+  "modifiedAt": "2026-08-25T22:13:18-05:00",
+  "author": "Jack Nelson",
+  "category": "XRP Ledger Development",
+  "keywords": [
+    "XRP Ledger news",
+    "LoanBrokerSet",
+    "LendingProtocolV1_1",
+    "closed-ended vaults",
+    "open-ended vaults",
+    "XRP Ledger lending",
+    "rippled develop",
+    "XRPLF"
+  ],
+  "image": "/news/xrpl-loanbroker-open-ended-vault-gate.webp",
+  "imageAlt": "A pale-gold three-notch term baton accepts a cobalt peg while a separate ivory strip ends open beside one vermilion wedge on an ivory stone slab.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "loanbroker-term-baton-open-end-still-life",
+  "imageSetting": "A silent limewashed dye-house at deep cobalt blue hour after rain, viewed from a low rear-right angle across a broad ivory limestone slab, with broad untouched wall space above and left",
+  "imageMetaphor": "A pale-gold three-notch term baton receives one cobalt broker peg at its final notch while a separate ivory strip ends without a terminal notch and a tiny vermilion wedge rests beside it, representing the closed-ended Subscription, Investment, and Redemption lifecycle required for a new LoanBroker under LendingProtocolV1_1 and the open-ended vault that remains unattached",
+  "imagePrompt": "A sparse 16:9 editorial still life in polished luminous academic classical-revival oil, using warm ivory limestone, pale-gold bronze, cobalt-blue glass, cool blue-hour shadow, and one restrained vermilion clay mark. In a silent limewashed dye-house after rain, seen from a low rear-right angle, place exactly four objects in the lower-right third with broad untouched negative space above and left: one pale-gold bronze three-notch term baton with a solid terminal end, one unmarked cobalt glass broker peg seated only in the third and final notch, one separate unmarked ivory ceramic strip that visibly ends without a terminal notch or stop, and one tiny vermilion clay wedge beside the open-ended strip. The three finite notches suggest Subscription, Investment, and Redemption through measured physical arrangement. Keep contact shadows believable, edges sculptural, glazing luminous, and the beam of warm light narrow against cobalt ambient shadow. No text, labels, logos, watermark, border, rounded frame, crypto coin, currency, XRP symbol, dashboard, screen, code, politician, person, hand, cyber cube, city panorama, Greek architecture, bridge, lock, key, gate, latch, rail, switch, channel, wheel, clock, sundial, hourglass, clepsydra, gauge, caliper, frame, folio, ledger, tablet, prism, bead, capsule, manifold, mould, ratchet, yoke, clevis, extra tool, clutter, all-over ASCII, pixel art, stipple, or dither. Extremely subtle 1/0/x marks may appear only in a few atmospheric or shadow transitions, never on the objects and never as an all-over texture.",
+  "sections": [
+    {
+      "heading": "Direct answer: the guard narrows one incompatible lending path",
+      "paragraphs": [
+        "XRPLF merged a narrow LendingProtocolV1_1 guard into the rippled develop branch: when the feature is enabled, a new LoanBroker cannot be attached to an open-ended vault and the transaction returns `tecNO_PERMISSION`. Existing open-ended vault flows and broker updates remain available. The change is a lifecycle compatibility fix, not a stable release or Mainnet lending launch. [1][2][5]",
+        "[Confirmed fact] The latest official primary record is XRPLF's rippled PR #8076. GitHub shows it merged into `develop` at 00:40 UTC on August 26, 2026, which was August 25 in Chicago. The merge commit `421af6d` carries the same behavior. The dated event is therefore a code merge, not a release announcement. [1][2]",
+        "[Status boundary] This distinction is the central fact for readers. A change can be reviewed, merged, and tested in the development branch without being included in a stable `rippled` release, enabled by an amendment on Mainnet, or reflected in production lending activity. The available records establish the first event only. [1][6][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://github.com/XRPLF/rippled/commit/421af6db796631da4ff8b78f5d3bafae0fd3ca32",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/BUILD.md"
+      ]
+    },
+    {
+      "heading": "What PR #8076 changes in rippled",
+      "paragraphs": [
+        "[Confirmed fact] The new check sits in the `LoanBrokerSet` creation path. When `featureLendingProtocolV1_1` is active, the code examines the target vault's kind. If the target is not `ClosedEnded`, the transaction returns `tecNO_PERMISSION` before a new broker is created. A closed-ended target continues through the existing creation path. [1][2][5]",
+        "The scope is deliberately narrow. PR #8076 says `VaultCreate` remains unrestricted, so the change does not remove the ability to create an open-ended vault. It also leaves ordinary open-ended deposit, withdrawal, and clawback flows in place. The existing update path for a LoanBroker attached to an already-open-ended vault is not changed by this merge. [1]",
+        "[Source-reported test result] The PR's test plan reports zero failures for the `xrpld -u Loan` suite, selected Vault suites, Batch, Sponsor, Invariants, and LendingHelpers coverage, along with a new `testLoanBrokerRequiresClosedEndedVault` case. The test plan is evidence of the author's reported verification, not independent proof that the branch is deployed or that every downstream client has adapted. [1]",
+        "The production behavior is concentrated in a small guard, while much of the patch adds test scaffolding and closed-ended-vault setup. That shape matters: this is not a redesign of vault accounting, a new loan market, or a change to how every vault handles assets. It is a type-and-lifecycle compatibility rule at one transaction boundary. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://github.com/XRPLF/rippled/commit/421af6db796631da4ff8b78f5d3bafae0fd3ca32",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset"
+      ]
+    },
+    {
+      "heading": "Why the lifecycle matters for LoanBrokerSet",
+      "paragraphs": [
+        "[Confirmed fact] The XRP Ledger Lending Protocol documentation describes a DeFi primitive for fixed-term, uncollateralized loans funded from pooled assets in a Single Asset Vault. Underwriting and risk management remain off-chain, and the protocol documentation does not describe automated on-chain collateral liquidation. The LoanBroker is the protocol object that organizes loan activity around that vault. [3][4]",
+        "The official `LoanBrokerSet` reference, an undated live technical page, says the transaction creates or updates a LoanBroker associated with a Vault and requires the Lending Protocol feature. That association is more specific than simply placing funds in a vault. It connects a loan workflow to the vault's asset pool and its rules for entering, operating, and closing the strategy. [5]",
+        "[Confirmed fact] XRPLF's earlier PR #7921, merged August 12, 2026, introduced the closed-ended vault model with three date-driven phases: Subscription, Investment, and Redemption. The patch describes immutable phase dates and phase-specific behavior. The finite schedule gives the lending layer a defined beginning, operating window, and end state to reason about. [8]",
+        "[Independent context] The XRP Ledger Monday Brew's August 3 to 9, 2026 development summary separately catalogued PR #7921 and its Subscription, Investment, and Redemption sequence. That weekly report does not verify PR #8076, but it independently supports the chronology and shows that the lifecycle model predates the new compatibility guard. [9]",
+        "[Bounded inference] An open-ended vault can continue accepting ordinary vault operations without a predetermined redemption date. A new loan broker attached to it would therefore lack the closed-ended phase boundary that the Lending Protocol's fixed-term workflow can use. The guard is best understood as preventing an undefined combination of objects, not as declaring open-ended vaults defective or unsafe. [1][3][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Open-ended vaults stay valid, but not as this new broker host",
+      "paragraphs": [
+        "The practical distinction can be stated operation by operation. With `LendingProtocolV1_1` enabled, creating an open-ended vault remains allowed; using that vault's ordinary deposit, withdrawal, and clawback functions remains allowed; creating a new LoanBroker against that open-ended vault is rejected; and the existing LoanBroker update path is outside the new rejection. With the feature disabled, PR #8076 describes the prior behavior as unchanged. [1]",
+        "[Implication for developers] Applications that assemble lending transactions should treat the vault kind as a precondition rather than discovering the mismatch only after a failed submission. A user interface can explain that an open-ended vault is suitable for its ordinary vault role but cannot be selected for a new LoanBroker under the V1.1 rule. The correct error is a compatibility signal, not evidence that the account, asset, or vault creation itself failed. [1][5]",
+        "[Independent context] XRPL Commons' March 6, 2026 explanation of XLS-65 describes a Single Asset Vault as a pool for one asset that issues shares while a pseudo-account holds the pooled assets. That independent account of the vault primitive helps separate two ideas that are easy to conflate: a vault can be a valid asset-pooling structure, while a lending broker can impose additional lifecycle requirements on the vault it uses. [11]",
+        "The change also avoids a misleading all-or-nothing reading. Nothing in the merged PR says every open-ended vault should be closed, that existing user balances should be migrated, or that ordinary vault withdrawals should be blocked. The compatibility boundary is between a new broker attachment and an open-ended target when the newer Lending Protocol behavior is active. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+        "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl"
+      ]
+    },
+    {
+      "heading": "The develop-branch boundary is the key status fact",
+      "paragraphs": [
+        "[Confirmed fact] The official Known Amendments page lists `LendingProtocolV1_1` under Amendments in Development. It does not present this PR merge as an activated Mainnet amendment. The same live reference also distinguishes the earlier `LendingProtocol` and `SingleAssetVault` records from the V1.1 development entry. [6]",
+        "The official `rippled` build guidance describes `develop` as the line for the latest and potentially untested features, while stable releases are separately tagged. That branch model makes the release status straightforward: PR #8076 is useful evidence about intended code behavior, but it is not a production-upgrade instruction. [7]",
+        "[Unresolved uncertainty] The records reviewed do not establish when, or whether, this merge will ship in a stable release, reach a test network, receive validator support, or activate on Mainnet. They also do not establish live LoanBroker counts, loan volume, locked value, institutional participation, XRP demand, or a price effect. No such claims should be inferred from the merge. [1][6][7]",
+        "[Source-date note] The dated event records are PR #8076 merged August 26, 2026 UTC, PR #7921 merged August 12, 2026, and the independent Monday Brew summary covering August 3 to 9, 2026. The Lending Protocol, Single Asset Vault, LoanBrokerSet, Known Amendments, and build pages are undated live references, so their current technical wording should not be mistaken for a dated announcement. [3][5][6][8][9]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/BUILD.md",
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html"
+      ]
+    },
+    {
+      "heading": "Why this is a risk-control milestone, not a launch",
+      "paragraphs": [
+        "[Independent context] Halborn's undated Lending Protocol audit page describes an engagement conducted July 21 through August 5, 2025, covering Loan, Vault, LoanBroker, batch helpers, invariants, and lending math. It reports 13 findings, with 12 marked solved and one marked not applicable. That older review does not assess PR #8076, but it shows why state transitions and accounting boundaries deserve explicit tests in this part of the protocol. [10]",
+        "[Bounded inference] A guard that rejects a broker-to-open-ended-vault combination can reduce ambiguity for implementers by making an invalid lifecycle pairing fail at the transaction boundary. The test case can also make the intended distinction easier for future maintainers to preserve. Those are reasonable engineering implications of the diff, not proof that the new code prevents an identified exploit or that funds were previously at risk. [1][8][10]",
+        "The wording should therefore stay measured. This is not a security incident report, a finding of user loss, or evidence that open-ended vaults are vulnerable. It is a development milestone that makes one compatibility rule explicit while leaving the independent vault operations described above in place. [1][3][4]",
+        "There is also no defensible market conclusion in the available evidence. A protocol guard does not demonstrate new borrowing, repayment, defaults, liquidity, institutional use, or demand for XRP. Readers looking for a price catalyst would be importing an outcome that the primary records do not report. [1][6][10]"
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a",
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, validators, and XRP holders",
+      "paragraphs": [
+        "[Implication for developers] Lending integrations should model `ClosedEnded` as an explicit requirement for new LoanBroker creation when V1.1 behavior is enabled. Test fixtures should cover both a closed-ended target that reaches the appropriate phase and an open-ended target that returns `tecNO_PERMISSION`. Client libraries and error handling should preserve that distinction instead of translating every rejection into a generic vault failure. [1][5][8]",
+        "[Implication for operators and validators] Operators should keep the branch boundary visible in upgrade procedures. A develop merge can be reviewed in a staging or test environment, but production deployment should wait for the project's stable release and the relevant amendment status. Validators should consult the live Known Amendments record rather than treating a merged GitHub PR as an activation notice. [6][7]",
+        "[Implication for applications and users] A front end that lets a user create or select vaults for lending should explain the lifecycle choice before submission. Closed-ended and open-ended are not cosmetic labels in this path. The former supplies the finite schedule used by the lending workflow; the latter can remain useful for ordinary vault activity but cannot satisfy the new broker-attachment precondition. [1][3][4]",
+        "[Implication for XRP holders] There is no action indicated for a holder from this merge alone. The official material describes XRP as one possible asset in the broader vault model, but the PR does not report new XRP deposits, borrowing, repayment, institutional use, or demand. Treating this as a protocol-structure update keeps the conclusion proportional to the evidence. [1][3][4][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/BUILD.md"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8076 into `develop` on August 26, 2026 UTC. Under `featureLendingProtocolV1_1`, its `LoanBrokerSet` creation path rejects an open-ended target with `tecNO_PERMISSION`; the PR says ordinary open-ended vault flows, `VaultCreate`, the existing update path, and disabled-feature behavior remain outside that new rejection. [1][2]",
+        "[Bounded inference] The most coherent explanation is lifecycle compatibility. Closed-ended vaults have the Subscription, Investment, and Redemption schedule that gives a fixed-term lending workflow defined phase boundaries. The guard appears designed to prevent a new broker from being paired with a vault that lacks those finite boundaries. That interpretation follows the PR rationale and official concepts, but it remains an explanation of design intent, not a measured production outcome. [1][3][8]",
+        "[Unresolved uncertainty] It is not yet established from these records whether the code will ship in a stable `rippled` release, what exact amendment path will govern it, how client libraries will expose the rejection, or whether any test-network application will use it. Independent sources add historical and ecosystem context, but neither Halborn's 2025 audit nor the August 3 to 9 Monday Brew summary verifies this August 2026 merge. [6][9][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://github.com/XRPLF/rippled/commit/421af6db796631da4ff8b78f5d3bafae0fd3ca32",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+        "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a"
+      ]
+    },
+    {
+      "heading": "Next verification points for the protocol change",
+      "paragraphs": [
+        "The next meaningful signals are specific and verifiable: (1) a stable `rippled` release whose notes identify the #8076 behavior, (2) a current Known Amendments entry showing the status and any activation boundary for `LendingProtocolV1_1`, (3) test-network transactions demonstrating both rejection for an open-ended target and successful creation against a closed-ended target, (4) updated LoanBrokerSet and Lending Protocol references that document the return code and phase precondition, and (5) follow-up code that clarifies how broker updates and phase transitions behave after this creation gate. [1][5][6][7]",
+        "Until those records appear, the defensible headline is narrow. XRPLF has merged a development-branch rule that aligns new LoanBroker creation with the closed-ended vault lifecycle. It has not announced a stable release, Mainnet activation, live lending activity, or a market outcome. [1][6][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/BUILD.md"
+      ]
+    }
+  ],
+  "keyTakeaways": [
+    "PR #8076 adds a `LoanBrokerSet` creation guard that returns `tecNO_PERMISSION` for an open-ended vault when `LendingProtocolV1_1` is enabled. [1]",
+    "The merge does not remove open-ended vault creation, deposits, withdrawals, or clawbacks, and it does not change the existing broker update path. [1]",
+    "Closed-ended vaults provide the finite Subscription, Investment, and Redemption schedule that explains the new broker compatibility rule. [3][8]",
+    "The code is merged into `rippled` `develop`, while `LendingProtocolV1_1` remains listed as in development, so this is not proof of Mainnet activation. [1][6][7]",
+    "The PR reports targeted test coverage, but no reviewed source establishes stable release inclusion, live loan activity, XRP demand, or a price effect. [1][6]"
+  ],
+  "whatToWatch": [
+    "A stable rippled release and release notes that identify whether PR #8076 shipped",
+    "The Known Amendments status and any validator or activation boundary for LendingProtocolV1_1",
+    "Test-network transactions showing open-ended rejection and closed-ended LoanBrokerSet success",
+    "Updated LoanBrokerSet and Lending Protocol documentation for the return code and lifecycle precondition",
+    "Follow-up implementation details for broker updates, phase transitions, and downstream client errors"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP Ledger lending platforms work",
+      "topic": "Lending context",
+      "description": "Review the lending roles, vaults, brokers, and fixed-term workflow before reading the new compatibility gate."
+    },
+    {
+      "href": "/learn/xrpl-defi",
+      "label": "DeFi on the XRP Ledger",
+      "topic": "DeFi context",
+      "description": "Connect Single Asset Vaults and Lending Protocol concepts to the broader XRPL DeFi surface."
+    },
+    {
+      "href": "/learn/xrp-developer-resources",
+      "label": "XRP Ledger developer resources",
+      "topic": "Build on XRPL",
+      "description": "Find the references, libraries, and test networks developers can use to evaluate a development-branch change."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XRPL Lending Protocol vote and consensus context",
+      "topic": "Related coverage",
+      "description": "Compare amendment and voting status with this separate code-merge milestone without treating either as Mainnet activation."
+    },
+    {
+      "href": "/learn/xrpl-consensus-mechanism",
+      "label": "How XRPL consensus works",
+      "topic": "Network status",
+      "description": "Separate a GitHub merge and amendment status record from validator consensus and live ledger behavior."
+    }
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8076, merged August 26, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/pull/8076",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRPLF rippled merge commit 421af6d, August 26, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/commit/421af6db796631da4ff8b78f5d3bafae0fd3ca32",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRP Ledger Lending Protocol documentation, undated live reference",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vaults documentation, undated live reference",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger LoanBrokerSet transaction reference, undated live reference",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/loanbrokerset",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated live reference",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled BUILD.md develop and stable branch guidance, undated live reference",
+      "url": "https://github.com/XRPLF/rippled/blob/develop/BUILD.md",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled PR #7921, merged August 12, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7921",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "XRPL Monday Brew, August 3 to 9, 2026 development summary",
+      "url": "https://xrplbrew.com/2026-08-03_2026-08-09.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-09"
+    },
+    {
+      "name": "Halborn Lending Protocol audit page, undated page, July 21 to August 5, 2025 engagement",
+      "url": "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Commons, Why We Voted Yes on XLS-65, March 6, 2026",
+      "url": "https://www.xrpl-commons.org/newsroom/why-we-voted-yes-on-xls-65-single-asset-vaults-on-the-xrpl",
+      "type": "supporting",
+      "publishedAt": "2026-03-06"
+    }
+  ]
+}
