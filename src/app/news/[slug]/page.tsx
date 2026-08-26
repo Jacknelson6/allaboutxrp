@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <ul className="mt-4 space-y-3 text-sm leading-7 text-text-secondary">{article.keyTakeaways.map((item) => <li key={item} className="flex gap-3"><span className="text-xrp-accent">•</span><span>{item}</span></li>)}</ul>
         </aside>
 
-        <div className="news-article-prose prose prose-invert mt-10 prose-headings:text-text-primary prose-p:leading-8 prose-p:text-text-secondary prose-strong:text-text-primary">
+        <div className="news-article-prose prose prose-invert mt-10 break-words prose-headings:text-text-primary prose-p:leading-8 prose-p:text-text-secondary prose-strong:text-text-primary">
           {article.sections.map((section) => (
             <section key={section.heading}>
               <h2>{section.heading}</h2>

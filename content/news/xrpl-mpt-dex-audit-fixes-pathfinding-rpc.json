@@ -1,0 +1,224 @@
+{
+  "slug": "xrpl-mpt-dex-audit-fixes-pathfinding-rpc",
+  "title": "XRPL Merges Phase-One MPT/DEX Audit Fixes Across Pathfinding and RPCs",
+  "description": "XRPLF merged a phase-one rippled patch for MPT and DEX audit findings, covering order-book identity, pathfinding, amount arithmetic, AMM withdrawals, and RPC liquidity reporting. The code remains on develop.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-26T14:06:00-05:00",
+  "modifiedAt": "2026-08-26T14:06:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-mpt-dex-triskelion-audit-editorial.webp",
+  "imageAlt": "A pale-gold three-lobed sorting spindle directs three cobalt glass markers into separate channels beside an ivory ledger tablet and a small vermilion overflow stop.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mpt-dex-triskelion-type-separation-still-life",
+  "imageSetting": "A silent circular white-limestone cistern wellhead in a sunken service gallery at clear early-spring sunrise, viewed just above the rim from an oblique southwest angle across a broad ivory stone ledge with generous empty space toward the upper left",
+  "imageMetaphor": "A pale-gold three-lobed sorting spindle directs distinct Issue-to-MPT, MPT-to-Issue, and MPT-to-MPT markers into separate channels beside an ivory ledger tablet, while one restrained vermilion overflow stop represents bounded pathfinding and safe amount reporting",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: create one sparse, physically believable still life that explains XRPLF rippled PR #7334, the phase-one MPT/DEX audit and Attackathon fix merge, through separation and bounded flow. Scene/backdrop: a silent circular white-limestone cistern wellhead in a sunken service gallery at clear early-spring sunrise, viewed just above the rim from an oblique southwest angle across a broad ivory stone ledge, with generous empty space toward the upper left. Subject: one pale-gold three-lobed sorting spindle with exactly three keyed exits, three separate cobalt-blue glass markers resting in those exits, one small ivory ledger tablet, and one detached restrained vermilion overflow stop. The three exits symbolize Issue-to-MPT, MPT-to-Issue, and MPT-to-MPT order-book identities; the stop symbolizes bounded pathfinding, overflow-safe arithmetic, and accurate MPT liquidity reporting. Style: luminous academic classical-revival oil painting with crisp sculptural modeling, rich glazing, ordered detail, warm ivory stone, pale gold metal, cobalt and ultramarine glass, clean snowy highlights, and at most one restrained vermilion mark. Use only extremely subtle fine fields of 1, 0, and x inside a few atmospheric or shadow transitions, then dissolve them into white space. Composition: one clear focal idea, a new above-rim oblique camera position, strong thumbnail silhouette, broad negative space, sharp corners, no border. Constraints: preserve exactly one spindle, three markers, one tablet, and one overflow stop; no readable text, letters, logos, XRP coins, cryptocurrency symbols, dashboards, charts, screens, interfaces, people, politicians, animals, temple, column, bank, harbor, coast, mountain, panoramic Greek city, generic cyber cube, fantasy ruin, impossible architecture, wires, circuitry, photographic realism, sepia, muddy gray, coarse halftone, all-over ASCII, retro pixel art, watermark, or unrequested scenery.",
+  "keywords": [
+    "XRP Ledger",
+    "XRPL",
+    "MPT DEX",
+    "Multi-Purpose Tokens",
+    "rippled",
+    "pathfinding",
+    "book_offers",
+    "Attackathon",
+    "ledger security"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7334 into the rippled develop branch on August 26, 2026, with 23 files changed across MPT and DEX logic, RPC reporting, and tests.",
+    "The patch adds type tags for MPT order-book keys, corrects several MPT pathfinding and funding decisions, and bounds arithmetic that could otherwise overflow or overstate liquidity.",
+    "The merge improves development-branch code, not live XRP Ledger behavior: MPTokensV2 remains in development and the commit is not a stable rippled release or Mainnet activation."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPL merged a broad MPT/DEX hardening patch, not a live upgrade",
+      "paragraphs": [
+        "XRPLF merged PR #7334 into the `rippled` `develop` branch on August 26, 2026, with phase-one fixes for MPT/DEX audit and Attackathon findings. The 23-file change separates order-book key types, repairs MPT pathfinding and funding checks, hardens amount arithmetic, and improves RPC reporting. It is not a stable release or Mainnet activation.",
+        "[Confirmed fact] The primary pull request is titled `Fix MPT/DEX Audit/Attackathon reports (Phase 1)`. GitHub records it as merged into `XRPLF:develop`; the resulting commit `dc3bd9cf00b5a6d959a50490517906a6a0e0dc35` became the `develop` branch head at the time checked for this report. The commit page records 23 files changed, with 2,142 additions and 173 deletions. Those numbers describe the source change, not a quantity of affected accounts, transactions, or dollars. [1][2]",
+        "[Confirmed fact] The PR body groups the work into order-book and pathfinding behavior, MPT and IOU arithmetic, AMM withdrawal reserve checks, and RPC output such as `book_offers`, `ledger(owner_funds=true)`, and `book_changes`. It also identifies a test plan covering AMM, flow, offer, and pathfinding suites. The record calls these audit and Attackathon issues. It does not describe a public exploit, a ledger halt, a loss of user funds, or a production incident. [1]",
+        "[Unresolved uncertainty] The primary record does not map each individual fix to a named external report, and it does not say which items will ship in the next tagged release or under which amendment. The safest reading is therefore bounded: a large development-branch hardening merge landed, while release, activation, exploitability, and real-world impact remain separate questions. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35"
+      ]
+    },
+    {
+      "heading": "Order-book identity is now separated before MPT liquidity is evaluated",
+      "paragraphs": [
+        "[Confirmed fact] The patch changes `getBookBase()`, the code that derives the directory identity for an XRPL order book. For the three MPT-involving combinations, it adds distinct one-byte discriminators for Issue-to-MPT, MPT-to-Issue, and MPT-to-MPT. The existing Issue-to-Issue path keeps its prior key shape. The point is to keep different asset-type combinations from sharing the same serialized preimage when their raw fields can line up byte for byte. [2]",
+        "[Confirmed fact] This matters because XLS-0082 describes MPT integration as an extension of existing DEX primitives. MPTs are intended to participate in offers, cross-currency payments, checks, and AMMs, while the order-book and pathfinding surfaces still need to distinguish an MPT issuance ID from an issued currency plus issuer account. The specification was created on September 19, 2024 and updated on February 10, 2026, and remains marked Draft. [3]",
+        "[Technical analysis] A book key is not a price quote and it is not a user-facing label. It is part of how the ledger locates the directory that holds offers for a pair. If two distinct type combinations can derive an indistinguishable key, later code may read the wrong directory or fail to preserve state-hash parity. Adding a discriminator makes the type distinction explicit at the identity boundary, before funding, transfer-rate, and path logic consume the book. That is a correctness property, not evidence that a collision already occurred on Mainnet. [2][3]",
+        "[Implication] Indexers, API clients, and DEX tooling should treat `mpt_issuance_id` as a first-class asset identifier rather than trying to reconstruct MPT books with legacy IOU assumptions. The change also explains why an MPT DEX release needs more than a transaction schema: keylets, offer lookup, path search, funding, transfer fees, and reporting must agree on the asset type. [3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers"
+      ]
+    },
+    {
+      "heading": "Pathfinding now distinguishes an MPT holder from its issuer",
+      "paragraphs": [
+        "[Confirmed fact] Several changes address how the payment engine decides whether an account can send an MPT. The new helper distinguishes the issuer from a holder: an issuer with a maxed-out issuance can still have a different send condition from a holder with a zero balance. The patch uses that distinction in pathfinding and account-asset discovery, addressing the PR’s stated problem that flawed constraints could block valid DEX trades for MPT holders. [1][2]",
+        "[Confirmed fact] The same merge preserves an explicit `srcAmount` in the `Pathfinder` constructor instead of silently replacing it with a value derived from the path asset. In `MPTEndpointStep`, the revised flow caps the amount at a representable maximum before applying a transfer rate, and the new `tryMulRatio` path converts arithmetic overflow into a bounded no-result rather than allowing an exception to escape. [2]",
+        "[Technical analysis] Pathfinding has to answer two linked but different questions: which assets can form a route, and how much of each asset can move through that route. A maxed-out issuer may be unable to create more MPT units, while a non-issuer holder may be able to send existing units. Treating both accounts as simply “maxed” or “empty” can erase a valid path. Likewise, losing an explicit source amount can cause a client’s requested spend limit to be replaced by an inferred amount, which changes the meaning of the request even if the route itself is valid. [2][3]",
+        "[Bounded inference] If these changes behave as the tests intend after release, MPT-aware clients should see fewer false rejections and fewer mismatches between requested and evaluated payment amounts. The evidence does not support a claim of higher throughput, more liquidity, new XRP demand, or more successful Mainnet trades. Those outcomes would need a tagged implementation, live requests, and measured data. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html"
+      ]
+    },
+    {
+      "heading": "Overflow handling protects arithmetic and RPC liquidity views",
+      "paragraphs": [
+        "[Confirmed fact] The patch adds MPT-specific safeguards in places that previously relied on IOU-oriented arithmetic or unbounded accumulation. `MPTAmount` gains a `tryMulRatio` helper that catches `std::overflow_error`; the MPT path caps the destination amount before multiplying by a transfer quality; and `book_changes` checks both sides of a volume update before committing either side. These are code-level controls around representability, not claims about a market-wide overflow event. [2]",
+        "[Confirmed fact] The RPC changes are equally important. `NetworkOPs` now treats MPT assets differently when calculating owner funds and transfer-rate limits, because an IOU mantissa and a raw MPT balance do not share the same scaling behavior. The PR also fixes `ledger(owner_funds=true)` handling for non-issuer MPT offers and moves an unrepresentable-quality check into offer placement. [1][2]",
+        "[Technical analysis] An order book can be economically empty, partially funded, or fully funded, but an API response must not turn an arithmetic edge case into a false amount. If a calculation throws, wraps, or reports more owner funds than an account can provide, downstream routers may select a path that cannot execute. The safer design is to bound the calculation, skip the unrepresentable edge, or return a truthful funding value while leaving the validated ledger unchanged. That protects the interpretation layer around the ledger, even though the RPC itself is not consensus state. [2][4]",
+        "[Confirmed fact] The commit adds or expands tests across `AMMMPT_test`, `FlowMPT_test`, `OfferMPT_test`, `PathMPT_test`, `Path_test`, `BookChanges_test`, and `LedgerRPC_test`. The diff shows especially large additions in offer and path testing. More tests are evidence of intended coverage and review surface; they are not the same as a released binary, an external audit of this exact commit, or a live-network result. [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers"
+      ]
+    },
+    {
+      "heading": "AMM and freeze-path corrections are narrower than a protocol launch",
+      "paragraphs": [
+        "[Confirmed fact] The phase-one merge also changes `AMMWithdraw` reserve handling so an intra-transaction XRP credit is considered when checking the account’s reserve position. It adjusts MPT freeze-path logic in `BookStep`, updates MPT rate handling in offer placement, and corrects how path requests reconcile MPT source currencies with `send_max`. These are separate edge cases joined in one audit-fix branch, not a new AMM product. [1][2]",
+        "[Confirmed fact] The `BookStep` change is especially easy to misread. The PR describes it as removing a redundant MPT DEX lock check, while the new code comments say that offer and AMM liquidity sources already apply the relevant locked-holding filters and that this method should enforce trade and transfer permissions. The record therefore supports a narrower interpretation: freeze enforcement is being placed in the correct layer, not removed from the DEX. [1][2]",
+        "[Technical analysis] Reserve checks and freeze checks sit at different boundaries. A reserve check asks whether the account can complete a state transition without falling below its required XRP balance. A freeze check asks whether a particular asset may move. Combining them too early or repeating them with a different view of the transaction can reject valid activity or create inconsistent branches. The patch’s value is in making each check consume the state it is meant to evaluate. [2][3]",
+        "[Unresolved uncertainty] The commit does not establish the final amendment gates for each change, and the current primary record does not show a production rollout. Developers should therefore avoid presenting these corrections as current Mainnet behavior until a tagged release, amendment status, and live implementation record line up. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Independent audit context explains the significance without proving an incident",
+      "paragraphs": [
+        "[Independent evidence] Halborn’s MPT DEX assurance assessment for Ripple covered July 21 through August 5, 2025 and was last updated on September 30, 2025. Its scope included AMM and MPT logic, C++ ledger code, owner-directory handling, flag gating, and directed testing. Halborn reported three previously unknown denial-of-service vectors in its assessment summary, including unsolicited MPT effects on AMM pools and account operations. [6]",
+        "[Independent evidence] Halborn’s report also records five findings in its overview: two high-severity items, one medium item, and two informational items, with statuses split between solved and not applicable. It recommends a follow-up assessment after material code changes. That recommendation is relevant context for a large later merge, but the report was based on an earlier assessed commit and is not an external certification of `dc3bd9c`. [6]",
+        "[Source precedence] The XRPLF PR and commit are the authoritative sources for what changed on August 26. XLS-0082 and the XRPL documentation describe the intended MPT/DEX and offer semantics. Halborn is the independent source for why this surface merits careful security review. The sources should not be blended into a stronger claim than any one of them supports. In particular, the current PR’s use of the words “audit” and “Attackathon” does not identify a one-to-one remediation map to Halborn’s findings. [1][3][6]",
+        "[Unresolved uncertainty] The reviewed records do not establish whether any issue in PR #7334 was exploitable on a public network, whether an attacker attempted it, or whether the merge resolves every risk found in prior assessments. The defensible conclusion is that the project is continuing adversarial and edge-case hardening as MPT/DEX functionality moves through development. [1][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+        "https://www.halborn.com/audits/ripple/mpt-dex-ef128a"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, and XRP readers",
+      "paragraphs": [
+        "[For XRPL developers] The immediate work is compatibility discipline. A client that consumes MPT order books should keep the issuance ID and asset type intact through book lookup, path construction, funding checks, and response decoding. Test the three MPT book combinations separately, including large balances, issuer-owned offers, transfer fees, frozen or unauthorized holdings, and a requested `srcAmount`. Do not treat the `develop` commit as a stable API contract. [2][3][4]",
+        "[For API operators and indexers] The patch signals that MPT-aware RPC behavior is still being refined. A service that caches `book_offers`, `book_changes`, `ledger(owner_funds=true)`, or pathfinding results should record the server version and amendment context alongside its response. It should also distinguish an empty result caused by no liquidity from a bounded arithmetic or permission outcome. That separation will matter when downstream software compares responses before and after an upgrade. [2][4]",
+        "[For validators and protocol reviewers] The next evidence is not another branch headline. Reviewers need a tagged release or testnet build, reproducible tests for the affected asset-type combinations, and a clear amendment record. The current XRPL known-amendments page lists MPTokensV2 as In Development, with a no default vote in the latest stable release. That status is incompatible with describing the merge as live MPT trading on Mainnet. [5]",
+        "[For XRP holders and market readers] This is protocol plumbing. The records reviewed do not show a new XRP payment corridor, institutional partnership, adoption metric, revenue outcome, supply change, or price catalyst. MPT DEX support could matter to future tokenized-asset markets if it ships and gains use, but that is a bounded inference, not a confirmed result of this merge. No price snapshot is included because it would not clarify the code change. [1][3][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed change, bounded inference, and open questions",
+      "paragraphs": [
+        "[Confirmed fact] On August 26, 2026, XRPLF merged PR #7334 into `rippled` `develop`. The merge commit is the branch head checked for this report and changes MPT/DEX key derivation, pathfinding, arithmetic, offer funding, AMM withdrawal reserve logic, and RPC tests. The repository record is the source of truth for that development event. [1][2]",
+        "[Bounded inference] The changes should make MPT-aware DEX paths more internally consistent by separating asset-type identities, preserving explicit request amounts, bounding calculations, and aligning RPC funding views with MPT semantics. This is an engineering interpretation of the diff and its tests. It is not a measurement of post-release correctness, performance, liquidity, or user outcomes. [2][3][4]",
+        "[Unresolved uncertainty] The final release vehicle, amendment gates, testnet availability, Mainnet activation, external follow-up audit, downstream library support, and any production impact are unresolved in the sources reviewed. MPTokensV2 is still listed as In Development. Claims that MPT/DEX is live, that these fixes stopped an active exploit, or that they create immediate XRP demand go beyond the evidence. [5][6]",
+        "[What this means now] The best near-term signal is a coherent chain of evidence: a tagged `rippled` release containing the patch, an amendment record that identifies what is enabled, reproducible MPT/DEX requests on the relevant network, and independent review of the changed code. Until those appear, this is a meaningful security and correctness milestone in XRPL development, not a Mainnet feature announcement. [1][2][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7334",
+        "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.halborn.com/audits/ripple/mpt-dex-ef128a"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled release or beta note that includes commit dc3bd9c and identifies the release and amendment gates for each MPT/DEX correction.",
+    "The MPTokensV2 entry on the XRPL amendment tracker, including any move from In Development to a testnet, ballot, or enabled status.",
+    "Reproducible book_offers, book_changes, ledger owner_funds, and path_find responses for Issue-to-MPT, MPT-to-Issue, and MPT-to-MPT cases on a declared network.",
+    "An independent follow-up security assessment that covers the changed MPT/DEX code after the August 26 merge, consistent with Halborn’s material-change recommendation.",
+    "Release notes or compatibility work in Clio and XRPL client libraries that preserves MPT issuance IDs, funding semantics, and the corrected pathfinding behavior."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #7334, MPT/DEX Audit/Attackathon reports Phase 1, merged August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7334",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRPLF rippled merge commit dc3bd9c, 23-file MPT/DEX hardening change, August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/dc3bd9cf00b5a6d959a50490517906a6a0e0dc35",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XLS-0082 MPT Integration into DEX, created September 19, 2024 and updated February 10, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0082-mpt-dex.html",
+      "type": "primary",
+      "publishedAt": "2026-02-10"
+    },
+    {
+      "name": "XRP Ledger Offers documentation, undated live reference checked August 26, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/offers",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Known Amendments tracker, undated live status reference checked August 26, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Halborn MPT DEX security assessment for Ripple, engagement July 21 to August 5, 2025, page updated September 30, 2025",
+      "url": "https://www.halborn.com/audits/ripple/mpt-dex-ef128a",
+      "type": "supporting",
+      "publishedAt": "2025-09-30"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "How XRPL Multi-Purpose Tokens work",
+      "topic": "Background",
+      "description": "Review the MPT asset model before reading the DEX edge cases."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRPL DEX",
+      "topic": "Trading infrastructure",
+      "description": "See how offers, paths, and liquidity fit together on XRPL."
+    },
+    {
+      "href": "/news/xrpl-auto-bridging-route-depth-explainer",
+      "label": "XRPL auto-bridging and order-book paths",
+      "topic": "Related coverage",
+      "description": "A prior explainer on how XRPL pathfinding can route between assets."
+    },
+    {
+      "href": "/news/xrpl-clio-2-8-1-rc1-mpt-book-offers",
+      "label": "Clio 2.8.1 and MPT book_offers",
+      "topic": "Related coverage",
+      "description": "Read how an API server release handled MPT issuance IDs in book_offers."
+    },
+    {
+      "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens",
+      "label": "MPT transfer rules for AMM LP tokens",
+      "topic": "Related coverage",
+      "description": "Follow the separate transfer-permission boundary for MPT AMM positions."
+    }
+  ]
+}
