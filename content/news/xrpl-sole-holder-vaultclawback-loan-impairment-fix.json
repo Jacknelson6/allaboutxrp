@@ -1,0 +1,277 @@
+{
+  "slug": "xrpl-sole-holder-vaultclawback-loan-impairment-fix",
+  "title": "XRPLF Merges Sole-Holder VaultClawback Fix After Loan Impairment",
+  "description": "Merged rippled PR #8119 changes sole-shareholder VaultClawback pricing after loan impairment, preserving residual shares against the impaired receivable while remaining gated by fixCleanup3_4_0.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-27T06:08:44-05:00",
+  "modifiedAt": "2026-08-27T06:08:44-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-sole-holder-impaired-vault-astrolabe-editorial.webp",
+  "imageAlt": "A pale-gold open astrolabe rests on wet ivory stone between a dark cobalt glass sphere and a smaller water-blue sphere in a separate ivory socket",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "impaired-vault-astrolabe-residual-still-life",
+  "imageSetting": "A silent white-porphyry observatory side alcove after rain, with an ivory stone bench under a single cool moonbeam from a roof slit, viewed straight across the far edge at floor height with broad untouched space above and right",
+  "imageMetaphor": "A pale-gold open astrolabe arm stops at nine of ten cobalt glass stations while a small water-blue remainder stays in a separate ivory socket, representing a sole holder recovering available assets while residual shares remain against an impaired receivable",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: explain the XRPLF rippled PR #8119 fix for a sole-shareholder VaultClawback after LoanManage impairment through one sparse, physically believable still life. The scene must be clearly different from every registered article image: do not reuse a temple, coast, harbor, terrace, bank, archive, laboratory, quarry, workshop, niche, gallery, chamber, or any prior object arrangement. Scene/backdrop: a silent white-porphyry observatory side alcove after rain, with an ivory stone bench, one narrow roof slit, cool moonlight reflected from damp stone, viewed straight across the far edge at low floor height, with the object cluster in the lower-left and broad untouched ivory negative space above and right. Subject: exactly three connected object groups, an open pale-gold astrolabe-like measuring arm with no writing and no solid disk, a single cobalt glass ring or station held at the ninth of ten positions, and a small water-blue glass remainder resting in a separate ivory socket beside a dark lower recess. The arrangement represents a sole holder whose available cash can be recovered while residual shares remain against an impaired receivable. Make the nine-of-ten relationship readable without readable numbers or labels. Style/medium: luminous academic and classical-revival oil painting in the Sublime Classical Oil system, jewel-toned cobalt and ultramarine shadow, warm ivory stone, pale-gold metal, clean sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on the gold edge and glass, ordered detail, physically consistent contact and cast shadows. ASCII treatment: extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or deep-shadow transitions and dissolve into white space; never apply all-over ASCII, dither, halftone, or pixel texture. Composition/framing: wide landscape, straight-on low viewpoint not used by existing scenes, strong thumbnail silhouette, one clear measurement and retention idea, generous negative space, no border and sharp corners. Lighting/mood: cool blue-hour moonlight after rain with a single pale-gold reflected highlight, tranquil concentrated drama, crisp tonal separation. Color palette: saturated cobalt and ultramarine, warm ivory, pale gold, water-blue glass, and at most one tiny restrained vermilion status mark at the unopened final position. Materials/textures: damp porphyry, matte ivory limestone, polished pale-gold metal, translucent cobalt glass, and one opaque ivory socket, all rendered with material-specific oil technique. Constraints: preserve exactly the astrolabe arm, one cobalt station, one water-blue remainder, one ivory socket, and the stated low straight-on composition; no text, logo, watermark, coin, currency symbol, XRP symbol, dashboard, chart, screen, computer, circuitry, cyber cube, politician, person, animal, generic crypto imagery, Greek city panorama, fantasy ruin, temple, column, robe, bridge, lock, key, gate, rail, wheel, ratchet, gauge, scale, hourglass, shutter, folio, compass, amphora, ledger, tablet, counter, caliper, punch, blade, shear, comb, sieve, lyre, clepsydra, bellows, manifold, coupling, hinge, groma, press, pulley, or repeated object from the reference set. Bundled references control only palette, light, surface, and finish. Avoid muted sepia, muddy gray cast, photographic realism, generic digital concept art, excessive craquelure, mushy detail, impossible geometry, duplicated elements, coarse halftone, retro pixel art, and content leakage from the references.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "VaultClawback",
+    "Single Asset Vault",
+    "LoanManage",
+    "Lending Protocol",
+    "fixCleanup3_4_0",
+    "rippled"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged rippled PR #8119 into develop on August 27, 2026, changing sole-holder VaultClawback pricing after an impaired loan. [1][2]",
+    "In the PR's 10,000-total, 9,000-available, 1,000-loss fixture, the new path recovers 9,000 while leaving 10% of shares against the impaired receivable. [1]",
+    "The waiver is limited to a holder who owns every outstanding share. A non-sole holder remains on the discounted path and can receive tecINSUFFICIENT_FUNDS for the same full-available-cash request. [1]",
+    "The change is gated by fixCleanup3_4_0 and merged only into develop. It is not evidence of a stable release, enabled SingleAssetVault activity, a live exploit, or new XRP demand. [1][7][8]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a code-level invariant fix, not a live lending launch",
+      "paragraphs": [
+        "XRPLF merged rippled PR #8119 into the develop branch on August 27, 2026. It changes VaultClawback so a holder who owns every outstanding vault share is not priced through the unrealized-loss discount after LoanManage impairment. The result preserves residual shares against the impaired receivable. The fix is not a stable-release or Mainnet activation.",
+        "The official pull request says the edge case can arise after a loan is impaired: a clawback of the vault's available cash can be converted at a discounted share price, burning every share even though the vault still records the impaired loan principal in AssetsTotal. That leaves a zero-share, non-zero-asset state that ValidVault rejects with tecINVARIANT_FAILED. [1]",
+        "PR #8119 is a narrow follow-up to a different vault problem. The earlier asset-denominated rounding discussion focused on preventing VaultWithdraw and VaultClawback from delivering more assets than a request. This change starts after impairment and changes only the sole-shareholder VaultClawback pricing decision, while keeping the non-sole-holder behavior unchanged. [1][2]",
+        "That status boundary matters more than the headline. The pull request is merged into develop, has no new public transaction type or XLS, and says it is gated by the existing fixCleanup3_4_0 amendment. A merged code change can document intended behavior without proving that a stable binary, a public validator, or a Mainnet vault has used it. [1][7][8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://github.com/XRPLF/rippled/commit/e0151229b64708cb38f3c6a5453143243a509540",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "How LoanManage impairment changes the vault accounting problem",
+      "paragraphs": [
+        "A Single Asset Vault pools one underlying asset and represents depositor ownership with MPToken shares. Its ledger entry tracks at least the total asset value, the amount currently available to withdraw, the share issuance, and LossUnrealized, which records a potential loss that has not yet been realized. The exchange rate is therefore not just a wallet balance: it is a relationship between an asset pool and a discrete share supply. [3][5][11]",
+        "The Lending Protocol connects that vault to fixed-term loans. When a loan broker discovers that a borrower may not make an upcoming payment, LoanManage with the tfLoanImpair flag can register a paper loss with the vault. The LoanManage reference identifies impairment as a distinct state transition, and the lending specification describes the vault's LossUnrealized increase as the outstanding loan value, less the relevant management fee. [3][4]",
+        "After impairment, the share conversion used by the vault accounts for that unrealized loss. In ordinary multi-holder circumstances, that discount protects the accounting relationship between available assets and outstanding claims. The sole-holder case is different: if one account owns every share, clawing back all available cash should not also erase the claim represented by the impaired receivable. The PR's problem statement treats that distinction as an invariant requirement, not as a market-price question. [1][3]",
+        "The failure is easiest to understand as two values moving at different speeds. Available cash falls because the issuer is clawing it back. Total assets remain higher because the loan receivable is still recorded, although impairment says part of that value may never be recovered. If the share conversion uses only the discounted available value while destroying all shares, the ledger loses the remaining claim before the receivable has disappeared. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/references/protocol/transactions/types/loanmanage",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/vault",
+        "https://github.com/XRPLF/rippled/pull/8119"
+      ]
+    },
+    {
+      "heading": "The 10,000, 9,000, and 1,000 example makes the fix measurable",
+      "paragraphs": [
+        "The pull request supplies a concrete regression fixture rather than a vague warning. The vault starts with AssetsTotal of 10,000, AssetsAvailable of 9,000, and LossUnrealized of 1,000. One holder owns the full share supply. A clawback request for the available cash, or for more than the available cash, is clamped to 9,000. [1]",
+        "Before the fix, the unrealized-loss discount makes that 9,000 recovery look like the full outstanding share position. Every share is burned, but the vault still has 1,000 of total assets representing the impaired receivable. The resulting zero-share, non-zero-asset state fails the vault invariant. After the fix, the sole-holder waiver prices the same recovery against the full total, burns 90% of shares, and leaves 10% outstanding against the 1,000 receivable. [1]",
+        "[Derived arithmetic] The percentages are a shorthand for the PR's stated 10,000/9,000/1,000 setup, not a universal vault ratio. They show why the correct outcome is not simply \"claw back every share that corresponds to available cash.\" A sole holder owns the entire claim, so the conversion must preserve the portion of that claim that corresponds to the impaired value still carried in AssetsTotal. Real outcomes still depend on the asset type, fees, share precision, permissions, and the exact request path. [1][5]"
+      ],
+      "table": {
+        "caption": "PR #8119's impaired-loan VaultClawback fixture",
+        "headers": ["State", "Before fix", "After fix"],
+        "rows": [
+          ["Vault before clawback", "AssetsTotal 10,000; AssetsAvailable 9,000; LossUnrealized 1,000", "Same starting state"],
+          ["Effective clawback", "9,000 available assets, with the discounted share rate", "9,000 available assets, with the sole-holder waiver"],
+          ["Shares destroyed", "100% of outstanding shares", "90% of outstanding shares"],
+          ["Remaining state", "0 shares, 1,000 assets, tecINVARIANT_FAILED", "10% shares, 1,000 assets, tesSUCCESS"]
+        ],
+        "sourceNote": "Source: XRPLF rippled PR #8119, merged into develop on August 27, 2026. The fixture describes protocol test behavior, not a reported Mainnet balance or loss. [1]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/vault"
+      ]
+    },
+    {
+      "heading": "What the merged code changes, and what its tests do not prove",
+      "paragraphs": [
+        "The implementation adds a fixCleanup3_4_0 check and asks whether the clawback holder is the sole shareholder. When both conditions are true, VaultClawback passes a WaiveUnrealizedLoss choice into its share-to-asset and asset-to-share conversion helpers. The code applies that choice across the zero-amount full-balance path, the ordinary conversion path, and the branch that clamps a request to AssetsAvailable. [1][2]",
+        "The change is deliberately local. It does not create a new amendment, alter the public VaultClawback fields, or turn every clawback into a full-value redemption. It changes how one authorized holder is priced after a specific impairment state, and it leaves non-sole holders on the existing discounted path. The pull request labels the implementation as a libxrpl change, which matters to downstream code that depends on the shared library. [1]",
+        "The added test, testBugClawbackAfterLoanImpair, runs the sole-holder setup before and after fixCleanup3_4_0. It expects tecINVARIANT_FAILED before the gate and tesSUCCESS after it, then checks that AssetsAvailable becomes zero, AssetsTotal remains 1,000, and the holder retains the expected residual shares. A separate 90%/10% holder split expects tecINSUFFICIENT_FUNDS, confirming that the waiver is not intended for a majority holder who does not own every share. [1]",
+        "[Unresolved test coverage] The final pull request record also contains a review note that the new regression does not separately exercise the Amount=0 full-balance clawback form for an impaired sole holder. The implementation threads the waiver through that branch, but a passing test for the positive request that exceeds available cash is not the same as an independent zero-amount test. That is a concrete item for maintainers and integrators to watch, not evidence that the merged fix is defective. [1]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://github.com/XRPLF/rippled/commit/e0151229b64708cb38f3c6a5453143243a509540"
+      ]
+    },
+    {
+      "heading": "Sole holders and non-sole holders face different boundaries",
+      "paragraphs": [
+        "The sole-holder condition is not a cosmetic optimization. If another depositor owns any outstanding shares, repricing the full claim without the unrealized-loss discount could change how that other account's position is represented. PR #8119 therefore checks isSoleShareholder rather than applying the waiver to any holder with a large balance. In its non-sole test, a 90% holder cannot cover a full-available-cash clawback at the discounted rate and receives tecINSUFFICIENT_FUNDS. [1]",
+        "VaultClawback itself remains a controlled issuer operation. The XRPL reference describes it as a forced redemption of a holder's vault shares, with the underlying issued asset sent to the issuer. It cannot be used for native XRP, and the transaction still has to satisfy the separate asset, permission, freeze, vault-state, and share-balance checks. The new pricing rule is not a freeze bypass or an authorization shortcut. [6]",
+        "For a vault owner or issuer, the practical distinction is between recovering available cash and erasing the residual claim. For a depositor, it is between a position that remains represented by shares and one that fails because the ledger's state would otherwise be internally inconsistent. For a developer, it is a reminder to model holder concentration, impairment state, request denomination, and result code together rather than treating VaultClawback as a simple transfer. [1][3][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol"
+      ]
+    },
+    {
+      "heading": "Independent security context supports caution, not an exploit claim",
+      "paragraphs": [
+        "Halborn's independent Single Asset Vault assessment for Ripple covered the vault ledger entry, Create, Set, Delete, Deposit, Withdraw, and Clawback transactions, plus share management, access controls, asset handling, and accounting. The page records a February 17 to March 13, 2025 engagement and says all reported findings were addressed. Its assessed commit predates PR #8119, so it provides security-review context for the feature surface rather than independent confirmation of this new code. [9]",
+        "That distinction is important because a code-level invariant failure is not automatically a live exploit. The audit page says its method included manual review, automated testing, and edge-case testing for freezes, transfer fees, capacity limits, and error handling. None of those statements establishes that an attacker reached the PR #8119 state on Mainnet, that funds were lost, or that a customer was affected after the new pull request merged. [9]",
+        "The independent XRPL Commons amendment-testing interface gives a second practical reference point. It describes XLS-65 vaults as aggregating assets from depositors and representing ownership through shares, and it presents XLS-66 loans, impairment management, and first-loss capital as connected operations. That interface is useful ecosystem context, but it is not an audit of PR #8119, a validator census, or proof that the features are enabled on the public network. [10]",
+        "[Confirmed fact] XRPLF merged a targeted VaultClawback correction with regression coverage. [Bounded inference] The sole-holder waiver should preserve the remaining share claim in the stated impaired-loan state because it prevents the full available-cash recovery from consuming every share. [Unresolved uncertainty] The reviewed records do not identify a live incident, affected balance, exploit transaction, customer deployment, or production loss tied to this edge case. [1][9][10]"
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+        "https://tests.xrpl-commons.org/lending",
+        "https://github.com/XRPLF/rippled/pull/8119"
+      ]
+    },
+    {
+      "heading": "Release and Mainnet status remain separate from the merge",
+      "paragraphs": [
+        "GitHub shows PR #8119 merged on August 27, 2026 into XRPLF/rippled's develop branch. The latest non-pre-release rippled release listed by the repository is 3.3.0, published August 6, 2026. No 3.4.0 stable release is attached to the PR, and the pull request itself says its behavior is gated by fixCleanup3_4_0. [1][7]",
+        "A public s1.ripple.com feature response checked at 11:08 UTC on August 27 reported SingleAssetVault and LendingProtocol as supported but disabled. That single endpoint is only a time-stamped observation, not a complete census of every validator or network. It is nevertheless consistent with the narrower editorial conclusion: the merged develop code should not be presented as proof of enabled public vault or lending activity. [8]",
+        "The gate language also requires care. A feature response can show that an amendment is supported or enabled in one server configuration, while the newly changed implementation is still absent from the stable binary that server runs. Release tags, the exact build, feature responses, validated transactions, and public ledger state answer different questions. Treating them as interchangeable would turn a development record into an unsupported Mainnet claim. [1][7][8]",
+        "There is therefore no defensible basis in this record for saying that XRPL lending has launched, that a named borrower or institution uses the corrected path, that the amendment has created XRP demand, or that XRP price has reacted to PR #8119. Those conclusions would require separate production evidence, none of which the primary or independent sources reviewed here provide. [1][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, and XRP readers",
+      "paragraphs": [
+        "For developers integrating vault or lending flows, the immediate task is to include impairment and holder concentration in test fixtures. A client should distinguish VaultClawback's asset-denominated amount from its zero-amount form, record whether the relevant fix gate is active, and handle tesSUCCESS, tecINVARIANT_FAILED, and tecINSUFFICIENT_FUNDS as different outcomes. Tests should include a sole holder, a non-sole holder, an impaired loan, an available-assets clamp, transfer fees, freeze conditions, and a zero-share precision boundary. [1][4][6]",
+        "For vault owners and issuers, the change clarifies the intended accounting boundary rather than expanding authority. An issuer can still claw back only the issued asset supported by the transaction path, and a successful sole-holder clawback after impairment should leave the residual claim represented rather than manufacturing an invalid zero-share state. Operators should pin the exact rippled build and record the feature response before treating the behavior as available. [1][6][8]",
+        "For depositors and lending participants, impairment is a protocol state that records a potential loan loss; it is not proof that the receivable has been recovered, defaulted, or paid. The retained 10% in the PR's fixture is a test-state consequence of the 10,000/9,000/1,000 values, not a promised recovery rate or yield. Participants need the vault's asset, share, fee, and loan records before drawing conclusions about an individual position. [1][3][5]",
+        "For XRP holders and market readers, the article's material takeaway is protocol correctness. The reviewed primary record contains no XRP price, volume, institutional allocation, borrower, customer, or production-usage claim. A safer future VaultClawback path may matter to builders of tokenized lending infrastructure, but this merge alone is not a measurable XRP market catalyst. [1][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/vault",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8119 into develop on August 27, 2026. The change adds an existing-gate and sole-shareholder check to VaultClawback's conversion logic, waives the unrealized-loss discount only for that holder, and adds a regression test for an impaired-loan fixture. The PR says no new amendment or public API is required. [1][2]",
+        "[Confirmed fact] In the stated fixture, AssetsTotal is 10,000, AssetsAvailable is 9,000, and LossUnrealized is 1,000. The pre-fix sole-holder path fails after burning every share, while the post-fix path recovers 9,000, leaves 10% of shares against the 1,000 receivable, and returns tesSUCCESS. A non-sole holder does not receive the waiver in the test. [1]",
+        "[Bounded inference] The patch makes the sole-holder invariant easier to preserve because the share price is calculated against the full total when available cash is clawed back. It does not mean the impaired receivable is worth 100%, that a depositor is made whole, or that the protocol has solved loan credit risk. Those are different economic questions from preserving a valid ledger state. [1][3][5]",
+        "[Unresolved uncertainty] The records reviewed do not show a stable release containing PR #8119, a future 3.4.0 release date, a Mainnet transaction exercising the edge case, an affected customer or balance, or an independent audit of this post-March-2025 code change. The new test also does not separately cover the zero-amount form noted in the pull request review record. [1][7][9]",
+        "The defensible conclusion is narrow but useful: XRPLF has merged a targeted VaultClawback correction for an impaired loan when one account owns all outstanding shares. It preserves the residual claim in the documented test state and keeps other holders on their existing boundary. Until a tagged release and network evidence arrive, readers should treat it as a reviewed develop-branch code change, not as live lending adoption or an XRP investment signal. [1][7][8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8119",
+        "https://github.com/XRPLF/rippled/commit/e0151229b64708cb38f3c6a5453143243a509540",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234",
+        "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled release that includes PR #8119 and identifies the final fixCleanup3_4_0 compatibility boundary.",
+    "A separate regression test or maintainer note for the zero-amount full-balance VaultClawback path after LoanManage impairment.",
+    "Feature responses and Known Amendments records showing SingleAssetVault, LendingProtocol, and fixCleanup3_4_0 states on the exact network and build being evaluated.",
+    "Validated transactions that exercise an impaired vault with a sole holder and demonstrate the residual share state without exposing a customer balance or private account data.",
+    "Evidence that non-sole holders, issuer permissions, transfer fees, freezes, and insufficient-funds boundaries remain unchanged after the fix lands in a production release."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8119, Waive unrealized-loss discount on sole-holder VaultClawback, merged August 27, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8119",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "XRPLF rippled commit e0151229, merged implementation for sole-holder VaultClawback after loan impairment, published August 27, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/e0151229b64708cb38f3c6a5453143243a509540",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "XRP Ledger Lending Protocol documentation, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger LoanManage reference, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/loanmanage",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Vault ledger-entry reference, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/vault",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger VaultClawback reference, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/vaultclawback",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 stable release, published August 6, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "Public s1.ripple.com feature response, checked August 27, 2026 at 11:08 UTC",
+      "url": "https://s1.ripple.com:51234",
+      "type": "supporting"
+    },
+    {
+      "name": "Halborn Single Asset Vault security assessment for Ripple, engagement February 17 to March 13, 2025, last updated June 27, 2025",
+      "url": "https://www.halborn.com/audits/ripple/ripple---single-asset-vault---smart-contract-assessment-d39437",
+      "type": "supporting",
+      "publishedAt": "2025-06-27"
+    },
+    {
+      "name": "XRPL Commons amendment-testing interface for XLS-65 and XLS-66, undated reference checked August 27, 2026",
+      "url": "https://tests.xrpl-commons.org/lending",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vault documentation, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-vault-withdraw-clawback-overrun-fixcleanup3-4-0",
+      "label": "Earlier XRPL Vault rounding fix",
+      "topic": "Related protocol correctness",
+      "description": "Compare this sole-holder impairment edge case with the separate asset-denominated overrun proposal."
+    },
+    {
+      "href": "/news/xrpl-lendingprotocol-v1-1-supported-develop",
+      "label": "LendingProtocol V1.1 develop status",
+      "topic": "Release context",
+      "description": "Separate support in develop from an enabled lending amendment or stable release."
+    },
+    {
+      "href": "/news/xrpl-lending-impairment-due-date-fix",
+      "label": "XRPL loan impairment due-date fix",
+      "topic": "Loan lifecycle",
+      "description": "Review the separate proposal about impairment and the loan's scheduled due date."
+    },
+    {
+      "href": "/news/xrpl-vaultwithdraw-precision-loss-fixcleanup3-4-0",
+      "label": "Earlier VaultWithdraw precision boundary",
+      "topic": "Related vault accounting",
+      "description": "Contrast a zero-share precision-loss boundary with the residual-share impairment case."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "XRP lending platforms",
+      "topic": "Lending context",
+      "description": "Use the broader lending guide before treating protocol code as live credit activity."
+    }
+  ]
+}
