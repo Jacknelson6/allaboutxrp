@@ -1,0 +1,294 @@
+{
+  "slug": "xrpl-lendingprotocol-v1-1-supported-develop",
+  "title": "XRPLF Marks LendingProtocol V1.1 Support in Develop, Mainnet Stays on 3.3.0",
+  "description": "XRPLF changed the LendingProtocolV1_1 support flag in rippled’s develop branch, a readiness milestone that does not activate native lending on Mainnet, where public endpoints still report rippled 3.3.0.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-26T22:16:55-05:00",
+  "modifiedAt": "2026-08-26T22:16:55-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/xrpl-lendingprotocol-v1-1-support-activation-bridge-editorial.webp",
+  "imageAlt": "A pale-gold bridge leaf spans cobalt and ivory sockets on an ivory stone slab, with a separate white voting stone and vermilion stop pin.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "lending-v1-1-bridge-ballot-still-life",
+  "imageSetting": "A quiet white-sandstone bell-testing gallery with a single broad ivory slab, plain warm wall, and clear late-morning light, viewed from low rear-left at slab height with the object cluster held in the lower-right and wide empty air above.",
+  "imageMetaphor": "A lowered pale-gold bridge connects code support to a waiting ledger state, while a separate voting stone and vermilion stop pin show that readiness has not become activation.",
+  "imagePrompt": "A finished 16:9 AAXRP editorial still life in luminous academic classical oil: one broad matte ivory stone slab in a quiet white-sandstone bell-testing gallery, plain warm-white wall and floor, clear late-morning light, low rear-left viewpoint at slab height, lower-right object cluster with wide upper-left negative space. A pale-gold hinged drawbridge leaf is lowered between one dark cobalt socket on the left and one warm ivory socket on the right, with one separate smooth ivory voting stone in front and one tiny restrained vermilion stop pin. Crisp sculptural modeling, rich glazing, selective impasto, physically believable materials, no text, labels, logos, coins, dashboards, people, politicians, animals, temples, columns, banks, harbors, coasts, mountains, panoramic cities, cyber cubes, fantasy ruins, wires, circuitry, or extra objects. Use only extremely subtle 1/0/x marks inside a few atmospheric or cast-shadow transitions, never an all-over pattern. No border or watermark.",
+  "keywords": [
+    "XRP Ledger",
+    "LendingProtocolV1_1",
+    "rippled",
+    "XRPL amendments",
+    "XLS-66",
+    "Single Asset Vaults",
+    "XRPL development",
+    "Mainnet activation"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #8125 into rippled’s develop branch on August 26, 2026, changing LendingProtocolV1_1 from Supported::No to Supported::Yes. [1][2]",
+    "The same source change retained VoteBehavior::DefaultNo, so the merge did not change the amendment’s default voting posture. [2][5]",
+    "XRPL’s public amendment tracker still labels LendingProtocolV1_1 In Development, while two public endpoint snapshots checked August 27, 2026 report rippled 3.3.0 and V1.1 as unsupported and disabled. [5][6][7]",
+    "The underlying lending design remains a separate protocol and rollout question. XLS-0066 describes fixed-term uncollateralized lending through pooled Single Asset Vault funds, but its specification is marked Draft. [9][10]",
+    "This is evidence of development-branch readiness, not live Mainnet lending, new XRP demand, adoption, a yield opportunity, or a price catalyst. [1][2][4][5][6][7]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: support in develop is not Mainnet activation",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8125 into rippled’s develop branch on August 26, changing LendingProtocolV1_1 from Supported::No to Supported::Yes. VoteBehavior::DefaultNo did not change. This makes the amendment known to development builds, not active on Mainnet: a dated s1/s2 snapshot still reports rippled 3.3.0 and V1.1 unsupported and disabled. [1][2][6][7]",
+        "[Source precedence] The official pull request and merge commit answer what changed in the codebase. The public feature and server_info responses answer what two reachable services reported at a particular time. Those are complementary records, not interchangeable proof. The development merge is a readiness milestone. The endpoint snapshot is the stronger evidence for the live network boundary, and it remains negative for LendingProtocolV1_1. [1][2][3][6][7]",
+        "[Bounded inference] The practical headline is therefore narrower than native lending is coming to Mainnet. Developers can now treat V1.1 support as a branch-level test target. Readers cannot yet treat the amendment as released, voted in, enabled, or usable for a live loan. No source reviewed for this report shows a Mainnet lending transaction, a production loan pool, or a change in XRP market behavior caused by this merge. [2][4][5][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8125",
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "What PR #8125 actually changed in rippled",
+      "paragraphs": [
+        "[Confirmed fact] The official merge commit dated August 26, 2026 changes one file, include/xrpl/protocol/detail/features.macro. Its one-line diff flips the feature registry entry for LendingProtocolV1_1 from Supported::No to Supported::Yes. The same line still carries VoteBehavior::DefaultNo. The commit hash is 1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06, and the pull request is associated with the 3.4.0 milestone. [1][2]",
+        "[Confirmed fact] That narrow diff is important because it defines the evidence ceiling. The merge records a support-state change in the rippled feature registry. It does not, by itself, document a new transaction field, a new ledger object, a release artifact, validator votes, an amendment activation ledger, or a completed lending integration. Those may be covered by other changes or later work, but they are not outcomes established by this commit. [2][4][5]",
+        "[Uncertainty] The word supported can sound operational to readers who encounter it in a release note or API response. In XRPL’s feature API, supported means a server knows how to apply an amendment. It does not mean the amendment is enabled in the latest validated ledger. The unchanged DefaultNo setting also means this merge should not be described as a validator vote, a vote reversal, or a Mainnet policy decision. [2][3][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8125",
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "What LendingProtocolV1_1 is supposed to change",
+      "paragraphs": [
+        "[Confirmed fact] XRPL’s known-amendments tracker lists LendingProtocolV1_1 as In Development. The tracker describes it as a revision of LendingProtocol with improvements and fixes, including a MemoData field for VaultDelete, and records the latest stable release default vote as No. That status describes an amendment under development. It is not a statement that the amendment is already available to every server or enabled by the network. [5]",
+        "[Protocol context] The related XLS-0066 Lending Protocol specification is marked Draft, with metadata updated January 14, 2026. It describes a native XRPL framework for fixed-term, uncollateralized loans funded from pooled Single Asset Vault assets. The design separates protocol settlement from off-chain underwriting and risk management, and it describes first-loss capital as a possible risk buffer. The specification also requires the Single Asset Vault and LoanBrokerSet building blocks. [9][10]",
+        "[Bounded inference] This context explains why a support-state change deserves technical attention without turning it into a product launch. LendingProtocolV1_1 belongs to a larger chain of protocol and application dependencies. A one-line feature-registry merge can remove a code-recognition boundary, but it cannot establish that vaults, brokers, loan sets, underwriting, first-loss arrangements, clients, indexers, audits, or user-facing disclosures are complete. [2][5][9][10]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06"
+      ]
+    },
+    {
+      "heading": "Supported, released, enabled, and operational are four different states",
+      "paragraphs": [
+        "[Confirmed fact] XRPL’s feature API documents two separate server properties. Supported reports whether a server knows how to apply an amendment. Enabled reports whether the amendment is active in the latest validated ledger. That distinction gives readers a useful first ladder: code recognition is not ledger activation. [3]",
+        "[Confirmed fact] The amendments documentation adds the rollout steps. A change affecting transaction processing must be built into a software release before it can proceed through the network amendment process. Validators vote, an amendment needs more than 80 percent support for two weeks, and an EnableAmendment transaction then records the transition. The exact network state still depends on the amendment’s release and voting history. [4]",
+        "[Editorial framework] Released is a separate checkpoint because a commit on develop is not the same artifact as a tagged stable build. Operational is a further checkpoint for downstream use: a feature can be enabled while wallets, APIs, risk controls, documentation, or liquidity remain incomplete. This fourth distinction is a bounded editorial inference from the software and amendment process, not a claim that XRPL’s documentation uses operational as a formal feature state. [3][4][12]",
+        "[Confirmed fact] XRPL’s August 6, 2026 release post documents rippled 3.3.0. The live endpoint snapshot in this report also identifies rippled 3.3.0. Nothing in the evidence reviewed here establishes a tagged stable release containing the August 26 V1.1 support change. [6][7][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrplbrew.com/2026-08-17_2026-08-23.html"
+      ]
+    },
+    {
+      "heading": "The live public endpoints still expose the older boundary",
+      "paragraphs": [
+        "[Confirmed fact] At approximately 03:09 UTC on August 27, 2026, both s1.ripple.com:51234 and s2.ripple.com:51234 returned server_info responses identifying rippled 3.3.0 and validated ledger index 106569170. In the same dated checks, the feature responses reported LendingProtocolV1_1 with supported false and enabled false. These numbers are endpoint observations, not an undated description of the network. [6][7]",
+        "[Confirmed fact] The same responses reported the base LendingProtocol and SingleAssetVault features as supported but not enabled. That pattern is consistent with a server knowing about code that the latest validated ledger has not activated. It does not mean the lending system is ready for production borrowing or that a user can submit a live V1.1 loan transaction. [3][6][7][9]",
+        "[Uncertainty] Two public services are a useful reproducible check, but they are not a census of every validator, API provider, Clio deployment, wallet, or private node. Endpoint state can change after a release or ledger transition. Future reporting should repeat the feature and server_info requests with a new timestamp rather than treating this snapshot as permanent. [3][6][7]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "Why this readiness milestone matters to developers and validators",
+      "paragraphs": [
+        "[For developers] The develop-branch change gives protocol engineers and application builders a clearer test target. They can follow the exact feature identifier, inspect the associated release lineage, and test how V1.1 behaves when a build recognizes it. That is useful for compatibility planning, but production code should still gate behavior on the server’s actual feature response and ledger state instead of assuming that a local checkout predicts Mainnet. [2][3][6]",
+        "[For validators] VoteBehavior::DefaultNo remains a material detail. The merge did not instruct validators to support the amendment, record a ballot, or activate a feature. Operators need to separate the software version they run, the feature flags their server reports, the amendment status page, and the validated ledger before making a public readiness statement. [2][4][5]",
+        "[For API and client operators] A future release may require synchronized changes in client libraries, schema references, indexers, documentation, and monitoring. The safest compatibility record is a dated tuple containing software version, supported state, enabled state, and ledger index. That record makes it possible to tell a release regression from a simple difference between develop and the live network. [3][6][7]",
+        "[Independent context] The Block reported on August 20, 2026 that Evernorth was exploring XRP Ledger native lending as the proposal moved through network review, with validators considering code and robustness. That reporting helps explain why the protocol boundary has commercial relevance. It does not prove that PR #8125 completed that review, that Evernorth has launched a lending product, or that any loan is live. [11]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://www.theblock.co/news/business/2026-08-20-evernorth-defi-xrp-ledger-native-lending-412315"
+      ]
+    },
+    {
+      "heading": "Independent context: the use case is material, but rollout is unproven",
+      "paragraphs": [
+        "[Independent context] The proposed lending design is not an invented use case. XLS-0066 describes pooled funds, fixed terms, LoanBrokerSet relationships, LoanSet lifecycle actions, default handling, and optional first-loss capital. Its draft status matters as much as its feature list: the document describes a design under development, not a guarantee of a deployed lending market or a specific lender’s future economics. [9]",
+        "[Independent context] The Block’s August 20 report connected the proposal to Evernorth’s exploration of XRP Ledger lending. The report is useful for showing that institutional interest was being discussed before the August 26 merge. It remains separate from the official code record. A company’s exploration, a validator review, a development merge, a tagged release, and an enabled amendment are distinct events and should not be collapsed into one partnership or adoption claim. [1][2][11]",
+        "[Corroborating source] XRPL Monday Brew’s dated August 17 to 23 roundup explicitly cautioned that changes merged to rippled’s develop branch are not live until a tagged release. It is a secondary summary rather than the authority for the protocol state, so the official PR, amendment tracker, release record, and endpoint responses take precedence. The independent source is valuable here because it confirms the develop-versus-live distinction that the source hierarchy requires. [4][8][12]",
+        "[Unresolved uncertainty] The evidence does not establish when a V1.1-containing release will be tagged, whether the complete intended amendment scope is already in develop, how validators will vote, or whether lending applications will reach users. It also does not establish an XRP price effect, more XRP demand, lender returns, borrower availability, or safer credit outcomes. Those would require new, separately sourced evidence. [2][4][5][9][11]"
+      ],
+      "sourceUrls": [
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://www.theblock.co/news/business/2026-08-20-evernorth-defi-xrp-ledger-native-lending-412315",
+        "https://xrplbrew.com/2026-08-17_2026-08-23.html",
+        "https://github.com/XRPLF/rippled/pull/8125",
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, lending participants, and XRP holders",
+      "paragraphs": [
+        "[For developers] Treat the merge as a branch compatibility signal. Pin the exact commit or release under test, identify the feature response your application expects, and keep a clear fallback for servers that report V1.1 unsupported. Do not ship user instructions that imply a Mainnet lending action until the relevant release and ledger state are independently confirmed. [2][3][6][7]",
+        "[For validators and infrastructure operators] The next useful evidence is operationally concrete: a tagged rippled build, a reproducible feature response with supported true, and a ledger response showing whether enabled changed. Operators should record timestamps and endpoint identity because a feature report without a version and ledger context can be misread. [3][4][6][7][8]",
+        "[For prospective lenders and borrowers] There is no confirmed live V1.1 market in the evidence reviewed here. The XLS-0066 draft describes how pooled assets, loan brokers, loan sets, default handling, and first-loss arrangements could fit together, but a design document is not an offer, a rate sheet, an underwriting decision, or a guarantee of recoverability. Evaluate any product claim against deployed transactions and accountable disclosures. [9][10]",
+        "[For XRP holders and market readers] This report provides no defensible basis for a price forecast or a claim that lending will increase XRP demand. The code change does not document an inflow of capital, a partnership, a user count, a liquidity amount, or a market response. Those subjects need their own dated primary and independent evidence. [1][2][5][9][11]",
+        "[Key takeaway] The important development is the movement from an unrecognized amendment in the develop branch to a recognized amendment in that branch. The important non-development is equally clear: the public network snapshot has not crossed the release, voting, enabled, or product-availability boundaries. Keeping both statements together is the accurate reader takeaway. [2][4][5][6][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/resources/known-amendments",
+        "https://www.theblock.co/news/business/2026-08-20-evernorth-defi-xrp-ledger-native-lending-412315"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed facts, inference, and what remains unknown",
+      "paragraphs": [
+        "[Confirmed fact] On August 26, 2026, XRPLF merged a pull request that changed the rippled develop-branch support flag for LendingProtocolV1_1. The official diff preserves DefaultNo. On August 27, 2026, two public endpoints still identified rippled 3.3.0 and returned V1.1 as unsupported and disabled. Those are the two central records behind this report. [1][2][6][7]",
+        "[Bounded inference] The merge likely reduces one code-recognition obstacle for a future release and gives development testing a more specific target. That is a reasonable reading of the feature registry change, not a claim about future timing or validator consensus. No single commit can answer the release, voting, security, product, or market questions that come afterward. [2][3][4]",
+        "[Unresolved uncertainty] Watch the official release lineage, amendment tracker, feature API, validated ledger, downstream client support, and independent review. Until those records move, the most accurate description remains development-branch readiness. Readers should welcome the technical progress while keeping the live-network and market conclusions deliberately narrow. [3][4][5][8][9][11]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8125",
+        "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://www.theblock.co/news/business/2026-08-20-evernorth-defi-xrp-ledger-native-lending-412315"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged 3.4.0 beta or stable release that includes commit 1e8b136 and identifies the release boundary for LendingProtocolV1_1.",
+    "The official LendingProtocolV1_1 amendment tracker moving from In Development, with the default vote and scope still read directly from the current record.",
+    "Dated feature and server_info responses from public endpoints showing whether supported changes to true, whether enabled changes to true, and which rippled version and ledger index reported them.",
+    "Validator voting and EnableAmendment records that demonstrate the documented more-than-80-percent support threshold over two weeks before activation.",
+    "Independent security or code-review evidence covering the final V1.1 scope, plus compatible releases for Clio, SDKs, wallets, indexers, and lending applications."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8125, merged August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8125",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRPLF rippled commit 1e8b136, feature registry diff, August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/1e8b136bfb6c3d43ef2e5cbf7daebc51360ceb06",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRPL feature API reference, undated reference checked August 26, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/admin-api-methods/status-and-debugging-methods/feature",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL amendments documentation, undated reference checked August 26, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL known-amendments tracker, undated reference checked August 26, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s1 feature and server_info snapshot, checked August 27, 2026 at 03:09 UTC",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s2 feature and server_info snapshot, checked August 27, 2026 at 03:09 UTC",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 release post, published August 6, 2026",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XLS-0066 Lending Protocol specification, draft metadata updated January 14, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "name": "Ripple Open Source XLS-66 Lending Protocol page, undated reference checked August 26, 2026",
+      "url": "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "The Block, Evernorth eyes DeFi opportunities as XRP Ledger weighs native lending, published August 20, 2026",
+      "url": "https://www.theblock.co/news/business/2026-08-20-evernorth-defi-xrp-ledger-native-lending-412315",
+      "type": "supporting",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRPL Monday Brew, August 17 to 23, 2026 develop-branch roundup",
+      "url": "https://xrplbrew.com/2026-08-17_2026-08-23.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-23"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "Earlier XRPL Lending Protocol voting status",
+      "topic": "Related coverage",
+      "description": "See why amendment support, validator voting, and Mainnet activation remain separate checkpoints."
+    },
+    {
+      "href": "/news/xrpl-loanbroker-open-ended-vault-gate",
+      "label": "LoanBrokerSet’s closed-ended vault gate",
+      "topic": "Implementation detail",
+      "description": "Read the earlier report on the lending protocol’s open-ended vault guard."
+    },
+    {
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs",
+      "label": "XLS-66 first-loss capital and field types",
+      "topic": "Protocol context",
+      "description": "Review the earlier lending-protocol implementation details and type boundaries."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP lending platforms work",
+      "topic": "Reader background",
+      "description": "Start with the market and product context before reading the amendment evidence."
+    }
+  ]
+}
