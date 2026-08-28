@@ -1,0 +1,313 @@
+{
+  "slug": "xrpl-lending-invariants-vault-loan-broker-develop",
+  "title": "XRPLF Merges 2,032 Lines of Lending Invariant Checks Into `develop`",
+  "description": "XRPLF merged PR #7732 into rippled develop with 2,032 lines of Loan, LoanBroker, and Vault invariant checks and tests. The integrity milestone remains development code, not Mainnet lending activation.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-27T22:18:29-05:00",
+  "modifiedAt": "2026-08-27T22:18:29-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/xrpl-lending-invariants-governor-editorial.webp",
+  "imageAlt": "Pale-gold three-jaw fixture aligning three cobalt state beads in ivory sockets while one vermilion fault bead remains outside on a moonlit stone dais",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "lending-invariants-three-jaw-fixture-still-life",
+  "imageSetting": "An empty white-tufa amphitheater orchestra after rain at moonset, viewed from audience-center at low waist height across a broad ivory stone dais, with the mechanism on the far-right third and broad untouched cobalt shadow to the left",
+  "imageMetaphor": "A pale-gold three-jaw indexing fixture holds three separate cobalt state beads in exact ivory sockets while one restrained vermilion fault bead stays outside, representing invariant checks that keep Loan, LoanBroker, and Vault relationships coherent instead of creating a new lending market",
+  "imagePrompt": "Create a 16:9 editorial still life for an AllAboutXRP technical news article about XRPLF merging pull request #7732 into the rippled develop branch. Show one sparse, physically believable mechanism only: a pale-gold three-jaw indexing fixture on a broad ivory stone dais, with three separate cobalt glass state beads seated in three exact ivory sockets and one small restrained vermilion fault bead placed outside the fixture. The fixture is a visual metaphor for invariant checks keeping Loan, LoanBroker, and Vault state transitions coherent. Set it in an empty white-tufa amphitheater orchestra after rain at moonset, seen from audience-center at low waist height across the dais. Put the mechanism on the far-right third, leaving broad untouched cobalt shadow and ivory negative space to the left. Use a cool moonset with a narrow warm horizon flare catching the gold jaws, long physically consistent blue cast shadows, pale gold metal, ivory stone, cobalt and water-blue glass, and one vermilion status mark. Render in a luminous academic classical-revival oil style with crisp sculptural modeling, controlled glazing, sharp silhouettes, and rich material texture. Extremely subtle 1/0/x stipple may appear only inside a few atmospheric or shadow transitions. This setting, object, viewpoint, lighting, and arrangement must remain distinct from every registered AAXRP scene, which uses workshops, courts, observatories, market interiors, crossroads, aqueducts, moulds, registers, bridges, astrolabes, and related mechanisms. Do not include a literal crypto coin, XRP logo, text, letters, numbers, dashboard, screen, chart, politician, person, building panorama, Greek city, columns, temple, harbor, coast, ruins, fantasy architecture, generic cyber cube, extra props, all-over ASCII, or watermark. The image must explain a code-integrity boundary, not price, adoption, yield, or a live lending market. Style references are visual-only and must not be copied: /Users/jack/.codex/skills/render-sublime-classical-oil/assets/style-anchor-refined.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-ornate-equestrian.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-heroic-lion.png",
+  "keywords": [
+    "XRPL news",
+    "XRP Ledger",
+    "XRPLF",
+    "rippled",
+    "Lending Protocol",
+    "XLS-66",
+    "Single Asset Vaults",
+    "LoanBroker",
+    "ledger invariants",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7732 into rippled develop on August 27, 2026 with 2,032 additions and 19 deletions across 16 files. [1][2]",
+    "The new checks cover Loan, LoanBroker, and Vault relationships, immutability, deletion conditions, payment schedule movement, and scale-sensitive accounting. [2][3]",
+    "The official XRP Ledger tracker still lists InvariantsV1_1 and LendingProtocolV1_1 as in development, so this merge is not Mainnet activation. [5][6]",
+    "Halborn and Crypto.news provide historical independent security context, but neither is a certificate for the August 27 commit. [8][9]",
+    "No evidence in this record establishes live lending, XRP demand, adoption, validator votes, or price impact. [1][2][5][7]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a broader integrity layer, not a live feature",
+      "paragraphs": [
+        "XRPLF merged pull request #7732 into the `rippled` `develop` branch on August 27, adding 2,032 lines of invariant checks and tests across the Lending Protocol’s `Loan`, `LoanBroker`, and `Vault` paths. The change hardens development code against inconsistent ledger state. It is not a stable release, amendment activation, or live lending market. [1][2]",
+        "[Confirmed fact] GitHub records the merge at 17:53:04 UTC on August 27, 2026, with 16 files changed, 2,032 additions, and 19 deletions. The pull request says the checks were missing since the Lending Protocol was introduced and were added so bugs could be caught before a transaction is approved. That is a statement about the purpose and scope of the code change, not evidence that every possible protocol failure is eliminated. [1][2]",
+        "The editorial distinction matters because the preceding XRP Ledger lending coverage concerned readiness, individual fixes, or amendment status. This report covers a larger test and transaction-integrity layer. The official amendment tracker still places `InvariantsV1_1` and `LendingProtocolV1_1` in development, so readers should interpret the merge as an engineering milestone inside the release process. [5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "What PR #7732 changed in `rippled`",
+      "paragraphs": [
+        "An invariant is a condition that must remain true when a transaction changes ledger state. In this pull request, XRPLF added dedicated `LoanInvariant`, `LoanBrokerInvariant`, and `VaultInvariant` implementations, connected them to the central invariant-checking path, and expanded the application test harness. The changed files include production C++ headers and sources plus lending and invariant test suites, which makes the merge broader than a documentation-only protocol update. [1][2]",
+        "The new code is organized around state transitions. Under `LendingProtocolV1_1`, a loan may be created only through the permitted `LoanSet` path. A loan that reports no remaining payment must also have no next payment date. Flags for impairment and default are restricted to the transaction types allowed to change them. These assertions do not decide whether a borrower deserves credit. They constrain whether a submitted ledger transaction produces a structurally valid result. [2][3]",
+        "The pull request also checks links across the object graph. A loan must point to a live `LoanBroker`, and that broker must point to a live `Vault`. Deletion is similarly constrained. A transaction cannot quietly leave an orphaned lending object behind while removing the object that gives it context. This is important in a protocol that represents custody, lending, repayment, impairment, and deletion as separate ledger objects. [2][3]",
+        "The test additions are part of the story, not an implementation footnote. They exercise the new assertions around vault identity, pseudo-account behavior, loan broker state, repayment schedules, asset scale, and invalid transitions. A larger test surface gives future maintainers a reproducible boundary for regressions, while the commit itself does not disclose a formal coverage percentage or prove that all edge cases are represented. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "Loan checks connect balances, flags, and payment schedule",
+      "paragraphs": [
+        "The most consequential checks sit inside the `Loan` object because a loan combines amounts, dates, flags, and references to other protocol objects. PR #7732 checks that interest due, calculated from total value outstanding minus principal outstanding and management fees, does not become negative. It allows a narrowly defined one-unit tolerance for IOU quantization while retaining a stricter boundary for integral assets. That is a precision rule, not a promise of economic performance. [2]",
+        "Repayment transitions receive their own directional checks. A successful partial `LoanPay` must reduce principal and remaining payments and move the next due date forward by a positive multiple of the payment interval. A full repayment has a different terminal shape because the schedule is cleared. These rules make the expected movement of a payment explicit, which helps catch a transaction that appears successful while leaving the loan’s accounting or calendar internally inconsistent. [2][3]",
+        "The flag rules are equally specific. The impairment flag may change only through `LoanManage` or `LoanPay`, while the default flag is restricted to `LoanManage` and treated as write-once alongside immutable-field checks. The code also prevents a loan from being created through an unsupported path when the V1.1 feature is in scope. These conditions reduce ambiguity around who can mutate a loan and when, but they do not replace underwriting, collateral analysis, borrower diligence, or off-chain recovery processes. [2][3]",
+        "For developers, the practical implication is that a valid transaction now has more than an amount-level requirement. It must preserve relationships and monotonic movement across several fields at once. For readers who are not writing C++, the useful translation is simple: the ledger is gaining more checks that ask whether a loan changed in a way consistent with its declared lifecycle. [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a"
+      ]
+    },
+    {
+      "heading": "LoanBroker and Vault checks protect deletion and identity boundaries",
+      "paragraphs": [
+        "The `LoanBroker` checks focus on orderly removal. The new invariant tracks broker deletions and allows no more than one broker deletion in a transaction. Only `LoanBrokerDelete` may remove the object. Before deletion, `DebtTotal` must round to zero at the vault asset’s precision and `OwnerCount` must be zero. The conditions map to the protocol’s lifecycle: liabilities and owned ledger entries must be settled before the broker disappears. [2][3]",
+        "The `Vault` side protects identity fields. Under V1.1, the invariant path checks that the vault’s `Asset`, `Account`, and `ShareMPTID` do not change unexpectedly. A Single Asset Vault aggregates assets from depositors and issues shares whose value can change, so keeping the vault’s identity stable is separate from deciding how its share value moves. The new code therefore addresses structural identity, not profitability or loss prevention in the broad financial sense. [2][4]",
+        "Taken together, the three objects form a chain rather than three isolated records: a vault supplies the pool, a broker coordinates lending against it, and a loan records the borrower-facing obligation. The new checks make that chain more difficult to mutate in an incomplete order. They do not create a guarantee against default. XLS-66 itself describes strong trust assumptions and the need for off-chain due diligence, which remains true after this merge. [2][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults"
+      ]
+    },
+    {
+      "heading": "Three ledger objects, one integrity boundary",
+      "paragraphs": [
+        "The table below translates representative assertions into reader-facing terms. It describes what the merged code checks, not what a future lender, borrower, validator, or token holder can assume about returns, adoption, or market demand. [1][2][3]"
+      ],
+      "table": {
+        "caption": "Representative integrity checks added or expanded by PR #7732",
+        "headers": [
+          "Ledger object",
+          "Representative check",
+          "Reader-facing meaning"
+        ],
+        "rows": [
+          [
+            "Loan",
+            "LoanPay reduces principal and remaining payments and advances the due date, or full pay clears the schedule",
+            "Payment arithmetic must move in an expected direction"
+          ],
+          [
+            "LoanBroker",
+            "Deletion requires the permitted transaction, zero owner count, and debt rounded to zero at vault precision",
+            "A broker cannot disappear while tracked obligations remain"
+          ],
+          [
+            "Vault",
+            "Asset, Account, and ShareMPTID remain immutable under V1.1 checks",
+            "The pool cannot silently change its core identity"
+          ],
+          [
+            "Cross-object",
+            "A loan references a live broker and the broker references a live vault",
+            "The lending graph cannot leave an orphaned loan context"
+          ]
+        ],
+        "sourceNote": "Source: XRPLF PR #7732 and merge commit, read with XLS-0066. These are representative summaries, not a complete list of assertions. [1][2][3]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "Security history helps frame the change, but it is not a certificate",
+      "paragraphs": [
+        "Independent security work gives useful context because the Lending Protocol touches custody, accounting, authorization, and state transitions. Halborn’s published assessment says its 2025 engagement covered `Loan`, `Vault`, `LoanBroker`, batch helpers, invariants, math utilities, and tests or fuzzers. The page reports 13 findings in that assessment and says the reported findings were addressed. Those are historical assessment results for the scope and code reviewed then. [8]",
+        "Crypto.news reported on June 24, 2026 that a later Halborn re-audit found five issues, with no critical or high findings reported, and that the reported findings were addressed. That independent account is relevant evidence that security review continued, but it does not say that the August 27 commit was itself audited. It would be inaccurate to turn either source into a blanket certification of the current `develop` branch. [9]",
+        "[Bounded inference] Adding executable invariants and tests should give the project a stronger automated way to reject certain malformed transitions before approval. The inference is limited to the classes of conditions represented in the merged code. [Unresolved uncertainty] The public records reviewed here do not establish complete test coverage, the absence of undiscovered defects, the final audited V1.1 scope, or the security posture of every downstream implementation. The protocol’s own specification still leaves important economic and trust assumptions outside these ledger assertions. [2][3][8][9]"
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a",
+        "https://crypto.news/ripple-clears-xrp-ledger-lending-re-audit-with-no-critical-flaws/",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html"
+      ]
+    },
+    {
+      "heading": "Why `develop` status matters for Mainnet",
+      "paragraphs": [
+        "The XRP Ledger documents transaction-processing changes as amendments. Even when a code change is intended to fix a bug, a behavior change still follows the amendment process. The documented path includes a release, validator voting, more than 80 percent support for two weeks, and a flag-ledger activation step. A merge into `develop` is therefore one checkpoint in a longer sequence, not the sequence’s endpoint. [5]",
+        "The official known-amendments tracker, an undated reference checked August 27, 2026, lists both `InvariantsV1_1` and `LendingProtocolV1_1` under Amendments in Development. That status is consistent with the code record: the commit landed on the `develop` branch, not a stable release branch, and the pull request does not announce a Mainnet activation. The tracker is manually maintained, so its status should be reread when a release or vote is announced. [1][6]",
+        "A public `server_info` feature snapshot checked on August 27, 2026 reported `LendingProtocol` and `SingleAssetVault` as supported but not enabled on the queried server, while `LendingProtocolV1_1` was not yet supported or enabled there. This is a time-stamped operational observation, not a universal statement about every server or a substitute for a dated amendment record. It is included to show why support, release, and enabled status must be kept separate. [7]",
+        "[Confirmed fact] The merge improves the code record in `develop`. [Unresolved uncertainty] Nothing in the sources reviewed establishes when a stable release will include the change, whether validators will vote for the amendment, when it could activate, or whether production applications will support it. Until those checkpoints are documented, calling this a live XRP Ledger lending launch would overstate the evidence. [1][5][6][7]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/",
+        "https://github.com/XRPLF/rippled/pull/7732"
+      ]
+    },
+    {
+      "heading": "Implications for developers, operators, lenders, and XRP holders",
+      "paragraphs": [
+        "[For XRPL developers] The merged assertions make the Lending Protocol’s object relationships and permitted mutations more explicit in code. Client libraries, transaction builders, and test fixtures should not assume that a locally constructed transaction will pass simply because its fields are syntactically valid. The relevant next step is compatibility testing against the eventual release that contains the amendment behavior, not coding against an assumed activation date. [1][2][5]",
+        "[For validator and infrastructure operators] Operators should track the release artifact, amendment identifier, and validator vote record separately. A `develop` build can be useful for test-network work, but this report does not recommend running unannounced development behavior on production infrastructure. The public endpoint snapshot is a dated observation of one server, so operators should use their own change-management and server-version evidence before drawing operational conclusions. [5][6][7]",
+        "[For lenders and borrowers] The checks may improve the consistency of ledger state around repayment, impairment, default, deletion, and object references. They do not assess borrower credit, collateral quality, legal enforceability, liquidation outcomes, interest rates, or recovery after default. Those risks remain part of the off-chain model described by XLS-66. A structurally valid transaction is not the same thing as a safe loan. [3][4]",
+        "[For XRP holders and market readers] The merge is relevant to XRP Ledger engineering, but the cited record contains no evidence of new XRP demand, lending volume, institutional adoption, partnership revenue, or price impact. The responsible conclusion is narrower: XRPLF added a substantial integrity-focused code and test layer to the development branch. Market conclusions require separate dated evidence. [1][2][5][7]",
+        "Three concrete takeaways follow. First, the material number is the 2,032 additions across 16 files, not a market statistic. Second, the important design change is cross-object and transition validation across `Loan`, `LoanBroker`, and `Vault`. Third, the decision point to watch is the release and amendment path, because development-branch code is not yet a Mainnet feature. [1][2][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed facts] PR #7732 was merged into XRPLF’s `develop` branch on August 27, 2026. GitHub records 2,032 additions, 19 deletions, and 16 changed files. The implementation adds or expands invariant checks and tests for `Loan`, `LoanBroker`, and `Vault`, including relationship, deletion, immutability, payment, and precision conditions. The official tracker still labels `InvariantsV1_1` and `LendingProtocolV1_1` as in development. [1][2][6]",
+        "[Bounded inference] The merge should make the represented state transitions easier to test and harder to accept when they violate the encoded rules. That is the strongest defensible engineering interpretation of the diff. It is not evidence that lending is safer in every economic, legal, custody, or underwriting dimension, and it is not evidence that the changes have reached production validators. [2][3][4][8][9]",
+        "[Unresolved uncertainty] The reviewed sources do not provide a stable release date, a validator vote outcome, a final activation ledger, a complete coverage measure, a new lending volume figure, a product launch, or a causal XRP price response. They also do not establish that every wallet, indexer, SDK, Clio deployment, or application is ready for V1.1. Those questions require new dated primary records. [5][6][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://s1.ripple.com:51234/"
+      ]
+    },
+    {
+      "heading": "What to watch next",
+      "paragraphs": [
+        "The next evidence should be specific and dated. Watch for a tagged `rippled` 3.4.0 beta or stable release that identifies whether commit `7281e06` is included, then compare that release with the amendment tracker rather than treating the tag as activation. [1][2][6]",
+        "Watch the official amendment record for `InvariantsV1_1` and `LendingProtocolV1_1` to move beyond development, and look for validator voting plus `EnableAmendment` records that demonstrate the documented threshold and two-week support period. [5][6]",
+        "Watch dated `server_info` and feature responses from public or operated endpoints for changes in `supported`, `enabled`, reported `rippled` version, and validated ledger index. A feature becoming supported is not the same as that feature becoming enabled. [5][7]",
+        "Watch for independent review evidence covering the final V1.1 scope, along with compatible Clio, SDK, wallet, indexer, and lending-application releases. Those records would answer practical deployment questions that the merge commit cannot answer. [8][9][10]",
+        "Finally, watch actual protocol usage only through dated, attributable records. A future lending transaction, application disclosure, or validator record could establish activity. This article does not use the August 27 code merge to forecast adoption, yield, XRP demand, or price. [3][4][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7732",
+        "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/resources/known-amendments",
+        "https://s1.ripple.com:51234/",
+        "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a",
+        "https://crypto.news/ripple-clears-xrp-ledger-lending-re-audit-with-no-critical-flaws/",
+        "https://tests.xrpl-commons.org/lending"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled 3.4.0 beta or stable release that includes commit 7281e06 and identifies the release boundary for the lending invariant changes.",
+    "The official InvariantsV1_1 and LendingProtocolV1_1 records moving beyond In Development, with their scope and vote behavior read from the current dated record.",
+    "Dated feature and server_info responses showing whether the relevant changes are supported, enabled, and reported by a specific rippled version and validated ledger.",
+    "Validator voting and EnableAmendment records that demonstrate the documented more-than-80-percent support threshold over two weeks before activation.",
+    "Independent security or code-review evidence covering the final V1.1 scope, plus compatible releases for Clio, SDKs, wallets, indexers, and lending applications."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled pull request #7732, merged August 27, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7732",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "XRPLF rippled merge commit 7281e06, August 27, 2026",
+      "url": "https://github.com/XRPLF/rippled/commit/7281e0606ab06a2e483abb7ffa8c1ee807b581bd",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "XLS-0066 Lending Protocol specification, updated January 14, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vaults documentation, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger amendments documentation, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger known amendments tracker, undated reference checked August 27, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s1 public server feature snapshot, checked August 27, 2026",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "Halborn Lending Protocol security assessment, engagement July 21 to August 5, 2025",
+      "url": "https://www.halborn.com/audits/ripple/lending-protocol-6fe16a",
+      "type": "supporting"
+    },
+    {
+      "name": "Crypto.news report on Halborn lending re-audit, June 24, 2026",
+      "url": "https://crypto.news/ripple-clears-xrp-ledger-lending-re-audit-with-no-critical-flaws/",
+      "type": "supporting",
+      "publishedAt": "2026-06-24"
+    },
+    {
+      "name": "XRPL Commons Lending Protocol test interface, undated reference checked August 27, 2026",
+      "url": "https://tests.xrpl-commons.org/lending",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lendingprotocol-v1-1-supported-develop",
+      "label": "Earlier LendingProtocol V1.1 readiness report",
+      "topic": "Related coverage",
+      "description": "See why code support, amendment voting, and Mainnet activation remain separate checkpoints."
+    },
+    {
+      "href": "/news/xrpl-sole-holder-vaultclawback-loan-impairment-fix",
+      "label": "Sole-holder VaultClawback impairment fix",
+      "topic": "Implementation detail",
+      "description": "Read the focused lending fix that preceded this broader invariant layer."
+    },
+    {
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs",
+      "label": "XLS-66 first-loss capital and field types",
+      "topic": "Protocol context",
+      "description": "Review earlier Lending Protocol implementation details and type boundaries."
+    },
+    {
+      "href": "/news/xrpl-loanbroker-open-ended-vault-gate",
+      "label": "LoanBrokerSet’s closed-ended vault gate",
+      "topic": "Lifecycle rule",
+      "description": "Read the earlier report on a lending protocol lifecycle guard."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP lending platforms work",
+      "topic": "Reader background",
+      "description": "Start with the lending model context before reading the amendment evidence."
+    }
+  ]
+}
