@@ -1,0 +1,271 @@
+{
+  "slug": "xrpl-ammclawback-exact-lp-token-boundary-fix",
+  "title": "XRPLF Merges AMMClawback Fix for an Exact LP-Token Boundary",
+  "description": "XRPLF merged PR #7373 into rippled develop to route an exact LP-token match through AMMClawback’s full-withdraw path under fixCleanup3_4_0. It is a rounding correction, not a Mainnet incident or new AMM feature.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-08-28T06:09:22-05:00",
+  "modifiedAt": "2026-08-28T06:09:22-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/xrpl-ammclawback-equality-gauge-editorial.webp",
+  "imageAlt": "Pale-gold circular threshold gauge accepts a cobalt glass ring exactly at its ivory boundary beside a small water-blue remainder on a rain-lit stone console",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "ammclawback-equality-lantern-gauge-still-life",
+  "imageSetting": "A silent white-alabaster lighthouse lantern room after rain at cold blue-hour dawn, viewed from low console height along an ivory stone worktop, with a narrow rotating beam crossing the lower-left and broad untouched negative space above and right",
+  "imageMetaphor": "A cobalt glass annulus meets a pale-gold circular threshold exactly and releases an ivory catch, representing an AMMClawback LP-token equality case taking the withdraw-all path under fixCleanup3_4_0 while a small water-blue remainder marks the pre-fix dust outcome",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: create one sparse, physically believable still life explaining XRPLF rippled pull request #7373, which changes an AMMClawback equality boundary. Show one pale-gold circular threshold gauge with a hinged ivory catch on a broad warm-ivory stone console, one cobalt glass annulus seated exactly flush inside the gauge’s inner boundary, one separate small water-blue glass fleck outside the catch to represent pre-fix residual LP dust, and at most one restrained vermilion notch on the gauge. The ring is an abstract ledger object, not a literal crypto coin. Scene/backdrop: a silent white-alabaster lighthouse lantern room after rain at cold blue-hour dawn, seen from low console height along the ivory stone worktop. A narrow rotating blue-white lantern beam crosses the lower-left, the mechanism sits in the lower-left to center, and broad clean negative space remains above and right. This lighthouse interior is a new setting unlike every registered AAXRP scene, which uses marketplaces, workshops, terraces, courts, galleries, observatories, quarries, alcoves, archives, and other non-lighthouse spaces. Style/medium: luminous academic and classical-revival oil painting, crisp sculptural modeling, rich glazing, polished enamel-like passages, selective impasto, saturated cobalt and ultramarine shadows, warm ivory, pale gold, water-blue glass, and one restrained vermilion status mark. ASCII treatment: extremely subtle translucent 1/0/x stipple only inside a few atmospheric beam and shadow transitions, dissolving into white space; never an all-over filter. Composition: strong thumbnail silhouette, exact flush contact between ring and gauge boundary, physically consistent cast shadows, generous negative space, no border and sharp edges. Constraints: preserve exactly one gauge, one annulus, one water-blue fleck, one catch, and one vermilion notch at most; show equality and a tiny residual without depicting a chart or dashboard; no readable text, letters, numbers, logo, XRP symbol, coin, watermark, politician, person, city panorama, temple, columns, harbor, coast, ruins, fantasy architecture, generic cyber cube, neon, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, all-over ASCII, extra props, duplicated objects, or impossible geometry. Bundled references affect only palette, light, surface, and finish and must not leak their subjects or compositions. Style references: /Users/jack/Documents/ChatGPT/AAXRP-morning-news-20260828/public/images/xrp-ascii-bank-hero.webp, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/style-anchor-refined.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-ornate-equestrian.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-heroic-lion.png",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "XRPLF",
+    "rippled",
+    "AMMClawback",
+    "LP tokens",
+    "Automated Market Makers",
+    "fixCleanup3_4_0",
+    "AMM rounding",
+    "XRPL development"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7373 into rippled develop on August 26, 2026, changing an exact LP-token match from the partial path to the withdraw-all path only when fixCleanup3_4_0 is enabled. [1][2]",
+    "The regression test creates a two-provider AMM scenario where the computed LP-token withdrawal equals the holder’s balance, expecting zero LP tokens with the gate and a residual without it. [2]",
+    "AMMClawback affects an issuer’s issued token in an AMM position, with paired-asset behavior governed by pool composition and tfClawTwoAssets; it does not claw back XRP itself. [3][5]",
+    "Public s1 and s2 feature snapshots checked August 28, 2026 did not advertise fixCleanup3_4_0, so the merge is not proof of current Mainnet activation. [7][8][9]",
+    "No source reviewed establishes an exploit, affected-pool count, financial loss, XRP demand, or price effect tied to this narrow code correction. [1][2][12]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: an exact match now has a distinct full-withdrawal path",
+      "paragraphs": [
+        "XRPLF merged pull request #7373 into the `rippled` `develop` branch on August 26, 2026. The patch makes an AMMClawback calculation that lands exactly on a holder’s LP-token balance use the full-withdrawal path once `fixCleanup3_4_0` is enabled. It corrects a rounding boundary; it does not announce a Mainnet incident, stable release, or new AMM feature. [1][2]",
+        "[Confirmed fact] The change is small in code but specific in behavior. On the pre-fix path, `AMMClawback::equalWithdrawMatchingOneAmount()` used a strict `>` comparison when deciding whether the computed LP-token withdrawal exceeded the holder’s balance. PR #7373 changes the comparison to include equality only when `fixCleanup3_4_0` is enabled. [1][2]",
+        "That conditional is the story’s boundary. With the cleanup amendment, an exact match follows the same withdraw-all route as an amount above the holder’s balance. Without it, the older strict comparison remains in force. The merge therefore prepares a future behavior change while keeping the pre-amendment rule explicit in the source. [1][2][6]",
+        "Nothing in the primary record says the patch changed the AMM formula, created a new transaction type, altered issuer permissions, or activated on Mainnet. It is a targeted correction to how a particular computed amount is classified at the end of a clawback. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "What PR #7373 changed in rippled",
+      "paragraphs": [
+        "GitHub records PR #7373 as merged into XRPLF/rippled `develop` on August 26, 2026. The merge queue recorded commit `f7ea645` and 71 checks passed. The final diff touched two files: the AMMClawback transactor and its application test suite. GitHub’s API reports 70 additions and 5 deletions. [1][2]",
+        "In production code, the patch obtains the amendment-aware rule set before choosing the path. If `fixCleanup3_4_0` is enabled, `lpTokensWithdraw >= holdLPtokens` takes the same `AMMWithdraw::equalWithdrawTokens` route used for a full withdrawal. If the amendment is not enabled, the code keeps `>` and sends equality through the existing partial path. [2]",
+        "The added regression test constructs a two-provider pool so the target holder is not the sole liquidity provider. It computes an issued-token amount whose pro-rata LP-token withdrawal is exactly the holder’s balance. The test expects a zero LP balance after the gated fix and a smaller but non-zero balance on the pre-fix path. That is a reproducible edge-case assertion, not a report of a live loss. [2]",
+        "This design also explains why the patch belongs behind a feature flag. The implementation has to preserve historical ledger outcomes when replaying pre-amendment ledgers, while allowing later ledgers to apply the corrected interpretation. The source code makes that split visible rather than silently changing every server’s behavior. [2][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Why equality matters in LP-token accounting",
+      "paragraphs": [
+        "An XRPL AMM holds a pool of two assets and issues LP tokens to liquidity providers. The official documentation describes those LP tokens as a proportional claim on pool assets and fees; the holder can redeem some or all of them through AMMWithdraw. If a provider’s share is 10% of outstanding LP tokens, a full redemption means returning the corresponding share of both assets, subject to protocol rounding. [3][4]",
+        "AMMClawback uses that same relationship from the other direction. An issuer specifies the issued asset, the paired asset, a holder, and optionally an amount. The transaction removes the holder’s specified issued-token balance from the AMM position and performs a corresponding two-asset withdrawal. The exact mix depends on pool proportions; it is not a simple direct subtraction from a wallet balance. [3][5]",
+        "The edge case appears when two rounding operations meet. First, the requested issued-asset amount is converted into a fraction of the AMM pool. Then that fraction is converted into the pool’s LP-token scale. If the converted result is exactly the holder’s LP balance, the mathematically complete result is full redemption. A strict greater-than test, however, does not recognize equality as full withdrawal. [1][2][3]",
+        "That distinction matters because the partial-withdrawal path can perform another rounding step against the larger pool balance. PR #7373 says the equality case could then fail with `tecAMM_BALANCE` in last-holder rounding scenarios, or leave a residual LP amount in the regression test. The source record establishes the code path and test result; it does not quantify how often such a state occurs in production. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers"
+      ]
+    },
+    {
+      "heading": "AMMClawback is a regulated-token control, not a wallet seizure primitive",
+      "paragraphs": [
+        "AMMClawback is not a general confiscation switch for XRP. The official transaction reference says it is for an issuer clawing back its issued token from an AMM position. The issuer must have enabled `lsfAllowTrustLineClawback`, a setting that must be chosen before the account has an existing owner directory and cannot be reversed once enabled. [3][5]",
+        "If the pool pairs the issuer’s token with an asset from someone else, the issuer’s token returns to the issuer while the paired asset returns to the holder. If both assets are issued by the same account, `tfClawTwoAssets` determines whether the paired asset also returns to the issuer. XRP itself cannot be the asset being clawed back. [3][5]",
+        "That context narrows the practical audience. Issuers care about whether a compliance-driven removal can complete cleanly. Liquidity providers care about whether their LP position is fully extinguished or whether a tiny residual needs another transaction. Wallet users who hold XRP but do not supply liquidity are not directly changed by this code path. The patch does not create clawback authority; it refines one boundary inside an authority that already exists. [3][5]",
+        "Because AMMs combine a pool’s two balances with a separate LP-token supply, the bug is about state consistency as much as user experience. A failed or residual outcome can leave the issuer, holder, and pool needing different follow-up actions. The fix treats exact equality as a terminal state under the future amendment instead of asking partial-withdraw logic to rediscover it. [1][2][4]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xls.xrpl.org/xls/XLS-0073-amm-clawback.html",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69"
+      ]
+    },
+    {
+      "heading": "The live status check points to a future-gated fix",
+      "paragraphs": [
+        "XRPL’s amendment process is the reason this merge is not a live Mainnet announcement. The documentation says transaction-processing changes, including bug fixes that change behavior, are introduced through amendments. The code must be in a release, validators vote, support must remain above 80% for two weeks, and the network activates the rule at a flag-ledger boundary. [6]",
+        "I checked the `feature` method on Ripple’s public `s1.ripple.com:51234` and `s2.ripple.com:51234` endpoints at 11:07:48 UTC on August 28, 2026. Both responses reported `AMMClawback`, `fixAMMv1_3`, and `fixAMMClawbackRounding` as supported and enabled. Neither response included `fixCleanup3_4_0`. The API documentation says `feature` reports whether a server knows an amendment and whether it is enabled. [7][8][9]",
+        "That is a bounded snapshot of two public endpoints, not a validator census. It supports saying that the queried servers did not advertise this new gate at the time checked. It does not prove that no private node has a development build, that the next release will include the patch, or that the network can never activate the amendment. [7][8][9]",
+        "The current status can therefore be stated precisely: the correction is merged into the development branch and wired for a future amendment-gated behavior; the public endpoint evidence reviewed here does not show `fixCleanup3_4_0` as known or enabled. Readers should not turn the merge into a claim that an AMMClawback failure is happening on Mainnet today. [1][2][7][8][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/"
+      ]
+    },
+    {
+      "heading": "Independent context: why this edge case matters without proving an exploit",
+      "paragraphs": [
+        "The independent context is the design of the market, not a claim about this particular defect. XRPL Commons describes the AMM implementation as a protocol-level feature with a pseudo-account model, LP-token accounting, fee governance, auction slots, and precision handling. Its public launch material identifies the organization as an independent nonprofit working alongside the XRP Ledger Foundation and Ripple. [10][11]",
+        "A 2025 IEEE International Conference on Blockchain and Cryptocurrency paper archived by University College London models the XRPL AMM against a generic constant-product AMM using agent-based simulations. The paper examines price synchronization, slippage, impermanent loss, and the Continuous Auction Mechanism. One author is from Ripple Labs, so this is informed academic context rather than a fully unaffiliated audit of XRPL. It does not evaluate PR #7373. [12]",
+        "Those sources help explain why a tiny equality operator deserves attention. LP tokens are not decorative receipts: they are the accounting bridge between a provider’s position and the pool’s two balances. A boundary that turns a complete redemption into a partial path can matter to the correctness of a regulated-token operation even if it affects only a narrow numerical state. [3][4][10][12]",
+        "At the same time, none of these sources reports an exploit, a lost pool balance, a malicious issuer, or a market-wide consequence tied to #7373. The GitHub record calls it a boundary case. That is the strongest defensible description unless a separate incident report or on-chain study supplies more evidence. [1][2][12]"
+      ],
+      "sourceUrls": [
+        "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+        "https://www.xrpl-commons.org/newsroom/press-release",
+        "https://discovery.ucl.ac.uk/id/eprint/10216028",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://github.com/XRPLF/rippled/pull/7373"
+      ]
+    },
+    {
+      "heading": "Implications for developers, issuers, liquidity providers, and XRP readers",
+      "paragraphs": [
+        "For XRPL developers, the immediate action is test-matrix discipline. A client or service that constructs AMMClawback transactions should test amounts below, equal to, and above the holder’s LP-derived boundary, with `fixAMMv1_3`, `fixAMMClawbackRounding`, and `fixCleanup3_4_0` states represented separately. The expected transaction result should be checked against the connected server’s feature response, not inferred from a GitHub branch name. [2][7]",
+        "For token issuers, the patch does not relax the permission gate. It addresses what happens after the issuer is already authorized to claw back from an AMM-supported position. Operational playbooks should distinguish an issuer-side clawback from a normal `Clawback`, confirm the paired asset behavior, and record the returned transaction result. A corrected exact-boundary path would be useful only if the processing server contains the code and the gate is active. [3][5][7]",
+        "For liquidity providers and market makers, the relevant risk is not an XRP price forecast. It is position accounting: whether a full LP-token redemption reaches zero, whether a residual LP balance remains, and whether the paired asset returns to the expected account. The safest response is to inspect validated transaction metadata and the pool’s LP-token balance after any issuer-driven event. [3][4]",
+        "For ordinary XRP readers, there is no wallet migration or verified demand signal in this record. A development-branch AMM precision fix does not establish new XRP utility, institutional adoption, a supply change, or a price effect. It does show the kind of narrow implementation work that must precede any claim that a future XRPL feature is production-ready. [1][2][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xls.xrpl.org/xls/XLS-0073-amm-clawback.html"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed fact, bounded inference, and open questions",
+      "paragraphs": [
+        "[Confirmed facts] PR #7373 merged into `rippled` `develop` on August 26, 2026. The code changes the equality branch under `fixCleanup3_4_0`, and the new test distinguishes a zero LP balance with the amendment from a non-zero residual without it. Official documentation defines AMMClawback, LP-token proportionality, and amendment activation. [1][2][3][4][6]",
+        "[Bounded inference] Once the relevant code and amendment are live, this should make the exact-equality case terminate as a full clawback rather than rely on a partial-withdraw route that can leave dust or fail in the tested boundary. That is a code-level expectation. It is not a measured production outcome, a loss estimate, or a statement about all rounding cases. [1][2]",
+        "[Unresolved uncertainty] The reviewed records do not establish how many Mainnet pools could encounter the equality condition, whether any live transaction has encountered it, whether a stable release will ship the patch on a particular date, or whether validators will support and activate `fixCleanup3_4_0`. They also do not show a security incident or financial loss. [1][6][8][9]",
+        "The clean editorial boundary is therefore narrow: report the merge, explain the rounding path, show the activation dependency, and wait for release, feature, vote, or validated-ledger evidence before calling the behavior live. That distinction protects developers from testing the wrong rule and readers from mistaking a correctness patch for a market event. [1][6][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7373",
+        "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A signed stable xrpld release that includes commit f7ea645 or an equivalent AMMClawback equality change, with release notes that state the fixCleanup3_4_0 dependency.",
+    "The XRP Ledger Known Amendments record and public feature responses showing fixCleanup3_4_0 as supported, then enabled, rather than relying on a develop commit alone.",
+    "Validator support, the first majority date, and the full activation window for fixCleanup3_4_0 under the XRP Ledger amendment process.",
+    "AMMClawback regression behavior for issued-token and XRP-paired pools, including exact LP-token equality, residual balances, tecAMM_BALANCE, and tecPRECISION_LOSS results after the gate is active.",
+    "A separate on-chain or incident record showing whether any equality cases occurred on a live network, affected pool counts, lost value, exploit attempts, or real XRP market effects."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF PR #7373, merged August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7373",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRPLF merge commit f7ea645, AMMClawback equality fix",
+      "url": "https://github.com/XRPLF/rippled/commit/f7ea645bf4d4886149166aad9ed97c72b6484b69",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "XRP Ledger AMMClawback transaction reference, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Automated Market Makers documentation, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0073d AMMClawback specification, created August 2, 2024",
+      "url": "https://xls.xrpl.org/xls/XLS-0073-amm-clawback.html",
+      "type": "primary",
+      "publishedAt": "2024-08-02"
+    },
+    {
+      "name": "XRP Ledger amendment process, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger feature API reference, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s1 public XRPL endpoint, feature snapshot checked August 28, 2026 at 11:07 UTC",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s2 public XRPL endpoint, feature snapshot checked August 28, 2026 at 11:07 UTC",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons AMM core-development module, undated reference checked August 28, 2026",
+      "url": "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Commons launch statement describing its independent nonprofit status, March 1, 2023",
+      "url": "https://www.xrpl-commons.org/newsroom/press-release",
+      "type": "supporting",
+      "publishedAt": "2023-03-01"
+    },
+    {
+      "name": "UCL Discovery: AMM-based DEX on the XRP Ledger, 2025 IEEE ICBC paper",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10216028",
+      "type": "supporting",
+      "publishedAt": "2025-06-02"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-amm",
+      "label": "How XRPL Automated Market Makers work",
+      "topic": "XRPL mechanics",
+      "description": "Review pools, LP tokens, fee votes, and auction-slot design."
+    },
+    {
+      "href": "/learn/xrp-amm-yield-guide",
+      "label": "XRPL AMM yield and liquidity guide",
+      "topic": "Liquidity providers",
+      "description": "Understand the risks and mechanics of supplying liquidity to an XRPL AMM."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRP Ledger DEX",
+      "topic": "Trading infrastructure",
+      "description": "See how order books and AMM liquidity fit together on XRPL."
+    },
+    {
+      "href": "/news/xrpl-amm-zero-fee-auction-slot-price-floor",
+      "label": "Why XRPL put a floor under zero-fee AMM auction slots",
+      "topic": "Related XRPL coverage",
+      "description": "Read the separate report on a future-gated AMM auction pricing correction."
+    },
+    {
+      "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens",
+      "label": "When MPT transfer rules constrain AMM LP tokens",
+      "topic": "Related XRPL coverage",
+      "description": "Read the separate report on MPT transfer permissions and future AMM behavior."
+    }
+  ]
+}
