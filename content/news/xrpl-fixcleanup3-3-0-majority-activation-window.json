@@ -1,0 +1,292 @@
+{
+  "slug": "xrpl-fixcleanup3-3-0-majority-activation-window",
+  "title": "XRPL FixCleanup3_3_0 Reaches Majority, but Activation Is Still Pending",
+  "description": "The fixCleanup3_3_0 amendment has entered XRPL's pending-majority state. Current independent snapshots show 29 of 35 validations, while Ripple endpoints still report the amendment as supported but disabled.",
+  "category": "XRP Ledger Governance",
+  "publishedAt": "2026-08-28T22:16:23-05:00",
+  "modifiedAt": "2026-08-28T22:16:23-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/xrpl-fixcleanup3-3-0-majority-window-editorial.webp",
+  "imageAlt": "Pale-gold slotted voting register with a cobalt row beyond an ivory threshold and a vermilion hold pin on an amber-lit stone slab",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "kleroterion-majority-peg-still-life",
+  "imageSetting": "A quiet narrow white-limestone seal-maker's alcove at late amber evening, viewed from a high rear-left diagonal over a broad matte ivory stone slab, with the mechanism in the lower-left third and generous untouched space above and right",
+  "imageMetaphor": "A pale-gold kleroterion-style voting register carries a cobalt row just beyond an ivory 80-percent notch while a separate vermilion hold pin waits outside, representing 29 of 35 validator support that must persist before activation",
+  "imagePrompt": "Create a single sparse 16:9 editorial still life for an AllAboutXRP technical news article about the XRP Ledger amendment fixCleanup3_3_0 crossing the validator-majority threshold while its two-week activation window remains pending. Use one physically believable mechanism and only three deliberate object groups: a low hand-worked kleroterion-style voting register in pale gold metal and ivory stone, a compact row of cobalt glass pegs seated in most of its shallow grooves with the last occupied peg visibly just beyond a broad ivory 80-percent notch, and one separate restrained vermilion hold pin waiting outside the register. The measured arrangement should suggest 29 of 35 support without showing written numbers or letters. The hold pin represents the requirement to remain above the threshold before activation. This is a physical ancient voting artifact, not a screen, dashboard, chart, coin, token, or modern machine. Set it in a quiet narrow white-limestone seal-maker's alcove at late amber evening, viewed from a high rear-left diagonal close-up over a broad matte ivory stone slab. Place the mechanism in the lower-left third and leave generous untouched ivory negative space in the upper-right. Use one low warm shaft through a roof grating, crisp long shadows cast consistently toward the lower-right, pale gold metal, warm ivory stone, cobalt and water-blue glass, and only one vermilion status accent. Render in a luminous academic classical-revival oil style with crisp sculptural modeling, controlled glazing, sharp silhouettes, rich tactile material texture, and a restrained jewel-tone palette. Extremely subtle 1/0/x stipple may appear only inside a few atmospheric or shadow transitions, never all over the image. Keep the scene fact-safe and symbolic: it explains validator voting and a pending activation window, not price, adoption, yield, or market demand. Do not include any people, hands, text, letters, numbers, logos, XRP symbols, cryptocurrency coins, screens, interface elements, circuitry, generic cyber cubes, clocks, hourglasses, sundials, keys, locks, scales, gates, bridges, water, harbor, coast, mountain, temple, columns, ruins, city panorama, politician, fantasy architecture, extra props, border, watermark, or all-over ASCII/dither. The setting, object set, viewpoint, lighting, and arrangement must be distinct from all existing AAXRP news and guide artwork. Use the supplied images only as visual references for palette, oil finish, light, and material richness. Do not copy their subjects or compositions.",
+  "keywords": [
+    "XRPL news",
+    "XRP Ledger",
+    "fixCleanup3_3_0",
+    "XRPL amendments",
+    "validator voting",
+    "xrpld 3.3.0",
+    "XRP Ledger upgrade",
+    "XRP news"
+  ],
+  "keyTakeaways": [
+    "The validated XRP Ledger Amendments object now records fixCleanup3_3_0 in its Majorities field with an XRPL epoch CloseTime of 841230900, the primary record for a pending majority. [2][3][4]",
+    "An XRPScan API snapshot checked August 28 returned 29 of 35 validations, or 82.86%, against a reported threshold of 28. TokenPost independently reported the same 29-vote milestone on August 28. [6][8]",
+    "Ripple's s1 and s2 public feature responses still show fixCleanup3_3_0 as supported but not enabled, so the amendment has not become a live XRPL transaction rule. [4][5]",
+    "If support stays above the documented threshold for 14 consecutive days, XRPLDashboard projects September 11, 2026 at 11:15 UTC as the earliest activation window. That is a conditional estimate, not a guaranteed launch date. [2][7]",
+    "The package is a maintenance amendment covering AMM, permissioned DEX, Checks, pseudo-account, vault, and lending edge cases. The record does not establish XRP price impact, new lending activity, adoption, or investment outcomes. [1][8][9]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the majority is recorded, but the rule is not live",
+      "paragraphs": [
+        "[Confirmed fact] The XRP Ledger's `fixCleanup3_3_0` amendment has entered the pending-majority state: the validated Amendments object records it with a majority timestamp, while fresh Ripple endpoints show it supported but not enabled. [Independent snapshot] XRPScan reports 29 of 35 validations, or 82.86%. Activation remains contingent on holding that threshold for 14 days. [1][2][3][4][6]",
+        "This is a meaningful governance milestone, but it is not the same as an activation transaction. XRPL's amendment process separates software availability, validator support, the two-week majority period, and the ledger state that finally enables the amendment. The distinction matters because `xrpld` 3.3.0 was released on August 6, yet the six amendments bundled into that release still required their own network vote. [1][2]",
+        "The current story is therefore narrow and specific: fixCleanup3_3_0 appears to have crossed the support threshold and started its waiting period. It does not mean every 3.3.0 feature is close to activation, that every validator is running the same binary, or that an application using AMMs, vaults, lending, or permissioned domains has already received new behavior. [2][5][7]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendment/3298D47E1F3A8A24FECAA30F699B8FE1DD234E072834BA099AD8180FFCE0FEC4",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "The primary ledger record is stronger than a headline",
+      "paragraphs": [
+        "[Primary record] A validated-ledger query to Ripple's public s1 endpoint at 2026-08-28 22:12 Central time returned ledger index 106613624 and an `Amendments` object whose `Majorities` array contains the fixCleanup3_3_0 amendment ID. The object reports `CloseTime: 841230900`. XRPL's reference documentation defines that field as the close time of the ledger where the amendment most recently gained a majority. [3][4]",
+        "[Derived timestamp] Converting that XRPL epoch value places the majority record at August 28, 2026 at 11:15 UTC. The conversion does not add a new network event. It simply puts the primary ledger field into a date readers can compare with independent trackers. The relevant fact is that the amendment is in `Majorities`, not in the active `Amendments` list. [3][4]",
+        "The same s1 feature response, checked at a later validated ledger index of 106613629, returned `name: fixCleanup3_3_0`, `supported: true`, and `enabled: false`. A parallel query to Ripple's s2 endpoint at ledger index 106613632 returned the same support and enabled states. Two endpoints do not prove that every public or private server agrees, but they provide a direct operational check that the amendment has not activated on the queried network state. [4][5]",
+        "An independent XRPScan API snapshot checked at 22:12 Central time returned `count: 29`, `validations: 35`, `threshold: 28`, `majority: 841230900`, `supported: true`, and `enabled: false`. The arithmetic is straightforward: 29 divided by 35 equals 82.857%, rounded to 82.86%. The `threshold: 28` field represents the tracker boundary, while XRPL's documentation describes the requirement in words as more than 80% support. [2][6]",
+        "The evidence hierarchy is important. The ledger object establishes a pending majority, and the feature RPC establishes that the amendment is still disabled. XRPScan supplies the current 29-of-35 count, which is not exposed as a per-validator tally by the public RPC. XRPLDashboard independently displays the same count and a conditional September 11 projection. [2][3][4][6][7]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendment/3298D47E1F3A8A24FECAA30F699B8FE1DD234E072834BA099AD8180FFCE0FEC4",
+        "https://xrpldashboard.com/amendments"
+      ]
+    },
+    {
+      "heading": "Why September 11 is a conditional window, not a launch announcement",
+      "paragraphs": [
+        "XRPL's documented process runs around flag ledgers, which occur every 256 ledgers. Validators communicate amendment votes, servers interpret those votes, and an `EnableAmendment` pseudo-transaction can mark an amendment as having gained or lost a majority. The `tfGotMajority` flag means support is above the activation line; `tfLostMajority` means support has fallen to 80% or less. [2]",
+        "The network must maintain more than 80% support for two weeks. If support falls to 80% or less before activation, the amendment is removed from `Majorities` and the waiting period starts again when it later regains a majority. If the support remains in place for the full period, an unflagged enable transaction moves the amendment from the pending-majority record into the active list. [2][3]",
+        "XRPLDashboard uses the primary `CloseTime` value of 11:15 UTC on August 28 to project September 11 at 11:15 UTC, conditional on the vote holding. The official documentation adds another nuance: activation takes effect for subsequent ledger versions after the enabling step. Readers should therefore treat September 11 as the earliest useful checkpoint, not as a guaranteed exact second when every client changes behavior. [2][3][7]",
+        "[Independent context] Crypto.news reported on August 12 that fixCleanup3_3_0 had 8 of 35 votes and was below the threshold at that time. TokenPost reported on August 28 that the amendment had reached 29 of 35 and entered the two-week interval. These reports are independent context for the change in observed support, not substitutes for the current primary ledger state. [8][9]",
+        "The earlier AllAboutXRP report on the August 6 release covered why the six 3.3.0 amendments were not immediately live. This article updates only the governance state of fixCleanup3_3_0. It should not be read as a rewrite of that release report or as evidence that BatchV1_1, ConfidentialTransfer, DynamicMPT, PermissionDelegationV1_1, or Sponsor have crossed the same threshold. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+        "https://xrpldashboard.com/amendments",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893",
+        "https://crypto.news/xrp-ledger-upgrade-gains-ripple-vote-for-bundled-fixes/",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0"
+      ]
+    },
+    {
+      "heading": "What fixCleanup3_3_0 changes across the XRPL stack",
+      "paragraphs": [
+        "[Confirmed fact] fixCleanup3_3_0 is a bundled maintenance amendment, not a single consumer-facing product. The official August 6 release notes group changes across Single Asset Vaults, the Lending Protocol, Automated Market Makers, the permissioned decentralized exchange, Checks, and pseudo-account authorization. The package changes transaction outcomes and invariant checks at protocol boundaries. [1]",
+        "For pseudo-accounts, the release notes unify freeze and deep-freeze checks across `VaultDeposit`, `VaultWithdraw`, `AMMDeposit`, `AMMWithdraw`, `LoanBrokerCoverDeposit`, and `LoanBrokerCoverWithdraw`. The same bundle causes pseudo-account signatures to fail with `tefBAD_AUTH` and rejects pseudo-account targets in `CredentialCreate` and `DepositPreauth`. These are authorization and state-integrity rules. They do not create a new wallet feature or prove that a particular application will be compatible on activation day. [1][8]",
+        "For Checks, an all-zero `CheckID` is rejected during preflight with `temMALFORMED` instead of reaching processing and returning `tecNO_ENTRY`. For the permissioned DEX, hybrid offers should no longer disappear from the open order book merely because the placing account loses access to the permissioned domain. The release also keeps AMM liquidity out of quality estimates for permissioned DEX order books. [1][8]",
+        "For AMMs, the bundle changes one `AMMWithdraw` divide-by-zero edge case into the explicit `tecAMM_FAILED` result, adds precision-loss checks to deposit, withdrawal, and clawback paths when `fixAMMv1_3` is enabled, and strengthens the `ValidAMM` and `ObjectHasPseudoAccount` invariants. The package also includes further precision and rounding fixes for Single Asset Vaults and the Lending Protocol. [1][8][9]",
+        "The common thread is predictable rejection or accounting at unusual boundaries. That is useful for developers and operators because a malformed or impossible state should produce a defined protocol result instead of an exception or an incomplete object relationship. It is not a promise that AMM losses disappear, loans perform, vaults are solvent, or every downstream integration has passed its own tests. [Bounded inference] The likely user benefit is more deterministic edge-case behavior after activation, but the sources do not quantify incident reduction or economic impact. [1][2][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893",
+        "https://crypto.news/xrp-ledger-upgrade-gains-ripple-vote-for-bundled-fixes/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Affected paths and their practical change",
+      "paragraphs": [
+        "The table below translates representative release-note changes into operational language. It describes what the amendment would do after activation. It does not describe a new product launch, a security certification, or an investment thesis. [1][2][8]"
+      ],
+      "table": {
+        "caption": "Representative fixCleanup3_3_0 behavior changes",
+        "headers": [
+          "Affected path",
+          "Protocol boundary",
+          "Practical reading"
+        ],
+        "rows": [
+          [
+            "Pseudo-account transfers",
+            "Freeze and deep-freeze checks are aligned across vault, AMM, and LoanBroker cover transactions",
+            "The same account-state restrictions apply more consistently across related paths"
+          ],
+          [
+            "Checks",
+            "An all-zero CheckID is rejected in preflight as `temMALFORMED`",
+            "Clients can distinguish malformed input earlier than a missing ledger entry"
+          ],
+          [
+            "Permissioned DEX",
+            "Hybrid offers are retained correctly when domain access changes, and AMM liquidity is excluded from quality estimates",
+            "Order-book eligibility and quality calculations follow the permissioned market rules"
+          ],
+          [
+            "AMM transactions",
+            "Precision-loss checks and defined failure or invariant paths cover withdrawal, deposit, clawback, and deletion edges",
+            "Boundary failures should be explicit instead of becoming a computation exception"
+          ],
+          [
+            "Vaults and lending",
+            "Further precision and rounding fixes are bundled with pseudo-account and object-integrity checks",
+            "Accounting and object relationships receive additional protocol guardrails"
+          ]
+        ],
+        "sourceNote": "Source: XRP Ledger Foundation release notes, read with the amendments process documentation and TokenPost's August 28 report. These are representative summaries, not a complete implementation specification. [1][2][8]"
+      },
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893"
+      ]
+    },
+    {
+      "heading": "Implications for operators, developers, and XRP holders",
+      "paragraphs": [
+        "[For validator and infrastructure operators] The immediate task is evidence tracking, not a premature production switch. Operators should record the `xrpld` version they run, whether the amendment is supported, the current `Majorities` entry, and whether the feature is enabled. The official 3.3.0 release instructs server operators to upgrade for service continuity, but that instruction is separate from the amendment's activation state. A server that lacks the code for an enabled amendment can become amendment-blocked and lose the ability to validate or participate normally. [1][2][4]",
+        "[For application developers] Test the explicit result-code changes and the precision-sensitive paths before relying on the conditional date. An integration that currently treats `tecNO_ENTRY`, `temMALFORMED`, `tefEXCEPTION`, and `tecAMM_FAILED` as interchangeable may produce the wrong user message or retry behavior after activation. AMM, vault, and lending builders should also test pseudo-account freeze behavior and rounding against the release that actually carries the amendment, rather than against a tracker label alone. [1][2][8]",
+        "[For permissioned-market builders] The relevant effect is not simply that an offer exists. Domain membership, hybrid offer retention, and AMM quality estimation can affect which liquidity is eligible for a permissioned order book. Builders should verify their own pathfinding, quote, and order-state assumptions against the eventual activated rules. The amendment does not itself announce a new permissioned market, new liquidity, or a new institutional partnership. [1][8]",
+        "[For vault and lending participants] The additional rounding, precision, and pseudo-account checks may reduce ambiguous transaction outcomes, but they do not replace credit underwriting, custody controls, legal review, liquidation design, or application-level monitoring. A protocol rule that prevents one inconsistent state is narrower than a guarantee that a vault is solvent or a loan will be repaid. The separate AllAboutXRP coverage on [XRPL lending amendment voting](/news/xrpl-lending-protocol-vote-consensus-2026) remains useful background for those broader activation questions. [1][2]",
+        "[For XRP holders and market readers] No source reviewed for this report establishes a causal XRP price response, new XRP demand, a new lending market, or an adoption milestone from the pending majority. fixCleanup3_3_0 primarily changes transaction processing and integrity behavior. Treating the vote as a price signal would add an unsupported inference to a governance record. [Unresolved uncertainty] Any market effect would require separate dated market data and a defensible causal analysis. [1][6][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893",
+        "https://api.xrpscan.com/api/v1/amendment/3298D47E1F3A8A24FECAA30F699B8FE1DD234E072834BA099AD8180FFCE0FEC4"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] The primary validated `Amendments` object contains the fixCleanup3_3_0 ID in `Majorities` and records the majority-gaining close time as XRPL epoch 841230900. Ripple's s1 and s2 feature responses, checked August 28, report the amendment as supported but disabled. The official release identifies the amendment as part of `xrpld` 3.3.0, published August 6. [1][3][4][5]",
+        "[Independent snapshot] XRPScan returned 29 validations out of 35, a reported threshold of 28, and `enabled: false`. XRPLDashboard displayed the same 29-of-35 support and classified the amendment as in a 14-day countdown. TokenPost reported the August 28 milestone, while Crypto.news provides a dated August 12 baseline of 8 of 35. These are useful corroborating observations, but public trackers can refresh at different times. [6][7][8][9]",
+        "[Bounded inference] Because the primary object records the amendment in `Majorities` at 11:15 UTC and the independent dashboard projects 14 days from that point, the earliest defensible activation window is around September 11, 2026 at 11:15 UTC if support does not fall to 80% or less. The exact activation ledger remains future evidence, not a fact available in this report. [2][3][7]",
+        "[Unresolved uncertainty] The public feature RPC does not publish a full per-validator vote table, the XRPScan count can change as its snapshot refreshes, and the official human-facing tracker may not update at the same instant as the ledger. The primary evidence resolves the most important question, which is disabled versus enabled, but it does not establish the future vote path, the identities behind every validation, or the behavior of every downstream client. [2][4][6][7]",
+        "[Unresolved uncertainty] The reviewed records also do not establish a stable 3.4.0 release boundary, complete application compatibility, independent audit coverage of the final activated behavior, or any price, adoption, lending-volume, or partnership outcome. Those claims require new primary records and should not be inferred from a pending amendment majority. [1][2][8]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendment/3298D47E1F3A8A24FECAA30F699B8FE1DD234E072834BA099AD8180FFCE0FEC4",
+        "https://xrpldashboard.com/amendments",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893",
+        "https://crypto.news/xrp-ledger-upgrade-gains-ripple-vote-for-bundled-fixes/"
+      ]
+    },
+    {
+      "heading": "How the next activation record will be proven",
+      "paragraphs": [
+        "The next primary confirmation is not another headline. It is a validated-ledger change in which fixCleanup3_3_0 leaves `Majorities` and appears in the active `Amendments` list, accompanied by the feature RPC changing from `enabled: false` to `enabled: true`. Until that record exists, the amendment is pending. [2][3][4]",
+        "Watch the next flag-ledger decisions for evidence that the majority is being maintained. A `tfLostMajority` event or removal from the `Majorities` array would mean the two-week clock has not completed and must restart after a later majority. A countdown page that continues to show September 11 is useful context, but the ledger transition is the decisive record. [2][3][7]",
+        "Watch release provenance separately. The official 3.3.0 release contains the code for the package, yet operators and application teams still need the exact binary, build, SDK, Clio, wallet, indexer, and test-network combinations they support. A new tag can establish code availability; it cannot by itself prove Mainnet activation. [1][2]",
+        "Watch the affected result codes and invariants in real integration tests: pseudo-account freeze checks, all-zero CheckID preflight, permissioned-domain offer retention, AMM precision-loss handling, AMM deletion invariants, and vault or lending rounding. These are the practical checks that can turn a protocol change into a compatibility issue for software that assumed the earlier behavior. [1][8][9]",
+        "Finally, watch future claims about XRP demand, institutional deployment, lending volume, or price only when they arrive with a dated, attributable record. fixCleanup3_3_0 is a governance and transaction-processing milestone. Its activation could matter to infrastructure, but this report does not establish a market outcome. [Unresolved uncertainty][1][2][6]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+        "https://s1.ripple.com:51234/",
+        "https://xrpldashboard.com/amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://www.tokenpost.kr/amp/news/blockchain/399893",
+        "https://crypto.news/xrp-ledger-upgrade-gains-ripple-vote-for-bundled-fixes/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A validated-ledger record moving fixCleanup3_3_0 from Majorities into the active Amendments list, with the feature RPC changing to enabled: true.",
+    "Flag-ledger evidence that support remains above the documented threshold, or a tfLostMajority event that restarts the two-week window.",
+    "The exact xrpld release and compatible SDK, Clio, wallet, indexer, and application test evidence used for production rollout.",
+    "Integration results for pseudo-account restrictions, CheckID preflight, permissioned DEX offers, AMM error codes, invariants, and vault or lending rounding.",
+    "Separate dated records for any claimed XRP demand, institutional deployment, lending volume, adoption, or price response."
+  ],
+  "sources": [
+    {
+      "name": "XRP Ledger Foundation, Introducing XRP Ledger version 3.3.0, published August 6, 2026",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRP Ledger amendments process documentation, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Amendments ledger-entry reference, undated reference checked August 28, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s1 validated ledger and feature RPC snapshot, checked August 28, 2026 at 22:12 Central time",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s2 feature RPC snapshot, checked August 28, 2026 at 22:12 Central time",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPScan amendment API snapshot for fixCleanup3_3_0, checked August 28, 2026 at 22:12 Central time",
+      "url": "https://api.xrpscan.com/api/v1/amendment/3298D47E1F3A8A24FECAA30F699B8FE1DD234E072834BA099AD8180FFCE0FEC4",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPLDashboard live amendment tracker, undated reference checked August 28, 2026",
+      "url": "https://xrpldashboard.com/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "TokenPost, XRP Ledger patch reaches 29 votes, published August 28, 2026",
+      "url": "https://www.tokenpost.kr/amp/news/blockchain/399893",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "Crypto.news, XRP Ledger upgrade gains Ripple vote for bundled fixes, published August 12, 2026",
+      "url": "https://crypto.news/xrp-ledger-upgrade-gains-ripple-vote-for-bundled-fixes/",
+      "type": "supporting",
+      "publishedAt": "2026-08-12"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "Earlier XRPL 3.3.0 activation overview",
+      "topic": "Related coverage",
+      "description": "Review the release-stage status of all six amendments before this fix-specific voting update."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XRPL lending amendment voting context",
+      "topic": "Governance context",
+      "description": "See how separate vault and lending amendments follow their own validator approval path."
+    },
+    {
+      "href": "/news/xrpl-amm-zero-fee-auction-slot-price-floor",
+      "label": "XRPL AMM edge-case coverage",
+      "topic": "Implementation detail",
+      "description": "Read related reporting on how XRPL AMM rules handle a defined boundary condition."
+    },
+    {
+      "href": "/news/xrpl-mpt-dex-audit-fixes-pathfinding-rpc",
+      "label": "Permissioned DEX implementation details",
+      "topic": "Implementation detail",
+      "description": "Review earlier XRPL coverage on permissioned DEX auditing and pathfinding behavior."
+    }
+  ]
+}
