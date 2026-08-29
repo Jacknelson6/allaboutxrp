@@ -1,0 +1,256 @@
+{
+  "slug": "evernorth-effective-s4-xrp-treasury-vote",
+  "title": "Evernorth's Effective S-4 Sets a Sept. 30 Vote for a Planned XRP Treasury Listing",
+  "description": "The SEC declared Evernorth's Form S-4 effective, enabling a September 30 Armada shareholder vote. A planned Nasdaq listing under XRPN and at least 473.3 million XRP at closing remain conditional on approval and closing.",
+  "category": "Institutional Markets",
+  "publishedAt": "2026-08-29T14:20:32-05:00",
+  "modifiedAt": "2026-08-29T14:20:32-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/evernorth-semaphore-s4-vote.png",
+  "imageAlt": "A pale-gold semaphore with one blue lens advanced above an ivory stone platform while a furled vermilion signal pennant rests beside it under an open blue-gray sky",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "evernorth-semaphore-clearance-not-vote",
+  "imageSetting": "A spare white-quartz semaphore platform after a passing storm in flat late-morning light, viewed low from the side across a matte ivory stone base with broad untouched sky and stone space to the right",
+  "imageMetaphor": "A pale-gold mechanical semaphore has advanced through its first position and shows one cobalt signal lens, while a second aperture remains dark and a vermilion pennant lies furled, representing an effective S-4 that enables a shareholder decision without proving an approved merger or completed public listing",
+  "imagePrompt": "Wide 16:9 editorial hero image for a serious XRP and public-markets news article. Create one sparse, physically believable symbolic still life on a matte ivory stone base, with broad untouched negative space. Main subject: a small mechanically believable semaphore instrument, vertically mounted on a low ivory quartz signal plinth. Cast the mechanism in pale gold metal. Its single articulated signal arm has advanced into one clear first position between two visible mechanical stop notches, while a second empty signal aperture remains unlit and unresolved. Add one small cobalt-blue glass signal lens catching cool light. Beside the base place exactly one restrained vermilion signal pennant, furled and resting, not raised. The arrangement must communicate that one formal filing step is complete while a shareholder decision and a planned public listing still depend on later conditions. Use a low side-on three-quarter viewpoint, with the mechanism in the lower-left third and very broad empty ivory and blue-gray atmospheric space across the upper and right side. Use cool post-storm late-morning light, crisp classical oil modeling, luminous pale gold, cobalt and water-blue accents, realistic metal joints, restrained shadows, and refined impasto brushwork. Apply only extremely subtle isolated 1/0/x stipple inside a few atmospheric or shadow transitions, never all-over ASCII or dither. No text, letters, numbers, logos, ticker symbols, currency, crypto coins, charts, dashboards, documents, ballot boxes, voting stones, scales, gates, locks, keys, hinges, rails, roads, buildings, politicians, people, generic cyber cubes, fantasy architecture, or panoramic Greek city. The required AAXRP style references are style-only; invent this story-specific composition and keep the scene minimal, editorial, and fact-safe.",
+  "keywords": [
+    "Evernorth Holdings",
+    "Armada Acquisition Corp. II",
+    "XRP treasury company",
+    "XRP",
+    "XRP Ledger",
+    "Ripple",
+    "Form S-4",
+    "Nasdaq",
+    "XRPN",
+    "SEC effectiveness",
+    "SPAC"
+  ],
+  "keyTakeaways": [
+    "Confirmed: the SEC's August 27 effectiveness notice made Evernorth's Form S-4 effective, but it did not approve the transaction, its merits, or XRP as an investment. [1][2][7]",
+    "Decision point: Armada shareholders are scheduled to vote on September 30, while public-holder redemption mechanics run through September 28 and the combined company still needs closing and listing conditions. [1][3][8]",
+    "Treasury plan: the final filing describes at least 473,276,430 XRP at closing under its stated assumptions, including Ripple's 126,791,458 XRP contribution, not a verified live balance. [1][3]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Evernorth has an effective S-4, not a completed XRPN listing",
+      "paragraphs": [
+        "On August 27, 2026, the SEC declared Evernorth Holdings' Form S-4 effective, allowing Armada to put the proposed combination to a September 30 shareholder vote. If approved and the remaining closing and Nasdaq conditions are met, the combined company is expected to trade as XRPN. The filing is not SEC approval or a completed listing. [1][2][3]",
+        "[Confirmed fact] The newest SEC record reviewed here is a Form 425 filed August 28 that reproduces the companies' announcement. It says the registration statement became effective on August 27, identifies September 30 as the special-meeting date, and describes XRPN as the expected Nasdaq symbol for the combined company if the transaction closes. The final Form 424B3 proxy statement and prospectus supplies the transaction mechanics behind that announcement. [1][3]",
+        "[Editorial boundary] This is a corporate transaction milestone, not evidence that XRPN is already trading, that Evernorth has already received every proposed XRP contribution, or that the XRP Ledger has gained new adoption. CoinDesk and The Block independently describe the proposal as one vote away from a possible Nasdaq listing, which supports the timing while leaving the approval and closing contingencies intact. [5][6]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/999999999526002777/xslEFFECTX01/primary_doc.xml",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq",
+        "https://www.theblock.co/news/deals/2026-08-27-evernorth-xrp-sec-effective-412981"
+      ]
+    },
+    {
+      "heading": "What the SEC effectiveness notice changed for Evernorth and Armada",
+      "paragraphs": [
+        "The SEC's Notice of Effectiveness records a Form S-4 for Evernorth Holdings, CIK 0002092592, with an effectiveness time of 4:00 p.m. Eastern on August 27, 2026. In practical terms, that cleared the registration statement for use in the proposed business combination and allowed the definitive proxy and prospectus process to move toward the scheduled vote. It did not itself transfer assets, issue the planned public-company shares, or complete the merger. [2][3]",
+        "The final Form 424B3 is the document Armada holders need for the decision. It describes the business-combination agreement with Evernorth, the planned private placements and funding, the shareholder meeting, redemption rights, closing conditions, and risks. The companies' August 27 release says definitive materials were mailed to Armada shareholders of record as of August 20. These are separate steps from the SEC's filing-status notice, and the distinction matters when a headline compresses them into the word cleared. [1][3][4]",
+        "[Confirmed fact] SEC effectiveness is not an endorsement. Investor.gov specifically warns that an effective registration statement does not mean the SEC has approved an offering or determined that an investment is good. Applied here, the authoritative claim is that the filing became effective. Whether the transaction is attractive, whether the merger closes, and whether the resulting company meets Nasdaq's initial listing requirements remain questions for the disclosed process and its later records. [2][7][8]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/999999999526002777/xslEFFECTX01/primary_doc.xml",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/investor-alert-beware-claims-sec-has-approved-offerings",
+        "https://listingcenter.nasdaq.com/assets/SPAC-ListingGuide-1001.pdf"
+      ]
+    },
+    {
+      "heading": "Why this is a proposed XRP treasury company, not an XRP ETF",
+      "paragraphs": [
+        "Evernorth describes the proposed combined company as a digital-asset treasury business that would hold XRP and allocate capital to XRP-based infrastructure and treasury strategies. Its stated objective is to grow XRP per share, a corporate metric that depends on both the number of XRP held and the number of shares outstanding. The filing's structure is a SPAC business combination with public-company equity, not a fund prospectus offering investors a redeemable share of a fixed pool of XRP. [1][3][4]",
+        "That distinction changes the reader's exposure. A shareholder in the combined company would own securities of a company whose assets and strategy include XRP. That is not the same legal or economic position as holding XRP directly, and it is not a claim that each shareholder can redeem stock for a defined number of tokens. CoinDesk's independent account also describes the proposal as an XRP treasury company and notes that treasury companies can trade below the value of their token reserves. [5]",
+        "[Unresolved uncertainty] The release does not quantify how Evernorth will grow XRP per share after closing. It mentions yield, ecosystem participation, and capital-markets strategies, but the reviewed materials do not establish a realized yield rate, a guaranteed return, a future acquisition schedule, or a causal effect on XRP demand. The public-company wrapper may broaden access to a treasury strategy if it closes, but that is a bounded structural inference, not a forecast of price or adoption. [1][3][5][6]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+        "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq",
+        "https://www.theblock.co/news/deals/2026-08-27-evernorth-xrp-sec-effective-412981"
+      ]
+    },
+    {
+      "heading": "How the filing builds its proposed 473.3 million-XRP opening treasury",
+      "paragraphs": [
+        "The final proxy statement and prospectus says the combined company is expected to launch with at least 473,276,430 XRP at Closing under the stated transaction assumptions. That number is not a current wallet audit. It is a proposed at-closing total assembled from several contributions, purchases, and funding arrangements that remain tied to approval, closing, and the final transaction record. [1][3]",
+        "The filing identifies 126,791,458 XRP from Ripple in a private placement. It also lists 211,319,096.061435 XRP for the sponsor's Series C subscription and 50,000,000 XRP for a contributor-related-party entity. The stated advance funding includes $214.05 million in cash and 600,000 XRP, while delayed funding includes $10.5 million in cash and 200,000 XRP. The remaining 84,365,876.3625 XRP is described as purchased with about $214 million of aggregate cash. [3]",
+        "Those components add to 473,276,430.423935 XRP before the filing's rounded at-least figure. The precision is useful for checking the filing's construction, but it should not be mistaken for a live reserve measurement or a guaranteed post-close balance. XRP price changes can alter the dollar value of a token-denominated treasury without changing the token count, while redemptions, new issuance, transaction expenses, or amendments can change the per-share picture. [Confirmed fact] The source supports a proposed opening treasury. [Unresolved uncertainty] It does not prove that this exact composition will be delivered after the vote. [1][3]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html"
+      ]
+    },
+    {
+      "heading": "Why September 30 is the shareholder decision point, not the public debut",
+      "paragraphs": [
+        "Armada's special meeting is scheduled for September 30, 2026, at noon Eastern and will be held virtually. The final proxy identifies August 20 as the record date. It reports 31.59 million Armada Class A shares outstanding, including 23 million public shares, which frames the shareholder base that will decide whether the proposed combination can proceed. The meeting date is therefore a governance milestone, not a confirmed first trading day. [1][3]",
+        "Public holders who do not want to remain in the transaction have a disclosed redemption path, subject to the filing's conditions. The redemption deadline is September 28 at 5:00 p.m. Eastern. The filing also describes a 20 percent aggregate redemption limitation for a holder or group in the applicable circumstances. As of August 20, the trust account was about $241.9 million, with an estimated redemption price of about $10.52 per share. That figure is a dated transaction estimate, not a current market quote or a promise of value. [3]",
+        "Closing still depends on the shareholder approvals and other conditions described in the filing, including required funding, the absence of specified legal impediments, DTC eligibility, and approval to list under the applicable exchange standards. Nasdaq's SPAC guide independently explains that the combined company must make an initial listing application and satisfy initial listing requirements before closing. The company expects the transaction in late third quarter or early fourth quarter, but that is a company estimate conditioned on the process, not a fixed debut date. [1][3][4][8]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+        "https://listingcenter.nasdaq.com/assets/SPAC-ListingGuide-1001.pdf"
+      ]
+    },
+    {
+      "heading": "What Ripple's contribution does and does not establish",
+      "paragraphs": [
+        "Ripple is both a disclosed investor in the transaction and the source of the 126,791,458-XRP private-placement contribution described in the final filing. The release also names Arrington Capital, SBI Group, Pantera Capital, Kraken, and GSR among the investors. Those facts establish participation in the proposed capital structure. They do not establish that Ripple guarantees approval, that the investors will control XRP's market price, or that the combination has already deployed the proposed treasury. [1][3][4]",
+        "The phrase XRP per share is important because it is not the same as XRP price. A company could increase its token count and still deliver a different per-share result if it issues more shares, experiences redemptions, borrows, sells assets, or incurs expenses. Conversely, a stable token count can produce a lower dollar value if XRP falls. These are analytical implications of the disclosed structure, not reported post-close outcomes. [Bounded inference] The filing makes the measurement relevant. [Unresolved uncertainty] The future share count and operating strategy remain open. [3][5]",
+        "For XRP holders, the transaction is also not evidence of a new XRP Ledger amendment, validator decision, payment deployment, or usage increase. The reviewed sources discuss a corporate treasury and a proposed public listing. They do not report a new Mainnet activation or measure incremental on-ledger demand caused by Evernorth. Readers should keep the company milestone in the institutional-markets category even though its treasury asset is XRP. [Editorial boundary]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+        "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq"
+      ]
+    },
+    {
+      "heading": "Implications for Armada holders, XRP investors, and XRPL builders",
+      "paragraphs": [
+        "For Armada holders, the next practical task is to read the definitive proxy rather than rely on the announcement headline. The relevant decisions include how to vote, whether redemption rights apply to the holder's position, and how the September 28 deadline interacts with the September 30 meeting. The filing is the controlling source for eligibility, procedures, and risk disclosures. Nothing in this report substitutes for an investor's own legal, tax, or financial advice. [1][3]",
+        "For XRP investors, the proposal could create a more visible public-equity vehicle connected to XRP if it closes and lists. That may affect how analysts discuss corporate treasury demand, reserve value, dilution, and discounts or premiums to net asset value. It does not prove a future XRP price, guarantee that the planned holdings will be acquired, or convert common-stock ownership into direct token custody. The relevant future evidence will be the closing record and disclosed holdings, not the effective date alone. [5][6]",
+        "For XRPL builders and institutional observers, the signal is about capital-market infrastructure around an XRP treasury strategy. It is not yet a delivery record for a new ledger application. A meaningful adoption claim would require separate evidence such as a deployed product, measured transaction activity, identified counterparties, or audited operating disclosures. Until then, the strongest defensible statement is narrower: a proposed public company has reached an effective registration milestone and scheduled a vote. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq",
+        "https://www.theblock.co/news/deals/2026-08-27-evernorth-xrp-sec-effective-412981"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] The SEC recorded the Form S-4 as effective on August 27. The SEC-filed Form 425 dated August 28 and the company release identify a September 30 Armada shareholder vote. The final proxy states the proposed at-closing XRP amount, the Ripple contribution, the funding components, redemption mechanics, and the conditions that remain before a possible listing. These are the facts supported directly by the primary records. [1][2][3][4]",
+        "[Bounded inference] If Armada approves the transaction, the parties satisfy their closing obligations, and the combined company qualifies for Nasdaq, Evernorth could become a listed corporate holder whose reported equity value is related to an XRP treasury. That would give public-market participants another way to analyze XRP-linked corporate exposure. The conditional wording is essential because the record does not yet show a completed close or a listed XRPN security. [1][3][8]",
+        "[Unresolved uncertainty] The reviewed materials do not determine the vote outcome, the final number of redemptions, the exact post-close share count, the final XRP delivered, the first trading date, the listing approval, the strategy's realized yield, or any effect on XRP demand or price. They also do not turn the SEC's procedural effectiveness notice into an investment recommendation. Those questions require later filings, exchange records, and operating evidence. [3][5][6][7]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/999999999526002777/xslEFFECTX01/primary_doc.xml",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+        "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/investor-alert-beware-claims-sec-has-approved-offerings",
+        "https://listingcenter.nasdaq.com/assets/SPAC-ListingGuide-1001.pdf"
+      ]
+    },
+    {
+      "heading": "What to watch before any planned XRPN listing",
+      "paragraphs": [
+        "1. SEC and Armada amendments: watch for an amended proxy, a changed transaction term, a revised risk disclosure, or a new filing that changes the funding and XRP assumptions. 2. September 28: watch the public-share redemption cutoff at 5:00 p.m. Eastern and any company disclosure about the resulting share count. 3. September 30: watch the recorded vote and the exact resolutions approved, rather than treating the meeting date as a listing date. [1][3]",
+        "4. Closing and exchange evidence: look for a closing announcement, the final share and treasury disclosures, DTC or exchange eligibility, and a Nasdaq listing record before describing XRPN as trading. 5. Post-close operating evidence: look for an 8-K, 10-Q, audited holdings, or strategy disclosure that shows what XRP was actually held, how XRP per share was calculated, and whether any yield or ecosystem deployment occurred. Until those records appear, keep the story framed as an effective filing and a conditional shareholder process. [1][3][8]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+        "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+        "https://listingcenter.nasdaq.com/assets/SPAC-ListingGuide-1001.pdf"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "An SEC or Armada amendment that changes the proposed funding, XRP holdings, transaction terms, or risk disclosures.",
+    "The September 28, 2026, 5:00 p.m. Eastern public-share redemption cutoff and the resulting post-vote share count.",
+    "The September 30, 2026, Armada shareholder vote and the exact resolutions approved.",
+    "A closing announcement plus DTC and Nasdaq evidence before describing XRPN as a trading security.",
+    "Post-close 8-K or 10-Q disclosures showing actual XRP holdings, XRP per share, share dilution, and any realized treasury strategy."
+  ],
+  "sources": [
+    {
+      "name": "SEC Form 425, Evernorth and Armada announcement filed August 28, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2092592/000095010326013127/dp252576_425.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "SEC Notice of Effectiveness for Evernorth Form S-4, effective August 27, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2092592/999999999526002777/xslEFFECTX01/primary_doc.xml",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "SEC Form 424B3 definitive proxy statement and prospectus, dated August 27, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2092592/000119312526371512/d944435d424b3.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "Evernorth and Armada, Form S-4 effectiveness release, August 27, 2026",
+      "url": "https://www.prnewswire.com/news-releases/evernorth-announces-effectiveness-of-form-s-4-registration-statement-progresses-toward-planned-nasdaq-listing-302862280.html",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "CoinDesk, XRP treasury company is a shareholder vote away from Nasdaq, August 28, 2026",
+      "url": "https://www.coindesk.com/markets/2026/08/28/an-xrp-treasury-company-backed-by-ripple-is-a-shareholder-vote-away-from-nasdaq",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "The Block, Evernorth says SEC cleared S-4 for proposed XRP treasury merger, August 27, 2026",
+      "url": "https://www.theblock.co/news/deals/2026-08-27-evernorth-xrp-sec-effective-412981",
+      "type": "supporting",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "Investor.gov, SEC effectiveness warning and investor guidance, undated reference",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/investor-alert-beware-claims-sec-has-approved-offerings",
+      "type": "supporting"
+    },
+    {
+      "name": "Nasdaq Listing Center, SPAC Listing Guide, updated April 1, 2026",
+      "url": "https://listingcenter.nasdaq.com/assets/SPAC-ListingGuide-1001.pdf",
+      "type": "supporting",
+      "publishedAt": "2026-04-01"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/tuttle-xrp-income-blast-etf-effective-date",
+      "label": "Why an effective filing is not a trading launch",
+      "topic": "Filing status",
+      "description": "Compare another XRP-market filing milestone with the separate question of when trading begins."
+    },
+    {
+      "href": "/news/ripple-prime-delta-one-xrp-role-undisclosed",
+      "label": "How synthetic XRP exposure differs from ownership",
+      "topic": "Institutional exposure",
+      "description": "Separate a financial product's exposure to XRP from direct token ownership and custody."
+    },
+    {
+      "href": "/news/sec-13f-bitwise-xrp-etf-institutional-disclosures-q2-2026",
+      "label": "What institutional XRP disclosures actually show",
+      "topic": "Institutional reporting",
+      "description": "Review the timing and limits of public institutional holdings disclosures."
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "What XRP is and how it differs from a company share",
+      "topic": "XRP basics",
+      "description": "Use the core asset context before comparing XRP custody with public-equity exposure."
+    },
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "How to evaluate XRP investment uncertainty",
+      "topic": "Risk context",
+      "description": "Keep transaction milestones, market outcomes, and investment decisions analytically separate."
+    }
+  ]
+}
