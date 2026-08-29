@@ -1,0 +1,278 @@
+{
+  "slug": "xrpl-clio-account-info-pseudo-account-fix",
+  "title": "Clio Patch Repairs XRPL Account Info for Pseudo-Accounts, but 2.8.1-rc3 Predates It",
+  "description": "XRPLF merged Clio PR #3196 into develop after account_info could fail while formatting pseudo-account metadata. The fix adds an AMM regression test, but the release-candidate and Mainnet boundaries remain open.",
+  "category": "XRP Ledger Infrastructure",
+  "publishedAt": "2026-08-29T06:11:07-05:00",
+  "modifiedAt": "2026-08-29T06:11:07-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-clio-pseudo-account-nested-socket-editorial.webp",
+  "imageAlt": "A pale-gold nested mortise frame seats a cobalt glass prism inside an ivory receptacle on a curved white-marble bathhouse sill.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "pseudo-account-nesting-socket-still-life",
+  "imageSetting": "A quiet white-marble bathhouse apse just before sunrise after washing, viewed from inside the curve at ankle height along a broad ivory sill with broad upper-right negative space.",
+  "imageMetaphor": "A pale-gold nested mortise frame seats a cobalt account prism inside an ivory receptacle while a detached empty sleeve marks the missing child object that caused Clio's account_info formatting error.",
+  "imagePrompt": "Use case: stylized-concept for generation. Asset type: finished AllAboutXRP editorial hero, cinematic 16:9 landscape. Input images: the AllAboutXRP homepage hero and bundled Sublime Classical Oil references are style-only references for palette, light, surface, and finish; never copy their subjects, architecture, people, animals, scenery, or layouts. Primary request: explain XRPLF Clio PR #3196 through one sparse, physically believable still life about a development-branch fix for account_info formatting of pseudo-account metadata. Scene/backdrop: a quiet white-marble bathhouse apse just before sunrise after the floor has been washed, one broad ivory stone sill, curved plaster wall, floor-level viewpoint from inside the curve along the sill, broad untouched warm-ivory negative space upper right, cool cobalt shadow along lower left. Subject: exactly one open pale-gold bronze nested mortise frame, one smaller ivory ceramic receptacle nested inside it, exactly one cobalt glass rectangular prism seated in the receptacle, and exactly one detached empty cobalt-glass outer sleeve slightly offset beside it with one tiny restrained vermilion paint nick on its rim. The nested frame represents a child response object created before its type value is written; the detached sleeve represents the old missing-object failure path. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine, warm ivory, pale gold, water-blue reflection, selective impasto, precise contact shadows, extraordinary clarity. ASCII treatment: extremely subtle translucent fields made only from 1, 0, and x inside a few atmospheric or deep-shadow transitions, dissolving into white space; never all-over ASCII, dither, halftone, or pixel texture. Constraints: preserve the exact object count, physical support, floor-level inside-the-curve viewpoint, pre-sunrise light, lower-left object placement, and upper-right negative space. No readable text, letters, numbers, JSON, code, API screen, logo, watermark, XRP coin, cryptocurrency coin, token coin, dashboard, chart, monitor, circuitry, generic cyber cube, futuristic interface, politician, person, hand, animal, temple, column, bank, civic chamber, harbor, coast, sea, mountain panorama, Greek city, bridge, gate, lock, key, hinge, rail, wheel, comb, drawer, shutter, iris, register, ledger tablet, slate, plate, bead, ring, annulus, scale, balance, pendulum, caliper, sieve, ribbon, groma, amphora, bottle, book, scroll, laboratory, archive room, workshop, quarry, vault, chamber, terrace, court, quay, observatory, or any registered setting, primary object, camera position, lighting arrangement, or metaphor from content/news and content/editorial-art.json. No content leakage from style references. Avoid photographic realism, muddy gray, muted sepia, fake antique patina, excessive craquelure, generic digital concept art, mushy detail, malformed geometry, duplicated objects, extra red marks, glowing particles, clutter, border, rounded frame, or watermark.",
+  "keywords": [
+    "Clio",
+    "account_info",
+    "pseudo-accounts",
+    "XRP Ledger",
+    "XRPLF",
+    "AMM",
+    "XRPL API"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged Clio PR #3196 into develop on August 28, 2026, fixing an account_info formatting path that could throw when pseudo-account metadata was not initialized. [1][2]",
+    "The added regression test expects an AMM AccountRoot to return pseudo_account.type as AMM, but it does not establish that every Clio deployment or pseudo-account type has the fix. [2][6][7]",
+    "Clio 2.8.1-rc3 was published on August 27, before the fix landed, and its release note says release candidates are not recommended for production. [3]",
+    "The record is an API-server reliability change on a development branch. It is not evidence of a rippled consensus change, Mainnet activation, an exploit, XRP demand, or an XRP price effect. [1][4][5]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Clio fixed a missing response object on develop",
+      "paragraphs": [
+        "XRPLF merged Clio PR #3196 on August 28, 2026, after its account_info handler could throw while formatting pseudo-account metadata without an existing pseudo_account object. The one-line initialization fix and AMM regression test improve development-branch API reliability. They do not prove a production release, a Mainnet change, or new AMM behavior. [1][2]",
+        "[Confirmed fact] The pull request says the recent pseudo-account addition was reaching as_object() even though the JSON value did not contain a pseudo_account object. Its stated cure is to create the nested object directly and add a regression test. GitHub records the merge into XRPLF/clio develop and identifies commit 9cd44a0 as the resulting change. [1][2]",
+        "[Bounded inference] The practical issue is response construction, not the AMM calculation or the ledger's consensus result. When the handler reaches an AccountRoot carrying a pseudo-account designator, it needs to serialize a structured type field. The patch makes that child object exist before the field is assigned, so an affected Clio build should return structured data instead of failing at that formatting step. [1][2][5]",
+        "[Unresolved uncertainty] The reviewed records do not quantify live error rates, identify a public provider that served the defect, state whether a user lost funds, or name a release that contains the patch. Nothing in PR #3196 is an incident report or a claim that the XRP Ledger itself stopped validating transactions. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info"
+      ]
+    },
+    {
+      "heading": "What changed in Clio's account_info response path",
+      "paragraphs": [
+        "Clio builds its account_info result around the AccountRoot data, ledger identifiers, and a validated flag. It then derives account flags and checks the AccountRoot for the protocol fields that designate a pseudo-account. The handler removes the ID suffix from a field name, such as AMMID, and uses the resulting name as the pseudo-account type. [2][5][7]",
+        "Before PR #3196, the code used the type field assignment as though the pseudo_account container had already been created. The merged line instead assigns a new JSON object containing type and the derived name. That is a small source change, but it addresses the exact difference between writing into an existing object and calling an object method on a missing or differently typed value. [1][2]",
+        "The new unit test constructs an AccountRoot with an AMMID field and expects an API v2 response containing pseudo_account with type set to AMM. The fixture also checks a validated response, a ledger index, account flags, and the underlying AccountRoot fields. This is useful because it tests the output shape a data consumer would actually parse, not only whether the handler returns without an exception. [2]",
+        "[Editorial boundary] The test does not turn pseudo_account into a newly activated protocol feature. It checks Clio's representation of an existing ledger concept. The pull request itself is in the Clio repository and targets develop, so readers should separate a corrected API serialization path from a new transaction rule, amendment, validator vote, or Mainnet deployment. [1][2][4][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot"
+      ]
+    },
+    {
+      "heading": "Why pseudo-accounts matter to XRP Ledger applications",
+      "paragraphs": [
+        "The XRP Ledger documentation defines a pseudo-account as a special account-like ledger structure that holds assets for an on-chain protocol. The documented use cases include Automated Market Makers, Single Asset Vaults, and the Lending Protocol. Their AccountRoot entries can carry designator fields such as AMMID or VaultID that identify the protocol object represented by the address. [6][7]",
+        "For an AMM, the special AccountRoot holds the pool's XRP and issued assets and serves as the issuer for liquidity-provider tokens. The official AccountRoot reference also describes restrictions that distinguish the object from a normal user account, including the absence of ordinary signing authority. Those details matter to an indexer because the same address-shaped record can have protocol meaning that ordinary account assumptions do not capture. [6][7]",
+        "[Independent context] XRPL Commons' AMM education module describes the AMM as a protocol feature with a pseudo-account model, LP-token design, fee governance, auction slots, and pathfinding interaction with the order book. Its launch record describes XRPL Commons as an independent nonprofit initiative working alongside, rather than being identical to, the XRP Ledger Foundation and Ripple. That context supports why structured identification is useful, but it does not independently verify the Clio bug or its fix. [9][10]",
+        "The distinction is important for applications that read historical state. The account_info reference says the method retrieves information relative to a particular ledger version and returns AccountRoot data, account flags, and validation status. If a read-optimized server fails while adding protocol metadata, an explorer, indexer, custody service, or analytics job may receive an error at the data layer even though the ledger entry itself remains valid. [5][8][11]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/accounts/pseudo-accounts",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot",
+        "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+        "https://www.xrpl-commons.org/newsroom/press-release",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://github.com/XRPLF/clio/blob/develop/README.md"
+      ]
+    },
+    {
+      "heading": "Release boundary: 2.8.1-rc3 came before the fix",
+      "paragraphs": [
+        "XRPLF published Clio 2.8.1-rc3 on August 27, 2026. The release page explicitly labels it a release candidate and says it is not recommended for production use. PR #3196 was merged into develop on August 28, and the commit comparison shows the fixed commit sits three commits ahead of the 2.8.1-rc3 branch point. [1][2][3]",
+        "[Confirmed fact] That sequence gives operators a concrete versioning boundary. The newest release-candidate label and the newest development commit are different records. A team that installed 2.8.1-rc3 should not assume it contains a fix merged the next day, while a team tracking develop should not describe the branch as a production release. [1][2][3]",
+        "Clio 2.8.0 is the dated stable release record reviewed here, published by the XRP Ledger community site on August 20. Its release notes describe Clio as an API server and list data-model, indexing, and reliability work. They do not establish that the later pseudo-account repair is included in 2.8.0, and the later 2.8.1 candidate still carries a non-production warning. [3][4]",
+        "[Unresolved uncertainty] The reviewed sources do not provide a date for a stable Clio release containing commit 9cd44a0, confirm a package checksum for the fix, or show a provider-wide rollout. The defensible operational question is therefore not whether the patch exists, but whether the exact server answering an application's request contains it. [1][2][3][11]"
+      ],
+      "table": {
+        "caption": "What the August 28 record establishes",
+        "headers": ["Layer", "Evidence", "Editorial meaning"],
+        "rows": [
+          ["Development code", "PR #3196 and commit 9cd44a0 merged into Clio develop on August 28", "The response-construction fix and AMM regression test are in the development line."],
+          ["Release candidate", "Clio 2.8.1-rc3 published August 27 with a non-production warning", "The label predates the fix and should not be treated as proof of production readiness."],
+          ["API contract", "account_info documentation defines account data, ledger context, and validation fields", "Consumers should test the response from their provider and preserve validation metadata."],
+          ["Protocol state", "No rippled amendment, validator vote, or activation record appears in the reviewed sources", "This is an API-server reliability story, not a consensus upgrade announcement."]
+        ],
+        "sourceNote": "Sources [1], [2], [3], [4], [5], and [11]. Publication dates are shown where the source provides them; the API and repository references are undated references checked August 29, 2026."
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc3",
+        "https://xrpl.org/blog/2026/clio-2.8.0",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://github.com/XRPLF/clio/blob/develop/README.md"
+      ]
+    },
+    {
+      "heading": "account_info is an API contract, not a consensus upgrade",
+      "paragraphs": [
+        "The official account_info reference describes a read method for an account's activity, XRP balance, AccountRoot data, flags, signer lists, queued transactions, and the ledger version used for the result. The response includes a validated field so a consumer can distinguish a finalized ledger view from a current or otherwise non-final response. [5]",
+        "Clio's repository documentation places that method in a separate serving layer. Clio stores validated historical ledger and transaction data, can share a dataset across nodes, and normally returns validated data. It can forward requests that need non-validated information to rippled when the request asks for the current ledger. That architecture makes a Clio handler fix operationally meaningful while keeping it distinct from rippled's consensus engine. [11]",
+        "[Independent supporting source] QuickNode's account_info documentation shows how an independent infrastructure provider presents the same RPC method: a request identifies an account and ledger context, while the response exposes account_data, account_flags, queue information, validation status, and standard status fields. Its sample also distinguishes a Clio response from a direct current-ledger response. This supports the application-layer relevance of the fix without proving QuickNode deployed it. [8]",
+        "[Bounded inference] A downstream client should therefore treat pseudo_account as conditional metadata and account_info failure as a retryable data-service problem until the provider's version and response are checked. It should not infer protocol activation, a changed AMM formula, or a new XRP use case from the presence of a field in a development build. [1][5][8][11]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://github.com/XRPLF/clio/blob/develop/README.md",
+        "https://www.quicknode.com/docs/xrpl/account_info",
+        "https://github.com/XRPLF/clio/pull/3196"
+      ]
+    },
+    {
+      "heading": "The regression test is narrow, but it closes a real edge case",
+      "paragraphs": [
+        "The test added by PR #3196 is intentionally specific. It constructs an AccountRoot with an AMMID value, requests account_info through Clio's API v2 handler, and compares the result with an expected object that includes pseudo_account.type equal to AMM. The commit page records 74 new test lines alongside a one-line production change. [2]",
+        "That narrowness is a strength for a serialization regression. The test creates the missing condition directly, checks that the result is still marked validated, and verifies the type derived from the AccountRoot field. It does not try to assert AMM pricing, liquidity, LP-token supply, or transaction processing, so it can isolate the response-shape failure from unrelated protocol behavior. [2][5][7]",
+        "[Bounded inference] The same production loop examines the protocol's pseudo-account designator fields, so the direct object assignment is intended to cover the handler's shared construction path. The available test record, however, demonstrates AMM explicitly. It does not show equivalent regression fixtures for VaultID or LoanBrokerID, and it does not establish that every downstream schema consumer already accepts the field. [1][2][6]",
+        "[Unresolved uncertainty] No public endpoint snapshot in the pull request demonstrates the before-and-after behavior on a deployed Clio server. The evidence is a code review, a merged commit, and a passing test report. That is enough to report a development fix, but not enough to estimate affected users, production error frequency, or financial exposure. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot",
+        "https://xrpl.org/docs/concepts/accounts/pseudo-accounts"
+      ]
+    },
+    {
+      "heading": "Implications for API operators, indexers, and XRP readers",
+      "paragraphs": [
+        "For Clio operators, the immediate task is version verification. Record whether the node runs 2.8.0, 2.8.1-rc3, a later release candidate, or a development build. Then test account_info against known AMM pseudo-account records and confirm that the response includes the expected account data, pseudo-account type, ledger index, and validated status. A branch name or pull request number is not a deployment record. [2][3][5][11]",
+        "For indexers, explorers, custody systems, and analytics pipelines, the safer parser model is explicit about optional protocol metadata. A normal AccountRoot is not a pseudo-account, and a pseudo-account is not a signing wallet. Consumers should preserve the base AccountRoot fields, branch on the presence of AMMID or VaultID, tolerate the absence of pseudo_account on ordinary records, and surface an RPC error separately from an empty or non-pseudo response. [5][6][7][8]",
+        "For developers integrating a hosted XRPL API, ask the provider which server layer answers the request and which version it runs. QuickNode's documentation illustrates why this matters: providers can expose standard XRPL RPC methods while adding infrastructure-specific behavior around validated history and forwarding. The provider's documented method shape is useful context, but only a current endpoint test can establish the behavior of the endpoint an application actually uses. [5][8][11]",
+        "For XRP holders and market observers, the record supports no price, demand, adoption, supply, or investment conclusion. The fix helps services read a specialized ledger record more reliably once deployed. It does not change XRP balances, create an AMM, enable the Lending Protocol, or show that a production incident occurred. [1][4][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc3",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://xrpl.org/docs/concepts/accounts/pseudo-accounts",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot",
+        "https://www.quicknode.com/docs/xrpl/account_info",
+        "https://github.com/XRPLF/clio/blob/develop/README.md"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed fact, inference, and open questions",
+      "paragraphs": [
+        "[Confirmed facts] XRPLF merged Clio PR #3196 into develop on August 28, 2026. Commit 9cd44a0 changes the pseudo-account JSON construction and adds an AMM-focused account_info regression test. Clio 2.8.1-rc3 was published August 27 and is labeled a non-production release candidate. The official XRPL references define pseudo-accounts, AccountRoot fields, account_info output, and ledger validation. [1][2][3][5][6][7]",
+        "[Bounded inference] Once a released and deployed Clio build contains the commit, the affected account_info path should be able to serialize an AMM pseudo-account without the missing-object exception described in the pull request. That is a code-level expectation supported by the diff and test. It is not a measured uptime improvement, a network-wide guarantee, or proof that all pseudo-account types have equal coverage. [1][2]",
+        "[Unresolved uncertainty] The sources do not establish the next stable version, provider adoption, the number of affected requests, whether the defect reached a public production endpoint, or whether a Vault and Lending Protocol fixture will be added. They also do not show a consensus amendment, validator vote, Mainnet activation, user loss, exploit, XRP demand shift, or price response connected to this patch. [1][3][4][8]",
+        "The clean reading is therefore narrow and useful: Clio's development line repaired a response-construction edge case around protocol-owned accounts, and maintainers backed it with a targeted test. Operators should watch the release artifact and their own endpoint behavior before treating the fix as available to applications. [1][2][3][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/clio/pull/3196",
+        "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+        "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc3",
+        "https://xrpl.org/blog/2026/clio-2.8.0",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+        "https://xrpl.org/docs/concepts/accounts/pseudo-accounts",
+        "https://www.quicknode.com/docs/xrpl/account_info"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable Clio release or package record that explicitly contains commit 9cd44a0 or an equivalent account_info pseudo-account fix.",
+    "A release-branch or provider changelog showing whether the repair moved beyond develop and whether 2.8.1 receives it.",
+    "Endpoint tests for AMM, Vault, and LoanBroker pseudo-account responses, including pseudo_account.type, AccountRoot designator fields, ledger index, validated status, and error handling.",
+    "An update to the official account_info response documentation or API schema that formally describes pseudo_account and its conditional presence.",
+    "Evidence that distinguishes a deployed Clio serialization change from a rippled release, amendment vote, Mainnet activation, production incident, or any XRP market outcome."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF Clio PR #3196, merged August 28, 2026",
+      "url": "https://github.com/XRPLF/clio/pull/3196",
+      "type": "primary",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "XRPLF Clio commit 9cd44a0, account_info pseudo-account fix, August 28, 2026",
+      "url": "https://github.com/XRPLF/clio/commit/9cd44a06dd3e1f3835ce2ed2975dd61bdcfe4b03",
+      "type": "primary",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "Clio 2.8.1-rc3 release, August 27, 2026",
+      "url": "https://github.com/XRPLF/clio/releases/tag/2.8.1-rc3",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "Introducing Clio version 2.8.0, August 20, 2026",
+      "url": "https://xrpl.org/blog/2026/clio-2.8.0",
+      "type": "primary",
+      "publishedAt": "2026-08-20"
+    },
+    {
+      "name": "XRP Ledger account_info RPC reference, undated reference checked August 29, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_info",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Pseudo-Accounts concept, undated reference checked August 29, 2026",
+      "url": "https://xrpl.org/docs/concepts/accounts/pseudo-accounts",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger AccountRoot ledger entry reference, undated reference checked August 29, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/accountroot",
+      "type": "primary"
+    },
+    {
+      "name": "QuickNode account_info RPC method, published June 11, 2026",
+      "url": "https://www.quicknode.com/docs/xrpl/account_info",
+      "type": "supporting",
+      "publishedAt": "2026-06-11"
+    },
+    {
+      "name": "XRPL Commons AMM core-development module, undated reference checked August 29, 2026",
+      "url": "https://www.xrpl-commons.org/core-dev-module/automated-market-maker",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL Commons launch statement describing its independent nonprofit status, March 1, 2023",
+      "url": "https://www.xrpl-commons.org/newsroom/press-release",
+      "type": "supporting",
+      "publishedAt": "2023-03-01"
+    },
+    {
+      "name": "XRPLF Clio repository README, undated reference checked August 29, 2026",
+      "url": "https://github.com/XRPLF/clio/blob/develop/README.md",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-clio-2-8-0-mpt-history-rpc-reverted",
+      "label": "How Clio 2.8.0 changed XRPL data access",
+      "topic": "Clio release context",
+      "description": "Review the earlier stable Clio release, its MPT indexing work, and its explicit RPC boundary."
+    },
+    {
+      "href": "/news/xrpl-clio-2-8-1-rc1-mpt-book-offers",
+      "label": "Clio 2.8.1 release-candidate API changes",
+      "topic": "Release candidates",
+      "description": "See why a Clio release candidate needs deployment and production-readiness checks."
+    },
+    {
+      "href": "/learn/xrp-amm",
+      "label": "How XRPL Automated Market Makers work",
+      "topic": "AMM mechanics",
+      "description": "Understand AMM pools, LP tokens, fees, and the protocol records behind this API path."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRP Ledger DEX",
+      "topic": "XRPL applications",
+      "description": "Place AMM data in the broader context of XRPL order books and application workflows."
+    },
+    {
+      "href": "/news/xrpl-get-counts-maximum-counters",
+      "label": "Why XRPL API counts need precise boundaries",
+      "topic": "API observability",
+      "description": "Compare this response fix with another proposed change to how XRPL infrastructure reports state."
+    }
+  ]
+}
