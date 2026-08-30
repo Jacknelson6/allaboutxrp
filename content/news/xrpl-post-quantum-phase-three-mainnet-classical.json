@@ -1,0 +1,229 @@
+{
+  "slug": "xrpl-post-quantum-phase-three-mainnet-classical",
+  "title": "Ripple’s XRP Ledger Quantum Roadmap Enters Phase 3 Window, but Mainnet Is Unchanged",
+  "description": "Ripple’s post-quantum plan schedules Devnet testing in the second half of 2026 and targets a broader transition by 2028. Current XRPL records show a draft proposal and no Mainnet Quantum amendment.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-29T22:18:00-05:00",
+  "modifiedAt": "2026-08-29T22:18:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-post-quantum-suture-editorial.webp",
+  "imageAlt": "A pale-gold bronze suture needle draws cobalt and ivory threads through an ivory linen patch on a white-stone bench under eclipse light",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "quantum-suture-staged-migration-still-life",
+  "imageSetting": "A quiet white-tufa iatreion instrument room after a total lunar eclipse, with one cold roof opening and a matte ivory stone bench, viewed nearly edge-on from stone height along the needle’s axis",
+  "imageMetaphor": "A pale-gold bronze suture needle draws two distinct cobalt and ivory threads through one linen patch, representing a staged migration from classical XRPL signatures to a future post-quantum path while the existing account remains intact",
+  "imagePrompt": "Create a 16:9 editorial still life in the established AAXRP classical oil and restrained ASCII-atmosphere style. Use a quiet white-tufa iatreion instrument room after a total lunar eclipse, viewed nearly edge-on from stone height along the axis of a single pale-gold bronze suture needle. The needle draws exactly two distinct threads, one deep cobalt and one ivory-blue, through exactly one small ivory linen patch on a matte ivory stone bench. Place the object cluster in the far upper-right third and leave broad, calm lower-left negative space. Model the bronze, linen, stone, and thread tension with crisp believable classical oil light. Use cold silver eclipse light from one roof opening with a faint pale-gold bounce, and at most one restrained vermilion stitch as a status mark. The scene must communicate a staged migration or repair while an account remains intact, not a completed upgrade. Only a few extremely subtle 1, 0, or x marks may appear inside atmospheric or shadow transitions, never as an all-over pattern. Do not include text, letters, numbers on objects, logos, crypto coins, wallets, dashboards, charts, computers, people, hands, extra tools, containers, buildings, city panoramas, politicians, cyber cubes, fantasy ruins, or any other symbolic object. Use the supplied reference images for style and palette only, not for subject matter or composition.",
+  "keywords": [
+    "XRP quantum security",
+    "XRP Ledger post-quantum cryptography",
+    "Ripple quantum roadmap",
+    "ML-DSA-44",
+    "XLS-295",
+    "XRP Ledger security",
+    "Quantum amendment",
+    "XRP",
+    "Ripple",
+    "cryptographic key rotation"
+  ],
+  "keyTakeaways": [
+    "Ripple’s roadmap places candidate post-quantum signature testing on Devnet in the second half of 2026, with a broader transition targeted for 2028. That is a plan, not a Mainnet release. [1][2]",
+    "XLS-295 remains a Draft, and an August 29, 2026 snapshot of Ripple’s public feature endpoint did not list a Quantum amendment. [3][8]",
+    "The draft’s ML-DSA-44 profile is materially larger than current XRPL public keys and could affect bandwidth, storage, parsing, verification, fees, and reserves. Those effects still require implementation benchmarks. [3][4]",
+    "XRPL regular-key rotation can support migration planning, but current key rotation is not post-quantum protection and does not automatically move an account to a new signature scheme. [1][7][9]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Phase 3 is a testing window, not a quantum-safe Mainnet upgrade",
+      "paragraphs": [
+        "Ripple’s XRP Ledger post-quantum program is entering its planned Phase 3 window in the second half of 2026, when candidate quantum-resistant signatures are meant to be tested alongside existing elliptic-curve signatures on Devnet. That does not make XRP or XRPL quantum-safe today. Ripple still targets a broader transition by 2028, subject to engineering and validator coordination. [1][2][3]",
+        "The most important editorial distinction is between a dated engineering milestone and a live network state. Ripple’s April roadmap describes a sequence of risk assessment, experimentation, Devnet testing, and a later amendment-led transition. CoinDesk’s August 28 report independently describes the same future-facing program. Neither source reports that a Quantum amendment is enabled on XRPL Mainnet. [1][2]",
+        "That means the current story is infrastructure preparation, not a confirmed change to XRP transaction authorization, wallet behavior, adoption, demand, or price. A quantum-readiness roadmap can matter to long-lived custody and validator systems without creating a present-tense market outcome. The available evidence supports the roadmap and its risks, but not a claim that Q-Day is imminent or that a Mainnet migration has begun. [1][2][6]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+        "https://www.21shares.com/en-uk/insights/quantum-computing-and-digital-assets-six-things-allocators-should-know"
+      ]
+    },
+    {
+      "heading": "What Ripple’s four-phase roadmap says about the second half of 2026",
+      "paragraphs": [
+        "Ripple divides the work into four phases. Phase 1 is a Q-Day readiness contingency, including research into whether a rapid shift and post-quantum zero-knowledge recovery approach could be needed. Phase 2, scheduled for the first half of 2026, is the measurement phase: the roadmap names experimentation around key and signature size, verification cost, throughput, storage, and bandwidth. [1]",
+        "Phase 3 is scheduled for the second half of 2026. Ripple says candidate post-quantum signatures would initially run alongside the existing elliptic-curve signatures on Devnet. The point is to learn how a larger signature system behaves before asking the public network to adopt it. NIST’s finalized ML-DSA standard supplies a recognized cryptographic reference point, but it does not select XRPL’s eventual implementation or governance sequence. [1][4]",
+        "Phase 4 targets a full transition by 2028 through a new amendment, production readiness work, and validator coordination. The word `target` matters. It leaves open the candidate algorithm, whether a hybrid period is required, which transaction and validator surfaces are activated first, how migration is authorized, and whether benchmarks meet the network’s reliability requirements. [1][2]",
+        "A bounded inference follows from that schedule: the most meaningful next evidence should be a public Devnet artifact or reproducible benchmark, not a new headline repeating the roadmap. An official test release could establish what was actually implemented. Until then, Phase 3 is a planned test window, not proof that a candidate scheme is running on a public ledger. [1][8]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+        "https://csrc.nist.gov/pubs/fips/204/final",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "What XLS-295 adds: a draft signature layer with a measurable size cost",
+      "paragraphs": [
+        "The XRPL Standards proposal `Post-Quantum Signatures (ML-DSA-44)` is the clearest public technical artifact behind the discussion, but it is still marked `Draft`. The proposal, created July 8, 2025 and updated May 20, 2026, describes a new `dilithium` key type gated by a future `Quantum` amendment. Its scope reaches beyond ordinary payments to multisigning, batch transactions, payment-channel claims, validator manifests, validations, consensus proposals, UNL publisher signatures, peer handshakes, and node identities. [3]",
+        "The size comparison explains why this is a systems problem rather than a simple cryptographic swap. XLS-295 lists an ML-DSA-44 public key at 1,312 bytes, a secret key at 2,560 bytes, and a signature at no more than 2,420 bytes. The same proposal contrasts the public key with a current 33-byte public-key representation. It estimates roughly 3.7 kilobytes of additional transaction data for a dilithium-signed transaction, while multisigned transactions grow with each signer. [3]",
+        "Those figures are proposal-level inputs, not a measured Mainnet fee schedule. Larger payloads can create pressure across transaction serialization, peer bandwidth, ledger storage, signature parsing, verification time, account reserve policy, and validator operations. The correct editorial label is `engineering implication`, not `confirmed outcome`: the effect on XRPL depends on the final encoding, implementation, batching, fee and reserve rules, and real benchmark data. [1][3][4]",
+        "NIST finalized FIPS 204 on August 13, 2024 as a standard for ML-DSA, designed to resist attacks from large-scale quantum computers. That establishes the family’s external standardization context. It does not turn the XRPL draft into a final protocol, prove that ML-DSA-44 is the final XRPL choice, or answer whether XRPL will use hybrid authorization during migration. Those remain unresolved in the public record reviewed here. [3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://csrc.nist.gov/pubs/fips/204/final",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives"
+      ]
+    },
+    {
+      "heading": "Why XRPL key rotation helps, but does not make accounts quantum-safe",
+      "paragraphs": [
+        "XRPL already has a migration primitive in regular keys. The account owner can assign a separate regular key pair and later replace or remove it without changing the account’s address. Ripple’s roadmap identifies native key rotation and seed-based key generation as foundations for future migration planning. That is useful operational groundwork, but it is not the same thing as authorizing an account with a post-quantum signature. [1][9]",
+        "The current XRPL cryptographic-key documentation lists secp256k1 and Ed25519 as the signing algorithms used by accounts and explains that public keys and signatures authorize transactions. The same documentation does not list ML-DSA as a current account algorithm. Therefore, a regular-key rotation performed with today’s supported types changes which classical key can sign, but it does not automatically convert the account to a future quantum-resistant type. [7]",
+        "This distinction also separates ownership authorization from ledger history. The quantum risk discussed by Ripple and independent digital-asset research concerns the possibility of recovering or forging authorization from exposed public keys when a sufficiently capable quantum computer exists. It does not mean that a future machine can simply rewrite settled ledger history. The timing, exposure, and migration path therefore matter more than a generic claim that all blockchain data is equally vulnerable. [1][5][6]",
+        "For an exchange, custodian, treasury, or wallet provider, the hard part would be coordinated control of customer accounts, signer policies, recovery procedures, key inventories, audit records, and old and new authorization types. The source record does not show a universal provider migration program. A provider that documents a future rotation path would still need to prove that recovery and signing behavior work across its actual custody architecture. [1][3][7][9]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+        "https://xrpl.org/docs/tutorials/best-practices/key-management/assign-a-regular-key-pair",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/",
+        "https://www.21shares.com/en-uk/insights/quantum-computing-and-digital-assets-six-things-allocators-should-know"
+      ]
+    },
+    {
+      "heading": "Current Mainnet evidence: the Quantum amendment is not listed",
+      "paragraphs": [
+        "At 22:08 CDT on August 29, 2026, an HTTP 200 response from Ripple’s public `s1.ripple.com:51234` server to the `feature` method returned a feature map in which `Quantum` was not listed. This is a dated endpoint observation, not a claim that every XRPL server, private test network, or unreleased branch has identical state. It does establish that the checked public endpoint did not expose a Quantum feature at that moment. [8]",
+        "That observation is consistent with the XRPL Standards draft, which says peers reject dilithium messages until the Quantum amendment is enabled. It is also consistent with the current cryptographic-key documentation, which lists secp256k1 and Ed25519 rather than a post-quantum account key. Together, the records point to a pre-activation state: a roadmap, a draft design, and existing classical signing documentation. [3][7][8]",
+        "The evidence boundary is important. A feature endpoint snapshot cannot rule out private experiments, a Devnet-only implementation, a future release under test, or an amendment that may be proposed later. Conversely, an interview or roadmap cannot prove deployment. The strongest current conclusion is narrow: the reviewed public Mainnet evidence does not show a Quantum amendment, so readers should not describe XRPL as quantum-safe or universally migrated today. [1][2][8]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, custodians, validators, and XRPL builders",
+      "paragraphs": [
+        "For an XRP holder, the immediate implication is vocabulary and verification, not an urgent self-directed migration. There is no evidence in the reviewed sources of a current universal wallet action, a Mainnet Quantum activation, or a price and demand outcome tied to this roadmap. Holders should treat any request to send funds to a new address because of `quantum protection` as a separate security event that requires independent verification. [1][2][7][8]",
+        "For exchanges, custodians, and treasury operators, the relevant work is inventory and testing. They would need to map which accounts expose public keys, how regular keys and recovery controls are managed, whether signing systems accept variable-length key material, and how customer communication and audit trails would work. XLS-295’s broad signing-surface scope means a migration cannot be reduced to changing one wallet library. No source reviewed here proves that any specific provider has completed that work. [1][3][7][9]",
+        "For validators and node operators, the central questions are measurable: how much larger messages become, how signature verification affects CPU and latency, whether peer handshakes and manifests remain interoperable, and whether consensus reliability holds under realistic load. The draft’s inclusion of validator manifests, validations, consensus proposals, and peer identities makes independent operator testing particularly important. A candidate that works in a wallet but degrades validator communication would not be production-ready. [1][3][4]",
+        "For builders, the prudent forward-looking implication is to avoid assuming that keys and signatures will remain short, fixed-size values forever. Code should follow the final XRPL serialization and API contracts rather than hard-coding an unreleased type. For market observers, the defensible classification is security and protocol infrastructure. The public evidence does not establish new XRP demand, adoption, partnership revenue, or causality in the market. [2][3][6][8]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+        "https://xrpl.org/docs/tutorials/best-practices/key-management/assign-a-regular-key-pair",
+        "https://csrc.nist.gov/pubs/fips/204/final",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+        "https://www.21shares.com/en-uk/insights/quantum-computing-and-digital-assets-six-things-allocators-should-know",
+        "https://s1.ripple.com:51234"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "Confirmed facts are limited but meaningful. Ripple published a four-phase roadmap with Devnet experimentation planned for the second half of 2026 and a broader transition targeted by 2028. XRPLF’s public post-quantum signature proposal is marked Draft. NIST has finalized ML-DSA as an external standard. The checked public feature endpoint snapshot did not list Quantum, and current XRPL documentation lists classical signing algorithms. [1][3][4][7][8]",
+        "Bounded inference is appropriate when it stays close to those records. Existing regular-key rotation should reduce some future operational friction because XRPL has a mechanism for changing signing authority without changing an account address. Larger post-quantum keys and signatures are likely to create engineering tradeoffs because the draft itself identifies materially larger objects. Neither inference establishes a final migration design, cost, or production performance. [1][3][9]",
+        "Unresolved uncertainty remains across the parts that would turn a roadmap into a network change: the final algorithm and encoding, hybrid authorization, seed derivation, transaction and validator rollout order, amendment governance, fee and reserve treatment, Devnet release artifacts, independent benchmarks, tagged rippled support, provider migration, and user recovery. The sources also do not establish a current XRP price, adoption, demand, or market-causality outcome from the roadmap. [1][2][3][6][8]",
+        "The clean reading is therefore neither dismissal nor alarm. XRPL has a dated, technically specific preparation plan, and its public records show that the plan remains ahead of Mainnet activation. The next credible update should narrow uncertainty with code, release notes, feature records, benchmark data, and operator documentation. Until those arrive, describe this as a post-quantum readiness program in a pre-activation state. [1][2][3][8]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://csrc.nist.gov/pubs/fips/204/final",
+        "https://s1.ripple.com:51234",
+        "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+        "https://www.21shares.com/en-uk/insights/quantum-computing-and-digital-assets-six-things-allocators-should-know",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A public Devnet or AlphaNet artifact naming the candidate signature scheme and publishing latency, bandwidth, storage, and verification measurements. [1][3]",
+    "An official XRPL feature or amendment record that names Quantum and clearly separates supported, vetoed, and enabled states. [3][8]",
+    "A tagged `rippled` release and release notes implementing the relevant protocol surfaces, rather than another roadmap summary or draft discussion. [1][2][3]",
+    "A final or revised XLS-295 that resolves the algorithm, hybrid behavior, key rotation, seed derivation, fees, reserves, and rollout sequencing. [3]",
+    "Wallet, exchange, and custodian documentation showing how old and new authorization types, recovery, customer consent, and audit trails would work. [1][7][9]",
+    "Independent validator and node-operator evidence that larger signatures preserve peer compatibility, throughput, deterministic settlement, and operational reliability. [1][3][4]"
+  ],
+  "sources": [
+    {
+      "name": "Ripple: Post-Quantum Readiness on the XRP Ledger",
+      "url": "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+      "type": "primary",
+      "publishedAt": "2026-04-20"
+    },
+    {
+      "name": "CoinDesk: Ripple is preparing XRP Ledger for quantum computers before Q-Day arrives",
+      "url": "https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "XRPL Standards XLS-295: Post-Quantum Signatures (ML-DSA-44), updated May 20, 2026",
+      "url": "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+      "type": "primary",
+      "publishedAt": "2026-05-20"
+    },
+    {
+      "name": "NIST FIPS 204: Module-Lattice-Based Digital Signature Standard",
+      "url": "https://csrc.nist.gov/pubs/fips/204/final",
+      "type": "primary",
+      "publishedAt": "2024-08-13"
+    },
+    {
+      "name": "Google Quantum AI: Safeguarding Cryptocurrency by Disclosing Quantum Vulnerabilities Responsibly",
+      "url": "https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/",
+      "type": "primary",
+      "publishedAt": "2026-03-31"
+    },
+    {
+      "name": "21Shares: Quantum Computing and Digital Assets, Six Things Allocators Should Know",
+      "url": "https://www.21shares.com/en-uk/insights/quantum-computing-and-digital-assets-six-things-allocators-should-know",
+      "type": "supporting",
+      "publishedAt": "2026-06-04"
+    },
+    {
+      "name": "XRPL Documentation: Cryptographic Keys, undated reference checked August 29, 2026",
+      "url": "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple public feature RPC response, undated endpoint snapshot checked August 29, 2026",
+      "url": "https://s1.ripple.com:51234",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Documentation: Assign a Regular Key Pair, undated reference checked August 29, 2026",
+      "url": "https://xrpl.org/docs/tutorials/best-practices/key-management/assign-a-regular-key-pair",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "What is XRP?"
+    },
+    {
+      "href": "/news/xrpl-confidential-mpt-draft-flag-update-mainnet-status",
+      "label": "XRPL Confidential MPT Draft and Mainnet Status"
+    },
+    {
+      "href": "/news/xrpl-cosigner-transaction-proposal-status-draft",
+      "label": "XRPL Cosigner Transaction Proposal Status"
+    },
+    {
+      "href": "/news/xrpl-340-b1-first-beta-not-stable-release",
+      "label": "XRPL 3.40.0 Beta Is Not a Stable Release"
+    }
+  ]
+}
