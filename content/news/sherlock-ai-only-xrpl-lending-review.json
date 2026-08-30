@@ -1,0 +1,223 @@
+{
+  "slug": "sherlock-ai-only-xrpl-lending-review",
+  "title": "Sherlock Starts AI-Only Review of XRPL Lending Protocol V1.1, Findings Pending",
+  "description": "An official Sherlock update says Ripple has begun an AI-only security review of XRPL Lending Protocol V1.1. The process is active, but its scope, findings, completion date, and deployment implications remain undisclosed.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-08-30T06:10:58-05:00",
+  "modifiedAt": "2026-08-30T06:10:58-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/sherlock-ai-only-xrpl-lending-review.webp",
+  "imageAlt": "A pale-gold acoustic horn faces four cobalt glass plates and a blank ivory verdict tile on an ivory stone rail at predawn.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "ai-audit-resonance-prism-still-life",
+  "imageSetting": "A silent white-porphyry acoustic chamber beneath a narrow east roof slit at first violet predawn, viewed low from the front-right along an ivory listening rail with broad untouched upper-left space.",
+  "imageMetaphor": "A pale-gold acoustic horn faces four cobalt glass witness plates while an unmarked ivory verdict tile remains apart, representing multiple AI auditors examining one XRPL lending codebase while validated findings are still pending.",
+  "imagePrompt": "Finished 16:9 editorial still life in luminous academic classical-revival oil: crisp sculptural modeling, rich glazing, selective impasto, warm ivory stone, pale-gold metal, cobalt and water-blue glass, broad negative space, one restrained vermilion mark. A single pale-gold acoustic horn rests on a low ivory limestone listening rail and faces four separate thin cobalt glass witness plates in a measured shallow arc. A blank ivory verdict tile sits apart with one short vermilion thread at its edge. Quiet white-porphyry acoustic chamber, narrow east roof slit, first violet predawn, low front-right view along the rail, upper-left mostly untouched. The objects represent multiple specialized AI auditors examining one XRP Ledger lending codebase while validation and final findings remain pending. Extremely subtle 1/0/x stipple only inside a few atmospheric or shadow transitions, never all-over. No text, letters, numbers, code, logos, brand marks, watermark, literal crypto coin, dashboard, monitor, UI, people, politician, generic cyber cube, impossible geometry, panoramic Greek city, temple, columns, harbor, bank, terrace, workshop, archive, observatory, gauge, sieve, wheel, lock, frame, comb, bridge, or repeated XRPL editorial prop.",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "XRPL security",
+    "Lending Protocol V1.1",
+    "Sherlock Audit Engine",
+    "Ripple",
+    "XRPL lending",
+    "AI security review"
+  ],
+  "keyTakeaways": [
+    "[Confirmed] Sherlock says Ripple started an AI-only security review of XRP Ledger Lending Protocol V1.1 through the Audit Engine on August 27, 2026. [1]",
+    "[Confirmed] Sherlock has not published the review’s code scope, model roster, findings, completion date, or deployment decision. Independent reports dated August 28 reached the same boundary. [9][10]",
+    "[Confirmed] XRPL’s public amendment tracker still lists LendingProtocolV1_1 as In Development, even though the current rippled develop registry marks it Supported::Yes with DefaultNo voting behavior. [6][7]",
+    "[Context] Earlier XRPL lending security work found material issues, including seven confirmed bugs reported from Ripple’s March to May 2026 AI red-team program. Those are not results from the current Sherlock review. [8][9]",
+    "[Implication] The announcement is a security-readiness milestone, not evidence of Mainnet lending, validator approval, a new XRP demand source, a yield opportunity, or a price effect. [5][6][9]"
+  ],
+  "sections": [
+    {
+      "heading": "The direct answer: a security review has started",
+      "paragraphs": [
+        "Yes, a material XRP Ledger security development is underway: Sherlock says Ripple has started an AI-only review of Lending Protocol V1.1 through its Audit Engine. That means the code is being tested, not that lending is live, approved, or safe. Sherlock has not published findings, a completion date, or a deployment decision.",
+        "That distinction matters because the announcement is about a review event, not an operating feature. Sherlock’s August 27 post names Ripple and Lending Protocol V1.1, and says Audit Engine combines AI auditors and frontier models with specialized security skills. It does not provide a public commit hash, line count, model roster, start or end time, or finding count. The Crypto Times independently reported the same basic event on August 28 and noted that Sherlock had not published a timeline or intermediate findings. It also reported that Ripple had not issued a separate public statement when the announcement appeared. This is a provider announcement with independent confirmation, not a Ripple release notice or a completed third-party audit report. [1][9][10]"
+      ],
+      "sourceUrls": [
+        "https://x.com/sherlockdefi/status/2092948717301301673",
+        "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/",
+        "https://cryptoslate.com/ripple-moves-to-shrink-xrp-ledger-attack-surface-as-ai-audit-tests-lending-push/"
+      ]
+    },
+    {
+      "heading": "What Sherlock announced, and what it did not announce",
+      "paragraphs": [
+        "Audit Engine should not be understood as a single chatbot reading a repository and issuing an automatic safety certificate. Sherlock’s public product material describes a coordinated system that brings together multiple AI auditors and frontier models, with review depth adapted to the scope and complexity of the code. Its company updates also describe a workflow in which findings can be judged, validated, deduplicated, and benchmarked. For this engagement, the important qualifier is AI-only: the announced analysis is centered on artificial intelligence rather than a conventional human auditor team. That says how the review is being conducted. It does not make a raw model output self-authenticating, and it does not tell readers whether later remediation or release decisions will involve additional human review. [1][2][3]",
+        "Sherlock’s broader audit documentation supplies a useful standard for reading the eventual result. A serious security record should identify the baseline code, the assumptions and trust boundaries, the issue-discovery method, the reproduction path for each valid finding, severity decisions, duplicate handling, and fix verification. That does not mean every detail must be public during an active private engagement. It does mean readers should distinguish candidate findings from validated findings, and findings from fixed findings. The current announcement provides none of those outputs yet. The strongest defensible description is therefore that V1.1 has entered an intensive AI-led test, while the evidence needed to evaluate its result remains outstanding. [3][4][10]"
+      ],
+      "sourceUrls": [
+        "https://www.linkedin.com/company/sherlock-protocol/",
+        "https://sherlock.xyz/solutions/audit-engine",
+        "https://docs.sherlock.xyz/audits/protocols/how-it-works-for-protocols",
+        "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/"
+      ]
+    },
+    {
+      "heading": "Why Lending Protocol V1.1 needs a separate readiness test",
+      "paragraphs": [
+        "Lending Protocol V1.1 is not a generic software component. Ripple’s XLS-66 description defines the broader Lending Protocol as an XRP Ledger DeFi primitive for fixed-term, uncollateralized loans funded from a Single Asset Vault. Credit judgment and borrower risk management remain off-chain, while the ledger is intended to enforce agreed loan mechanics. That places several sensitive boundaries beside one another: vault liquidity, loan creation, interest accounting, repayment schedules, defaults, permissions, and the state changes that connect those objects. The code can be correct while an underwriter still makes a bad credit decision, and an underwriter can be responsible while a protocol invariant still fails. An AI review is material because it is aimed at the execution layer, not because it removes the economic or legal risks around lending. [5][9]",
+        "The public status records add a second boundary. XRPL’s known-amendments page currently lists LendingProtocolV1_1 as In Development and says amendments in that list can become open for Mainnet voting only after inclusion in a stable server release. The current rippled develop feature registry marks V1.1 Supported::Yes but retains VoteBehavior::DefaultNo. In plain language, the development branch can recognize and test the feature without the public network having enabled it. The tracker and code registry answer different questions, so they should not be collapsed into one launch signal. Neither record establishes Mainnet activation, live borrowing, validator consensus, or a market effect. [6][7]",
+        "That distinction also keeps the article’s audience honest. Developers can treat the review as relevant to future integration and testing. Validators can treat it as a record to monitor alongside stable releases and amendment status. Potential lenders, borrowers, and XRP holders should not read the announcement as an invitation to deposit capital, borrow XRP, or price a new yield stream. Ripple’s own protocol material says the feature remains subject to validator approval, and the official tracker continues to place V1.1 in development. The correct next step is evidence collection, not a conclusion about launch timing. [5][6]"
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro"
+      ]
+    },
+    {
+      "heading": "The review follows a layered security program",
+      "paragraphs": [
+        "The reason to take the review seriously is not that Sherlock has announced a bug. It is that the preceding security record shows why a new version deserves a new review. CryptoSlate reported that a late-2025 Ripple and Immunefi attackathon covering 35,498 lines of code drew 455 submissions from 131 researchers and produced 94 unique valid findings, including 15 critical and 19 high-severity issues. The same report said Ripple later ran additional audits, community testing, fuzzing, and an AI-assisted red-team program. Between March and May 2026, that red team filed 20 lending-specific tickets and found seven confirmed bugs that were fixed. Those figures describe earlier testing, not the current Sherlock engagement, and they should not be converted into a claim that V1.1 contains a known vulnerability. [9]",
+        "Ripple’s own March 26 security strategy article puts those earlier efforts in a broader framework. It describes AI-assisted reviews, a dedicated red team, fuzzing, adversarial testing, multiple independent audits, and collaboration with the XRP Ledger Foundation, XRPL Commons, validator operators, researchers, and external firms. It also says the public record disclosed only low-severity issues from the red team at that point, while higher-priority fixes were being handled. That layered approach is more informative than the label AI-only by itself. It suggests Sherlock’s current engagement is one additional pressure test in a continuing development process, not a replacement for governance, operational monitoring, threat modeling, or human accountability. [8]",
+        "[Bounded analysis] Repeated testing is best read as a maturity signal when the protocol’s state machine is still changing. Each new amendment can alter assumptions at the edges of existing vault, loan, credential, and payment paths. A clean result would increase the quality of the evidence around V1.1, but it would not prove that every deployment, integration, oracle, underwriting decision, or operational control is safe. A finding would also need a severity decision and a remediation record before readers could assess whether it changes readiness. The announcement establishes the start of that work, not its outcome. [4][5][8]"
+      ],
+      "sourceUrls": [
+        "https://cryptoslate.com/ripple-moves-to-shrink-xrp-ledger-attack-surface-as-ai-audit-tests-lending-push/",
+        "https://ripple.com/insights/strengthening-xrp-ledger-security-with-ai-for-next-phase-of-growth/",
+        "https://docs.sherlock.xyz/audits/protocols/how-it-works-for-protocols",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed facts, inference, and uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] Sherlock’s public August 27 announcement says Ripple began an intensive AI-only security review of Lending Protocol V1.1 for the XRP Ledger through Audit Engine. The company describes the engine as combining specialized AI auditors and frontier models. CryptoSlate and The Crypto Times independently published reports on August 28 that identify the same engagement and state that no results had been disclosed. This is enough to establish a current security-testing milestone. It is not enough to establish a vulnerability, a pass, a fail, or a release. [1][9][10]",
+        "[Bounded inference] The review is reasonably understood as part of preparation for a future release or deployment because the subject is a development-stage amendment and the reporting describes it in the context of potential XRPL lending deployment. That is an editorial reading of the timing and status records, not a published launch schedule. No source reviewed for this report says V1.1 will be enabled by a particular date, after a particular number of days, or immediately after Sherlock finishes. [5][6][9][10]",
+        "[Unresolved uncertainty] The public record does not identify the exact code commit, file scope, model roster, assumptions, review duration, intermediate findings, final finding severities, remediation status, or fix-verification status. It also does not show whether validators have been asked to vote, whether a stable rippled release contains the final code, or whether any live network has enabled V1.1. These are not minor details. They are the records that would turn an announcement into evidence of readiness. [4][6][7][10]"
+      ],
+      "sourceUrls": [
+        "https://x.com/sherlockdefi/status/2092948717301301673",
+        "https://cryptoslate.com/ripple-moves-to-shrink-xrp-ledger-attack-surface-as-ai-audit-tests-lending-push/",
+        "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://docs.sherlock.xyz/audits/protocols/how-it-works-for-protocols"
+      ]
+    },
+    {
+      "heading": "Implications for developers, validators, and XRP readers",
+      "paragraphs": [
+        "For XRPL developers, the immediate implication is procedural. V1.1 deserves attention in devnet experiments, code review, and integration planning, but the announcement does not authorize a production dependency. Developers should wait for a dated scope or commit, a result that separates validated findings from raw candidates, and a release path that aligns with the amendment tracker. Ripple’s XLS-66 page points builders toward testing resources while still identifying validator approval as a condition for the feature. That is the right posture for a protocol whose execution rules may eventually carry real lender and borrower obligations. [5][6]",
+        "For validators and infrastructure providers, there is no source-backed emergency action in this announcement. The relevant signals are future stable rippled releases, amendment support and voting records, feature API responses, validated-ledger state, and any operator guidance attached to a release. A develop-branch support flag is useful engineering evidence, but it does not prove that all validators, exchanges, custodians, wallets, Clio servers, or data providers have the same code. Operators should evaluate the final release notes and review artifacts against their own deployment process instead of treating a social announcement as a rollout command. [6][7]",
+        "For lenders, borrowers, and XRP holders, the practical conclusion is narrower still. The native protocol design may broaden what can be executed on XRPL if it clears development, security, governance, and deployment checkpoints, but no current source establishes live credit availability, deposits, borrowing rates, adoption, XRP demand, or price causality. Any such conclusion would go beyond the evidence. The current event is important because it tests a proposed financial primitive before more value depends on it. It is not a market signal with a measurable XRP outcome. [5][6][9]"
+      ],
+      "sourceUrls": [
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/"
+      ]
+    },
+    {
+      "heading": "What a meaningful next update would show",
+      "paragraphs": [
+        "The next useful report should be judged by records, not adjectives. A dated Sherlock result should disclose the code or commit reviewed, the boundaries of the engagement, the difference between candidate and validated issues, and the severity logic used to prioritize them. If the review produces findings, readers need enough technical detail to understand the trigger conditions without mistaking a vulnerability report for a confirmed exploit. If Ripple fixes issues, the public record should identify the remediation commit and whether Sherlock verified the fix. If no material findings survive validation, that too should be reported as a bounded result rather than as proof of universal safety. [3][4]",
+        "The XRPL side of the record should move in parallel. A stable rippled release, current feature API output, amendment-tracker status, validator voting evidence, and a validated-ledger snapshot would answer whether the reviewed code has progressed beyond the development branch. Those records are independent checkpoints. Even a favorable Sherlock report would not substitute for amendment consensus, deployment, operational readiness, or evidence that real lenders and borrowers are using the system. Until those checkpoints change, the story remains exactly what the primary record says: an AI-only security review has begun, and the result is pending. [5][6][7][10]"
+      ],
+      "sourceUrls": [
+        "https://sherlock.xyz/solutions/audit-engine",
+        "https://docs.sherlock.xyz/audits/protocols/how-it-works-for-protocols",
+        "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+        "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Sherlock’s dated final report, including the exact V1.1 commit, code scope, assumptions, and validated finding count.",
+    "Whether Sherlock separates raw candidates from deduplicated findings, assigns severities, and verifies any remediation fixes.",
+    "A stable rippled release that contains the reviewed V1.1 code, with release notes identifying the relevant amendment state.",
+    "XRPL’s known-amendments tracker moving LendingProtocolV1_1 beyond In Development, plus matching feature API and validated-ledger evidence.",
+    "Developer, validator, and infrastructure documentation showing how the reviewed version is tested and deployed, not merely announced."
+  ],
+  "sources": [
+    {
+      "name": "Sherlock post announcing the XRPL Lending Protocol V1.1 AI-only review, published August 27, 2026",
+      "url": "https://x.com/sherlockdefi/status/2092948717301301673",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "Sherlock LinkedIn company updates, undated feed checked August 30, 2026",
+      "url": "https://www.linkedin.com/company/sherlock-protocol/",
+      "type": "primary"
+    },
+    {
+      "name": "Sherlock Audit Engine product page, undated reference checked August 30, 2026",
+      "url": "https://sherlock.xyz/solutions/audit-engine",
+      "type": "primary"
+    },
+    {
+      "name": "Sherlock audit process documentation, undated reference checked August 30, 2026",
+      "url": "https://docs.sherlock.xyz/audits/protocols/how-it-works-for-protocols",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple Open Source XLS-66 Lending Protocol page, undated reference checked August 30, 2026",
+      "url": "https://opensource.ripple.com/docs/xls-66-lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Known Amendments page, undated reference checked August 30, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled develop feature registry, undated branch record checked August 30, 2026",
+      "url": "https://github.com/XRPLF/rippled/blob/develop/include/xrpl/protocol/detail/features.macro",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple XRP Ledger security strategy, published March 26, 2026",
+      "url": "https://ripple.com/insights/strengthening-xrp-ledger-security-with-ai-for-next-phase-of-growth/",
+      "type": "primary",
+      "publishedAt": "2026-03-26"
+    },
+    {
+      "name": "CryptoSlate report on the XRPL AI review, published August 28, 2026",
+      "url": "https://cryptoslate.com/ripple-moves-to-shrink-xrp-ledger-attack-surface-as-ai-audit-tests-lending-push/",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    },
+    {
+      "name": "The Crypto Times report on the XRPL AI review, published August 28, 2026",
+      "url": "https://www.cryptotimes.io/2026/08/28/ripple-initiates-ai-powered-audit-of-lending-protocol/",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-lendingprotocol-v1-1-supported-develop",
+      "label": "LendingProtocol V1.1 support in develop",
+      "topic": "Status boundary",
+      "description": "See why a develop-branch support flag is separate from stable release, validator voting, and Mainnet activation."
+    },
+    {
+      "href": "/news/xrpl-lending-invariants-vault-loan-broker-develop",
+      "label": "Lending invariant checks in develop",
+      "topic": "Security context",
+      "description": "Review the earlier invariant work across XRPL Loan, LoanBroker, and Vault state transitions."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "Earlier Lending Protocol voting status",
+      "topic": "Governance",
+      "description": "Keep security review, amendment voting, and Mainnet activation as separate evidence checkpoints."
+    },
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP lending platforms work",
+      "topic": "Reader background",
+      "description": "Start with the difference between on-chain loan execution and off-chain credit risk management."
+    }
+  ]
+}
