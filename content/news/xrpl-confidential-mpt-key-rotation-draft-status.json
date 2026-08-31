@@ -1,0 +1,219 @@
+{
+  "slug": "xrpl-confidential-mpt-key-rotation-draft-status",
+  "title": "XRPL Standards Draft Proposes ElGamal Key Rotation for Confidential MPTs",
+  "description": "A new XRPL Standards draft proposes ElGamal key rotation and holder key-loss recovery for Confidential MPTs, while the underlying ConfidentialTransfer feature remains draft work and is not a Mainnet service.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-31T06:13:35-05:00",
+  "modifiedAt": "2026-08-31T06:13:35-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-confidential-mpt-keyway-editorial.webp",
+  "imageAlt": "A pale-gold split-tooth key turns through an ivory two-notch keyway beside a cobalt recovery capsule and one vermilion status tab on an ivory stone bench",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "confidential-mpt-epoch-keyway-still-life",
+  "imageSetting": "A quiet white-feldspar locksmith proofing chamber after a night frost, viewed from a low straight-on angle at stone level through the open end of an ivory keyway; the mechanism rests in the lower-left beneath a narrow circular roof aperture, leaving a broad unmarked mineral wall across the right half.",
+  "imageMetaphor": "A single pale-gold split-tooth key turns from an old notch toward a new notch in a solid ivory keyway, while two cobalt glass cipher wafers sit in separate sockets and a small ivory recovery capsule rests behind one restrained vermilion witness tab, representing epoch-gated re-encryption, stale mirrors, and authorized holder key-loss recovery.",
+  "imagePrompt": "Create one original finished AllAboutXRP editorial hero image in a cinematic 16:9 landscape. Use a sparse, physically believable symbolic still life in a quiet white-feldspar locksmith proofing chamber after a night frost, viewed from a low straight-on angle at stone level through the open end of an ivory keyway. Keep the focal mechanism in the lower-left beneath a narrow circular roof aperture and leave a broad unmarked warm-ivory mineral wall across the right half. Show exactly five deliberate objects: one finely made pale-gold split-tooth key turned halfway from an old notch toward a new notch in one solid ivory two-notch keyway; two unmarked cobalt glass cipher wafers seated separately in two shallow ivory sockets; one small opaque ivory recovery capsule set behind the wafers; and one restrained vermilion witness tab standing at the old-notch side. All objects must be weight-bearing with coherent contact shadows and realistic reflections. The keyway is a fact-safe metaphor for issuer or auditor epoch rotation, the separated wafers show old and current mirror states, and the covered recovery capsule shows authorized holder key-loss recovery without implying automatic control. Style: luminous academic classical-revival oil painting, crisp sculptural drawing, rich glazing, smooth cobalt glass, physically modeled pale-gold metal, warm ivory stone, saturated cobalt and ultramarine shadow depth, clean reflected light, selective impasto only on metal edges and glass highlights, broad negative space, contemporary editorial restraint. Extremely subtle translucent fields made only from 1, 0, and x may appear inside a few atmospheric or cast-shadow transitions and dissolve into white space; never place stipple on objects and never apply all-over ASCII or dither. The setting, keyway mechanism, low straight-on camera, frost-bright roof light, and epoch-key-rotation metaphor must be distinct from every registered news and guide image. No text, letters, numbers, labels, logos, XRP or cryptocurrency coins, tokens, currency symbols, banknotes, dashboards, screens, charts, graphs, interfaces, wires, circuitry, people, politicians, robes, columns, temples, cityscape, coast, panoramic Greek city, generic cyber cube, impossible building, fantasy ruin, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, rounded frame, border, watermark, decorative clutter, duplicated mechanisms, floating parts, or classical subject leakage.",
+  "keywords": [
+    "XRPL Confidential MPT key rotation",
+    "ElGamal key rotation",
+    "XLS-0096",
+    "ConfidentialTransfer",
+    "XRP Ledger Standards",
+    "holder key recovery",
+    "issuer key epoch",
+    "auditor encryption key",
+    "MPT security",
+    "XRPL Mainnet status"
+  ],
+  "keyTakeaways": [
+    "The August 31 record is an open Draft in XRPL-Standards, not a merged rippled feature, amendment vote, or Mainnet activation.",
+    "The proposal adds three transaction types, issuer and auditor key epochs, holder mirror epochs, and a RecoveryKey field to manage stale ciphertext and lost holder keys.",
+    "A holder who loses an ElGamal key can authorize a replacement, but the issuer must complete the balance recovery. If the issuer is unavailable, the draft says recovery can remain pending indefinitely.",
+    "Issuer and auditor rotation creates an operational migration program. Holders with stale mirrors can be blocked from confidential transactions until re-encryption succeeds, and historical issuer keys may need to be retained."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a draft key-rotation design is not a Mainnet feature",
+      "paragraphs": [
+        "The XRP Ledger Standards repository has updated a draft amendment that would let issuers, auditors, and holders rotate Confidential MPT encryption keys and recover from some key loss. The proposal adds three transaction types and epoch checks, but it is still draft work. The update does not announce a ConfidentialTransfer Mainnet launch or validator vote. [1][2][3]",
+        "[Confirmed fact] The immediate record is PR #598 in XRPLF/XRPL-Standards. Its referenced document is 1,270 lines at commit `23c7701b207b0ad88f44f06f96679bd48344462a`, and its front matter says `status: Draft`, `created: 2026-04-01`, and `updated: 2026-08-31`. The document is attributed to Aanchal Malhotra and Yinyi Qian, originated from official discussion #599, and lists XLS-0096 and XLS-0033 as prerequisites. [1][2]",
+        "[Editorial boundary] XLS-0096 is the underlying Confidential Transfers proposal for Multi-Purpose Tokens. The official XLS index labels it Draft, and the XRPL documentation describes Confidential Transfers as amendment-dependent. Those records establish a technical proposal and its dependencies. They do not establish that validators have voted for it, that a stable `rippled` release contains it, or that the capability is available on XRP Ledger Mainnet. [3][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/598",
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xls.xrpl.org/",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers"
+      ]
+    },
+    {
+      "heading": "What the proposal adds: three transaction paths and five new state fields",
+      "paragraphs": [
+        "[Confirmed fact] The design introduces `ConfidentialMPTMirrorUpdate`, `ConfidentialMPTHolderKeyUpdate`, and `ConfidentialMPTRecoverBalance`. The first re-encrypts an issuer or auditor mirror for one holder, either through issuer mode or a holder self-migration path. The second covers ordinary holder rotation, recovery authorization, and cancellation of a pending recovery. The third lets the issuer complete a holder key-loss recovery after the holder has authorized a replacement key. [2]",
+        "The draft also extends `MPTokenIssuanceSet` so an issuer can replace registered issuer or auditor encryption keys. It adds `IssuerKeyEpoch` and `AuditorKeyEpoch` to `MPTokenIssuance`, and adds `IssuerKeyMirrorEpoch`, `AuditorKeyMirrorEpoch`, and `RecoveryKey` to each affected `MPToken`. Four existing confidential operations receive stale-mirror checks: `ConfidentialMPTConvert`, `ConfidentialMPTSend`, `ConfidentialMPTConvertBack`, and `ConfidentialMPTClawback`. [2]",
+        "[Why it matters] These are not replacements for XRPL account signing keys. The draft says ElGamal encryption keys are independent of account signing keys, which means changing a regular key or a signer list does not rotate the keys that protect confidential balance views. The proposed state fields instead connect issuance-level key epochs to holder-level mirror epochs, giving validators and wallets a way to identify when encrypted state is no longer compatible with the current key. [2][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers"
+      ]
+    },
+    {
+      "heading": "Epoch counters make stale ciphertext explicit",
+      "paragraphs": [
+        "[Confirmed fact] An issuer or auditor key rotation increments a monotonically increasing key epoch on `MPTokenIssuance`. Each holder mirror records the epoch at which it was last re-encrypted. A mirror is current only when its ciphertext is present and its mirror epoch equals the corresponding issuance key epoch. If the mirror epoch is lower, the draft calls it stale. [2]",
+        "The check solves a cryptographic compatibility problem, not just a bookkeeping problem. Confidential MPT balances use homomorphic ciphertext operations. After a key changes, a new transaction delta is encrypted under the new public key, while an unmigrated mirror remains under the old public key. The draft says those ciphertexts cannot be combined homomorphically. Validators therefore reject the operation early with `tecNO_PERMISSION`, and wallet software can compare the same fields before submitting a transaction. [2][4]",
+        "[Operational consequence] Active re-encryption is the recommended path. An issuer can submit `ConfidentialMPTMirrorUpdate` for each holder, and a holder who still controls the relevant secret key can self-migrate. The draft describes an optional lock, update, and unlock sequence that totals three transactions per holder. The lock can prevent wasted fees, but it also triples the migration transaction count. Issuance-wide completion cannot be inferred from one holder: the proposal says operators must traverse holders through the `mpt_holders` API off-chain. [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers"
+      ]
+    },
+    {
+      "heading": "Holder key-loss recovery is a two-step dependency",
+      "paragraphs": [
+        "[Confirmed fact] Ordinary holder key rotation is described as self-contained. A holder uses `ConfidentialMPTHolderKeyUpdate` in rotation mode to re-encrypt spending and inbox balances under a new ElGamal key. Key-loss recovery is different. The holder no longer has the old private key, so recovery mode registers a new key as `RecoveryKey` using a proof tied to the holder's XRPL signing authority. The existing holder key and encrypted balances remain unchanged while recovery is pending. [2]",
+        "The issuer then submits `ConfidentialMPTRecoverBalance`. The draft requires the issuer mirror to be current and the recovery proof to succeed before the issuer replaces the holder encryption key, re-encrypts the full balance, resets the inbox, increments the confidential balance version, and removes `RecoveryKey`. This is a deliberate two-party design: the holder authorizes the destination key, but the issuer performs the recovery operation. [2]",
+        "[Unresolved operational risk] The draft says a pending recovery has no automatic expiry. It can be cancelled by the holder, but if the issuer is unavailable, the recovery remains pending indefinitely. The record therefore proposes a recovery path without proving service-level availability, issuer responsiveness, or a universal fallback. It also says the holder's XRPL signing key is unaffected by loss of the ElGamal key. Readers should not treat this proposal as a promise that a lost confidential balance is already recoverable today. [2][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers"
+      ]
+    },
+    {
+      "heading": "Issuer and auditor rotation moves the burden to migration",
+      "paragraphs": [
+        "[Confirmed fact] Issuer rotation follows two phases in the draft. First, `MPTokenIssuanceSet` replaces the issuer encryption key and increments `IssuerKeyEpoch`. Second, the issuer or holder updates each holder's issuer mirror. Auditor rotation follows the same pattern. The proposal also allows late auditor registration, simultaneous issuer and auditor rotation, and a direct bridge from an older holder epoch to the latest epoch after several successive rotations. [2]",
+        "That flexibility creates a precise operational obligation. New confidential deltas must use the current key, but the existing holder mirror remains encrypted under the prior key until migration. A holder with a stale mirror can be blocked from sending, converting, converting back, or, for the relevant issuer mirror, being clawed back. The block is scoped to the affected confidential state, not a claim that the underlying public MPT disappears. [2][4]",
+        "[Bounded inference] An issuer deploying this design would need more than a key-generation script. It would need an inventory of holder mirrors, a migration queue, key custody across historical epochs, auditor transition procedures, retry handling, and an escalation path for inactive holders. The proposal recommends retaining historical issuer secret keys until all holders at the older epoch are migrated. That is a design implication for operators, not evidence that any issuer has adopted the workflow. [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers"
+      ]
+    },
+    {
+      "heading": "The cryptography is reused, but the security burden remains",
+      "paragraphs": [
+        "[Confirmed fact] The key-rotation draft says its new constructions reuse the compact Chaum-Pedersen equality proofs and Schnorr proofs of knowledge already used by XLS-0096. It states that the proposal introduces no new cryptographic assumptions. That narrows the claimed change in primitive assumptions, but it does not remove the need to review proof composition, state transitions, authorization, key retention, or denial-of-service behavior. [2][3]",
+        "[Independent evidence] Trail of Bits published a security review of Ripple Labs' XRP Ledger Confidential Transfer implementation in April 2026. The review covered six weeks and reported 17 issues, including three high-severity, three medium-severity, three low-severity, seven informational, and one undetermined finding. Its public summary discusses issues involving aggregated Bulletproofs, missing range-proof validation, and a receiver-side version counter. That review concerns the underlying Confidential Transfer work, not this later key-rotation draft, so it is context about review burden rather than a finding against PR #598. [8]",
+        "[Unresolved uncertainty] The public key-rotation record is a standards document, not a completed implementation report. It does not by itself show production code, testnet behavior, independent review of the new flows, wallet support, or remediation of every base-system issue. A responsible readiness claim would need those records plus a reproducible test of issuer rotation, auditor rotation, stale-mirror rejection, holder self-migration, and two-step recovery. Until then, the strongest defensible description is a detailed draft design with an explicit security and operations backlog. [1][2][8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+        "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/"
+      ]
+    },
+    {
+      "heading": "What the draft means for holders, issuers, and developers",
+      "paragraphs": [
+        "[For holders] The proposal addresses a real limitation already identified in the XLS-0096 design: losing a holder's ElGamal private key can leave a confidential balance valid on-ledger but effectively inaccessible to that holder. The new recovery path could change that outcome in a future implementation, but only after the amendment exists on the network, the issuer supports recovery, and the holder still controls the account's XRPL signing authority. No action is required from ordinary XRP holders because this update does not change public XRP balances or current account signing. [2][4]",
+        "[For issuers and auditors] The important unit of work is an issuance-wide migration, not a one-time replacement of a single key. Issuers must preserve the ability to read old mirrors during transition, keep new deltas compatible with current keys, and decide how to prioritize large, active, or compliance-sensitive holders. Auditor changes have their own continuity requirement because the draft treats a configured auditor mirror as part of the current confidential state. [2]",
+        "[For wallet and infrastructure developers] Client software would need to understand issuance key epochs, holder mirror epochs, missing auditor mirrors after late registration, and `tecNO_PERMISSION` responses caused by stale state. The draft also describes version-based race protection for recovery, so a wallet should refresh state and resubmit safely when a concurrent balance change invalidates an outstanding proof. Those are implementation requirements described by the proposal, not evidence that a released SDK already supports them. [2][4]",
+        "[Editorial boundary] None of these implications establishes XRP price impact, adoption, institutional demand, or a new XRP payment route. Confidential MPT privacy is a protocol design topic. The draft's relevance to XRP Ledger security and regulated token operations is material, but it is not evidence of a market outcome."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers",
+        "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html"
+      ]
+    },
+    {
+      "heading": "Status before any Mainnet conclusion",
+      "paragraphs": [
+        "[Confirmed fact] The key-rotation document is marked Draft and updated August 31, 2026. Its prerequisite XLS-0096 is also listed as Draft on the official XLS index. The XRPL documentation says Confidential Transfers require an amendment and describes current constraints such as direct payments, registered encryption keys, and the consequences of losing a private key. This is enough to report a meaningful protocol proposal, not enough to call private MPT transfers live on Mainnet. [1][2][3][4]",
+        "[Unresolved uncertainty] The records reviewed here do not establish a merge into a stable `rippled` release, a devnet or testnet deployment, validator support, a majority record, or an activation date. That statement is a boundary around the evidence reviewed, not a prediction about what maintainers may publish next. The official known-amendments page and future release notes are the appropriate records to check as the proposal moves, if it moves, from standards text toward network governance. [5][6]",
+        "The distinction matters because a draft can be technically detailed and still lack the records needed for production readiness. The proposal's 1,270 lines describe transaction semantics, proofs, ledger fields, failure conditions, and migration policy. They do not create those transaction types in a validated ledger. The next defensible update should therefore be tied to a concrete state change: a revised or accepted standard, implementation code, reproducible network testing, a voting record, or activation evidence. [1][2][5][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/pull/598",
+        "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+        "https://xls.xrpl.org/",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "[Status] PR #598: whether the draft is revised, merged, or closed, and whether a final XLS identifier and status replace the current Draft label. [1][2]",
+    "[Implementation] Code in `rippled`, an SDK, or a wallet that exercises mirror epochs, stale-state rejection, and `tecNO_PERMISSION` before any claim of operational support. [2][4]",
+    "[Testing] A reproducible devnet or testnet path for issuer rotation, auditor rotation, late auditor registration, holder self-migration, stale-mirror rejection, and holder key-loss recovery. [2][4]",
+    "[Recovery] Evidence that the two-step holder authorization and issuer completion flow handles no-expiry pending state, cancellation, concurrent balance changes, and issuer unavailability. [2]",
+    "[Security] An independent review and public remediation record for the new key, epoch, proof, and recovery flows, separate from the base XLS-0096 implementation review. [2][8]",
+    "[Governance] A concrete amendment-voting or activation record before anyone describes ConfidentialTransfer as live on XRP Ledger Mainnet. [3][5][6]"
+  ],
+  "sources": [
+    {
+      "name": "XRPL-Standards PR #598, Confidential MPT Key Rotation",
+      "url": "https://github.com/XRPLF/XRPL-Standards/pull/598",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "ElGamal Key Rotation for Confidential MPTs, draft at commit 23c7701",
+      "url": "https://github.com/XRPLF/XRPL-Standards/blob/23c7701b207b0ad88f44f06f96679bd48344462a/XLS-draft-confidential-mpt-key-rotation/README.md",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "XLS-0096: Confidential Transfers for Multi-Purpose Tokens, created January 15, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+      "type": "primary",
+      "publishedAt": "2026-01-15"
+    },
+    {
+      "name": "XRPL Documentation: Confidential Transfers",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/confidential-transfers",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Standards official index",
+      "url": "https://xls.xrpl.org/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Known Amendments",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple Open Source Documentation: XLS-96 Confidential Transfers",
+      "url": "https://opensource.ripple.com/docs/xls-96-confidential-transfers",
+      "type": "primary"
+    },
+    {
+      "name": "Trail of Bits, Ripple Labs XRP Ledger Confidential Transfer security review, April 2026",
+      "url": "https://trailofbits.com/library/ripple-labs-xrp-ledger-confidential-transfer/",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-confidential-mpt-draft-flag-update-mainnet-status",
+      "label": "Earlier XLS-0096 draft update"
+    },
+    {
+      "href": "/news/xrpl-post-quantum-phase-three-mainnet-classical",
+      "label": "Why XRPL key rotation is not post-quantum security"
+    },
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "XRPL Multi-Purpose Tokens explained"
+    },
+    {
+      "href": "/learn/xrp-self-custody-guide",
+      "label": "XRP self-custody and key safety"
+    },
+    {
+      "href": "/learn/xrp-institutional-custody",
+      "label": "Institutional XRP custody basics"
+    }
+  ]
+}
