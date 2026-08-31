@@ -1,0 +1,286 @@
+{
+  "slug": "21shares-toxr-ftse-xrp-benchmark-switch-fee-timing",
+  "title": "21Shares TOXR Switches to FTSE XRP Benchmark and Changes Fee Timing",
+  "description": "21Shares' TOXR began using the FTSE XRP Index for NAV on Aug. 27, replacing CME CF's XRP reference rate. Its sponsor-fee payment timing also moved to at least quarterly in XRP.",
+  "category": "Institutional XRP",
+  "publishedAt": "2026-08-30T22:18:37-05:00",
+  "modifiedAt": "2026-08-30T22:18:37-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/toxr-index-comparator-editorial.webp",
+  "imageAlt": "A pale-gold comparator aligns two cobalt ceramic price tablets on an ivory stone slab, with one restrained vermilion registration seal set apart.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "toxr-index-comparator-corner-still-life",
+  "imageSetting": "A silent white-limestone registry alcove after rain at late-afternoon cobalt light, viewed from a low left-front angle across an ivory stone slab; the comparator rests in the lower-right with broad untouched space above and to the left.",
+  "imageMetaphor": "A pale-gold comparator with one fixed knife-edge aligns two unmarked cobalt ceramic price tablets on an ivory stone slab; the left tablet sits lower and the right tablet is precisely aligned, while one vermilion registration seal rests apart, representing TOXR changing its NAV reference without changing the XRP exposure.",
+  "imagePrompt": "Create one sparse, physically believable 16:9 editorial still life in a luminous academic classical-revival oil style. Use the first reference only for the restrained AllAboutXRP editorial language and the other references only for painterly surface, crisp sculptural modeling, cobalt and ultramarine shadows, pale gold metal, ivory stone, controlled vermilion, rich glazing, and extremely subtle 1/0/x stipple only inside a few atmospheric or shadow transitions. Scene: a silent white-limestone registry alcove after rain at late-afternoon cobalt light, seen from a low left-front angle across a broad ivory stone slab. Place the mechanism in the lower-right and leave generous untouched negative space above and to the left. Show exactly one small pale-gold metal comparator with a fixed knife-edge and a short hinged arm, aligning exactly two unmarked cobalt ceramic price tablets on the slab. The left tablet sits slightly lower, the right tablet is precisely aligned under the knife-edge. Add exactly one small vermilion wax registration seal set apart from the mechanism. Keep the objects tactile, weight-bearing, and physically possible, with crisp edge light, restrained reflected blue, broad ivory highlights, and no decorative clutter. The comparator and the two tablets are a symbolic explanation of an existing ETF changing its NAV reference, not a literal crypto object. Do not include any text, numbers, letters, logos, brand marks, crypto coins, tokens, banknotes, people, politicians, screens, charts, dashboards, cityscape, columns, arches, Greek ruins, fantasy architecture, generic cyber cubes, circuitry, holograms, chains, piles of objects, all-over ASCII, heavy dither, borders, frames, watermark, or caption. Do not reuse a lens, prism, collar, track, balance beam, caliper, gauge, clock, hourglass, astrolabe, wheel, bridge, gate, lock, press, ledger stack, or any other existing AAXRP image metaphor. The result must read as one quiet measured mechanism with four primary objects and one restrained status mark, fact-safe, elegant, and suitable for a news hero.",
+  "keywords": [
+    "21Shares TOXR",
+    "FTSE XRP Index",
+    "XRP ETF benchmark",
+    "CME CF XRP-Dollar Reference Rate",
+    "ETF NAV",
+    "XRP market structure",
+    "sponsor fee timing",
+    "XRP institutional products",
+    "Cboe BZX"
+  ],
+  "keyTakeaways": [
+    "[Confirmed] TOXR began calculating NAV and NAV per share with the FTSE XRP Index on August 27, 2026, replacing the CME CF XRP-Dollar Reference Rate, New York Variant. [1][2]",
+    "[Confirmed] The change applies to an existing 21Shares XRP ETF that has traded on Cboe BZX since December 11, 2025. It is not a new approval, listing, or XRP exposure sleeve. [2][4]",
+    "[Confirmed] The sponsor-fee clause changed its payment timing from weekly in arrears to at least quarterly in arrears, payable in XRP. The fee still accrues daily under the August 27 supplement. [1][2]",
+    "[Inference] Because the two benchmarks use different providers, venue sets, observation windows, aggregation rules, and filters, the same XRP market can produce a different TOXR NAV under the new reference. [1]",
+    "[Uncertainty] The records reviewed do not establish a post-switch tracking difference, premium or discount outcome, investor return effect, XRP demand change, or XRP price effect. Historical data was not restated. [1][4]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: TOXR changed its valuation ruler",
+      "paragraphs": [
+        "The 21Shares XRP ETF (TOXR) completed a valuation-benchmark change on August 27, 2026. Its NAV and NAV per share now reference the FTSE XRP Index instead of CME CF's XRP-Dollar Reference Rate, New York Variant. The sponsor-fee payment cadence also moved from weekly to at least quarterly in arrears, payable in XRP. [1][2]",
+        "That is the material event. It changes the reference used to value an existing XRP-backed investment vehicle, not the fact that the trust holds XRP. The public record does not show a new TOXR listing, a new approval, a change in custodians, or a measured effect on XRP's spot price. [2][3][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    },
+    {
+      "heading": "What changed on August 27, 2026",
+      "paragraphs": [
+        "The controlling record is 21Shares' Form 424B3 prospectus supplement, filed August 27 with the U.S. Securities and Exchange Commission. It says the trust used the CME CF XRP-Dollar Reference Rate, New York Variant before August 27 and began using the FTSE XRP Index on that date. The same filing changes the sponsor-fee language from weekly in arrears to at least quarterly in arrears. [1]",
+        "The preceding Form 8-K, filed August 26, supplies the contract chronology. 21Shares says it signed the FTSE licensing agreement on August 20, while the earlier termination notice for the CF Benchmarks license was stated to take effect on August 31. The August 27 NAV switch and August 31 license date are therefore related but separate timestamps. [2][5]",
+        "FTSE Russell's August 26 announcement independently lists TOXR among seven U.S. single-asset ETFs scheduled to transition at the August 27 market open. LSEG describes the program as an infrastructure change and says underlying asset exposures, legal structures, custodians, primary exchange listings, and fee schedules remain unchanged. That statement is useful context, but the SEC filing remains the controlling source for the trust's exact fee-payment edit. [3]"
+      ],
+      "table": {
+        "caption": "The dated records behind the TOXR benchmark change",
+        "headers": [
+          "Date",
+          "Record",
+          "What it establishes"
+        ],
+        "rows": [
+          [
+            "June 30, 2026",
+            "CF Benchmarks termination notice",
+            "The prior CME CF license was set to terminate August 31."
+          ],
+          [
+            "August 20, 2026",
+            "FTSE Benchmark Licensing Agreement",
+            "FTSE licensed its XRP Index to the sponsor, trust, and affiliates."
+          ],
+          [
+            "August 26, 2026",
+            "Form 8-K and amended trust documents",
+            "The trust reported the FTSE license and changed sponsor-fee payment timing."
+          ],
+          [
+            "August 27, 2026",
+            "Prospectus Supplement No. 7",
+            "TOXR NAV and NAV per share began using the FTSE XRP Index."
+          ],
+          [
+            "August 31, 2026",
+            "Stated CF license end date",
+            "The prior license's scheduled end remains distinct from the NAV switch."
+          ]
+        ],
+        "sourceNote": "Sources: 21Shares XRP ETF SEC filings dated July 7, August 26, and August 27, 2026. The June 30 notice and August 31 end date are reported in the July 7 and August 26 filings."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites"
+      ]
+    },
+    {
+      "heading": "How the FTSE XRP Index produces a TOXR NAV",
+      "paragraphs": [
+        "A benchmark is a valuation mechanism. It is the reference price that the trust administrator uses when calculating the value of the XRP held by the fund, the fund's total NAV, and NAV per share. Changing that mechanism can alter the number printed for the same underlying exposure without proving that the exposure itself changed. The supplement makes that distinction explicit by saying the fund holds XRP and values its shares daily against the pricing benchmark. [1]",
+        "The FTSE method described in the supplement uses a 15-second volume-weighted average price of XRP closing prices in U.S. dollars across qualifying constituent exchanges. Its observation window runs for 60 minutes and ends at 4:00 p.m. Eastern Time, with 240 fifteen-second observations in the filing's example. The calculation uses executed transactions rather than quotes, removes duplicate trades, filters venue-level outliers beyond 1.5 standard deviations, and filters individual trades beyond 2.5 standard deviations in the relevant 10-minute window. [1]",
+        "The retired CME CF reference used a different provider and a different set of aggregation, observation, weighting, and filtering conventions. The practical implication is not that FTSE is automatically better or worse. It is that a side-by-side comparison needs to respect the break in methodology. The SEC warns that the two benchmarks may not produce the same XRP price on a given day and that the difference may be material. [1]"
+      ],
+      "table": {
+        "caption": "FTSE constituent exchange weights disclosed for July 31, 2026",
+        "headers": [
+          "Constituent exchange",
+          "Share of benchmark volume"
+        ],
+        "rows": [
+          [
+            "Kraken",
+            "51.440%"
+          ],
+          [
+            "Bitstamp",
+            "34.391%"
+          ],
+          [
+            "Bitfinex",
+            "5.782%"
+          ],
+          [
+            "LMAX",
+            "4.585%"
+          ],
+          [
+            "Gemini",
+            "2.668%"
+          ],
+          [
+            "bitFlyer",
+            "0.705%"
+          ],
+          [
+            "Luno",
+            "0.429%"
+          ]
+        ],
+        "sourceNote": "Source: 21Shares XRP ETF Prospectus Supplement No. 7, filed August 27, 2026. The percentages are the FTSE XRP Index constituent exchange weights reported as of July 31, 2026, not a current trading-volume estimate."
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm"
+      ]
+    },
+    {
+      "heading": "What the switch changes for holders and analysts",
+      "paragraphs": [
+        "The first analytical rule is to preserve the break. 21Shares says performance, NAV, and premium or discount data before August 27 reflect the previous benchmark and have not been restated. An analyst who draws one uninterrupted line through the transition would be mixing two reference processes and could mistake a methodology difference for a fund result. [1][4]",
+        "The second rule is to separate market price from NAV. ETF shares trade on an exchange, while NAV is calculated from the trust's assets and liabilities using the benchmark. The product page states that shares may trade at a premium or discount to NAV and that historical data before the switch remains tied to the old benchmark. The page's live performance and premium/discount fields do not provide a clean post-switch series in the record reviewed here, so this article does not manufacture one. [4]",
+        "The third rule is to avoid expanding a valuation change into a demand claim. LSEG says the transition leaves the underlying asset exposure, custody, legal structure, and primary listing unchanged. That makes the benchmark switch meaningful for measurement and reporting, but it does not establish new ETF creations, additional XRP held, institutional buying, XRP Ledger activity, or a price response. [3][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.21shares.com/en-us/products-us/toxr",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites"
+      ]
+    },
+    {
+      "heading": "The fee clause changed its clock, not necessarily its rate",
+      "paragraphs": [
+        "The fee amendment is easy to overstate. The August 26 Form 8-K and August 27 supplement both describe a timing change: the sponsor fee moved from being payable in XRP weekly in arrears to at least quarterly in arrears. The supplement also says the fee accrues daily and that the XRP amount for each daily accrual is determined using the pricing benchmark. Payment timing is not the same thing as a fee-rate increase, fee-rate cut, waiver, or new expense. [1][2]",
+        "The public documents also require a careful label around the rate. The August 27 supplement describes the daily accrual using a 0.30% annualized rate, while the live 21Shares product page displays a 0.50% management-fee figure. Those may reflect different disclosure labels, a page state that has not caught up with the filing, or another distinction that the records reviewed here do not resolve. I therefore report the cadence change as confirmed and leave the rate discrepancy unresolved. [1][4]",
+        "LSEG's partnership release says fee schedules remain unchanged across the transitioning products. Read alongside the SEC filing, that supports a narrow conclusion: the public record documents a payment-calendar amendment, but it does not show that the total fee burden changed. A longer interval between XRP settlements may matter for the sponsor's cash and inventory timing, yet the sources do not quantify that operational effect. [2][3]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    },
+    {
+      "heading": "What the public record does not prove",
+      "paragraphs": [
+        "[Confirmed] TOXR has an existing Cboe BZX listing and an inception date of December 11, 2025. The August 27 event is a change to NAV calculation. It is not a new fund launch, a new share class, or a new SEC approval. The independent FTSE Russell announcement and the SEC filing describe the same existing product transition. [2][3][4]",
+        "[Inference] A change in the data pipeline can matter to market structure because NAV is the accounting reference used by the trust, authorized participants, and market observers. Different venue eligibility, time windows, and outlier filters can create a different reported value even when the trust's XRP inventory is unchanged. That is a mechanism, not an observed post-switch result. [1]",
+        "[Uncertainty] No source reviewed here supplies a verified comparison showing how much the FTSE-based NAV differed from what the retired CME CF reference would have printed after August 27. No source establishes a change in XRP's market price, ETF flows, XRP Ledger adoption, custody, or investor returns caused by the switch. The absence of a result in these records is not evidence that no result exists; it is a reason to wait for a properly labeled series. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    },
+    {
+      "heading": "Implications for affected readers",
+      "paragraphs": [
+        "For TOXR holders, the practical issue is continuity of interpretation. A share bought before August 27 and held after that date is still a share in the same trust, but its daily NAV reference has changed. The prospectus warns that the new benchmark can produce a higher or lower NAV than the prior benchmark would have produced. That warning is about valuation risk, not a prediction of direction. [1]",
+        "For ETF analysts and authorized-participant observers, the useful comparison is a matched one: record the FTSE-based NAV, the exchange market price at the relevant time, and any premium or discount using the post-switch methodology. Keep pre-switch observations labeled as CME CF based. Do not splice them into a synthetic FTSE history unless a source explicitly provides a restatement, which 21Shares says it has not done. [1][4]",
+        "For XRP holders who do not own TOXR, the event is mostly an information and market-structure development. It does not change the XRP Ledger protocol, XRP supply rules, or the published fact that TOXR is a separate investment product rather than direct ownership of XRP. Any claim about institutional demand or XRP price needs separate flow or market data. [3][4]",
+        "For anyone reading the fee change, the right question is when the sponsor receives XRP, not whether a quarterly payment automatically means a lower fee. The documents reviewed confirm the calendar change and daily accrual language. They do not provide evidence that the cadence change altered the fund's XRP exposure or created incremental spot demand. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed] On August 27, 2026, TOXR's NAV and NAV per share began using the FTSE XRP Index. The trust had already been trading on Cboe BZX since December 11, 2025. The sponsor reported an August 20 FTSE license, an August 26 trust-agreement update, and a sponsor-fee payment change from weekly to at least quarterly in arrears, payable in XRP. [1][2][4]",
+        "[Bounded inference] The benchmark switch changes the measurement layer around an existing XRP position. It may change the reported NAV relative to the number that the old methodology would have produced, because the providers and calculation rules differ. The inference stops there. It does not justify a claim about better tracking, worse tracking, higher demand, or a directional XRP move. [1][3]",
+        "[Unresolved] The SEC supplement does not provide a post-switch outcome study. The live product page does not, in the record reviewed, supply a complete comparable premium/discount series, and its displayed management-fee figure does not match the 0.30% annualized accrual language in the supplement. Future filings or a stable product-data history may clarify both questions. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+        "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+        "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+        "https://www.21shares.com/en-us/products-us/toxr"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The first complete post-switch TOXR NAV, market-price, and premium/discount records, with each observation labeled as FTSE based and dated.",
+    "A 21Shares filing or product-page update that reconciles the 0.30% annualized sponsor-fee accrual language with the displayed 0.50% management-fee figure.",
+    "Any official notice describing changes to FTSE XRP Index constituent exchanges, eligibility standards, outlier filters, or observation windows.",
+    "Whether the issuer reports any change in XRP held, shares outstanding, creations, or redemptions after the benchmark switch. None is established by the records in this article.",
+    "Independent market-data analysis that measures, rather than assumes, any gap between the FTSE-based NAV and the retired CME CF reference rate."
+  ],
+  "sources": [
+    {
+      "name": "SEC EDGAR, 21Shares XRP ETF Prospectus Supplement No. 7",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028835/000121390026094061/ea0303111-424b3_21shares.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-27"
+    },
+    {
+      "name": "SEC EDGAR, 21Shares XRP ETF Form 8-K on FTSE licensing and fee timing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028835/000121390026093987/ea0303138-8k_21shares.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "FTSE Russell and LSEG, global 21Shares benchmark partnership announcement",
+      "url": "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-21shares-global-benchmark-partnership-etp-suites",
+      "type": "supporting",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "21Shares TOXR product page, live reference checked August 30, 2026",
+      "url": "https://www.21shares.com/en-us/products-us/toxr",
+      "type": "primary"
+    },
+    {
+      "name": "SEC EDGAR, 21Shares XRP ETF Form 8-K on prior benchmark termination",
+      "url": "https://www.sec.gov/Archives/edgar/data/2028835/000121390026075988/ea0296654-8k_21sharesxrp.htm",
+      "type": "primary",
+      "publishedAt": "2026-07-07"
+    },
+    {
+      "name": "Ledger Current, independent TOXR benchmark-switch analysis",
+      "url": "https://ledgercurrent.com/articles/21shares-xrp-etf-toxr-nav-switch-ftse-xrp-index-aug-27-2026",
+      "type": "supporting",
+      "publishedAt": "2026-08-29"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/21shares-toxr-xrp-redemptions-benchmark-switch",
+      "label": "TOXR's earlier benchmark-transition filing"
+    },
+    {
+      "href": "/etf",
+      "label": "Track XRP exchange-traded products"
+    },
+    {
+      "href": "/learn/xrp-etf",
+      "label": "How XRP ETFs work"
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot versus futures XRP ETFs"
+    },
+    {
+      "href": "/learn/xrp-etf-price-impact",
+      "label": "How ETF activity can affect XRP's price"
+    }
+  ]
+}
