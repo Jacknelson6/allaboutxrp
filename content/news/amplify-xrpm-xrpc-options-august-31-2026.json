@@ -1,0 +1,258 @@
+{
+  "slug": "amplify-xrpm-xrpc-options-august-31-2026",
+  "title": "Amplify XRPM’s August 31 Holdings Show an XRPC-and-Options XRP Strategy",
+  "description": "Amplify’s August 31 XRPM snapshot lists 248,300 Canary XRPC shares, paired XRPC options, Treasury bills and cash, clarifying how the ETF seeks XRP exposure without holding XRP directly.",
+  "category": "XRP ETFs",
+  "publishedAt": "2026-08-31T14:13:03-05:00",
+  "modifiedAt": "2026-08-31T14:13:03-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpm-nested-option-collar-editorial.webp",
+  "imageAlt": "Classical oil still life of a pale-gold collar around a cobalt exposure tile beside paired option rails on ivory stone, symbolizing XRPM’s layered XRPC and options structure.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrpm-nested-option-collar-sailmaker-loft",
+  "imageSetting": "A quiet white-limestone sailmaker’s loft after a light rain, lit by a single roof lantern, with a broad ivory stone slab viewed from a high front-right angle and untouched negative space across the upper-right field.",
+  "imageMetaphor": "A nested gold collar around a cobalt exposure tile beside paired option rails shows XRP-linked exposure wrapped in an income overlay, never direct XRP ownership.",
+  "imagePrompt": "Asset type: one unique 16:9 editorial hero still life for a source-led financial news article. Primary request: depict the structure of Amplify XRPM as layered XRP-linked securities, not a literal coin or wallet. Scene: a quiet white-limestone sailmaker’s loft after a light rain, a single roof lantern casting late-morning light onto a broad ivory stone slab, viewed from a high front-right angle with the deliberate object group in the lower-left and broad untouched negative space above and to the right. Objects: exactly four physically believable objects: one pale-gold nested collar or circular frame holding one cobalt glass rectangular exposure tile; one separate pale-gold forked bracket supporting two thin cobalt and ivory option wafers on measured ivory rails, one higher and one lower; and one small restrained vermilion cap tab at the edge of the upper rail. The arrangement must read as an underlying exposure wrapped by paired options and a capped income overlay, with no direct XRP token. Style: crisp classical oil modeling, restrained old-master material realism, warm ivory stone, pale gold metal, deep cobalt and water-blue glass, soft neutral shadows, subtle atmospheric stipple using only a few translucent 1/0/x marks inside shadow transitions. Cinematic 16:9 composition, clean broad negative space, believable contact shadows, no text, no labels, no logos, no watermark, no border, no rounded frame, no dashboard, no chart, no computer, no crypto coin, no politician, no generic cyber cube, no fantasy architecture, no Greek temple, no harbor, no panoramic city, no all-over ASCII or dither.",
+  "keywords": [
+    "XRPM",
+    "Amplify XRP ETF",
+    "XRPC",
+    "XRP options",
+    "XRP ETF holdings",
+    "XRP market structure",
+    "covered call ETF"
+  ],
+  "keyTakeaways": [
+    "Amplify’s official August 31, 2026 holdings record lists 248,300 Canary XRP ETF shares, XRPC, at 30.32% of XRPM’s portfolio and a reported market value of $3,635,112. [1]",
+    "The same snapshot lists a September 18 2026 12.8 call, a September 18 2026 12.8 put, and a September 1 2026 16.8 call on XRPC, so the structure is layered through an XRP exchange-traded product and options rather than direct XRP ownership. [1][2][3]",
+    "Amplify describes a target of 36% annualized option premium and monthly distributions, but its product materials say the target, premiums, distributions, and total returns are not guaranteed. [2][3]",
+    "The portfolio snapshot is evidence about XRPM’s holdings on one date. It is not evidence of XRP Ledger usage, end-investor identity, XRP demand, or a causal effect on XRP’s price. [1][3]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPM is a layered XRP exposure and income portfolio",
+      "paragraphs": [
+        "Amplify’s August 31, 2026 XRPM holdings record shows an XRP-linked ETF built from 248,300 shares of the Canary XRP ETF, XRPC options, Treasury bills, a money-market fund, and cash. It does not show direct XRP ownership. The structure can seek XRP price exposure and option income, but it does not establish XRP demand or a guaranteed yield. [1][2][3]",
+        "That distinction is the material news in the record. XRPM’s portfolio is not a transparent XRP balance that can be read as a number of coins held for each shareholder. It is a managed combination of another exchange-traded product, options on that product, short-dated government securities, and liquidity instruments. Each line has a different legal and economic function, so collapsing the table into XRP holdings would misstate what Amplify disclosed. [1][2][3]",
+        "The snapshot is also timely without needing a breaking-news claim. Amplify labels the holdings as of August 31, while its product page separately reports fund statistics as of August 28 and a distribution with an August 28 ex-date and August 31 payable date. The dated records let readers examine the mechanism as it stood at the end of the month, while the fund warns that holdings are subject to change. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm"
+      ]
+    },
+    {
+      "heading": "The August 31 record puts XRPC and three option lines at its center",
+      "table": {
+        "caption": "XRP-linked positions listed in Amplify XRPM’s August 31, 2026 holdings record",
+        "headers": [
+          "Holding",
+          "Position listed",
+          "Weight",
+          "Reported market value"
+        ],
+        "rows": [
+          [
+            "Canary XRP ETF, XRPC",
+            "248,300 shares",
+            "30.32%",
+            "$3,635,112"
+          ],
+          [
+            "XRPC Sep. 18, 2026 12.8 call",
+            "8,308 units",
+            "15.44%",
+            "$1,851,105.48"
+          ],
+          [
+            "XRPC Sep. 18, 2026 12.8 put",
+            "-8,308 units",
+            "-2.06%",
+            "-$247,246.08"
+          ],
+          [
+            "XRPC Sep. 1, 2026 16.8 call",
+            "-7,990 units",
+            "-0.25%",
+            "-$30,521.80"
+          ]
+        ],
+        "sourceNote": "Source: Amplify’s official XRPM holdings record, dated August 31, 2026. The four signed weights sum to 43.45 percentage points. Option units are security-line quantities, not XRP units, and the fund says holdings are subject to change. [1]"
+      },
+      "paragraphs": [
+        "Amplify’s official holdings page identifies four XRP-linked lines in the August 31 record. The positive and negative percentages are signed portfolio weights, not four separate measures of XRP. Positive market values represent assets in the table, while negative option lines represent positions whose reported market values reduce the portfolio total. [1]",
+        "Adding the four signed weights produces 43.45 percentage points of the portfolio. The remaining listed assets include the AGPXX money-market holding, Treasury bills with September through November 2026 maturities, and cash or other items. That balance matters because an option-income ETF is not required to put every dollar into its reference asset. Short-duration instruments can provide collateral and liquidity while the manager maintains the intended exposure and option positions. [1][2]",
+        "The table also shows why the date belongs in the headline. The September 1 call was only days from its listed date at the time of the record, while the September 18 call and put formed a later pair. A future holdings file may show rolls, expiries, changed strikes, changed quantities, or different XRPC exposure. This is a portfolio snapshot, not a permanent description of XRPM. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://amplifyetfs.com/xrpm/"
+      ]
+    },
+    {
+      "heading": "The wrapper changes what ownership means",
+      "paragraphs": [
+        "Amplify’s current product page says XRPM seeks XRP price return by buying XRP exchange-traded products, futures, or options and selling calls on XRP exchange-traded products. The SEC prospectus dated November 14, 2025 states the boundary more directly: the fund does not invest directly in XRP. A person buying XRPM therefore owns a share of XRPM, not XRP and not an XRP Ledger account. [2][3]",
+        "That wrapper introduces multiple layers between the shareholder and the reference asset. The investor is exposed first to XRPM’s NAV and trading price, then to the value and liquidity of the reference ETP and its options, and finally to the behavior of XRP as used by those products. Fees, collateral yields, option premiums, bid and ask spreads, roll decisions, and valuation timing can all affect the result. The product’s economic objective may be XRP-linked, but the legal instrument is an ETF share. [2][3][6]",
+        "This does not make the structure irrelevant to XRP markets. It makes the claim narrower. XRPM can be studied as a regulated-market vehicle that packages XRP-linked exposure and an option overlay. Its holdings do not, by themselves, show that the fund bought XRP on an exchange, that a named institution owns the ETF, or that any resulting trade changed XRP’s price. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+      ]
+    },
+    {
+      "heading": "The option legs are a payoff design, not a second XRP balance",
+      "paragraphs": [
+        "The most informative pattern is the matching September 18, 2026 12.8 call and put quantities. The official table lists 8,308 units for the call and negative 8,308 units for the put. Amplify’s prospectus describes synthetic XRP-linked exposure as buying a call and selling a put with generally the same strike and expiration. The matching lines are therefore consistent with a synthetic exposure construction, but the holdings page does not publish a complete delta, premium, or risk report for that pair. [1][3]",
+        "The September 1, 2026 16.8 call is different. Its negative 7,990 units and negative market value indicate a short option line in the official table, subject to the fund’s valuation conventions. In a covered-call framework, selling a call can produce option premium while giving up some upside above the strike on the covered exposure. That is a payoff tradeoff, not a prediction that XRP will reach or fail to reach any particular level. [1][2][3]",
+        "FINRA’s undated options guidance explains the general risk that an option writer can face an obligation if the contract is exercised or assigned, and that options can magnify losses or require margin. XRPM’s prospectus adds fund-specific details, including options on XRP exchange-traded products and European-style cash settlement in the described strategy. Readers should not translate the holdings column into 8,308 XRP, 799,000 XRP, or any other ledger balance. It is a quantity of option security units. [3][5]",
+        "The same caution applies to the word paired. Matching quantities show how the lines relate in the published table, but they do not reveal every hedge, collateral movement, transaction cost, counterparty detail, or intraday rebalance. The defensible conclusion is about construction: XRPC exposure is combined with option positions whose strikes and dates shape the fund’s payoff. The precise outcome still depends on the underlying ETP, option pricing, and management decisions. [1][3]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.finra.org/investors/investing/investment-products/options"
+      ]
+    },
+    {
+      "heading": "The 36% figure is a target for option premium, not a guaranteed return",
+      "paragraphs": [
+        "Amplify markets a target of 36% annualized option premium for XRPM’s weekly covered-call process. Its current product page says the fund generally seeks calls 5% to 10% out of the money, rolls them weekly, and pays distributions monthly. The SEC prospectus says the target is not guaranteed, actual premiums can be lower or higher, and the strategy can lose money when XRP-linked exposure falls. The stated 0.75% management fee is another portfolio cost. [2][3]",
+        "The current page lists a $0.31380 distribution with an August 28, 2026 ex-date and record date and an August 31 payable date. That is a dated distribution record, not a promise that the same amount will recur. Amplify also warns that distributions can include income, capital gains, or return of capital. A distribution rate should therefore not be read as a risk-free yield, a total-return forecast, or proof that the underlying XRP exposure appreciated. [2][3]",
+        "This distinction is especially important when a large annualized number is repeated without its denominator and time window. Option premium is generated by contracts with finite strikes and expirations. The fund can earn premium and still lose NAV if the reference exposure declines, if option losses exceed collected premium, or if fees and trading frictions reduce results. The materials support a stated income objective, not a stable monthly payout or a guaranteed 3% result. [2][3][5]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://www.finra.org/investors/investing/investment-products/options"
+      ]
+    },
+    {
+      "heading": "An independent holdings view confirms the architecture, with a date mismatch to respect",
+      "paragraphs": [
+        "Charles Schwab’s independent XRPM holdings view was current on August 31, 2026 but labels its holdings snapshot August 25. It showed the same broad architecture: XRPC shares, the September 18 2026 12.8 call, the September 18 2026 12.8 put, another XRPC call, and cash or money-market holdings. Schwab displayed 17 total holdings and about $10.9 million in total assets in that view. [4]",
+        "The percentages do not match Amplify’s August 31 record, and that is an important limitation rather than a reason to average the two pages. Holdings can move between dates, option values change, and portfolio statistics can follow a different reporting schedule from the detailed holdings table. Schwab’s page itself warns about that schedule difference. The official dated record has precedence for the August 31 claim, while Schwab independently supports the existence of the layered design. [1][4]",
+        "This source comparison also limits the story’s certainty. Independent corroboration can confirm that XRPM is an option-income ETF with XRPC and option lines. It cannot fill in the missing questions about end investors, trade execution, cash-versus-in-kind flows, or the net effect on XRP markets. Those would require additional filings, transaction records, or a different form of evidence. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHmyop7FVDMq9yyCII4By%2FXbBocKqjGkD986nYNXEH4bKwVSGRaz4TmTRBV2CH3X3ubow+sqALqJR+5DKiKhclyHE+gA=&symbol=XRPM&type=holdings",
+        "https://amplifyetfs.com/xrpm-holdings/"
+      ]
+    },
+    {
+      "heading": "Implications for prospective investors, direct XRP holders, and XRP Ledger readers",
+      "paragraphs": [
+        "[For prospective XRPM investors] Read the portfolio as an options-and-ETF wrapper. An XRPM share can provide brokerage-account access to a managed XRP-linked strategy, but it carries fund expenses, option risks, reference-ETP risks, liquidity risks, and the possibility that market price differs from NAV. Investor.gov’s undated ETF bulletin explains that ETF shares trade in the secondary market and can trade at a premium or discount to NAV. The wrapper may simplify access while changing the risk profile. [2][3][6]",
+        "[For direct XRP holders] The August 31 XRPM record does not show a purchase of XRP by the fund, a net inflow into the XRP market, or a price floor. It shows that one regulated-market product held another XRP-linked ETF and options alongside Treasuries and cash. Even if the reference ETP holds XRP, look-through exposure is not the same as direct ownership, and the record does not identify who ultimately owns XRPM shares. [1][2][3]",
+        "[For XRP Ledger readers and builders] Nothing in this holdings file is a measure of XRPL transaction volume, validator participation, payment settlement, token issuance, or application adoption. The record belongs to the market-structure layer around XRP-linked securities. It may be relevant to how financial products package exposure, but it is not evidence that XRPL activity caused the ETF’s positions or that the ETF’s positions caused network activity. [1][2][3]",
+        "[For analysts] Keep three denominators separate: XRPM fund assets, the market value of the XRPC security lines, and any XRP quantity held by an underlying product. The official August 31 page supplies the first two for the listed XRPM positions, while this review found no source that provides a defensible look-through XRP quantity for XRPM itself. Mixing those denominators would create a false precision that the record does not support. [1][2][4]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+        "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHmyop7FVDMq9yyCII4By%2FXbBocKqjGkD986nYNXEH4bKwVSGRaz4TmTRBV2CH3X3ubow+sqALqJR+5DKiKhclyHE+gA=&symbol=XRPM&type=holdings"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels: what the record proves and what it does not",
+      "paragraphs": [
+        "[Confirmed fact] Amplify’s holdings page is dated August 31, 2026 and lists XRPC shares, three XRPC option lines, money-market exposure, Treasury bills, and cash or other items. Amplify’s product materials describe an XRP-linked option-income strategy, a 0.75% management fee, a target of 36% annualized option premium, and monthly distributions. The SEC prospectus says the fund does not invest directly in XRP. [1][2][3]",
+        "[Bounded inference] The matching September 18 call and put quantities are consistent with the synthetic exposure construction described in the prospectus. The negative September 1 call line is consistent with a short option overlay. These are reasonable readings of the published positions, not a complete reconstruction of XRPM’s delta, realized premium, hedge book, or transaction history. [1][3]",
+        "[Unresolved uncertainty] The public sources reviewed do not identify XRPM’s end investors, the exact execution prices for each option line, the portion of each position attributable to a specific creation or redemption, or the fund’s look-through XRP quantity. They also do not establish whether any XRPM activity moved XRP’s price or changed XRP Ledger behavior. [1][3][4]",
+        "[Editorial boundary] This report uses the dated holdings record to explain a financial mechanism. It does not call the product an XRP wallet, call its target a yield guarantee, call its portfolio a direct XRP balance, or infer institutional demand from the presence of an ETF share. Those claims would exceed the evidence. [1][2][3]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHmyop7FVDMq9yyCII4By%2FXbBocKqjGkD986nYNXEH4bKwVSGRaz4TmTRBV2CH3X3ubow+sqALqJR+5DKiKhclyHE+gA=&symbol=XRPM&type=holdings"
+      ]
+    },
+    {
+      "heading": "What to watch next: the next roll, distribution, and holdings records",
+      "paragraphs": [
+        "The useful follow-up is mechanical and dated. The next official record should be read against the September 1 and September 18 option dates, the next distribution schedule, and any change in the fund’s XRPC share count. A new headline should describe what the new record shows, not assume that a roll, payout, or asset change proves a market outcome. [1][2][3]",
+        "1. After September 1 and September 18, 2026, check whether the listed XRPC calls and put expire, roll to new strikes, or change in quantity. A roll would show portfolio management, not a forecast of XRP’s direction. [1][2]",
+        "2. Compare the next official holdings snapshot with the August 31 248,300-share XRPC position and the 43.45 percentage points represented by the four signed XRP-linked lines. Changes should be attributed to the new dated record and not backfilled into the August 31 snapshot. [1]",
+        "3. Read the next monthly distribution alongside any income, capital-gain, or return-of-capital classification. A larger or smaller payment would not, by itself, establish a change in XRP demand or XRPL adoption. [2][3]",
+        "4. Track XRPM’s NAV, market price, assets, share count, and bid and ask spread separately. Investor.gov explains why an ETF’s traded price and NAV can diverge, while Schwab’s holdings page shows why detailed holdings and fund statistics may carry different dates. [4][6]",
+        "5. Watch new SEC filings, prospectus supplements, and official Amplify strategy updates for a change in reference products, option tenor, strike range, fee, or direct-investment language. Until such a record appears, the August 31 evidence supports a layered XRPC-and-options description only. [2][3]"
+      ],
+      "sourceUrls": [
+        "https://amplifyetfs.com/xrpm-holdings/",
+        "https://amplifyetfs.com/xrpm/",
+        "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+        "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHmyop7FVDMq9yyCII4By%2FXbBocKqjGkD986nYNXEH4bKwVSGRaz4TmTRBV2CH3X3ubow+sqALqJR+5DKiKhclyHE+gA=&symbol=XRPM&type=holdings",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "XRPM’s next official holdings record after the September 1 and September 18, 2026 XRPC option dates, including any new strikes, expiries, rolls, or quantity changes.",
+    "Whether the 248,300-share XRPC position and the four signed XRP-linked lines change in the next dated snapshot, with each change attributed to the new record.",
+    "The next monthly distribution and its income, capital-gain, or return-of-capital classification, rather than the headline payment alone.",
+    "XRPM NAV, market price, assets, shares outstanding, and bid and ask spread as separate measurements, because an ETF can trade away from NAV.",
+    "Any new SEC filing, prospectus supplement, or Amplify update that changes the reference products, option tenor, strike range, fee, or direct-investment language."
+  ],
+  "sources": [
+    {
+      "name": "Amplify ETFs, XRPM Holdings (official August 31, 2026 holdings record)",
+      "url": "https://amplifyetfs.com/xrpm-holdings/",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "Amplify ETFs, XRPM product page (live page; fund statistics dated August 28, 2026)",
+      "url": "https://amplifyetfs.com/xrpm/",
+      "type": "primary"
+    },
+    {
+      "name": "SEC EDGAR, Amplify XRP 3% Monthly Premium Income ETF prospectus filed November 14, 2025",
+      "url": "https://www.sec.gov/Archives/edgar/data/1633061/000121390025110166/ea0264663-01_485bpos.htm",
+      "type": "primary",
+      "publishedAt": "2025-11-14"
+    },
+    {
+      "name": "Charles Schwab XRPM holdings view (holdings snapshot dated August 25, 2026; page current August 31)",
+      "url": "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHmyop7FVDMq9yyCII4By%2FXbBocKqjGkD986nYNXEH4bKwVSGRaz4TmTRBV2CH3X3ubow+sqALqJR+5DKiKhclyHE+gA=&symbol=XRPM&type=holdings",
+      "type": "supporting",
+      "publishedAt": "2026-08-25"
+    },
+    {
+      "name": "FINRA, Options Investor Guidance (undated reference)",
+      "url": "https://www.finra.org/investors/investing/investment-products/options",
+      "type": "supporting"
+    },
+    {
+      "name": "Investor.gov, ETF Investor Bulletin (undated reference)",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/etf",
+      "label": "Track XRP exchange-traded products"
+    },
+    {
+      "href": "/learn/xrp-etf",
+      "label": "How XRP ETFs work"
+    },
+    {
+      "href": "/learn/xrp-spot-etf-vs-futures-etf",
+      "label": "Spot versus futures XRP ETFs"
+    },
+    {
+      "href": "/news/canary-xrpc-holdings-rise-nav-falls-2026",
+      "label": "How XRPC holdings and NAV moved in 2026"
+    }
+  ]
+}
