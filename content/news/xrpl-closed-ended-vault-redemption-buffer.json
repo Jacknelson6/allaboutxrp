@@ -1,0 +1,291 @@
+{
+  "slug": "xrpl-closed-ended-vault-redemption-buffer",
+  "title": "XRPLF Merges 60-Second Buffer Before Closed-Ended Vault Redemption",
+  "description": "XRPLF merged rippled PR #8151 into develop, rejecting closed-ended LoanSet schedules that finish within 60 seconds of RedemptionDate and raising the Investment window to 180 seconds. Mainnet status remains unchanged.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-09-01T14:12:00-05:00",
+  "modifiedAt": "2026-09-01T14:12:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-closed-ended-redemption-buffer-editorial.webp",
+  "imageAlt": "A pale-gold interval block separates a cobalt ceramic loan cylinder from an ivory redemption basin on a stone slab, with one vermilion hold mark.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "closed-ended-redemption-spacer-still-life",
+  "imageSetting": "A quiet white-tufa stonecutter's margin room after a brief summer shower, viewed in a near-profile low side-on angle along a broad ivory stone slab; clear silver morning light enters through a narrow roof slit and leaves broad blank wall space above-left.",
+  "imageMetaphor": "A single pale-gold slotted interval block sits between one cobalt ceramic loan cylinder and a separate ivory redemption basin, with a visible measured clearance and one restrained vermilion hold mark, representing the required 60-second gap between a final scheduled payment and RedemptionDate.",
+  "imagePrompt": "Use case: stylized-concept editorial illustration. Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Input images: use the bundled style-anchor-refined.png, reference-ornate-equestrian.png, and reference-heroic-lion.png only as style references for palette, light, surface, and finish; do not copy their subjects, figures, animals, architecture, or layouts. Primary request: create one sparse, physically believable still life that explains XRPLF's September 1, 2026 rippled develop merge adding a 60-second clearance between a closed-ended loan's final scheduled payment and a vault's RedemptionDate. Scene/backdrop: a quiet white-tufa stonecutter's margin room after a brief summer shower, with only a plain ivory plaster wall and stone floor, viewed in a near-profile low side-on angle along a broad ivory stone slab; hard clear silver morning light enters through a narrow roof slit, the object group occupies the lower-right in one horizontal clearance arrangement, and broad untouched negative space fills the upper-left. Subject: exactly four deliberate objects and no extras: one pale-gold bronze slotted interval block bridging a visible empty clearance, one unmarked cobalt ceramic loan cylinder parked before the block, one separate unmarked ivory shallow redemption basin beyond it, and one tiny restrained vermilion clay hold mark resting on the block. Make the block the focal object and keep the spacing unmistakable at thumbnail size. Style/medium: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, clean ivory and pale-gold highlights, saturated cobalt and ultramarine shadow, controlled vermilion, selective impasto, and extremely subtle translucent 1/0/x texture only in a few atmospheric or shadow transitions. Composition/framing: wide landscape, low near-profile viewpoint, no centered monument, no panoramic vista, no border, no rounded frame, no embedded text. Lighting/mood: concentrated procedural clarity, calm and exact, with hard cast shadows and luminous reflected light. Constraints: preserve exactly one block, one loan cylinder, one redemption basin, and one vermilion mark; show a real physical interval, not a clock face or diagram; do not imply that a live loan, XRP transaction, or Mainnet deployment is depicted. Do not reuse any existing content/news or guide setting, scene key, metaphor, viewpoint, lighting condition, or arrangement, including the inland river gorge, civic marketplace, hilltop observatory, mechanical workshop, highland crossroads, council forecourt, white-limestone conservation studio, rope-maker gallery, sailmaker loft, locksmith chamber, registry alcove, wind court, acoustic chamber, tufa iatreion room, semaphore platform, bathhouse apse, lighthouse room, foundry cooling bay, cordage workshop, apothecary ledge, tide laboratory, salt-pan inspection floor, amphitheater orchestra, dye-house, dry archive, white-plaster merchant niche, cartographer room, ceramic kiln yard, white-mineral conservatory, instrument maker packing room, stone quarry, bookbindery, metrology chamber, waterworks archive, cistern wellhead, roofless switching court, white-clay cryptography atelier, signal chamber, grain-measuring alcove, pendulum bay, white-tufa stereotomy chamber, white-porphyry shadow chamber, acoustics rail, bridge-baton arrangement, voting table, counting board, three-notch baton, folio press, capstan, iris, groma, astrolabe, sundial, clepsydra, hourglass, pendulum, escapement, gauge, caliper, comparator, ratchet, wheel, rail, gate, lock, keyway, clamp, clevis, yoke, shutter, register, tablet, ledger bead, capsule, prism, manifold, perforation drum, spillway, weir, channel, vessel, shuttle, lens, suture, semaphore, or any prior object metaphor. Avoid all Greek city panoramas, temples, columns, harbor scenery, coastlines, mountains, politicians, people, hands, coins, logos, crypto symbols, dashboards, screens, code, circuitry, cyber cubes, fantasy ruins, photographic realism, generic digital concept art, muted sepia, muddy gray, excessive craquelure, all-over ASCII, all-over dither, coarse halftone, visible pixel blocks, retro pixel art, watermark, and unrequested text. Keep every object physically coherent and exact, with no duplicated parts or extra tools.",
+  "keywords": [
+    "XRP Ledger news",
+    "LendingProtocolV1_1",
+    "closed-ended vaults",
+    "LoanSet",
+    "RedemptionDate",
+    "XRP Ledger lending",
+    "rippled develop",
+    "XRPLF",
+    "vault redemption buffer"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged rippled PR #8151 into develop on September 1, 2026 UTC, requiring a closed-ended loan's final scheduled payment to clear RedemptionDate by at least 60 seconds. [1] [2]",
+    "The patch raises the minimum Investment window for a closed-ended vault from 60 seconds to 180 seconds so a minimum-interval loan can still fit with the new clearance rule. [1] [2]",
+    "The buffered boundary is enforced in both LoanSet preclaim and the ValidLoan invariant, with updated unit and invariant tests covering the exact boundary and minimum-gap case. [1] [2]",
+    "LendingProtocolV1_1 is still listed as in development. This merge is not evidence of a stable release, Mainnet activation, live loan volume, XRP demand, or a price effect. [3] [6]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF adds a maturity clearance rule in develop",
+      "paragraphs": [
+        "XRPLF merged rippled PR #8151 into the develop branch on September 1, 2026, adding a 60-second clearance requirement between a closed-ended loan's final scheduled payment and the vault's RedemptionDate. The patch also raises the minimum Investment window from 60 to 180 seconds. LendingProtocolV1_1 remains a development feature, so Mainnet behavior is unchanged. [1] [2] [3]",
+        "[Confirmed fact] GitHub records PR #8151 as a four-commit change merged into `develop` at 19:00:13 UTC. The merge commit `7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4` changes eight files, adding 110 lines and deleting 39. The PR description says the earlier `LoanSet` rule could allow a final scheduled payment at the redemption boundary, after the vault had already left its Investment phase. [1] [2]",
+        "[Confirmed fact] The new rule rejects a loan when `finalPayment + kLoanRedemptionBuffer > RedemptionDate`, where `kLoanRedemptionBuffer` is 60 seconds. A schedule whose final payment is exactly 60 seconds before RedemptionDate clears this specific boundary. The same comparison is mirrored in the `ValidLoan` invariant, so the preclaim and invariant layers describe one timing rule. [1] [2]",
+        "[Bounded inference] This is best read as a lifecycle-consistency fix for a development version of the Lending Protocol, not as a new lending product or an announcement of network activity. The primary record establishes a code merge and its intended behavior. It does not establish that the code is in a stable release, enabled on Mainnet, used by a lender, or connected to new XRP demand. [1] [3]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "What the 60-second rule changes in LoanSet",
+      "paragraphs": [
+        "[Confirmed fact] Before PR #8151, the closed-ended maturity check rejected a final payment at or after RedemptionDate. The merged code adds a 60-second buffer to the calculated final payment before comparing it with the redemption timestamp. In plain language, a final payment one second before redemption is no longer enough under the new rule, while a final payment exactly one minute before redemption sits on the accepted boundary. [1] [2]",
+        "The calculation is about origination eligibility, not a new grace period for an existing borrower. `LoanSet` uses the loan's start date, payment interval, and total payment count to calculate the last scheduled payment. If that date does not leave the required clearance, the transaction returns `tecNO_PERMISSION` during the preclaim path. The patch does not say that an already-created loan receives an extra minute to pay, and it does not change the interest, fee, or payment formula. [1] [2]",
+        "The companion change to `kMinInvestmentPeriod` prevents the new rule from making the shortest legal closed-ended vault unusable for the shortest legal loan schedule. The previous minimum Investment window was 60 seconds. The merged constant is 180 seconds, while the code adds a compile-time assertion requiring the window to cover the 60-second minimum payment interval, the 60-second redemption buffer, and one additional second because `StartDate` must be strictly after `SubscriptionDate`. [1] [2]",
+        "The boundary is easier to read as a small before-and-after record:",
+        "[Derived from the merged constants] A minimum-interval, one-payment schedule needs 121 seconds of Investment-window space in the strict arithmetic case: one second after SubscriptionDate for StartDate, 60 seconds to the final payment, and 60 seconds of clearance before RedemptionDate. The selected 180-second minimum therefore leaves 59 seconds of additional room. This is arithmetic implied by the source code, not a separately reported network measurement. [1] [2]",
+        "[Confirmed fact] The patch applies the same buffered inequality in `LoanSet::preclaim` and `ValidLoan::finalize`. The updated tests accept a final payment exactly at the buffer boundary, reject one second inside it, synthesize an invalid loan inside the buffer for invariant checking, and exercise a minimum-length Investment window. That two-layer design makes the timing requirement visible both when a loan is proposed and when post-transaction invariants are finalized. [1] [2]"
+      ],
+      "table": {
+        "caption": "PR #8151 boundary changes for closed-ended lending",
+        "headers": [
+          "Rule",
+          "Before PR #8151",
+          "After PR #8151"
+        ],
+        "rows": [
+          [
+            "Final payment versus RedemptionDate",
+            "Reject at or after the redemption date",
+            "Reject if fewer than 60 seconds before the date; exactly 60 seconds clears the gate"
+          ],
+          [
+            "Minimum Investment window",
+            "60 seconds",
+            "180 seconds"
+          ],
+          [
+            "Enforcement points",
+            "LoanSet preclaim and the existing unbuffered invariant",
+            "LoanSet preclaim and ValidLoan both use the buffered comparison"
+          ],
+          [
+            "Repository status",
+            "Development-branch behavior before the fix",
+            "Merged to develop, not a stable release or Mainnet activation"
+          ]
+        ],
+        "sourceNote": "Sources: XRPLF PR #8151 and merge commit 7863ac8, both dated September 1, 2026 UTC. The table describes code merged to develop and does not describe a live network rule. [1] [2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4"
+      ]
+    },
+    {
+      "heading": "Why a closed-ended vault needs an end-of-Investment buffer",
+      "paragraphs": [
+        "[Confirmed fact] The XRP Ledger documentation describes its Lending Protocol as an on-chain primitive for fixed-term, uncollateralized loans funded from a Single Asset Vault. Loan brokers manage the associated lending activity, depositors supply pooled assets, and borrowers receive loans under defined payment terms. The documentation also says underwriting and risk management remain off-chain and that automated on-chain collateral liquidation is not part of the current implementation. [4] [5] [10]",
+        "The closed-ended design adds a finite schedule around that workflow. XRPLF's earlier PR #7921 introduced Subscription, Investment, and Redemption phases for a closed-ended vault, with dates that define when deposits can be made, when loans can be originated, and when the vault begins paying out liquidity-provider shares. PR #8151's rationale says that a loan ending exactly at RedemptionDate could leave no time to collect the final payment before the payout phase begins. [1] [8]",
+        "[Independent context] The August 24 to 30 XRPL Monday Brew separately described the LendingProtocolV1_1 work as a set of changes merged to `develop`, including the earlier open-ended-vault LoanBrokerSet gate and a wider group of vault correctness fixes. Its report explicitly warns that rippled changes merged to `develop` are not live on the network until a tagged release reaches production. That source does not replace PR #8151 as the record of today's merge, but it corroborates the broader development-branch status surrounding this lending work. [6]",
+        "The buffer is therefore a scheduling constraint at the edge of two state machines. A loan has its own fixed payment schedule. A closed-ended vault has a separately dated transition into Redemption. The merged rule prevents a new schedule from consuming the final seconds of the Investment phase when the vault is about to begin its payout process. It is not the same as first-loss capital, which the official lending documentation describes as an optional loss-mitigation mechanism for defaults. [1] [4]",
+        "[Unresolved uncertainty] The public record does not quantify how often the unbuffered boundary would have been reached, whether any live account was affected, or whether a payment was actually missed because of it. The source explains the edge case and the code response, but it does not report a production incident, user loss, or a measured change in lending reliability. [1] [2]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrplbrew.com/2026-08-24_2026-08-30.html"
+      ]
+    },
+    {
+      "heading": "How the patch is enforced and tested",
+      "paragraphs": [
+        "[Confirmed fact] The production-code part of the patch is narrow. `Protocol.h` defines the 60-second `kLoanRedemptionBuffer` and raises `kMinInvestmentPeriod` to 180 seconds. `LoanSet.cpp` adds the preclaim rejection and a static assertion tying the minimum Investment window to the minimum payment interval plus the new buffer. `LoanInvariant.cpp` mirrors the same relationship in `ValidLoan`. [1] [2]",
+        "The remaining changed files update the invariant declaration, test fixtures, and three test areas: `LoanSet_test`, `InvariantsVault_test`, and `VaultClosedEnded_test`. The tests are not decorative documentation. They capture the exact accepted boundary, the one-second rejection inside the buffer, a synthetic invalid ledger state that bypasses preclaim, and the ability to originate a minimum-interval loan in a minimum-length Investment window. [1] [2]",
+        "[Source-reported review] The GitHub review record says the arithmetic was traced through `LoanSet::preclaim`, `ValidLoan::finalize`, the static assertion, and the new test cases. Codecov reported that all modified and coverable lines were covered. Those are review and coverage records attached to the pull request, not evidence of a stable binary or a production deployment. [1]",
+        "The distinction matters for how the change should be described. The patch improves a boundary check and adds regression coverage. Nothing in the reviewed record calls it a security incident, identifies an exploit, reports funds at risk, or claims that open-ended vaults are generally unsafe. It is more precise to call it a lifecycle and invariant hardening change for the V1.1 development line. [1] [2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4"
+      ]
+    },
+    {
+      "heading": "Relationship to LendingProtocolV1_1 and earlier closed-ended work",
+      "paragraphs": [
+        "[Confirmed fact] The XRP Ledger's Known Amendments page lists `LendingProtocolV1_1` under Amendments in Development. The page says in-development amendments can become open for Mainnet voting only if they are included in a stable server release, and it distinguishes the development entry from the existing `LendingProtocol` and `SingleAssetVault` records. [3]",
+        "The current patch sits within a sequence of related development changes, but it has a different scope from the earlier LoanBrokerSet compatibility gate. PR #8076 rejected creation of a new LoanBroker against an open-ended vault when V1.1 behavior is enabled. PR #8151 addresses a later boundary: after a lending workflow is attached to a closed-ended lifecycle, a newly proposed loan must still leave a 60-second clearance before RedemptionDate. [1] [9]",
+        "[Independent context] XRPL Commons' undated Lending Protocol test application exposes the four roles of issuer, loan broker, depositor, and borrower, and presents vault creation, deposit, withdrawal, LoanBroker creation, and LoanSet as separate operations. That independent demonstration helps explain why the new rule belongs at the LoanSet boundary: it affects the loan agreement created between the broker and borrower, not every operation that can occur in a Single Asset Vault. [7]",
+        "[Bounded inference] Taken together, the development sequence suggests a layered compatibility model: the vault type must match the V1.1 lending lifecycle, the vault must still be in its Investment phase, and the proposed payment schedule must finish with the required clearance before Redemption. That is a coherent reading of the code and surrounding documentation. It is not proof that the full workflow has been activated on a public network or exercised by a live institution. [1] [3] [6] [9]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/pull/8076",
+        "https://tests.xrpl-commons.org/lending",
+        "https://xrplbrew.com/2026-08-24_2026-08-30.html"
+      ]
+    },
+    {
+      "heading": "Implications for developers, vault owners, and validators",
+      "paragraphs": [
+        "[For developers] A lending integration that builds `LoanSet` transactions should calculate the proposed final payment against the target vault's RedemptionDate before asking a broker and borrower to sign. A final payment that is earlier than RedemptionDate but less than 60 seconds earlier now belongs in the rejected path. Client software should preserve `tecNO_PERMISSION` as a timing or lifecycle compatibility signal rather than presenting it as evidence that the vault, asset, or account is invalid. [1] [2]",
+        "[For vault owners and loan brokers] The schedule should be treated as part of the vault's operating design. The 180-second minimum Investment window allows a minimum-interval loan to fit at the beginning of the phase, but late origination can still fail even when the final payment technically precedes RedemptionDate. The change does not announce a new extension process, an automatic rescheduling feature, or a guarantee that a broker can recover a rejected schedule without changing its terms. [1] [4]",
+        "[For borrowers and depositors] The practical effect, once this code is available in the relevant environment, is that a loan whose last scheduled payment sits inside the 60-second clearance zone should not be created through the buffered `LoanSet` path. That protects the phase boundary as a system rule, but it does not eliminate credit risk, guarantee repayment, or change the value of vault shares. The official documentation continues to describe fixed-term lending, off-chain underwriting, and variable share value. [1] [4] [5]",
+        "[For node operators and validators] A merged GitHub commit is not an upgrade instruction. Operators should wait for a stable `rippled` release and consult the live Known Amendments status before treating the rule as available for a production network. The independent weekly summary makes the same develop-versus-live distinction for the surrounding V1.1 work. [3] [6]",
+        "[For XRP holders] No holder action follows from this merge alone. The relevant records describe a timing rule for a proposed lending implementation. They do not report new XRP loans, XRP deposits, institutional usage, network throughput, market demand, or a price response. Any such conclusion would move beyond the evidence. [1] [3] [4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+        "https://xrplbrew.com/2026-08-24_2026-08-30.html"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and open questions",
+      "paragraphs": [
+        "[Confirmed fact] XRPLF merged PR #8151 on September 1, 2026 UTC. The merged code defines a 60-second buffer, changes the minimum Investment window to 180 seconds, applies the buffered comparison in both the LoanSet preclaim path and the ValidLoan invariant, and updates tests for the boundary. The official Known Amendments page lists LendingProtocolV1_1 as in development. [1] [2] [3]",
+        "[Bounded inference] The design appears intended to keep the fixed-term loan schedule from colliding with the closed-ended vault's transition into Redemption. The inference is grounded in the PR rationale and the documented Subscription, Investment, and Redemption model. It should not be inflated into a claim that the fix has been measured in production or that it removes all risks from lending. [1] [4] [8]",
+        "[Unresolved] The reviewed sources do not establish the stable release that will contain PR #8151, the test network on which the change may be exercised, the validator voting schedule for LendingProtocolV1_1, the final client-library behavior, or any live count of affected LoanSet attempts. They also do not disclose an asset-specific deployment, loan volume, total value locked, borrower outcome, XRP demand, or price effect. [1] [3] [6]",
+        "Source precedence is deliberate. The XRPLF pull request and merge commit are primary for today's code change. The Known Amendments page and XRP Ledger documentation are current technical references, shown as undated where no publication date is exposed. XRPL Monday Brew and XRPL Commons provide independent ecosystem context, but neither is treated as proof of the merge or of Mainnet status. [1] [3] [4] [6] [7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://github.com/XRPLF/rippled/pull/7921",
+        "https://xrplbrew.com/2026-08-24_2026-08-30.html",
+        "https://tests.xrpl-commons.org/lending"
+      ]
+    },
+    {
+      "heading": "What to watch next for the closed-ended lending path",
+      "paragraphs": [
+        "The next meaningful verification points are specific: a stable `rippled` release whose notes identify PR #8151, an updated Known Amendments record that shows the status and voting path for LendingProtocolV1_1, test-network transactions that accept a schedule exactly 60 seconds before RedemptionDate and reject one second inside the buffer, and refreshed LoanSet or Lending Protocol references that document the timing rule and `tecNO_PERMISSION` result. [1] [3] [4]",
+        "It is also worth watching the client and application layer. XRPL Commons' test surface separates vault creation, LoanBroker creation, and LoanSet, while the core patch changes only the final loan-origination boundary. A useful follow-up would show how SDKs and front ends preflight the vault phase and remaining time, how errors are explained to borrowers, and whether the minimum-window rule is reflected consistently across specifications, documentation, and test networks. Until those records arrive, the defensible conclusion remains narrow: XRPLF merged a develop-branch timing guard that gives closed-ended vaults a defined clearance interval before redemption. [1] [6] [7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8151",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+        "https://tests.xrpl-commons.org/lending",
+        "https://xrplbrew.com/2026-08-24_2026-08-30.html"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable rippled release and release notes that identify whether PR #8151 shipped beyond develop.",
+    "The Known Amendments status, validator voting path, and any activation boundary for LendingProtocolV1_1.",
+    "Test-network LoanSet transactions that accept exactly 60 seconds of clearance and reject one second inside the buffer.",
+    "Updated LoanSet, Lending Protocol, and SDK documentation for the timing precondition and tecNO_PERMISSION result.",
+    "Client and front-end handling that preflights vault phase, RedemptionDate, payment interval, and remaining Investment time."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8151, merged September 1, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/pull/8151",
+      "type": "primary",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "XRPLF rippled merge commit 7863ac8, September 1, 2026 UTC",
+      "url": "https://github.com/XRPLF/rippled/commit/7863ac8cf6a3d30a236d213e6c6bd3c0795b7fd4",
+      "type": "primary",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, current live reference",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Lending Protocol documentation, current live reference",
+      "url": "https://xrpl.org/docs/concepts/tokens/lending-protocol",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Single Asset Vaults documentation, current live reference",
+      "url": "https://xrpl.org/docs/concepts/tokens/single-asset-vaults",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0066 Lending Protocol specification, updated January 14, 2026",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "type": "primary",
+      "publishedAt": "2026-01-14"
+    },
+    {
+      "name": "XRPL Monday Brew, August 24 to 30, 2026 development summary",
+      "url": "https://xrplbrew.com/2026-08-24_2026-08-30.html",
+      "type": "supporting",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "XRPL Commons Amendment Tests, Lending Protocol demonstration",
+      "url": "https://tests.xrpl-commons.org/lending",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPLF rippled PR #7921, merged August 12, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7921",
+      "type": "primary",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "XRPLF rippled PR #8076, merged August 26, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/8076",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-lending-platforms",
+      "label": "How XRP Ledger lending platforms work",
+      "topic": "Lending context",
+      "description": "Review vaults, brokers, borrowers, and fixed-term loan mechanics before the new timing boundary."
+    },
+    {
+      "href": "/learn/xrpl-defi",
+      "label": "DeFi on the XRP Ledger",
+      "topic": "DeFi context",
+      "description": "Place Single Asset Vaults and the Lending Protocol within the broader XRPL DeFi surface."
+    },
+    {
+      "href": "/news/xrpl-loanbroker-open-ended-vault-gate",
+      "label": "Earlier LoanBrokerSet vault compatibility gate",
+      "topic": "Related coverage",
+      "description": "Compare the separate open-ended-vault attachment rule with today's final-payment timing fix."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "XRPL Lending Protocol vote context",
+      "topic": "Amendment status",
+      "description": "Keep validator voting and code-merge milestones separate from Mainnet activation."
+    },
+    {
+      "href": "/news/xrpl-lending-invariants-vault-loan-broker-develop",
+      "label": "XRPL lending invariant checks",
+      "topic": "Protocol integrity",
+      "description": "Read related coverage on state and accounting invariants in the lending development line."
+    }
+  ]
+}
