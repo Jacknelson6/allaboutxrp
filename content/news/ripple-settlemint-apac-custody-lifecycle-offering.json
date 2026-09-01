@@ -1,0 +1,250 @@
+{
+  "slug": "ripple-settlemint-apac-custody-lifecycle-offering",
+  "title": "Ripple and SettleMint Announce Asia-Pacific Custody and Tokenization Offering",
+  "description": "Ripple and SettleMint say their combined Ripple Custody and Digital Asset Lifecycle Platform offering has commenced in Asia. The release names no supported blockchain, customer, transaction volume, or commercial terms.",
+  "category": "Institutional Infrastructure",
+  "publishedAt": "2026-09-01T06:27:02-05:00",
+  "modifiedAt": "2026-09-01T06:27:02-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-settlemint-folio-press-editorial.png",
+  "imageAlt": "A pale-gold folio press holds a cobalt glass asset plate beside an open ivory process folio, symbolizing custody and tokenized-asset lifecycle controls.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "settlemint-custody-lifecycle-folio-press-still-life",
+  "imageSetting": "A quiet white-limestone conservation studio after rain, viewed from a high three-quarter angle with the single folio press resting on an ivory stone slab in the lower-right; cool northern overcast light leaves a broad blank wall and floor open toward the upper-left.",
+  "imageMetaphor": "A single pale-gold double-jointed folio press keeps one cobalt glass asset plate in a protected recessed cradle while an attached ivory process folio unfolds into four unmarked stages joined by water-blue thread, representing custody control alongside lifecycle management without implying a named network or customer.",
+  "imagePrompt": "A sparse 16:9 academic classical oil still life for a source-led news article about Ripple and SettleMint offering regulated financial institutions an integrated digital-asset custody and tokenized-asset lifecycle platform in Asia Pacific. Keep exactly one pale-gold double-jointed folio press on a low ivory stone slab: its left hinged leaf forms a protective recessed cradle around one translucent cobalt-blue glass asset plate, and its right leaf opens into a clean unmarked ivory process folio with four broad folded stages joined by one narrow water-blue thread. Make it one coherent integrated mechanism. Place it in a quiet white-limestone chamber with a broad blank ivory wall and floor, the mechanism in the lower-right, generous negative space across the left half and upper half. Use cool northern overcast light with one restrained pale-gold rim highlight, cobalt and water-blue accents, soft cast shadows, crisp academic classical oil modeling, luminous ivory, and subtle dry-brush texture. Keep at most one tiny restrained vermilion inspection mark on the hinge. Style references only, never subject references. No text, numerals, letters, logo, watermark, coin, token, money, person, politician, chart, dashboard, circuitry, cyber cube, city, harbor, coast, temple, Greek scenery, columns, robes, lock, key, keyhole, safe, vault door, scale, dial, caliper, balance, manifold, coupling, triskelion, rail, weir, prism, ship, generic office, or all-over ASCII/dither. Do not imply XRP, XRPL, RLUSD, a named customer, a blockchain network, or a completed transaction. Any 1/0/x marks must be extremely sparse and confined to a few atmospheric or shadow transitions. Keep the still life sparse, elegant, physically coherent, and legible at thumbnail size.",
+  "keywords": [
+    "Ripple",
+    "SettleMint",
+    "Ripple Custody",
+    "Digital Asset Lifecycle Platform",
+    "DALP",
+    "digital asset custody",
+    "tokenization",
+    "Asia Pacific"
+  ],
+  "keyTakeaways": [
+    "Ripple and SettleMint announced a combined Ripple Custody and Digital Asset Lifecycle Platform offering for regulated financial institutions in Asia Pacific on September 1, 2026. The companies say the offering has commenced in Asia.",
+    "The proposed division of work is custody and asset governance through Ripple Custody, with SettleMint DALP covering issuance, compliance, settlement, servicing, and other post-launch lifecycle workflows.",
+    "The announcement does not name a supported blockchain, customer, country-level deployment, transaction volume, pricing, contract value, or production go-live schedule. It therefore does not establish XRP, XRPL, or RLUSD use.",
+    "SettleMint’s earlier technical description says DALP prepares, routes, broadcasts, and tracks transactions while signing stays inside the configured custody provider. That is a product design claim, not independent evidence of a live customer result."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: a same-day institutional offering, with the network still undisclosed",
+      "paragraphs": [
+        "Ripple and SettleMint announced a combined offering for regulated financial institutions in Asia-Pacific on September 1, 2026. Ripple Custody is presented as the custody layer, while SettleMint’s Digital Asset Lifecycle Platform handles issuance and lifecycle workflows. The announcement names no blockchain network, customer, transaction volume, or XRP-specific deployment. [1] [2]",
+        "[Confirmed fact] SettleMint’s official newsroom release says the partnership integrates Ripple Custody with SettleMint’s DALP to help institutions custody, issue, and manage tokenized assets through a shared operating foundation. It says the partnership offering has already commenced in Asia and may extend to other markets as institutional demand develops. [1]",
+        "[Confirmed fact] The September 1 distribution on PR Newswire and independent reports from Blockonomi and CryptoCompass describe the same combination of custody, issuance, compliance, settlement, and servicing functions. Their coverage also preserves the release’s omissions: no named client, supported network, pricing, contract value, initial volume, or detailed implementation schedule. [2] [3] [4]",
+        "[Bounded inference] The material development is an institutional operating-model and procurement proposition, not a disclosed blockchain deployment. The record supports saying that two companies are offering an integrated custody and tokenization stack. It does not support saying that a bank has gone live, that a token has been issued, or that XRP-related demand has changed. [1] [3] [4]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "What Ripple Custody and SettleMint DALP are meant to do together",
+      "paragraphs": [
+        "[Confirmed fact] In the official announcement, Ripple Custody is the place where an institution holds and governs the digital asset. SettleMint says DALP manages the asset’s wider lifecycle after launch, including issuance, compliance, permissioning, settlement, and servicing. The language describes a division of responsibility between custody controls and lifecycle orchestration. [1]",
+        "SettleMint positions DALP as a governed control plane rather than a token-creation utility. Its description covers regulated financial institutions, market infrastructure operators, and sovereign entities, and presents the platform as a way to manage several operational stages through one integrated system. Those are the provider’s product and market claims, not an independently measured service-level result. [1] [3]",
+        "[Confirmed fact] Blockonomi independently reports that the offering is aimed at giving Asia-Pacific banks a platform covering tokenized-asset custody, issuance, compliance, and servicing. CryptoCompass likewise describes a single system for regulated institutions and notes that the companies did not publish named clients, revenue, or a detailed implementation timeline. [3] [4]",
+        "[Bounded inference] The integration could matter during vendor selection because it addresses a common institutional question: can custody and lifecycle workflows be procured as connected components instead of assembled from unrelated vendors? The public record does not prove that reconciliation work disappears, that operating costs fall, or that compliance approval becomes faster. Those outcomes would require customer evidence. [1] [3]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "The custody boundary: signing stays with the configured provider",
+      "paragraphs": [
+        "[Confirmed fact] SettleMint’s July 15, 2026 technical post gives more detail on the DALP model. It says DALP prepares a transaction, applies business logic and controls, routes the request to the configured custody provider, submits the signed transaction, and tracks confirmation. The post says key material does not move into the lifecycle platform. [5]",
+        "The same technical reference lists Ripple Custody, alongside other custody and signing paths, as a supported provider model. It describes approval workflows remaining inside the provider’s vault or signing environment while DALP waits for the result. This explains the mechanism the companies are presenting, but it predates the September partnership announcement and is not a third-party audit. [5]",
+        "[Confirmed fact] The September announcement assigns Ripple Custody responsibility for holding and governing the asset, while DALP handles the surrounding lifecycle. That role split is consistent with SettleMint’s earlier prepare, sign, broadcast, and track description. Neither source names a particular institution using the new combined offering or publishes an implementation record. [1] [5]",
+        "[Unresolved uncertainty] A documented separation of transaction preparation from signing does not answer every due-diligence question. Institutions still need to establish the legal custodian, key-management model, approval quorum, policy enforcement, recovery process, audit evidence, incident response, and responsibility for each network in a live deployment. None of those customer-specific controls is disclosed in the announcement. [1] [5]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.settlemint.com/insights/dalp-3-custody-signing?hs_amp=true"
+      ]
+    },
+    {
+      "heading": "Asia is the starting market, not proof of regional adoption",
+      "paragraphs": [
+        "[Confirmed fact] The release is dated September 1, 2026 and identifies Asia Pacific as the target region. Its more specific operating statement says the partnership offering has commenced in Asia and may expand to other markets as institutional demand develops. That wording establishes a commercial start claim, not a list of live country deployments. [1] [2]",
+        "[Confirmed fact] Independent coverage says the companies did not identify customers, countries, production dates, supported blockchains, initial transaction volumes, pricing, or contract values. CryptoCompass similarly characterizes the customer base and implementation timeline as undisclosed. These omissions are central facts because the announcement does not give readers a way to measure the offering’s reach. [3] [4]",
+        "[Bounded inference] “Asia Pacific” should therefore be read as the announced market scope, while “commenced in Asia” should be read as the companies’ statement that the offering is available or underway somewhere in the region. It should not be upgraded into proof that banks across the region are using the system or that a regional regulator has approved it. [1] [3]",
+        "[Unresolved uncertainty] The announcement does not identify the first jurisdiction, institution, asset class, custody license, deployment environment, or go-live milestone. Without those details, readers cannot independently test whether the offering is a pilot, a signed commercial service, a production integration, or a broader sales launch. [1] [3] [4]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "Disclosure matrix: what the announcement establishes and leaves open",
+      "paragraphs": [
+        "The most useful way to read the release is to separate the announced proposition from the evidence that would show it operating in the market. The matrix below uses the official release as the primary record and the independent reports as a check on its disclosed boundaries. [1] [3] [4]",
+        "[Confirmed fact] The release establishes the named companies, the two named products, the intended regulated-institution audience, the Asia-Pacific market, and the stated custody-to-lifecycle division. It does not establish the rows in the final column as negative facts about the companies generally. It establishes only that those details were not disclosed in this announcement. [1] [2]"
+      ],
+      "table": {
+        "caption": "September 1 partnership disclosure boundary",
+        "headers": [
+          "Topic",
+          "Disclosed in the announcement",
+          "Not disclosed"
+        ],
+        "rows": [
+          [
+            "Products",
+            "Ripple Custody plus SettleMint DALP",
+            "Customer-specific configuration"
+          ],
+          [
+            "Operating roles",
+            "Custody and governance plus lifecycle management",
+            "Legal responsibility by deployment"
+          ],
+          [
+            "Market",
+            "Asia Pacific, with offering commenced in Asia",
+            "First country, institution, or go-live date"
+          ],
+          [
+            "Digital assets",
+            "Tokenized assets in general",
+            "Supported blockchain, XRP, XRPL, or RLUSD"
+          ],
+          [
+            "Commercial proof",
+            "A partnership offering",
+            "Clients, volumes, pricing, and contract value"
+          ]
+        ],
+        "sourceNote": "Sources: SettleMint official announcement and PR Newswire distribution, both dated September 1, 2026, checked against Blockonomi and CryptoCompass reports dated September 1, 2026. “Not disclosed” refers to this announcement, not a claim that the information does not exist elsewhere."
+      },
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "Why this is not yet an XRP Ledger, XRP, or RLUSD deployment story",
+      "paragraphs": [
+        "[Confirmed fact] The announcement discusses tokenized assets and names Ripple Custody and DALP, but it does not identify a supported blockchain network for the combined offering. Independent reporting also notes that no supported blockchain was named. The announcement therefore cannot establish XRPL use, Ethereum use, another chain, or a multi-network deployment. [1] [3] [4]",
+        "Ripple’s broader company description mentions XRP and RLUSD as assets that underpin parts of its wider solutions. That background sentence does not connect either asset to this SettleMint integration. A product company can discuss its broader ecosystem without disclosing which assets a particular customer workflow uses. [1] [2]",
+        "[Bounded inference] The absence of a named network is not evidence that the offering cannot support XRPL, XRP, or RLUSD. It is evidence that this announcement leaves that implementation question unanswered. The same boundary applies to tokenized funds, stablecoin settlement, custody balances, and any other asset-specific use case a reader might expect from Ripple’s broader product portfolio. [1] [3]",
+        "[Unresolved uncertainty] No source reviewed here provides a transaction hash, public issuance record, customer case study, assets-under-custody figure, or network-level activity tied to the partnership. It is consequently not defensible to describe the announcement as XRPL adoption, an XRP demand event, RLUSD usage, or a market catalyst. [3] [4]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "Implications for institutions, custodians, token issuers, and XRP readers",
+      "paragraphs": [
+        "[For regulated institutions] The announcement is relevant as a due-diligence starting point. A prospective buyer would need to ask which entity holds the asset, where signing authority sits, which jurisdictions and networks are supported, how permissioning is enforced, how transactions are reconciled, and what evidence is available for audit and incident response. The release answers only part of that list. [1] [5]",
+        "[For custodians and compliance teams] The prepare-and-sign separation described by SettleMint can be a meaningful architectural boundary because a lifecycle system need not hold the institution’s signing keys. It is still a design description. It does not independently prove security, regulatory compliance, segregation, resilience, or successful operation under production load. [5]",
+        "[For token issuers and market infrastructure operators] A connected custody and lifecycle stack could make issuance and post-launch administration easier to evaluate, especially where compliance and servicing continue after an asset is created. The missing network, customer, and volume disclosures mean teams cannot yet assess liquidity, interoperability, settlement performance, or commercial fit from this announcement alone. [1] [3]",
+        "[For XRP readers] The story belongs in institutional infrastructure coverage, not in a price or adoption narrative. The cited records do not establish a Ripple Custody customer using XRP, an XRPL deployment, an RLUSD workflow, a new source of XRP demand, or a change in XRP market structure. Those claims require separate asset-specific evidence. [1] [3] [4]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.settlemint.com/insights/dalp-3-custody-signing?hs_amp=true",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization"
+      ]
+    },
+    {
+      "heading": "Uncertainty label: confirmed facts, bounded inference, and open questions",
+      "paragraphs": [
+        "[Confirmed] SettleMint’s September 1 announcement and its PR Newswire distribution support the partnership, product names, regional audience, stated role split, and claim that the offering has commenced in Asia. Blockonomi and CryptoCompass independently support the existence and broad scope of the announcement while identifying its missing customer and implementation details. [1] [2] [3] [4]",
+        "[Confirmed] SettleMint’s July 15 technical post supports the described DALP mechanism: prepare and route a transaction, keep signing with the configured custody provider, broadcast after signing, and track confirmation. That source supports product architecture, not a live result for this September partnership. [5]",
+        "[Bounded inference] The public record supports calling this a same-day institutional custody and tokenization offering with an integrated operating model. It supports asking whether the arrangement improves procurement or lifecycle coordination. It does not support converting the companies’ product language into measured adoption, cost savings, reduced reconciliation, security certification, regulatory approval, or XRP market impact. [1] [3] [5]",
+        "[Unresolved] The sources leave open the first customer and jurisdiction, production status, supported networks, asset types, commercial terms, transaction volume, assets under custody, implementation schedule, and any use of XRP, XRPL, or RLUSD. The next credible update should answer at least one of those questions with a named institution, network, dated deployment record, or measurable operating result. [1] [3] [4]",
+        "Source precedence is straightforward. SettleMint’s newsroom and PR Newswire distribution are primary for the announcement, while SettleMint’s technical post is primary for its own architecture description. Blockonomi and CryptoCompass are independent supporting sources for the announcement’s scope and omissions. Where a product claim remains unmeasured, it is labeled as a company statement rather than presented as an outcome. [1] [2] [3] [4] [5]"
+      ],
+      "sourceUrls": [
+        "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+        "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+        "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+        "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization",
+        "https://www.settlemint.com/insights/dalp-3-custody-signing?hs_amp=true"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A named financial institution and jurisdiction that identify the first live or pilot deployment of the combined offering.",
+    "A supported blockchain list or dated implementation record showing whether XRP, XRPL, RLUSD, or another network is actually in scope.",
+    "A customer case study with production status, transaction volume, assets under custody, issuance volume, or measurable reconciliation and servicing results.",
+    "Clear disclosure of custody, signing, compliance, permissioning, settlement, and servicing responsibilities in a live deployment.",
+    "Commercial terms, implementation timing, and any regulatory or licensing context that can distinguish a market offering from a broad partnership announcement."
+  ],
+  "sources": [
+    {
+      "name": "SettleMint official newsroom announcement, published September 1, 2026",
+      "url": "https://news.settlemint.com/news/settlemint-and-ripple-announce-strategic-partnership",
+      "type": "primary",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "PR Newswire distribution provided by SettleMint, published September 1, 2026",
+      "url": "https://www.prnewswire.com/news-releases/ripple-and-settlemint-partner-to-provide-digital-asset-custody-and-tokenization-for-financial-institutions-in-asia-pacific-302865190.html",
+      "type": "primary",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "Blockonomi, published September 1, 2026",
+      "url": "https://blockonomi.com/ripple-settlemint-partnership-launches-tokenised-asset-platform/",
+      "type": "supporting",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "CryptoCompass, published September 1, 2026",
+      "url": "https://www.cryptocompass.com/articles/ripple-and-settlemint-partner-on-institutional-custody-and-tokenization",
+      "type": "supporting",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "SettleMint DALP 3.0 custody and signing technical post, published July 15, 2026",
+      "url": "https://www.settlemint.com/insights/dalp-3-custody-signing?hs_amp=true",
+      "type": "primary",
+      "publishedAt": "2026-07-15"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/ripple-custody",
+      "label": "Ripple Custody: what institutional custody means"
+    },
+    {
+      "href": "/learn/xrp-real-world-assets",
+      "label": "XRP and real-world assets explained"
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "XRP Ledger explained: assets and settlement"
+    },
+    {
+      "href": "/news/ripple-custody-1-40-xrpl-tags-fees",
+      "label": "Ripple Custody, tags, and XRPL fee context"
+    },
+    {
+      "href": "/news/ripple-zilo-licuido-xrpl-tokenized-fund-infrastructure",
+      "label": "Ripple, ZILO, Licuido, and tokenized fund infrastructure"
+    }
+  ]
+}
