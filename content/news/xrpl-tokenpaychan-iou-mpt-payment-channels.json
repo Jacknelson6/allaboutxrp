@@ -1,0 +1,261 @@
+{
+  "slug": "xrpl-tokenpaychan-iou-mpt-payment-channels",
+  "title": "XRPLF's TokenPaychan PR Would Extend Payment Channels Beyond XRP",
+  "description": "XRPLF's open TokenPaychan pull request would let PaymentChannel transactions lock trust-line tokens and MPTs, with issuer controls and a pending amendment gate. It is code under review, not a live XRPL capability.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-08-31T22:12:12-05:00",
+  "modifiedAt": "2026-08-31T22:12:12-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/token-paychan-capstan-editorial.webp",
+  "imageAlt": "A pale-gold double-groove capstan winds two cobalt glass ribbons across an ivory stone workbench, with a small vermilion shutter open beside the nearer groove.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "token-paychan-double-groove-capstan-still-life",
+  "imageSetting": "A quiet white-feldspar rope-maker's drying gallery, viewed from a high oblique angle at a broad ivory stone workbench, with one low west window casting cool blue light across the mechanism and broad untouched space above-left.",
+  "imageMetaphor": "A pale-gold double-groove capstan winds two different cobalt glass ribbons from fixed ivory anchor sockets toward a receiving cleat, while one restrained vermilion shutter stands open beside the nearer groove. The arrangement represents one proposed payment-channel mechanism carrying two issuer-approved token classes through separate locked balances, not a live network state.",
+  "imagePrompt": "Create a single sparse, physically believable 16:9 editorial still life for a serious XRP Ledger news article. Show exactly one pale-gold double-groove capstan with a real axle, two separate cobalt-blue glass ribbons wound through its grooves, two small ivory anchor sockets, one receiving ivory cleat, and one restrained vermilion hinged shutter standing open beside the nearer groove. Arrange the mechanism low-right on a broad ivory stone workbench, leaving generous untouched negative space above-left. Set it in a quiet white-feldspar rope-maker's drying gallery after rain, seen from a high oblique angle, with a low west window giving cool cobalt ambient light and crisp warm modeling on the metal. The two ribbons should be visibly different: one smooth translucent band for an issued trust-line token and one subtly faceted band for a multi-purpose token. The shutter is the only red status accent and represents issuer opt-in. Render as luminous academic classical oil on ivory ground, precise object edges, believable gravity, tension, axle, grooves, shadows, and material response, with pale gold metal, cobalt and water-blue glass, ivory stone, and broad calm negative space. Tiny 1/0/x stipple may appear only inside a few atmospheric or shadow transitions, never as all-over texture. No text, no letters, no numbers, no logos, no XRP or crypto coin, no dashboard, no interface, no politician, no generic cyber cube, no city panorama, no Greek temple or ruins, no impossible architecture, no extra objects, no fantasy glow. The image must explain a proposed token-enabled payment-channel mechanism through the capstan, separate asset ribbons, locked anchor sockets, and the single open permission shutter. Use the bundled reference images for brushwork, oil luminosity, palette, and material discipline only; do not copy their subjects or compositions.",
+  "keywords": [
+    "XRP Ledger",
+    "TokenPaychan",
+    "XLS-93d",
+    "token-enabled payment channels",
+    "MPTs",
+    "IOUs",
+    "PaymentChannelClawback",
+    "XRPL development"
+  ],
+  "keyTakeaways": [
+    "[Confirmed] XRPLF's open PR #7935, updated August 31, 2026, proposes extending PaymentChannelCreate, PaymentChannelFund, and PaymentChannelClaim to IOUs and Multi-Purpose Tokens under a featureTokenPaychan amendment gate. [1][2]",
+    "[Confirmed] A token channel would inherit issuer and asset controls. IOU issuers need Allow Trust Line Locking, while MPT issuers need Can Escrow and, for non-issuer destinations, Can Transfer, with authorization, freeze, transferability, and locked-balance checks still applying. [1][4][6][7]",
+    "[Confirmed] PR #7936 is a separate open, stacked proposal for PaymentChannelClawback. It addresses locked token balances that ordinary Clawback cannot reach, but it is not merged and does not establish a live Mainnet capability. [3][8]",
+    "[Unresolved] The reviewed sources do not establish Mainnet activation, stable-release inclusion, wallet support, token-channel volume, adoption, additional XRP demand, or any XRP price effect. [1][5][10]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: TokenPaychan is a proposed extension, not a live XRP Ledger feature",
+      "paragraphs": [
+        "XRPLF's open TokenPaychan implementation would extend XRP Ledger payment channels to trust-line tokens (IOUs) and Multi-Purpose Tokens (MPTs), using issuer permission and locked-balance rules. The latest PR was updated on August 31, 2026, but it remains unmerged. That means developers can study the design, not treat token channels as available on Mainnet. [1][2][5]",
+        "The material development is an open implementation of XLS-93d, not an announcement of a new production payment rail. GitHub's XRPLF/rippled pull request #7935 describes Token-Enabled Payment Channels as a change that reuses the lock accounting and issuer opt-in model introduced for token escrow. The proposal is therefore specific: it targets the channel primitive's asset type and state accounting, while preserving the permission checks that determine whether an issuer's asset may be locked. [1][4][7]",
+        "[Source date] The August 31 update is a repository timestamp, not a Mainnet launch date. The current official Payment Channels documentation still describes the feature in XRP terms, with signed claims exchanged off-ledger and a later on-ledger claim or close. That distinction is the editorial baseline for this report: the code under review is evidence of development status, not evidence of activation or use. [1][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://github.com/XRPLF/rippled/commit/2ba6f4cc68016054de844305bf98a969b1db0c4d",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://xrpl.org/docs/concepts/payment-types/escrow"
+      ]
+    },
+    {
+      "heading": "What the August 31 code record actually shows",
+      "paragraphs": [
+        "[Confirmed] At publication, PR #7935 was open with develop as its base and token-paychan as its head branch. The repository page showed the pull request updated August 31, 2026, with 33 files changed and a latest visible commit that merged origin/develop into the feature branch. Those details indicate active branch maintenance and review. They do not indicate that the amendment passed, that a stable rippled release contains it, or that validators are voting on it. [1][2]",
+        "The branch-level feature declaration is also meaningful but bounded. In the reviewed commit, TokenPaychan is declared supported with a default-no vote behavior. That is a software feature-table setting on the development branch. It is not a network-wide status field, a validator-supermajority result, or a permission for clients to submit token PaymentChannel transactions to today's public network. [2][10]",
+        "[Independent supporting record] An XRPL Brew digest dated May 24, 2026, listed XLS-93 Token PayChan as a new draft specification in the public XRPL development stream. That independent chronology supports the narrower conclusion that the idea has been tracked in public technical work for months. It does not independently prove that the current implementation is complete, merged, activated, or adopted. [9]",
+        "The source precedence matters. The current XRPLF pull request is the primary record for the implementation's present review state. The older standards discussion is useful for design history, while the community digest supplies independent context. Where those records differ in naming or issuer flags, the current implementation and current XRPL documentation take precedence over earlier draft wording. [1][4][5][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://github.com/XRPLF/rippled/commit/2ba6f4cc68016054de844305bf98a969b1db0c4d",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/287",
+        "https://xrplbrew.com/2026-05-18_2026-05-24.html",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "How a token-enabled payment channel would change the transaction lifecycle",
+      "paragraphs": [
+        "Today, an XRP Ledger payment channel is an XRP-only mechanism. A sender creates a channel, locks XRP, signs claims against that balance without putting each claim on ledger, and a destination later submits a claim or closes the channel. This design separates frequent bilateral claim exchange from the less frequent ledger settlement. [5]",
+        "The TokenPaychan implementation extends the same lifecycle to assets that need an issuer and asset identity. The reviewed code changes PaymentChannelCreate, PaymentChannelFund, and PaymentChannelClaim paths so they can validate non-XRP amounts when the feature gate is present. Its PayChan authorization structure can carry XRP, IOU, or MPT asset information, and the channel amount and balance are handled as asset-aware amounts rather than as XRP-only drops. [1]",
+        "That is more than a field rename. A token channel must keep the asset class consistent across creation, funding, signed claims, and settlement. The branch adds checks for asset mismatch, transferability, authorization, freeze state, spendable balance, and precision or rounding hazards. For an MPT, the amount also has to respect the token's issuer-defined transfer rules. These are implementation constraints visible in the proposal, not a guarantee that every token will be eligible after activation. [1][6][7]",
+        "[Bounded inference] If a final version were released and activated, the practical promise would be a familiar off-ledger claim cadence for selected issued assets. The reader should not translate that into a claim that token transfers become free, trustless across issuers, or automatically convertible into XRP. The channel would still settle a particular asset under that asset's issuer permissions and the final amendment's rules. [1][5][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens"
+      ]
+    },
+    {
+      "heading": "Issuer permission is part of the channel design",
+      "paragraphs": [
+        "A token-enabled channel would not make every issued asset lockable by default. The permission model is the central safety boundary. The current token escrow documentation says an IOU issuer must enable Allow Trust Line Locking, while an MPT issuer must enable Can Escrow and Can Transfer in the cases where transferability is required. The TokenPaychan PR reuses this family of issuer opt-ins and locked-amount helpers. [1][7]",
+        "The practical effect is that a wallet or payment service cannot infer eligibility from the token's ticker, issuer name, or balance alone. It must evaluate the asset's ledger flags and the channel participants' authorization state. A frozen trust line, an unauthorized holder, an MPT that cannot transfer to the destination, or a balance that is not spendable after accounting for other locks can prevent creation, funding, or claim. [1][6][7]",
+        "[Confirmed] The proposal also keeps XRP's existing path distinct. XRP does not need issuer opt-in because it has no issuer account or trust-line authorization. IOUs and MPTs introduce a second layer of asset policy, so the channel's ability to lock value depends on both the channel transaction and the token's own ledger configuration. [1][5][6]",
+        "[Unresolved] The final user experience remains unsettled. The open code and draft material do not establish which wallets, SDKs, custody systems, or payment processors will expose these flags, display locked token balances, or recover safely from a rejected claim. Those integration questions matter more to day-to-day availability than the existence of a pull request alone. [1][4][10]"
+      ],
+      "table": {
+        "caption": "Asset-specific gates described by the current documentation and implementation",
+        "headers": [
+          "Asset path",
+          "Issuer or asset gate",
+          "Reader-facing consequence"
+        ],
+        "rows": [
+          [
+            "XRP payment channel",
+            "Existing XRP PaymentChannel rules",
+            "No issuer opt-in is required, but the TokenPaychan amendment is not needed for the native XRP path."
+          ],
+          [
+            "Trust-line IOU",
+            "Allow Trust Line Locking, plus authorization, freeze, and balance checks",
+            "The issuer must permit locking before issued funds can be committed to a token channel."
+          ],
+          [
+            "Multi-Purpose Token",
+            "Can Escrow and, where required, Can Transfer, plus MPT authorization and lock checks",
+            "MPT channel eligibility depends on issuer settings and the destination's transfer conditions."
+          ]
+        ],
+        "sourceNote": "The table summarizes current XRPL token escrow and MPT documentation alongside the open TokenPaychan implementation. The PR remains under review. [1][6][7]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels"
+      ]
+    },
+    {
+      "heading": "Why the stacked PaymentChannelClawback proposal matters",
+      "paragraphs": [
+        "Token locking creates an accounting question that ordinary clawback does not solve. The final XLS-0039 Clawback specification says the current operation is limited to an account's spendable funds and cannot claw back assets locked in escrow or a payment channel. A token issuer may have a clawback authority, but a locked balance is not in the normal spendable balance used by that operation. [8]",
+        "XRPLF's PR #7936 is a separate open pull request stacked on the TokenPaychan branch. Its stated purpose is PaymentChannelClawback for IOUs and MPTs that remain locked in an active channel. The proposal targets the channel's unclaimed remainder, represented by the channel amount minus the already claimed balance, and reuses the issuer opt-in flags rather than creating a new general issuer power. [3]",
+        "The MPT accounting described in the PR is consequential. A clawback would need to reduce the holder's locked amount and the issuance's locked or outstanding accounting consistently, while an IOU clawback would retire the channel obligation. The added ValidPaymentChannel invariant checks that the balance does not exceed the amount and that the asset remains consistent. These are safeguards proposed in review, not proof that the behavior has shipped. [3]",
+        "[Unresolved] A token channel without a final, compatible clawback design could leave issuers, custodians, and compliance teams with an awkward mismatch between ordinary token recovery and channel-locked value. The stacked PR is an attempt to close that gap. Its open status means readers should wait for both proposals, their tests, and the activation process before designing production controls around them. [1][3][8][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7936",
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://xls.xrpl.org/xls/XLS-0039-clawback.html",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Implications for issuers, developers, and XRP readers",
+      "paragraphs": [
+        "[For token issuers] The proposed feature makes issuer configuration part of payment-channel product design. An issuer considering IOU or MPT channels would need to decide whether its lock, escrow, transfer, authorization, and clawback policies are compatible. Opting in would not by itself create channel volume or liquidity. It would only make a class of ledger operations eligible for the relevant checks if the amendment eventually activates. [1][3][6][7]",
+        "[For wallet, SDK, and custody developers] The largest implementation burden is state awareness. Software would need to distinguish XRP, IOU, and MPT channel amounts; surface locked versus spendable balances; validate issuer flags; and handle amendment-gated transaction failures. The open PR's tests and serialization changes are a starting point for integration review, not a stable API contract. [1][2][5]",
+        "[For payment and liquidity builders] The proposal could make a selected issued asset easier to use in a repeated bilateral claim flow, but that is a conditional product implication. It does not remove issuer risk, counterparty risk, trust-line requirements, transfer restrictions, or the need for eventual on-ledger settlement. A channel is a mechanism for claims against locked value, not an automatic market or bridge. [1][5][7]",
+        "[For direct XRP holders and market readers] The reviewed record does not show a new XRP demand source, a token-channel transaction count, an activated amendment, or a price catalyst. TokenPaychan is about broadening an XRPL transaction primitive to issued assets. Any future effect on XRP fee demand, reserve usage, or liquidity would be an empirical question after release and adoption, not a fact established by this PR. [1][5][9]",
+        "[For node operators and analysts] The operational milestones are clear: final review, merge, stable rippled release, amendment status, validator voting, and transaction evidence. Until those records exist, a branch feature declaration should be treated as development metadata. The official known-amendments process distinguishes in-development work from amendments that are open for Mainnet voting, which is why status labels matter here. [2][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://github.com/XRPLF/rippled/pull/7936",
+        "https://github.com/XRPLF/rippled/commit/2ba6f4cc68016054de844305bf98a969b1db0c4d",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrplbrew.com/2026-05-18_2026-05-24.html"
+      ]
+    },
+    {
+      "heading": "Uncertainty labels and the publication boundary",
+      "paragraphs": [
+        "[Confirmed fact] The implementation proposal is public, specific, and active in review. PR #7935 describes token-enabled channels for IOUs and MPTs, the latest visible branch activity is dated August 31, and PR #7936 separately addresses clawback of locked token value. The official docs still describe the currently documented PaymentChannel path as XRP-only. [1][3][5]",
+        "[Bounded inference] If the design survives review, merges, enters a stable release, passes amendment voting, and gains client support, the mechanism could let selected issued assets use the same broad off-ledger claim pattern as XRP channels. That is a reasonable reading of the proposed architecture. It is not a promise about timing, reliability, volume, or economic outcomes. [1][5][7][10]",
+        "[Unresolved uncertainty] The reviewed material does not provide a final activation date, a Mainnet amendment vote, a stable release version, production wallet compatibility, live token-channel transactions, or usage data. It also does not establish additional XRP demand, adoption, partnership outcomes, or a price effect. Those claims require separate dated evidence and must not be inferred from the size of the code diff. [1][2][5][10]",
+        "This boundary is especially important because the proposal uses familiar words such as payment, claim, escrow, and clawback. Familiar terminology can make an unmerged branch sound like a product announcement. The accountable reading is narrower: XRPLF is reviewing a concrete implementation that would extend an existing XRP-only primitive, subject to issuer policy and the amendment lifecycle. [1][4][7]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7935",
+        "https://github.com/XRPLF/rippled/pull/7936",
+        "https://github.com/XRPLF/rippled/commit/2ba6f4cc68016054de844305bf98a969b1db0c4d",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://xrpl.org/resources/known-amendments",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/287"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "[1] PR #7935's review, conflict resolution, test changes, and merge status. A merged pull request would still be a software milestone, not activation.",
+    "[3] PR #7936's fate and whether its clawback invariants, partial-clawback cases, cleanup behavior, and wrong-asset tests remain aligned with the final TokenPaychan implementation.",
+    "[4] Revisions to the XLS-93d standards discussion, especially the final asset flags, transaction fields, issuer restrictions, and compatibility requirements.",
+    "[10] A stable rippled release, an official known-amendments entry, and a dated Mainnet voting or activation record. These are the evidence needed to move from branch status to network status.",
+    "[1][5][6] Wallet and SDK releases that expose asset-aware channel fields, followed by reproducible Testnet or Mainnet ledger entries and usage data. Only then can readers assess operational reliability or economic significance."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #7935, Token-Enabled Payment Channels, updated August 31, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7935",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "XRPLF rippled commit 2ba6f4c, latest develop merge into token-paychan",
+      "url": "https://github.com/XRPLF/rippled/commit/2ba6f4cc68016054de844305bf98a969b1db0c4d",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "XRPLF rippled PR #7936, PaymentChannelClawback, stacked open review",
+      "url": "https://github.com/XRPLF/rippled/pull/7936",
+      "type": "primary",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "XLS-93d Token PayChan draft, XRPL Standards Discussion #287",
+      "url": "https://github.com/XRPLF/XRPL-Standards/discussions/287",
+      "type": "primary",
+      "publishedAt": "2025-05-24"
+    },
+    {
+      "name": "XRPL Payment Channels documentation",
+      "url": "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Multi-Purpose Tokens documentation",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/multi-purpose-tokens",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Token Escrow documentation",
+      "url": "https://xrpl.org/docs/concepts/payment-types/escrow",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0039 Clawback Support, XRPL Standards",
+      "url": "https://xls.xrpl.org/xls/XLS-0039-clawback.html",
+      "type": "primary",
+      "publishedAt": "2023-03-04"
+    },
+    {
+      "name": "XRPL Monday Brew, May 18 to 24, 2026 independent development digest",
+      "url": "https://xrplbrew.com/2026-05-18_2026-05-24.html",
+      "type": "supporting",
+      "publishedAt": "2026-05-24"
+    },
+    {
+      "name": "XRPL Known Amendments status and activation process",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrpl-payment-channels",
+      "label": "How XRPL payment channels work"
+    },
+    {
+      "href": "/learn/xrpl-multi-purpose-tokens",
+      "label": "How Multi-Purpose Tokens work on XRPL"
+    },
+    {
+      "href": "/learn/escrow",
+      "label": "XRPL escrow and locked tokens"
+    },
+    {
+      "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens",
+      "label": "Why MPT transfer rules matter for XRPL applications"
+    },
+    {
+      "href": "/news/xrpl-confidential-mpt-key-rotation-draft-status",
+      "label": "How to read an XRPL draft feature without calling it live"
+    }
+  ]
+}
