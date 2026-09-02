@@ -1,0 +1,272 @@
+{
+  "slug": "remixpoint-sells-xrp-bitcoin-only-treasury",
+  "title": "Remixpoint Sells 1.19 Million XRP as Its Crypto Treasury Turns Bitcoin-Only",
+  "description": "Japan-listed Remixpoint disclosed a September 1 sale of 1.19 million XRP and its other altcoins, reporting an 11.52 million-yen XRP gain and a bitcoin-only crypto treasury while leaving market-wide impact unresolved.",
+  "category": "XRP Market Structure",
+  "publishedAt": "2026-09-02T14:17:00-05:00",
+  "modifiedAt": "2026-09-02T14:17:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/remixpoint-treasury-pruning-editorial.webp",
+  "imageAlt": "Classical oil still life of pale-gold pruning shears, four cobalt glass cuttings, and one upright blue stem in an ivory reservoir, symbolizing Remixpoint’s bitcoin-only treasury.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "remixpoint-treasury-pruning-reserve-still-life",
+  "imageSetting": "A quiet white-limestone grafting porch after rain at the first clear glint of sunrise, viewed from a low front-center angle across a broad ivory stone slab; a narrow bronze lattice throws one sharp diagonal reflection while the upper half remains open and unmarked.",
+  "imageMetaphor": "Open pale-gold pruning shears separate four cobalt glass cuttings from one thicker upright stem anchored in an ivory reservoir, representing Remixpoint’s sale of ETH, SOL, XRP, and DOGE while retaining a bitcoin-only crypto treasury.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: a sparse, physically believable still life explaining Remixpoint’s September 2, 2026 disclosure that it sold four altcoin positions, including XRP, and retained a bitcoin-only crypto treasury. Scene/backdrop: a quiet white-limestone grafting porch after rain at the first clear glint of sunrise, not a temple, terrace, bank, harbor, quay, archive, workshop, laboratory, studio, observatory, conservatory, court, gallery, chamber, or any other registered guide or news setting. Subject: one open pale-gold pruning shear beside one ivory reservoir holding a single thicker upright cobalt-blue glass stem, four smaller cobalt glass cuttings detached in a deliberate arc, and one restrained vermilion wax tab marking completion. The glass cuttings are abstract material symbols, not plants, coins, tokens, or logos. Style/medium: luminous academic and classical-revival oil painting, jewel-toned cobalt and ultramarine, warm ivory, pale gold, restrained vermilion, crisp sculptural modeling, rich glazing, ordered detail, smooth enamel-like passages, selective impasto, and extremely subtle translucent 1/0/x stipple only in a few atmospheric or shadow transitions. Composition/framing: low front-center view across ivory stone, the object cluster in the lower third, strong thumbnail silhouette, one new arrangement and viewpoint, broad negative space above and to the right. Lighting/mood: clear sunrise after rain with one sharp bronze-lattice reflection, calm analytical concentration. Constraints: preserve exactly one shear, one reservoir, one upright stem, four detached cuttings, and one vermilion tab; no readable text, watermark, border, rounded frame, logo, literal crypto coin, dashboard, politician, cyber cube, panoramic Greek city, generic digital art, photographic realism, sepia, muddy gray, coarse halftone, all-over ASCII, retro pixel art, duplicated objects, or reused scene key, setting, primary symbol, lighting, viewpoint, or metaphor from any existing content/news or content/editorial-art.json entry.",
+  "keywords": [
+    "Remixpoint XRP sale",
+    "Remixpoint bitcoin-only treasury",
+    "corporate XRP holdings",
+    "XRP market structure",
+    "XRP institutional exposure",
+    "XRP treasury strategy",
+    "Japan-listed crypto companies"
+  ],
+  "keyTakeaways": [
+    "Remixpoint disclosed that it sold 1,191,204.799501 XRP on September 1, receiving 260,425,959 yen and recording an 11,523,717-yen gain against its reported book value. [1]",
+    "The XRP sale was one part of a complete ETH, SOL, XRP, and DOGE exit. Remixpoint said its remaining crypto holdings were approximately 1,506 BTC, making the decision a portfolio-concentration move rather than an XRP-only announcement. [1][3]",
+    "Remixpoint said the combined altcoin sale produced 878,814,569 yen of proceeds and a 117,772,649-yen gain, with the proceeds potentially supporting grid-scale battery assets, the balance sheet, and other corporate-value measures. [1]",
+    "The disclosure is evidence of one Tokyo-listed company’s treasury decision. It does not establish a market-wide XRP selloff, an XRP price signal, Ripple or XRPL involvement, or new XRP Ledger demand. [1][3][6]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Remixpoint exited XRP as part of a four-altcoin sale",
+      "paragraphs": [
+        "Remixpoint disclosed on September 2 that it sold all 1,191,204.799501 XRP it held, along with its ETH, SOL, and DOGE positions, in transactions executed September 1. The Tokyo-listed company reported 260,425,959 yen of XRP sale proceeds and an 11,523,717-yen realized gain. Its remaining crypto treasury is bitcoin-only. [1][2][3]",
+        "This is a completed corporate portfolio decision, not a proposal or an unattributed market rumor. The Japanese company’s investor disclosure gives a sale date, unit counts, book values, sale values, realized gains or losses, and a broad statement about how the proceeds may be used. That makes the record useful for balance-sheet analysis, while still leaving the trading venue, order path, and market reaction unknown. [1]",
+        "The most important qualifier is that XRP was one line in a broader altcoin exit. Remixpoint did not announce that XRP alone had become unacceptable, that XRP had caused a loss, or that other companies were following the same path. The evidence supports a narrower headline: one listed company moved from a diversified altcoin book to a bitcoin-only crypto treasury. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.remixpoint.co.jp/corporate/ir/2026/11035",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333"
+      ]
+    },
+    {
+      "heading": "The official disclosure records four exits and one retained asset class",
+      "paragraphs": [
+        "[Confirmed fact] Remixpoint’s September 2 filing says it sold all of the altcoins it held on September 1. The table covers Ethereum, Solana, XRP, and Dogecoin. The company reported the amounts below in yen, with the book-value footnote defining the baseline as the opening book value for its fiscal year ending in March 2027. [1]",
+        "The table matters because it prevents the XRP line from being stripped out of its portfolio context. Ethereum and Solana generated the largest gains in yen, XRP also sold above the reported book value, and Dogecoin was the only line shown at a loss. The combined result was positive, but the filing describes a complete reallocation rather than a selective XRP trade. [1][3][4]"
+      ],
+      "table": {
+        "caption": "Remixpoint’s reported September 1, 2026 altcoin sale",
+        "headers": [
+          "Asset",
+          "Units sold",
+          "Sale value (JPY)",
+          "Realized gain or loss (JPY)"
+        ],
+        "rows": [
+          [
+            "Ethereum (ETH)",
+            "901.44672542",
+            "353,425,711",
+            "+60,203,121"
+          ],
+          [
+            "Solana (SOL)",
+            "13,920.07255868",
+            "227,885,508",
+            "+49,304,898"
+          ],
+          [
+            "XRP",
+            "1,191,204.799501",
+            "260,425,959",
+            "+11,523,717"
+          ],
+          [
+            "Dogecoin (DOGE)",
+            "2,802,311.99657",
+            "37,077,391",
+            "-3,259,087"
+          ],
+          [
+            "Total",
+            "Four positions",
+            "878,814,569",
+            "+117,772,649"
+          ]
+        ],
+        "sourceNote": "Source: Remixpoint’s official disclosure dated September 2, 2026. The sales were executed September 1, 2026. Yen amounts are reproduced as reported, without an added USD conversion because the filing does not specify a conversion rate. [1]"
+      },
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+        "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet"
+      ]
+    },
+    {
+      "heading": "XRP produced a realized gain, but the gain is not a forecast",
+      "paragraphs": [
+        "[Confirmed fact] Remixpoint reported a 248,902,242-yen book value for its XRP position and 260,425,959 yen of sale proceeds. The resulting 11,523,717-yen gain is an accounting result relative to the book-value basis in the disclosure. It is not a statement about XRP’s future price, a target return, or the profitability of buying XRP today. [1]",
+        "The book-value note deserves attention. Remixpoint says the table uses the opening book value for the fiscal year ending in March 2027. That is the company’s reported accounting reference for this disclosure, not necessarily a simple average purchase price that captures every prior acquisition, internal valuation convention, or holding-period decision. Calling the difference a realized gain is supported; treating it as a clean percentage return for an individual investor would add assumptions the filing does not provide. [1]",
+        "[Bounded inference] The sale was not a distressed loss event for the XRP line. It also was not a vote of confidence in the asset. A company can realize a gain and still prefer a different future allocation because of liquidity, concentration, risk tolerance, treasury policy, or the opportunity to use cash elsewhere. Remixpoint’s own explanation points to market conditions, asset risk-return characteristics, and financial strategy in the aggregate. It does not rank those considerations by asset. [1][3]",
+        "This distinction keeps the number useful. The 11,523,717-yen XRP gain tells readers what happened inside Remixpoint’s reported transaction. It does not tell readers how XRP will trade after the sale, whether the seller’s timing was optimal, or whether the sale created sustained pressure in any particular venue. Those are separate questions requiring market data rather than a corporate accounting table. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+        "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet"
+      ]
+    },
+    {
+      "heading": "The bitcoin-only move follows a different return profile",
+      "paragraphs": [
+        "[Confirmed fact] Remixpoint says that, after the altcoin sale, its crypto holdings consisted only of approximately 1,506 BTC. The same September 2 disclosure reports 14.92055902 BTC of cumulative Bitcoin lending fees from February 24 through August 31, valued by the company at 164,218,522 yen. It also says the company intends to record the 117,772,649-yen altcoin-sale gain as business-segment revenue in the second quarter of the fiscal year ending March 2027. [1]",
+        "The earlier operating record shows that this was an evolving treasury strategy. In its August 7 disclosure, Remixpoint described Bitcoin lending and altcoin staking as ongoing and reported 12.43699504 BTC of lending fees through July 31, valued at 133,065,441 yen. The September filing extends that record through August and then announces the complete altcoin exit. [5][1]",
+        "[Bounded inference] The sequence is consistent with a company choosing a more concentrated Bitcoin treasury while preserving a lending-based operating activity. That may help explain why Bitcoin remained the retained asset, but the public filing does not say that lending income was the sole reason for selling XRP, ETH, SOL, and DOGE. It would be an overreach to turn a chronology into a single-cause explanation. [1][3][5]",
+        "Remixpoint also says it is considering using the sale proceeds for growth areas such as grid-scale battery assets, strengthening its financial base, and other measures intended to support corporate and shareholder value. That language points away from assuming the 878,814,569 yen of proceeds will automatically return to crypto markets. The company has described possible uses, not a completed reinvestment plan. [1][3]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://contents.xj-storage.jp/xcontents/AS08938/1d51ada8/393d/4447/b0ce/32a85917d229/140120260805509565.pdf",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333"
+      ]
+    },
+    {
+      "heading": "Why one corporate sale is not an XRP market verdict",
+      "paragraphs": [
+        "[Confirmed fact] The Block and Cointelegraph independently reported the same broad outcome as Remixpoint’s filing: the company sold its ETH, SOL, XRP, and DOGE positions and retained approximately 1,506 BTC. Their coverage provides a second and third public account of the announcement, while the Japanese filing remains the controlling source for the exact yen amounts and unit counts. [1][3][4]",
+        "The independent reports do not supply the missing execution record. Remixpoint’s disclosure does not identify the exchange, broker, counterparties, order slicing, intraday timestamps, or whether the four sales were executed through one venue or several. Without those details, a reader cannot responsibly connect the 1,191,204.799501 XRP to a particular candle, order-book event, or percentage of XRP’s market volume. [1][3][4]",
+        "[Unresolved uncertainty] The public record reviewed here also does not establish whether Remixpoint’s sale was large enough to move XRP’s price, whether it was absorbed by normal liquidity, or whether other corporate holders made similar decisions at the same time. Those questions require synchronized venue-level data and additional company disclosures. The existence of a realized gain does not answer them. [1][3]",
+        "That boundary is especially important in a market where an institutional label can be mistaken for a market-wide flow. Remixpoint is a named corporate holder, but this filing identifies one balance sheet. It does not report aggregate corporate XRP ownership, net exchange inflows, ETF creations, or a change in XRP Ledger transaction demand. The defensible conclusion is that a disclosed treasury exit occurred, not that a sector-wide thesis has been proven. [1][3][4]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+        "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet"
+      ]
+    },
+    {
+      "heading": "The corporate treasury decision is separate from Ripple and XRP Ledger activity",
+      "paragraphs": [
+        "[Editorial boundary] Remixpoint’s filing discusses its own crypto assets, operating results, portfolio policy, and possible use of sale proceeds. It does not announce a relationship with Ripple, a deployment on the XRP Ledger, an RLUSD settlement flow, a payment corridor, or an XRP-specific institutional integration. A corporate holding of XRP is therefore not evidence that Remixpoint used XRPL infrastructure. [1]",
+        "The distinction between an asset and its native network is practical. XRP can appear on a company balance sheet without the filing identifying the account, custody arrangement, transaction history, or settlement path. Conversely, a future XRPL-use claim would need a dated ledger record, named application, disclosed integration, or another source that actually connects the corporate activity to validated ledger transactions. [1][6]",
+        "[For XRP holders and traders] Treat the sale as a company-specific supply event whose size and market effect are not yet measured in the public record. Watch for execution evidence before assigning causality. A headline that says Remixpoint sold XRP is supported. A headline that says Remixpoint caused a market decline, or that all corporate buyers are leaving XRP, is not supported by these sources. [1][3][4]",
+        "[For XRP Ledger builders] No protocol response follows from this disclosure. The filing does not change a transaction type, amendment, validator requirement, or ledger rule. Builders should separate market-structure coverage from network telemetry, just as treasury analysts should separate a company’s asset allocation from claims about XRP adoption. [1][6]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://xrpl.org/docs/concepts/transactions",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333"
+      ]
+    },
+    {
+      "heading": "Implications for investors, treasury analysts, and market readers",
+      "paragraphs": [
+        "[For prospective XRP investors] The disclosure is a reminder to identify the layer being measured. Remixpoint held XRP directly as a corporate asset, while other public products may hold XRP-linked securities, options, or cash instruments. Those structures can have different custody, liquidity, fee, and accounting exposures. A named corporate sale should not be compared with an ETF holdings snapshot as if both were the same kind of flow. [1][3]",
+        "[For corporate treasury analysts] The decision trades diversification for concentration. A bitcoin-only book may simplify the stated policy and preserve access to the company’s Bitcoin lending activity, but it also makes the balance sheet more dependent on one digital asset and one operating approach. The filing describes management’s objectives, not a risk-adjusted performance study, so readers should avoid treating the pivot as a universal treasury template. [1][5]",
+        "[For XRP market observers] The most useful follow-up is not a prediction about XRP’s next price. It is a reconciliation exercise: identify whether the disclosed units appear in venue data, compare the timing with XRP liquidity and volume, and look for other corporate disclosures before describing a broader flow. The current sources support the sale and its reported gain, but not its marginal effect on the market. [1][3][4]",
+        "[For journalists and analysts] The accountable framing is compact: Remixpoint sold all four altcoin positions on September 1, booked a reported gain on XRP and on the combined sale, and said it would concentrate its crypto holdings around Bitcoin. The story becomes inaccurate when that corporate strategy is presented as proof about XRP demand, Ripple adoption, XRP Ledger usage, or future price. [1][3][4][6]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+        "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet",
+        "https://xrpl.org/docs/concepts/transactions"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed fact, bounded inference, unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed fact] Remixpoint published a September 2, 2026 disclosure covering sales executed September 1. It reported the sale of 1,191,204.799501 XRP for 260,425,959 yen, a realized XRP gain of 11,523,717 yen, total four-asset proceeds of 878,814,569 yen, a combined gain of 117,772,649 yen, and approximately 1,506 BTC remaining as its only crypto holding. [1][2]",
+        "[Bounded inference] The sequence indicates a shift from a multi-asset crypto treasury to a concentrated Bitcoin policy that can retain the company’s existing Bitcoin lending activity. It is reasonable to describe the move as portfolio selection and concentration because that is how Remixpoint characterizes it. It is not reasonable to assign the decision to a single XRP-specific judgment when the filing gives aggregate reasons. [1][3][5]",
+        "[Unresolved uncertainty] The reviewed record does not disclose the execution venues, intraday timing, counterparties, post-sale custody details, or measured price effect. It also does not establish a broader corporate trend, an XRP Ledger connection, or an institutional adoption outcome. Remixpoint’s undated live digital-asset page may lag the dated IR filing, so the disclosure takes precedence for the September 1 sale and the page should not be used to infer a post-sale balance until it publishes a dated update. [1][6][7]",
+        "[Source precedence] The Japanese IR disclosure is primary for the sale table, accounting figures, retained BTC statement, and intended proceeds use. The August 7 IR disclosure supplies historical operating context. The Block and Cointelegraph provide independent reporting on the announcement, while XRPL.org defines the separate ledger evidence needed for a network-use claim. Dates are shown in the source list; XRPL.org and Remixpoint’s live portfolio page are labeled undated references because no publication date is exposed. [1][3][4][5][6][7]"
+      ],
+      "sourceUrls": [
+        "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+        "https://www.remixpoint.co.jp/corporate/ir/2026/11035",
+        "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+        "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet",
+        "https://contents.xj-storage.jp/xcontents/AS08938/1d51ada8/393d/4447/b0ce/32a85917d229/140120260805509565.pdf",
+        "https://xrpl.org/docs/concepts/transactions",
+        "https://www.remixpoint.co.jp/digital-asset/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Remixpoint’s next dated IR holdings update, including whether the approximately 1,506 BTC figure changes after the altcoin sale.",
+    "A dated company disclosure showing whether the 878,814,569-yen sale proceeds are committed to grid-scale battery assets, balance-sheet strengthening, or another stated use.",
+    "The fiscal-year second-quarter report for recognition of the planned 117,772,649-yen combined altcoin-sale gain as business-segment revenue.",
+    "Venue-level XRP volume, liquidity, and execution records around September 1 before attributing a price move or market-wide flow to Remixpoint.",
+    "Additional corporate treasury disclosures that can test whether this was an isolated allocation decision or part of a broader shift away from XRP and other altcoins."
+  ],
+  "sources": [
+    {
+      "name": "Remixpoint IR disclosure, Altcoin sale and crypto-asset operating results, September 2, 2026 (Japanese original)",
+      "url": "https://contents.xj-storage.jp/xcontents/AS08938/e11a3c77/3bce/4b01/a120/fb85711a2458/140120260901530316.pdf",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "Remixpoint IR news page for the September 2 disclosure, September 2, 2026",
+      "url": "https://www.remixpoint.co.jp/corporate/ir/2026/11035",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "The Block, Japan-listed Remixpoint sells all ETH, SOL, XRP and DOGE holdings in shift to bitcoin-only strategy, September 2, 2026",
+      "url": "https://www.theblock.co/news/business/2026-09-02-japan-listed-remixpoint-sells-all-eth-sol-xrp-and-doge-holdings-in-shift-to-bitcoin-only-crypto-strategy-413333",
+      "type": "supporting",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "Cointelegraph, Japan’s Remixpoint dumps altcoins, leaves 1,506 BTC as sole crypto bet, September 2, 2026",
+      "url": "https://cointelegraph.com/news/remixpoint-dumps-altcoins-1506-btc-sole-crypto-bet",
+      "type": "supporting",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "Remixpoint IR disclosure, Bitcoin lending and altcoin staking update, August 7, 2026 (Japanese original)",
+      "url": "https://contents.xj-storage.jp/xcontents/AS08938/1d51ada8/393d/4447/b0ce/32a85917d229/140120260805509565.pdf",
+      "type": "primary",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "name": "XRP Ledger transaction documentation, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/concepts/transactions",
+      "type": "primary"
+    },
+    {
+      "name": "Remixpoint digital-asset portfolio page, undated live reference checked September 2, 2026",
+      "url": "https://www.remixpoint.co.jp/digital-asset/",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "How to evaluate XRP risk and uncertainty",
+      "topic": "Investment context",
+      "description": "Use a time-bound risk framework instead of treating one corporate allocation decision as a price signal."
+    },
+    {
+      "href": "/learn/xrp-2026-outlook",
+      "label": "XRP 2026 outlook: scenarios, not forecasts",
+      "topic": "Market context",
+      "description": "Keep corporate treasury evidence separate from scenario analysis and unresolved market uncertainty."
+    },
+    {
+      "href": "/news/sec-13f-bitwise-xrp-etf-institutional-disclosures-q2-2026",
+      "label": "Why institutional XRP disclosures arrive with a delay",
+      "topic": "Institutional reporting",
+      "description": "Compare a dated corporate sale with delayed public holdings disclosures from investment managers."
+    },
+    {
+      "href": "/news/amplify-xrpm-xrpc-options-august-31-2026",
+      "label": "How an XRP ETF wrapper differs from direct holdings",
+      "topic": "Market structure",
+      "description": "Separate direct XRP ownership from XRP-linked securities, options, cash, and fund-level exposure."
+    },
+    {
+      "href": "/news/ripple-xrp-holdings-escrow-june-2026",
+      "label": "What Ripple’s XRP holdings disclosure does and does not show",
+      "topic": "Treasury comparison",
+      "description": "Compare a company-specific XRP sale with Ripple’s reported holdings and escrow categories."
+    }
+  ]
+}
