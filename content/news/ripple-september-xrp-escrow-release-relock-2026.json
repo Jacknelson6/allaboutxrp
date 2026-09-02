@@ -1,0 +1,324 @@
+{
+  "slug": "ripple-september-xrp-escrow-release-relock-2026",
+  "title": "Ripple's September XRP Escrow Cycle Released 1B, Then Re-Locked 700M",
+  "description": "Validated XRP Ledger records show three September 1 escrow finishes releasing 1 billion XRP, then two new escrows locked 700 million. A Ripple-labeled wallet received the remaining 300 million.",
+  "category": "XRP Market Structure",
+  "publishedAt": "2026-09-02T06:10:36-05:00",
+  "modifiedAt": "2026-09-02T06:10:36-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrp-september-escrow-cycle-editorial.webp",
+  "imageAlt": "Editorial still life of a pale gold counterflow caddy with three released cobalt capsules, two time-locked cells, and one detached blue marker in a white stone inspection room",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrp-escrow-counterflow-caddy-customs-room",
+  "imageSetting": "A silent white-calcite customs inspection room after rain at first violet dawn, viewed from inside an open floor-level service hatch toward a long ivory stone bench and a broad blank plaster wall",
+  "imageMetaphor": "A pale-gold five-cell counterflow caddy shows three cobalt capsules leaving the scheduled-release face, two seated behind ivory time-lock shutters, and one detached water-blue marker outside the caddy, representing the 1B gross unlock, 700M re-lock, and 300M wallet remainder",
+  "imagePrompt": "Create one sparse 16:9 editorial still life for a serious XRP Ledger news report. Use the exact AAXRP classical ASCII and refined oil-painting language from the supplied style references: monumental chiaroscuro, tactile white stone, restrained cream and muted gold, cobalt blue accents, small vermilion accent only if naturally needed, visible brushwork, and fine 1/0/x ASCII-like marks only along selected contours and shadow edges. The scene is a silent white-calcite customs inspection room after rain at first violet dawn. Viewpoint is from inside an open floor-level service hatch, looking diagonally toward a long ivory stone bench and a broad blank plaster wall, with generous quiet negative space in the upper left. Exactly two deliberate physical objects: one pale-gold five-cell counterflow caddy on the bench and one detached water-blue marker beside it. The caddy is the clear primary subject. Its front face has three cobalt glass capsules visibly moving out through three open release apertures. Its rear face has two cobalt capsules seated behind two closed ivory time-lock shutters. The detached water-blue marker remains outside the caddy. Make the arrangement legible as three released, two re-locked, and one remaining outside, without any numerals or written labels. Keep the composition refined, sparse, plausible, and materially specific. No XRP logo, no crypto coin, no currency symbols, no text, no labels, no charts, no dashboard, no screen, no people, no hands, no city, no temple, no harbor, no coast, no Greek ruins, no rails, no tracks, no wheel, no drum, no comb, no gate, no lockbox, no literal chain, no all-over dithering, no noisy ASCII texture, no repeated objects, no panoramic landscape, no sci-fi machinery, no modern office furniture. The image must be a unique story-specific visual metaphor for a gross escrow release, partial re-lock, and wallet remainder.",
+  "keywords": [
+    "XRP escrow",
+    "XRP Ledger",
+    "Ripple escrow",
+    "EscrowFinish",
+    "EscrowCreate",
+    "XRP supply",
+    "on-chain audit"
+  ],
+  "keyTakeaways": [
+    "Ripple's three validated September 1 EscrowFinish transactions released 1 billion XRP in gross, split 500 million, 400 million, and 100 million. [1][6][7][8]",
+    "Two same-day EscrowCreate transactions put 700 million XRP back under a May 1, 2029 time lock, leaving 300 million outside those new escrows. [1][9][10]",
+    "The 300 million Payment proves a wallet movement, not a sale, exchange deposit, or confirmed increase in public circulation. [1][11][12]",
+    "An AAXRP audit of Ripple's 20 listed escrow accounts found 100 active objects holding 31.7 billion XRP at validated ledger 106,710,112 on September 2. [1][2][3][15]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: September's gross release was 1 billion XRP, while new escrow fell by 300 million",
+      "paragraphs": [
+        "Direct answer: On September 1, validated XRP Ledger records show three Ripple escrow contracts finished for 500 million, 400 million, and 100 million XRP, releasing 1 billion in gross. Later that day, two new EscrowCreate transactions locked 700 million to May 1, 2029. The remaining 300 million moved to a Ripple-labeled wallet, not a proven sale. [1][6][7][8][9][10][11]",
+        "[Confirmed fact] That sequence creates three different numbers readers should keep separate: 1 billion XRP became available when the old escrows finished; 700 million became time-locked again in two new objects; and 300 million was transferred outside those two new escrows. The last number is a ledger delta, not a market-flow estimate. [1][4][9][10]",
+        "[Editorial boundary] The record does not establish that Ripple sold 300 million XRP, sent it to an exchange, distributed it to institutions, or changed the amount available to unrelated public holders. It establishes transaction types, amounts, accounts, ledger indices, and time-lock dates. Those distinctions are the substance of this report. [1][2][4][11][12]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://whale-alert.io/transaction/ripple/BBEE8110264337E2C469F36A3E1F5A0CC4C6F8E3C74EDDF281C78C83D6C7833D",
+        "https://whale-alert.io/transaction/ripple/77320AB230617FB014B48DF01BBEBD81AEBE8BB7756AF95B79933B700C45FC53",
+        "https://whale-alert.io/transaction/ripple/42AFB95FA661CDAA064BCED694BACC8B72768C4692E032CC981A922D30EE260B",
+        "https://whale-alert.io/transaction/ripple/6D44BFB50E4115463C45046E6A503A3A453745C34546DD05E105A3CC130CB05C",
+        "https://whale-alert.io/transaction/ripple/3111744D5FCF4EBA1573CB0AD1AE93A6F228DDE50A830D140B185A4559BBF17A",
+        "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors"
+      ]
+    },
+    {
+      "heading": "What the validated XRP Ledger records show",
+      "paragraphs": [
+        "[Method] To reconstruct the cycle, I queried Ripple's official s1.ripple.com public server with the tx, ledger, and account_objects methods. Ripple's machine-readable xrp-ledger.toml lists 20 accounts as Ripple Escrow Wallet #01 through #20. I queried each listed account for validated Escrow objects, then summed their Amount fields. This is an AAXRP ledger audit, not a Ripple financial statement. [1][2][3][14][15]",
+        "[Confirmed fact] At ledger 106,677,548, which closed at 00:00:02 UTC immediately before the release, 101 active objects contained 32.0 billion XRP. Three EscrowFinish transactions landed together in ledger 106,677,549, closed at 00:00:10 UTC, and removed three objects. The post-finish state therefore had 98 objects and 31.0 billion XRP before the later transfer and re-lock sequence. [1][2][4][6][7][8][14][15]",
+        "[Confirmed fact] At ledger 106,694,253, closed at 17:59:21 UTC, a 300 million XRP Payment moved from `r9NpyVfLfUG8hatuCCHKzosyDtKnBdsEN3` to `rBg2FuZT91C52Nny68houguJ4vt5x1o91m`. At ledgers 106,694,439 and 106,694,470, 200 million and 500 million XRP entered self-destination EscrowCreate transactions. Both new escrows carry FinishAfter for May 1, 2029, and each record returned `tesSUCCESS`. [1][9][10][11]"
+      ],
+      "table": {
+        "caption": "September 1, 2026 XRP escrow-cycle ledger audit",
+        "headers": [
+          "Stage",
+          "Validated ledger / UTC close",
+          "Active Ripple escrow objects",
+          "XRP in those objects"
+        ],
+        "rows": [
+          [
+            "Before the three finishes",
+            "106,677,548 / Sep. 1, 00:00:02",
+            "101",
+            "32.0 billion"
+          ],
+          [
+            "After the three finishes",
+            "106,677,549 / Sep. 1, 00:00:10",
+            "98",
+            "31.0 billion"
+          ],
+          [
+            "After the two re-locks",
+            "106,694,470 / Sep. 1, 18:13:31",
+            "100",
+            "31.7 billion"
+          ]
+        ],
+        "sourceNote": "AAXRP calculation from Ripple's 20 listed escrow accounts using validated account_objects. The final row excludes the 300 million XRP held outside the newly created escrow objects. Snapshot read September 2, 2026. [1][2][3][15]"
+      },
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://whale-alert.io/transaction/ripple/BBEE8110264337E2C469F36A3E1F5A0CC4C6F8E3C74EDDF281C78C83D6C7833D",
+        "https://whale-alert.io/transaction/ripple/77320AB230617FB014B48DF01BBEBD81AEBE8BB7756AF95B79933B700C45FC53",
+        "https://whale-alert.io/transaction/ripple/42AFB95FA661CDAA064BCED694BACC8B72768C4692E032CC981A922D30EE260B",
+        "https://whale-alert.io/transaction/ripple/6D44BFB50E4115463C45046E6A503A3A453745C34546DD05E105A3CC130CB05C",
+        "https://whale-alert.io/transaction/ripple/3111744D5FCF4EBA1573CB0AD1AE93A6F228DDE50A830D140B185A4559BBF17A"
+      ]
+    },
+    {
+      "heading": "Why the 700 million re-lock matters more than the headline",
+      "paragraphs": [
+        "[Confirmed fact] Ripple's 2017 announcement created 55 escrow contracts of 1 billion XRP scheduled to expire monthly and said unused XRP would return to the back of the rotation. The September transactions fit that mechanism: the ledger records two new time-based escrows, each with FinishAfter May 1, 2029, rather than another release. [4][5][9][10]",
+        "[Bounded inference] For a supply discussion, net escrow reduction is the more informative arithmetic: gross finishes of 1.0 billion minus new time locks of 0.7 billion equals 0.3 billion XRP no longer represented by those active escrow objects. That does not convert automatically into circulating supply because the 0.3 billion first moved to a labeled account whose economic use is not disclosed in the transaction itself. [1][2][3][9][10][11][13][15]",
+        "[Independent context] XORA's August 24 audit similarly distinguishes active escrow objects, total supply, Ripple-classified holdings, and estimated circulating supply. TheStreet's September 1 report also cautioned that an unlock alone is not proof of a sale. Those sources support the distinction, but neither can identify what Ripple did with every unit after release. [12][13]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/",
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors",
+        "https://xora.finance/blog/xrp-tokenomics-supply-escrow-burn-2026"
+      ]
+    },
+    {
+      "heading": "What the 300 million transfer does and does not prove",
+      "paragraphs": [
+        "[Confirmed fact] The 300 million transfer was a native XRP Payment from one address in Ripple's listed escrow registry, r9Npy..., to rBg2..., at 17:59:21 UTC. Bithomp labels the destination account Ripple and shows a large XRP balance, but that label is an explorer attribution rather than a new Ripple disclosure. [1][2][3][11]",
+        "[Unresolved uncertainty] The transaction does not include a memo naming a sale, market maker, customer, exchange, treasury use, or distribution purpose. On-chain movement can identify where XRP went, but not the commercial agreement behind an address. The most defensible description is 300 million XRP moved from a Ripple-identified escrow wallet to a Ripple-labeled account after the scheduled release. [1][11]",
+        "[Implication] Readers tracking supply should treat this as potentially available company-held XRP, not as confirmed public float or realized sell pressure. Traders may watch later transfers to exchanges or named counterparties, but timing alone cannot assign causality to XRP price movements. [3][11][12]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors"
+      ]
+    },
+    {
+      "heading": "Why this is not a new XRP supply shock by itself",
+      "paragraphs": [
+        "[Confirmed fact] The XRP Ledger's escrow model makes a gross release a protocol event with a defined lifecycle: EscrowFinish removes an escrow object and delivers its funds, while EscrowCreate establishes a new object with its own conditions. The official documentation does not define either transaction as an exchange sale or a market-order instruction. [4][9][10]",
+        "[Bounded inference] The September 1 sequence narrows, but does not eliminate, the supply question. A 300 million outside-escrow balance can support operations, liquidity, incentives, institutional transfers, or other uses. If later records show exchange deposits or disclosed sales, the market interpretation changes. Without that follow-on evidence, the ledger supports availability and custody movement, not realized demand or price impact. [1][3][11][12]",
+        "[What the latest snapshot shows] The current audit at validated ledger 106,710,112, closed at 11:06:12 UTC on September 2, found 100 active objects containing 31.7 billion XRP across Ripple's 20 listed escrow accounts. That is a dated snapshot of a labeled address set. It is not the same as Ripple's quarter-end holdings figure, XRP's total supply, or an estimate of public circulating supply. [1][2][3][13][15]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors"
+      ]
+    },
+    {
+      "heading": "Implications for XRP holders, traders, and XRPL observers",
+      "paragraphs": [
+        "[For XRP holders] The headline event is predictable and partly reversible. The gross 1 billion matters as a maximum scheduled release from three finished objects, while 700 million returned to time lock. Holder-facing risk is not that every unlocked unit must hit an exchange; it is that future use of the remaining 300 million cannot be known from this transaction alone. [4][5][9][10][12]",
+        "[For traders] The transaction record is evidence for a supply-monitoring checklist, not a standalone directional signal. A sale thesis would need a dated chain of subsequent transfers, identifiable venue or counterparty evidence, and a contemporaneous market record. A price move near September 1 could have multiple drivers, so this article makes no causal price claim. [1][11][12]",
+        "[For developers and researchers] The event demonstrates why account attribution and ledger-object accounting must remain separate. An integration that counts active Escrow objects should query all listed accounts, paginate deterministically, and record the ledger index. A dashboard that subtracts every wallet payment from escrow as if it were public circulation will overstate what the chain proves. [2][3][13][15]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/",
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors"
+      ]
+    },
+    {
+      "heading": "Confirmed facts, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed facts] Three validated EscrowFinish records at ledger 106,677,549 total 1 billion XRP. Two validated EscrowCreate records later the same day total 700 million XRP and use a May 1, 2029 FinishAfter. A separate validated Payment totals 300 million XRP. The current 20-account audit records 100 active escrow objects holding 31.7 billion XRP. [1][2][3][6][7][8][9][10][15]",
+        "[Bounded inference] The sequence is consistent with Ripple's long-running monthly recycling design and supports a 300 million net reduction in active escrow for this cycle. It does not show the economic destination or sale status of that amount. [4][5][9][10][12]",
+        "[Unresolved uncertainty] The reviewed records do not establish whether Ripple sold, distributed, retained, used as collateral, or otherwise allocated the 300 million. They also do not predict XRP price, future re-escrow ratios, or the next month's transaction split. Those questions require later ledger evidence and company disclosures. [1][11][12][13]",
+        "[Source precedence] When records conflict, use validated transaction metadata for transaction type, amount, ledger index, and time; Ripple's account registry for official escrow-wallet identification; and independent trackers for corroboration. Use Ripple's 2017 announcement for the original design, not for current holdings or current intent. [1][2][3][5][6][7][8][9][10][11][12][13][14][15]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/",
+        "https://whale-alert.io/transaction/ripple/BBEE8110264337E2C469F36A3E1F5A0CC4C6F8E3C74EDDF281C78C83D6C7833D",
+        "https://whale-alert.io/transaction/ripple/77320AB230617FB014B48DF01BBEBD81AEBE8BB7756AF95B79933B700C45FC53",
+        "https://whale-alert.io/transaction/ripple/42AFB95FA661CDAA064BCED694BACC8B72768C4692E032CC981A922D30EE260B",
+        "https://whale-alert.io/transaction/ripple/6D44BFB50E4115463C45046E6A503A3A453745C34546DD05E105A3CC130CB05C",
+        "https://whale-alert.io/transaction/ripple/3111744D5FCF4EBA1573CB0AD1AE93A6F228DDE50A830D140B185A4559BBF17A",
+        "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors",
+        "https://xora.finance/blog/xrp-tokenomics-supply-escrow-burn-2026"
+      ]
+    },
+    {
+      "heading": "What to watch next after the September 1 cycle",
+      "paragraphs": [
+        "[Watch the destination] Monitor follow-on Payment transactions from `rBg2...`. A transfer to an identifiable exchange or named institution would change the factual description, but another wallet hop would still not prove a sale without counterparty evidence. [1][11]",
+        "[Watch actual escrow objects] Watch for new EscrowCreate records and their FinishAfter dates. For this cycle, only two re-lock records, 500 million and 200 million, were found at May 1, 2029. Counting every transfer to Ripple-labeled addresses as a new escrow would recreate the 1 billion versus 700 million error. [1][3][9][10]",
+        "[Watch disclosures] Watch Ripple's next holdings disclosure and next month's validated ledger snapshot. Company-reported distributed and held figures answer a different question from this active-escrow audit. Compare dates only after normalizing time zones and ledger cutoffs. [2][3][5][13][15]",
+        "[Watch market data separately] If XRP moves after an escrow event, that is correlation in time until order-book, flow, and macro evidence support a causal explanation. The defensible update path is release, re-lock, wallet use, disclosed sale, then market effect, each with its own record. [1][3][12]"
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+        "https://ripple.com/.well-known/xrp-ledger.toml",
+        "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+        "https://xrpl.org/docs/concepts/payment-types/escrow",
+        "https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/",
+        "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Follow the 300 million XRP destination for identifiable exchange, institutional, or other disclosed counterparties.",
+    "Count new EscrowCreate objects and record each FinishAfter date instead of treating every Ripple wallet transfer as re-locking.",
+    "Compare the next Ripple holdings disclosure with a same-cutoff validated ledger audit.",
+    "Recheck the October 1 scheduled release as a separate gross-versus-net event.",
+    "Keep XRP price, exchange-flow, and macro data separate from ledger state until evidence supports a causal link."
+  ],
+  "sources": [
+    {
+      "name": "Ripple-operated s1.ripple.com validated ledger query, read September 2, 2026",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL tx, ledger, and account_objects method documentation",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/transaction-methods/tx",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple xrp-ledger.toml account registry",
+      "url": "https://ripple.com/.well-known/xrp-ledger.toml",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Escrow lifecycle documentation",
+      "url": "https://xrpl.org/docs/concepts/payment-types/escrow",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple: Escrows 55 Billion XRP for Supply Predictability",
+      "url": "https://ripple.com/insights/ripple-escrows-55-billion-xrp-for-supply-predictability/",
+      "type": "primary",
+      "publishedAt": "2017-12-08"
+    },
+    {
+      "name": "Whale Alert: 500 million XRP escrow finish, September 1, 2026",
+      "url": "https://whale-alert.io/transaction/ripple/BBEE8110264337E2C469F36A3E1F5A0CC4C6F8E3C74EDDF281C78C83D6C7833D",
+      "type": "supporting"
+    },
+    {
+      "name": "Whale Alert: 400 million XRP escrow finish, September 1, 2026",
+      "url": "https://whale-alert.io/transaction/ripple/77320AB230617FB014B48DF01BBEBD81AEBE8BB7756AF95B79933B700C45FC53",
+      "type": "supporting"
+    },
+    {
+      "name": "Whale Alert: 100 million XRP escrow finish, September 1, 2026",
+      "url": "https://whale-alert.io/transaction/ripple/42AFB95FA661CDAA064BCED694BACC8B72768C4692E032CC981A922D30EE260B",
+      "type": "supporting"
+    },
+    {
+      "name": "Whale Alert: 500 million XRP escrow relock, September 1, 2026",
+      "url": "https://whale-alert.io/transaction/ripple/6D44BFB50E4115463C45046E6A503A3A453745C34546DD05E105A3CC130CB05C",
+      "type": "supporting"
+    },
+    {
+      "name": "Whale Alert: 200 million XRP escrow relock, September 1, 2026",
+      "url": "https://whale-alert.io/transaction/ripple/3111744D5FCF4EBA1573CB0AD1AE93A6F228DDE50A830D140B185A4559BBF17A",
+      "type": "supporting"
+    },
+    {
+      "name": "Bithomp: Ripple-labeled destination account rBg2Fu",
+      "url": "https://bithomp.com/account/rBg2FuZT91C52Nny68houguJ4vt5x1o91m",
+      "type": "supporting"
+    },
+    {
+      "name": "TheStreet: Ripple unlocks 1 billion XRP, but an unlock is not a sale",
+      "url": "https://www.thestreet.com/crypto/markets/ripple-unlocks-1-billion-xrp-heres-what-it-actually-means-for-investors",
+      "type": "supporting",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "XORA: XRP tokenomics, escrow, and circulating-supply methodology",
+      "url": "https://xora.finance/blog/xrp-tokenomics-supply-escrow-burn-2026",
+      "type": "supporting",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "XRPL ledger method documentation",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL account_objects method documentation",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/account-methods/account_objects",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-escrow-explained",
+      "label": "How XRP escrow works",
+      "description": "A plain-language guide to escrow releases, conditions, and re-locking."
+    },
+    {
+      "href": "/news/ripple-xrp-holdings-escrow-june-2026",
+      "label": "Ripple's June XRP holdings snapshot",
+      "description": "The prior quarter-end holdings and escrow report, kept separate from this ledger event."
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger records state",
+      "description": "A guide to ledgers, transactions, and account-level state."
+    },
+    {
+      "href": "/learn/xrpl-consensus-mechanism",
+      "label": "How XRPL validation works",
+      "description": "Why validated ledger records are the basis for this audit."
+    }
+  ]
+}
