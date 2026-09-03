@@ -1,0 +1,288 @@
+{
+  "slug": "xrpl-escrow-iou-trustline-reserve-recycle",
+  "title": "XRPLF Merges Escrow Reserve Fix for IOU Trust-Line Returns",
+  "description": "XRPLF merged rippled PR #8142 on September 3, 2026, moving reserve release ahead of IOU trust-line recreation. The develop-branch fix addresses a recoverable escrow error; Mainnet status is unchanged.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-09-03T14:12:19-05:00",
+  "modifiedAt": "2026-09-03T14:12:19-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-escrow-reserve-cradle-editorial.webp",
+  "imageAlt": "A pale-gold release cradle lifts a cobalt escrow marker before a blue trust-line loop enters an ivory receiving socket, with one vermilion stop mark on stone.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "escrow-reserve-release-cradle-still-life",
+  "imageSetting": "A new, unadorned white-marl reserve bookkeeping chamber with a shallow carved receiving trough in a broad ivory stone slab, lit by a narrow refracted late-morning shaft after a cold spring shower, viewed from the receiving side at a restrained oblique angle with broad blank mineral space upper-left.",
+  "imageMetaphor": "A pale-gold release cradle lifts an escrow marker before a water-blue trust-line loop enters the same ivory socket, showing reserve release before a same-count replacement object is created; one vermilion stop marks the legacy error.",
+  "imagePrompt": "Create a 16:9 AAXRP editorial illustration in the aaxrp-classical-ascii-v2 style: a luminous academic oil painting with a warm ivory, cobalt blue, pale gold, and restrained vermilion palette, visible brushwork, quiet research mood, and selective fine 1/0/x marks only in a few deep shadows and atmospheric edges. Depict a sparse, topic-specific still life in a new white-marl reserve bookkeeping chamber, not a temple, port, bank, archive, coast, terrace, workshop, or city. Use a broad ivory stone slab with a shallow carved receiving trough. From a restrained 35-degree oblique receiving-side viewpoint, show a single pale-gold bronze release cradle with a sliding counterweight rail, a cobalt ceramic escrow marker hovering above the released side, a water-blue glass trust-line loop entering an ivory receiving socket, and one vermilion clay stop marker. Arrange the lower-right objects on a diagonal toward center and leave generous blank mineral space upper-left. Light it with one hard late-morning shaft refracted from a damp stone wall after a cold spring shower. The image must communicate that an escrow object releases its owner reserve before a same-count IOU trust line is recreated, with the old reserve error represented only by the small vermilion stop. Keep the objects tactile, imperfect, and painterly. No words, labels, letters, numerals, logos, watermarks, coins, price charts, dashboards, network diagrams, extra tokens, extra cradles, repeated architecture, all-over dithering, or decorative Greek motifs.",
+  "keywords": [
+    "XRP Ledger",
+    "rippled",
+    "EscrowCancel",
+    "EscrowFinish",
+    "IOU escrow",
+    "trust lines",
+    "fixCleanup3_4_0",
+    "account reserve",
+    "XRPL development"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged rippled PR #8142 into the develop branch on September 3, 2026, moving escrow reserve release ahead of an IOU trust-line recreation in the affected paths.",
+    "The narrow bug path involved a deleted zero-balance trust line: the reserve check could still count the escrow and trust-line replacement together even though one ledger object was being destroyed as the other was created.",
+    "The pull request tests IOU EscrowCancel and self-EscrowFinish under the fixCleanup3_4_0 gate, while explicitly leaving MPT escrow outside this change because its locked amount prevents the same trust-line deletion path.",
+    "The merge is development-branch evidence. It does not establish a stable rippled release, validator voting, Mainnet activation, a production incident, XRP demand, or a price effect."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPLF moves reserve release ahead of token return",
+      "paragraphs": [
+        "XRPLF merged rippled PR #8142 into develop on September 3, 2026, changing EscrowCancel and self-EscrowFinish so the escrow's owner reserve is released before an IOU trust line is recreated. That removes a false insufficient-reserve path in a narrowly tested code branch. It does not change Mainnet behavior, XRP supply, or price. [1][2][3]",
+        "The useful distinction is between a code correction and a network event. The pull request and its merge commit are primary records of a change in the rippled source tree. They show a gate named fixCleanup3_4_0 and new regression coverage. They do not show that a stable server release containing the change has shipped, that the amendment is enabled on Mainnet, or that a user-facing incident occurred. Those are separate questions that remain open. [1][2][9]",
+        "In practical terms, the patch changes the order of reserve bookkeeping for two specific token-escrow exits. It does not redesign escrow, alter the amount being returned, waive a reserve, or make an underfunded account solvent. The correction lets the ledger evaluate the net object transition that the transaction is actually about to perform. [1][2][4]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "The edge case starts with a deleted IOU trust line",
+      "paragraphs": [
+        "An XRPL Escrow ledger entry holds a payment until its finish or cancel condition is satisfied. While it remains on the ledger, the Escrow object counts toward the sender's owner reserve. When the escrow exits, that object is removed, so its reserve burden should disappear as part of the same state transition. [3]",
+        "Token escrow adds a second object relationship. An IOU escrow can move a whole fungible-token balance, and the receiving account may need a trust line for that balance. If the owner has no remaining balance on a trust line while the escrow is pending, the zero-balance line can be deleted. At cancel time, the transaction may therefore need to recreate the trust line before restoring the IOU balance. The trust-line documentation describes the reserve and deletion rules, while XLS-0085 defines the token-escrow behavior and its reserve failure condition. [5][7]",
+        "That is where the accounting edge case appears. The old path checked whether the account could afford the new trust line while the escrow was still counted as an existing owner object. In the pull request's model, the account sat between the reserve thresholds for n and n+1 owner objects. The transaction then destroyed one object and created one object, leaving the final owner-object count unchanged, but the pre-change check could still ask for capacity for both. [1]",
+        "The resulting tecNO_LINE_INSUF_RESERVE response is important to classify correctly. A tec result is a recoverable transaction failure, not evidence that funds vanished or that a ledger was corrupted. The pull request says the escrow remains available for a retry, and that adding enough reserve capacity allows the operation to be attempted again. The bug is therefore about an incorrect intermediate reserve view, not a protocol rule that lets an account bypass its final reserve requirement. [1][4][7]",
+        "The independent XRPL.to reserve explainer describes the same underlying model in plainer operational terms: ledger objects such as trust lines and escrows consume owner reserve, and removing an object returns that capacity. That explanation supports the accounting interpretation, but it is not evidence that this particular patch is active on a public network. [8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens",
+        "https://xls.xrpl.org/xls/XLS-0085-token-escrow.html",
+        "https://xrpl.to/insights/xrpl-account-reserve-explained"
+      ]
+    },
+    {
+      "heading": "What PR #8142 changes in EscrowCancel and EscrowFinish",
+      "paragraphs": [
+        "The implementation is deliberately narrower than the headline might suggest. In EscrowCancel, the owner-count reduction for the escrow is moved ahead of the token-return path when fixCleanup3_4_0 is enabled. That makes the reserve check see the escrow's release before the transaction asks whether a missing IOU trust line can be created. The merge commit records the corresponding source change and test updates. [1][2]",
+        "EscrowFinish has a related but not identical condition. The pull request covers self-escrow, where the account that released the escrow is also the destination that receives the token balance. The early-release behavior is allowed when either the existing featureSponsor condition or fixCleanup3_4_0 is active. That keeps the correction aligned with the transaction's actual ownership path rather than applying a broad reserve exception to every escrow finish. [1][2]",
+        "The patch does not change the escrow's finish time, cancel time, authorization requirements, trust-line limits, transfer fees, freeze rules, or the amount of IOU balance being returned. It changes when one owner object stops counting during the transaction's internal checks. That is why describing this as reserve recycling is useful, but describing it as free reserve or a new token feature would be wrong. [1][3][4][5]"
+      ],
+      "table": {
+        "caption": "Affected paths recorded in the merged PR",
+        "headers": [
+          "Path",
+          "Code-level behavior",
+          "Boundary"
+        ],
+        "rows": [
+          [
+            "IOU EscrowCancel",
+            "Release the escrow owner count before the trust-line return path under fixCleanup3_4_0.",
+            "Applies to the deleted-trust-line reserve edge case tested by PR #8142."
+          ],
+          [
+            "Self-EscrowFinish",
+            "Permit the same early release under featureSponsor or fixCleanup3_4_0.",
+            "The released owner is also the destination receiving the IOU balance."
+          ],
+          [
+            "MPT escrow",
+            "No matching change in this patch.",
+            "The PR says a locked MPT amount keeps its MPToken obligation in place."
+          ]
+        ],
+        "sourceNote": "Behavior and boundaries are summarized from the merged PR and commit dated September 3, 2026. [1][2]"
+      },
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens"
+      ]
+    },
+    {
+      "heading": "The reserve arithmetic is about ledger objects, not XRP demand",
+      "paragraphs": [
+        "XRPL reserves are an anti-spam accounting mechanism tied to ledger state. An account's reserve requirement depends on its base reserve and the number of owner objects recorded for it. The current XRPL reserve reference, accessed September 3, 2026, lists a base reserve of 1 XRP and an owner reserve of 0.2 XRP per object. Those values are operational parameters from the documentation, not a market forecast, and they should be rechecked against the live documentation before anyone uses them for a funding decision. [6]",
+        "For this story, the exact XRP amount is less important than the transition. An escrow is one owner object. A trust line is another. The intended cancel or finish result can remove the first while restoring the balance represented by the second. The fix makes the reserve check follow that net transition in the affected code path. It does not lower the account-wide reserve formula, remove owner objects from the ledger, or turn token delivery into an XRP transfer. [1][3][5][6]",
+        "That distinction also limits the financial interpretation. There is no source record here of new XRP demand, a supply change, a new yield, a token listing, or a price-sensitive event. The code can improve correctness for a narrow transaction state without creating an economic catalyst. Treating a reserve bookkeeping fix as a market signal would go beyond the evidence. [1][2][6]",
+        "The external reserve explainer is useful as a supporting cross-check because it also identifies trust lines and escrows as reserve-bearing objects and describes capacity returning when an object is removed. It does not replace the official transaction references or prove how a specific binary behaves. The primary code and protocol records remain the controlling evidence for this article. [8]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens",
+        "https://xrpl.org/docs/concepts/accounts/reserves",
+        "https://xrpl.to/insights/xrpl-account-reserve-explained"
+      ]
+    },
+    {
+      "heading": "Why MPT escrows are deliberately outside this fix",
+      "paragraphs": [
+        "The pull request separates IOU trust-line behavior from Multi-Purpose Token behavior instead of treating every token escrow as identical. Its MPT test path is not changed because an escrow with a nonzero locked amount leaves the MPToken obligation in place. The PR describes MPTokenAuthorize returning tecHAS_OBLIGATIONS while sfLockedAmount remains nonzero, which prevents the same delete-and-recreate sequence that makes the IOU case possible. [1][2]",
+        "That boundary matters for readers comparing amendment work across the rippled repository. A shared word such as token does not mean a shared ledger object or reserve transition. IOUs use trust lines, with balances and issuer-side rules. MPTs use a separate authorization and obligation model. The safest reading is that PR #8142 fixes a specific IOU escrow reserve ordering issue and preserves the existing MPT safety behavior. [1][5][7]",
+        "This is also why the test plan includes both positive and negative paths. The IOU cancellation test demonstrates the reserve-recycling result after the fix and the old failure before it. The MPT path confirms that the unrelated obligation guard still behaves as intended. No conclusion about all token escrows should be drawn from the IOU regression alone. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens",
+        "https://xls.xrpl.org/xls/XLS-0085-token-escrow.html"
+      ]
+    },
+    {
+      "heading": "Testing closes the narrow gap without proving production use",
+      "paragraphs": [
+        "The merged commit changes four files: the EscrowCancel and EscrowFinish transactors plus EscrowToken_test.cpp and Sponsor_test.cpp. The recorded diff adds 119 lines and removes 23. That is a compact footprint for a transaction-ordering correction, and the tests make the intended behavior inspectable instead of leaving the fix as an unverified source edit. [2]",
+        "The IOU test funds the owner to the exact reserve boundary for one object, deletes the trust line, waits through the relevant cancel condition, and then compares amended and unamended behavior. The amended path returns tesSUCCESS. The unamended path returns tecNO_LINE_INSUF_RESERVE until the account is topped up and the transaction is retried. This setup exercises the final-state accounting claim directly. [1]",
+        "The self-escrow finish test checks the amendment gates individually and together. The pull request also records EscrowToken, Escrow, and Sponsor test suites as passing and says the amendment-ordering case fails when the expected gate is forced off. These are strong source-level regression signals. They are not telemetry, a production incident report, or evidence that the code is already active on a public network. [1]",
+        "That difference is worth keeping visible because a green test can prove the intended code path while leaving release distribution unresolved. The source record establishes what was merged and what was tested. It does not establish how many accounts encountered the old result, whether any funds were stranded beyond a retry, or whether a stable release has adopted the gate. Those questions need separate release notes, ledger evidence, or an operator report. [1][2][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    },
+    {
+      "heading": "Development branch status sets the practical boundary",
+      "paragraphs": [
+        "The primary record identifies the merged change as a rippled develop-branch change gated by fixCleanup3_4_0. That wording is the safe status claim for September 3. It is not the same as a tagged stable release, validator support, an open amendment vote, or Mainnet activation. The XRP Ledger amendment documentation explains that in-development amendments must first be included in a stable release before they can become open for Mainnet voting. [1][9]",
+        "There is no evidence in the reviewed records of a release tag containing this commit, an amendment activation ledger index, a validator-vote result, or a production incident attached to the deleted-trust-line path. The absence is not proof that none exists anywhere, so it should be labeled as an unresolved status question rather than a negative claim about the entire ecosystem. [1][2][9]",
+        "For operators, the next responsible action is to follow the rippled release and amendment records, not to infer activation from a GitHub merge. For application developers, a testnet or private-network build that includes the change can be tested against both amendment states, but that result should be labeled by build and feature configuration. For ordinary XRP holders, this merge alone does not create a wallet action. [1][4][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel"
+      ]
+    },
+    {
+      "heading": "What affected developers and users should do now",
+      "paragraphs": [
+        "Developers building IOU escrow flows should treat the old error as a branch to handle, not as an impossible response. A cancel or finish transaction can fail when a trust line must be created and the account cannot satisfy the reserve check seen by that server. A client should read the validated transaction result, preserve the escrow state after a tec response, and make any funding or retry decision from current account and trust-line state. [1][4][5][7]",
+        "Issuer and wallet teams should test the whole lifecycle: create the trust line, move the IOU balance into escrow, allow a zero-balance line to be removed if the rules permit it, then cancel or finish under both the old and new amendment configurations. The aim is to verify exact transaction outcomes and user messaging. It is not to assume that an amendment merge removes the need for reserve management. [1][5][7]",
+        "Operators should wait for a stable release note or explicit amendment-status evidence before treating the fix as a deployment requirement for Mainnet. If a team is running a development build, it should record the commit, amendment configuration, and network type in its test report. That keeps a source-level result separate from a production compatibility statement. [1][2][9]",
+        "Users do not need to interpret this patch as a claim about XRP price, token adoption, or a new reserve subsidy. The confirmed benefit is narrower: when the matching code and amendment gate are active, a valid IOU escrow return can be evaluated against the account's net object transition instead of a stale intermediate count. [1][3][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/8142",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+        "https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish",
+        "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens",
+        "https://xls.xrpl.org/xls/XLS-0085-token-escrow.html",
+        "https://xrpl.org/resources/known-amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A tagged rippled release that includes fixCleanup3_4_0, with operator notes explaining the EscrowCancel and self-EscrowFinish reserve-ordering change.",
+    "An official amendment-status record showing whether the gate is supported, open for validator voting, or enabled on Mainnet.",
+    "Testnet or private-network results that compare IOU escrow cancellation and self-finish across amended and unamended configurations.",
+    "Wallet, issuer, and application runbooks for tecNO_LINE_INSUF_RESERVE, current reserve capacity, trust-line recreation, and safe retries.",
+    "Independent validated-ledger evidence before drawing conclusions about user impact, escrow volume, XRP visibility, transaction activity, or demand."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #8142, escrow reserve recycling",
+      "url": "https://github.com/XRPLF/rippled/pull/8142",
+      "type": "primary",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "name": "XRPLF merge commit 37cb4cd, PR #8142",
+      "url": "https://github.com/XRPLF/rippled/commit/37cb4cdbe3ef5bfd5372effbddec5348102a96f0",
+      "type": "primary",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "name": "XRP Ledger Escrow ledger entry reference",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/escrow",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger EscrowCancel reference",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/escrowcancel",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Trust Line Tokens documentation",
+      "url": "https://xrpl.org/docs/concepts/tokens/fungible-tokens/trust-line-tokens",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger reserve documentation",
+      "url": "https://xrpl.org/docs/concepts/accounts/reserves",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0085 Token-Enabled Escrows specification",
+      "url": "https://xls.xrpl.org/xls/XLS-0085-token-escrow.html",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL.to account reserve explainer",
+      "url": "https://xrpl.to/insights/xrpl-account-reserve-explained",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger known amendments status",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger EscrowFinish reference",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/escrowfinish",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Commons escrow basics",
+      "url": "https://docs.xrpl-commons.org/xrpl-basics/escrow",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "Why XRPL amendments are not live just because they merge",
+      "topic": "Release status",
+      "description": "Keep a development-branch change separate from stable software and Mainnet activation."
+    },
+    {
+      "href": "/news/xrpl-sponsorship-end-reserve-gate-fix",
+      "label": "XRPL's separate sponsorship reserve gate",
+      "topic": "Related reserve fix",
+      "description": "Compare another fixCleanup3_4_0 reserve-ordering change without merging the transaction paths."
+    },
+    {
+      "href": "/news/xrpl-mpt-lock-cleanup-fixcleanup3-4-0",
+      "label": "The separate MPT lock-cleanup boundary",
+      "topic": "Token safety",
+      "description": "See why MPT obligations are distinct from IOU trust-line recreation."
+    },
+    {
+      "href": "/learn/xrpl-reserves-explained",
+      "label": "How XRP Ledger reserves work",
+      "topic": "Protocol context",
+      "description": "Review how account reserves and owner objects constrain ledger state."
+    },
+    {
+      "href": "/learn/xrp-transaction-types",
+      "label": "XRP Ledger transaction types",
+      "topic": "Transaction context",
+      "description": "Use the transaction overview before tracing escrow, trust-line, and retry behavior."
+    }
+  ]
+}
