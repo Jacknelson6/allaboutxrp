@@ -1,0 +1,278 @@
+{
+  "slug": "xrpl-ammclawback-reserve-priority-fixcleanup3-4-0",
+  "title": "XRPLF Merges AMMClawback Fix That Takes Priority Over Reserve Checks",
+  "description": "XRPLF merged rippled PR #7796 into develop on September 2. The fixCleanup3_4_0-gated code lets AMMClawback create a paired IOU or MPT holding without a recipient reserve check, but it is not a stable release.",
+  "category": "XRP Ledger Development",
+  "publishedAt": "2026-09-02T22:12:00-05:00",
+  "modifiedAt": "2026-09-02T22:12:00-05:00",
+  "author": "AllAboutXRP Editorial",
+  "image": "/news/xrpl-ammclawback-priority-signet-editorial.webp",
+  "imageAlt": "A pale-gold hinged bronze signet press advances a cobalt glass lozenge into a new ivory socket beside an underfilled reserve dish and one vermilion seal",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "ammclawback-priority-signet-docket-still-life",
+  "imageSetting": "A silent white-calcite civic docket chamber after rain, viewed from a slightly elevated right-shoulder angle across a broad warm-ivory stone desk beneath a high circular oculus; clear late-morning light leaves broad untouched wall and desk space to the upper-right.",
+  "imageMetaphor": "A pale-gold hinged bronze signet press advances a cobalt paired-asset lozenge into a fresh ivory receiving socket while an underfilled reserve dish remains below its level line and one vermilion seal marks the compliance action, representing AMMClawback proceeding despite the recipient owner-reserve check under a future gate.",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: create one sparse, physically believable symbolic still life for XRPLF rippled pull request #7796, which makes AMMClawback take priority over a recipient owner-reserve check when the paired issued asset holding must be auto-created. Scene/backdrop: a silent white-calcite civic docket chamber after rain, with a broad warm-ivory stone desk beneath a high circular oculus. Clear late-morning light is split into a cool cobalt reflection and a narrow pale-gold sun band. Viewpoint: slightly elevated right-shoulder angle, looking 20 degrees downward across the desk, with the focal arrangement in the lower-left third and generous untouched ivory wall and desk space across the upper-right. Subject and exact object set: one small pale-gold bronze signet press with a blank circular die and short hinged handle standing open; one cobalt glass lozenge representing the paired asset, visibly halfway into one fresh empty ivory receiving socket; one shallow ivory reserve dish holding one pale-gold weight below a carved level line; and one restrained vermilion wax seal beside the socket. The signet press and newly seated lozenge must read as a decisive compliance action proceeding while the reserve dish remains visibly underfilled. No people and no readable writing. Style/medium: luminous academic and classical-revival oil painting, jewel-toned and polished, crisp sculptural modeling, rich glazing, smooth enamel-like passages, selective impasto on stone and metal highlights, saturated cobalt and ultramarine shadows, warm ivory, pale gold, and one restrained vermilion mark. ASCII treatment: extremely subtle translucent fields made only from 1, 0, and x inside a few atmospheric oculus and cool shadow transitions, dissolving into white space; never an all-over filter. Composition: one clear focal idea, strong thumbnail silhouette, ordered depth, physically consistent cast shadows, broad negative space, sharp edges, no frame or border. Constraints: preserve exactly one signet press, one cobalt glass lozenge, one empty ivory socket receiving that lozenge, one reserve dish with one gold weight below its level line, and one vermilion wax seal; keep the objects sparse and distinct; the lozenge must be visibly entering the socket even though the reserve dish is underfilled. Bundled references affect style only and must not leak their subjects or compositions. Avoid literal crypto coins, XRP symbols, logos, dashboards, charts, UI, text, watermark, politician, person, city panorama, Greek temple, columns, harbor, coast, ruins, fantasy architecture, generic cyber cube, neon, photographic realism, muted sepia, muddy gray, coarse halftone, retro pixel art, all-over ASCII, extra props, duplicated objects, malformed geometry, or impossible floating objects. Style references used for palette, light, surface, and finish only: /Users/jack/Documents/ChatGPT/AAXRP-evening-20260902/public/images/xrp-ascii-bank-hero.webp, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/style-anchor-refined.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-ornate-equestrian.png, /Users/jack/.codex/skills/render-sublime-classical-oil/assets/reference-heroic-lion.png",
+  "keywords": [
+    "XRP news",
+    "XRP Ledger",
+    "XRPLF",
+    "rippled",
+    "AMMClawback",
+    "AMMWithdraw",
+    "LP tokens",
+    "owner reserve",
+    "fixCleanup3_4_0",
+    "XRPL development"
+  ],
+  "keyTakeaways": [
+    "XRPLF merged PR #7796 into rippled develop at 21:20 UTC on September 2, 2026; the six-file change adds a reserve-handling path and IOU/MPT regression coverage. [1][2]",
+    "With fixCleanup3_4_0 enabled, AMMClawback ignores the recipient owner-reserve check for an auto-created paired holding, while ordinary AMMWithdraw keeps enforcing it. [1][2][5]",
+    "The tests expect the gated clawback to succeed and create the paired holding even when the issuer and holder cannot cover the extra reserve; the pre-gate path returns a reserve failure. [1][2]",
+    "AMMClawback remains issuer-scoped: the issued asset must match Account, paired-asset behavior follows pool proportions and tfClawTwoAssets, and XRP itself is not clawed back. [3][6]",
+    "No stable release or public Mainnet activation follows from the merge. The latest official rippled release is 3.3.0, and Ripple’s public endpoint reported 3.3.0 in the dated snapshot reviewed here. [7][8][9]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: PR #7796 changes the reserve priority order",
+      "paragraphs": [
+        "Yes, but only in development. XRPLF merged PR #7796 into `rippled` `develop` on September 2, 2026. Its `fixCleanup3_4_0`-gated code makes AMMClawback ignore the recipient owner-reserve check while ordinary AMMWithdraw still enforces it. The patch addresses paired IOU/MPT holding creation; it is not a stable release, Mainnet activation, or XRP market signal. [1][2][3][7]",
+        "[Confirmed fact] GitHub records the pull request as merged at 21:20:05 UTC, or 4:20 p.m. Central Daylight Time, into `develop`. The API reports six changed files, 198 additions, no deletions, and 22 commits. Those counts describe the reviewed pull request, not the size of a deployed binary or the number of affected Mainnet accounts. [1][2]",
+        "The primary record says the issue arose because `AMMClawback` reuses `AMMWithdraw` helpers to return the paired asset to the holder. When the paired trust line or Multi-Purpose Token holding must be created, the old reserve comparison could use the larger of the issuer’s pre-fee balance and the holder’s current balance. Since `sfAccount` is the issuer on an AMMClawback transaction, the issuer balance could influence a check that was supposed to determine whether the recipient could receive a new owner object. [1]",
+        "That makes this a narrow transaction-processing correction. The pull request does not change the AMM pricing formula, invent a new clawback authority, or report a loss. It changes which branch runs after an issuer has already submitted the specialized AMMClawback operation. The result is materially different from AllAboutXRP’s August 28 report on PR #7373, which covered exact LP-token equality and a separate rounding boundary. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://github.com/XRPLF/rippled/commit/636d2d4851219f81f6475e6c18c088e3a895d544",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "What the ReserveHandling change does inside rippled",
+      "paragraphs": [
+        "[Confirmed fact] The merge commit introduces a `ReserveHandling` enum in the shared token helpers and threads it through the `AMMWithdraw` helper signatures. The normal withdrawal entry point passes `EnforceReserve`. Every AMMClawback path in the patch passes `IgnoreReserve`, so the caller’s intent is explicit in the function contract rather than inferred from the transaction account. [2]",
+        "The gated branch is deliberately conditional. In the auto-create path, `AMMWithdraw.cpp` checks whether `fixCleanup3_4_0` is enabled and whether the caller requested `IgnoreReserve`. If both conditions hold, the helper returns success before the ordinary recipient-account reserve check. The subsequent clawback flow can then create the missing trust line or MPToken holding and complete the paired-asset transfer. [1][2]",
+        "The distinction between the two operations is tested directly. The IOU test gives the holder an LP-token position but no trust line for the paired currency. Under the future feature gate, AMMClawback succeeds and the paired trust line is created. With the gate removed, the same setup returns `tecINSUFFICIENT_RESERVE`. The test then runs a plain AMMWithdraw under the same balance conditions and expects the reserve failure to remain. [1][2]",
+        "A second test repeats the design with an MPT as the paired asset. The holder begins without an MPToken holding, and the gated clawback creates it even though the holder cannot cover a third owner object. That matters because a code path that only fixed classic issued currencies would leave the modern MPT case inconsistent. The source establishes this regression coverage; it does not establish how often the state appears on a live network. [1][2]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://github.com/XRPLF/rippled/commit/636d2d4851219f81f6475e6c18c088e3a895d544",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammwithdraw"
+      ]
+    },
+    {
+      "heading": "Why a reserve check could block an issuer-directed AMMClawback",
+      "paragraphs": [
+        "An XRP Ledger AMM holds a pool of two assets and issues LP tokens to liquidity providers. The official AMM documentation says those LP tokens represent a proportional claim on the pool, including collected fees, and can be redeemed through AMMWithdraw. The holder’s percentage of outstanding LP tokens determines the share of each asset returned, while trading can change the pool proportions over time. [4][5]",
+        "That relationship creates a practical recipient-side setup problem. A liquidity provider may hold the AMM’s LP tokens and the issuer’s asset but lack a trust line or MPT holding for the paired asset. A regular withdrawal must respect the recipient’s reserve requirement before it creates that missing ledger object. PR #7796 says the same check could cause an AMMClawback to fail, even though the paired asset was supposed to return to the holder as part of the issuer’s clawback path. [1][4][5]",
+        "[Bounded inference] In an issuer-directed compliance operation, allowing the holder’s spendable XRP balance to veto creation of the paired holding is an awkward ordering of priorities. The holder does not control whether the issuer initiated the clawback, but the holder can control whether the paired trust line or MPToken entry exists. The pull request’s test comment therefore treats deletion of that holding plus a low balance as a way to avoid completion. That is the rationale for the new code path, not evidence that a holder used it against a live issuer. [1][2]",
+        "The proposed result is not a universal reserve exemption. AMMWithdraw remains the user-requested redemption path and keeps its reserve check. The new enum is passed by the AMMClawback caller, and the amendment gate prevents the corrected behavior from silently rewriting historical ledger processing. Developers should therefore model the transaction type and feature state together, not assume every AMM transfer can create an owner object without reserve funding. [2][3][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammwithdraw",
+        "https://xrpl.org/docs/concepts/accounts/reserves"
+      ]
+    },
+    {
+      "heading": "AMMClawback still follows issuer permissions and pool proportions",
+      "paragraphs": [
+        "The official AMMClawback reference keeps the authority boundary intact. The issuer submits the transaction, `Asset` must identify the issuer’s own token, `Holder` identifies the liquidity provider whose AMM position is being processed, and `Asset2` identifies the other pool asset. The amount is a maximum for the issuer’s asset; omitting it or exceeding the holder’s available balance requests the holder’s full available amount. [3][6]",
+        "The paired asset is not an arbitrary bonus or a second confiscation. XLS-0073 says the transaction initiates a two-asset withdrawal at the pool’s current proportion. When the paired asset belongs to another issuer, the issuer’s asset returns to the issuer and the paired asset goes back to the holder. When both assets belong to the same issuer, `tfClawTwoAssets` determines whether the paired asset also returns to the issuer. [6]",
+        "XRP remains outside the clawback authority. The official reference lists XRP as an allowed paired asset, and the XLS-0073 example shows the corresponding XRP returning to the holder when an issued token is clawed back. The transaction cannot name XRP as the asset being clawed back. That distinction is important for readers who see the word clawback and assume a direct XRP seizure mechanism. [3][6]",
+        "The amendment’s compliance purpose also remains separate from this reserve fix. XLS-0073, created August 2, 2024, describes AMMClawback as the route for issuers that have enabled trust-line clawback to process issued tokens inside AMM pools. PR #7796 does not relax the issuer flag, rewrite `tfClawTwoAssets`, change pool proportions, or make an unauthorized account able to call the transaction. [1][3][6]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xls.xrpl.org/xls/XLS-0073-amm-clawback.html",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers"
+      ]
+    },
+    {
+      "heading": "Develop branch status is not Mainnet activation",
+      "paragraphs": [
+        "[Confirmed fact] The merge target is `develop`, and the latest non-preview release listed by the official XRPLF repository is `3.3.0`, published August 6, 2026. The release page does not turn a later develop merge into a stable package. A branch commit is evidence that maintainers accepted code into that branch; it is not evidence that validators are running the same binary. [1][7][8]",
+        "A dated public-network snapshot points in the same direction. Ripple’s `s1.ripple.com:51234` endpoint returned `rippled_version: 3.3.0`, `libxrpl_version: 3.3.0`, and a validated ledger at 03:04:15 UTC on September 3, 2026, which was 10:04 p.m. Central Time on September 2. The endpoint identified itself as a Clio server, so this is a validated-data snapshot, not a complete census of every validator or development node. [9]",
+        "The amendment documentation explains the remaining path. A transaction-processing bug fix can be delivered through an amendment; the code must be included in a release, validators must support it, and the network must maintain more than 80% support for two weeks before the change applies at a flag ledger. The current Known Amendments page lists related AMM and cleanup amendments but did not contain `fixCleanup3_4_0` in the snapshot reviewed for this report. [7][10]",
+        "[Unresolved uncertainty] The reviewed records do not state which future stable release will contain PR #7796, whether `fixCleanup3_4_0` will be proposed unchanged, when validator support might begin, or whether the amendment will activate. They also do not establish a current Mainnet failure, affected pool count, recovered value, or customer impact. Those questions require release, feature, vote, and on-ledger evidence later. [1][7][9][10]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://s1.ripple.com:51234/",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "Independent context: protocol-level AMMs make state boundaries consequential",
+      "paragraphs": [
+        "[Independent context] A 2025 IEEE International Conference on Blockchain and Cryptocurrency proceedings paper archived by University College London describes the XRPL AMM as a protocol-level decentralized exchange and compares it with a generic smart-contract AMM using agent-based simulations and market data. Its abstract studies price synchronization, slippage, liquidity-provider returns, and the Continuous Auction Mechanism. It does not evaluate PR #7796 or claim a production result from this fix. [11]",
+        "That research context helps explain why an apparently small reserve branch is worth following. An XRPL AMM is not only an off-chain interface over a pool. The protocol represents the AMM, its special account, token trust lines, and LP-token relationships in ledger state. A missing paired holding, an extra owner object, and the completion of a two-asset withdrawal are therefore connected pieces of a transaction’s state transition. [4][11]",
+        "XRPL Commons’ public AMM training material supplies a practical implementation view. Its example creates a pool with an issued token and XRP, then points builders to AMMDeposit for providing liquidity and AMMWithdraw for redeeming LP tokens. That is useful supporting context for the test design, but it is not an audit of PR #7796 and it does not report a live reserve failure. [12]",
+        "[Evidence boundary] Neither the UCL paper, the XRPL Commons material, the official specification, nor the PR reports an exploit, a malicious issuer, a drained pool, or a measured financial loss tied to this reserve path. The defensible description is a future-gated correctness fix for a narrow auto-creation case. Calling it a Mainnet vulnerability or an XRP catalyst would exceed the sources. [1][2][11][12]"
+      ],
+      "sourceUrls": [
+        "https://discovery.ucl.ac.uk/id/eprint/10216028/",
+        "https://docs.xrpl-commons.org/token-issuance-and-liquidity/creating-an-amm-pool",
+        "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+        "https://github.com/XRPLF/rippled/pull/7796"
+      ]
+    },
+    {
+      "heading": "Implications for developers, issuers, liquidity providers, and XRP readers",
+      "paragraphs": [
+        "For developers, the immediate implication is a four-way test matrix: AMMClawback versus AMMWithdraw, each with and without `fixCleanup3_4_0`. The matrix should cover an issued-token paired asset and an MPT paired asset, an existing holding and a missing holding, and a balance that can or cannot cover the additional owner object. The client should read the connected server’s feature and version state instead of deriving behavior from a GitHub branch name. [1][2][9]",
+        "For issuers and compliance operators, the patch is about completion, not expanded authority. An issuer still needs the relevant clawback setting and a valid AMMClawback transaction. If the corrected gate eventually becomes active, the operator should record the transaction result, returned issued-asset amount, paired-asset destination, LP-token balance, and any newly created trust line or MPToken holding. A successful code review is not a substitute for a live transaction receipt. [3][6][9]",
+        "For liquidity providers and market makers, the relevant question is state accounting. After an issuer-directed operation, inspect validated metadata and the holder’s LP-token balance. Confirm whether the paired asset returned to the holder, whether a residual LP position remains, and whether the AMM pool’s balances changed as the transaction’s two-asset proportion requires. Nothing in PR #7796 supports a forecast about impermanent loss, trading fees, or XRP price. [3][4][5]",
+        "For node operators and data providers, the release boundary should be explicit in monitoring and documentation. Store the exact merge commit, stable package version, amendment identifier, validator support, and activation ledger separately. A dashboard that labels a merged develop commit as live can cause integrators to test the wrong reserve rule and readers to mistake planned cleanup work for a network event. [7][10]",
+        "For ordinary XRP holders, there is no wallet migration, XRP supply change, or verified demand signal in this record. XRP may be the paired asset in an AMMClawback pool and return to the holder, but the new branch is about issued-token compliance processing and recipient object creation. It does not establish new XRP adoption, institutional use, or a price effect. [3][6][9]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://github.com/XRPLF/rippled/commit/636d2d4851219f81f6475e6c18c088e3a895d544",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+        "https://s1.ripple.com:51234/"
+      ]
+    },
+    {
+      "heading": "Evidence boundary: confirmed fact, bounded inference, and unresolved uncertainty",
+      "paragraphs": [
+        "[Confirmed facts] XRPLF merged PR #7796 into `rippled` `develop` on September 2, 2026. The change adds an amendment-gated reserve-handling parameter, passes `IgnoreReserve` from AMMClawback, keeps `EnforceReserve` for AMMWithdraw, and adds IOU and MPT tests. The pull request says the gated tests create the missing paired holding and succeed, while the legacy setup returns a reserve error. [1][2]",
+        "[Bounded inference] If the code lands in a release and `fixCleanup3_4_0` activates, AMMClawback should no longer let the recipient’s missing paired holding and insufficient reserve block the issuer-directed operation in the tested paths. Ordinary withdrawals should keep the old reserve protection. This expectation follows from the code and tests; it is not a measured production outcome or a guarantee across untested combinations of freezes, authorization, transfer fees, liquidity, and rounding. [1][2][3][5]",
+        "[Unresolved uncertainty] The public record does not show a stable package containing the merge, a network-wide amendment vote, an activation ledger, a live AMMClawback transaction using the new branch, affected pool counts, loss amounts, exploit attempts, or XRP market effects. It also does not establish whether a future implementation will remain byte-for-byte identical to the merged commit. [1][7][8][9][10]",
+        "The clean conclusion is narrow but useful. PR #7796 removes a reserve-ordering obstacle from a future-gated AMMClawback path while preserving ordinary AMMWithdraw reserve enforcement. That is meaningful for XRPL developers, issuers, and liquidity providers who test paired IOU or MPT holdings. It is not permission to call the fix live, to call it an incident, or to turn protocol maintenance into an XRP investment claim. [1][2][6]"
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/7796",
+        "https://github.com/XRPLF/rippled/commit/636d2d4851219f81f6475e6c18c088e3a895d544",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+        "https://xrpl.org/docs/references/protocol/transactions/types/ammwithdraw",
+        "https://xrpl.org/resources/known-amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A signed stable rippled release that contains commit 636d2d4 or an equivalent AMMClawback reserve-priority change, with release notes naming the fixCleanup3_4_0 dependency.",
+    "The Known Amendments page and connected-server feature or server_info evidence showing fixCleanup3_4_0 recognized, then validator support and enabled, rather than relying on a develop merge alone.",
+    "IOU and MPT regression behavior after the gate is active: AMMClawback success, creation of the paired holding, holder LP-token balance, paired-asset destination, and ordinary AMMWithdraw reserve failure under the same balances.",
+    "A documented validator majority and the full two-week amendment activation window, followed by a validated-ledger record showing the new rule applies.",
+    "An independent on-chain or incident record identifying affected pools, failed AMMClawback transactions, residual holdings, losses, exploit attempts, or XRP market effects. None is established in this report."
+  ],
+  "sources": [
+    {
+      "name": "XRPLF rippled PR #7796, merged September 2, 2026",
+      "url": "https://github.com/XRPLF/rippled/pull/7796",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "XRPLF merge commit 636d2d4, AMMClawback reserve handling",
+      "url": "https://github.com/XRPLF/rippled/commit/636d2d4851219f81f6475e6c18c088e3a895d544",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "XRP Ledger AMMClawback transaction reference, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/ammclawback",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Automated Market Makers documentation, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/concepts/tokens/decentralized-exchange/automated-market-makers",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger AMMWithdraw transaction reference, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/ammwithdraw",
+      "type": "primary"
+    },
+    {
+      "name": "XLS-0073 AMMClawback specification, created August 2, 2024",
+      "url": "https://xls.xrpl.org/xls/XLS-0073-amm-clawback.html",
+      "type": "primary",
+      "publishedAt": "2024-08-02"
+    },
+    {
+      "name": "XRP Ledger amendment process, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF rippled 3.3.0 release, published August 6, 2026",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "Ripple s1 public XRPL endpoint, server_info snapshot at September 3, 2026 03:04 UTC",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger Known Amendments, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/resources/known-amendments",
+      "type": "primary"
+    },
+    {
+      "name": "UCL Discovery: AMM-based DEX on the XRP Ledger, 2025 IEEE ICBC proceedings paper",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10216028/",
+      "type": "supporting",
+      "publishedAt": "2025-06-02"
+    },
+    {
+      "name": "XRPL Commons AMM pool training reference, undated reference checked September 2, 2026",
+      "url": "https://docs.xrpl-commons.org/token-issuance-and-liquidity/creating-an-amm-pool",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger account reserves documentation, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/concepts/accounts/reserves",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger feature API reference, undated reference checked September 2, 2026",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/feature",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-amm",
+      "label": "How XRP Ledger Automated Market Makers work",
+      "topic": "XRPL mechanics",
+      "description": "Review pools, LP tokens, fees, and the protocol-level AMM design."
+    },
+    {
+      "href": "/learn/how-to-use-xrpl-dex",
+      "label": "How to use the XRP Ledger DEX",
+      "topic": "Trading infrastructure",
+      "description": "See how order books and AMM liquidity fit together on XRPL."
+    },
+    {
+      "href": "/learn/xrp-amm-yield-guide",
+      "label": "XRPL AMM yield and liquidity guide",
+      "topic": "Liquidity providers",
+      "description": "Understand the risks and mechanics of supplying liquidity to an XRPL AMM."
+    },
+    {
+      "href": "/news/xrpl-ammclawback-exact-lp-token-boundary-fix",
+      "label": "The separate AMMClawback LP-token equality fix",
+      "topic": "Related XRPL coverage",
+      "description": "Read the earlier report on exact LP-token rounding and the full-withdrawal boundary."
+    },
+    {
+      "href": "/news/xrpl-mpt-amm-cantransfer-lp-tokens",
+      "label": "When MPT transfer rules constrain AMM LP tokens",
+      "topic": "Related XRPL coverage",
+      "description": "See how MPT transfer permissions can affect a future AMM position."
+    }
+  ]
+}
