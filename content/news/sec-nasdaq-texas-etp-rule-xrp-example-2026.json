@@ -1,0 +1,220 @@
+{
+  "slug": "sec-nasdaq-texas-etp-rule-xrp-example-2026",
+  "title": "SEC Approves Nasdaq Texas ETP Rule That Names XRP in a Worked Example",
+  "description": "The SEC approved Nasdaq Texas's amended ETP listing standard, including a 15% digital-asset buffer and an XRP example. Here is what changed, what Rule 19b-4(e) does, and why the order is not an XRP ETF approval.",
+  "category": "Market Structure",
+  "publishedAt": "2026-09-04T14:19:51-05:00",
+  "modifiedAt": "2026-09-04T14:19:51-05:00",
+  "author": "AllAboutXRP Editorial Desk",
+  "image": "/news/nasdaq-texas-generic-listing-gate-editorial.webp",
+  "imageAlt": "A pale-gold notched allocation rail holds a cobalt core beside a detached ivory reserve wedge and a vermilion witness pin on an ivory stone ledge.",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "nasdaq-texas-buffer-rail-still-life",
+  "imageSetting": "A quiet white-gypsum registrar's bay beneath one narrow horizontal skylight after a dry summer wind, viewed from a high rear-right angle across a matte ivory stone ledge, with the mechanism low-left and broad untouched mineral space above-right.",
+  "imageMetaphor": "A pale-gold notched allocation rail holds one broad cobalt qualifying core while a separate ivory reserve wedge waits outside the final notch. A water-blue witness tile and one small vermilion pin represent portfolio transparency and the halt gate around an 85% qualifying core and a capped 15% buffer.",
+  "imagePrompt": "Content first. Create one original 16:9 editorial hero still life for an AllAboutXRP article about the SEC approving Nasdaq Texas's amended generic crypto ETP listing standard. The visual metaphor is a capped allocation rule with a disclosure gate, not an XRP ETF approval. Exactly four deliberate objects sit low on a matte ivory limestone ledge: one elegant pale-gold notched allocation rail with a broad cobalt-blue core block seated across most of its length, one detached ivory reserve wedge waiting outside the last notch, one water-blue glass witness tile placed beside the rail to suggest transparent portfolio disclosure, and one tiny restrained vermilion witness pin marking the gate. Keep the mechanism low-left to center, with broad untouched warm ivory mineral negative space above and to the right. Setting: a quiet white-gypsum registrar's bay beneath one narrow horizontal skylight after a dry summer wind, viewed from a high rear-right angle across the ledge. Crisp academic classical-revival oil painting, jewel-toned but restrained, pale gold, cobalt and ultramarine, water blue, ivory, with at most one vermilion status mark. Convincing limestone, brushed metal, translucent glass, and ceramic material behavior. Hard-edged directional late-afternoon light, clean contact shadows, selective impasto on the rail and pin, soft atmospheric texture only in the far background. Integrate tiny 1/0/x marks only sparingly into the cast shadow under the rail and the faint air near the skylight, never as a pattern or texture. No text, letters, numerals, labels, watermark, UI, chart, coin, token, logo, Ripple symbol, crypto icon, people, politician, computer, circuit board, cyber cube, fantasy architecture, impossible structure, panoramic Greek city, harbor, temple, coast, bank interior, or all-over ASCII or dither. Make the arrangement physically believable, sparse, premium, editorial, and clearly unlike prior XRP imagery. The output should feel like a museum-grade symbolic study of an exchange rule, not a product illustration.",
+  "keywords": [
+    "XRP",
+    "Nasdaq Texas",
+    "SEC crypto regulation",
+    "Commodity-Based Trust Shares",
+    "crypto ETP listing standards",
+    "digital commodities",
+    "XRP ETF",
+    "Rule 5711(d)"
+  ],
+  "keyTakeaways": [
+    "The SEC approved Nasdaq Texas's amended Rule 5711(d) on September 3, 2026. This is an exchange-level generic listing standard, not approval of an XRP ETF.",
+    "The amended framework permits up to 15% of net asset value in an aggregate bucket of certain otherwise ineligible digital commodities or securities, while at least 85% must satisfy the ordinary rule or permitted cash-equivalent requirements.",
+    "XRP appears in a hypothetical SEC example alongside Bitcoin, Ether, and Solana. The example is not a live portfolio, issuer filing, fund launch, listing, or report of XRP demand.",
+    "Active management is allowed, but portfolio transparency, surveillance, information firewalls, reporting, and halt provisions remain part of the listing perimeter."
+  ],
+  "sections": [
+    {
+      "heading": "What the SEC approved on September 3",
+      "paragraphs": [
+        "The SEC approved Nasdaq Texas's amended Rule 5711(d) on September 3, 2026. The rule allows a Commodity-Based Trust Share to keep up to 15% of its net asset value in certain otherwise ineligible digital commodities or securities, and its worked example names XRP. It does not approve an XRP ETF. [1]",
+        "The order is Release No. 34-106268, File No. SR-NasdaqTX-2026-039. Nasdaq Texas filed the proposed change on August 20, and the SEC approved it on an accelerated basis. The amendment adds a digital commodity definition, permits actively managed strategies, and creates an aggregate 15% bucket for assets that do not meet the ordinary eligibility routes. [1] Digital Capital Daily independently described the event as a change to the exchange's generic crypto ETP listing framework, rather than the approval of a named fund. [4]",
+        "Confirmed fact: the SEC approved a rule change for an exchange's listing standard. The order does not name an XRP sponsor, issuer, ticker, custodian, trust, creation basket, redemption process, or first trading date. Those omissions are important because a rule that can accommodate a product is not the same record as a product filing or a listing notice. [1]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+        "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+      ]
+    },
+    {
+      "heading": "Why XRP appears in the order",
+      "paragraphs": [
+        "XRP appears in a worked example designed to show how the 85% core and 15% buffer operate. The SEC describes a hypothetical $100 million Commodity-Based Trust Share holding $95 million of Bitcoin, Ether, Solana, and XRP, with the remaining $5 million invested in several digital commodities that do not meet the ordinary eligibility criteria. Because the first group equals 95% of net asset value, the example satisfies the generic threshold. [1]",
+        "That example is useful for understanding the rule, but it is not evidence of a fund's actual holdings. It does not say that a sponsor selected XRP, that Nasdaq Texas received an XRP product application, or that any dollars entered an XRP vehicle. Editorial boundary: the only defensible XRP statement from this passage is that XRP is one of the assets used in the SEC's hypothetical basket. [1]",
+        "The order's terminology also sits inside a wider 2026 regulatory record. A March SEC and CFTC interpretation created a taxonomy for certain crypto assets and discussed digital commodities, while the SEC's accompanying release said the agencies were clarifying how federal securities laws apply to several asset categories. The September order refers to that guidance when defining a digital commodity. [1][2][3]",
+        "Unresolved uncertainty: the order does not turn its example into a forecast. It does not establish an XRP allocation percentage for any future product, a timetable for a listing, an expectation of assets under management, or a market response. The example should be read as a compliance illustration, not as a transaction announcement. [1][4]"
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+        "https://www.sec.gov/rules-regulations/2026/03/s7-2026-09",
+        "https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets",
+        "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+      ]
+    },
+    {
+      "heading": "The 85/15 structure is the central mechanical change",
+      "paragraphs": [
+        "The amended standard is easiest to understand as a portfolio eligibility test. The ordinary routes still do the main work. The new buffer provides limited room for assets that fail those routes, but it does not replace them. The SEC's order also says derivatives included in the buffer are measured using gross notional value, which prevents a small cash outlay from disguising a larger stated exposure. [1]"
+      ],
+      "table": {
+        "caption": "What the amended Nasdaq Texas standard establishes",
+        "headers": [
+          "Rule element",
+          "What the order says",
+          "What it does not establish"
+        ],
+        "rows": [
+          [
+            "Core exposure",
+            "At least 85% of net asset value must meet the existing eligibility standards or permitted cash-equivalent requirements.",
+            "It is not a required XRP allocation."
+          ],
+          [
+            "Aggregate buffer",
+            "Up to 15% of net asset value may sit in certain digital commodities or securities that fail the ordinary criteria.",
+            "It is not a 15% XRP allowance for every product."
+          ],
+          [
+            "Derivatives",
+            "Derivatives counted in the buffer use gross notional value.",
+            "It is not a forecast of leverage, flows, or market demand."
+          ],
+          [
+            "Worked example",
+            "$95 million of Bitcoin, Ether, Solana, and XRP plus $5 million of other digital commodities in a hypothetical $100 million vehicle.",
+            "It is not a live portfolio or flow report."
+          ]
+        ],
+        "sourceNote": "All figures and mechanics in this table come from the SEC's September 3, 2026 order. [1]"
+      },
+      "sourceUrls": [
+        "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf"
+      ]
+    },
+    {
+        "heading": "Active management has a compliance perimeter",
+        "paragraphs": [
+          "The amendment also removes the passive-only constraint for products that otherwise fit the Commodity-Based Trust Share framework. That means an eligible vehicle can be actively managed under the generic standard, subject to the rule's other conditions. The change concerns how a qualifying product may be managed. It does not identify an XRP manager or promise that an active product will be filed. [1]",
+          "The order pairs that flexibility with a public-information requirement. Before trading opens, a product's website must disclose information such as holdings, ticker, asset identification, descriptions, quantities, and portfolio weightings. If the required information is not disseminated to all market participants at the same time, the exchange must halt trading until the information is available. [1]",
+          "The compliance perimeter also includes exchange surveillance, reporting authority, information barriers, and controls around material nonpublic information. Confirmed fact: the order treats transparency and market-integrity controls as conditions around the listing path, not as optional marketing features. Bounded inference: any future XRP vehicle using this route would have to be judged against those controls, but the September order contains no product-specific finding. [1]"
+        ],
+        "sourceUrls": [
+          "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf"
+        ]
+      },
+      {
+        "heading": "What Rule 19b-4(e) changes for a qualifying product",
+        "paragraphs": [
+          "The order explains that a Commodity-Based Trust Share satisfying a generic standard under Exchange Act Rule 19b-4(e) can commence trading without a separate product-by-product public-comment rule filing and individual SEC approval under Section 19(b). That is a procedural route for products that meet the stated standard. It is not a blanket authorization for every digital asset or every sponsor. [1]",
+          "A product outside the generic criteria is not automatically barred. The SEC order says an exchange can still submit a separate Section 19(b) filing for that product. The practical distinction is between a vehicle that can document compliance with the standing standard and one that needs a bespoke review. Digital Capital Daily's independent account makes the same high-level distinction by describing the change as listing capacity, not an approval of a specific fund. [1][4]",
+          "Bounded inference: the amended standard could reduce procedural uncertainty for an issuer designing a product around eligible assets, the 15% aggregate buffer, and the disclosure requirements. That inference stops at process. It cannot support claims about which issuer will act, how much XRP a future vehicle might hold, whether a product will list, or whether investors will buy it. [1][4]"
+        ],
+        "sourceUrls": [
+          "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+          "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+        ]
+      },
+      {
+        "heading": "What this means for XRP ETF watchers",
+        "paragraphs": [
+          "Confirmed fact: the September order makes XRP visible in two ways. It references a digital commodity framework informed by the March SEC and CFTC interpretation, and it uses XRP in the hypothetical 95% qualifying basket. Neither fact is a fund launch, an XRP-specific approval, or a record of assets entering a product. [1][2][3]",
+          "The clearest market-structure implication is that XRP can be discussed within a generic ETP eligibility framework without pretending that a product already exists. A future issuer could decide whether to pursue a structure under this rule or use another route, but that decision would require its own public record. A prospectus, registration statement, exchange notice, or separate SEC filing would be the evidence of that next step. [1]",
+          "Unresolved uncertainty: the order does not disclose a sponsor, fund name, ticker, XRP weight, custodian, creation and redemption agent, fee schedule, authorized participant, listing date, or expected assets. It also contains no XRP price target, flow estimate, adoption measure, or causal claim about market behavior. Those data points must not be reverse-engineered from the hypothetical example. [1][4]",
+          "Editorial boundary: a headline saying the SEC approved an XRP ETF would be inaccurate. A defensible headline says the SEC approved Nasdaq Texas's generic ETP rule and that XRP appears in its worked example. That wording preserves the meaningful regulatory development while keeping the product-status line intact. [1][4]"
+        ],
+        "sourceUrls": [
+          "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+          "https://www.sec.gov/rules-regulations/2026/03/s7-2026-09",
+          "https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets",
+          "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+        ]
+      },
+      {
+        "heading": "Implications for affected readers",
+        "paragraphs": [
+          "For XRP holders, the order does not change wallet mechanics, token supply, account access, or any confirmed trading venue. There is no action to take based on the hypothetical basket alone. Readers should separate a rulebook change from an issuer's decision to create a product and from an investor's decision to buy it. [1]",
+          "For ETF watchers and prospective issuers, the useful checklist is procedural. Look for a named sponsor, trust documents, a registration statement or prospectus, an exchange notice, the stated eligibility route, custody and creation details, and the public portfolio disclosures required before trading. Without those records, the story remains about exchange infrastructure rather than an investable XRP vehicle. [1]",
+          "For XRPL developers and businesses, this is a securities-market structure development, not a protocol release or a change to ledger functionality. The order does not report a new XRPL integration, payment corridor, settlement deployment, or enterprise usage result. Any such claim would need separate primary evidence. [1][4]",
+          "For analysts and reporters, the $95 million figure belongs in the category of hypothetical compliance math. It should not be counted as XRP holdings, demand, liquidity, or institutional exposure. The clean citation is the SEC order itself, supplemented by independent coverage that preserves the distinction between a generic exchange rule and a named fund. [1][4]"
+        ],
+        "sourceUrls": [
+          "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+          "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+        ]
+      },
+      {
+        "heading": "What remains unresolved",
+        "paragraphs": [
+          "The September order answers a narrow question: what generic conditions can Nasdaq Texas use for certain Commodity-Based Trust Shares? It does not answer whether a sponsor will use the standard for an XRP product. That question remains open until a named filing or exchange notice supplies product-level facts. [1]",
+          "Watch status: confirmed is the exchange-rule approval and the hypothetical XRP example. Bounded inference is that a standing 85/15 framework may give future issuers another design path. Unresolved are the issuer, vehicle, allocation, custody, fees, listing date, holdings, flows, and market outcome. Any update should be anchored to the next primary record rather than to speculation. [1][4]"
+        ],
+        "sourceUrls": [
+          "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+          "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings"
+        ]
+      }
+  ],
+  "whatToWatch": [
+    "A named issuer filing or exchange notice that identifies an XRP vehicle, ticker, sponsor, and the listing route it is using.",
+    "A prospectus or registration statement that states XRP allocation, custody, creation and redemption mechanics, fees, and authorized participants.",
+    "Nasdaq Texas public portfolio disclosures, including holdings, quantities, weightings, and any halt or delayed-disclosure notice before trading opens.",
+    "Whether a future product satisfies the generic Rule 19b-4(e) standard or instead requires a separate Section 19(b) filing.",
+    "Independent holdings, flow, and trading data before drawing conclusions about XRP demand, institutional exposure, or price effects."
+  ],
+  "sources": [
+    {
+      "name": "SEC Release No. 34-106268, SR-NasdaqTX-2026-039",
+      "url": "https://www.sec.gov/files/rules/sro/nasdaqtx/2026/34-106268.pdf",
+      "type": "primary",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "name": "SEC/CFTC Interpretation: Application of the Federal Securities Laws to Certain Types of Crypto Assets",
+      "url": "https://www.sec.gov/rules-regulations/2026/03/s7-2026-09",
+      "type": "primary",
+      "publishedAt": "2026-03-17"
+    },
+    {
+      "name": "SEC Clarifies Application of Federal Securities Laws to Crypto Assets",
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets",
+      "type": "primary",
+      "publishedAt": "2026-03-17"
+    },
+    {
+      "name": "SEC clears Nasdaq Texas rule for crypto ETP listings",
+      "url": "https://www.digitalcapitaldaily.com/story/sec-clears-nasdaq-texas-rule-for-crypto-etp-listings",
+      "type": "supporting",
+      "publishedAt": "2026-09-03"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-etf-filings",
+      "label": "XRP ETF filings"
+    },
+    {
+      "href": "/learn/crypto-regulation-xrp-impact",
+      "label": "Crypto regulation and XRP"
+    },
+    {
+      "href": "/news/hashdex-nciq-hype-xrp-index-rebalance",
+      "label": "Hashdex NCIQ XRP index rebalance"
+    },
+    {
+      "href": "/news/franklin-xrpz-q2-cash-in-kind-creations",
+      "label": "Franklin XRP ETF creations"
+    },
+    {
+      "href": "/learn/trusted-sources",
+      "label": "How to read XRP sources"
+    }
+  ]
+}
