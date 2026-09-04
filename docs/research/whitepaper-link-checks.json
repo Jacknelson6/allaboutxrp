@@ -1,0 +1,242 @@
+{
+  "checkedAt": "2026-09-04T20:58:56.222145+00:00",
+  "method": "GET with byte range 0-15; read at most 16 bytes; headers and PDF signature only, not full content validation.",
+  "results": [
+    {
+      "slug": "ripple-consensus-2014",
+      "url": "https://ripple.com/files/ripple_consensus_whitepaper.pdf",
+      "status": 200,
+      "finalUrl": "https://ripple.com/files/ripple_consensus_whitepaper.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "xrpl-consensus-analysis",
+      "url": "https://arxiv.org/pdf/1802.07242",
+      "status": 206,
+      "finalUrl": "https://arxiv.org/pdf/1802.07242",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "cobalt",
+      "url": "https://arxiv.org/pdf/1802.07240",
+      "status": 206,
+      "finalUrl": "https://arxiv.org/pdf/1802.07240",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "ripple-consensus-security",
+      "url": "https://arxiv.org/pdf/2011.14816",
+      "status": 206,
+      "finalUrl": "https://arxiv.org/pdf/2011.14816",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "interledger-payments",
+      "url": "https://interledger.org/documents/interledger.pdf",
+      "status": 200,
+      "finalUrl": "https://interledger.org/documents/interledger.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "asset-tokenization-mpt",
+      "url": "https://xrpl.org/static/pdf/Whitepaper_the_future_of_asset_tokenization.pdf",
+      "status": 200,
+      "finalUrl": "https://xrpl.org/static/pdf/Whitepaper_the_future_of_asset_tokenization.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "rlusd",
+      "url": "https://ripple.com/reports/rlusd-whitepaper.pdf",
+      "status": 200,
+      "finalUrl": "https://ripple.com/reports/rlusd-whitepaper.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "xahau",
+      "url": "https://github.com/Xahau/Whitepaper/blob/main/Xahau-Whitepaper.pdf",
+      "status": 206,
+      "finalUrl": "https://github.com/Xahau/Whitepaper/blob/main/Xahau-Whitepaper.pdf",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "evernode",
+      "url": "https://raw.githubusercontent.com/EvernodeXRPL/whitepaper/main/Evernode%202.0.pdf",
+      "status": 206,
+      "finalUrl": "https://raw.githubusercontent.com/EvernodeXRPL/whitepaper/main/Evernode%202.0.pdf",
+      "contentType": "application/octet-stream",
+      "pdfSignature": true
+    },
+    {
+      "slug": "coreum",
+      "url": "https://www.coreum.com/assets/coreum_technical_paper.pdf",
+      "error": "HTTP Error 308: Permanent Redirect"
+    },
+    {
+      "slug": "flare-confidential-compute",
+      "url": "https://dev.flare.network/pdf/whitepapers/20260706-FlareConfidentialCompute.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20260706-FlareConfidentialCompute.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-data-connector",
+      "url": "https://dev.flare.network/pdf/whitepapers/20240224-FlareDataConnector.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20240224-FlareDataConnector.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-ftso-v2",
+      "url": "https://dev.flare.network/pdf/whitepapers/20240223-FlareTimeSeriesOracleV2.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20240223-FlareTimeSeriesOracleV2.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-consensus-learning",
+      "url": "https://dev.flare.network/pdf/whitepapers/20240225-ConsensusLearning.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20240225-ConsensusLearning.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-network",
+      "url": "https://dev.flare.network/pdf/whitepapers/20221231-TheFlareNetworkAndFLRToken.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20221231-TheFlareNetworkAndFLRToken.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-post-quantum",
+      "url": "https://dev.flare.network/pdf/whitepapers/20220722-HybridPostQuantumDigitalSignatureSchemeForTheEthereumVirtualMachine.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20220722-HybridPostQuantumDigitalSignatureSchemeForTheEthereumVirtualMachine.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-consensus",
+      "url": "https://dev.flare.network/pdf/whitepapers/20191105-FlareConsensusProtocol.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20191105-FlareConsensusProtocol.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-ftso-comparison",
+      "url": "https://dev.flare.network/pdf/whitepapers/20230406-KrakenExchange-FTSOPriceComparison.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20230406-KrakenExchange-FTSOPriceComparison.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "flare-stp02",
+      "url": "https://dev.flare.network/pdf/whitepapers/20230529-SongbirdBandUpdate-ImpactOfSTP02.pdf",
+      "status": 206,
+      "finalUrl": "https://dev.flare.network/pdf/whitepapers/20230529-SongbirdBandUpdate-ImpactOfSTP02.pdf",
+      "contentType": "application/pdf",
+      "pdfSignature": true
+    },
+    {
+      "slug": "xls-0020",
+      "url": "https://xls.xrpl.org/xls/XLS-0020-non-fungible-tokens.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0020-non-fungible-tokens.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0030",
+      "url": "https://xls.xrpl.org/xls/XLS-0030-automated-market-maker.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0030-automated-market-maker.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0033",
+      "url": "https://xls.xrpl.org/xls/XLS-0033-multi-purpose-tokens.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0033-multi-purpose-tokens.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0040",
+      "url": "https://xls.xrpl.org/xls/XLS-0040-decentralized-identity.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0040-decentralized-identity.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0065",
+      "url": "https://xls.xrpl.org/xls/XLS-0065-single-asset-vault.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0065-single-asset-vault.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0066",
+      "url": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0066-lending-protocol.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xls-0096",
+      "url": "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+      "status": 206,
+      "finalUrl": "https://xls.xrpl.org/xls/XLS-0096-confidential-mpt.html",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xrpl-payment-system",
+      "url": "https://github.com/XRPLF/dex-docs",
+      "status": 206,
+      "finalUrl": "https://github.com/XRPLF/dex-docs",
+      "contentType": "text/html; charset=utf-8",
+      "pdfSignature": false
+    },
+    {
+      "slug": "xrpl-evm",
+      "url": "https://docs.xrplevm.org/pages/users/introduction/what-is-the-xrplevm",
+      "status": 206,
+      "finalUrl": "https://docs.xrplevm.org/pages/users/introduction/what-is-the-xrplevm",
+      "contentType": "text/html; charset=UTF-8",
+      "pdfSignature": false
+    }
+  ],
+  "supersededChecks": [
+    {
+      "slug": "interledger-payments",
+      "url": "https://interledger.org/developers/documents/interledger.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "browserObservations": [
+    {
+      "slug": "coreum",
+      "finalUrl": "https://tx.org/",
+      "result": "Redirected to TX homepage, not a PDF.",
+      "checkedAt": "2026-09-04"
+    }
+  ]
+}

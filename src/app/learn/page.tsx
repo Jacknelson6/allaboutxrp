@@ -86,6 +86,7 @@ const clusters: GuideCluster[] = [
       { href: "/learn/xrp-price-history", title: "XRP price history", description: "Major cycles and events without hindsight guarantees." },
       { href: "/learn/xrp-market-cap-explained", title: "Market cap explained", description: "How supply and price interact in valuation scenarios." },
       { href: "/learn/trusted-sources", title: "Trusted sources", description: "Official documents, data providers, and verification habits." },
+      { href: "/whitepapers", title: "XRP whitepaper library", description: "Original consensus papers, Ripple research, and ecosystem specifications." },
     ],
   },
 ];

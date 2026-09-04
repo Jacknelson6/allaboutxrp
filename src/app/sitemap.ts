@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { WHITEPAPER_REVIEW_DATE } from "@/data/whitepapers";
 import fs from "fs";
 import path from "path";
 import { LEARN_HUBS } from "@/data/learn-hubs";
@@ -122,6 +123,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/news",
     "/holders",
     "/how-to-start",
+    "/whitepapers",
 
     // Learn hub
     "/learn",
@@ -170,6 +172,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const latestNewsHub = getLatestDate(publishedNews.map((article) => article.publishedAt));
   const contentHubDates = new Map<string, Date | undefined>([
     ["/news", latestNewsHub],
+    ["/whitepapers", new Date(`${WHITEPAPER_REVIEW_DATE}T12:00:00Z`)],
   ]);
 
   const entries: SitemapEntry[] = [

@@ -149,6 +149,7 @@ AllAboutXRP publishes educational material, not personalized financial, legal, i
 - Ripple vs XRP: https://allaboutxrp.com/learn/ripple-vs-xrp - Why the company, asset, and public ledger are different subjects
 - SEC v. Ripple: https://allaboutxrp.com/learn/sec-vs-ripple - Case history, rulings, remedies, and appeal status
 - XRP Legal Status by Country: https://allaboutxrp.com/learn/xrp-legal-status-by-country - Jurisdiction-specific treatment with source and date context
+- XRP Whitepapers: https://allaboutxrp.com/whitepapers - Original XRP, Ripple, and ecosystem papers with source links, bibliographic dates, and context
 - XRP Trusted Sources: https://allaboutxrp.com/learn/trusted-sources - Official documents and data sources used by the publication
 - XRP Answers: https://allaboutxrp.com/answers - Short, direct answers linked to deeper evidence
 - All learning paths: https://allaboutxrp.com/learn

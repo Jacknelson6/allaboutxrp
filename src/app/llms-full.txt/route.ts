@@ -1,3 +1,5 @@
+import { WHITEPAPERS, WHITEPAPER_URL } from "@/data/whitepapers";
+import { paperPermalink } from "@/lib/whitepapers";
 import { LEARN_HUBS, titleFromSlug } from "@/data/learn-hubs";
 import { getAllNewsArticles } from "@/lib/news-content";
 
@@ -102,6 +104,12 @@ Every URL below also serves Markdown: send \`Accept: text/markdown\`, or append 
 ## Learning paths
 
 ${LEARN_HUBS.map(buildHubSection).join("\n\n")}
+
+## Whitepapers and research
+
+[XRP Whitepaper Library](${WHITEPAPER_URL}): Original papers, research, specifications, and reports with dates and source context.
+
+${WHITEPAPERS.map((paper) => `- [${paper.displayTitle}](${paperPermalink(paper)}): ${paper.summary}`).join("\n")}
 
 ## Answers
 

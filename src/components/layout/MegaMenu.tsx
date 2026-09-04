@@ -43,6 +43,7 @@ const learnGroups = [
       { label: "XRP Ledger", href: "/learn/xrp-ledger-explained", desc: "Network architecture" },
       { label: "Supply and escrow", href: "/learn/xrp-supply-explained", desc: "Distribution and mechanics" },
       { label: "Trusted sources", href: "/learn/trusted-sources", desc: "Where we verify claims" },
+      { label: "Whitepaper library", href: "/whitepapers", desc: "Original papers and research" },
     ],
   },
 ];
@@ -115,7 +116,7 @@ export default function MegaMenu() {
                 type="button"
                 onClick={() => setLearnOpen((value) => !value)}
                 className={`flex min-h-11 items-center gap-1.5 px-3 text-sm font-[650] transition-colors duration-150 ${
-                  learnOpen || pathname.startsWith("/learn")
+                  learnOpen || pathname.startsWith("/learn") || pathname === "/whitepapers"
                     ? "bg-black/[0.055] text-ink"
                     : "text-text-secondary hover:bg-black/[0.035] hover:text-cobalt"
                 }`}

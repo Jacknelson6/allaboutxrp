@@ -303,7 +303,7 @@ export default function XRPLValidatorsPage() {
             <ul className="mt-4 space-y-2 text-sm text-text-secondary">
               <li>• <a href="https://xrpl.org/consensus.html" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">XRPL.org — Consensus</a></li>
               <li>• <a href="https://xrpl.org/run-rippled-as-a-validator.html" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">XRPL.org — Run a Validator</a></li>
-              <li>• <a href="https://arxiv.org/abs/1802.07242" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">RPCA Consensus Whitepaper (2018)</a></li>
+              <li>• <a href="https://arxiv.org/abs/1802.07242" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">Analysis of the XRP Ledger Consensus Protocol (2018)</a></li>
               <li>• <a href="https://livenet.xrpl.org/network/validators" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">XRPL.org — Live Validator List</a></li>
               <li>• <a href="https://xrpscan.com/validators" target="_blank" rel="noopener noreferrer" className="text-xrp-accent underline decoration-xrp-accent/30 hover:text-xrp-accent-bright">XRPScan — Validator Dashboard</a></li>
             </ul>
@@ -335,6 +335,7 @@ export default function XRPLValidatorsPage() {
         />
 
         <p className="mt-8 text-xs text-text-secondary/60">
+          <p className="mb-4"><Link href="/whitepapers" className="text-xrp-accent underline">Browse the XRP whitepaper and research library</Link> for the original 2014 RPCA paper and subsequent analyses.</p>
           <em>Last updated: February 13, 2026. Written by the AllAboutXRP Editorial Team. Sources: XRPL.org documentation, RPCA whitepaper, XRPScan validator data.</em>
         </p>
       </div>
