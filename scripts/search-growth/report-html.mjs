@@ -13,6 +13,7 @@ function opportunityCard(item, reportJsonPath, ledgerPath) {
   const flags = [
     item.signals.observedClickLoss > 0 ? `${item.signals.observedClickLoss} observed clicks lost` : null,
     item.signals.estimatedCtrClickGap > 0 ? `${item.signals.estimatedCtrClickGap} estimated CTR clicks` : null,
+    item.signals.firstPage ? "positions 4–10: intent review" : null,
     item.signals.pageTwo ? "page-two range" : null,
     item.signals.cannibalizationRisk ? "cannibalization review" : null,
     item.verificationState !== "live_verified" ? "live verification required" : null
@@ -37,7 +38,30 @@ function opportunityCard(item, reportJsonPath, ledgerPath) {
       ${metric("Position", item.current.position, item.previous ? `was ${item.previous.position}` : "")}
     </div>
     <div class="flags">${flags.map((flag) => `<span>${escapeHtml(flag)}</span>`).join("")}</div>
+    ${editingBrief(item.editingBrief)}
     <details><summary>${item.approvalState === "candidate" ? "Human approval command" : "Approval unavailable"}</summary><code>${escapeHtml(approvalMessage)}</code></details>
+  </article>`;
+}
+
+function editingBrief(brief) {
+  if (!brief) return "";
+  if (brief.state === "not_available") return `<details><summary>Editing brief unavailable</summary><p>${escapeHtml(brief.reason)}</p></details>`;
+  const fields = [["Title", "title"], ["H1", "h1"], ["Meta description", "description"], ["Opening paragraph", "openingAnswer"]];
+  return `<details><summary>Editing brief: ${escapeHtml(brief.state.replaceAll("_", " "))}</summary>
+    <p>${escapeHtml(brief.review)}</p><p>Source: ${escapeHtml(brief.sourcePath)}. Retrieved ${escapeHtml(brief.current.retrievedAt)}.</p>
+    ${fields.map(([label, key]) => `<p><strong>${label}: current</strong></p><code>${escapeHtml(brief.current[key] ?? "Not available")}</code>${brief.proposed ? `<p><strong>${label}: proposed</strong></p><code>${escapeHtml(brief.proposed[key])}</code>` : ""}`).join("")}
+    <p>${escapeHtml(brief.draftingMethod)}</p>
+    <h4>Existing internal links</h4><ul>${brief.current.internalLinks.map((link) => `<li><a href="${escapeHtml(link.page)}">${escapeHtml(link.anchor || link.page)}</a></li>`).join("") || "<li>No internal links extracted.</li>"}</ul>
+    <h4>Incoming link suggestions</h4><ul>${brief.internalLinkSuggestions.map((link) => `<li><a href="${escapeHtml(link.from)}">${escapeHtml(link.from)}</a>: ${escapeHtml(link.state.replaceAll("_", " "))}. Suggested anchor: ${escapeHtml(link.suggestedAnchor)}</li>`).join("") || "<li>No matching source pages found. Review the relevant hub.</li>"}</ul>
+  </details>`;
+}
+
+function keywordGapCard(item) {
+  return `<article class="card"><span class="state">Discovery only</span><h3>${escapeHtml(item.query)}</h3>
+    <p>${escapeHtml(item.observation)}</p><p>${escapeHtml(item.action)}</p>
+    <p>${escapeHtml(item.competitorCount)} competitor domains. Estimated volume: ${escapeHtml(item.volume ?? "not supplied")}. Difficulty: ${escapeHtml(item.difficulty ?? "not supplied")}.</p>
+    <h4>Imported competitor evidence</h4><ul>${item.competitors.map((row) => `<li><a href="${escapeHtml(row.page)}">${escapeHtml(row.page)}</a> at position ${escapeHtml(row.position)}</li>`).join("")}</ul>
+    <h4>Existing page candidates</h4><ul>${item.existingPageCandidates.map((match) => `<li><a href="${escapeHtml(match.page)}">${escapeHtml(match.page)}</a> (matched: ${escapeHtml(match.matchedTokens.join(", "))})</li>`).join("") || "<li>No token match. Review coverage before proposing a new page.</li>"}</ul>
   </article>`;
 }
 
@@ -63,6 +87,9 @@ export function renderHtmlReport(report, { reportJsonPath, ledgerPath }) {
 <div class="notice"><strong>Evidence boundary:</strong> Search Console returns top rows and can omit data. Estimated opportunity is not observed traffic. This engine cannot edit or publish site content.${escapeHtml(unsettled)}</div>
 <div class="section-head"><div><p class="eyebrow">Human review queue</p><h2>Ranked interventions</h2></div><p>${escapeHtml(report.periods.current.start)} to ${escapeHtml(report.periods.current.end)}</p></div>
 <section class="grid">${opportunities || '<div class="empty">No candidates passed the configured evidence and safety gates.</div>'}</section>
+<div class="section-head"><div><p class="eyebrow">Competitor research</p><h2>Keyword gaps to investigate</h2></div></div>
+<p>${escapeHtml(report.competitorImport?.limitation ?? "Competitor exports are optional. Discovery candidates cannot be approved as measured interventions.")}</p>
+<section class="grid">${(report.keywordGaps ?? []).map(keywordGapCard).join("") || `<div class="empty">${report.competitorImport?.state === "imported" ? "No unobserved queries passed the competitor discovery filters." : "No competitor export supplied. Use --competitors with a CSV or JSON export."}</div>`}</section>
 <div class="section-head"><div><p class="eyebrow">Experiment portfolio</p><h2>Measurement readouts</h2></div><p>Directional at day 28, confirm at day 56, decide at day 90.</p></div>
 <section class="grid">${readouts || '<div class="empty">No approved interventions are present in the ledger.</div>'}</section>
 <footer>Run ${escapeHtml(report.runId)}. Generated ${escapeHtml(report.generatedAt)}. AEO and GEO tracking: <a href="${escapeHtml(report.site.rankPromptUrl)}">RankPrompt</a>.</footer>

@@ -1,5 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
+import { extractPageContent } from "./briefs.mjs";
 import { normalizeUrl } from "./utils.mjs";
 
 async function walk(directory) {
@@ -37,7 +38,7 @@ function extractPolicyPaths(source) {
   return { noindexPaths: strings(noindexBlock), aliasPaths: new Set(aliasStrings.filter((_, index) => index % 2 === 0)) };
 }
 
-export async function buildAaxrpCatalog({ repoRoot, origin, evidencePages }) {
+export async function buildAaxrpCatalog({ repoRoot, origin, evidencePages, includeAllRoutes = false }) {
   const appRoot = path.join(repoRoot, "src", "app");
   const pageFiles = (await walk(appRoot)).filter((filePath) => filePath.endsWith(`${path.sep}page.tsx`) || filePath.endsWith(`${path.sep}page.jsx`));
   const patterns = pageFiles
@@ -51,7 +52,10 @@ export async function buildAaxrpCatalog({ repoRoot, origin, evidencePages }) {
     noindexPaths = new Set();
     aliasPaths = new Set();
   }
-  return [...new Set(evidencePages.map((page) => normalizeUrl(page, origin)))].map((page) => {
+  const pages = includeAllRoutes
+    ? [...evidencePages, ...patterns.filter((item) => item.dynamicCount === 0).map((item) => item.route)]
+    : evidencePages;
+  return [...new Set(pages.map((page) => normalizeUrl(page, origin)))].map((page) => {
     const url = new URL(page);
     const match = patterns.find((candidate) => candidate.regex.test(url.pathname));
     const blocked = noindexPaths.has(url.pathname);
@@ -86,7 +90,7 @@ async function verifyPage(item, { origin, sitemapUrls, fetchImpl }) {
     const robotsTags = [...html.matchAll(/<meta\b[^>]*(?:name\s*=\s*["']robots["']|content\s*=\s*["'][^"']*noindex[^"']*["'])[^>]*>/gi)].map((match) => match[0].toLocaleLowerCase("en-US"));
     if (robotsTags.some((tag) => tag.includes("noindex"))) return { ...item, verificationState: "verification_failed", verificationReason: "live_noindex" };
     if (!sitemapUrls.has(item.page)) return { ...item, verificationState: "verification_failed", verificationReason: "missing_from_sitemap" };
-    return { ...item, verificationState: "live_verified", verificationReason: null };
+    return { ...item, verificationState: "live_verified", verificationReason: null, content: extractPageContent(html, item.page) };
   } catch (error) {
     return { ...item, verificationState: "verification_failed", verificationReason: error.name === "TimeoutError" ? "timeout" : "request_failed" };
   }

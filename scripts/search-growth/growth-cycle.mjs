@@ -1,6 +1,6 @@
 import { stableId, round } from "./utils.mjs";
 
-const ENGINE_VERSION = "1.1.0";
+const ENGINE_VERSION = "1.2.0";
 
 function isBranded(query, terms) {
   return terms.some((term) => query.includes(term.toLocaleLowerCase("en-US")));
@@ -68,14 +68,16 @@ export function runGrowthCycle({ config, currentRows, previousRows, catalog, per
     const expectedCtr = bucket?.ctr ?? null;
     const estimatedCtrClicks = expectedCtr === null ? 0 : Math.max(0, (expectedCtr - current.ctr) * current.impressions);
     const pageTwo = current.position > 10 && current.position <= 20;
+    const firstPage = current.position >= 4 && current.position <= 10
+      && current.impressions >= thresholds.minimumAssessmentImpressions;
     const isCannibalized = cannibalized.has(current.query);
-    if (!observedLoss && estimatedCtrClicks < 1 && !pageTwo && !isCannibalized) continue;
-    const evidenceState = observedLoss > 0 ? "observed" : expectedCtr !== null || pageTwo ? "estimated" : "insufficient_data";
+    if (!observedLoss && estimatedCtrClicks < 1 && !pageTwo && !firstPage && !isCannibalized) continue;
+    const evidenceState = observedLoss > 0 ? "observed" : expectedCtr !== null || pageTwo || firstPage ? "estimated" : "insufficient_data";
     const confidence = Math.min(20, Math.round(Math.log10(current.impressions + 1) * 7)) + (previous ? 5 : 0) + (content?.indexability === "eligible" ? 5 : 0);
-    const impact = Math.min(50, observedLoss * 2) + Math.min(25, estimatedCtrClicks) + (pageTwo ? 15 : 0);
+    const impact = Math.min(50, observedLoss * 2) + Math.min(25, estimatedCtrClicks) + (pageTwo ? 15 : firstPage ? 12 : 0);
     const riskDeduction = isCannibalized ? 20 : content?.indexability === "unknown" ? 10 : 0;
     const priority = Math.max(0, Math.min(100, Math.round(impact + confidence - riskDeduction)));
-    const interventionType = isCannibalized ? "consolidation_review" : observedLoss > 0 ? "recovery_review" : pageTwo ? "focused_content_refresh" : "snippet_review";
+    const interventionType = isCannibalized ? "consolidation_review" : observedLoss > 0 ? "recovery_review" : pageTwo ? "focused_content_refresh" : firstPage ? "first_page_intent_review" : "snippet_review";
     const id = stableId([config.site.id, current.query, current.page, periods.current.start, periods.current.end]);
     opportunities.push({
       id,
@@ -97,6 +99,7 @@ export function runGrowthCycle({ config, currentRows, previousRows, catalog, per
         observedClickLoss: round(observedLoss),
         estimatedCtrClickGap: round(estimatedCtrClicks),
         pageTwo,
+        firstPage,
         cannibalizationRisk: isCannibalized
       },
       current: { clicks: current.clicks, impressions: current.impressions, ctr: current.ctr, position: current.position },
@@ -107,7 +110,9 @@ export function runGrowthCycle({ config, currentRows, previousRows, catalog, per
           ? "Diagnose the lost query-page match, freshness, snippet, sources, and competing result set before making one bounded recovery edit."
           : pageTwo
             ? "Strengthen the exact intent answer, primary sourcing, and relevant internal links without expanding into a competing page."
-            : "Review the title, opening answer, and snippet-supporting passage for this query while preserving intent.",
+            : firstPage
+              ? "Confirm the page owns this search intent, then review the answer, sources, and internal links for a bounded top-three opportunity. Average position is not a guaranteed rank or traffic forecast."
+              : "Review the title, opening answer, and snippet-supporting passage for this query while preserving intent.",
       approvalState: "candidate"
     });
   }

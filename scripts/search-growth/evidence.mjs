@@ -11,7 +11,7 @@ const FIELD_ALIASES = {
   position: ["position", "average position"]
 };
 
-function parseCsv(text) {
+export function parseCsv(text) {
   const rows = [];
   let row = [];
   let field = "";

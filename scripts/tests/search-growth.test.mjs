@@ -90,7 +90,7 @@ test("growth cycle excludes branded demand and distinguishes observed from estim
   assert.equal(recovery.signals.observedClickLoss, 15);
   assert.equal(report.methodology.aeoGeoSystemOfRecord, "RankPrompt");
   assert.equal(report.methodology.contentWritesEnabled, false);
-  assert.equal(report.engineVersion, "1.1.0");
+  assert.equal(report.engineVersion, "1.2.0");
   assert.ok(report.controlPool.length >= 3);
   assert.deepEqual(Object.keys(recovery.scoreComponents), ["impact", "confidence", "riskDeduction"]);
 });
@@ -101,7 +101,8 @@ test("growth cycle excludes unknown pages and does not call positions 8 through 
   const unknown = runGrowthCycle({ config: strictConfig, currentRows: [row], previousRows: [row], catalog: [{ page: row.page, indexability: "unknown", verificationState: "local_only" }], periods, ledger: { schemaVersion: 1, interventions: [] } });
   assert.equal(unknown.opportunities.length, 0);
   const eligible = runGrowthCycle({ config: strictConfig, currentRows: [row], previousRows: [row], catalog: catalogFor([row]), periods, ledger: { schemaVersion: 1, interventions: [] } });
-  assert.equal(eligible.opportunities.length, 0);
+  assert.equal(eligible.opportunities.length, 1);
+  assert.equal(eligible.opportunities[0].signals.pageTwo, false);
 });
 
 test("live verification mode excludes pages that fail remote verification", () => {

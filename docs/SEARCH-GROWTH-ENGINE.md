@@ -12,7 +12,9 @@ The Search Growth Engine converts first-party search evidence into a human-revie
 - Optional live HTTP, canonical, robots, redirect, and sitemap verification.
 - Branded-query separation.
 - AAXRP-specific empirical CTR baselines when samples are sufficient.
-- Observed click-loss, CTR-gap, page-two, and cannibalization signals.
+- Observed click-loss, CTR-gap, positions 4–10, page-two, and cannibalization signals.
+- Competitor keyword export ingestion with a separate discovery queue.
+- Reviewable editing briefs from verified live page copy.
 - HTML and JSON reports.
 - Append-only human approval ledger.
 - Day 28, 56, 90, and 120 experiment readouts on later runs.
@@ -177,3 +179,34 @@ The primary result is non-branded organic clicks, shown both raw and normalized 
 ## Product boundary
 
 This release does not include autonomous editing, publishing, a database, GA4 ingestion, a deployed dashboard, programmatic page generation, RankPrompt ingestion, AI citation crawling, or interactive chat approvals. Those features require measured workflow evidence before they are worth their cost and risk.
+
+## Positions 4–10 opportunities
+
+Stable query-page pairs in average positions 4 through 10 now enter the queue once they reach `minimumAssessmentImpressions` (50 in the AAXRP config), even with healthy CTR and no click loss. They receive a `firstPage` signal and `first_page_intent_review` intervention type unless recovery or consolidation takes precedence. This is an estimated opportunity, not a forecast of top-three rankings. Existing live verification, baseline, settlement, and comparison gates still apply.
+
+## Competitor keyword exports
+
+Pass `--competitors /absolute/path/competitors.csv` to `growth:run`. CSV accepts common organic-keyword export headings: `Keyword` or `Query`, `URL` or `Current URL`, `Position` or `Current position`, optional `Search Volume` or `Volume`, and optional `Keyword Difficulty` or `KD`. These are row-based organic keyword exports, not vendor-specific side-by-side gap matrices. Convert matrix exports to one row per competitor URL and query first. JSON accepts an array or `{ "rows": [...] }` with fields `query`, `page`, `position`, `volume`, and `difficulty`.
+
+```csv
+Keyword,URL,Position,Search Volume,Keyword Difficulty
+xrp wallet recovery,https://example.com/wallet-recovery,5,320,28
+```
+
+The example is synthetic. Use exports with an appropriate country, device, and collection date. Blank optional metrics remain unknown. Do not mix different market scopes in a single import.
+
+Discovery includes non-branded queries where a competitor ranks 1–20 and neither supplied GSC window has observed impressions. Missing GSC rows do not establish that AAXRP does not rank. Volume and difficulty remain third-party estimates; multiple exports are not added together. Results sort by distinct competitor domains, then estimated volume.
+
+Before suggesting new content, the importer searches all static local routes plus dynamic URLs present in GSC evidence, excluding known aliases and blocked routes. Query/path and available live-copy token matches suggest up to three existing intent owners, with common domain plurals such as wallet/wallets normalized. They require human review, and unmatched queries still require a full content check because dynamic content may not be represented. This queue cannot be enrolled as a measured intervention without first-party evidence.
+
+## Editing briefs
+
+A run with `--verify-live` retrieves current title, H1, description, opening paragraph, and internal links from the same HTML used for canonical/indexability verification. It fetches only evidence URLs, not every static route. Each opportunity includes a JSON and HTML brief with:
+
+- The current copy and retrieval timestamp.
+- A proposed query-led title and H1.
+- A proposed meta description excerpted from the opening paragraph.
+- The existing opening paragraph retained verbatim to avoid inventing factual claims.
+- Potential incoming links from related routes, with suggested anchor text and an explicit source-inspection or placement-review state.
+
+These are conservative drafts, not an autonomous copywriter. Confirm query intent and factual freshness, edit the draft as needed, and select one bounded change. When the page has a cannibalization signal, the brief shows evidence but withholds proposed copy until an intent owner is selected. Missing or unsupported markup produces an explicit unavailable brief. Without live verification, the report asks for a verified run instead of guessing current copy from JSX.

@@ -4,11 +4,13 @@ import { mkdir } from "node:fs/promises";
 import { buildAaxrpCatalog, verifyCatalogLive } from "./catalog.mjs";
 import { loadSearchEvidence } from "./evidence.mjs";
 import { authorizeSearchConsole, DEFAULT_GSC_TOKEN_PATH, listSearchConsoleSites, pullSearchConsoleEvidence } from "./gsc.mjs";
+import { buildKeywordGaps, loadCompetitorEvidence } from "./competitors.mjs";
+import { buildEditingBrief } from "./briefs.mjs";
 import { runGrowthCycle } from "./growth-cycle.mjs";
 import { activateIntervention, approveOpportunity, closeIntervention, loadLedger } from "./ledger.mjs";
 import { sendNotification } from "./notifiers.mjs";
 import { renderHtmlReport } from "./report-html.mjs";
-import { inclusiveDays, invariant, parseArgs, parseIsoDate, readJson, writeJsonAtomic, writeTextAtomic } from "./utils.mjs";
+import { inclusiveDays, invariant, parseArgs, parseIsoDate, readJson, stableId, writeJsonAtomic, writeTextAtomic } from "./utils.mjs";
 
 const catalogAdapters = { "aaxrp-next-app": buildAaxrpCatalog };
 
@@ -24,6 +26,10 @@ Run a report:
   npm run growth:run -- --current <csv|json> --previous <csv|json> \\
     --current-start YYYY-MM-DD --current-end YYYY-MM-DD \\
     --previous-start YYYY-MM-DD --previous-end YYYY-MM-DD --out <directory>
+
+Optional report additions:
+  --competitors <csv|json>  Import competitor keyword exports into a discovery queue.
+  --verify-live            Retrieve page copy for editing briefs and verify indexability.
 
 Authorize Google Search Console with a Desktop OAuth client:
   npm run growth:gsc-auth -- --client <client-secret.json>
@@ -89,18 +95,35 @@ async function run(options) {
   ]);
   const configuredRoot = path.resolve(path.dirname(configPath), config.site.repoRoot || ".");
   const buildCatalog = catalogAdapters[config.site.catalogAdapter];
-  let catalog = await buildCatalog({ repoRoot: configuredRoot, origin: config.site.origin, evidencePages: [...currentRows, ...previousRows].map((row) => row.page) });
-  if (options["verify-live"]) catalog = await verifyCatalogLive(catalog, { origin: config.site.origin });
+  const competitorRows = options.competitors ? await loadCompetitorEvidence(required(options, "competitors"), config.site.origin) : [];
+  const evidencePages = [...currentRows, ...previousRows].map((row) => row.page);
+  let catalog = await buildCatalog({ repoRoot: configuredRoot, origin: config.site.origin, evidencePages, includeAllRoutes: true });
+  if (options["verify-live"]) {
+    // Fetch only pages in the supplied evidence, not every discovered route.
+    const evidenceSet = new Set(evidencePages);
+    const verified = await verifyCatalogLive(catalog.filter((item) => evidenceSet.has(item.page)), { origin: config.site.origin });
+    const verifiedByPage = new Map(verified.map((item) => [item.page, item]));
+    catalog = catalog.map((item) => verifiedByPage.get(item.page) ?? item);
+  }
   const out = required(options, "out");
   const ledgerPath = path.resolve(options.ledger || path.join(out, "experiment-ledger.json"));
   const ledger = await loadLedger(ledgerPath);
   const report = runGrowthCycle({ config, currentRows, previousRows, catalog, periods, ledger, verificationMode: options["verify-live"] ? "live" : "local" });
+  report.keywordGaps = buildKeywordGaps({ competitorRows, currentRows, previousRows, catalog, brandTerms: config.brandTerms });
+  report.competitorImport = {
+    state: options.competitors ? "imported" : "not_supplied",
+    sourceFile: options.competitors ? path.basename(String(options.competitors)) : null,
+    importedRows: competitorRows.length,
+    limitation: "Third-party estimates. Match country, device, and export date to your research scope; missing GSC rows do not prove absence."
+  };
+  report.opportunities = report.opportunities.map((item) => ({ ...item, editingBrief: buildEditingBrief(item, catalog) }));
+  report.runId = stableId([report.runId, JSON.stringify(competitorRows), JSON.stringify(report.opportunities.map((item) => ({ id: item.id, state: item.editingBrief.state, current: item.editingBrief.current ? { ...item.editingBrief.current, retrievedAt: undefined } : null, proposed: item.editingBrief.proposed, internalLinkSuggestions: item.editingBrief.internalLinkSuggestions })))]);
   await mkdir(out, { recursive: true });
   const jsonPath = path.join(out, `search-growth-${report.runId}.json`);
   const htmlPath = path.join(out, `search-growth-${report.runId}.html`);
   await writeJsonAtomic(jsonPath, report);
   await writeTextAtomic(htmlPath, renderHtmlReport(report, { reportJsonPath: jsonPath, ledgerPath }));
-  console.log(JSON.stringify({ runId: report.runId, opportunities: report.opportunities.length, jsonPath, htmlPath, ledgerPath }, null, 2));
+  console.log(JSON.stringify({ runId: report.runId, opportunities: report.opportunities.length, keywordGaps: report.keywordGaps.length, jsonPath, htmlPath, ledgerPath }, null, 2));
 }
 
 async function approve(options) {
