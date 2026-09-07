@@ -1,0 +1,197 @@
+{
+  "slug": "kraken-xrp-perpetual-futures-funding-margin",
+  "title": "XRP Perpetual Futures on Kraken: No Expiry, but Funding and Margin Still Apply",
+  "description": "Kraken offers eligible U.S. clients XRP perpetual futures through Bitnomial. This source-led explainer separates no-expiry exposure from funding costs, margin risk and token ownership.",
+  "category": "Markets",
+  "publishedAt": "2026-09-07T13:09:04+00:00",
+  "modifiedAt": "2026-09-07T13:09:04+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrp-perpetual-endless-belt-editorial.webp",
+  "imageAlt": "A continuous cobalt belt loops around two pale-gold pulleys beside a detached ivory stop with one red dot on an ivory stone bench.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrp-perpetual-endless-belt-lapidary-recess",
+  "imageSetting": "An empty ivory-stone lapidary polishing recess at late dawn, illuminated by warm reflected light rising from below the front stone edge and cool diffuse ceiling light; an almost edge-on view across the long bench places a low horizontal mechanism centrally beneath a broad blank upper field.",
+  "imageMetaphor": "A continuous cobalt silk belt encircles two pale-gold pulleys on one low tensioning frame, while a removed ivory end-stop with a single vermilion status dot lies apart. The endless loop represents a contract without expiry, and the visible tension screw represents the funding and margin discipline that continues.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial illustration, exact 16:9 landscape, at least 1680 pixels wide. Primary request: a sparse, physically believable symbolic still life explaining XRP perpetual futures: removing a terminal expiry does not remove ongoing funding and margin pressure. Exactly ONE low mechanical assembly, made of two pale-gold bronze pulleys on a simple supported horizontal frame with a visible tensioning screw, carrying ONE continuous taut cobalt silk flat belt, plus ONE detached ivory end-stop lying to the right with ONE small vermilion dot. The blue belt follows a physically correct closed path around both pulleys. No other props. The loop is the primary silhouette, the separate end-stop is secondary. Scene: an unadorned ivory-stone lapidary polishing recess. Broad matte warm-ivory stone bench and blank ivory backdrop, extraordinary negative space in the upper half. View almost edge-on across the long bench, mechanism centrally along lower third, enough elevation to see the belt loop. Lighting: late dawn, warm light reflected upward from below the front stone edge and cool diffuse ceiling bounce, crisp contact shadows, pale-gold highlights, cobalt depth. This new endless-belt mechanism, lapidary recess, opposing reflected lighting and low horizontal composition differ from every registered scene. References: image 1 is AAXRP palette and finish reference only; images 2-4 are Sublime Classical Oil color, metalwork and sculptural paint modeling references ONLY. Never copy their people, animals, scenery, architecture, layouts or dither. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, smooth rich enamel-like glazing, restrained material-specific brushwork and tiny selective impasto highlights. Keep the composition sparse and material behavior realistic. Optional 1/0/x stipple is almost imperceptible and only inside one small shadow transition. No all-over ASCII, dither or texture. Constraints: one two-pulley belt assembly and one detached end-stop only. No literal crypto coins, logos, text, digits, dashboards, people, politicians, columns, generic cubes, impossible structures, fantasy ruins, panoramic Greek city, landscape, horizon vista, horses or lions. No border, watermark, sepia, muddy gray, photographic realism or generic digital concept art.",
+  "keywords": [
+    "XRP perpetual futures",
+    "Kraken Pro",
+    "Bitnomial",
+    "XRP funding rates",
+    "CFTC",
+    "futures margin"
+  ],
+  "keyTakeaways": [
+    "Kraken announced eligible U.S. access to XRP perpetual futures on June 15, 2026. This September explainer examines that existing offering.",
+    "A perpetual contract has no fixed expiry. Recurring funding transfers between long and short holders help connect its price to spot XRP.",
+    "No expiry does not guarantee an unlimited holding period: losses and margin requirements can force a position to close. Derivative exposure does not itself establish XRP ownership."
+  ],
+  "sections": [
+    {
+      "heading": "What XRP perpetual futures on Kraken actually provide",
+      "paragraphs": [
+        "Kraken offers eligible U.S. clients XRP perpetual futures through Bitnomial, providing price exposure without a fixed expiration date. The product still involves recurring funding and margin requirements. Kraken announced the offering on June 15, 2026; this September explainer examines its mechanics, rather than reporting a new launch.",
+        "Confirmed: Kraken’s current U.S. support documentation lists XRP among its perpetual contracts. Its dated launch announcement and Cointelegraph’s June 15 reporting identify Kraken Pro as the customer interface and Bitnomial as the listing exchange. Cointelegraph also confirms that these products share the futures wallet used for Kraken’s existing CME-listed contracts. Eligibility remains part of the offering, so the announcement should not be read as universal access.",
+        "For an XRP reader, the important change is the available form of exposure. A contract can express a rising-price or falling-price view without imposing a scheduled expiry. That gives an investor another instrument to compare, but the comparison needs to include the cost of maintaining the position and the conditions under which it can be closed."
+      ],
+      "sourceUrls": [
+        "https://support.kraken.com/articles/us-perpetual-futures",
+        "https://blog.kraken.com/product/kraken-derivatives/announcing-cftc-regulated-us-perps",
+        "https://cointelegraph.com/news/kraken-launches-perpetual-futures-for-us-traders-through-cftc-regulated-venue"
+      ]
+    },
+    {
+      "heading": "CFTC’s expiry-date relief changed the contract clock",
+      "paragraphs": [
+        "Confirmed: CFTC Staff Letter 26-19, dated June 12, 2026, provided conditional no-action positions for Bitnomial and Coinbase Derivatives to remove expiration dates from existing perpetual-style digital commodity futures. TradeInformer independently reported the measure on June 15. Its account explains that earlier products could have very distant maturities even though their pricing already used a funding mechanism. The change therefore concerned the contractual endpoint, not the invention of recurring funding.",
+        "The distinction between an expiry date and routine settlement matters. Eliminating a final maturity does not eliminate payments, account adjustments or contractual obligations. It removes the need to move exposure into a replacement contract solely because the current one reaches its scheduled end. Cleary Gottlieb’s July 30 analysis describes how perpetual contracts use periodic funding to promote convergence with the underlying cash price.",
+        "Historical scope: the letter’s no-action positions expired June 30, 2026. That was the endpoint of this particular transitional relief, not a stated expiration date for every resulting perpetual contract. It should not be presented as an application window still open in September, or as a guarantee about the returns of XRP trading."
+      ],
+      "sourceUrls": [
+        "https://www.clearygottlieb.com/news-and-insights/publication-listing/the-market-that-never-sleeps-perpetual-contracts-and-24-7-trading-on-cftc-regulated-markets",
+        "https://www.cftc.gov/csl/26-19/download",
+        "https://tradeinformer.com/regulations/cftc-grants-bitnomial-and-coinbase-relief-to-strip-expiry-dates-from-perpetual-style-futures"
+      ]
+    },
+    {
+      "heading": "XRP funding rates turn holding time into an economic variable",
+      "paragraphs": [
+        "Confirmed: Kraken’s support page describes funding as a payment exchanged between traders on opposing sides of a perpetual position. When the contract trades above spot, longs pay shorts; below spot, the direction reverses. Cleary Gottlieb independently explains the same mechanism. It creates an incentive to trade against a price gap, rather than promising that the gap will always disappear immediately.",
+        "Analysis: a trader can therefore be correct about XRP’s direction and still misjudge the result of the trade. Price profit and the accumulated cost of holding exposure answer different questions. A long position may benefit from an increase in XRP’s price while incurring funding payments along the way. A short position can face its own funding costs when the relationship between the contract and spot changes.",
+        "The useful comparison is total position economics: price gains or losses, funding paid or received, trading charges and the capital needed to maintain the position. An attractive entry price alone cannot settle that comparison. Funding should be evaluated across the intended holding period, with room for its direction and magnitude to change. A rate observed at entry is a snapshot, not a promised return for the life of a position.",
+        "This article does not quote a live XRP funding rate or annualize one observation. Doing so would imply precision about future carrying costs that the sources cannot establish."
+      ],
+      "sourceUrls": [
+        "https://support.kraken.com/articles/us-perpetual-futures",
+        "https://www.clearygottlieb.com/news-and-insights/publication-listing/the-market-that-never-sleeps-perpetual-contracts-and-24-7-trading-on-cftc-regulated-markets"
+      ]
+    },
+    {
+      "heading": "Margin can end an XRP position before the investor’s thesis ends",
+      "paragraphs": [
+        "Confirmed: the CFTC’s virtual-currency trading advisory explains that leveraged futures can require customers to replenish margin or close positions when markets move against them. NFA’s December 1, 2017 investor advisory independently explains that a relatively small adverse move can produce a large loss compared with the initial deposit, potentially exceeding it. These are general futures-risk principles, not a forecast of losses on Kraken.",
+        "Analysis: removing expiry solves a calendar problem; it does not solve a capital problem. An investor’s willingness to wait for XRP to recover is separate from the resources available to support a leveraged position during an adverse move. A long-term view therefore cannot, by itself, justify treating a perpetual position as something that can remain open under every market condition.",
+        "The meaningful risk question is the account’s capacity to withstand an unfavorable path, not just the expected endpoint. Two investors with the same directional view can have different outcomes if their leverage, available capital and holding periods differ. A temporary move can matter even when the investor’s eventual price expectation proves right.",
+        "The CFTC and NFA warnings also explain why regulated access should not be confused with principal protection. Oversight addresses how a market and its intermediaries operate. It does not remove the economic consequences of borrowing exposure against a smaller initial deposit."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html",
+        "https://www.nfa.futures.org/investors/investor-resources/files/investor-advisory-virtual-currency.html"
+      ]
+    },
+    {
+      "heading": "What changes for XRP holders and professional hedgers",
+      "paragraphs": [
+        "The CFTC describes futures as instruments that can help holders manage exposure to adverse price movements. Analysis: for an XRP holder considering a hedge, a perpetual contract removes one source of calendar maintenance, but leaves a different set of decisions. The holder still needs to consider the amount of exposure being offset, the period of protection and the funding cost of keeping the hedge in place.",
+        "A hedge should be assessed together with the position it is meant to protect. Looking only at a gain on the derivative, or only at a loss on the XRP holdings, can obscure the combined result. Conversely, a hedge that looks attractive before costs may provide less protection after funding and execution costs. This is a framework for evaluating the instrument, not a recommendation to open a particular trade.",
+        "For professional users, the shared futures-wallet arrangement confirmed by Kraken and Cointelegraph is an operational feature to evaluate. It does not establish that every customer receives the same margin treatment or that positions on different venues have identical terms. Those details require the applicable contract and brokerage documentation."
+      ],
+      "sourceUrls": [
+        "https://blog.kraken.com/product/kraken-derivatives/announcing-cftc-regulated-us-perps",
+        "https://cointelegraph.com/news/kraken-launches-perpetual-futures-for-us-traders-through-cftc-regulated-venue",
+        "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html"
+      ]
+    },
+    {
+      "heading": "A Kraken derivative position is not proof of new XRP demand",
+      "paragraphs": [
+        "Kraken’s launch description says perpetuals let traders maintain exposure without owning the underlying asset. The CFTC’s advisory separately warns that purchasing a virtual-currency futures contract need not entitle its owner to receive the currency itself. Analysis: an XRP-linked contract balance should therefore not be counted automatically as XRP transferred into a customer’s wallet.",
+        "The same evidentiary discipline applies to market-wide claims. Product availability establishes an access route. It does not show how many clients used it, how long they stayed, whether their positions were predominantly hedges or speculation, or how intermediaries managed their resulting exposure. Inferring a specific amount of spot buying would require additional evidence about those actions.",
+        "Unresolved: the sources used here do not establish a current XRP-specific adoption total for this offering or a causal effect on XRP’s price. This report makes neither claim. The development matters because it broadens the instruments available to eligible users, while the question of durable participation remains separate from the fact that a product is listed."
+      ],
+      "sourceUrls": [
+        "https://blog.kraken.com/product/kraken-derivatives/announcing-cftc-regulated-us-perps",
+        "https://cointelegraph.com/news/kraken-launches-perpetual-futures-for-us-traders-through-cftc-regulated-venue",
+        "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html"
+      ]
+    },
+    {
+      "heading": "How to judge the next stage of U.S. XRP perpetual markets",
+      "paragraphs": [
+        "Analysis: the next useful evidence is operational, not promotional. XRP-specific volume and open interest would help show whether an available contract attracts continuing participation. Observations of spreads and executable depth at comparable times would help assess trading conditions. A dated series of funding observations would be more informative about carrying costs than one unusually high or low reading.",
+        "These are evidence requests, not claims that those metrics are currently improving. Comparisons also need consistent contract identifiers, units and observation windows. Otherwise, an apparent increase could reflect a different instrument or measurement convention rather than a change in participation.",
+        "Source precedence: this explainer reviews Kraken’s current U.S. support documentation alongside its June launch record, independent reporting and regulatory materials. Undated support and advisory pages are labeled below. Contract availability, brokerage terms and funding conditions can change; none of the historical articles establishes the terms of a future trade. The practical focus remains the same: understand what exposure the contract provides, what maintaining it costs, and what could force it to end."
+      ],
+      "sourceUrls": [
+        "https://support.kraken.com/articles/us-perpetual-futures",
+        "https://cointelegraph.com/news/kraken-launches-perpetual-futures-for-us-traders-through-cftc-regulated-venue",
+        "https://www.nfa.futures.org/investors/investor-resources/files/investor-advisory-virtual-currency.html"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Kraken’s U.S. contract documentation: changes to the XRP instrument identifier, eligibility, accepted collateral or margin terms before any comparison with another XRP product.",
+    "XRP-specific volume and open-interest records, with dates and contract units, to distinguish availability from sustained participation.",
+    "Funding history over comparable holding periods, including payments received and paid, rather than an annualized single reading.",
+    "Executable XRP order-book depth and spreads during both ordinary and stressed sessions; a listing announcement cannot establish either.",
+    "New CFTC filings or exchange notices that expressly identify the affected contract and effective date, followed by evidence of actual implementation."
+  ],
+  "sources": [
+    {
+      "name": "Kraken Support: US Perpetual Futures",
+      "url": "https://support.kraken.com/articles/us-perpetual-futures",
+      "type": "primary"
+    },
+    {
+      "name": "Kraken: U.S. perpetual futures launch announcement",
+      "url": "https://blog.kraken.com/product/kraken-derivatives/announcing-cftc-regulated-us-perps",
+      "type": "primary",
+      "publishedAt": "2026-06-15"
+    },
+    {
+      "name": "Cointelegraph: Kraken launches regulated crypto perpetual futures in the U.S.",
+      "url": "https://cointelegraph.com/news/kraken-launches-perpetual-futures-for-us-traders-through-cftc-regulated-venue",
+      "type": "supporting",
+      "publishedAt": "2026-06-15"
+    },
+    {
+      "name": "Cleary Gottlieb: Perpetual contracts and trading on CFTC-regulated markets",
+      "url": "https://www.clearygottlieb.com/news-and-insights/publication-listing/the-market-that-never-sleeps-perpetual-contracts-and-24-7-trading-on-cftc-regulated-markets",
+      "type": "supporting",
+      "publishedAt": "2026-07-30"
+    },
+    {
+      "name": "CFTC Staff Letter 26-19: conditional expiry-removal relief",
+      "url": "https://www.cftc.gov/csl/26-19/download",
+      "type": "primary",
+      "publishedAt": "2026-06-12"
+    },
+    {
+      "name": "TradeInformer: Bitnomial and Coinbase expiry-removal relief",
+      "url": "https://tradeinformer.com/regulations/cftc-grants-bitnomial-and-coinbase-relief-to-strip-expiry-dates-from-perpetual-style-futures",
+      "type": "supporting",
+      "publishedAt": "2026-06-15"
+    },
+    {
+      "name": "CFTC: Understand the risks of virtual currency trading",
+      "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html",
+      "type": "primary"
+    },
+    {
+      "name": "NFA: Virtual currency investor advisory",
+      "url": "https://www.nfa.futures.org/investors/investor-resources/files/investor-advisory-virtual-currency.html",
+      "type": "supporting",
+      "publishedAt": "2017-12-01"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/cftc-xrp-futures-open-interest-trader-positioning-august-2026",
+      "label": "How XRP futures open interest differs from trader positioning"
+    },
+    {
+      "href": "/news/amplify-xrpm-xrpc-options-august-31-2026",
+      "label": "How an XRP options strategy changes the exposure investors receive"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP ownership and the XRP Ledger"
+    },
+    {
+      "href": "/news/cftc-forecastex-xrp-threshold-contract",
+      "label": "How an XRP threshold contract differs from a futures position"
+    }
+  ]
+}
