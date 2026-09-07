@@ -71,7 +71,8 @@ const clusters: GuideCluster[] = [
       { href: "/learn/what-is-ripple", title: "What is Ripple?", description: "The company, its products, and its relationship to XRP." },
       { href: "/learn/rlusd", title: "RLUSD", description: "Ripple’s dollar-backed stablecoin and where it operates." },
       { href: "/learn/escrow", title: "XRP escrow", description: "How Ripple’s on-ledger escrow releases work." },
-      { href: "/learn/partnerships", title: "Partnerships", description: "Documented relationships, with careful product distinctions." },
+      { href: "/learn/partnerships", title: "Ripple partnerships list", description: "Compare banks using Ripple with relationships that name direct XRP use." },
+      { href: "/tools/escrow-tracker", title: "XRP escrow tracker and schedule", description: "Check the monthly schedule and learn how to verify ledger releases." },
       { href: "/learn/sec-vs-ripple", title: "SEC v. Ripple", description: "The court record, major rulings, and legal context." },
     ],
   },
@@ -150,6 +151,10 @@ export default function LearnPage() {
                 <Button href="/learn/what-is-xrp" variant="primary" size="md">Begin with XRP</Button>
                 <Button href="/answers" variant="secondary" size="md">Browse quick answers</Button>
               </div>
+              <p className="mt-5 text-sm leading-7 text-text-secondary">
+                Researching supply or adoption? Check the <Link href="/tools/escrow-tracker" className="text-cobalt underline underline-offset-4">XRP escrow schedule</Link> or
+                explore the <Link href="/learn/partnerships" className="text-cobalt underline underline-offset-4">Ripple partnerships list</Link>.
+              </p>
             </div>
           </div>
         </header>

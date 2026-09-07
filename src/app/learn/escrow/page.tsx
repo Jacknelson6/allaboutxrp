@@ -31,6 +31,8 @@ const schemas = [
 ];
 
 const relatedLinks = [
+  { href: "/tools/escrow-tracker", label: "XRP Escrow Tracker", desc: "Monthly schedule and release verification" },
+  { href: "/learn/partnerships", label: "Ripple Partnerships List", desc: "Banks using Ripple and evidence of XRP use" },
   { href: "/learn/xrp-tokenomics", label: "XRP Tokenomics", desc: "Supply, distribution & burns" },
   { href: "/learn/what-is-xrp", label: "What is XRP?", desc: "Complete beginner's guide" },
   { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },

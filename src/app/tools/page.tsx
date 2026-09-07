@@ -131,6 +131,9 @@ export default function ToolsHubPage() {
                 Calculate outcomes, inspect live XRP Ledger activity, and understand the methodology behind each result.
                 Every tool is free to use without creating an account.
               </p>
+              <div className="mt-5">
+                <Button href="/tools/escrow-tracker" variant="primary" size="md">Check the XRP escrow schedule</Button>
+              </div>
               <Link
                 href="/learn/trusted-sources"
                 className="mt-5 inline-flex min-h-11 items-center gap-1.5 font-sans text-sm font-[650] text-ink underline decoration-transparent decoration-1 underline-offset-4 transition-colors duration-150 hover:text-cobalt hover:decoration-current"
@@ -166,6 +169,8 @@ export default function ToolsHubPage() {
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-text-secondary">
                 Our XRP guides explain the network concepts, assumptions, and risks behind these tools.
+                {" "}For institutional research, the <Link href="/learn/partnerships" className="text-cobalt underline underline-offset-4">Ripple partnerships list</Link> distinguishes
+                Ripple customers from documented XRP use.
               </p>
             </div>
             <Button href="/learn" variant="primary" size="md">Open the learning center</Button>

@@ -35,6 +35,14 @@ export default function AnalyticsInteractions() {
           page_path: current.pathname,
         });
       }
+
+      if (destination.origin === current.origin && destination.pathname.startsWith("/tools/")) {
+        trackEvent("tool_clicked", {
+          destination_path: destination.pathname,
+          link_text: cleanLinkText(link),
+          page_path: current.pathname,
+        });
+      }
     };
 
     document.addEventListener("click", handleClick);
