@@ -1,0 +1,185 @@
+{
+  "slug": "bis-xrpl-statistics-authenticity-proof-of-concept",
+  "title": "BIS Researchers Test XRP Ledger for Verifying Official Statistics",
+  "description": "A September 2 BIS paper tests XRP Ledger for authenticating statistical files. Its Devnet prototype separates proof of origin and integrity from statistical accuracy and production readiness.",
+  "category": "XRP Ledger Research",
+  "publishedAt": "2026-09-08T13:08:36+00:00",
+  "modifiedAt": "2026-09-08T13:08:36+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/bis-xrpl-split-tally-editorial.webp",
+  "imageAlt": "Two matching halves of a pale wooden tally with gold end caps lie beside a folded cobalt paper packet on ivory stone.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "bis-split-tally-papermaking-vat-rim",
+  "imageSetting": "The broad dry ivory-stone rim of a disused papermaking vat in a blank chalk-plaster bay, viewed at a steep sixty-degree angle from the far right; early daylight reflected upward through a low frosted aperture makes luminous lower edges and soft cobalt shadows across the upper field.",
+  "imageMetaphor": "Two complementary split wooden tally halves rest with their matching irregular grain edges facing across a narrow gap beside a closed cobalt paper packet. Matching evidence authenticates a particular record while the contents remain separate, explaining integrity verification without claiming that the statistic itself is true.",
+  "imagePrompt": "Create one finished AllAboutXRP editorial illustration, exact cinematic 16:9 landscape, at least 1680 pixels wide. Primary request: a sparse physically believable still life showing exactly THREE objects on warm ivory stone: two complementary halves of one lengthwise-split pale ash-wood tally stick, and one small folded unmarked cobalt-blue paper packet. The two wooden tally halves have matching irregular split edges and visible complementary wood grain, with tiny flush pale-gold end caps attached as material details, no inscriptions. Lay both halves nearly parallel, split faces toward each other across a narrow real gap, with the cobalt paper packet offset beyond their upper ends. The match symbolizes verifiable origin and integrity; the closed packet represents underlying statistical data kept off the ledger, not guaranteed truth. Place the three objects in a narrow descending diagonal through the middle-left, leave most of the right half and upper field untouched ivory. Scene: broad dry ivory-stone rim of a disused papermaking vat against blank chalk plaster, no visible vat opening, no water, no other props. View from the far right at sixty degrees looking down across the matching edges. Early daylight reflected upward through an unseen low frosted aperture makes luminous lower edges and soft cobalt shadows; delicate clear oil light, no harsh inspection spotlight. Luminous academic classical-revival oil painting, crisp sculptural modeling, smooth rich glazing, tactile pale ash grain, folded paper fibers, warm ivory stone and selective pale-gold highlights. Very subtle 1/0/x stipple is permitted only in two small shadow transitions, effectively invisible at thumbnail scale. Input images are style-only: first AAXRP homepage for palette continuity, then refined oil anchor, equestrian metalwork and lion modeling. Never copy their architecture, figures, landscapes, layouts, or extensive ASCII. This setting, wooden split tally primary symbol, matching-edge arrangement and upward reflected morning light are distinct from the registered AAXRP temples, landscapes, locks, gauges, prisms, clamps, scales, envelopes, pennants, pulleys, springs and metal control mechanisms. No coins, crypto tokens, logos, letters, numbers, readable text, dashboards, people, politicians, cyber cubes, impossible buildings, ruins, Greek city, border, watermark, extra objects, all-over ASCII, all-over dither, sepia, muddy gray, photorealism or generic concept art. Keep the count exactly two wooden halves and one cobalt paper packet.",
+  "keywords": [
+    "XRP Ledger",
+    "Bank for International Settlements",
+    "BIS Working Paper 1374",
+    "SDMX",
+    "official statistics",
+    "data provenance",
+    "verifiable credentials",
+    "XRPL Devnet"
+  ],
+  "keyTakeaways": [
+    "BIS Working Paper 1374, published September 2, describes an XRPL Devnet prototype for authenticating statistical files, rather than a production statistics service. [1][2][3]",
+    "The design anchors a summary fingerprint while keeping the underlying statistics off-chain. Publisher credentials and file checks serve different verification roles. [1][3][7]",
+    "An authentic file can still contain a mistaken or superseded statistic. Readers must separately assess methodology, revisions and issuer trust. [5]"
+  ],
+  "sections": [
+    {
+      "heading": "What the BIS XRP Ledger study establishes",
+      "paragraphs": [
+        "BIS researchers have tested an XRP Ledger prototype that lets recipients check the origin and integrity of official statistical files. Published September 2, 2026, the study uses Devnet and cryptographic fingerprints while keeping data off-chain. It demonstrates a verification method, not a production rollout or proof that a statistic is correct. [1][2][3][5]",
+        "The useful development for researchers and data users is a way to check a file after it leaves its publisher. A dataset may pass through an aggregator, an internal research platform and an automated assistant before reaching a decision-maker. A verifiable release could preserve a checkable connection to its source throughout that journey. That is our interpretation of the workflow, not evidence that those intermediaries have adopted it. [1][5]",
+        "The BIS publication page identifies this as Working Paper 1374 and states that the authors’ views do not necessarily represent the BIS or its member central banks. This September 8 explainer examines the dated research record. It does not treat the paper as a central-bank procurement decision or a Ripple commercial announcement. [1][3]"
+      ],
+      "sourceUrls": [
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach",
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach.pdf",
+        "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+        "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/"
+      ]
+    },
+    {
+      "heading": "How SDMX files connect to an XRP Ledger record",
+      "paragraphs": [
+        "Confirmed mechanism: the prototype standardizes an SDMX statistical file before hashing it. A hash is a compact fingerprint of the selected digital content. Multiple fingerprints are combined into a Merkle root, a summary commitment recorded in an XRPL transaction memo. The returned file carries information needed to check that commitment, including a publisher credential. CryptoSlate and Genfinity separately describe this architecture. [1][3][7]",
+        "A useful analogy is checking a delivered document against a retained original. The ledger supplies a reference against which the recipient can test the material received; it does not become the filing cabinet holding the statistics. This distinction matters when a news headline describes economic data as moving on-chain. The record being anchored and the data being analyzed are different things. [1][7]",
+        "For a research desk, the practical question becomes specific: does this exact release pass its verification checks? That question is more actionable than deciding whether a website looks official. It also provides a potential troubleshooting boundary. A failed check should prompt investigation of the file, its proof and the verification process before its figures enter a model. [5]"
+      ],
+      "sourceUrls": [
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach",
+        "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+        "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/",
+        "https://genfinity.io/2026/09/02/bis-xrp-ledger-verifiable-official-statistics-sdmx/"
+      ]
+    },
+    {
+      "heading": "Why verifiable statistics can still be wrong",
+      "paragraphs": [
+        "Confirmed standards boundary: the W3C Verifiable Credentials Data Model separates credential verification from judging the truth of the claims inside it. Applying that distinction here, an intact statistical release may still rest on incomplete surveys, an unsuitable definition or a calculation error. A successful cryptographic check cannot repair the collection method or supply missing observations. [5]",
+        "Consider an illustrative inflation release that is authentic but later corrected. A preserved commitment to the first version would help establish what was published. It would not make that version the best figure to use today. Researchers would still need to identify the revised release and decide which vintage answers their question. This is an analytical example, not a reported BIS deployment or incident. [5]",
+        "The same applies to AI-generated analysis. Verifying an input file would not establish that an assistant chose the correct series, converted units properly or described the result faithfully. A useful implementation would keep the verified input reference alongside the transformation steps and final answer. That is a proposed evaluation criterion for downstream tools, not a capability demonstrated by this study. [5]"
+      ],
+      "sourceUrls": [
+        "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/",
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach"
+      ]
+    },
+    {
+      "heading": "What the Devnet measurements do and do not measure",
+      "paragraphs": [
+        "Confirmed test boundary: the paper reports a single workstation using synthetic SDMX data and XRPL Devnet. Section 7 gives median publication processing of three to five seconds, with anchoring confirmation following ledger finality, and individual verification of one to two seconds. It excludes sustained Mainnet load, enterprise firewall operation, hardware-backed signing in the processing path and adversarial conditions. CryptoSlate corroborates the controlled setup and headline timings. [2][3]",
+        "These observations answer whether the experimental workflow can complete promptly in the environment tested. They do not establish a service-level guarantee for a statistical agency on a crowded release morning. A production evaluation should distinguish processing, waiting for a batch, ledger confirmation and delivery to the consumer, because each can contribute to the time users experience. That decomposition is our suggested test framework. [2]",
+        "XRPL’s network documentation explains that Devnet is separate from Mainnet and uses test XRP without real-world value. A test transaction therefore supplies engineering evidence without demonstrating a purchase of market XRP. For an operator assessing this research, the environment label belongs beside every performance or cost claim, not in an easily overlooked footnote. [6][3]"
+      ],
+      "sourceUrls": [
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach.pdf",
+        "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/parallel-networks"
+      ]
+    },
+    {
+      "heading": "The open-source prototype leaves operational questions",
+      "paragraphs": [
+        "Confirmed software status: the reference repository describes the project as experimental, unsuitable for production and unmaintained. That warning changes how a technical team should use it. The code is material for inspection and reproduction; its availability does not mean a vendor is responsible for security updates, uptime or incident response. CryptoSlate independently notes the same limitations. [4][3]",
+        "For a prospective statistical publisher, the next questions concern responsibility. Who authorizes a publishing identity? How is a compromised key replaced? Who records a correction and preserves earlier versions? What happens when the ledger endpoint is unavailable? These are proposed diligence questions arising from reliance on identity credentials and external verification, rather than findings that the prototype has suffered any such failure. [4][5]",
+        "A data consumer has a different requirement: the system should explain what failed. An unavailable verification service, an untrusted publisher and a mismatched file should not all become a generic “invalid data” result. Treating an operational outage as proof of tampering would introduce a new source of error into the very workflow intended to improve confidence. This is our recommendation for application design. [5][6]",
+        "A useful handover would identify the party that maintains each dependency, the evidence retained after publication and the procedure for restoring service. Publishing agencies and downstream platforms could then agree on who investigates a disputed verification result. Those responsibilities should be settled before users are asked to depend on a cryptographic status indicator for routine research. This is an operational recommendation, not a claim that an agency has already adopted the prototype. [4][5]"
+      ],
+      "sourceUrls": [
+        "https://github.com/bis-med-it/sdmx-blockchain",
+        "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+        "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/",
+        "https://xrpl.org/docs/concepts/networks-and-servers/parallel-networks"
+      ]
+    },
+    {
+      "heading": "What XRP holders and statistical users should watch next",
+      "paragraphs": [
+        "Inference: batching makes dataset counts a poor stand-alone proxy for ledger activity. If several releases share one commitment, growth in verified information need not translate proportionately into more transactions. The meaningful adoption evidence would be a maintained service, identifiable publishers and an observable publication cadence. The reviewed study does not establish those production outcomes or a resulting XRP price effect. [1][3][4]",
+        "For analysts, economists and journalists, the stronger near-term question is whether a recipient can independently reproduce a verification result. A convincing demonstration would include a valid file, an altered version that correctly fails, and a legitimate revision that remains distinguishable from both. This is a proposed acceptance exercise, not an additional experiment we ran or a claim about results absent from the paper. [4][5]",
+        "Unresolved uncertainty: the reviewed records do not set a production launch date, identify a committed operating institution or establish ongoing maintenance. A follow-on release should be judged on those specifics and on transparent tests under realistic operating conditions. Until then, the research is a concrete demonstration of a verification approach with a clearly bounded testing environment. [1][2][4]"
+      ],
+      "sourceUrls": [
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach",
+        "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach.pdf",
+        "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+        "https://github.com/bis-med-it/sdmx-blockchain",
+        "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A BIS follow-up that names an operating publisher, network and production timetable, if such a decision is made. [1][2]",
+    "A maintained reference implementation with published security responsibilities and reproducible verification examples. [4]",
+    "Tests separating batch waiting, processing and ledger confirmation under production-like load and failure conditions. [2]",
+    "Documented publisher-key replacement and revision handling, with valid, altered and superseded files distinguishable to users. [4][5]",
+    "Observable Mainnet publishing activity before converting dataset counts into claims about XRP demand. [3][6]"
+  ],
+  "sources": [
+    {
+      "name": "BIS: Working Paper 1374 publication record",
+      "url": "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "BIS Working Paper 1374: full study, especially Section 7",
+      "url": "https://www.bis.org/publications/working-paper-1374-verifiable-official-statistics-blockchain-based-approach.pdf",
+      "type": "primary",
+      "publishedAt": "2026-09-02"
+    },
+    {
+      "name": "CryptoSlate: independent review of the BIS prototype and its limits",
+      "url": "https://cryptoslate.com/bis-prototype-shows-why-real-institutional-adoption-on-xrp-ledger-wont-trigger-the-xrp-supply-squeeze-holders-expect/",
+      "type": "supporting",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "name": "BIS MED IT: SDMX-Blockchain reference implementation and disclaimer",
+      "url": "https://github.com/bis-med-it/sdmx-blockchain",
+      "type": "primary"
+    },
+    {
+      "name": "W3C: Verifiable Credentials Data Model v2.0",
+      "url": "https://www.w3.org/TR/2025/REC-vc-data-model-2.0-20250515/",
+      "type": "primary",
+      "publishedAt": "2025-05-15"
+    },
+    {
+      "name": "XRP Ledger documentation: Parallel Networks",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/parallel-networks",
+      "type": "primary"
+    },
+    {
+      "name": "Genfinity: BIS statistical-data verification architecture",
+      "url": "https://genfinity.io/2026/09/02/bis-xrp-ledger-verifiable-official-statistics-sdmx/",
+      "type": "supporting",
+      "publishedAt": "2026-09-02"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works"
+    },
+    {
+      "href": "/learn/ripple-vs-xrp",
+      "label": "The difference between XRP, Ripple and XRPL"
+    },
+    {
+      "href": "/learn/xrp-use-cases",
+      "label": "XRP and XRP Ledger use cases"
+    },
+    {
+      "href": "/learn/xrp-tokenomics",
+      "label": "How XRP supply, fees and reserves work"
+    }
+  ]
+}
