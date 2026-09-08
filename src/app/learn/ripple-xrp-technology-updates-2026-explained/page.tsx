@@ -36,8 +36,12 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    q: "Where can I check whether an XRP Ledger amendment is enabled?\n\nCheck the amendment's entry in the [official Known Amendments reference](https://xrpl.org/resources/known-amendments). A release note describing support for an amendment is different from confirmation that it is enabled on mainnet.\n\n### Does a Ripple Custody release upgrade the XRP Ledger?",
-    a: "Ripple Custody and XRP Ledger server software have separate release tracks. A custody product version does not, by itself, activate an XRP Ledger protocol amendment. Sources: Custody release notes, XRPL amendment process.",
+    q: "Where can I check whether an XRP Ledger amendment is enabled?",
+    a: "Check the amendment's entry in the official Known Amendments reference. A release note describing support for an amendment is different from confirmation that it is enabled on mainnet.",
+  },
+  {
+    q: "Does a Ripple Custody release upgrade the XRP Ledger?",
+    a: "Ripple Custody and XRP Ledger server software have separate release tracks. A custody product version does not, by itself, activate an XRP Ledger protocol amendment.",
   },
 ];
 

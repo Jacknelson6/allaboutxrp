@@ -39,7 +39,11 @@ const faqItems = [
     a: "Ripple Prime is Ripple’s institutional prime brokerage business, formerly Hidden Road. It provides clearing, financing, and brokerage services across digital assets and traditional markets.",
   },
   {
-    q: "Is Hidden Road now Ripple Prime?\n\nYes. Ripple confirmed the Hidden Road acquisition had closed and identified the business as Ripple Prime on October 24, 2025. [Source: acquisition completion announcement](https://ripple.com/insights/ripple-closes-hidden-road-acquisition/).\n\n### Does Ripple Prime's XRP offering prove that clients hold XRP?",
+    q: "Is Hidden Road now Ripple Prime?",
+    a: "Yes. Ripple confirmed the Hidden Road acquisition had closed and identified the business as Ripple Prime on October 24, 2025.",
+  },
+  {
+    q: "Does Ripple Prime's XRP offering prove that clients hold XRP?",
     a: "The offering establishes access to XRP trading. Measuring client holdings requires separate XRP-specific disclosures; the availability of a trading service does not provide that measurement.",
   },
 ];

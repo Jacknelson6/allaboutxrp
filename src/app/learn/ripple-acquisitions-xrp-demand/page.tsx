@@ -35,7 +35,11 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    q: "Does holding XRP give me ownership of Ripple's acquisitions?\n\nNo. XRP is a digital asset, not an equity interest in Ripple. Holding XRP does not give the holder ownership of companies Ripple buys. [Source: Ripple's XRP overview](https://ripple.com/xrp/).\n\n### Is RLUSD activity the same as XRP demand?",
+    q: "Does holding XRP give me ownership of Ripple's acquisitions?",
+    a: "No. XRP is a digital asset, not an equity interest in Ripple. Holding XRP does not give the holder ownership of companies Ripple buys.",
+  },
+  {
+    q: "Is RLUSD activity the same as XRP demand?",
     a: "No. RLUSD activity measures use of a separate asset. To connect a particular RLUSD workflow to XRP demand, identify whether it uses XRP and in what capacity. An RLUSD balance alone does not supply that information.",
   },
 ];
