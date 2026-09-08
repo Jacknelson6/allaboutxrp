@@ -69,6 +69,8 @@ const clusters: GuideCluster[] = [
     icon: Building2,
     guides: [
       { href: "/learn/what-is-ripple", title: "What is Ripple?", description: "The company, its products, and its relationship to XRP." },
+      { href: "/learn/ripple-xrp-technology-updates-2026-explained", title: "Ripple technology and XRPL upgrades", description: "Compare product releases with network activation." },
+      { href: "/learn/ripple-acquisitions-xrp-demand", title: "Ripple acquisitions and XRP demand", description: "Assess the evidence connecting business expansion to XRP usage." },
       { href: "/learn/rlusd", title: "RLUSD", description: "Ripple’s dollar-backed stablecoin and where it operates." },
       { href: "/learn/escrow", title: "XRP escrow", description: "How Ripple’s on-ledger escrow releases work." },
       { href: "/learn/partnerships", title: "Ripple partnerships list", description: "Compare banks using Ripple with relationships that name direct XRP use." },

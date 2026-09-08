@@ -8,6 +8,7 @@ import { buildArticleSchema, buildBreadcrumbSchema } from "@/lib/utils/seo";
 export const dynamic = "force-static";
 
 const relatedLinks = [
+  { href: "/learn/ripple-acquisitions-xrp-demand", label: "Acquisitions and XRP Demand", desc: "What the evidence can establish" },
   { href: "/learn/what-is-ripple", label: "What is Ripple?", desc: "The company behind XRP" },
   { href: "/learn/partnerships", label: "Partnerships", desc: "Banks & institutions using XRP" },
   { href: "/learn/leadership", label: "Leadership Team", desc: "Who runs Ripple" },
@@ -22,7 +23,7 @@ const schemas = [
     description: "Track Ripple acquisitions and what each deal adds to its payments, custody, stablecoin, and institutional infrastructure.",
     url: "https://allaboutxrp.com/learn/acquisitions",
     datePublished: "2026-02-10",
-    dateModified: "2026-08-08",
+    dateModified: "2026-09-08",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -43,7 +44,7 @@ export default function AcquisitionsPage() {
       <AcquisitionsContent />
       <div className="mx-auto max-w-7xl px-4 pb-20">
         <div className="mx-auto max-w-4xl border-t border-white/[0.06] pt-5">
-          <AuthorByline date="2026-02-10" modified="2026-08-08" />
+          <AuthorByline date="2026-02-10" modified="2026-09-08" />
         </div>
         <div className="mt-16 pt-8 border-t border-white/[0.06]">
           <h2 className="text-xl font-bold text-white mb-6">Continue Learning</h2>
