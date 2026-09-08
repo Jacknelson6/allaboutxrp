@@ -296,6 +296,10 @@ export default function PartnershipsPage() {
               asset. Historical evidence proves a documented use at that time, not that every current transaction still uses XRP.
             </p>
             <EvidenceTable rows={directXrpRelationships} />
+            <p className="mt-5 text-text-secondary leading-relaxed">
+              Researching XRP supply alongside adoption? Use the <Link href="/tools/escrow-tracker" className="text-xrp-accent underline decoration-xrp-accent/30">XRP escrow tracker and monthly schedule</Link> to
+              understand how to verify an unlock. A partnership announcement and an escrow release are separate records; neither proves XRP was sold or used by a particular institution.
+            </p>
           </RevealSection>
 
           <RevealSection id="verify" delay={0.05}>
@@ -318,6 +322,8 @@ export default function PartnershipsPage() {
             <h2 className="text-2xl font-bold text-text-primary">Continue learning</h2>
             <LearnLinkGrid
               links={[
+                { href: "/tools/escrow-tracker", label: "XRP Escrow Tracker", desc: "Check the monthly schedule and how to verify releases" },
+                { href: "/news/ripple-jeonbuk-bank-payments-xrp-role-undisclosed", label: "Inside the Jeonbuk Bank Deal", desc: "Read the announcement analysis and what it leaves unconfirmed" },
                 { href: "/learn/what-is-ripple", label: "What Is Ripple?", desc: "Company, products, and XRP explained" },
                 { href: "/learn/how-banks-use-xrp", label: "How Banks Could Use XRP", desc: "Payment mechanics and liquidity flow" },
                 { href: "/learn/xrp-use-cases", label: "XRP Use Cases", desc: "Where XRP can provide utility" },

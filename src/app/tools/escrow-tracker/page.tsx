@@ -156,6 +156,10 @@ export default function EscrowTrackerPage() {
               <p>
                 An escrow finishing is not the same as XRP entering circulating supply or being sold. Establishing that requires tracing the destination and later transactions; a monthly unlock figure alone cannot support the claim.
               </p>
+              <p>
+                For a dated example, read our <Link href="/news/ripple-september-xrp-escrow-release-relock-2026" className="text-xrp-accent underline decoration-xrp-accent/30">September 2026 XRP escrow release and re-lock analysis</Link> alongside
+                the verification steps below.
+              </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a href="https://xrpl.org/docs/concepts/payment-types/escrow" target="_blank" rel="noopener noreferrer" className="btn-primary px-5">
                   XRPL escrow documentation <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -186,10 +190,16 @@ export default function EscrowTrackerPage() {
 
         <section className="site-container section-shell" aria-labelledby="learn-heading">
           <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">
-            <h2 id="learn-heading" className="text-3xl text-text-primary">Understand XRP supply</h2>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/learn/escrow" className="btn-primary px-5">XRP escrow explained</Link>
-              <Link href="/learn/xrp-supply-explained" className="btn-secondary px-5">XRP supply explained</Link>
+            <h2 id="learn-heading" className="text-3xl text-text-primary">Research XRP supply and adoption</h2>
+            <div className="max-w-3xl space-y-5">
+              <p className="leading-7 text-text-secondary">
+                The escrow schedule explains availability. For institutional adoption, explore the <Link href="/learn/partnerships" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple partnerships list and banks using Ripple</Link>,
+                which separates documented relationships from evidence of direct XRP use.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/learn/escrow" className="btn-primary px-5">XRP escrow explained</Link>
+                <Link href="/learn/xrp-supply-explained" className="btn-secondary px-5">XRP supply explained</Link>
+              </div>
             </div>
           </div>
         </section>
