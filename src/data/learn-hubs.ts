@@ -48,6 +48,7 @@ export const LEARN_HUBS: LearnHub[] = [
       "key-people", "leadership", "partnerships", "riddlers", "ripple-custody", "ripple-founding-story",
       "ripple-ipo", "ripple-liquidity-hub", "ripple-prime", "ripple-software-stack", "ripple-stablecoin-strategy",
       "ripplenet", "rlusd", "what-is-ripple", "xrp-stablecoin-ecosystem",
+      "ripple-xrp-technology-updates-2026-explained", "ripple-acquisitions-xrp-demand",
     ],
   },
   {

@@ -80,7 +80,7 @@ const schemas = [
       "A source-classified guide to Ripple partnerships, banks using Ripple technology, and relationships with public evidence of direct XRP use.",
     url: "https://allaboutxrp.com/learn/partnerships",
     datePublished: "2026-02-09",
-    dateModified: "2026-08-24",
+    dateModified: "2026-09-08",
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
@@ -230,8 +230,8 @@ export default function PartnershipsPage() {
           breadcrumbLabel="Ripple Partnerships"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-08-24" />
-            <LastUpdated date="August 24, 2026" />
+            <AuthorByline date="2026-02-09" modified="2026-09-08" />
+            <LastUpdated date="September 8, 2026" />
           </div>
         </LearnHero>
 
@@ -304,6 +304,10 @@ export default function PartnershipsPage() {
 
           <RevealSection id="verify" delay={0.05}>
             <h2 className="text-2xl font-bold text-text-primary">How to verify an XRP bank partnership claim</h2>
+            <p className="mt-5 text-text-secondary leading-relaxed">
+              For related research, compare <Link href="/learn/ripple-xrp-technology-updates-2026-explained" className="text-xrp-accent underline decoration-xrp-accent/30">Ripple product updates with XRP Ledger upgrades</Link>{" "}
+              and review <Link href="/learn/ripple-acquisitions-xrp-demand" className="text-xrp-accent underline decoration-xrp-accent/30">how acquisitions can connect to XRP demand</Link>.
+            </p>
             <ol className="mt-5 space-y-4 text-text-secondary leading-relaxed">
               <li><strong className="text-text-primary">1. Open the primary announcement.</strong> Prefer the institution, Ripple, a regulator, or an official filing.</li>
               <li><strong className="text-text-primary">2. Identify the product.</strong> Ripple Payments, RippleNet, custody, RLUSD, and XRPL are not interchangeable.</li>

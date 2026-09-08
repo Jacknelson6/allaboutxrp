@@ -1,206 +1,314 @@
 import { Metadata } from "next";
-import SEOSchema from "@/components/shared/SEOSchema";
-import AuthorByline from "@/components/shared/AuthorByline";
 import Link from "next/link";
-import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema, buildSpeakableSchema } from "@/lib/utils/seo";
+import AuthorByline from "@/components/shared/AuthorByline";
+import SEOSchema from "@/components/shared/SEOSchema";
+import SourceList from "@/components/shared/SourceList";
 import {
-  LearnHero, StatPill, RevealSection, SectionNav, LearnCTA, LearnLinkGrid,
-  HighlightBox, FeatureGrid, DataTable, FAQAccordion, IconList,
-  TLDRBox, KeyFactsTable, LastUpdated,
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+} from "@/lib/utils/seo";
+import {
+  LearnHero,
+  TLDRBox,
+  LastUpdated,
+  RevealSection,
+  DataTable,
+  FAQAccordion,
+  LearnLinkGrid,
 } from "@/components/learn/LearnPageShell";
 
 export const dynamic = "force-static";
 
+const title = "Ripple Prime Explained: XRP Trading and RLUSD Collateral";
+const description =
+  "Learn what Ripple's Hidden Road acquisition brought to Ripple Prime, how institutions can trade XRP, and what the deal does not prove about demand.";
+const url = "https://allaboutxrp.com/learn/ripple-prime";
+
 export const metadata: Metadata = {
-  title: "What is Ripple Prime? Enterprise Crypto Brokerage Explained",
-  description:
-    "Ripple Prime is Ripple's institutional-grade prime brokerage service, built on the Hidden Road acquisition. Learn how it works, who it serves, and its connection to XRP.",
-  openGraph: {
-    title: "What is Ripple Prime? | AllAboutXRP",
-    description: "Ripple's enterprise prime brokerage — clearing $3T+ annually with post-trade settlement on the XRP Ledger.",
-    url: "https://allaboutxrp.com/learn/ripple-prime",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ripple Prime Explained | AllAboutXRP",
-    description: "Institutional crypto brokerage with XRP Ledger settlement.",
-  },
-  alternates: { canonical: "https://allaboutxrp.com/learn/ripple-prime" },
+  title,
+  description,
+  alternates: { canonical: url },
+  openGraph: { title, description, url, type: "article" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 const faqItems = [
-  { q: "What is Ripple Prime?", a: "Ripple Prime is Ripple's institutional-grade prime brokerage service offering clearing, lending, and post-trade settlement. Built on the $1.25 billion Hidden Road acquisition, it clears over $3 trillion annually and serves 300+ institutional clients." },
-  { q: "How does Ripple Prime relate to Hidden Road?", a: "Ripple acquired Hidden Road in 2025 for $1.25 billion — the largest acquisition in crypto history at the time. Hidden Road's prime brokerage infrastructure became the foundation for Ripple Prime." },
-  { q: "How does Ripple Prime use XRP and the XRPL?", a: "Ripple is migrating Hidden Road's post-trade settlement to the XRP Ledger, leveraging XRPL's speed and low cost. RLUSD is also used as collateral within the platform." },
-  { q: "Who can use Ripple Prime?", a: "Institutional clients only — hedge funds, asset managers, banks, and large trading firms. It is not available to retail investors." },
-  { q: "What does Ripple Prime offer?", a: "Multi-asset prime brokerage including clearing, custody, financing, lending, and post-trade services across crypto and traditional assets." },
+  {
+    q: "What is Ripple Prime?",
+    a: "Ripple Prime is Ripple’s institutional prime brokerage business, formerly Hidden Road. It provides clearing, financing, and brokerage services across digital assets and traditional markets.",
+  },
+  {
+    q: "Is Hidden Road now Ripple Prime?",
+    a: "Yes. Ripple confirmed the Hidden Road acquisition had closed and identified the business as Ripple Prime on October 24, 2025.",
+  },
+  {
+    q: "Does Ripple Prime's XRP offering prove that clients hold XRP?",
+    a: "The offering establishes access to XRP trading. Measuring client holdings requires separate XRP-specific disclosures; the availability of a trading service does not provide that measurement.",
+  },
+];
+
+const sources = [
+  {
+    label: "Ripple's U.S. spot brokerage launch",
+    href: "https://ripple.com/ripple-press/ripple-launches-digital-asset-spot-prime-brokerage-for-the-united-states-market/",
+  },
+  {
+    label: "Ripple's acquisition completion announcement",
+    href: "https://ripple.com/insights/ripple-closes-hidden-road-acquisition/",
+  },
 ];
 
 const schemas = [
   buildArticleSchema({
-    headline: "What is Ripple Prime? Enterprise Crypto Brokerage Explained",
-    description: "A guide to Ripple Prime, Ripple's institutional prime brokerage built on the Hidden Road acquisition.",
-    url: "https://allaboutxrp.com/learn/ripple-prime",
+    headline: title,
+    description,
+    url,
     datePublished: "2026-02-12",
-    dateModified: "2026-02-12",
+    dateModified: "2026-09-08",
+    citations: sources.map((source) => source.href),
   }),
   buildBreadcrumbSchema([
     { name: "Home", url: "https://allaboutxrp.com" },
     { name: "Learn", url: "https://allaboutxrp.com/learn" },
     { name: "Ripple Prime" },
   ]),
-  buildSpeakableSchema({ url: "https://allaboutxrp.com/learn/ripple-prime" }),
-  buildFAQSchema(faqItems.map((item) => ({ question: item.q, answer: item.a }))),
+  buildFAQSchema(
+    faqItems.map((item) => ({ question: item.q, answer: item.a })),
+  ),
 ];
 
-export default function RipplePrimePage() {
+export default function GuidePage() {
   return (
     <>
       <SEOSchema schema={schemas} />
       <div className="relative mx-auto max-w-4xl px-4 py-16">
         <LearnHero
-          title="What is"
-          titleAccent="Ripple Prime?"
-          subtitle="Ripple Prime is an institutional-grade prime brokerage clearing $3+ trillion annually — built on the $1.25B Hidden Road acquisition, with post-trade settlement migrating to the XRP Ledger."
+          title="Ripple Prime:"
+          titleAccent="XRP and RLUSD"
+          subtitle={description}
           breadcrumbLabel="Ripple Prime"
         >
           <div className="mt-5">
-            <AuthorByline date="2026-02-12" />
-            <LastUpdated date="February 12, 2026" />
+            <AuthorByline date="2026-02-12" modified="2026-09-08" />
+            <LastUpdated date="September 8, 2026" />
           </div>
         </LearnHero>
-
         <TLDRBox>
-          <p><strong className="text-text-primary">Ripple Prime</strong> is Ripple&apos;s institutional brokerage arm, born from the <Link href="/learn/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">$1.25B Hidden Road acquisition</Link>. It provides clearing, custody, lending, and post-trade services to 300+ institutional clients. The big story: post-trade settlement is moving to the XRP Ledger, making XRPL the backbone of a $3T+ annual clearing operation.</p>
+          <p>
+            {
+              "U.S. institutional clients can trade XRP through Ripple Prime's over-the-counter spot brokerage service, announced November 3, 2025. The service provides access to XRP alongside other digital assets. Its availability does not establish how much XRP clients hold or whether their trades settle on the XRP Ledger. "
+            }
+            <a
+              href="https://ripple.com/ripple-press/ripple-launches-digital-asset-spot-prime-brokerage-for-the-united-states-market/"
+              className="text-xrp-accent underline decoration-xrp-accent/30"
+            >
+              {"Source: Ripple's U.S. spot brokerage launch"}
+            </a>
+            {"."}
+          </p>
         </TLDRBox>
-
-        <KeyFactsTable facts={[
-          { label: "Based On", value: "Hidden Road (acquired $1.25B, 2025)" },
-          { label: "Annual Clearing", value: "$3+ trillion" },
-          { label: "Institutional Clients", value: "300+" },
-          { label: "Services", value: "Clearing, custody, lending, settlement" },
-          { label: "2024 Revenue", value: "$100M+ (Hidden Road)" },
-          { label: "Settlement Layer", value: "Migrating to XRP Ledger" },
-          { label: "Collateral", value: "RLUSD + traditional assets" },
-          { label: "Target Market", value: "Institutional / Enterprise" },
-        ]} />
-
-        <SectionNav items={[
-          { id: "what-it-is", label: "What It Is" },
-          { id: "hidden-road", label: "Hidden Road" },
-          { id: "services", label: "Services" },
-          { id: "xrp-connection", label: "XRP Connection" },
-          { id: "faq", label: "FAQ" },
-        ]} />
-
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <StatPill label="Clearing" value="$3T+/yr" delay={0} />
-          <StatPill label="Clients" value="300+" delay={0.06} />
-          <StatPill label="Acquisition" value="$1.25B" delay={0.12} />
-          <StatPill label="Revenue" value="$100M+" delay={0.18} />
-        </div>
-
         <div className="cv-auto mt-14 space-y-14">
-          {/* WHAT IT IS */}
-          <RevealSection id="what-it-is">
-            <h2 className="text-2xl font-bold text-text-primary">What is Ripple Prime?</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              Ripple Prime is Ripple&apos;s institutional prime brokerage platform — think of it as the &quot;Goldman Sachs of crypto.&quot; It provides the infrastructure that large financial institutions need to trade, clear, settle, and custody digital assets at scale.
+          <div className="space-y-5">
+            <p className="text-text-secondary leading-relaxed">
+              {
+                "Ripple confirmed the acquisition had closed on October 24, 2025, and renamed Hidden Road Ripple Prime. The acquired business provides services including clearing, financing, and prime brokerage across multiple markets. Prime brokerage helps professional trading firms manage financing and trading relationships. "
+              }
+              <a
+                href="https://ripple.com/insights/ripple-closes-hidden-road-acquisition/"
+                className="text-xrp-accent underline decoration-xrp-accent/30"
+              >
+                {"Source: Ripple's acquisition completion announcement"}
+              </a>
+              {"."}
             </p>
-            <div className="mt-5">
-              <HighlightBox title="Why Prime Brokerage Matters" variant="info">
-                <p>Institutional investors won&apos;t touch crypto without proper infrastructure — clearing, custody, margin, lending. Ripple Prime provides all of this, making it safe and efficient for hedge funds, banks, and asset managers to participate in digital asset markets.</p>
-              </HighlightBox>
+          </div>
+          <RevealSection id="services">
+            <h2 className="text-2xl font-bold text-text-primary">
+              What does Ripple Prime do?
+            </h2>
+            <div className="mt-5 space-y-5">
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "Ripple Prime provides clearing, financing, and prime brokerage across foreign exchange, digital assets, derivatives, swaps, and fixed income. These services help institutional clients manage trading relationships and financing across markets. "
+                }
+                <a
+                  href="https://ripple.com/insights/ripple-closes-hidden-road-acquisition/"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"Source: Ripple acquisition completion announcement"}
+                </a>
+                {"."}
+              </p>
             </div>
           </RevealSection>
-
-          {/* HIDDEN ROAD */}
-          <RevealSection id="hidden-road" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">The Hidden Road Acquisition</h2>
-            <p className="mt-4 text-text-secondary leading-relaxed">
-              In 2025, Ripple acquired Hidden Road for $1.25 billion — making it the largest acquisition in crypto history at the time. Hidden Road was already a thriving multi-asset prime brokerage:
-            </p>
-            <div className="mt-5">
-              <IconList items={[
-                { title: "$3+ trillion in annual clearing volume", desc: "Across crypto and traditional assets" },
-                { title: "300+ institutional clients", desc: "Hedge funds, asset managers, banks" },
-                { title: "$100M+ revenue in 2024", desc: "Profitable and growing rapidly" },
-                { title: "Multi-asset coverage", desc: "Crypto, FX, fixed income, derivatives" },
-                { title: "Registered FCM and broker-dealer", desc: "FINRA-registered with full regulatory compliance" },
-              ]} variant="check" />
-            </div>
-            <p className="mt-4 text-sm text-text-secondary">
-              See all acquisitions on our <Link href="/learn/acquisitions" className="text-xrp-accent underline decoration-xrp-accent/30">acquisitions page</Link>.
-            </p>
-          </RevealSection>
-
-          {/* SERVICES */}
-          <RevealSection id="services" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Ripple Prime Services</h2>
-            <div className="mt-6">
-              <FeatureGrid columns={2} items={[
-                { title: "Prime Brokerage", desc: "Full-service brokerage for institutional traders including execution, clearing, and margin." },
-                { title: "Clearing & Settlement", desc: "Multi-asset clearing across crypto and traditional markets, processing $3T+ annually." },
-                { title: "Digital Asset Custody", desc: "Institutional-grade custody via Ripple Custody (Metaco), trusted by tier-1 banks." },
-                { title: "Lending & Financing", desc: "Margin lending and collateral management for institutional portfolios." },
-                { title: "Post-Trade Services", desc: "Reconciliation, reporting, and settlement — migrating to XRP Ledger for speed." },
-                { title: "RLUSD Collateral", desc: "RLUSD stablecoin accepted as collateral, creating new utility for Ripple's ecosystem." },
-              ]} />
+          <RevealSection id="what-can-institutions-do-with-xrp-through-ripple-prime">
+            <h2 className="text-2xl font-bold text-text-primary">
+              {"What can institutions do with XRP through Ripple Prime?"}
+            </h2>
+            <div className="mt-5 space-y-5">
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "On November 3, 2025, Ripple announced U.S. digital asset spot prime brokerage capabilities. Its announcement explicitly included XRP and RLUSD among the assets available for institutional over-the-counter spot transactions. OTC transactions are trades arranged outside a public exchange order book."
+                }
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "Ripple also said eligible clients could cross-margin spot positions with other parts of their digital asset portfolios. This lets positions be assessed together for margin purposes, which can affect the collateral a trading firm needs. "
+                }
+                <a
+                  href="https://ripple.com/ripple-press/ripple-launches-digital-asset-spot-prime-brokerage-for-the-united-states-market/"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"Source: Ripple's U.S. spot brokerage launch"}
+                </a>
+                {"."}
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "The practical significance is that XRP can sit inside an institutional trading workflow alongside other products. Availability alone does not tell us how frequently clients trade it, how much they hold, or whether their transactions settle on the XRP Ledger."
+                }
+              </p>
             </div>
           </RevealSection>
-
-          {/* XRP CONNECTION */}
-          <RevealSection id="xrp-connection" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">How Ripple Prime Benefits XRP</h2>
-            <div className="mt-5">
-              <HighlightBox title="XRP Ledger as Settlement Layer" variant="accent" large>
-                <p>Ripple is migrating Hidden Road&apos;s post-trade settlement to the XRP Ledger. This means <strong className="text-text-primary">$3+ trillion in annual clearing volume will settle on XRPL</strong> — creating massive transaction throughput and demonstrating XRPL&apos;s capability as institutional-grade infrastructure.</p>
-              </HighlightBox>
-            </div>
-            <div className="mt-6">
-              <IconList items={[
-                { title: "XRPL Settlement", desc: "Post-trade clearing moves to the XRP Ledger — proving XRPL at institutional scale" },
-                { title: "RLUSD Utility", desc: "RLUSD used as collateral in prime brokerage, driving stablecoin adoption on XRPL" },
-                { title: "XRP Liquidity", desc: "Institutional trading increases XRP market liquidity and reduces volatility" },
-                { title: "Ecosystem Growth", desc: "300+ institutional clients introduced to the XRP Ledger ecosystem" },
-              ]} variant="zap" />
+          <RevealSection id="how-do-xrp-and-rlusd-differ-in-ripple-prime">
+            <h2 className="text-2xl font-bold text-text-primary">
+              {"How do XRP and RLUSD differ in Ripple Prime?"}
+            </h2>
+            <div className="mt-5 space-y-5">
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "Ripple's closing announcement said RLUSD was already being used as collateral for some prime brokerage products. That is a specific use of Ripple's dollar stablecoin. It should not be reported as if the collateral were XRP. "
+                }
+                <a
+                  href="https://ripple.com/insights/ripple-closes-hidden-road-acquisition/"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"Source: Ripple's acquisition completion announcement"}
+                </a>
+                {"."}
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "This distinction helps readers evaluate future updates. A report about RLUSD balances supports a conclusion about stablecoin usage. A report about XRP trading supports a conclusion about XRP market activity. Evidence of settlement on the XRP Ledger would answer another question."
+                }
+              </p>
+              <DataTable
+                headers={[
+                  "Reported development",
+                  "What it establishes",
+                  "What it leaves unanswered",
+                ]}
+                rows={[
+                  [
+                    "XRP included in the U.S. spot offering",
+                    "Institutional clients have a route to trade XRP",
+                    "XRP-specific trading volume",
+                  ],
+                  [
+                    "RLUSD used as collateral",
+                    "A documented stablecoin use case",
+                    "Whether clients need XRP for that workflow",
+                  ],
+                  [
+                    "Hidden Road acquisition completed",
+                    "Ripple owns the acquired brokerage business",
+                    "How much of its activity settles on XRPL",
+                  ],
+                ]}
+              />
+              <p className="text-text-secondary leading-relaxed">
+                {"Sources: "}
+                <a
+                  href="https://ripple.com/ripple-press/ripple-launches-digital-asset-spot-prime-brokerage-for-the-united-states-market/"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"U.S. spot offering"}
+                </a>
+                {" and "}
+                <a
+                  href="https://ripple.com/insights/ripple-closes-hidden-road-acquisition/"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"acquisition completion"}
+                </a>
+                {
+                  ". The unanswered questions are our interpretation of the limits of these announcements."
+                }
+              </p>
             </div>
           </RevealSection>
-
-          {/* FAQ */}
-          <RevealSection id="faq" delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary mb-5">Frequently Asked Questions</h2>
+          <RevealSection id="what-should-xrp-readers-watch-next">
+            <h2 className="text-2xl font-bold text-text-primary">
+              {"What should XRP readers watch next?"}
+            </h2>
+            <div className="mt-5 space-y-5">
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "Useful disclosures would include XRP-specific trading activity, named customers using XRP in production, and documented settlement processes. Each would explain more than a headline about the size of Ripple Prime's overall business."
+                }
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "The acquisition expands the services Ripple can offer institutions. Its significance for XRP will become clearer as reporting identifies which assets customers actually use and how they use them."
+                }
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                {
+                  "For a broader view of Ripple's business relationships, explore our "
+                }
+                <Link
+                  href="/learn/partnerships"
+                  className="text-xrp-accent underline decoration-xrp-accent/30"
+                >
+                  {"Ripple partnerships guide"}
+                </Link>
+                {"."}
+              </p>
+            </div>
+          </RevealSection>
+          <RevealSection id="faq">
+            <h2 className="mb-5 text-2xl font-bold text-text-primary">
+              Frequently asked questions
+            </h2>
             <FAQAccordion items={faqItems} />
           </RevealSection>
-
-          {/* CONTINUE LEARNING */}
-          <RevealSection delay={0.05}>
-            <h2 className="text-2xl font-bold text-text-primary">Continue Learning</h2>
-            <LearnLinkGrid links={[
-              { href: "/learn/ripplenet", label: "RippleNet", desc: "Global payment network" },
-              { href: "/learn/on-demand-liquidity", label: "On-Demand Liquidity", desc: "XRP bridge currency" },
-              { href: "/learn/ripple-software-stack", label: "Ripple Software Stack", desc: "Complete product suite" },
-              { href: "/learn/rlusd", label: "RLUSD", desc: "Ripple's stablecoin" },
-              { href: "/learn/rlusd", label: "RLUSD Explained", desc: "Deep dive into RLUSD" },
-              { href: "/learn/how-banks-use-xrp", label: "How Banks Use XRP", desc: "Institutional adoption" },
-              { href: "/learn/how-banks-use-xrp", label: "Banks Using XRP", desc: "Complete institution list" },
-              { href: "/learn/cross-border-payments", label: "Cross-Border Payments", desc: "Why XRP changes everything" },
-            ]} />
+          <RevealSection>
+            <h2 className="text-2xl font-bold text-text-primary">
+              Continue learning
+            </h2>
+            <LearnLinkGrid
+              links={[
+                {
+                  href: "/learn/ripple-xrp-technology-updates-2026-explained",
+                  label: "Ripple Technology Updates",
+                  desc: "Product releases and network activation explained",
+                },
+                {
+                  href: "/learn/ripple-acquisitions-xrp-demand",
+                  label: "Ripple Acquisitions and XRP Demand",
+                  desc: "How to evaluate the link to XRP usage",
+                },
+                {
+                  href: "/learn/acquisitions",
+                  label: "Ripple acquisitions",
+                  desc: "Deal history and company expansion",
+                },
+                {
+                  href: "/learn/partnerships",
+                  label: "Ripple partnerships",
+                  desc: "Relationships and direct XRP evidence",
+                },
+              ]}
+            />
           </RevealSection>
         </div>
-
-        <LearnCTA
-          title="Institutional-Grade Infrastructure"
-          description="Ripple Prime brings Wall Street-level brokerage to crypto — with settlement on the XRP Ledger."
-          primaryHref="/how-to-start"
-          primaryLabel="How to Buy XRP →"
-          secondaryHref="/learn/acquisitions"
-          secondaryLabel="Explore Acquisitions"
-        />
-
-        <p className="mt-8 text-xs text-text-secondary/60">
-          <em>Last updated: February 12, 2026. Written by the AllAboutXRP Editorial Team. Sources: Ripple.com, Hidden Road, BusinessWire, Financial Times.</em>
+        <SourceList sources={sources} />
+        <p className="mt-6 text-sm leading-relaxed text-text-secondary">
+          Sourcing: factual reporting uses the linked Ripple announcements and
+          XRP Ledger documentation. Interpretations of what those sources
+          establish are editorial analysis. Dates identify the cited events and
+          releases, not a claim that every announced integration is live.
         </p>
       </div>
     </>
