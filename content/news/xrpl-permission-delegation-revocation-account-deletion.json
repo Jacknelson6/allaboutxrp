@@ -1,0 +1,219 @@
+{
+  "slug": "xrpl-permission-delegation-revocation-account-deletion",
+  "title": "XRPL Permission Delegation Fix Targets Permissions That Survive Account Deletion",
+  "description": "XRPL security records show how account deletion could prevent permission revocation, how the fix cleans both sides, and why custody teams still need activation and recovery checks.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-09-10T13:09:04+00:00",
+  "modifiedAt": "2026-09-10T13:09:04+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-delegation-unpicked-stitch-editorial.webp",
+  "imageAlt": "A pale-gold seam ripper lifts cobalt thread between two separated ivory linen swatches on a stone slab above an open drawer.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "delegation-unpicked-stitch-mending-drawer",
+  "imageSetting": "An ivory stone textile mending slab above an open linen-lined wooden drawer, viewed steeply down from beyond the back edge; diffuse daylight and warm metal highlights illuminate two swatches in an open V beneath a broad blank upper field.",
+  "imageMetaphor": "A pale-gold seam ripper withdraws one cobalt joining thread from two ivory linen swatches. Removing the same connection from both sides represents cleaning a Delegate permission entry when either account is deleted.",
+  "imagePrompt": "Asset type: one finished AllAboutXRP editorial illustration, exact 16:9 landscape, 1680x945 or larger. Primary request: a sparse, physically believable still life about XRP Ledger permission revocation and deletion cleanup. Show exactly one small pale-gold seam ripper, two small rectangular ivory linen swatches lying adjacent on a broad ivory stone textile mending slab, and one cobalt blue thread that formerly joined their near edges. The seam ripper rests diagonally between them, its recognizably bifurcated tiny curved cutting head under one loose blue loop. Most of the single thread is already withdrawn and lies as one relaxed S-shaped line in front; both linen pieces visibly separate. No hands. Removing one joining stitch from both cloth pieces explains cleaning a permission record from both accounts, without claiming a live exploit or mainnet activation. This is an ordinary quiet mending tool, never a weapon, needle, key, coin, mechanism rail, or financial chart.\nSetting and scene: a blank chalk-lined textile mending drawer opened beneath an ivory stone surface, with no visible furniture hardware. Camera looks steeply down from directly beyond the back edge, close enough to see linen weave. The two narrow swatches form a shallow open V across the lower center, the seam ripper crosses that V asymmetrically, broad clean ivory negative space fills at least the upper half. New primary object, mending-drawer setting, opened V arrangement, and soft overhead cool daylight with a narrow warm reflected copper glint only on the curved tool head. Do not reuse any existing AAXRP scene: no aqueduct, civic market, observatory, inventors workshop, crossroads, comparator, prism, option collar, tally, ratchet, cross-slide, lever, vane, scales, gate, reserve vessel, burner, semaphore, spring, shuttle, purse, tray, belt, pruning shears, folio, coupling, register, pennant, selector, passport, manifold, cantilever, pendulum, clamp, caddy, basket, wheel, gauge, shutter, horn, iris, hinge, groma, staffs, bellows, lock, mooring posts, envelope, baffle, proofing frame, receipt spike, caliper, lantern, signet press, weir, drum, drawer of tablets, mould, sluice, socket, ribbon, comb, spacer, cipher, rotary register, cradle, voting register, lyre, collet, scoop, sundial, fixture, clepsydra, bridge, cam, baton, clevis, spindle, latch, knife switch, rake, suture needle, module case, branching frame, astrolabe, yoke, capstan, sieve, jig, or punch.\nReference roles: reference 1 is the homepage visual identity ONLY, references 2-4 are Sublime Classical Oil PALETTE, LIGHT, SURFACE, FINISH ONLY. Do not import any subjects or compositions from references. Luminous academic classical-revival oil, crisp sculptural modeling, rich enamel-like glazing, clean ivory, cobalt thread, pale gold metal, tactile linen weave, restrained selective impasto highlights. Painterly, not photographic or generic digital concept art. Extremely subtle 1/0/x stipple permitted only in a small shadow transition, almost imperceptible. No all-over ASCII or dither. No vermilion necessary.\nConstraints: exactly one seam ripper, two linen swatches, one loose cobalt thread on ivory stone. Physically credible contacts and gravity. No text, logos, coins, dashboards, people, politicians, cityscapes, buildings, fantasy ruins, cyber cubes, temples, mountains, panoramic scenery, watermarks, border, rounded corners, sepia cast, muddy shadows, coarse texture or extraneous objects.\n",
+  "keywords": [
+    "XRP Ledger",
+    "PermissionDelegationV1_1",
+    "XLS-75",
+    "DelegateSet",
+    "XRPL security",
+    "XRP custody"
+  ],
+  "keyTakeaways": [
+    "Cantina documented a high-severity account-deletion flaw: the account granting permissions could temporarily lose the ability to revoke them. The audit marks the issue fixed.",
+    "XRPLF merged PR #6681 on April 29, 2026 to make a Delegate entry discoverable and removable from both accounts. This is separate from the September 2025 fee-drain disclosure.",
+    "The August 26 QA report is evidence about tested software. September 10 checks of Ripple endpoints and XRPScan still showed PermissionDelegationV1_1 disabled on mainnet."
+  ],
+  "sections": [
+    {
+      "heading": "What the XRPL permission-revocation fix changes",
+      "paragraphs": [
+        "XRPL Permission Delegation V1.1 includes a fix for permissions that could survive a delegate account’s deletion and recreation. Cantina marks the flaw fixed, and XRPLF’s code change cleans the permission record from both accounts. Current mainnet checks still show the amendment disabled, so custody teams should separate software assurance from operational availability.",
+        "CryptoPotato’s September 10 report brings renewed attention to the rebuilt feature. The useful development for readers is the public chain of evidence: an external finding, a specific cleanup change and a later QA report. Those records let an issuer or custody provider ask a concrete question: can it reliably withdraw a service account’s authority after that account changes state?",
+        "Confirmed chronology: RippleX Developers published its expanded QA report on August 26, 2026. XRPLF’s August 6 release notes already included PermissionDelegationV1_1. This article examines the revocation control behind that release, rather than treating September’s coverage as the date a new patch shipped. It does not report a demonstrated mainnet loss from this finding."
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+        "https://github.com/XRPLF/rippled/pull/6681",
+        "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/",
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments"
+      ]
+    },
+    {
+      "heading": "Cantina found a gap between deleting an account and deleting its authority",
+      "paragraphs": [
+        "Cantina’s engagement ran from March 23 through April 8, 2026. Its public report credits researcher shotes with a high-severity finding concerning irrevocable delegate permissions. The publication date of the portfolio page is not stated; the engagement dates should not be mistaken for a disclosure timestamp. CryptoPotato independently describes the same account-deletion and recreation scenario.",
+        "The distinction is subtle. A delegator is the account granting authority; a delegate is the account receiving it. In the reported flaw, deleting the delegate did not remove the corresponding permission record held on the delegator’s side. An attempt to revoke then failed because the target account no longer existed. Recreating that account made the surviving permission usable again.",
+        "Analysis: this is an account-lifecycle problem, not merely a question of whether a submitted payment has a valid signature. An organization might remove a service from its own inventory while an authorization remains elsewhere. A complete access review therefore has to reconcile the ledger’s permission records with the organization’s operational records, including identities that have disappeared and later returned."
+      ],
+      "sourceUrls": [
+        "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+        "https://github.com/XRPLF/rippled/pull/6681",
+        "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/"
+      ]
+    },
+    {
+      "heading": "XRPLF’s April fix makes the permission record reachable from both accounts",
+      "paragraphs": [
+        "XRPLF merged PR #6681 on April 29, 2026. The pull request describes storing the Delegate entry in the owner directories of both the delegating and authorized accounts. When either party deletes its account, deletion processing can find the entry and clean up both sides. Cantina links this pull request as the fix for its high-severity finding.",
+        "This does not mean two independent grants should be managed manually. The repair makes the same relationship discoverable from either end. That matters because deleting an account is an ordinary lifecycle event, and cleanup should follow that event without depending on a later transaction aimed at an account that no longer exists.",
+        "Practical implication: acceptance testing should cover the whole relationship. Establish a limited grant in a controlled environment, delete the delegate, inspect both accounts’ relevant records, recreate the delegate and confirm that the former grant has not returned. Treat that as a proposed integration check, not as a claim that AllAboutXRP reproduced the vulnerability or audited the patched server. The public fix establishes what changed; each operator still has to verify its own deployed version and procedures."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/rippled/pull/6681",
+        "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+        "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/"
+      ]
+    },
+    {
+      "heading": "The 2025 fee-drain disclosure is a separate security event",
+      "paragraphs": [
+        "XRPL’s September 29, 2025 disclosure describes a bug reported on September 15 by community member tequ. That report concerns transaction fees being charged before the necessary signature verification in a particular failure path. It says the affected amendment had not been activated on mainnet and that validators were advised to vote against it. This predates Cantina’s 2026 account-deletion engagement.",
+        "The August 26 QA history records the feature becoming unsupported in September 2025, receiving the PermissionDelegationV1_1 name with a security fix in October, and returning to supported status in June 2026. The August release subsequently packaged the revised amendment. These are distinct milestones, with different meanings for software maintenance and network availability.",
+        "Uncertainty label: the examined records do not justify collapsing every delegation weakness into a single incident, or attributing the original withdrawal to the later Cantina finding. They also do not establish that every possible flaw has been eliminated. A repaired lifecycle edge case and a prior fee-charging bug demonstrate why a feature needs several kinds of review; neither is evidence of a newly compromised XRP wallet today."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2025/vulnerabilitydisclosurereport-bug-sep2025",
+        "https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0",
+        "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+        "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/"
+      ]
+    },
+    {
+      "heading": "What RippleX’s QA results establish, and what they leave open",
+      "paragraphs": [
+        "RippleX Developers’ August 26 report lists 179 dedicated delegation tests: 112 functional, 48 adversarial/security and 19 cross-feature tests. It also reports execution of a 5,088-test xrpld regression suite and no critical open internal bugs. These are the QA team’s reported counts, corroborated in CryptoPotato’s coverage, not measurements collected independently by this publication.",
+        "The stated environment was xrpld devnet and a private CI network. The report covers interactions involving Batch, Confidential MPT, the transaction queue and multi-signing, and limits its production-readiness conclusion to the tested commit level. That qualification matters: a test outcome attaches to particular code, configuration and scenarios, rather than to every future deployment bearing the feature’s name.",
+        "Analysis: test volume is useful evidence of coverage, but the operational question is whether the failure mode an institution cares about was exercised. A custodian should request the tested revision, confirm that its software contains the relevant fixes and retain an emergency revocation procedure. Passing an automated suite does not demonstrate that an external service’s key inventory, alerting or incident-response staff will behave correctly under pressure."
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0",
+        "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/",
+        "https://github.com/XRPLF/rippled/pull/6681"
+      ]
+    },
+    {
+      "heading": "Mainnet activation remains a separate XRPL governance decision",
+      "paragraphs": [
+        "Confirmed snapshot, September 10, 2026 at approximately 13:07 UTC: direct feature queries to Ripple’s s1 and s2 public endpoints returned PermissionDelegationV1_1 as supported but not enabled. XRPScan’s independently operated amendment API also returned enabled:false and no majority timestamp. These observations concern the specific V1.1 amendment, identified in the official registry; they are not a forecast of the next validator decision.",
+        "XRPL’s amendment process separates a server’s knowledge of a feature from the network choosing to enable it. The official amendments documentation requires sustained validator support through the prescribed voting period. Readers should consult fresh network state when making an operational decision, because an article’s snapshot can become outdated. An audit report, release announcement or readiness statement is not a substitute for that state.",
+        "Analysis: this creates two approval questions for a custody team. Is the revised implementation acceptable under the organization’s security criteria? Is the feature actually available on the network where the service will run? A yes to the first does not answer the second. No activation date is asserted here, and the checked records do not support claiming a resulting increase in XRP payment demand, institutional adoption or token price."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://s2.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0"
+      ]
+    },
+    {
+      "heading": "What XRP issuers and custody teams should require before deployment",
+      "paragraphs": [
+        "The current XRPL permission-delegation guide describes grants created, updated or revoked with DelegateSet. It distinguishes permissions for a transaction type from narrower, predefined permissions. It also warns that granular permissions cannot be customized arbitrarily. A team should therefore compare the exact available permission with the intended business role, rather than assume the protocol expresses every internal spending restriction.",
+        "For an issuer, a restricted service account could handle recurring actions while more powerful keys stay offline. For a custody provider, the benefit would be a smaller set of actions available to an exposed operational key. Those are intended design uses described by XRPL, not evidence that a particular bank or token issuer has adopted the revised feature.",
+        "Operational inference: the permission inventory should identify who granted each role, who controls the delegate’s keys and who can execute revocation if the normal service is unavailable. Monitoring should distinguish successful grant removal from a failed request or an application merely hiding a delegate. The case for this feature depends on bounded authority that remains removable throughout the account lifecycle. That is the concrete control to evaluate before treating delegation as a production security improvement."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/accounts/permission-delegation",
+        "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+        "https://github.com/XRPLF/rippled/pull/6681",
+        "https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The first confirmed enabled state for amendment 0F48FF561C709540328F31F1C97FD512ACC8B4E42138A161CB0E21ECA292540B, checked against live network records rather than a projected date.",
+    "Any revision to the August 26 RippleX QA report that identifies a new tested commit, additional delegation interactions or reopened security findings.",
+    "Further Cantina disclosures or XRPLF fixes affecting account deletion, permission revocation or account recreation, with their exact affected versions.",
+    "Wallet and custody-provider release notes documenting support for viewing grants, removing them and confirming validated cleanup.",
+    "Operator evidence that emergency revocation works when the delegate is offline or deleted, including reconciliation of both sides of the permission relationship."
+  ],
+  "sources": [
+    {
+      "name": "RippleX Developers: Account Permission Delegation QA Test Report",
+      "url": "https://dev.to/ripplexdev/account-permission-delegation-qa-test-report-4ia0",
+      "type": "primary",
+      "publishedAt": "2026-08-26"
+    },
+    {
+      "name": "Cantina: Ripple XRPL Permission Delegation security report (March 23-April 8 engagement; publication undated)",
+      "url": "https://cantina.xyz/portfolio/0a506caa-5532-437e-8b29-62258b652db7",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF PR #6681: Delegate cleanup in both account directories (opened March 27; merged April 29)",
+      "url": "https://github.com/XRPLF/rippled/pull/6681",
+      "type": "primary",
+      "publishedAt": "2026-03-27"
+    },
+    {
+      "name": "XRPL: Introducing XRP Ledger version 3.3.0",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "CryptoPotato: XRPL Fixes Permission Delegation After Critical Bug Found",
+      "url": "https://cryptopotato.com/xrpl-fixes-permission-delegation-after-critical-bug-found/",
+      "type": "supporting",
+      "publishedAt": "2026-09-10"
+    },
+    {
+      "name": "XRPL: September 2025 Permission Delegation vulnerability disclosure",
+      "url": "https://xrpl.org/blog/2025/vulnerabilitydisclosurereport-bug-sep2025",
+      "type": "primary",
+      "publishedAt": "2025-09-29"
+    },
+    {
+      "name": "XRPL: Permission Delegation concepts and limitations",
+      "url": "https://xrpl.org/docs/concepts/accounts/permission-delegation",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s1 mainnet RPC: feature query, checked September 10, 2026",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple s2 mainnet RPC: feature query, checked September 10, 2026",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPScan amendment API: independent mainnet snapshot checked September 10, 2026",
+      "url": "https://api.xrpscan.com/api/v1/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL: Amendments and the activation process",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "What the XRPL 3.3.0 release contains"
+    },
+    {
+      "href": "/news/xrpl-fixcleanup3-3-0-majority-activation-window",
+      "label": "How an XRPL amendment majority differs from activation"
+    },
+    {
+      "href": "/news/xrph-wallet-breach-key-exposure-investigation",
+      "label": "XRPH Wallet: a separate investigation into exposed keys"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP and the XRP Ledger: the underlying roles"
+    }
+  ]
+}
