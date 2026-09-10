@@ -1,0 +1,182 @@
+{
+  "slug": "ripple-gsmart-treasury-ai-human-approval",
+  "title": "Ripple Expands GSmart Treasury AI With Human Approval Before Financial Actions",
+  "description": "Ripple’s September 10 GSmart expansion adds policy-governed treasury AI. Its approval controls and customer figures do not establish new XRP settlement flows.",
+  "category": "Ripple",
+  "publishedAt": "2026-09-10T21:05:27.775Z",
+  "modifiedAt": "2026-09-10T21:05:27.776Z",
+  "author": "Jack Nelson",
+  "image": "/news/ripple-gsmart-closed-burette-editorial.webp",
+  "imageAlt": "A cobalt glass burette in a pale-gold stand holds liquid above a closed ivory stopcock and an empty porcelain dish on ivory stone.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "gsmart-closed-burette-glaze-testing-bench",
+  "imageSetting": "An empty ivory-stone porcelain glaze-testing bench against seamless warm plaster, seen nearly frontally from a slightly raised left offset; low winter sun bounced through an unseen water basin gives one narrow luminous ripple on the far stone edge, with the tall instrument just right of center and broad blank space to the left.",
+  "imageMetaphor": "A calibrated cobalt glass burette held by a pale-gold laboratory stand contains a measured liquid quantity above a closed ivory stopcock and an empty porcelain receiving dish. Measurement and interpretation precede a separate manual release, representing treasury recommendations that await human approval.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, cinematic 16:9 landscape, 1680 by 945 pixels or larger. Make one sparse, physically believable symbolic still life: exactly one tall narrow translucent cobalt glass burette with fine unnumbered graduation ticks, supported vertically in one delicate pale-gold brass laboratory stand with a broad stable foot, and exactly one shallow empty ivory porcelain receiving dish centered beneath its downward spout. The burette holds water-blue liquid at a visible meniscus. The ivory horizontal stopcock is visibly closed: no drop or stream leaves the tip. This is a metaphor for measured treasury analysis that cannot move funds until a human authorizes release, not a depiction of Ripple equipment or an adoption metric. Setting: unadorned ivory-stone porcelain glaze-testing bench against seamless warm plaster. View nearly frontally from a slightly raised left offset; instrument just right of center, broad blank field left and upper margins. Low winter sunlight reflected through an unseen water basin gives one narrow luminous ripple at the far stone edge and cool blue contact shadows. Unique versus all registered art: a burette and closed manual stopcock, a tall vertical measuring column above a low empty dish, glaze-testing bench, watery reflected winter light. No registered scene, setting or composition may be copied. Reference 1 is homepage palette and finish only. References 2-4 are Sublime Classical Oil palette, light, surface and finish only. Luminous academic classical-revival oil painting, crisp classical sculptural modeling, smooth rich glazing, selective tiny impasto on pale-gold metal, brilliant ivory and saturated cobalt. No subject leakage from any reference. Extremely subtle 1/0/x stipple only inside one or two small shadow transitions, practically invisible; never all-over ASCII, dither, or halftone. Objects have plausible joins, gravity and proportions. No text, numerals, logos, coins, people, dashboard, cyber cube, buildings, fantasy ruins, panoramic Greek city, border, watermark, sepia, muddy light, or photographic realism.",
+  "keywords": [
+    "Ripple Treasury",
+    "GSmart AI",
+    "treasury management",
+    "Knowledge Studio",
+    "human approval",
+    "XRP",
+    "RLUSD"
+  ],
+  "keyTakeaways": [
+    "Ripple’s September 10 expansion puts policy checks and human approval between GSmart recommendations and financial execution.",
+    "Ripple reports Risk Insights enabled by 60% of eligible customers and Forecast Insights used by 44%; it does not disclose the customer denominators.",
+    "GSmart adoption measures treasury software usage. Evidence of XRP settlement volumes or purchases would require separate asset-specific disclosures."
+  ],
+  "sections": [
+    {
+      "heading": "What Ripple announced on September 10",
+      "paragraphs": [
+        "Ripple expanded GSmart on September 10, 2026, adding treasury AI capabilities governed by company policies and human approval. The announcement covers forecasting, liquidity, risk, reconciliation and reporting. It describes controls over financial decisions, while its customer adoption figures do not demonstrate additional XRP purchases or XRP Ledger settlement activity.",
+        "Confirmed announcement: Ripple says GSmart is already operating in production and separates financial calculation from AI interpretation. Knowledge Studio holds organizational policies and controls; Analytics Studio includes the conversational Ask GSmart assistant. The Global Treasurer independently reported the expansion on September 10, including its approval requirement. That reporting corroborates what was announced, rather than independently certifying the software’s behavior.",
+        "The useful question for finance teams is where the recommendation becomes an instruction to move money. A system can identify a problem quickly while still leaving a person responsible for selecting the response. This article examines that boundary and the evidence needed to judge it. It treats the release as a product announcement, vendor documentation as descriptions of intended behavior, and potential operational benefits as analysis."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/",
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/"
+      ]
+    },
+    {
+      "heading": "GSmart separates calculation, interpretation and permission",
+      "paragraphs": [
+        "According to the September 10 coverage in The Global Treasurer, deterministic engines handle the financial arithmetic, AI interprets information and drafts recommendations, and organizational policy checks precede human approval. Deterministic means applying defined calculation rules to inputs. It does not mean every input, assumption or resulting business decision is correct.",
+        "Analysis: consider a hypothetical subsidiary whose expected customer receipts arrive later than forecast. A calculation can establish the difference between its projected and available cash. An assistant can explain that difference and suggest a transfer. A reviewer must still decide whether those balances are current, whether the sending entity can release them, and whether the proposed response is appropriate. This example illustrates an evaluation task, not a reported GSmart customer incident.",
+        "The separation matters because mathematical accuracy and business authority answer different questions. A correctly calculated transfer could still use an outdated account balance or an inapplicable policy. Buyers should therefore ask to see the input record, calculation, policy version and approval identity attached to one proposed action. A polished narrative alone would not make that decision reproducible."
+      ],
+      "sourceUrls": [
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/",
+        "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/"
+      ]
+    },
+    {
+      "heading": "Knowledge Studio makes the policy owner part of the workflow",
+      "paragraphs": [
+        "The Global Treasurer’s September 10 report describes Knowledge Studio as the organizational governance layer for the expanded suite. Its account identifies forecasting, liquidity, risk, reconciliation and reporting as covered functions. The central question for a buyer is how its own policies become usable controls within those workflows.",
+        "Analysis: the finance policy becomes something the organization must maintain as carefully as the underlying cash records. Suppose a counterparty limit changes after an acquisition. Evaluating a proposed placement against the old limit could produce a persuasive but unsuitable recommendation. A useful demonstration would show the policy owner updating that limit, the system applying the new version, and an approver being able to identify which version governed the recommendation.",
+        "The same scrutiny applies to exceptions. A buyer should test a case with missing information and a case that conflicts with policy, then inspect whether the proposed action is withheld or escalated. Those are suggested acceptance tests, not findings of a defect. Human oversight has practical value when a reviewer can inspect evidence and decline a recommendation without losing the record of why it was made."
+      ],
+      "sourceUrls": [
+        "https://treasury.ripple.com/solutions/ai/treasury-ai-agents",
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/"
+      ]
+    },
+    {
+      "heading": "What Ripple’s 60% and 44% adoption figures can establish",
+      "paragraphs": [
+        "Company-reported figures, dated September 10, 2026: Ripple says 60% of eligible customers have enabled Risk Insights and 44% use Forecast Insights. The Global Treasurer repeats the figures with company attribution. The release supplies neither eligible customer counts nor a definition of eligibility, measurement period or independently measured performance result.",
+        "Analysis: a percentage describes a share of a specified group, and here the size and composition of that group remain undisclosed. Readers cannot calculate customer totals, compare the two products on an equal-population basis, or infer how frequently users act on the insights. The populations could overlap. Adding the percentages would not produce a meaningful combined adoption rate.",
+        "For an existing customer, a more useful benchmark would connect usage to a defined operational outcome: forecast error under a consistent methodology, reconciliation exceptions resolved, or time spent reviewing recommendations. Each would need a baseline and an observation period. For XRP holders, even strong results on those measures would demonstrate software value rather than identify the asset used for a payment. The announcement does not connect these percentages to token transaction volumes."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/",
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/"
+      ]
+    },
+    {
+      "heading": "Audit records must support the decision after approval",
+      "paragraphs": [
+        "The independent September 10 coverage describes an auditable assistant whose proposed actions pass through corporate policy controls before human approval. That supports the stated design at a broad level. It does not provide an independent product test demonstrating that each implementation detail works as described in Ripple Treasury’s security documentation.",
+        "Analysis: an approval record should make sense when reconstructed later, after the cash position and policy have changed. A finance team evaluating the product should request a sample that connects the source data, proposed action, relevant policy and reviewer decision. It should also establish which records can be exported and how the approved instruction is reconciled with its eventual execution result.",
+        "An approver also needs a reliable view of the underlying position. In a hypothetical review, a current balance from one account and an old balance from another could produce a misleading consolidated picture. A practical demonstration should make stale or missing inputs visible instead of relying on the confidence of the assistant’s explanation. This is a suggested buyer test, not a claim that GSmart has exhibited this problem.",
+        "Uncertainty: the public materials reviewed here do not supply an independent end-to-end test proving that all financial actions obey the stated controls. That limits the strength of the conclusion. It does not show that the controls failed."
+      ],
+      "sourceUrls": [
+        "https://treasury.ripple.com/solutions/ai/gsmart-ai-security-and-compliance",
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/"
+      ]
+    },
+    {
+      "heading": "Ripple Treasury’s digital-asset accounts provide context for XRP",
+      "paragraphs": [
+        "The relevant earlier milestone is April 1, 2026. Ripple announced Digital Asset Accounts and Unified Treasury, bringing digital-asset account management and combined liquidity visibility into its treasury platform. Ledger Insights independently reported that the features let teams manage digital balances alongside fiat and aggregate positions across custodians. Its coverage provides context for the platform that GSmart now extends.",
+        "Analysis: visibility, recommendation and settlement are separate steps in that workflow. Displaying an XRP or stablecoin balance does not itself create a transfer. A recommendation can concern cash management without using a blockchain. Even an approved digital-asset action would require evidence identifying the asset, network and executed amount before anyone could attribute settlement activity to XRP or the XRP Ledger.",
+        "The September announcement therefore has a clear Ripple business relevance: it expands the controls and analytical functions of an enterprise product. Its incremental effect on XRP demand remains unresolved. The reviewed release gives no GSmart-specific XRP purchase total, settlement volume or named customer execution record. Readers should resist translating treasury software adoption into token demand without that missing link. No price snapshot is necessary to understand this operational development."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-treasury-launches-the-first-treasury-management-system-tms-with-native-digital-asset-capabilities/",
+        "https://www.ledgerinsights.com/ripple-treasury-adds-stablecoin-accounts-enabling-end-to-end-integration/",
+        "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/"
+      ]
+    },
+    {
+      "heading": "What treasury teams and XRP readers should watch next",
+      "paragraphs": [
+        "For treasury leaders, the next useful evidence is a named deployment with a defined scope and a measurable before-and-after result. A demonstration should include a recommendation that is rejected, a policy change and an incomplete data feed. These cases test whether the approval process remains intelligible when the easiest path is unavailable.",
+        "For finance operations and audit teams, the priority is a durable connection from input through approval to outcome. For XRP readers, the priority is a separately attributable asset flow. These groups can follow the same product launch while asking different questions, and evidence that satisfies one group may leave the other’s question unanswered.",
+        "Our assessment: the release merits attention because it specifies how Ripple intends to put AI recommendations inside treasury controls. The next stage of evidence should concern how those controls perform in customer workflows. There is no confirmed future delivery date for the missing evidence in the sources reviewed, so the watch list below tracks disclosures rather than an invented deadline."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/",
+        "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/",
+        "https://treasury.ripple.com/solutions/ai/gsmart-ai-security-and-compliance"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Named GSmart deployments that identify the capabilities used, approval scope and measurement period.",
+    "Eligible customer counts and usage definitions behind Ripple’s September 10 adoption percentages.",
+    "Customer or independent tests of rejected actions, policy updates, missing data and approval records.",
+    "Forecast or reconciliation results with a baseline, consistent methodology and disclosed observation period.",
+    "Separate customer or transaction records identifying any GSmart-related XRP or RLUSD execution, asset amounts and settlement networks."
+  ],
+  "sources": [
+    {
+      "name": "Ripple: September 10 GSmart expansion announcement",
+      "url": "https://ripple.com/ripple-press/ripple-treasury-brings-industry-s-first-governed-ai-for-enterprise-treasury/",
+      "type": "primary",
+      "publishedAt": "2026-09-10"
+    },
+    {
+      "name": "The Global Treasurer: GSmart expansion and governance architecture",
+      "url": "https://www.theglobaltreasurer.com/2026/09/10/governed-ai-enters-the-treasury-back-office-as-ripple-expands-gsmart-capabilities/",
+      "type": "supporting",
+      "publishedAt": "2026-09-10"
+    },
+    {
+      "name": "Ripple Treasury: GSmart agent catalog",
+      "url": "https://treasury.ripple.com/solutions/ai/treasury-ai-agents",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple Treasury: AI security and compliance documentation",
+      "url": "https://treasury.ripple.com/solutions/ai/gsmart-ai-security-and-compliance",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple: Digital Asset Accounts and Unified Treasury announcement",
+      "url": "https://ripple.com/ripple-press/ripple-treasury-launches-the-first-treasury-management-system-tms-with-native-digital-asset-capabilities/",
+      "type": "primary",
+      "publishedAt": "2026-04-01"
+    },
+    {
+      "name": "Ledger Insights: Ripple Treasury adds stablecoin accounts",
+      "url": "https://www.ledgerinsights.com/ripple-treasury-adds-stablecoin-accounts-enabling-end-to-end-integration/",
+      "type": "supporting",
+      "publishedAt": "2026-04-01"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "How XRP relates to the XRP Ledger"
+    },
+    {
+      "href": "/news/ripple-mint-rlusd-institutional-workflows",
+      "label": "Ripple Mint and institutional RLUSD workflows"
+    },
+    {
+      "href": "/news/ripple-prime-delta-one-xrp-role-undisclosed",
+      "label": "Ripple Prime’s Delta One launch and its undisclosed XRP role"
+    },
+    {
+      "href": "/news/xrpl-ai-payments-merchant-settlement-verification",
+      "label": "Verifying settlement in XRPL AI payment workflows"
+    }
+  ]
+}
