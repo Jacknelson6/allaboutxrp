@@ -1,0 +1,220 @@
+{
+  "slug": "rlusd-regulation-cftc-collateral-eligibility",
+  "title": "Ripple's RLUSD Guide Puts CFTC Collateral Eligibility in Focus",
+  "description": "Ripple’s September 11 RLUSD guide distinguishes issuer oversight from collateral eligibility. February and March CFTC records explain the limits for brokers, customer funds and uncleared swaps.",
+  "category": "Regulation",
+  "publishedAt": "2026-09-11T16:08:09-05:00",
+  "modifiedAt": "2026-09-11T16:08:09-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/rlusd-supervision-bell-jar-editorial.webp",
+  "imageAlt": "A glass bell jar covers a cobalt ceramic thimble on ivory stone beside a separate pale-gold folding ruler opened at a right angle.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "supervision-bell-jar-ceramic-thimble-proofing-shelf",
+  "imageSetting": "A bare ivory stone ceramic proofing shelf beside a warm chalk wall, viewed frontally at the height of the glass rim. A narrow diffused pearl dawn reflection from below lights the bell jar while a crisp high-right gold glint lights the separate folding rule; all objects occupy a shallow lower-right triangle with ample open left and upper space.",
+  "imageMetaphor": "A clear glass bell jar encloses one cobalt ceramic thimble while a separate pale-gold folding rule remains outside. Bounded supervision of the issuer does not itself complete the separate measurement of collateral eligibility.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, 16:9 landscape, 1680x945 or larger. Exactly THREE objects on bare ivory stone: a transparent glass bell jar with an integral pale-gold lifting knob; one small cobalt ceramic thimble inside the jar, resting on the stone; and a separate pale-gold two-arm folding ruler opened to a right angle outside the jar. No additional objects. The enclosing jar symbolizes bounded issuer supervision; the independent ruler symbolizes a separate collateral eligibility assessment. No implication of guaranteed protection, universal acceptance, or investment returns. New setting: ceramic proofing shelf before a seamless chalk wall, rim-height frontal camera, shallow lower-right triangle with broad negative space left and above. Pearl dawn light reflected softly from below reveals transparent glass; a precise upper-right gold glint defines the rule. Both lights physically plausible and restrained. The jar is transparent and the familiar blue ceramic thimble is clearly visible. Crisp classical oil modeling, luminous academic glazing, polished ivory and pale gold, saturated cobalt, sparse and physically believable. Reference 1 is AllAboutXRP palette and finish only; references 2-4 are Sublime Classical Oil paint, light and material references only. Do not borrow their architecture, landscapes, figures or animals. Extremely subtle 1/0/x stipple may occur only in one small shadow transition, otherwise clean paint. No lettering or readable numerals, no logos, crypto coins, dashboards, politicians, generic cyber cubes, impossible architecture, ruins, Greek city, scenery, all-over ASCII, dithering, borders or watermark. The thimble must look like a small ceramic sewing thimble, not a coin, cube or token. Keep exactly jar, thimble and rule. Avoid all registered settings, objects and arrangements including reserves basins, calipers, gates, keys, scales, burins and generic scenes.",
+  "keywords": [
+    "RLUSD",
+    "Ripple",
+    "CFTC collateral eligibility",
+    "Standard Custody & Trust Company",
+    "NYDFS",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "Ripple’s September 11 guide describes RLUSD issuer supervision and a conditional federal charter, not a new CFTC approval for the token.",
+    "CFTC Letter 26-05 replaced 25-40 in February; the March FAQ preserves separate rules for customer collateral, broker capital and uncleared swaps.",
+    "An institution considering RLUSD collateral needs acceptance terms from its broker and clearinghouse, alongside issuer and redemption documentation."
+  ],
+  "sections": [
+    {
+      "heading": "What does Ripple’s September 11 RLUSD guide establish?",
+      "paragraphs": [
+        "Ripple’s September 11 guide explains RLUSD’s issuer supervision, but it does not establish blanket CFTC approval for the stablecoin. The relevant collateral framework also includes February’s replacement staff letter and March’s clarifications. Institutions must distinguish a regulated issuer, an eligible asset category, and acceptance by their particular broker or clearinghouse. [1][2][4]",
+        "The immediate development is a new explanation from Ripple, rather than a new rule, charter or trading launch. Ripple identifies Standard Custody & Trust Company as RLUSD’s issuer under New York supervision and separates that status from derivatives collateral treatment. Its discussion cites December 2025 Staff Letter 25-40. Reading the subsequent regulatory record adds operational limits that matter to anyone evaluating the claim. [1][3]",
+        "This report checks the guide against the CFTC’s February and March records, New York’s stablecoin guidance, the OCC’s charter decision and independent coverage. Confirmed facts below describe those documents. Analysis explains their practical implications. Uncertainty remains around institution-specific acceptance, actual usage and future approvals; none can be inferred merely from the publication of an issuer’s guide."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/what-actually-makes-a-stablecoin-regulated-a-guide-for-institutions-evaluating-rlusd/",
+        "https://www.cftc.gov/PressRoom/PressReleases/9180-26",
+        "https://www.cftc.gov/csl/26-05/download",
+        "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download"
+      ]
+    },
+    {
+      "heading": "CFTC Letter 26-05 is the successor to the cited December letter",
+      "paragraphs": [
+        "The CFTC’s Market Participants Division reissued 25-40 as Letter 26-05 on February 6, 2026. The stated revision added national trust banks to the issuer categories in its payment-stablecoin definition. The agency said the other conditions were reproduced without change. Ledger Insights independently reported the February update when covering the March clarification. An operating checklist should therefore identify the successor document instead of treating the December letter as the last word. [2][3][6]",
+        "The letter sets a conditional staff position on enforcement recommendations involving futures commission merchants, or FCMs. These firms handle customer futures and related derivatives business. The document addresses how qualifying collateral can be counted and segregated. It does not contain a named RLUSD approval. The distinction matters because meeting an issuer-category description is only one part of a larger set of conditions. [3][5]",
+        "Analysis: a useful evidence chain runs from the applicable staff conditions to the broker’s policies and then to the customer agreement. A token’s marketing page cannot supply all three. For a treasury team, the actionable question is which specific account and transaction the broker will support, with what valuation, controls and withdrawal terms."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/PressRoom/PressReleases/9180-26",
+        "https://www.cftc.gov/csl/26-05/download",
+        "https://www.gtlaw.com/en/insights/2026/3/cftc-staff-issues-faqs-on-crypto-assets-blockchain-technologies-in-derivatives-markets",
+        "https://www.ledgerinsights.com/cftc-publishes-faq-clarifying-crypto-collateral-no-action-letter/"
+      ]
+    },
+    {
+      "heading": "Customer collateral and a broker’s own stablecoins have different rules",
+      "paragraphs": [
+        "The CFTC’s March 20 FAQ addresses a distinction that disappears in broad claims about stablecoin acceptance. A customer may post qualifying crypto collateral under the framework, while an FCM may place its own payment stablecoins in segregated customer accounts as residual interest. Residual interest is the firm’s contribution to those accounts. The FAQ does not allow the FCM to invest customer funds in stablecoins under this relief. Greenberg Traurig’s analysis corroborates that boundary. [4][5]",
+        "Consider an illustrative operations request: a customer asks to deliver an existing RLUSD balance, while a broker proposes converting customer cash into RLUSD. These requests require different review. Permission relevant to the first cannot simply be copied into the second. The example is an analytical comparison of the rules, not evidence that a particular broker offers either workflow.",
+        "For affected customers, acceptance documentation should identify who owns the posted assets, where they are held and what happens when collateral must be returned. For FCMs, internal procedures should distinguish receipt of customer property from deployment of the firm’s own assets. Otherwise, an apparently small change in a cash-management instruction can cross a substantive regulatory boundary."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download",
+        "https://www.gtlaw.com/en/insights/2026/3/cftc-staff-issues-faqs-on-crypto-assets-blockchain-technologies-in-derivatives-markets"
+      ]
+    },
+    {
+      "heading": "The 2% capital figure does not price every RLUSD margin account",
+      "paragraphs": [
+        "The March FAQ discusses a 2% capital treatment for proprietary payment-stablecoin positions and at least 2% for proprietary stablecoins deposited as residual interest. Those are scoped capital provisions. They are not a universal customer-margin haircut. Separately, clearing organizations remain responsible for collateral haircuts that reflect relevant risks. Ledger Insights reports the capital treatment; Greenberg Traurig separately explains clearinghouse haircut responsibilities. [4][5][6]",
+        "A haircut reduces the amount of an asset’s value recognized for a particular purpose. A capital calculation concerns the broker’s financial resources; a customer margin schedule concerns the collateral required for a position. Analysis: copying a percentage from one calculation into the other can produce a funding plan that the broker will not honor. The fact that both calculations concern stablecoins does not make them interchangeable.",
+        "An institution should request the actual collateral schedule for its legal entity, account and product, including any concentration limit and the process for changing terms. This report provides no quoted RLUSD haircut from an operating broker. That is an explicit information gap, not an assumption that any published percentage applies to every customer."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download",
+        "https://www.gtlaw.com/en/insights/2026/3/cftc-staff-issues-faqs-on-crypto-assets-blockchain-technologies-in-derivatives-markets",
+        "https://www.ledgerinsights.com/cftc-publishes-faq-clarifying-crypto-collateral-no-action-letter/"
+      ]
+    },
+    {
+      "heading": "Uncleared swaps remain a separate collateral question",
+      "paragraphs": [
+        "Another boundary appears in FAQ question 5: Letter 26-05 does not expand the eligible-margin list for uncleared swaps. The FAQ distinguishes crypto assets, including payment stablecoins, from a tokenized representation of an already eligible asset that preserves the required rights. Greenberg Traurig’s independent explanation makes the same distinction. This is a material limit for firms whose derivatives activity extends beyond centrally cleared contracts. [4][5]",
+        "Analysis: the instrument and transaction must be identified before choosing the collateral rule. A stablecoin backed by reserve assets is not automatically interchangeable with a tokenized claim carrying rights in a particular eligible security. Similar technology or dollar denomination cannot resolve that legal difference. A proposal covering futures, cleared swaps and bilateral swaps needs separate conclusions for each use case."
+      ],
+      "sourceUrls": [
+        "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download",
+        "https://www.gtlaw.com/en/insights/2026/3/cftc-staff-issues-faqs-on-crypto-assets-blockchain-technologies-in-derivatives-markets"
+      ]
+    },
+    {
+      "heading": "NYDFS supervision and the OCC charter answer different questions",
+      "paragraphs": [
+        "RLUSD’s New York regulatory history predates this guide: The Block reported its NYDFS approval in December 2024. Ripple’s September 11 account identifies Standard Custody as the issuer under a limited-purpose trust charter. New York’s June 2022 guidance addresses reserve backing, segregation, redemption and independent attestations. Davis Polk independently explained those requirements in June 2022. These are issuer safeguards, rather than an instruction to derivatives brokers to accept the token. [1][7][10][11]",
+        "The redemption clock also has conditions. NYDFS describes timely redemption as no more than two full business days after the business day the issuer receives a compliant order, including completed onboarding and other necessary conditions; DFS may permit an exception in extraordinary circumstances. Selling through an exchange is therefore not the same operational request as redeeming with the issuer. Analysis: a liquidity plan needs the route to dollars and its prerequisites, not only a statement about reserve backing. [7][11]",
+        "The OCC’s December 12, 2025 decision granted Ripple National Trust Bank preliminary conditional approval and withheld permission to commence business until preopening requirements were satisfied. Reuters independently reported the preliminary nature of that decision. Ripple’s new guide still describes a conditional stage. The historical approval should not be represented as proof that a completed federal charter or a new operating service arrived on September 11. [1][8][9]"
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/what-actually-makes-a-stablecoin-regulated-a-guide-for-institutions-evaluating-rlusd/",
+        "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+        "https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-125b.pdf",
+        "https://www.investing.com/news/economy-news/us-regulator-grants-crypto-firms-initial-approval-to-launch-trust-banks-4406424",
+        "https://www.theblock.co/news/markets/2024-12-10-rlusd-ripples-stablecoin-gains-approval-from-new-yorks-dept-of-financial-services-330262",
+        "https://www.davispolk.com/insights/client-update/new-york-dfs-issues-guidance-issuers-u-s-dollar-backed-stablecoins"
+      ]
+    },
+    {
+      "heading": "What this means for RLUSD users and XRP Ledger readers",
+      "paragraphs": [
+        "The practical output is a documented acceptance decision. Treasury teams need the issuer record and redemption route; trading desks need their broker’s eligible-collateral terms; risk teams need custody, valuation and stress procedures that fit the exact transaction. Those documents should agree on the asset, account and governing framework. A favorable answer about supervision cannot substitute for a missing answer about operational access.",
+        "Uncertainty: the records reviewed here do not establish new RLUSD collateral volumes, acceptance by every FCM, or additional XRP purchases. Ripple’s guide does not announce a new XRP Ledger deployment. For XRP readers, a possible future connection between institutional stablecoin use and network activity remains an inference requiring separate transaction and venue evidence. This article therefore makes no price prediction or adoption estimate. [1]",
+        "The next meaningful evidence would be a dated broker collateral schedule identifying RLUSD and the covered product, a published change to the applicable CFTC conditions, or an OCC record establishing a later charter milestone. Each would answer a different unresolved question. Until then, the strongest conclusion is specific: the regulatory documents support a conditional framework with identifiable limits, and institutions must verify their own access within it."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/what-actually-makes-a-stablecoin-regulated-a-guide-for-institutions-evaluating-rlusd/",
+        "https://www.cftc.gov/csl/26-05/download",
+        "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download",
+        "https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-125b.pdf"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "CFTC revisions to Letter 26-05 or the March 20 FAQ, particularly permitted uses, issuer definitions and customer-fund restrictions.",
+    "A broker or clearinghouse publishing an RLUSD-specific collateral schedule with product scope, valuation and concentration terms.",
+    "An OCC final-approval or commencement record that advances Ripple National Trust Bank beyond the conditional decision.",
+    "Documented RLUSD collateral activity with dates and methodology, sufficient to distinguish actual use from eligibility.",
+    "Issuer redemption documentation and operational testing that establish the institution’s own route from RLUSD to dollars."
+  ],
+  "sources": [
+    {
+      "name": "Ripple: What actually makes a stablecoin regulated",
+      "url": "https://ripple.com/insights/what-actually-makes-a-stablecoin-regulated-a-guide-for-institutions-evaluating-rlusd/",
+      "type": "primary",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "CFTC: Staff reissues Letter 25-40",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9180-26",
+      "type": "primary",
+      "publishedAt": "2026-02-06"
+    },
+    {
+      "name": "CFTC: Staff Letter 26-05, successor to 25-40",
+      "url": "https://www.cftc.gov/csl/26-05/download",
+      "type": "primary",
+      "publishedAt": "2026-02-06"
+    },
+    {
+      "name": "CFTC: Crypto asset and blockchain FAQs, questions 1-10",
+      "url": "https://www.cftc.gov/media/13521/Registrant%26RegisteredEntity_FAQs032026/download",
+      "type": "primary",
+      "publishedAt": "2026-03-20"
+    },
+    {
+      "name": "Greenberg Traurig: CFTC FAQs on crypto collateral",
+      "url": "https://www.gtlaw.com/en/insights/2026/3/cftc-staff-issues-faqs-on-crypto-assets-blockchain-technologies-in-derivatives-markets",
+      "type": "supporting",
+      "publishedAt": "2026-03-20"
+    },
+    {
+      "name": "Ledger Insights: CFTC clarifies crypto collateral relief",
+      "url": "https://www.ledgerinsights.com/cftc-publishes-faq-clarifying-crypto-collateral-no-action-letter/",
+      "type": "supporting",
+      "publishedAt": "2026-03-23"
+    },
+    {
+      "name": "NYDFS: Guidance on dollar-backed stablecoin issuance",
+      "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins",
+      "type": "primary",
+      "publishedAt": "2022-06-08"
+    },
+    {
+      "name": "OCC: Conditional decision on Ripple National Trust Bank",
+      "url": "https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-125b.pdf",
+      "type": "primary",
+      "publishedAt": "2025-12-12"
+    },
+    {
+      "name": "Reuters: Crypto firms receive preliminary trust-bank approvals",
+      "url": "https://www.investing.com/news/economy-news/us-regulator-grants-crypto-firms-initial-approval-to-launch-trust-banks-4406424",
+      "type": "supporting",
+      "publishedAt": "2025-12-12"
+    },
+    {
+      "name": "The Block: New York approves Ripple RLUSD",
+      "url": "https://www.theblock.co/news/markets/2024-12-10-rlusd-ripples-stablecoin-gains-approval-from-new-yorks-dept-of-financial-services-330262",
+      "type": "supporting",
+      "publishedAt": "2024-12-10"
+    },
+    {
+      "name": "Davis Polk: NYDFS guidance for stablecoin issuers",
+      "url": "https://www.davispolk.com/insights/client-update/new-york-dfs-issues-guidance-issuers-u-s-dollar-backed-stablecoins",
+      "type": "supporting",
+      "publishedAt": "2022-06-17"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/ripple-mint-rlusd-institutional-workflows",
+      "label": "RLUSD institutional minting and redemption workflows"
+    },
+    {
+      "href": "/news/rlusd-reserves-latest-attestation-june-2026",
+      "label": "What an RLUSD reserve attestation establishes"
+    },
+    {
+      "href": "/news/kraken-xrp-perpetual-futures-funding-margin",
+      "label": "Funding and margin in XRP perpetual futures"
+    },
+    {
+      "href": "/news/ethereum-frame-transactions-rlusd-gas-sponsorship",
+      "label": "RLUSD gas sponsorship and network implementation"
+    }
+  ]
+}
