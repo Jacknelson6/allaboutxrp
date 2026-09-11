@@ -1,0 +1,215 @@
+{
+  "slug": "xrpl-fixcleanup3-3-0-activated-mainnet",
+  "title": "XRPL Activates fixCleanup3_3_0, Bringing AMM and Checks Fixes Into Effect",
+  "description": "XRPL activated fixCleanup3_3_0 on September 11 at 11:29 UTC. Ledger records confirm the maintenance change while native vault and lending amendments remain disabled.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-09-11T08:09:50-05:00",
+  "modifiedAt": "2026-09-11T08:09:50-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-activated-rule-burin-editorial.webp",
+  "imageAlt": "Pale-gold burin beside a cobalt-filled groove in an ivory tablet, with two untouched pale plaques on a stone slab.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "activated-rule-burin-fossil-preparation-slab",
+  "imageSetting": "A bare ivory-stone fossil preparation slab against a seamless warm chalk wall, viewed at a tight twenty-degree diagonal from the far short end; one low strip of light reflected from polished copper at late summer noon grazes the incised surface, with the objects held in the lower middle and generous untouched space above.",
+  "imageMetaphor": "A pale-gold engraver's burin rests at the completed end of one cobalt-filled groove in an ivory stone tablet, while two separate uncut ivory wax plaques remain blank. One rule has become an enduring part of the working record, while adjacent feature proposals remain unactivated.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial illustration, exact 16:9 landscape, 1680 by 945 or larger. Create one sparse physically believable still life explaining a newly activated XRP Ledger maintenance amendment: an engraved rule is now in the working record while separate proposals remain uncut. Exactly four deliberate objects: one low rectangular ivory stone tablet with a single short straight cobalt-filled incised groove; one small pale-gold engraver's burin with a rounded handle and credible cutting tip resting at the completed end of that groove, fully supported by the tablet; and two separate small blank ivory wax plaques lying flat beside the tablet. The two plaques are visibly blank, with no grooves. No flying chips and no hands. Subject is symbolic, not a literal ledger or evidence of lending activity. Setting is a bare ivory-stone fossil preparation slab against seamless warm chalk plaster. View at a tight twenty-degree diagonal from the far short end, concentrating four objects in a shallow descending fan across the lower middle, with broad untouched ivory negative space above. Clear low strip light reflected from unseen polished copper at late summer noon grazes the cuts, making luminous pale-gold metal highlights and thin water-blue contact shadows. No window or architecture shown. New object set, viewpoint, setting and metaphor, distinct from all registered AAXRP imagery: no voting register, keys, locks, gate, slit chamber, scales, water vessel, burette, switch, caliper, hourglass, prism, clamp, loom, or city. Render as luminous academic classical-revival oil painting in the Sublime Classical Oil finish: crisp sculptural modeling, polished rich glazing, clean ivory with cobalt and water-blue accents, subtle material detail and selective bright impasto. Extremely subtle 1/0/x stipple may occur only within two tiny shadow transitions and must be nearly invisible, never on the blank wall. References are style only: first homepage image supplies palette and oil finish; remaining refined anchor, equestrian and lion images supply material modeling and luminous paint only. Do not copy any reference subject, animal, scenery, or composition. Constraints: exactly four objects, one engraved tablet, one supported burin, two uncut plaques. No text, numbers, lettering, logos, crypto coins, politicians, people, generic cyber cubes, dashboards, screens, impossible objects, fantasy ruins, temples, panoramic Greek city, horizon, mountains, border, watermark, sepia, photographic realism, all-over ASCII or all-over dither.",
+  "keywords": [
+    "XRP Ledger",
+    "fixCleanup3_3_0",
+    "XRPL amendment activation",
+    "AMM",
+    "Checks",
+    "SingleAssetVault",
+    "LendingProtocol"
+  ],
+  "keyTakeaways": [
+    "XRPScan and Ripple’s public RPC agree that fixCleanup3_3_0 activated in ledger 106,911,489, which closed September 11, 2026 at 11:29 UTC. [1][2][3]",
+    "The maintenance package now governs supported transaction paths. Its AMM precision checks also require fixAMMv1_3, which the queried ledger already has enabled. [1][3][4][5]",
+    "SingleAssetVault and LendingProtocol remain disabled in the checked Mainnet state. Operators should verify endpoint health; activation alone does not demonstrate a new lending market or a user-facing service improvement. [1][3][6]"
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the maintenance amendment is active",
+      "paragraphs": [
+        "The XRP Ledger activated fixCleanup3_3_0 on September 11, 2026, in ledger 106,911,489 at 11:29 UTC. Ripple’s public ledger records and independent XRPScan data confirm the change. The amendment brings maintenance fixes into effect on enabled transaction paths; SingleAssetVault and LendingProtocol remain disabled in the Mainnet state checked for this report. [1][2][3]",
+        "Today’s event closes the gap between a successful validator waiting period and an enforceable ledger rule. The practical question has changed from whether the vote will hold to whether infrastructure and applications are operating correctly under the active rules. That requires evidence from the ledger and from each service using it."
+      ],
+      "sourceUrls": [
+        "https://s2.ripple.com:51234/",
+        "https://xrpscan.com/tx/5749CFD26F6D2C4BE73E14543615F75717EA1D09A2B5865E5EAAE534EFBA0FD0",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    },
+    {
+      "heading": "The activation transaction establishes what changed today",
+      "paragraphs": [
+        "Confirmed record: a transaction query to Ripple’s s2 public endpoint returned a validated EnableAmendment transaction with a successful result. Its metadata shows the fixCleanup3_3_0 identifier absent from the previous active-amendment list and present in the final list. XRPScan associates the same transaction with ledger 106,911,489 and the close time of 11:29 UTC. These are records of an event that occurred, rather than a countdown to an expected event. [1][2][3]",
+        "We then checked the resulting state independently of the transaction. During checks between 13:04 and 13:07 UTC on September 11, the s2 response for validated ledger 106,913,004 contained fixCleanup3_3_0 in its Amendments object. XRPScan’s live data also marked it enabled. The raw ledger transition and the later active state therefore point to the same conclusion. [1][3][8]",
+        "XRPScan’s transaction link makes the event inspectable without accepting this publication’s interpretation. A developer reproducing the RPC check can request transaction 5749CFD26F6D2C4BE73E14543615F75717EA1D09A2B5865E5EAAE534EFBA0FD0 and compare the amendment identifier in the affected ledger object with the official amendment catalog. [1][2][5]",
+        "The earlier September 11 estimate was 11:15 UTC, based on the majority waiting period. The observed activation ledger closed fourteen minutes later. That difference should not be described as an outage or a missed deployment: XRPL processes amendment decisions through its ledger sequence. A projected eligibility time and a recorded activation time answer different questions. [2][6][7]"
+      ],
+      "sourceUrls": [
+        "https://s2.ripple.com:51234/",
+        "https://xrpscan.com/tx/5749CFD26F6D2C4BE73E14543615F75717EA1D09A2B5865E5EAAE534EFBA0FD0",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/resources/known-amendments#fixcleanup3_3_0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://cryptoticker.io/en/xrp-ledger-amendment-activation/",
+        "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments"
+      ]
+    },
+    {
+      "heading": "XRPL operators now need evidence of service continuity",
+      "paragraphs": [
+        "Confirmed guidance: the August 6 release notice instructed XRP Ledger server operators to upgrade to version 3.3.0 to maintain service continuity. XRPL’s amendment documentation explains why compatibility matters: a server that cannot understand an activated amendment becomes amendment blocked. The independent September 9 CryptoTicker report identified outdated infrastructure as the operational concern ahead of this activation. [4][6][7]",
+        "Operational analysis: an installed version number is useful, but a successful upgrade report should also establish that the actual endpoint used by an application is following validated ledgers. An exchange may have separate deposit monitoring, withdrawal submission and historical-query services. Checking only one public homepage or one server can leave a gap in that assessment. This is a suggested verification standard, not a finding that any named provider has failed.",
+        "For a service owner, the concrete evidence to retain is the endpoint identity, observation time, reported amendment state and fresh validated ledger position. If a service has several configured endpoints, compare their current responses before closing the maintenance task. A disagreement calls for investigation of that service’s configuration and health; it does not by itself demonstrate a network-wide problem.",
+        "For an ordinary wallet user, this is an infrastructure change. The records reviewed do not call for moving XRP to a new address or obtaining a replacement asset. If deposits or withdrawals are unavailable, consult the provider’s own status notice. This report has not measured the availability of every exchange, wallet or private node. [6][7]"
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://cryptoticker.io/en/xrp-ledger-amendment-activation/"
+      ]
+    },
+    {
+      "heading": "AMM precision checks now have both required amendments",
+      "paragraphs": [
+        "Confirmed scope: the official release notes and amendment catalog describe added precision-loss checks for AMMDeposit, AMMWithdraw and AMMClawback, conditional on fixAMMv1_3 also being enabled. CryptoTicker independently described that dependency before activation. Today’s Ripple RPC and XRPScan snapshots show fixAMMv1_3 enabled alongside fixCleanup3_3_0. The dependency therefore matters as a current rule combination, rather than a hypothetical future pairing. [1][3][4][5][7]",
+        "Application analysis: a liquidity interface should reconcile the transaction it requested with the validated result and the resulting position. A displayed estimate is not enough to establish that an operation completed. Precision-sensitive cases deserve particular attention because an interface can look correct at normal sizes while handling a boundary result poorly. A rejected operation should remain distinguishable from a completed withdrawal in the user’s activity history.",
+        "That is a concrete integration test, not a claim that this amendment increases pool returns. The evidence here establishes the activation of a check. It does not measure how often the affected edge cases occur, quantify recovered funds or prove that any specific pool became more liquid. Those conclusions would require transaction-level observations and a defined comparison period."
+      ],
+      "sourceUrls": [
+        "https://s2.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/resources/known-amendments#fixcleanup3_3_0",
+        "https://cryptoticker.io/en/xrp-ledger-amendment-activation/"
+      ]
+    },
+    {
+      "heading": "Checks and pseudo-accounts need clear application outcomes",
+      "paragraphs": [
+        "Confirmed scope: the maintenance bundle also makes an all-zero Check identifier in CheckCash or CheckCancel fail at the preliminary validation stage and makes freeze-related checks involving pseudo-accounts more consistent. A pseudo-account is a ledger-controlled account associated with a protocol object. Official documentation and the independent pre-activation report describe these changes, including a check that deletion of a backing ledger object also removes its associated pseudo-account. [4][5][7]",
+        "Application analysis: these changes matter when a customer-facing workflow translates a protocol result into a message or a follow-up action. A malformed request should lead the application to inspect its input. A state restriction should lead it to explain the relevant constraint. Treating every unsuccessful result as a temporary connection problem can leave a user repeating an action that cannot succeed in that form.",
+        "A useful post-activation review therefore includes the final response presented to the user, not only whether the server accepted an API request. Operators can inspect existing diagnostic records and controlled test cases without implying that customers need to change their holdings. This report is not asserting that every integration has an error; it identifies the points where changed protocol behavior can affect an application’s assumptions."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/resources/known-amendments#fixcleanup3_3_0",
+        "https://cryptoticker.io/en/xrp-ledger-amendment-activation/"
+      ]
+    },
+    {
+      "heading": "SingleAssetVault and LendingProtocol remain separate decisions",
+      "paragraphs": [
+        "Confirmed status: the s2 feature response at validated ledger 106,912,996 showed SingleAssetVault and LendingProtocol supported but disabled. The later validated Amendments object excluded their identifiers, and XRPScan’s independent live amendment data agreed. This is a September 11 observation, not a claim that their status can never change. [1][3]",
+        "The distinction follows from the amendment model. A maintenance package may contain corrections for several protocol components, including components whose own activation remains outstanding. Enabling the package does not substitute for enabling those separate features. CryptoTicker highlighted that separation in its September 9 snapshot; the new ledger checks establish that it still holds at this report’s cutoff. [5][6][7]",
+        "For a business evaluating an XRPL lending product, the relevant next evidence would include an enabled base feature and an identifiable operating implementation. A maintenance activation alone cannot establish that deposits are being accepted, loans are being originated or withdrawals are available. Those are distinct product and transaction claims that need their own records."
+      ],
+      "sourceUrls": [
+        "https://s2.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/resources/known-amendments#fixcleanup3_3_0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://cryptoticker.io/en/xrp-ledger-amendment-activation/"
+      ]
+    },
+    {
+      "heading": "What the evidence can and cannot establish after activation",
+      "paragraphs": [
+        "Confirmed fact and inference should stay separate. The activation transaction proves a protocol-state transition. The official notes explain the intended behavior, and the independent explorer corroborates the recorded state. Our operational recommendations are analysis of what that transition means for people running or using the affected systems.",
+        "Unresolved uncertainty: this reporting window does not establish the rate of post-activation failures, the proportion of private infrastructure running compatible software, or whether any provider paused a service. A clean response from the public endpoints checked here cannot answer those wider questions. Named incident notices, reproducible transaction results and dated operational measurements would be stronger evidence.",
+        "The same limit applies to market conclusions. This article does not attribute an XRP price move, institutional inflow or change in demand to the amendment. A software maintenance event can be material because it changes the rules applications must follow. Its significance does not require an invented price reaction. Readers should now focus on validated behavior and service continuity rather than continuing to treat a completed activation as a pending vote."
+      ],
+      "sourceUrls": [
+        "https://s2.ripple.com:51234/",
+        "https://xrpscan.com/tx/5749CFD26F6D2C4BE73E14543615F75717EA1D09A2B5865E5EAAE534EFBA0FD0",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/blog/2026/xrpld-3.3.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Operator confirmation: a dated check of each production endpoint’s amendment support and progression through validated ledgers.",
+    "AMM integration results: reproducible precision-boundary cases with requested amounts, final outcomes and resulting positions.",
+    "Checks handling: evidence that malformed inputs receive a useful application response instead of repeated automatic retries.",
+    "Service notices: named wallet or exchange maintenance reports, with start, resolution and affected operations explicitly identified.",
+    "Separate feature votes: fresh SingleAssetVault and LendingProtocol ledger states before treating native vaults or lending as available. [1][3]"
+  ],
+  "sources": [
+    {
+      "name": "Ripple s2 public RPC: validated activation transaction and ledger-state queries, retrieved September 11, 2026",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPScan: validated EnableAmendment transaction, ledger 106,911,489",
+      "url": "https://xrpscan.com/tx/5749CFD26F6D2C4BE73E14543615F75717EA1D09A2B5865E5EAAE534EFBA0FD0",
+      "type": "primary",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "XRPScan live amendments API, retrieved September 11, 2026",
+      "url": "https://api.xrpscan.com/api/v1/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL: Introducing XRP Ledger version 3.3.0",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRPL: known amendments, fixCleanup3_3_0 specification",
+      "url": "https://xrpl.org/resources/known-amendments#fixcleanup3_3_0",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL: amendment process and amendment-blocked servers",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "CryptoTicker: XRP Ledger Amendment on September 11, by Dennis Weidner",
+      "url": "https://cryptoticker.io/en/xrp-ledger-amendment-activation/",
+      "type": "supporting",
+      "publishedAt": "2026-09-09"
+    },
+    {
+      "name": "XRPL: Amendments ledger-entry reference",
+      "url": "https://xrpl.org/docs/references/protocol/ledger-data/ledger-entry-types/amendments",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-fixcleanup3-3-0-majority-activation-window",
+      "label": "The earlier fixCleanup3_3_0 majority record",
+      "topic": "Governance history",
+      "description": "Compare the August waiting-period evidence with today’s activation."
+    },
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "What the XRP Ledger 3.3.0 release introduced",
+      "topic": "Software release",
+      "description": "Separate software support from each amendment’s activation decision."
+    },
+    {
+      "href": "/learn/xrp-amm",
+      "label": "How XRP Ledger automated market makers work",
+      "topic": "Trading mechanics",
+      "description": "Understand pooled liquidity before interpreting an AMM transaction result."
+    },
+    {
+      "href": "/news/xrpl-lending-protocol-vote-consensus-2026",
+      "label": "The separate XRPL Lending Protocol vote",
+      "topic": "Native lending",
+      "description": "Read the earlier vote snapshot in its dated context."
+    }
+  ]
+}
