@@ -1,0 +1,193 @@
+{
+  "slug": "clearpool-clear-migration-supply-share-xrpl",
+  "title": "Clearpool's CLEAR Proposal Preserves Token Counts but Expands Supply",
+  "description": "Clearpool proposes a 1:1 CPOOL-to-CLEAR swap to support its XRP Ledger expansion. The allocation schedule changes holder proportions, while approval and launch remain pending.",
+  "category": "Institutional",
+  "publishedAt": "2026-09-12T16:07:44-05:00",
+  "modifiedAt": "2026-09-12T16:07:44-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/clearpool-expanded-bookends-editorial.webp",
+  "imageAlt": "Pale-gold bookends enclose a cobalt book and a slimmer ivory book with empty space between them on an ivory stone shelf.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clear-expanded-bookends-volume-sizing-shelf",
+  "imageSetting": "An ivory-stone volume-sizing shelf in a bare limewashed bindery annex, seen from a forty-degree elevated view across the front right corner. Cool diffuse morning light reflected from an unseen blue-white porcelain screen meets one fine warm ceiling glint; a low horizontal book arrangement sits centered beneath broad blank upper space.",
+  "imageMetaphor": "Two pale-gold bookends enclose one closed cobalt clothbound volume and a slimmer closed ivory volume separated by visible unused shelf space. The original volume remains intact while the enclosing span grows, distinguishing a preserved token count from a smaller fraction of an expanded supply.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, exact 16:9 landscape, 1680x945 or larger. Sparse physically believable symbolic still life: exactly FOUR objects on warm ivory stone: TWO low pale-gold L-shaped bookends, ONE closed cobalt clothbound book standing vertically against the left bookend, ONE slimmer closed ivory clothbound book standing against the right bookend. The bookends are spaced wider than the two books, leaving a clearly visible empty interval between the books. Nothing floats, books have realistic page edges, no readable titles. Meaning: original holdings stay intact while a proposed supply expansion changes their proportion. The arrangement is illustrative, not a literal numerical chart or completed migration. Setting: bare bindery volume-sizing shelf, not any existing registry scene. Composition: forty-degree elevated view across front right corner, low centered horizontal group, upper 60 percent broad negative space, simple tight thumbnail silhouette. Lighting: cool diffuse morning bounce from unseen blue-white porcelain screen plus one fine warm ceiling glint. Homepage reference first and other three references are STYLE ONLY: luminous classical academic oil modeling, crisp material separation, cobalt, ivory, pale gold, rich smooth glazing, selective edge impasto. Do not import their landscapes, people, animals, architecture or layouts. Optional extremely subtle 1/0/x stipple confined to a few contact-shadow transitions only; no all-over ASCII or dither. No coins, logos, dashboards, politicians, cubes, impossible buildings, ruins, Greek panoramas, watermarks, borders, text, sepia or photographic realism. Preserve exact four objects and restrained composition.",
+  "keywords": [
+    "Clearpool",
+    "CLEAR token",
+    "CPOOL migration",
+    "XRP Ledger",
+    "RLUSD",
+    "treasury recapitalization"
+  ],
+  "keyTakeaways": [
+    "Clearpool's September 11 proposal would exchange CPOOL for CLEAR at 1:1, subject to tokenholder approval.",
+    "Its schedule shows 1.125 billion circulating CLEAR at migration and about 1.429 billion after three years; preserving token count does not preserve supply share.",
+    "The proposed use of half of protocol fees for buybacks would need actual revenue and completed burns; XRPL products also require a separate launch."
+  ],
+  "sections": [
+    {
+      "heading": "What Clearpool proposed for CPOOL holders and XRPL",
+      "paragraphs": [
+        "Clearpool proposes exchanging CPOOL for CLEAR one for one while issuing additional tokens to finance its XRP Ledger expansion. Existing holders would retain their token count but represent a smaller share of the scheduled supply. The September 11 proposal still requires community review and a tokenholder vote before implementation.",
+        "Confirmed proposal, not completed transaction: the official governance document is dated September 11, 2026. Crypto.news and Bitcoin.com independently reported the proposed migration and treasury recapitalization that day. The document invites community discussion before a Snapshot vote. Neither the announcement nor the coverage establishes an executed swap or an approved final allocation.",
+        "The question for holders is concrete: what proportion would an unchanged balance represent after new allocations become available? That is a different question from whether Clearpool can build useful credit markets on XRPL. A successful product could create value, but the allocation decision determines how existing holders and newly funded participants share the token supply supporting that effort."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/governance",
+        "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/",
+        "https://news.bitcoin.com/featured/clearpool-targets-xrp-ledger-credit-market-with-token-overhaul/"
+      ]
+    },
+    {
+      "heading": "A 1:1 CLEAR swap preserves units, not their proportion",
+      "paragraphs": [
+        "The September 11 allocation assigns 70% to existing holders, 15% to treasury and partnerships, 10% to ecosystem incentives and 5% to contributors. CoinGape independently reports the same split. Existing holders receive their conversion allocation at migration; the remaining categories include staged releases. These are proposed percentages, not a current distribution of circulating CLEAR.",
+        "Calculation: take a hypothetical holder with one million CPOOL against the proposal's one-billion-token starting denominator. That position represents 0.1%. A one-for-one conversion still leaves one million units. Against the scheduled 1.125 billion at migration, however, it represents about 0.0889%. Against approximately 1.429 billion after three years, it represents about 0.07%. The arithmetic changes the fraction without removing any tokens from that holder's balance.",
+        "Those percentages are illustrations of supply share, not forecasts of market value, voting power or investment return. They assume no purchases, sales, additional rewards or burns and isolate the proposal's displayed allocation schedule. A holder's economic outcome would also depend on the rights attached to the token, actual activity, execution and market pricing. The conversion ratio alone cannot answer those questions.",
+        "The cohort figures also explain why 70% and 88.89% can both be meaningful without describing the same moment. The former describes the legacy allocation against the fully released base schedule; the latter compares it with the smaller migration-day denominator. Calling either one the holder share without naming the denominator and date would make the proposal harder to evaluate. Neither calculation assumes that an unlocked allocation has already been sold into the market."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/governance",
+        "https://coingape.com/xrp-in-spotlight-as-clearpool-bets-big-on-xrpl-lending-protocol-upgrade/",
+        "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/"
+      ],
+      "table": {
+        "caption": "Proposed CLEAR allocation schedule, September 11, 2026",
+        "headers": [
+          "Schedule point",
+          "Circulating units shown",
+          "Unchanged legacy cohort share"
+        ],
+        "rows": [
+          [
+            "Before migration",
+            "1,000,000,000 CPOOL",
+            "100%"
+          ],
+          [
+            "At migration",
+            "1,125,000,000 CLEAR",
+            "88.89%"
+          ],
+          [
+            "Year 3",
+            "1,428,571,429 CLEAR",
+            "Approximately 70%"
+          ]
+        ],
+        "sourceNote": "Source: Clearpool governance proposal, September 11, 2026; Crypto.news corroborates the migration and rounded three-year totals. Shares are AllAboutXRP calculations using a constant one-billion-unit legacy cohort. This isolates the displayed allocation schedule, excluding other issuance, burns and holder transactions; it is not a maximum-supply forecast."
+      }
+    },
+    {
+      "heading": "Treasury funding needs an accountability test",
+      "paragraphs": [
+        "Clearpool presents the recapitalization as funding for development, integrations and adoption. Bitcoin.com's September 11 report connects the proposed treasury replenishment to the XRPL expansion. That supplies the rationale for the change; it does not establish that distributing incentives will produce durable lending demand.",
+        "Analysis: tokenholders can evaluate the proposal as a budget decision. The useful comparison is what resources new recipients obtain, what obligations accompany them, and what evidence would show those resources produced something valuable. For example, an integration allocation could be assessed against a delivered connection and actual usage. A liquidity incentive could be assessed against retained deposits after the reward period ends. These are suggested evaluation criteria, not reported customer outcomes.",
+        "A longer release schedule changes when tokens become available, but it does not by itself explain whether spending is productive. The governance record should make the responsible decision makers, permitted uses and reporting cadence understandable. Without those details, readers can calculate a changing supply share while still being unable to judge whether the expansion justifies it. That distinction matters most to holders deciding how to assess the eventual ballot."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/governance",
+        "https://news.bitcoin.com/featured/clearpool-targets-xrp-ledger-credit-market-with-token-overhaul/"
+      ]
+    },
+    {
+      "heading": "A fee-funded buyback is not a net-supply result",
+      "paragraphs": [
+        "The proposed mechanism directs 50% of protocol fees to open-market CLEAR purchases followed by permanent burns, according to the September 11 document and independent reports from Crypto.news and Bitcoin.com. A percentage of fees is a funding rule. It is not a fixed number of tokens purchased or a guaranteed reduction in the overall supply.",
+        "Analysis: a practical reconciliation has separate entries for newly issued tokens, tokens becoming transferable, completed buybacks and verified burns. Issuing tokens changes total supply; unlocking existing tokens changes their availability. Purchasing tokens moves ownership; destroying them changes supply. Combining those events under a single label such as deflation would conceal the timing and size of each movement.",
+        "The amount bought also depends on the price paid. A dollar budget purchases fewer units at a higher execution price and more at a lower one. Readers therefore need realized fee revenue, the portion actually spent, execution records and the quantity burned over the same period. A promised allocation and a future growth story cannot substitute for that reconciliation. Uncertainty: the reviewed records establish the proposed mechanism, not the future net balance between supply additions and destruction."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/governance",
+        "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/",
+        "https://news.bitcoin.com/featured/clearpool-targets-xrp-ledger-credit-market-with-token-overhaul/"
+      ]
+    },
+    {
+      "heading": "CLEAR governance and an XRPL credit launch are separate decisions",
+      "paragraphs": [
+        "Clearpool's current homepage labels its XRP Ledger offering as coming soon. The governance proposal says testing is on XRPL Devnet. Crypto.news separately reports that the planned native credit products depend on the ledger's vault and lending capabilities becoming available through network approval. A community vote on Clearpool token economics cannot complete that network process or certify a finished product.",
+        "Analysis: readers should maintain separate milestones for approval of the token plan, publication of migration instructions, availability of the required ledger functionality and opening of actual credit products. Each milestone resolves a different uncertainty. A successful swap would demonstrate that holders converted tokens; it would not demonstrate that borrowers received financing. A functioning test environment would demonstrate implementation progress; it would not identify the amount of capital committed to a live market.",
+        "For prospective lenders, the relevant evidence would include the offered asset, borrower eligibility, loan terms, custody arrangements and withdrawal conditions. For XRP readers, activity should be attributed to the asset and network actually used. CLEAR allocations are not XRP purchases, and planned RLUSD credit is not a disclosed XRP settlement total. No price snapshot is needed to understand these distinctions."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/",
+        "https://clearpool.finance/governance",
+        "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/"
+      ]
+    },
+    {
+      "heading": "What holders should verify before the migration",
+      "paragraphs": [
+        "The proposal sets a community feedback stage before the tokenholder vote; independent September 11 coverage also describes that sequence. Readers should follow the published ballot and final terms rather than calculate a firm swap date from an indicative rollout phase. Uncertainty: this review does not establish an approved ballot outcome, an operating migration tool or a completed mainnet lending launch.",
+        "Analysis: before any conversion, the final instructions should explain eligible balances, supported networks, treatment of tokens held through intermediaries and the method for confirming receipt. A holder should be able to reconcile the balance before conversion with the balance afterward and identify the official record governing any exception. This is a verification framework, not a claim that a specific exchange has agreed to support the swap.",
+        "The most useful next disclosure would connect the approved allocation to an explicit release schedule and subsequent treasury reporting. Over time, compare that record with delivered products and completed fee-funded purchases. The proposal's central tradeoff can then be assessed with evidence: existing holders keep their units while funding an expanded project through additional allocations. Whether that exchange creates sufficient value remains an execution question, not something settled by the new ticker."
+      ],
+      "sourceUrls": [
+        "https://clearpool.finance/governance",
+        "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/",
+        "https://coingape.com/xrp-in-spotlight-as-clearpool-bets-big-on-xrpl-lending-protocol-upgrade/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The official Snapshot ballot, its voting window, final proposal text and published outcome after community discussion.",
+    "Migration instructions identifying eligible balances, supported networks and any exchange-specific handling.",
+    "A reconciled supply schedule distinguishing allocation unlocks, additional issuance and burns.",
+    "Treasury reports tying token distributions to integrations, retained liquidity and delivered products.",
+    "Separately verified XRPL product availability, funded loans, realized protocol fees and completed CLEAR buybacks."
+  ],
+  "sources": [
+    {
+      "name": "Clearpool: Strategic Expansion to the XRP Ledger governance proposal",
+      "url": "https://clearpool.finance/governance",
+      "type": "primary",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "Crypto.news: Clearpool plans XRPL expansion and CPOOL migration",
+      "url": "https://crypto.news/clearpool-plans-xrpl-expansion-and-cpool-migration/",
+      "type": "supporting",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "Bitcoin.com: Clearpool token overhaul and proposed governance process",
+      "url": "https://news.bitcoin.com/featured/clearpool-targets-xrp-ledger-credit-market-with-token-overhaul/",
+      "type": "supporting",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "CoinGape: proposed CLEAR allocations and migration",
+      "url": "https://coingape.com/xrp-in-spotlight-as-clearpool-bets-big-on-xrpl-lending-protocol-upgrade/",
+      "type": "supporting",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "Clearpool: product availability page (undated reference, checked September 12, 2026)",
+      "url": "https://clearpool.finance/",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/ripple-clearpool-cicada-rlusd-xrpl-credit-fund",
+      "label": "Ripple, Clearpool and Cicada: the earlier RLUSD credit plan"
+    },
+    {
+      "href": "/news/xrpl-lendingprotocol-v1-1-supported-develop",
+      "label": "XRPL LendingProtocol V1.1 development status"
+    },
+    {
+      "href": "/news/xrpl-lending-first-loss-capital-uint32-docs",
+      "label": "How XRPL lending first-loss capital is bounded"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP and the XRP Ledger explained"
+    }
+  ]
+}
