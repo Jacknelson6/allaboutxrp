@@ -1,0 +1,232 @@
+{
+  "slug": "schwab-xrp-etf-repo-collateral-counting-caveat",
+  "title": "Schwab's XRP ETF Repo Collateral Filing Has a Counting Caveat",
+  "description": "Schwab's August filing lists XRP ETF shares in five repo baskets. Repeated Canary values explain why a row sum differs from a conservative collateral total.",
+  "category": "Markets",
+  "publishedAt": "2026-09-14T08:07:25-05:00",
+  "modifiedAt": "2026-09-14T08:07:25-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/schwab-repo-spring-clip-editorial.webp",
+  "imageAlt": "A pale-gold spring clip fastens a cobalt card to a tent-folded ivory sheet on an ivory stone slab, casting a long blue shadow.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "schwab-repo-spring-clip-print-mounting-slab",
+  "imageSetting": "An ivory-stone photographic print-mounting slab against seamless cream limewash, viewed in an intimate eighteen-degree downward profile from the right. Late-afternoon light reflected off unseen amber silk at near-left meets cool rear skylight, illuminating a low tent at left-middle with a long lower-right cobalt shadow and broad upper-right negative space.",
+  "imageMetaphor": "A removable pale-gold bulldog spring clip fastens one cobalt card to a larger folded ivory sheet, representing an ETF security temporarily pledged to support a financing contract without depicting an outright XRP purchase.",
+  "imagePrompt": "Create one finished AllAboutXRP editorial illustration, exact cinematic 16:9 landscape, 1680 by 945 pixels or larger. New original symbolic still life. References 1 through 4 control ONLY palette, luminous oil finish, crisp material modeling and light. Never copy their scenery, subjects or composition.\nPrimary request: a pale-gold bulldog spring document clip temporarily fastens one small unmarked cobalt card onto one larger ivory paper sheet folded once into a low tent. Exactly three objects: clip, cobalt card and ivory folded sheet. Rest them on a broad warm ivory stone photographic print-mounting slab against seamless creamy limewash. This represents an ETF security temporarily pledged to secure a financing contract, not purchase of underlying XRP. The spring clip and folded paper must be mechanically plausible, attached at the top edge, no floating pieces.\nComposition: intimate oblique profile at eighteen degrees down from the right, folded paper forms a shallow tent toward the left-middle, one long cobalt shadow extends toward the lower right. Objects occupy less than one third of frame with broad negative space above and on the right. No other objects. This print-mounting slab and removable bulldog clip are distinct from all registered settings and metaphors. Do not repeat any registered scenery, architecture, baskets, gauges, presses, envelopes, scales, books, lamps, coins or measuring tools.\nLight: narrow late-afternoon light reflected off an unseen amber silk screen at near-left, plus broad cool skylight bounce from behind, luminous paper ridges and fine gold spring highlight. Style: lavish luminous academic classical-revival oil painting, sculptural precise metal, velvety cobalt pigment, ivory paper fiber, rich glazing, selective fine impasto, clean brilliant tonal separation. Predominantly ivory, pale gold and cobalt or water-blue accents. Extremely subtle 1/0/x stipple only in one tiny contact-shadow transition, none across full image.\nConstraints: sparse physically believable three-object still life. No text or digits on objects, logos, literal crypto coins, politicians, dashboards, cyber cubes, buildings, fantasy ruins, Greek cities, panoramas, horses, lions, mountains, people, extra props, frame, border, watermark, photographic realism, sepia, all-over ASCII, halftone or dither.",
+  "keywords": [
+    "XRP ETF collateral",
+    "Schwab Prime Advantage Money Fund",
+    "Form N-MFP3",
+    "repurchase agreements",
+    "Canary XRP ETF",
+    "XRP market structure"
+  ],
+  "keyTakeaways": [
+    "Schwab's August 31 filing places four XRP ETF issuers in collateral schedules for five repos, rather than reporting a direct XRP purchase.",
+    "All eight XRP collateral rows sum to $11,385,429.11. Removing one repeated-value Canary row yields $8,319,227.51, but the filing does not resolve unique inventory.",
+    "The $3.9935 billion combined repo value covers entire financing agreements. It is neither XRP collateral value nor new money entering XRP ETFs."
+  ],
+  "sections": [
+    {
+      "heading": "What the Schwab filing confirms",
+      "paragraphs": [
+        "Schwab's August 31 portfolio report lists XRP ETF shares as collateral within five repurchase agreements. It supports a financing-use finding, not a direct XRP purchase. Eight reported collateral rows total $11.385 million, but identical Canary entries in separate agreements mean that sum cannot establish the value of unique securities.",
+        "The primary record is the Charles Schwab Family of Funds Form N-MFP3 filed September 8, covering Schwab Prime Advantage Money Fund. Grayscale, Canary, Franklin and Bitwise appear in the collateral issuer fields. Bitcoin.com's September 9 report and CCN's September 11 coverage independently identify the same four issuers and five agreements. This is a source-led examination of that monthly disclosure, not a new September 14 transaction announcement.",
+        "The finding matters because it places XRP-linked securities inside an institutional funding arrangement. Its limit matters just as much: the report describes collateral associated with a money fund's investments. Reading those schedules as a fresh allocation to XRP would change the economic meaning of the record before any calculation begins."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://news.bitcoin.com/crypto-news/xrp-etf-repo-collateral-schwab-money-fund-jp-morgan-bofa/",
+        "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/"
+      ]
+    },
+    {
+      "heading": "Two Canary entries create the counting caveat",
+      "paragraphs": [
+        "Calculation from the SEC XML: selecting collateral rows whose issuer names identify XRP ETFs produces eight entries. Adding the field called valueOfCollateralToTheNearestCent gives $11,385,429.11. Two entries each identify Canary XRP ETF, carry CUSIP 13723M100 and report a value of $3,066,201.60. They sit under different JPMorgan repo identifiers, ARP1K6J97 and ARP1KDDO5, rather than appearing twice within one extracted agreement.",
+        "Subtracting either one of those equal-valued Canary rows leaves $8,319,227.51. That rounds to the $8.32 million conservative figure reported by Bitcoin.com and CCN. This reconciles the arithmetic; it does not prove which treatment captures unique economic inventory. Neither supporting report explains that particular adjustment, so their reasoning should not be inferred from the numerical match.",
+        "Unresolved: identical security identifiers, quantities and values can be observed in the filing, but the record does not explain why the entries match. AllAboutXRP therefore preserves both rows when describing the reported-row sum and separately labels the exclusion calculation. Calling one row an error, or calling both unquestionably separate inventory, would require evidence beyond this schedule."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://news.bitcoin.com/crypto-news/xrp-etf-repo-collateral-schwab-money-fund-jp-morgan-bofa/",
+        "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/"
+      ]
+    },
+    {
+      "heading": "Five repo agreements are larger than their XRP components",
+      "paragraphs": [
+        "The five relevant agreements have a combined reported value of $3,993,500,000, calculated from the SEC record. JPMorgan Securities is the counterparty to four and BofA Securities to one. The supporting reports corroborate the approximately $3.99 billion aggregate and the counterparty split. That amount covers the agreements containing the XRP ETF entries, including their wider collateral baskets.",
+        "The table groups the XRP rows by agreement so readers can reproduce the sum without merging equal-looking records. In particular, the two Canary-only rows below are separate financing records. Their matching collateral values remain visible. Repo value and XRP collateral value measure different things, so one should not be substituted for the other in a headline or a claim about capital entering crypto.",
+        "Analysis: an analyst estimating unique XRP-linked inventory needs a reconciliation rule supported by transaction-level evidence. A sum by agreement answers how much value appears across reported rows. A deduplicated inventory estimate asks which securities those rows ultimately represent. Those are distinct questions, and a clean spreadsheet total cannot settle the second one."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://news.bitcoin.com/crypto-news/xrp-etf-repo-collateral-schwab-money-fund-jp-morgan-bofa/",
+        "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/"
+      ],
+      "table": {
+        "caption": "August 31, 2026: reported XRP ETF collateral grouped by repo",
+        "headers": [
+          "Repo ID and counterparty",
+          "Entire repo value",
+          "XRP ETF rows and combined value"
+        ],
+        "rows": [
+          [
+            "ARP1JMBV3 · JPMorgan",
+            "$1,093,000,000",
+            "Grayscale: $1,011,417.50"
+          ],
+          [
+            "ARP1K6J97 · JPMorgan",
+            "$400,000,000",
+            "Canary: $3,066,201.60"
+          ],
+          [
+            "ARP1KCZY1 · BofA",
+            "$919,500,000",
+            "Grayscale, Canary, Franklin, Bitwise: $4,187,733.91"
+          ],
+          [
+            "ARP1KDDO5 · JPMorgan",
+            "$383,000,000",
+            "Canary: $3,066,201.60"
+          ],
+          [
+            "ARP1L2S61 · JPMorgan",
+            "$1,198,000,000",
+            "Grayscale: $53,874.50"
+          ],
+          [
+            "Reported-row sum",
+            "$3,993,500,000",
+            "$11,385,429.11, before any deduplication"
+          ]
+        ],
+        "sourceNote": "Source [1]: SEC Form N-MFP3, filed September 8 for August 31, 2026. AllAboutXRP grouped and summed XRP issuer-name collateral rows. Equal Canary entries are retained under their separate repo identifiers. These are reported values, not a verified unique-inventory total or ETF inflows."
+      }
+    },
+    {
+      "heading": "Schwab supplies financing while ETF shares secure it",
+      "paragraphs": [
+        "A repo exchanges cash and securities with an agreement to reverse the transaction. Economically, it provides secured financing. The New York Fed's September 1 framework describes money market funds as major cash providers to dealers in the Treasury repo market. That framework supplies the general funding model; it is not a statement that these XRP ETF shares are Treasury collateral.",
+        "Schwab's filing and the independent coverage place the XRP products on the collateral side of this arrangement. The reviewed entries do not establish that Schwab made an outright investment allocation to their price performance. Nor does identifying JPMorgan or BofA as a repo counterparty reveal the motivation behind every security in a basket.",
+        "For XRP holders, the practical implication is narrower and more useful than a buying headline: an existing financial instrument can have a funding role. Analysis: the significance would strengthen if comparable future filings showed persistent participation across additional counterparties, with clear treatment of repeated entries. One dated schedule cannot establish the durability of that role."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/",
+        "https://tellerwindow.newyorkfed.org/2026/09/01/a-framework-for-understanding-the-u-s-treasury-repo-market/"
+      ]
+    },
+    {
+      "heading": "Collateral value does not reveal the XRP haircut",
+      "paragraphs": [
+        "The International Capital Market Association explains a haircut as an adjustment between collateral market value and the cash provided against it. Its reference identifies price changes, liquidation costs and operational delays as relevant considerations. These principles explain why a security's reported collateral value should not automatically be read as an equal amount of borrowing capacity.",
+        "The New York Fed's tri-party statistics separately report collateral composition, haircut distributions and dealer concentration. Those are market-level measures, not terms for these particular XRP ETF entries. An equity-category statistic cannot establish the haircut applied to a named XRP product inside a mixed basket.",
+        "Analysis: dividing one XRP row by the value of its entire repo would not reveal an XRP-specific haircut, because the agreement contains other collateral. A usable assessment would require the applicable collateral schedule, valuation convention and financing terms. Unresolved: this review does not establish an isolated haircut or advance rate for any of the four XRP ETFs, and it makes no claim that their collateral risk matches government debt."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://www.icmagroup.org/market-practice-and-regulatory-policy/repo-and-collateral-markets/icma-ercc-publications/frequently-asked-questions-on-repo/21-what-is-a-haircut/",
+        "https://www.newyorkfed.org/research/tri-party-repo"
+      ]
+    },
+    {
+      "heading": "Collateral use and ETF creation answer different questions",
+      "paragraphs": [
+        "Investor.gov distinguishes shares trading in the secondary market from creation and redemption activity involving authorized participants. That bulletin covers Investment Company Act ETFs, rather than commodity trusts, so it is a general explanation, not product-specific authority for XRP funds. Each XRP product's documents govern its arrangements. Collateral placement alone does not demonstrate another share creation or an additional underlying-asset purchase.",
+        "This distinction gives readers a concrete evidence test. To assess new XRP demand, examine dated fund creations, redemptions and underlying holdings. To assess financing use, examine repo counterparties and collateral schedules. If both datasets change, align their reporting dates before looking for a relationship. The presence of the same issuer name in each dataset is not proof that one change caused the other.",
+        "There is also a separate settlement question. The Schwab collateral rows do not identify an XRP Ledger settlement transaction. Analysis: evidence that an XRP-linked security participates in conventional finance cannot on its own establish transaction activity on XRPL. A network-use claim needs its own transaction record or an explicit, verifiable operational disclosure."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+        "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/"
+      ]
+    },
+    {
+      "heading": "The next disclosure should resolve persistence and identity",
+      "paragraphs": [
+        "The most informative follow-up would be a later Schwab schedule or a filing amendment that clarifies how the two matching Canary entries should be treated. Readers can retain the repo identifiers, collateral CUSIP and reporting date as a comparison key. An unchanged value alone would not establish an unchanged position, and a changed value alone would not establish a purchase or sale.",
+        "For money-fund researchers, the task is to assess the financing agreements and their collateral together. For XRP market observers, it is to distinguish security-level acceptance from new token demand. Both groups benefit from preserving the underlying rows instead of choosing whichever total produces the strongest narrative.",
+        "Unresolved as of this review: the filing does not settle unique economic inventory across the matching rows, subsequent collateral substitutions, or future participation. The verified conclusion is that four XRP ETF issuers appear in dated repo collateral schedules. Whether that becomes a larger, persistent funding channel must be demonstrated by additional records rather than assumed from the first total a reader encounters."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+        "https://news.bitcoin.com/crypto-news/xrp-etf-repo-collateral-schwab-money-fund-jp-morgan-bofa/",
+        "https://www.newyorkfed.org/research/tri-party-repo"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A later Schwab N-MFP3 or amendment clarifying the identical Canary entries under ARP1K6J97 and ARP1KDDO5.",
+    "Whether the next reporting period retains XRP ETF collateral across the same five agreements and two counterparties.",
+    "Any disclosed XRP ETF eligibility schedules and haircuts, distinct from broad equity-collateral averages.",
+    "Fund creations, redemptions and XRP holdings on matched dates, assessed separately from repo collateral values.",
+    "Explicit settlement records before attributing these conventional repo arrangements to XRP Ledger activity."
+  ],
+  "sources": [
+    {
+      "name": "SEC: Schwab Prime Advantage Money Fund N-MFP3, August 31 reporting period",
+      "url": "https://www.sec.gov/Archives/edgar/data/857156/000141036826091070/primary_doc.xml",
+      "type": "primary",
+      "publishedAt": "2026-09-08"
+    },
+    {
+      "name": "Bitcoin.com: Four XRP ETFs in Schwab repo collateral",
+      "url": "https://news.bitcoin.com/crypto-news/xrp-etf-repo-collateral-schwab-money-fund-jp-morgan-bofa/",
+      "type": "supporting",
+      "publishedAt": "2026-09-09"
+    },
+    {
+      "name": "CCN: XRP ETFs enter repo collateral baskets",
+      "url": "https://www.ccn.com/news/crypto/xrp-etfs-schwab-repo-collateral-wall-street/",
+      "type": "supporting",
+      "publishedAt": "2026-09-11"
+    },
+    {
+      "name": "New York Fed: A framework for the U.S. Treasury repo market",
+      "url": "https://tellerwindow.newyorkfed.org/2026/09/01/a-framework-for-understanding-the-u-s-treasury-repo-market/",
+      "type": "primary",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "ICMA: What is a haircut?",
+      "url": "https://www.icmagroup.org/market-practice-and-regulatory-policy/repo-and-collateral-markets/icma-ercc-publications/frequently-asked-questions-on-repo/21-what-is-a-haircut/",
+      "type": "supporting"
+    },
+    {
+      "name": "New York Fed: Tri-Party/GCF Repo Statistics, methodology reference",
+      "url": "https://www.newyorkfed.org/research/tri-party-repo",
+      "type": "primary"
+    },
+    {
+      "name": "Investor.gov: Updated investor bulletin on ETFs",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+      "type": "primary",
+      "publishedAt": "2023-02-23"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/sec-13f-bitwise-xrp-etf-institutional-disclosures-q2-2026",
+      "label": "How institutional XRP ETF ownership disclosures work"
+    },
+    {
+      "href": "/news/franklin-xrpz-q2-cash-in-kind-creations",
+      "label": "Franklin XRPZ cash and in-kind creations"
+    },
+    {
+      "href": "/news/canary-xrpc-holdings-rise-nav-falls-2026",
+      "label": "Canary holdings versus per-share value"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP and the XRP Ledger explained"
+    }
+  ]
+}
