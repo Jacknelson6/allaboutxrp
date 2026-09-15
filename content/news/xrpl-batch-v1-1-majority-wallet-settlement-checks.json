@@ -1,0 +1,213 @@
+{
+  "slug": "xrpl-batch-v1-1-majority-wallet-settlement-checks",
+  "title": "XRPL Batch V1.1 Reaches Majority: What Wallets Must Verify",
+  "description": "XRP Ledger records a Batch V1.1 majority after RippleX’s security review. Activation remains conditional, and wallets must verify authorization, execution mode and inner results.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-09-15T21:19:11+00:00",
+  "modifiedAt": "2026-09-15T21:19:11+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-batch-screw-post-authorization-editorial.webp",
+  "imageAlt": "A pale-gold screw-post fastener binds two cobalt leather swatches and one ivory swatch in a small fan on ivory stone.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "batch-screw-post-leather-punch-anvil",
+  "imageSetting": "A bare ivory-stone leather-punch anvil in a saddler’s fitting recess, viewed directly overhead. Three short leather swatches fan downward around a single shared fastener just right of center, with broad empty stone to the left. Two separated bands of warm reflected late-night task light cross the stone while diffuse water-blue fill reveals the cut leather edges.",
+  "imageMetaphor": "One pale-gold screw-post fastener binds three perforated leather swatches into one specified assembly, representing signatures tied to the exact Batch submission and its complete set of instructions.",
+  "imagePrompt": "Use case: stylized-concept. Finished AllAboutXRP editorial illustration, exact 16:9 landscape, 1680 by 945 or larger. Create one sparse physically believable still life: ONE pale-gold screw-post binding fastener passes through the aligned holes of exactly THREE short rectangular leather swatches, two cobalt blue and one ivory. The swatches fan downward slightly while sharing the one fixed fastener at their upper end. A closed, assembled screw post, not loose hardware. Four deliberate objects total. Story: one particular authorization binds the whole transaction group to one specified wrapper; it does not illustrate an actual network activation. Bare ivory-stone leather-punch anvil in a saddler fitting recess, strict directly overhead view with no visible room or architecture. Place the little fan just right of center, pointing toward lower left, broad blank stone on left and above. Two separated soft bands of warm reflected late-night task light pass across the stone, diffuse water-blue fill models leather cut edges and crisp gold screw head. Unique setting, screw-post primary symbol, central shallow fan arrangement and lighting; prohibit reusing any registered editorial scene, clip, gear, claim ticket, hoop net, purse, bookends, ruler, belljar, needle, lock, city or panoramic landscape. Image 1 is the AAXRP homepage style anchor; images 2-4 are style-only Sublime Classical Oil references. Copy ONLY palette, classical oil paint handling, rich glazing, crisp sculptural form, pale gold highlights and luminous material finish. Never copy their people, animals, mountains, buildings, scenery or composition. Exquisitely clear academic oil modeling with fine leather grain and warm ivory stone, broad negative space. Optional nearly invisible 1/0/x stipple confined to a tiny shadow transition; never all-over ASCII, dither or pixel texture. No vermilion needed. No extra objects, crypto coins, logos, text, watermark, dashboards, politicians, cyber cubes, impossible buildings, ruins, temples, borders or rounded frame. Preserve exact three swatches and one closed screw-post assembly, realistic contact shadows, recognizable simple mechanism.",
+  "keywords": [
+    "XRP Ledger",
+    "BatchV1_1",
+    "XRPL Batch transactions",
+    "RippleX",
+    "XLS-56",
+    "validator majority",
+    "transaction authorization"
+  ],
+  "keyTakeaways": [
+    "The September 15 validated ledger records a BatchV1_1 majority beginning at 14:06:41 UTC; XRPSCAN separately shows 29 of 35 votes, with activation still false.",
+    "RippleX’s September 14 review describes revised authorization checks, while the published audits have specific scopes and finding dispositions that readers should inspect.",
+    "Wallets must distinguish the chosen execution mode and each inner transaction’s result. A successful outer Batch record does not establish that every intended transfer succeeded."
+  ],
+  "sections": [
+    {
+      "heading": "What changed for XRP Ledger Batch V1.1",
+      "paragraphs": [
+        "XRP Ledger’s Batch V1.1 amendment has reached a recorded validator majority, but remains unactivated in the September 15 ledger snapshot. Following RippleX’s security review, the practical question for wallets is whether they verify the complete authorization, selected execution mode and individual transaction results before reporting a settlement as complete.",
+        "The newest primary evidence is ledger state. At 21:14 UTC on September 15, AllAboutXRP queried the validated Amendments object through Ripple’s public server. Ledger 107010252 contained a BatchV1_1 majority timestamp of 14:06:41 UTC that day, while its enabled-amendment list did not contain BatchV1_1. The separately fetched XRPSCAN record reported 29 supporting validations out of 35, against a threshold of 28, and enabled: false.",
+        "That updates the timing context of CoinDesk’s earlier September 15 report, which described 27 supporting validators. Those are differently timed observations, not evidence that either snapshot describes the entire day. RippleX’s September 14 review supplies the development context: the replacement is included in xrpld 3.3.0, and the team describes additional review and authorization hardening.",
+        "Verification method: the public-server request used ledger_entry with ledger_index set to validated and the singleton Amendments object. The relevant amendment identifier is 9F287AED3CDB50A7BD1ACEC24296A30C9B5230CCD136219317AC790E3B884377. The majority timestamp comes from that object, while the vote count comes from XRPSCAN. Keeping those sources distinct avoids presenting an explorer’s current count as a permanent ledger fact."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://www.coindesk.com/tech/2026/09/15/xrp-ledger-is-one-vote-away-from-starting-its-next-big-payments-upgrade",
+        "https://dev.to/ripplexdev/batch-v11-what-changed-and-why-its-ready-4ek0",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry"
+      ]
+    },
+    {
+      "heading": "A BatchV1_1 majority starts a conditional governance window",
+      "paragraphs": [
+        "Confirmed: a majority entry and an enabled amendment are different ledger states. XRPL’s amendment process requires the necessary validator support to persist for at least two weeks. A vote count above the threshold does not let an application submit new mainnet transaction types immediately. Support can change, and a lost majority interrupts the path toward activation.",
+        "Conditional timing: adding two weeks to the recorded September 15 timestamp gives September 29 at 14:06:41 UTC. That is a threshold-based earliest window, not a promised launch appointment. Actual enablement must appear in the validated ledger. The calculation assumes the required majority persists; it does not predict how validators will vote or which precise ledger will carry an activation.",
+        "For operators, this makes the network state the deployment gate. A product announcement, software release and client-library update can prepare an integration without authorizing its use on mainnet. A team can test now, document a rollback plan and keep its production feature switch closed until the ledger shows the prerequisite has actually been enabled."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/amendments",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "RippleX’s security review makes authorization scope the central issue",
+      "paragraphs": [
+        "The February disclosure concerns the original Batch implementation. XRPL’s report describes a signature-checking failure found before that amendment activated. The important historical distinction is that this was a pre-activation vulnerability, not evidence of a Batch theft from live mainnet accounts. RippleX’s September review describes replacement work and a broader set of reviews after that incident.",
+        "Common Prefix’s published audit identifies a separate authorization problem: signatures could be reused across different outer batch submissions. Its reported resolution binds signing data to the outer account and sequence. In plain language, approval needs to identify the specific envelope carrying the instructions, as well as the instructions themselves. A signature on an ambiguous package creates a different risk from an invalid signature.",
+        "Analysis: the wallet’s review screen is part of this control. A signer should be able to understand the participating accounts, intended transfers and chosen mode before approving. Reusing a familiar counterparty name is insufficient if the submission details have changed. The useful acceptance test is whether a changed authorization context invalidates the old approval, with the expected behavior verified against the software being deployed."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026",
+        "https://dev.to/ripplexdev/batch-v11-what-changed-and-why-its-ready-4ek0",
+        "https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report",
+        "https://xrpl.org/docs/concepts/transactions/batch-transactions"
+      ]
+    },
+    {
+      "heading": "Audit completion does not give every finding the same disposition",
+      "paragraphs": [
+        "Halborn’s reassessment states an engagement period of March 27 through April 7, 2026 and identifies the reviewed commit as 36503b50178393e372d46f3be3aaeb71f30acd93. Its displayed findings summary contains three informational items: one solved and two marked risk accepted. Those labels describe different treatments. A reader should not translate an overall completion statement into a claim that every observation produced a code fix.",
+        "Common Prefix also records dispositions individually. For its redundant signature-verification finding, the report says no code change was made and describes a possible follow-up optimization if profiling establishes a latency concern. This does not by itself show an exploitable defect in the version under vote. It shows why the scope, severity and treatment of a finding matter more than an audit logo.",
+        "Unresolved: this article does not establish a complete mapping from every published audit observation to the exact binary installed by every validator. CoinDesk likewise reported asking whether the additional fixes had been independently reviewed against the version being voted on. Operators assessing readiness should retain the reviewed commit, remediation record and release identifier together, rather than treating a general security review as a perpetual guarantee."
+      ],
+      "sourceUrls": [
+        "https://www.halborn.com/audits/ripple/batch-re-audit-314089",
+        "https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report",
+        "https://www.coindesk.com/tech/2026/09/15/xrp-ledger-is-one-vote-away-from-starting-its-next-big-payments-upgrade",
+        "https://github.com/XRPLF/rippled/releases/tag/3.3.0"
+      ]
+    },
+    {
+      "heading": "XRPL Batch modes define what a successful workflow means",
+      "paragraphs": [
+        "XRPL’s transaction reference supports batches containing between two and eight inner transactions and requires one execution mode. All or Nothing makes the group conditional on every inner transaction succeeding. Only One permits the first successful inner transaction. Until Failure keeps processing until the first failure and skips later entries. Independent processes the entries without making one failure cancel the other attempts.",
+        "Consider a hypothetical marketplace instruction containing a customer payment and a platform fee. If the business promise requires both actions to succeed together, All or Nothing expresses that dependency. Until Failure can leave an earlier successful payment in place when the subsequent fee action fails. Independent can likewise produce mixed results. Merely putting the two instructions in one wrapper does not choose the business promise.",
+        "Analysis: product teams should write the intended failure outcome before selecting the mode. Does the customer expect a complete reversal, a successful first alternative, or a record of individually attempted actions? The interface should describe that outcome in ordinary language. This is especially relevant when multiple accounts participate, because each person must understand the whole operation they are authorizing."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/protocol/transactions/types/batch",
+        "https://xrpl.org/docs/concepts/transactions/batch-transactions",
+        "https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report"
+      ]
+    },
+    {
+      "heading": "A successful outer Batch is not a completed settlement receipt",
+      "paragraphs": [
+        "The XRPL integration documentation separates the outer transaction from its inner results. The outer record covers its own processing, including sequence and fees; it can return tesSUCCESS even when inner processing fails. Inner transactions have their own results and metadata, with ParentBatchID linking them back to the wrapper. An application therefore needs more evidence than one green success label.",
+        "Practical inference: a payment service should match its expected transfers to the committed inner records and check the applicable results before fulfilling an order. If one expected leg is missing, the service should explain the outcome using the selected mode. It should not manufacture a successful receipt simply because it located the outer transaction, or retry the entire business operation without first reconciling what was committed.",
+        "A useful release rehearsal would deliberately make the second leg fail, confirm the mode-specific result, and check what the customer receipt says. It would then repeat the reconciliation after reconnecting to the service, when the application has to recover from stored ledger records. These are proposed operational tests, not claims that any particular wallet has already passed them.",
+        "For XRP holders, the immediate milestone is a conditional protocol change and an integration workload. The reviewed material does not establish production settlement volume, named customer launches or incremental XRP buying attributable to Batch. Useful follow-up evidence would connect actual enabled ledger state to a named application and demonstrable transaction outcomes. Until then, readiness claims and realized usage remain separate questions."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/transactions/batch-transactions",
+        "https://xrpl.org/docs/references/protocol/transactions/types/batch",
+        "https://www.coindesk.com/tech/2026/09/15/xrp-ledger-is-one-vote-away-from-starting-its-next-big-payments-upgrade",
+        "https://dev.to/ripplexdev/batch-v11-what-changed-and-why-its-ready-4ek0"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The validated Amendments object: whether BatchV1_1 retains its September 15 majority and later appears in the enabled list.",
+    "The conditional September 29, 2026 window after 14:06:41 UTC, assuming uninterrupted required support; confirm actual activation in a validated ledger.",
+    "Release-specific evidence connecting audit findings, remediation commits and the software operators run.",
+    "Wallet demonstrations that expose every inner instruction and execution mode before signing, then reconcile actual inner results afterward.",
+    "A named production application with verifiable Batch transaction records and measured usage, rather than an unnamed pipeline claim."
+  ],
+  "sources": [
+    {
+      "name": "Ripple public XRPL endpoint: validated Amendments object in ledger 107010252, queried September 15, 2026 at 21:14 UTC using a JSON-RPC ledger_entry POST request (not a browser GET)",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary"
+    },
+    {
+      "name": "XRPSCAN amendments API: independently retrieved vote and enabled-status snapshot, September 15, 2026",
+      "url": "https://api.xrpscan.com/api/v1/amendments",
+      "type": "supporting"
+    },
+    {
+      "name": "RippleX Developers: Batch V1.1 security and readiness review",
+      "url": "https://dev.to/ripplexdev/batch-v11-what-changed-and-why-its-ready-4ek0",
+      "type": "primary",
+      "publishedAt": "2026-09-14"
+    },
+    {
+      "name": "CoinDesk: earlier September 15 vote snapshot and independent reporting on Batch reviews",
+      "url": "https://www.coindesk.com/tech/2026/09/15/xrp-ledger-is-one-vote-away-from-starting-its-next-big-payments-upgrade",
+      "type": "supporting",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "Common Prefix: XRP Ledger Batch security audit, commissioned by Ripple",
+      "url": "https://www.commonprefix.com/blog/xrp-ledger-batch-transactions-security-audit-report",
+      "type": "supporting",
+      "publishedAt": "2026-09-01"
+    },
+    {
+      "name": "Halborn: Batch reassessment, commissioned by Ripple; engagement March 27 to April 7, 2026; displayed update label 09/07/2026",
+      "url": "https://www.halborn.com/audits/ripple/batch-re-audit-314089",
+      "type": "supporting"
+    },
+    {
+      "name": "XRPL documentation: Batch transaction modes, metadata and integration considerations",
+      "url": "https://xrpl.org/docs/concepts/transactions/batch-transactions",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL protocol reference: Batch fields, flags and result handling",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/types/batch",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: amendments and the two-week majority process",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "XRPLF GitHub: xrpld 3.3.0 stable release",
+      "url": "https://github.com/XRPLF/rippled/releases/tag/3.3.0",
+      "type": "primary",
+      "publishedAt": "2026-08-06"
+    },
+    {
+      "name": "XRPL: original Batch unauthorized-inner-transaction disclosure",
+      "url": "https://xrpl.org/blog/2026/vulnerabilitydisclosurereport-bug-feb2026",
+      "type": "primary",
+      "publishedAt": "2026-02-26"
+    },
+    {
+      "name": "XRPL ledger_entry API reference: method used to inspect the validated Amendments object",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger_entry",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrp-ledger-3-3-0-amendments-not-live-yet",
+      "label": "How the xrpld 3.3.0 release differs from amendment activation"
+    },
+    {
+      "href": "/news/xrpl-binary-codec-2-9-0-batchv1-1-dynamic-mpt",
+      "label": "BatchV1_1 support in the XRPL binary codec"
+    },
+    {
+      "href": "/news/xrpl-fixcleanup3-3-0-activated-mainnet",
+      "label": "What a confirmed XRPL amendment activation looks like"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP, Ripple and XRP Ledger explained"
+    }
+  ]
+}
