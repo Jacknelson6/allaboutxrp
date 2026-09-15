@@ -1,0 +1,229 @@
+{
+  "slug": "cdcc-xrp-etf-options-us-sale-delivery-currency",
+  "title": "CDCC's XRP ETF Options Filing Confirms an Existing U.S. Sale Route",
+  "description": "CDCC's September filing keeps Evolve and Purpose XRP ETF options in its U.S. sale framework. Earlier records, delivery terms and currency policies explain what investors actually get.",
+  "category": "Markets",
+  "publishedAt": "2026-09-15T13:09:26+00:00",
+  "modifiedAt": "2026-09-15T13:09:26+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/cdcc-xrp-options-claim-ticket-editorial.webp",
+  "imageAlt": "A pale-gold freestanding cloakroom hook supports a cobalt silk scarf beside a separate blank ivory claim ticket on stone.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "cdcc-claim-ticket-cloakroom-return-sill",
+  "imageSetting": "An ivory-stone cloakroom return sill against textured warm limewash, seen from an elevated front-right three-quarter view. Soft peach-gold evening reflection crosses the compact central hook and scarf, with a cool blue reflection on the right stone edge and broad blank space above and to both sides.",
+  "imageMetaphor": "A small freestanding pale-gold cloakroom hook holds one folded cobalt silk scarf while a single blank ivory claim ticket rests separately in front. The document and the held item remain distinct, representing an option on ETF units rather than delivery of native XRP.",
+  "imagePrompt": "Use case: stylized-concept. Finished AllAboutXRP editorial illustration, 16:9 landscape, 1680x945 or larger. Create ONE sparse physically believable symbolic still life about Canadian XRP ETF options: a right to receive an ETF security is distinct from holding the underlying cryptocurrency. Exactly three objects: (1) one small freestanding pale-gold cloakroom hook with a stable rectangular foot, a single curved hook rising about 15cm; (2) one folded short cobalt silk scarf draped naturally over that hook; (3) one blank unmarked ivory rectangular paper claim ticket lying separately on the slab in front. No numbers or letters on the ticket. Low centered three-object arrangement, small in frame with broad negative space at both sides and above. Setting is a bare ivory-stone cloakroom return sill against unbroken warm limewash. High seventy-five-degree downward view from near-right corner, compact depth ordering with ticket nearest, scarf and hook behind. Early-evening light reflected off unseen frosted peach glass makes soft peach-white metal rims, with one thin water-blue edge reflection on stone and clear cool contact shadows. This hook/scarf/claim-ticket set, setting, angle and light combination is unique among the registered art, unlike all prior gears, clips, books, prisms, locks, press mechanisms, needles, gauges and landscapes. Input 1 is homepage hero for STYLE ONLY. Inputs 2-4 are Sublime Classical Oil STYLE ONLY, for paint, palette, sculptural modeling, metal and silk finish. Do not copy their people, animals, architecture, costumes, mountains or compositions. Luminous academic classical-revival oil painting with crisp sculptural modeling, pale gold metal, richly glazed saturated cobalt silk, warm ivory stone, precise material differences and selective impasto on highlights. Extraordinary atmospheric clarity. Very subtle 1/0/x stipple may exist only in one tiny shadow transition, almost invisible; never all-over ASCII or dither. Physically credible hook supports cloth, stable weighted base, paper lies flat. No extra objects, coins, logos, dashboard, politician, cyber cube, buildings, cities, ruins, columns, mountains, landscape, readable text, border, watermark, sepia or photographic finish. Preserve exactly three objects and generous blank ivory space.",
+  "keywords": [
+    "XRP ETF options",
+    "Canadian Derivatives Clearing Corporation",
+    "Montréal Exchange",
+    "Evolve XRP ETF",
+    "Purpose XRP ETF"
+  ],
+  "keyTakeaways": [
+    "CDCC's September 9 filing lists the same Evolve XRP and Purpose XRPP option classes found in its August 4 exhibit; this is evidence of continuity, not a first listing.",
+    "These are Montréal-listed options on ETF units. Exercise concerns the fund security, and possessing native XRP does not itself supply those deliverable units.",
+    "Broker permission and currency policy need separate checks: Purpose identifies XRPP as FX hedged, while Evolve identifies XRP as unhedged."
+  ],
+  "sections": [
+    {
+      "heading": "What CDCC’s September XRP options filing confirms",
+      "paragraphs": [
+        "CDCC’s September 9, 2026 filing lists Evolve and Purpose XRP ETF options within its framework for U.S. sales of Montréal Exchange contracts. Both were already in the August filing. The update documents continuing availability under that framework; it does not establish a new U.S. exchange launch or universal brokerage access.",
+        "Confirmed record: the Canadian Derivatives Clearing Corporation filed a Form 8-K reporting the underlying interests covered as of August 31. Its attached exhibit names XRP Evolve ETF and XRP Purpose ETF. The report describes options listed in Montréal and offered for sale in the United States under CDCC’s Form S-20 registration. Keeping the report date and filing date separate prevents a month-end inventory from being mistaken for a September trading event.",
+        "Coinpaper’s September 10 coverage independently identifies both products and notes their earlier inclusion. This report uses the latest filing as a timely market-structure explainer. The useful question for a U.S. reader is what the contract permits and requires after access has been established, rather than how much a supposed new approval might move XRP."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/cdcc_8k.htm",
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/ex99-1.htm",
+        "https://coinpaper.com/35565/xrp-etf-options-cross-the-us-border-as-canada-files-new-sec-update"
+      ]
+    },
+    {
+      "heading": "The August CDCC exhibit already contained XRP and XRPP",
+      "paragraphs": [
+        "The comparison is reproducible. CDCC’s August 4 filing reports a July 31 list; its final XRP rows match the corresponding rows in the September exhibit. The option symbol and underlying symbol are XRP for Evolve and XRPP for Purpose in both records. Those matches establish a documented earlier presence without requiring a guess about the first day either contract traded.",
+        "Unresolved: this comparison does not determine the original listing date, the first U.S. customer transaction, or whether an individual broker recently added support. A broker could expand access while the clearing framework stays unchanged. Conversely, a repeated entry can persist without any particular customer being able to place an order. Registration history and distribution history are separate research questions."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/ex99-1.htm",
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000242/ex99-1.htm",
+        "https://coinpaper.com/35565/xrp-etf-options-cross-the-us-border-as-canada-files-new-sec-update"
+      ],
+      "table": {
+        "caption": "XRP option classes in CDCC’s August 31, 2026 inventory",
+        "headers": [
+          "Underlying named by CDCC",
+          "Option symbol",
+          "Underlying symbol"
+        ],
+        "rows": [
+          [
+            "XRP Evolve ETF",
+            "XRP",
+            "XRP"
+          ],
+          [
+            "XRP Purpose ETF",
+            "XRPP",
+            "XRPP"
+          ]
+        ],
+        "sourceNote": "Source: September 9, 2026 Form 8-K, Exhibit 99.1. The same rows appear in the August 4 exhibit for July 31. This is an instrument list, not a volume or investor-holdings table."
+      }
+    },
+    {
+      "heading": "Montréal ETF options deliver fund units, not wallet XRP",
+      "paragraphs": [
+        "CDCC’s March 25 prospectus explains that calls confer a right to buy the specified underlying interest and puts a right to sell it. For the two listed XRP classes, that underlying is an ETF security. Montréal’s current, undated ETF specification describes American-style exercise and a standard contract representing 100 fund units, subject to adjustments. FINRA independently explains the comparable standard equity-option convention and the distinction between ETF-share delivery and cash-settled contracts.",
+        "Illustrative calculation, not a quoted XRP contract: assume an unadjusted 100-unit call with a C$7 strike and a C$0.40 premium per unit. Its purchase premium is C$40, while exercising it requires C$700 to acquire the units. If those units are worth C$8 each at expiry, intrinsic value is C$100 and profit after the original premium is C$60 before fees. An option’s initial outlay and its later exercise funding requirement answer different questions.",
+        "Practical inference: native XRP in a wallet cannot simply be substituted for the ETF units a written call requires. A trader hedging tokens with an ETF option must examine the mismatch between the held asset and the deliverable security. The economic relationship to XRP does not erase that operational difference.",
+        "The same illustration shows why an option premium is not the full purchase price of the underlying investment. Paying C$40 creates a conditional contractual right; it does not place C$700 of ETF units in the account. A buyer who intends to close the option instead of exercising still needs an executable exit price. The C$60 expiry result above is a mechanical scenario, not evidence that the contract could actually be sold for that profit before expiry. Timing, contract terms and transaction costs must remain visible in any comparison."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000133/form424b3.htm",
+        "https://www.m-x.ca/en/markets/equity-derivatives/etf-options",
+        "https://www.finra.org/investors/investing/investment-products/options"
+      ]
+    },
+    {
+      "heading": "Purpose XRPP and Evolve XRP have different currency policies",
+      "paragraphs": [
+        "The exact unit class matters. Purpose’s current product page identifies XRPP as its FX-hedged ETF class, corroborated by Webull Canada’s listing description. Evolve identifies XRP as unhedged; the Toronto Stock Exchange’s listing notice independently describes XRP as Canadian-dollar-denominated unhedged units. The two unsuffixed symbols in CDCC’s exhibit therefore should not be treated as identical currency packages merely because each refers to XRP exposure.",
+        "Analysis: separate the fund’s currency policy from the investor’s reporting currency. A hedge inside a fund addresses that fund’s specified currency exposure. A U.S. account can still face conversion when paying a Canadian-dollar premium, funding exercise, or translating sale proceeds back into dollars. Calling the fund hedged does not explain every currency leg of an options position, and calling a unit CAD-denominated does not by itself establish its hedging policy.",
+        "For illustration, a fixed C$700 payment costs US$504 at US$0.72 per Canadian dollar and US$490 at US$0.70. That C$700 obligation is unchanged even though its dollar cost moves by US$14. These are hypothetical exchange rates, not September market data or a forecast of either ETF’s return. A full return calculation also needs the contract, unit-class behavior, execution prices and conversion charges."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/ex99-1.htm",
+        "https://www.purposeinvest.com/funds/purpose-xrp-etf",
+        "https://www.webull.ca/ticker/tsx-xrpp",
+        "https://evolveetfs.com/product/xrp/",
+        "https://www.tsx.com/en/news/new-company-listings?id=2009",
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000133/form424b3.htm"
+      ]
+    },
+    {
+      "heading": "U.S. broker approval is an additional access test",
+      "paragraphs": [
+        "The SEC’s options-account bulletin, originally published March 18, 2015 and updated July 16, 2026, explains that a broker must approve an account for options and that permitted strategies vary with the account’s authorization. FINRA independently describes this approval process. Neither general options approval nor CDCC’s filing proves that a particular broker supports these Montréal classes for a particular U.S. customer.",
+        "An actionable inquiry specifies the option symbol, underlying class and intended action. Can the account buy the contract, write it, exercise it, and hold the resulting Canadian ETF units? What cash or collateral does the firm require for that sequence? A permission to enter a position is useful only when the holder understands how the broker will handle the position’s later obligations. This is a workflow to verify, not a claim that any named brokerage has approved these trades.",
+        "CDCC’s prospectus also distinguishes its Canadian contracts from U.S.-listed options and warns that their terms are not interchangeable. Readers should use the actual contract documentation and their broker’s instructions rather than borrowing assumptions from a similarly named U.S. instrument."
+      ],
+      "sourceUrls": [
+        "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-77",
+        "https://www.finra.org/investors/investing/investment-products/options",
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000133/form424b3.htm"
+      ]
+    },
+    {
+      "heading": "What this means for XRP holders and market analysts",
+      "paragraphs": [
+        "For an ETF holder, a listed option can create another way to shape exposure, but the buyer and writer accept different obligations. FINRA explains that a purchased option can expire worthless and that an American-style writer can face assignment before expiration. For someone holding native XRP, the first analytical task is determining how closely the selected ETF class and option fit the exposure being hedged. A shared asset name is insufficient.",
+        "For market analysts, the filing is a map of eligible instruments, not a measure of investment demand. It does not report customer geography, capital committed, option turnover or resulting XRP purchases. Inference: an options transaction could be speculation, a hedge or part of a multi-leg position. Counting every contract as a bullish XRP purchase would assign a direction and a funding effect the evidence does not supply.",
+        "What would strengthen the story is specific evidence: broker documentation naming supported classes, executable quotes for a defined strike and expiry, and dated trading or open-interest records. Even those records answer different questions. A visible quote speaks to available execution at that moment; open interest describes outstanding contracts. Neither, by itself, identifies why a participant traded or proves an XRP price effect."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/cdcc_8k.htm",
+        "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/ex99-1.htm",
+        "https://coinpaper.com/35565/xrp-etf-options-cross-the-us-border-as-canada-files-new-sec-update",
+        "https://www.finra.org/investors/investing/investment-products/options"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "CDCC’s next dated underlying-interest exhibit: whether XRP and XRPP remain listed and whether their symbols or unit classes change.",
+    "A broker’s written confirmation of permission to trade, exercise and hold the specific underlying Canadian ETF class.",
+    "Current contract adjustments, exercise instructions and funding requirements before evaluating any quoted premium.",
+    "The latest Purpose XRPP and Evolve XRP unit-class documents, alongside the account’s CAD-to-USD conversion terms.",
+    "Dated bid/ask, volume and open-interest records for specific expiries; separate that evidence from claims of XRP inflows or price causality."
+  ],
+  "sources": [
+    {
+      "name": "CDCC Form 8-K: underlying interests as of August 31",
+      "url": "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/cdcc_8k.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-09"
+    },
+    {
+      "name": "CDCC September Exhibit 99.1: XRP and XRPP option rows",
+      "url": "https://www.sec.gov/Archives/edgar/data/319643/000109991026000259/ex99-1.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-09"
+    },
+    {
+      "name": "CDCC August Exhibit 99.1: the earlier XRP and XRPP rows",
+      "url": "https://www.sec.gov/Archives/edgar/data/319643/000109991026000242/ex99-1.htm",
+      "type": "primary",
+      "publishedAt": "2026-08-04"
+    },
+    {
+      "name": "Coinpaper: existing Canadian XRP ETF options within U.S. sale framework",
+      "url": "https://coinpaper.com/35565/xrp-etf-options-cross-the-us-border-as-canada-files-new-sec-update",
+      "type": "supporting",
+      "publishedAt": "2026-09-10"
+    },
+    {
+      "name": "CDCC options prospectus: contract rights and cross-border terms",
+      "url": "https://www.sec.gov/Archives/edgar/data/319643/000109991026000133/form424b3.htm",
+      "type": "primary",
+      "publishedAt": "2026-03-25"
+    },
+    {
+      "name": "Montréal Exchange: current ETF option specifications (undated)",
+      "url": "https://www.m-x.ca/en/markets/equity-derivatives/etf-options",
+      "type": "primary"
+    },
+    {
+      "name": "FINRA: options mechanics, approval and risk (undated)",
+      "url": "https://www.finra.org/investors/investing/investment-products/options",
+      "type": "supporting"
+    },
+    {
+      "name": "Purpose: XRP ETF unit classes (undated)",
+      "url": "https://www.purposeinvest.com/funds/purpose-xrp-etf",
+      "type": "primary"
+    },
+    {
+      "name": "Webull Canada: Purpose XRPP CAD-hedged class (undated)",
+      "url": "https://www.webull.ca/ticker/tsx-xrpp",
+      "type": "supporting"
+    },
+    {
+      "name": "Evolve: XRP ETF unit classes (undated)",
+      "url": "https://evolveetfs.com/product/xrp/",
+      "type": "primary"
+    },
+    {
+      "name": "Toronto Stock Exchange: Evolve XRP listing and unit denominations",
+      "url": "https://www.tsx.com/en/news/new-company-listings?id=2009",
+      "type": "primary",
+      "publishedAt": "2025-06-17"
+    },
+    {
+      "name": "Investor.gov: opening an options account; updated July 16, 2026",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-77",
+      "type": "supporting",
+      "publishedAt": "2015-03-18"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "How native XRP differs from financial products built around it"
+    },
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "Evaluate XRP exposure and investment risk"
+    },
+    {
+      "href": "/news/amplify-xrpm-xrpc-options-august-31-2026",
+      "label": "How Amplify combines XRP-linked ETF holdings and options"
+    },
+    {
+      "href": "/news/teucrium-short-xrp-etf-daily-reset-hedge-drift",
+      "label": "Why daily inverse XRP exposure needs a separate hedge analysis"
+    }
+  ]
+}
