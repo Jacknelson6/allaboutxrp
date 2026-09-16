@@ -1,0 +1,262 @@
+{
+  "slug": "xrpl-3254-transaction-ledger-payment-capacity",
+  "title": "XRPL's 3,254-Transaction Ledger Shows Why Payment Capacity Needs More Than a Count",
+  "description": "XRPL ledger 106,965,249 included 3,254 transactions, with 959 unsuccessful results. A direct record review separates capacity, completed work, fees and timing.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-09-16T16:08:45-05:00",
+  "modifiedAt": "2026-09-16T16:08:45-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrpl-tally-counter-workload-editorial.webp",
+  "imageAlt": "A pale-gold tally counter with a blank display beside a straight cobalt cord and a knotted cobalt skein on an ivory stone stool",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "ledger-tally-counter-cord-finishing-stool",
+  "imageSetting": "An ivory-stone cord-finishing stool against textured cream plaster, seen from a steep downward diagonal. Bright cool-white afternoon reflection and pale-gold highlights illuminate a vertical three-object arrangement at left, leaving broad empty plaster to the right.",
+  "imageMetaphor": "An unnumbered pale-gold mechanical hand tally counter rests beside one straight cobalt silk cord and a compact knotted cobalt skein. Counting items does not measure their complexity or confirm their successful completion.",
+  "imagePrompt": "Create one finished AllAboutXRP editorial illustration, 16:9 landscape, at least 1680 pixels wide. Three physically believable objects only: a small pale-gold mechanical hand tally counter with a blank ivory dial (NO digits, letters, labels), one short straight cobalt silk cord, and one separate compact knotted cobalt cord skein. All rest naturally on a bare ivory-stone cord-finishing stool against seamless cream plaster. A seventy-degree downward view from the rear right corner; arrange three small objects in a loose narrow vertical group at lower left, with 65 percent broad untouched negative space above and to the right. Clear afternoon light reflected from unseen brushed tin makes a broad cool-white pool edged with pale gold and softly defined blue contact shadows. The metaphor: counting operations is different from measuring complexity or confirming completed work. First reference is the publication palette anchor; all four inputs are STYLE ONLY, never copy their objects, architecture, people, animals, landscapes or arrangement. Luminous academic classical oil painting, crisp sculptural modeling, rich glazing, ivory, pale gold, saturated cobalt, fine material detail and selective tiny impasto. Extremely subtle 1/0/x stipple allowed only inside a few shadow transitions, almost imperceptible, never an all-over ASCII or dither filter. This setting, primary symbol and arrangement are new to the registry. No temples, scenery, architecture, coins, logos, text, numbers, dashboards, cyber cubes, people, borders or watermarks. Exact object count three; do not add props or imply a real XRP device. Fact-safe symbolic still life.",
+  "keywords": [
+    "XRP Ledger transaction capacity",
+    "XRPL 3254 transactions",
+    "XRPL transaction fees",
+    "XRPL validated transactions",
+    "XRP payments"
+  ],
+  "keyTakeaways": [
+    "The September 13 ledger included 3,254 transactions, but its metadata records 2,295 successful results and 959 unsuccessful results. Inclusion alone does not confirm completion of the requested operation.",
+    "Two thousand successful one-drop payments came from 20 submitting accounts. Their concentration supports a testing hypothesis, without identifying the operator or proving that all activity was synthetic.",
+    "Payment operators should evaluate validated outcomes, observed latency and fee limits together. One busy ledger cannot establish a sustained service capacity or a new permanent transaction ceiling."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: XRPL transaction inclusion is only the first capacity measure",
+      "paragraphs": [
+        "XRP Ledger included 3,254 transactions in ledger 106,965,249 on September 13, but only 2,295 returned successful results. Our review of the validated record confirms the counts independently reported by CryptoSlate. For payment operators, the practical lesson is to measure completed work, fees and latency separately before translating a busy ledger into service capacity.",
+        "The event is material because it offers a real mainnet workload to examine, rather than a theoretical capacity claim. CryptoSlate revisited it on September 16 after earlier reporting described a record. This analysis uses the underlying transaction metadata to explain what an exchange, wallet or payment service could responsibly take from the observation. It does not certify an all-time maximum or convert the count into transactions per second."
+      ],
+      "sourceUrls": [
+        "https://livenet.xrpl.org/ledgers/106965249",
+        "https://s1.ripple.com:51234/",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://thecryptobasic.com/2026/09/14/xrp-ledger-sets-new-record-with-3254-transactions-in-single-ledger/"
+      ]
+    },
+    {
+      "heading": "The September 13 ledger separates recorded attempts from completed operations",
+      "paragraphs": [
+        "Confirmed facts: the ledger records a close time of September 13 at 20:51:50 UTC. Ripple's two public JSON-RPC endpoints returned the same ledger hash and transaction metadata when checked for this article on September 16. XRPSCAN independently matched the header and 3,254 count. Sorting the expanded records by TransactionResult yields the results below, also reported by CryptoSlate.",
+        "The useful comparison is between inclusion and outcome. A validated ledger can preserve an unsuccessful operation as a final record. That does not mean validators failed to agree, that the network lost the instruction, or that the intended asset movement occurred. Treating every recorded transaction as a completed customer payment would combine operationally different events into one misleading total.",
+        "Analysis: an operator's capacity budget should name the work it promises to complete. A service that creates exchange offers needs a different acceptance measure from one sending direct XRP payments. Even successful protocol operations may serve different business purposes. The table is a description of this ledger, not a forecast of another application's success rate under load."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/ledger/106965249",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://xrpl.org/docs/references/protocol/transactions/transaction-results/tec-codes",
+        "https://github.com/XRPLF/dex-docs",
+        "https://s2.ripple.com:51234/"
+      ],
+      "table": {
+        "caption": "Validated results in XRPL ledger 106,965,249, September 13, 2026",
+        "headers": [
+          "Measure",
+          "Count",
+          "What it establishes"
+        ],
+        "rows": [
+          [
+            "Included transactions",
+            "3,254",
+            "Instructions recorded in this validated ledger"
+          ],
+          [
+            "tesSUCCESS results",
+            "2,295",
+            "Successful protocol results across several operation types"
+          ],
+          [
+            "Non-success results",
+            "959",
+            "Included instructions without their intended successful result"
+          ]
+        ],
+        "sourceNote": "Source: expanded validated ledger retrieved September 16, 2026; counts independently corroborated by CryptoSlate, September 16. These categories describe one ledger and are not an application reliability forecast."
+      }
+    },
+    {
+      "heading": "The one-drop pattern makes workload composition essential",
+      "paragraphs": [
+        "The record contains 2,000 successful payments delivering one drop each, submitted by 20 accounts with 100 such payments per account. One drop is one-millionth of an XRP, so this particular group delivered 0.002 XRP in total. CryptoSlate corroborates those observations. The Crypto Basic's September 14 report attributes the throughput-testing interpretation to validator Vet.",
+        "Inference, not identification: the repeated arrangement is consistent with an automated test, but account-level repetition does not identify its operator or motivation. It also does not establish that every other transaction in the ledger was artificial. A more precise description is a concentrated group of tiny payments within a mixed transaction set. Calling the whole ledger synthetic goes beyond what those counts alone prove.",
+        "For a business evaluating XRPL, a useful next experiment would reproduce its actual instruction mix in a controlled environment. That means specifying the proportions of direct payments and more demanding exchange or cross-currency operations before declaring a target. Comparing two tests with different mixes risks attributing a workload difference to a network improvement. This is a proposed evaluation method, not a claim that such a comparative test has already been completed."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://thecryptobasic.com/2026/09/14/xrp-ledger-sets-new-record-with-3254-transactions-in-single-ledger/"
+      ]
+    },
+    {
+      "heading": "Unsuccessful exchange instructions require their own reconciliation",
+      "paragraphs": [
+        "Among 458 OfferCreate transactions in the ledger, 440 returned non-success codes: 379 tecKILLED and 61 tecUNFUNDED_OFFER. These are included within the 959 unsuccessful results, not additional failures. The same breakdown appears in CryptoSlate's report. XRPL's code reference distinguishes an offer that cannot meet its execution conditions from an offer whose sender lacks the offered funds.",
+        "Those labels help operations teams ask the right questions. A conditional order can intentionally require an execution outcome that available liquidity does not support. Such a result is different from an unavailable network, and paying more in transaction fees does not automatically supply the missing funds or change the order's trading conditions. The observed totals do not establish a software defect, the submitters' motives, or how many independent trading decisions the instructions represent.",
+        "Analysis: reporting should separate protocol completion from the business objective. An exchange team could record whether an instruction reached a validated ledger, its final result, and the resulting order or balance changes. Those checks make a throughput report more useful to customers because they describe the service delivered. A large accepted set is encouraging evidence of processing, while successful commercial execution remains a separate question."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://xrpl.org/docs/references/protocol/transactions/transaction-results/tec-codes",
+        "https://github.com/XRPLF/dex-docs"
+      ]
+    },
+    {
+      "heading": "XRP fees measure submitted cost, not a universal capacity price",
+      "paragraphs": [
+        "The Fee fields in this ledger sum to 111,136 drops, or 0.111136 XRP, matching CryptoSlate's independent tally. XRPL documentation explains that fees are destroyed rather than paid to validators, and included transactions with tec results still incur a charge. This fee total therefore covers the recorded workload, including unsuccessful operations; it is not the cost of 3,254 successful payments.",
+        "The network uses an adaptive open-ledger threshold. XRPL's transaction-cost documentation describes a soft transaction target and increasing admission cost once that target is reached. The transaction-queue documentation explains how eligible instructions can wait for a later ledger. The Crypto Basic independently reports the flexible target and the difference between simple and complex workloads.",
+        "Practical implication: a payment integration needs both a fee ceiling and a policy for waiting or escalating. A historical low aggregate cost cannot promise the fee available when a future customer submits. Equally, a higher signed fee should not be interpreted as a guarantee of a successful exchange or payment. Teams need to reconcile the final outcome before deciding whether an instruction needs correction, replacement or no further action."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://xrpl.org/docs/concepts/transactions/transaction-queue",
+        "https://thecryptobasic.com/2026/09/14/xrp-ledger-sets-new-record-with-3254-transactions-in-single-ledger/",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission"
+      ]
+    },
+    {
+      "heading": "Ledger timestamps do not establish a sustained speed guarantee",
+      "paragraphs": [
+        "The header's close_time_resolution is 10 seconds. XRPL's close-time documentation explains that recorded close times are rounded and may be adjusted to remain later than a parent ledger's time. The implementation's consensus documentation also distinguishes initial close-time estimates from rounded times. Consequently, dividing one ledger's transaction count by a difference between header timestamps is not a reliable measurement of its actual processing duration.",
+        "Unresolved uncertainty: this record does not contain each customer's initial submission time, the time spent waiting before inclusion, or a sustained application benchmark. Those omissions matter to a merchant with a checkout deadline or a wallet handling an intermittent connection. A useful service test would measure the distribution of elapsed times from submission to verified result, including the slower cases, across many successive ledgers.",
+        "XRPL's reliable-submission guidance recommends tracking authoritative outcomes and bounding transaction validity with LastLedgerSequence. Analysis: the appropriate operational response is to retain an instruction's identity and reconcile it before creating a replacement. Otherwise a delayed confirmation can be mistaken for failure and lead to an unintended duplicate payment. A ledger capacity milestone is useful evidence, but it cannot substitute for that recovery discipline."
+      ],
+      "sourceUrls": [
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/ledger/106965249",
+        "https://xrpl.org/docs/concepts/ledgers/ledger-close-times",
+        "https://github.com/XRPLF/rippled/blob/develop/docs/consensus.md",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission"
+      ]
+    },
+    {
+      "heading": "How readers can reproduce and use the evidence",
+      "paragraphs": [
+        "Methodology: query the ledger method with ledger_index 106965249, transactions true and expand true. Check that validated is true, count the transactions, and group their metadata by TransactionResult. The cited Ripple endpoint requires a JSON-RPC POST request; the explorer and XRPSCAN header link provide browser-readable entry points. Preserve the ledger hash when comparing results so that every measurement refers to the same record.",
+        "For XRP holders, the observation confirms a substantial included workload and a measurable fee burn. It does not reveal net token purchases, prove a named institution used the network, or establish a price effect. For builders, it supplies a concrete example for designing reporting around success, waiting time and cost. The next useful milestone would pair another high-count observation with reproducible workload composition and end-to-end completion measurements."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger",
+        "https://s1.ripple.com:51234/",
+        "https://api.xrpscan.com/api/v1/ledger/106965249",
+        "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+        "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Repeated high-count ledgers with a disclosed transaction mix, rather than a single maximum.",
+    "Validated success and error-code distributions for the specific payment or exchange workflow being evaluated.",
+    "Observed submission-to-validation latency, including queued instructions and slower outcomes.",
+    "Signed fee limits and reconciliation of final results before replacement transactions.",
+    "An attributable test report identifying the operator, method and duration; the one-drop pattern alone does not establish these."
+  ],
+  "sources": [
+    {
+      "name": "XRPL live explorer: ledger 106,965,249",
+      "url": "https://livenet.xrpl.org/ledgers/106965249",
+      "type": "primary",
+      "publishedAt": "2026-09-13"
+    },
+    {
+      "name": "Ripple public JSON-RPC: expanded validated ledger 106965249 (POST required; retrieved September 16)",
+      "url": "https://s1.ripple.com:51234/",
+      "type": "primary",
+      "publishedAt": "2026-09-13"
+    },
+    {
+      "name": "XRPSCAN: independently indexed ledger 106965249 header",
+      "url": "https://api.xrpscan.com/api/v1/ledger/106965249",
+      "type": "supporting",
+      "publishedAt": "2026-09-13"
+    },
+    {
+      "name": "CryptoSlate: transaction-by-transaction review of the September 13 ledger",
+      "url": "https://cryptoslate.com/xrpl-proved-it-can-handle-over-3000-transactions-but-the-traffic-was-entirely-synthetic/",
+      "type": "supporting",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "The Crypto Basic: Vet describes the 3,254-transaction ledger",
+      "url": "https://thecryptobasic.com/2026/09/14/xrp-ledger-sets-new-record-with-3254-transactions-in-single-ledger/",
+      "type": "supporting",
+      "publishedAt": "2026-09-14"
+    },
+    {
+      "name": "XRPL documentation: Transaction Cost (undated reference)",
+      "url": "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: Transaction Queue (undated reference)",
+      "url": "https://xrpl.org/docs/concepts/transactions/transaction-queue",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: Ledger Close Times (undated reference)",
+      "url": "https://xrpl.org/docs/concepts/ledgers/ledger-close-times",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: Reliable Transaction Submission (undated reference)",
+      "url": "https://xrpl.org/docs/concepts/transactions/reliable-transaction-submission",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL documentation: tec Codes (undated reference)",
+      "url": "https://xrpl.org/docs/references/protocol/transactions/transaction-results/tec-codes",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL API reference: ledger method (undated reference)",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/ledger-methods/ledger",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Foundation: payment system specification (undated reference)",
+      "url": "https://github.com/XRPLF/dex-docs",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL Foundation: consensus implementation notes (undated reference)",
+      "url": "https://github.com/XRPLF/rippled/blob/develop/docs/consensus.md",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple second public JSON-RPC: matching expanded ledger 106965249 (POST required; retrieved September 16)",
+      "url": "https://s2.ripple.com:51234/",
+      "type": "primary",
+      "publishedAt": "2026-09-13"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "How XRP and the XRP Ledger work"
+    },
+    {
+      "href": "/news/xrpl-auto-bridging-route-depth-explainer",
+      "label": "Why XRPL payment routing depends on available depth"
+    },
+    {
+      "href": "/news/xrpl-ai-payments-merchant-settlement-verification",
+      "label": "Merchant checks for XRPL payment settlement"
+    },
+    {
+      "href": "/news/xrpl-peer-resilience-study-operator-deployment-test",
+      "label": "Testing XRPL peer resilience as an operator"
+    }
+  ]
+}
