@@ -1,0 +1,230 @@
+{
+  "slug": "clarity-vote-fails-xrp-status-market-rules",
+  "title": "CLARITY Vote Fails: What Stays Intact for XRP, and What Is Still Missing",
+  "description": "The Senate rejected CLARITY Act cloture on September 15. XRP retains separate court and agency footing, but those records do not replace a federal market framework.",
+  "category": "Regulation",
+  "publishedAt": "2026-09-16T13:08:24+00:00",
+  "modifiedAt": "2026-09-16T13:08:24+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/clarity-standing-easel-empty-frame-editorial.webp",
+  "imageAlt": "A small pale-gold easel supports a cobalt ceramic plaque beside a larger empty ivory picture frame lying on pale stone.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "clarity-standing-easel-pigment-grinding-slab",
+  "imageSetting": "A bare ivory-stone pigment-grinding slab in an empty colorist recess, seen from an elevated front-left diagonal. A small upright easel and a separate flat frame sit in the lower-right beneath broad empty stone. Warm reflected noon light from the left casts blue-gray contact shadows toward the right.",
+  "imageMetaphor": "A small pale-gold easel securely supports one cobalt ceramic plaque while a larger empty ivory picture frame lies separately on the stone. The existing asset-specific footing remains supported even though the wider market framework has not been filled.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, exact 16:9 landscape at 1680 by 945 or larger. One sparse physically believable symbolic still life, exactly THREE deliberate objects: ONE small pale-gold tabletop display easel with two front feet and one rear leg; ONE solid unmarked cobalt blue rectangular ceramic plaque resting securely on that easel; ONE larger empty ivory wooden picture frame lying flat separately on the stone to the right, its open center clearly showing bare stone. Upright supported plaque and separate wider empty frame symbolize established asset-specific legal footing beside a statutory market framework that remains unfilled after a failed legislative vote. No broken or collapsing objects, no verdict text. The stand and plaque must remain firmly standing. Bare ivory-stone pigment-grinding slab in an empty chalk-lined colorist recess, thirty-degree elevated left-rear diagonal viewpoint; separated ascending arrangement at center-right with broad unmarked stone on the left and above. Low lemon-gold reflected noon beam from below-left with diffuse cobalt-blue ceiling fill, short crisp clean shadows. This new setting, tabletop easel primary object, upright-versus-flat arrangement and dual reflected lighting differ from all registered scenes. Do not reuse prior proofing mechanisms, ballot gates, voting stones, scales, temples, panoramic cities, cliffs, ports or landscapes. Image1 homepage anchor and images2-4 Sublime Classical Oil references affect ONLY palette, oil paint modeling, luminous material finish and rich glazing. Copy no reference subjects, figures, animals, costumes, architecture or compositions. Crisp academic classical oil modeling, fine matte ceramic versus warm gilded metal and ivory wood, ivory stone, exceptionally clear restrained jewel palette. Optional near-invisible 1/0/x stipple only in one shadow transition; no all-over ASCII or dither. No extra props, logos, crypto coins, dashboard, politician, cyber cube, fantasy ruin, text, watermark, border or rounded frame. Exactly three objects, realistic three-point easel support, plaque rests on easel shelf, empty separate frame flat on stone. Sparse, quiet, elegant, immediately readable thumbnail. Final refinement: reduce the three-object group to the lower-right half, leave at least 55 percent quiet ivory negative space, remove the dark background strip, and use finely honed stone. Preserve exact object count and realistic support.",
+  "keywords": [
+    "XRP",
+    "CLARITY Act",
+    "Ripple",
+    "SEC",
+    "CFTC",
+    "crypto market structure"
+  ],
+  "keyTakeaways": [
+    "The Senate recorded 49 votes for and 50 against cloture on September 15. This failed procedural step neither enacted CLARITY nor reversed an XRP court ruling.",
+    "The March 2026 SEC interpretation names XRP as a digital commodity, while the 2023 court decision distinguishes the token from particular investment contracts.",
+    "XRP holders, issuers and intermediaries face different questions: asset classification, transaction terms and the regulatory framework for the service being offered."
+  ],
+  "sections": [
+    {
+      "heading": "What the failed CLARITY vote changes for XRP",
+      "paragraphs": [
+        "The Senate’s September 15 rejection of CLARITY Act cloture leaves XRP’s existing court and agency treatment in place; it does not enact the proposed market framework. Ripple says its legal position is unchanged. The unresolved issue is how broader U.S. crypto activity will be regulated without that legislation.",
+        "The official Senate record identifies vote 234 as cloture on the motion to proceed to H.R. 3633. It records 49 yeas and 50 nays, below the required three-fifths threshold. Independent reporting by The Block confirms that the preliminary vote failed. Calling this a final Senate vote on the bill would misdescribe the proceeding.",
+        "Analysis: the most useful distinction is between losing an expected future rulebook and losing an existing legal basis. This vote concerns the former. A reader assessing an XRP holding should therefore identify which assumption depended on new legislation, rather than treating every favorable court or agency record as having disappeared overnight."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00234.htm",
+        "https://www.theblock.co/news/regulation/2026-09-15-clarity-act-preliminary-vote-falls-short-in-senate-amid-ethics-fight-over-trumps-crypto-wealth-415010",
+        "https://ripple.com/insights/the-road-to-clarity-ends-for-now/",
+        "https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead-415135"
+      ]
+    },
+    {
+      "heading": "The Ripple court decision concerns transactions, not a universal exemption",
+      "paragraphs": [
+        "Confirmed: Judge Analisa Torres’s July 13, 2023 decision examined how XRP was offered and sold. It distinguished XRP itself from an investment contract. Ripple’s institutional sales at issue violated securities registration requirements, while its programmatic sales did not satisfy the investment-contract test on that record. A&O Shearman’s analysis explains the different results and the importance of the surrounding facts.",
+        "The limit is unusually explicit. Footnote 16 on page 23 says the court was not deciding secondary-market XRP transactions generally. Those would require examination of their particular circumstances. Consequently, neither “every exchange transaction is automatically exempt” nor “every institutional purchase is prohibited” accurately describes what the decision resolved.",
+        "Practical implication: a compliance memo should identify the transaction being evaluated before invoking the Ripple case. A direct offering, an ordinary purchase and an arrangement involving additional promises can present different facts. The relevant comparison is the economic relationship, not simply whether the same ticker appears on the paperwork. The failed legislative motion supplies no new judicial answer to those questions."
+      ],
+      "sourceUrls": [
+        "https://www.nysd.uscourts.gov/sites/default/files/2023-07/SEC%20vs%20Ripple%207-13-23.pdf",
+        "https://www.aoshearman.com/en/insights/ripple-labs-long-awaited-decision-answers-some-questions-but-gives-rise-to-further-uncertainty"
+      ]
+    },
+    {
+      "heading": "The appeals ended, but Ripple’s final judgment was not erased",
+      "paragraphs": [
+        "The SEC’s August 7, 2025 litigation release provides the next part of the chronology. It states that the parties dismissed the SEC’s appeal and Ripple’s cross-appeal, resolving the enforcement action. It also expressly states that the district court’s final judgment remains in effect, including the registration injunction and civil penalty. The Block independently reported the parties’ decision to abandon their appeals.",
+        "Analysis: closure of litigation and removal of its consequences are different events. That matters when interpreting Ripple’s September statement that its footing remains strong. An ended appeal can increase certainty about the existing outcome without transforming that outcome into an unrestricted permission for every future activity.",
+        "For readers reviewing claims about the lawsuit, a useful check is whether the explanation preserves both sides of the record: the favorable token-versus-transaction distinction and the adverse institutional-sales result. A summary that omits either can make yesterday’s Senate action appear to have much broader legal consequences than the source documents establish."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369",
+        "https://www.theblock.co/news/business/2025-08-07-sec-ripple-to-end-legal-battle-as-both-parties-abandon-appeals-leaving-xrp-ruling-intact-366096",
+        "https://ripple.com/insights/the-road-to-clarity-ends-for-now/"
+      ]
+    },
+    {
+      "heading": "What the March SEC and CFTC interpretation actually adds",
+      "paragraphs": [
+        "The SEC issued Release 33-11412 on March 17, 2026, with an effective date of March 23. It contains an SEC interpretation and accompanying CFTC guidance. XRP appears among the examples of digital commodities. The classification is based on the assets’ characteristics, terms and functions as understood at the time of the release.",
+        "The same document preserves the distinction between a non-security crypto asset and an investment contract involving that asset. Ropes & Gray’s March 25 analysis corroborates that distinction and explains why the interpretation is not equivalent to legislation: it is not binding on courts and can be revised. Existing statutory authorities remain the source of agency power.",
+        "Analysis: XRP’s inclusion is a concrete agency position worth citing, rather than merely a favorable corporate statement. Its scope still needs to travel with the citation. “Named in the current interpretation” is more precise than a claim of permanent immunity. The September vote neither rewrites this release nor upgrades it into a congressionally enacted market structure statute."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/files/rules/interp/2026/33-11412.pdf",
+        "https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets"
+      ]
+    },
+    {
+      "heading": "Why an XRP product needs a separate review from the token",
+      "paragraphs": [
+        "Consider a hypothetical comparison, not a description of any current Ripple product. One customer purchases XRP without an additional undertaking from the seller. Another enters an arrangement in which a promoter promises to manage a venture using contributed assets and generate a return. Both arrangements may mention XRP, but the promised activities and contractual rights are different.",
+        "Analysis: a review that stops at the asset label misses the feature that distinguishes those examples. The court’s transaction-focused reasoning and the agency framework both direct attention beyond the token alone. This does not establish that the hypothetical second arrangement necessarily is a security; that conclusion would require its complete facts. It establishes why a ticker-level assurance cannot do all the work.",
+        "For an institutional buyer, the practical document request is correspondingly specific: obtain the agreement, offering materials, description of management commitments and explanation of the claimed legal basis. For an issuer, check that public descriptions match the actual obligations. For a holder evaluating a yield offer, identify what is being promised in addition to ownership of XRP before relying on an asset-classification headline."
+      ],
+      "sourceUrls": [
+        "https://www.nysd.uscourts.gov/sites/default/files/2023-07/SEC%20vs%20Ripple%207-13-23.pdf",
+        "https://www.sec.gov/files/rules/interp/2026/33-11412.pdf",
+        "https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets",
+        "https://www.aoshearman.com/en/insights/ripple-labs-long-awaited-decision-answers-some-questions-but-gives-rise-to-further-uncertainty"
+      ]
+    },
+    {
+      "heading": "The missing market framework concerns more than XRP classification",
+      "paragraphs": [
+        "Ripple’s September 15 statement says it will continue advocating for legislation while engaging with the SEC and CFTC. That is the company’s policy position, not evidence that substitute rules have already taken effect. The Block’s independent reporting likewise distinguishes continued agency work from the more durable framework legislation could provide.",
+        "The distinction also appears in SEC Chair Paul Atkins’s August 18 statement. He describes legislation as important for durable rules while discussing proposed crypto offering exemptions and an investment-contract safe harbor. The words “proposed” and “exemption” matter: neither establishes that Congress has granted a new market-wide authority or that every service qualifies for a particular pathway.",
+        "Analysis: an exchange or custody business needs answers about its own activity, not only a list of asset names. When assessing a regulatory announcement, separate three questions: what instrument changed, which activity it covers and when it becomes usable. This makes a proposed rule, an effective interpretation and an enacted statute easier to compare without treating them as interchangeable approvals."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/the-road-to-clarity-ends-for-now/",
+        "https://www.theblock.co/news/regulation/2026-09-15-clarity-act-preliminary-vote-falls-short-in-senate-amid-ethics-fight-over-trumps-crypto-wealth-415010",
+        "https://www.sec.gov/newsroom/speeches-statements/atkins-statement-regulation-crypto-assets-081826",
+        "https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets",
+        "https://www.hklaw.com/en/insights/publications/2026/08/crypto-assets-and-the-securities-laws"
+      ]
+    },
+    {
+      "heading": "What would count as a meaningful next development",
+      "paragraphs": [
+        "Uncertainty: the reviewed records do not establish a new passage date, the outcome of further negotiations or the final content of future agency rules. The Block’s later September 15 report describes Senator Thom Tillis’s request for reconsideration, underscoring why a failed vote should not be presented as proof that another vote is impossible. A procedural possibility is not a scheduled or successful vote.",
+        "For XRP readers, the next useful update should attach to an observable record: new floor action, published legislative text, an adopted rule or a changed official interpretation. Claims that institutions must now leave the United States, or that demand must accelerate because XRP retains favorable treatment, require separate evidence. None follows mechanically from this roll call.",
+        "Analysis: keep the legal and commercial questions separate when judging later announcements. A company can describe a stronger legal argument without demonstrating new customers, and a customer can announce interest without committing capital. This report makes no prediction of XRP returns or adoption. Its narrower conclusion is that a stalled framework leaves existing records relevant while making their exact boundaries more important."
+      ],
+      "sourceUrls": [
+        "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00234.htm",
+        "https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead-415135",
+        "https://www.theblock.co/news/regulation/2026-09-15-clarity-act-preliminary-vote-falls-short-in-senate-amid-ethics-fight-over-trumps-crypto-wealth-415010",
+        "https://ripple.com/insights/the-road-to-clarity-ends-for-now/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Senate floor records: whether H.R. 3633 receives reconsideration, another cloture motion or a newly scheduled vote after September 15.",
+    "Any revised CLARITY text: compare the actual grants of regulatory authority and obligations with the text considered before the failed motion.",
+    "SEC and CFTC releases: distinguish proposed measures from adopted rules, and record the covered activity, conditions and effective date.",
+    "Release 33-11412: check for a formal revision before claiming that the March interpretation has changed.",
+    "XRP product announcements: look for contracts and documented service availability before inferring investment rights, institutional deployment or new demand."
+  ],
+  "sources": [
+    {
+      "name": "Ripple: The Road to Clarity Ends (for now)",
+      "url": "https://ripple.com/insights/the-road-to-clarity-ends-for-now/",
+      "type": "primary",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "U.S. Senate: roll-call vote 234 on H.R. 3633",
+      "url": "https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00234.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "The Block: CLARITY preliminary vote falls short",
+      "url": "https://www.theblock.co/news/regulation/2026-09-15-clarity-act-preliminary-vote-falls-short-in-senate-amid-ethics-fight-over-trumps-crypto-wealth-415010",
+      "type": "supporting",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "SDNY: SEC v. Ripple, July 13 summary-judgment opinion",
+      "url": "https://www.nysd.uscourts.gov/sites/default/files/2023-07/SEC%20vs%20Ripple%207-13-23.pdf",
+      "type": "primary",
+      "publishedAt": "2023-07-13"
+    },
+    {
+      "name": "Allen & Overy, now A&O Shearman: analysis of the Ripple decision",
+      "url": "https://www.aoshearman.com/en/insights/ripple-labs-long-awaited-decision-answers-some-questions-but-gives-rise-to-further-uncertainty",
+      "type": "supporting",
+      "publishedAt": "2023-07-14"
+    },
+    {
+      "name": "SEC: dismissal of appeals and continuing final judgment",
+      "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26369",
+      "type": "primary",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "name": "The Block: SEC and Ripple abandon their appeals",
+      "url": "https://www.theblock.co/news/business/2025-08-07-sec-ripple-to-end-legal-battle-as-both-parties-abandon-appeals-leaving-xrp-ruling-intact-366096",
+      "type": "supporting",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "name": "SEC Release 33-11412: crypto assets and related transactions",
+      "url": "https://www.sec.gov/files/rules/interp/2026/33-11412.pdf",
+      "type": "primary",
+      "publishedAt": "2026-03-17"
+    },
+    {
+      "name": "Ropes & Gray: scope and limits of the SEC/CFTC guidance",
+      "url": "https://www.ropesgray.com/en/insights/alerts/2026/03/sec-and-cftc-issue-landmark-joint-guidance-on-classification-of-crypto-assets",
+      "type": "supporting",
+      "publishedAt": "2026-03-25"
+    },
+    {
+      "name": "SEC Chair Atkins: statement on proposed crypto exemptions",
+      "url": "https://www.sec.gov/newsroom/speeches-statements/atkins-statement-regulation-crypto-assets-081826",
+      "type": "primary",
+      "publishedAt": "2026-08-18"
+    },
+    {
+      "name": "The Block: failed vote and the reconsideration possibility",
+      "url": "https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead-415135",
+      "type": "supporting",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "Holland & Knight: proposed Regulation Crypto Assets and existing authority",
+      "url": "https://www.hklaw.com/en/insights/publications/2026/08/crypto-assets-and-the-securities-laws",
+      "type": "supporting",
+      "publishedAt": "2026-08-28"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/clarity-act-september-15-cloture-vote-xrp",
+      "label": "What the September 15 cloture test was designed to do",
+      "topic": "Legislative procedure"
+    },
+    {
+      "href": "/learn/sec-vs-ripple",
+      "label": "The SEC v. Ripple case and its legal record",
+      "topic": "Court history"
+    },
+    {
+      "href": "/answers/is-xrp-a-security",
+      "label": "Is XRP a security? Asset and transaction distinctions",
+      "topic": "XRP status"
+    },
+    {
+      "href": "/learn/xrp-us-regulation",
+      "label": "How U.S. regulation applies to XRP",
+      "topic": "U.S. framework"
+    }
+  ]
+}
