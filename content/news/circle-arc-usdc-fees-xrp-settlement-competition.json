@@ -1,0 +1,218 @@
+{
+  "slug": "circle-arc-usdc-fees-xrp-settlement-competition",
+  "title": "Circle's Arc Launch Adds a USDC Fee Model to XRP's Settlement Competition",
+  "description": "Circle's Arc mainnet charges fees in USDC. For XRP payment providers, the launch makes total delivery cost, liquidity and verified institutional roles the relevant comparison.",
+  "category": "Markets",
+  "publishedAt": "2026-09-17T13:07:45+00:00",
+  "modifiedAt": "2026-09-17T13:07:45+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/arc-alternative-funnels-settlement-editorial.webp",
+  "imageAlt": "A gold metal funnel and a cobalt porcelain funnel lie beside a capped ivory jar on a pale stone shelf.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "arc-alternative-funnels-powder-decanting-shelf",
+  "imageSetting": "An ivory-stone powder-decanting shelf against textured warm plaster, seen diagonally from the elevated front-right. Diffuse warm morning reflection and small gold glints illuminate two offset horizontal funnels and a separate capped jar at lower right, with broad empty upper-left space.",
+  "imageMetaphor": "One pale-gold metal powder funnel and one cobalt porcelain powder funnel lie as alternative routes beside a closed ivory sample jar. Different transfer mechanisms must be evaluated against the same completed delivery, rather than declaring a winner from the fee material or institutional name.",
+  "imagePrompt": "Generate one finished AllAboutXRP editorial illustration, exact cinematic 16:9 landscape, at least 1680 pixels wide. Reference images in order: homepage style reference, refined Sublime Classical Oil anchor, metal-detail reference, paint/modeling reference. All four are STYLE ONLY for ivory/cobalt/pale-gold palette, light, glazing, and sculptural oil modeling. Never copy their subjects or layouts. Primary request: a sparse, physically believable symbolic still life of EXACTLY THREE objects on a broad ivory stone powder-decanting shelf: one small pale-gold brass powder funnel lying on its side, one small cobalt glazed porcelain powder funnel lying on its side parallel but offset, and one separate capped ivory ceramic sample jar standing upright. The two funnel mouths face left and stems point right, with the separate jar slightly farther right. They are alternative mechanisms for the same delivery, NOT interconnected plumbing. No liquid, no visible contents, no flow, no implied winning route. Objects occupy only the lower-right 35 percent; broad luminous untouched negative space upper-left and above. View from forty-eight degrees above the far-right corner, close enough for material detail. Bare warm plaster backdrop with subtle plaster texture, no visible architecture. Early morning daylight reflected from unseen pale straw creates two soft overlapping cream light pools, tiny warm metal glints and short cobalt contact shadows. This powder-decanting setting, paired funnels, offset parallel arrangement, and reflected straw-light are new relative to the registered scenes. Luminous academic classical-revival oil painting, crisp precise sculptural modeling, rich enamel-like glazing, material-specific brushwork, selective impasto highlights, radiant ivory and pale gold with saturated cobalt; tasteful restrained fine finish. At most extremely subtle 1/0/x stipple in one or two shadow transitions only, almost invisible, no all-over ASCII, no dither filter. Constraints: EXACTLY two realistically hollow funnels and one closed jar, three deliberate objects total, all rest naturally on stone, no text, no numbers, no logos, no coins, no tokens, no dashboards, no people or politicians, no cubes, no buildings, no ruins, no Greek city, no landscape, no animals or horses, no columns, no watermark or border, no vermilion needed, no photographic realism, no sepia or muddy gray. Do not reuse any registered temple, coastal scene, scale, comparator, sleeve, gear, flask arrangement, hoop, pennant, ledger, frame, or tally counter. Favor broad ivory negative space and an instantly readable still-life silhouette.",
+  "keywords": [
+    "XRP",
+    "Circle Arc",
+    "USDC",
+    "XRP Ledger",
+    "institutional settlement",
+    "Ripple",
+    "SBI Group"
+  ],
+  "keyTakeaways": [
+    "Circle launched Arc's public mainnet on September 16 with USDC-denominated fees. Its named institutional validator cohort has a phased rollout, so a roster is not proof that every member is already operating a node.",
+    "Circle launched native USDC on XRPL in June 2025. Holding or sending that stablecoin and paying the ledger's XRP transaction fee are distinct functions.",
+    "Payment providers should compare the same funded-to-delivered transaction across routes. Network fees, conversion, liquidity availability and withdrawal conditions belong in the same assessment."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: Arc changes the fee comparison for XRP payment routes",
+      "paragraphs": [
+        "Circle launched Arc's public mainnet on September 16, 2026, with transaction fees paid in USDC. For XRP payment providers, that creates another settlement option to evaluate. It does not establish that Ripple partners have abandoned XRP, or that a dollar-denominated network fee makes an entire payment route cheaper."
+      ],
+      "sourceUrls": [
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250"
+      ]
+    },
+    {
+      "heading": "Circle Arc is live, while validator onboarding remains phased",
+      "paragraphs": [
+        "Confirmed: Circle's September 16 announcement establishes a public network launch. The Block independently reports the launch and its USDC fee model. That is a meaningful change from a test environment or a promised opening date: operators can begin assessing a production route rather than evaluating only a roadmap.",
+        "The deployment boundary matters. Circle describes a phased rollout of its founding validator cohort, which includes SBI Group and Standard Chartered alongside other institutions. The Block also reports phased participation. This article therefore does not treat a named institution as a verified active validator at a particular time. A cohort announcement and a live node record answer different questions.",
+        "Analysis: procurement teams should keep separate evidence for availability, operational participation and customer use. A network opening supplies the first category. A named validator or application does not by itself supply the other two. Before committing a payment service, an operator should request a supported production workflow, accountable service contacts and evidence that the required functions are usable today."
+      ],
+      "sourceUrls": [
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250"
+      ]
+    },
+    {
+      "heading": "USDC already exists on XRPL, but the fee asset is different",
+      "paragraphs": [
+        "Confirmed: Circle announced native USDC on the XRP Ledger on June 12, 2025, including support through Circle Mint and its APIs. The Block reported that launch independently on the same date. Arc's arrival therefore does not create a simple choice between the USDC issuer and the XRP Ledger. The issuer's stablecoin already has a presence on the ledger associated with XRP.",
+        "XRPL's transaction-cost documentation specifies that its network charge is paid in XRP and destroyed. Ledger's independent technical explainer corroborates the fee-burning mechanism. A USDC transfer on XRPL consequently has two distinct asset roles: the stablecoin being transferred and XRP consumed as the ledger fee. Arc instead uses USDC for its network charge. Neither description establishes the total amount a customer pays to complete a cross-border transaction.",
+        "Analysis: compare the asset being delivered separately from the asset paying for execution. A treasury already funding USDC transactions may find dollar-denominated fees easier to budget. An XRPL operator may already have mature XRP fee provisioning. The practical benefit depends on each operator's existing accounts, controls and funding process. No measured savings for either group are established by the launch sources."
+      ],
+      "sourceUrls": [
+        "https://www.circle.com/blog/now-available-usdc-on-the-xrpl",
+        "https://www.theblock.co/news/business/2025-06-12-xrp-ledger-adopts-usdc-one-week-after-circle-goes-public-357946",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://www.ledger.com/academy/topics/crypto/bitcoin-vs-xrp",
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250"
+      ]
+    },
+    {
+      "heading": "SBI and Standard Chartered show why institutional roles need precise labels",
+      "paragraphs": [
+        "The overlap is real, but its meaning is narrower than a network-switching headline. Standard Chartered announced an investment in Ripple on September 15, 2016. Ripple and SBI announced a memorandum about distributing RLUSD in Japan on August 22, 2025. Independent reports from City A.M. and The Block corroborate those two announcements, respectively, without turning either historical record into evidence of a current network switch. Those dated records establish relationships; the older announcements should not be read as a current inventory of every commercial arrangement.",
+        "Analysis: investment, stablecoin distribution, validation and transaction routing are different decisions. An institution can assess a network's governance while its customers use another network for a particular payment. A name appearing in two ecosystems does not disclose how much capital or transaction volume it allocates to either. It also does not identify the asset used inside any individual transfer.",
+        "Unresolved: the cited launch records do not quantify XRP-linked payment flows moving to Arc, specify a terminated Ripple relationship, or measure a resulting change in XRP demand. Readers evaluating a migration claim should look for an institution's explicit service announcement and comparable transaction evidence. Familiar names can help identify whom to ask, but cannot substitute for the missing operational record."
+      ],
+      "sourceUrls": [
+        "https://www.sc.com/en/press-release/standard-chartered-completes-strategic-investment-in-ripple/",
+        "https://ripple.com/ripple-press/ripple-and-sbi-plan-to-distribute-rlusd-in-japan/",
+        "https://www.cityam.com/blockchain-startup-ripple-raises-55m-standard-chartered-and/",
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/business/2025-08-22-ripple-rlusd-stablecoin-sbi-japan-367897"
+      ]
+    },
+    {
+      "heading": "The useful cost test starts with the same recipient outcome",
+      "paragraphs": [
+        "Analysis: a fair comparison should hold the payment objective constant. Specify the starting asset, starting location, amount, recipient asset and destination before seeking quotes. Comparing an Arc USDC transfer with an XRP trade followed by a bank withdrawal would otherwise combine different services. A lower network charge can coexist with a more expensive overall route, just as a higher network charge can coexist with better available liquidity.",
+        "Consider a hypothetical business that already holds USDC and must deliver local currency into a supplier's bank account. Its worksheet should include conversion spread, platform charges, withdrawal charges, the cost of obtaining any required fee asset and the final amount credited. It should also record when the recipient can actually use the money. These are proposed comparison fields, not measured Arc or XRPL results, and this example makes no claim that a particular provider supports that corridor.",
+        "The separate USDC and XRP fee roles documented above help define that worksheet. Request executable quotes for the same amount and time window, then reconcile each completed transfer against the quote. Track failed attempts and recovery procedures as well. A headline about fee denomination answers one input question; the receipt and the exception log answer whether the service met the business requirement."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://www.ledger.com/academy/topics/crypto/bitcoin-vs-xrp",
+        "https://www.circle.com/blog/now-available-usdc-on-the-xrpl",
+        "https://www.theblock.co/news/business/2025-06-12-xrp-ledger-adopts-usdc-one-week-after-circle-goes-public-357946",
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250"
+      ]
+    },
+    {
+      "heading": "Treasury teams should test live features before relying on the roadmap",
+      "paragraphs": [
+        "Confirmed limitation: Circle describes network-wide opt-in privacy as still in development, a distinction also reported by The Block. A public launch should not be interpreted as confirmation that every advertised confidentiality feature is available. Operators with sensitive payment data need to verify the actual exposure of their proposed workflow before entering production.",
+        "Analysis: a pilot acceptance test should cover the entire operating cycle. Fund the account, submit the transfer, verify the intended recipient's credit, reconcile the fee and exercise the support process for a rejected instruction. Document who can approve a payment and who can obtain transaction records. Where a required capability remains on a roadmap, the decision should explicitly depend on delivery and testing of that capability.",
+        "For wallet and payment developers, the fee-asset difference also makes balance presentation an important design choice. A customer should be able to distinguish spendable funds from funds needed to execute an instruction. For XRP holders, the relevant evidence is sustained, identifiable use of XRP within actual services. A competing network's opening supplies a new comparison point, but it does not provide a price forecast."
+      ],
+      "sourceUrls": [
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+        "https://www.ledger.com/academy/topics/crypto/bitcoin-vs-xrp"
+      ]
+    },
+    {
+      "heading": "What evidence would change the XRP settlement assessment?",
+      "paragraphs": [
+        "Analysis: the strongest follow-up would pair named production services with repeatable delivery evidence. Published fee schedules, supported deposit and withdrawal routes, observed completion times and clear treatment of failed payments would make the comparison more concrete. The same criteria should apply to an Arc provider and an XRPL provider, using identical payment objectives wherever a valid comparison is possible.",
+        "Uncertainty remains around customer allocation, realized cost and usage at scale. This report does not infer them from validator names, asset availability or a launch announcement. An operator selecting a route should focus next on a documented service it can test. An investor assessing XRP demand should focus on evidence that distinguishes ledger fees, bridge-asset use and unrelated corporate relationships."
+      ],
+      "sourceUrls": [
+        "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+        "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250",
+        "https://www.circle.com/blog/now-available-usdc-on-the-xrpl",
+        "https://www.theblock.co/news/business/2025-06-12-xrp-ledger-adopts-usdc-one-week-after-circle-goes-public-357946",
+        "https://www.cityam.com/blockchain-startup-ripple-raises-55m-standard-chartered-and/",
+        "https://xrpl.org/docs/concepts/transactions/transaction-cost"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Dated Arc validator activation records that distinguish operational nodes from members named for phased onboarding.",
+    "Named providers' production deposit, conversion and withdrawal routes on Arc and XRPL, with usable fee schedules and supported jurisdictions.",
+    "Matched payment tests recording the same starting asset, recipient outcome, final credited amount, completion time and failed-transfer handling.",
+    "Circle's release record for network-wide privacy, followed by verification that the required confidentiality controls work in production.",
+    "Explicit institutional disclosures identifying XRP use or a routing change, with transaction evidence rather than an inference from partner names."
+  ],
+  "sources": [
+    {
+      "name": "Circle: Arc public mainnet launch and phased validator rollout",
+      "url": "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+      "type": "primary",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "The Block: Circle launches Arc mainnet, by James Hunt (updated September 16)",
+      "url": "https://www.theblock.co/news/ecosystems/2026-09-16-circle-launches-arc-mainnet-with-blackrock-and-visa-among-validators-mints-10-billion-arc-tokens-415250",
+      "type": "supporting",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Circle: Now Available, USDC on the XRPL",
+      "url": "https://www.circle.com/blog/now-available-usdc-on-the-xrpl",
+      "type": "primary",
+      "publishedAt": "2025-06-12"
+    },
+    {
+      "name": "The Block: XRP Ledger adopts USDC, by MK Manoylov",
+      "url": "https://www.theblock.co/news/business/2025-06-12-xrp-ledger-adopts-usdc-one-week-after-circle-goes-public-357946",
+      "type": "supporting",
+      "publishedAt": "2025-06-12"
+    },
+    {
+      "name": "XRPL documentation: Transaction Cost",
+      "url": "https://xrpl.org/docs/concepts/transactions/transaction-cost",
+      "type": "primary"
+    },
+    {
+      "name": "Ledger Academy: Bitcoin vs XRP, fee-burning comparison",
+      "url": "https://www.ledger.com/academy/topics/crypto/bitcoin-vs-xrp",
+      "type": "supporting",
+      "publishedAt": "2026-05-11"
+    },
+    {
+      "name": "Standard Chartered: Strategic investment in Ripple",
+      "url": "https://www.sc.com/en/press-release/standard-chartered-completes-strategic-investment-in-ripple/",
+      "type": "primary",
+      "publishedAt": "2016-09-15"
+    },
+    {
+      "name": "Ripple: SBI memorandum on planned RLUSD distribution in Japan",
+      "url": "https://ripple.com/ripple-press/ripple-and-sbi-plan-to-distribute-rlusd-in-japan/",
+      "type": "primary",
+      "publishedAt": "2025-08-22"
+    },
+    {
+      "name": "City A.M.: Ripple funding from Standard Chartered and other investors",
+      "url": "https://www.cityam.com/blockchain-startup-ripple-raises-55m-standard-chartered-and/",
+      "type": "supporting",
+      "publishedAt": "2016-09-15"
+    },
+    {
+      "name": "The Block: Ripple and SBI planned RLUSD distribution in Japan",
+      "url": "https://www.theblock.co/news/business/2025-08-22-ripple-rlusd-stablecoin-sbi-japan-367897",
+      "type": "supporting",
+      "publishedAt": "2025-08-22"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP and its role on the XRP Ledger"
+    },
+    {
+      "href": "/news/ripple-jeonbuk-bank-payments-xrp-role-undisclosed",
+      "label": "Why a Ripple payments announcement does not identify its settlement asset"
+    },
+    {
+      "href": "/news/xrpl-auto-bridging-route-depth-explainer",
+      "label": "How XRP auto-bridging depends on available route depth"
+    },
+    {
+      "href": "/news/rlusd-regulation-cftc-collateral-eligibility",
+      "label": "RLUSD supervision and the separate question of collateral eligibility"
+    }
+  ]
+}
