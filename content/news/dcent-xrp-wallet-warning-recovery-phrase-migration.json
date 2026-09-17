@@ -1,0 +1,222 @@
+{
+  "slug": "dcent-xrp-wallet-warning-recovery-phrase-migration",
+  "title": "DCENT App Wallet Alert: What Counts as a Completed XRP Migration",
+  "description": "DCENT warns App Wallet users about unauthorized transfers. For affected XRP holders, importing an old recovery phrase into hardware does not complete a secure migration.",
+  "category": "Security",
+  "publishedAt": "2026-09-17T21:07:45+00:00",
+  "modifiedAt": "2026-09-17T21:07:45+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/dcent-carbon-copy-credentials-editorial.webp",
+  "imageAlt": "Cobalt carbon paper lies between two ivory sheets bearing matching blue loops, beside a pale-gold stylus on an ivory stone desk.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "dcent-carbon-copy-credentials-pattern-tracing-desk",
+  "imageSetting": "An ivory-stone pattern-tracing desk against warm eggshell plaster, viewed at a seventy-degree angle from the upper left. A triangular patch of light reflected from pale apricot glass meets soft neutral skylight; a low fan of paper occupies the bottom center with broad empty upper space.",
+  "imageMetaphor": "Cobalt carbon paper between two ivory sheets leaves the same simple blue loop on both. A separate pale-gold tracing stylus explains how copying the same credential preserves the same authority, rather than establishing a fresh secret.",
+  "imagePrompt": "Use case: stylized-concept. Finished AllAboutXRP editorial oil illustration, exactly16:9,1680x945 or larger. Four supplied images are STYLE ONLY: first is homepage finish; remaining classical oils guide palette, crisp material modeling and luminous glazing. Do not copy their architecture, landscapes, people or animals.\nPrimary subject: a sparse physically believable carbon-copy still life, exactly FOUR objects on an ivory-stone pattern-tracing desk: two offset ivory paper sheets, one thin cobalt carbon paper partly folded back between them, and one short pale-gold metal tracing stylus resting alongside. Both ivory sheets carry the same single simple cobalt oval loop, a non-letter abstract tracing. No other marks. The lower sheet and matching loop must be clearly visible beyond the peeled carbon paper. The carbon paper explains that duplicating a credential preserves identical authority; putting that copy into another place does not create a fresh secret. No depiction of an actual wallet or technical attack.\nComposition: intimate seventy-degree elevated view from upper-left; the low three-sheet fan occupies bottom center with a diagonal stylus toward lower right, broad blank upper half. This pattern-tracing desk, carbon copying object set, flat fan arrangement, and lighting are new to the inspected registry. Apricot-glass reflected light makes one luminous triangular patch at far left, with neutral skylight filling soft water-blue contact shadows. Plain warm eggshell plaster backdrop. Luminous academic classical oil modeling, refined edges, delicate paper fibers, crisp pale-gold metal highlight, cobalt rich glazing, subtle impasto only on light edges. Warm ivory dominant, restrained cobalt, pale gold; no red needed. Extremely subtle1/0/x stipple solely within one tiny shadow transition, never all-over ASCII or dither.\nConstraints: exactly four deliberate objects, readable silhouette at thumbnail size, physically natural gravity and paper folds. No words, letters, numbers, logos, coins, screens, dashboards, padlocks, keys, politicians, figures, cyber cubes, architecture, ruins, cities, temples, landscape, watermark, border, photorealism or sepia. Do not import any registered scene or setting; do not add decorative props.",
+  "keywords": [
+    "DCENT App Wallet",
+    "XRP wallet security",
+    "recovery phrase",
+    "XRP Ledger",
+    "hardware wallet"
+  ],
+  "keyTakeaways": [
+    "DCENT’s warning, independently reported by Yonhap, focuses on App Wallet use and recovery phrases shared between software and hardware.",
+    "For affected users, DCENT instructs an official app update followed by transfer to a trusted destination; restoring the same phrase into hardware retains the same key exposure.",
+    "A completed XRP migration requires a verified destination and confirmed receipt. DCENT’s latest eligibility boundary and the full incident scope still need independent forensic verification."
+  ],
+  "sections": [
+    {
+      "heading": "What DCENT’s App Wallet alert means for XRP holders",
+      "paragraphs": [
+        "DCENT’s App Wallet warning means affected XRP holders need to move assets under fresh, trusted control. Importing the same recovery phrase into a hardware wallet preserves the same keys. The practical response is to check eligibility against DCENT’s current notice, update through official channels, and verify an actual transfer.",
+        "[Confirmed reporting] DCENT’s September 17 status report follows its warning about unauthorized App Wallet transfers. Yonhap independently reported the investigation on September 16 and the instruction covering software-wallet users and people sharing a recovery phrase between software and hardware. The distinction concerns where signing authority has existed, not simply which device somebody owns today.",
+        "[Unresolved uncertainty] DCENT’s latest eligibility notice adds app-version and historical-signing criteria. AllAboutXRP has not independently corroborated that boundary. Readers should consult the linked current notice for individual classification and avoid interpreting this explainer as a finding that every DCENT user is affected. The analysis below concerns migration when action is required."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/app-wallet-incident-report",
+        "https://www.yna.co.kr/amp/view/AKR20260916154200002",
+        "https://store.dcentwallet.com/blogs/post/check-if-app-wallet-action-applies"
+      ]
+    },
+    {
+      "heading": "A recovery phrase carries authority across devices",
+      "paragraphs": [
+        "[Confirmed mechanism] DCENT’s FAQ distinguishes the App Wallet from hardware mode, where the app displays information while a connected device controls signing. Pairing hardware with a phone is different from entering its recovery phrase into the software wallet. Yonhap’s reporting independently confirms that the warning extends to a phrase shared across the two environments.",
+        "Trezor’s separate migration documentation explains the same underlying limitation: recovering a software-wallet backup on hardware does not retroactively provide hardware security to keys previously handled in software. XRP Ledger documentation adds the protocol reason. Someone who possesses an account’s usable signing secret can authorize transactions; putting another copy somewhere safer does not remove an existing copy.",
+        "[Analysis] Think of migration as a change in who can authorize spending, rather than a change in the screen showing the balance. A user can connect a new device, choose a new PIN, and see familiar assets without changing that authority at all. Those visible setup steps therefore cannot, by themselves, demonstrate that a potentially exposed credential has been retired."
+      ],
+      "sourceUrls": [
+        "https://www.yna.co.kr/amp/view/AKR20260916154200002",
+        "https://store.dcentwallet.com/blogs/post/faq-dcent-app",
+        "https://trezor.io/guides/trezor-devices/trezor-fundamentals/moving-to-trezor-from-another-wallet",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys"
+      ]
+    },
+    {
+      "heading": "Updating the app and replacing exposed keys solve different problems",
+      "paragraphs": [
+        "[Company instructions, independently reported] DCENT’s migration guide tells affected users to update the official app before sending, swapping, or signing. Its published minimum is version 10.0.0 for Android and iOS. CryptoTicker’s September 17 report also records that sequence and version requirement. Follow the current official-store instructions rather than installation files delivered through private messages.",
+        "The next step in DCENT’s guidance is a transfer to newly created wallet addresses, using a new recovery phrase when setting up hardware. Trezor independently recommends fresh wallet creation and an actual transfer when moving from another wallet. Restoring the old backup is a recovery operation, which reproduces access to the existing wallet instead of establishing an independent destination.",
+        "[Analysis] These are two separate completion tests. An update changes the software handling the next instruction. A new destination changes the credentials controlling the transferred balance. Passing the first test provides no evidence that the second happened. A screenshot of an updated version is consequently a poor incident-closure record unless it is accompanied by evidence of the new destination and completed receipt."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/faq-dcent-app",
+        "https://store.dcentwallet.com/blogs/post/how-to-move-assets-from-dcent-app-wallet",
+        "https://cryptoticker.io/en/dcent-app-wallet-withdraw-funds/",
+        "https://trezor.io/guides/trezor-devices/trezor-fundamentals/moving-to-trezor-from-another-wallet"
+      ]
+    },
+    {
+      "heading": "XRP destination tags make receipt a separate checkpoint",
+      "paragraphs": [
+        "[Confirmed mechanism] An XRP receiving address can belong to an exchange that allocates deposits among customers using destination tags. XRP Ledger documentation describes that routing role, and Coinbase’s own help page requires the correct address and tag for deposits that use them. Coinbase warns that missing or incorrect details prevent credit to the correct customer account.",
+        "DCENT’s migration guide recommends a small test transfer and confirmation before the remaining transfer. Trezor’s migration guidance independently uses the same test-first sequence. For an exchange destination, the useful confirmation is that the intended account receives the credit. For self-custody, verify the receiving address through the destination wallet’s trusted process and confirm the transaction there.",
+        "[Analysis] Record the network, receiving address, any required tag, transaction identifier, and receiving-side result. A transaction appearing on a ledger and a customer balance being credited answer different questions. This distinction helps an affected holder avoid turning a security response into an additional deposit-reconciliation problem. Obtain destination details directly from the receiving service, and do not invent a tag when its instructions are unclear."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/how-to-move-assets-from-dcent-app-wallet",
+        "https://trezor.io/guides/trezor-devices/trezor-fundamentals/moving-to-trezor-from-another-wallet",
+        "https://help.coinbase.com/en-gb/coinbase/trading-and-funding/sending-or-receiving-cryptocurrency/destination-tag-memo-faq",
+        "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags"
+      ]
+    },
+    {
+      "heading": "Public XRP transfers cannot settle the root-cause investigation",
+      "paragraphs": [
+        "[Independent analysis] XRPL.to’s reconstruction describes ordinary XRP payments in the September 15 drain. It explicitly explains that ledger records show the actions performed with signing keys, while not revealing how those keys were obtained. Its report also cautions that the transactions do not themselves identify the wallet application. DCENT’s own notice supplies the App Wallet connection.",
+        "XRP Ledger documentation supports that distinction: the network validates signatures associated with authorized keys. That is not a judgment about whether a human intended a payment. An accepted transaction can therefore be consistent with compromised signing authority without demonstrating an exploit of the ledger’s consensus or payment rules.",
+        "[Unresolved uncertainty] This article does not certify the complete loss total, affected population, attacker identity, or a specific exploit path. DCENT’s latest report keeps technical investigation open, while XRPL.to’s on-chain reconstruction has a different evidentiary scope. Connecting those records requires forensic evidence beyond transaction timing. A wallet-design observation or a cluster of transfers should not be promoted into a proven cause merely because it offers a plausible explanation."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/app-wallet-incident-report",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+        "https://xrpl.to/insights/dcent-app-wallet-drain-timeline"
+      ]
+    },
+    {
+      "heading": "A migration record should follow credentials and remaining balances",
+      "paragraphs": [
+        "[Analysis] A useful personal response record groups assets by the wallet credentials that control them. Start with the potentially affected wallet, then list the destinations and completed transfers. Avoid recording recovery words, private keys, or PINs in that worksheet. Public addresses and transaction identifiers are enough to reconcile the movements without creating another copy of the secret.",
+        "The distinction matters when a person has restored one backup into several interfaces. Those interfaces can provide multiple views of the same control relationship. DCENT warns about this shared-phrase situation, while Trezor’s migration documentation explains why a newly generated backup is the relevant change. Renaming accounts or deleting a wallet entry does not demonstrate that assets have moved.",
+        "For affected readers, completion means checking the assets still controlled by the old wallet, confirming intended receipts, and keeping the fresh backup offline. This is an analytical checklist, not a guarantee against every wallet risk. Preserve the original transaction records for support or investigation, and keep the old and new backup records distinguishable until the response is reconciled."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/faq-dcent-app",
+        "https://store.dcentwallet.com/blogs/post/how-to-move-assets-from-dcent-app-wallet",
+        "https://trezor.io/guides/trezor-devices/trezor-fundamentals/moving-to-trezor-from-another-wallet",
+        "https://xrpl.org/docs/concepts/accounts/cryptographic-keys"
+      ]
+    },
+    {
+      "heading": "Official recovery guidance still needs independently verifiable outcomes",
+      "paragraphs": [
+        "[Confirmed precautions] DCENT says it will not request recovery phrases or private keys or direct users to a separate recovery or compensation wallet. Yonhap independently reported its warning against private-message addresses and unverified instructions. Trezor’s security guidance likewise identifies impersonated support and fake backup-entry websites as ways people lose control of wallet credentials.",
+        "[Analysis] An incident creates a specific verification burden: a message can correctly describe a real warning while supplying a fraudulent destination. Verify the communication channel separately from the facts in the message. A legitimate article about the incident does not authenticate a private contact claiming to help, and a successful small transfer to an attacker-controlled address would not make that destination legitimate.",
+        "[Unresolved uncertainty] The records reviewed do not establish a guaranteed recovery outcome for an individual holder. DCENT’s status report describes ongoing work whose results depend on third parties. Treat any later recovery claim as a new assertion requiring evidence of the specific funds, custody status, and actual return, rather than assuming that tracing a transaction completes recovery."
+      ],
+      "sourceUrls": [
+        "https://store.dcentwallet.com/blogs/post/app-wallet-incident-report",
+        "https://www.yna.co.kr/amp/view/AKR20260916154200002",
+        "https://trezor.io/support/troubleshooting/trezor-suite-issues/funds-sent-without-your-authorization",
+        "https://xrpl.to/insights/dcent-app-wallet-drain-timeline"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "DCENT’s next dated incident report: whether independent forensic evidence corroborates its historical-signing and app-version eligibility boundary.",
+    "Changes to the official address checker or eligibility instructions, especially how inconclusive results should be handled.",
+    "A technical postmortem that distinguishes observed XRP transfers from a demonstrated route to unauthorized signing authority.",
+    "For an affected wallet, confirmed receiving-side credit and reconciliation of assets still controlled by the old recovery phrase.",
+    "Evidence identifying funds actually frozen or returned, with custody and timing details rather than a general tracing claim."
+  ],
+  "sources": [
+    {
+      "name": "DCENT: September 17 App Wallet incident status report",
+      "url": "https://store.dcentwallet.com/blogs/post/app-wallet-incident-report",
+      "type": "primary",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "name": "Yonhap: DCENT investigates abnormal App Wallet asset transfers",
+      "url": "https://www.yna.co.kr/amp/view/AKR20260916154200002",
+      "type": "supporting",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "DCENT: App Wallet security FAQ",
+      "url": "https://store.dcentwallet.com/blogs/post/faq-dcent-app",
+      "type": "primary",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "DCENT: App Wallet asset migration guide",
+      "url": "https://store.dcentwallet.com/blogs/post/how-to-move-assets-from-dcent-app-wallet",
+      "type": "primary",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "CryptoTicker: recovery phrase and withdrawal guidance",
+      "url": "https://cryptoticker.io/en/dcent-app-wallet-withdraw-funds/",
+      "type": "supporting",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "name": "Trezor: moving from another wallet",
+      "url": "https://trezor.io/guides/trezor-devices/trezor-fundamentals/moving-to-trezor-from-another-wallet",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger: cryptographic keys",
+      "url": "https://xrpl.org/docs/concepts/accounts/cryptographic-keys",
+      "type": "primary"
+    },
+    {
+      "name": "Coinbase: destination tags and memos",
+      "url": "https://help.coinbase.com/en-gb/coinbase/trading-and-funding/sending-or-receiving-cryptocurrency/destination-tag-memo-faq",
+      "type": "supporting"
+    },
+    {
+      "name": "XRP Ledger: source and destination tags",
+      "url": "https://xrpl.org/docs/concepts/transactions/source-and-destination-tags",
+      "type": "primary"
+    },
+    {
+      "name": "XRPL.to: independent XRP drain reconstruction",
+      "url": "https://xrpl.to/insights/dcent-app-wallet-drain-timeline",
+      "type": "supporting",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "DCENT: September 17 action eligibility notice",
+      "url": "https://store.dcentwallet.com/blogs/post/check-if-app-wallet-action-applies",
+      "type": "primary",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "name": "Trezor: funds sent without authorization",
+      "url": "https://trezor.io/support/troubleshooting/trezor-suite-issues/funds-sent-without-your-authorization",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/xrp-wallets",
+      "label": "XRP wallets and custody options"
+    },
+    {
+      "href": "/best/hardware-wallets-for-xrp",
+      "label": "XRP hardware wallet considerations"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "How XRP and the XRP Ledger work"
+    },
+    {
+      "href": "/news/xrph-wallet-breach-key-exposure-investigation",
+      "label": "XRPH wallet incident: separating key exposure from root cause"
+    }
+  ]
+}
