@@ -1,0 +1,211 @@
+{
+  "slug": "ripple-mpp-xrp-session-funding-spending",
+  "title": "Ripple's MPP Update Adds XRP Sessions With Separate Funding and Spending",
+  "description": "RippleX adds XRP payment sessions to its AI Starter Kit. Businesses must distinguish committed XRP, authorized charges and settlement; RLUSD sessions remain pending.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-09-18T21:02:46+00:00",
+  "modifiedAt": "2026-09-18T21:02:46+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/mpp-metered-piston-session-budget-editorial.webp",
+  "imageAlt": "A cobalt glass dispenser with a pale-gold pump stands beside an ivory saucer holding a small blue pool on an ivory stone block.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "mpp-metered-piston-perfumer-dispensing-block",
+  "imageSetting": "An ivory-stone perfumer dispensing block against a warm textured ivory wall, viewed from an elevated front-left angle. Clear neutral daylight and a warm horizontal reflection along the front edge light a compact bottle-and-saucer stagger in the lower left, with broad empty upper-right space.",
+  "imageMetaphor": "A partly filled cobalt glass dispenser with a pale-gold metering pump stands beside an ivory saucer containing one small blue pool. A finite stored supply and a small separately dispensed amount distinguish XRP committed to a payment session from XRP actually spent, without depicting adoption or guaranteed efficiency.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: finished AllAboutXRP editorial illustration, exact cinematic 16:9 landscape, 1680 by 945 if available. Create one sparse, physically believable symbolic still life about prepaid XRP payment sessions separating funds reserved from funds dispensed. Exactly two objects on a broad matte ivory stone perfumer dispensing block: (1) one squat translucent cobalt glass liquid dispenser partly filled with water-blue liquid, fitted with a physically credible pale-gold spring metering pump, internal dip tube, and short downturned spout; (2) one small shallow ivory porcelain saucer beside it containing a small settled pool of blue liquid. The pump is at rest and all liquid is inside the bottle or saucer. No floating drops. No hand. Two objects count the pump as integrated bottle assembly. Bottle at lower left and saucer just right and slightly forward, compact stagger occupying only the lower-left 40 percent; broad uninterrupted warm ivory negative space above and right. View from a high 48-degree rear-left angle with clear view of the saucer and bottle sides. Neutral morning skylight plus one narrow warm horizontal reflection from unseen brushed brass along the front stone edge, crisp cobalt contact shadows. This perfumer dispensing setting, integrated piston dispenser primary object, small dispensed pool metaphor, compact stagger and brass-bounce lighting differ from all registered scenes. Luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, warm ivory, pale gold, selective saturated cobalt, distinct glass and metal and stone. Very sparse painterly texture, not photographic. Extremely subtle 1/0/x stipple is permitted only within one small shadow transition, invisible at thumbnail; no all-over ASCII or dither. Style-only reference roles: first homepage hero controls paint/palette, remaining Sublime Classical Oil images control paint clarity and material modeling only; ignore all reference subjects and compositions. Constraints: exactly two objects, physically believable dispenser, negative space, no readable text, no logo, no coins, no people, no architecture, no buildings, no ruins, no Greek cities, no landscapes, no dashboards, no cyber cubes, no frames, no watermark, no heavy grain, no sepia, no all-over texture. Do not reproduce a burette, funnel, glass bell jar, wick burner, carbon-paper stylus, gear, capstan, or any prior editorial object set.",
+  "keywords": [
+    "XRP",
+    "XRP Ledger",
+    "RippleX",
+    "Machine Payments Protocol",
+    "XRPL AI Starter Kit",
+    "XRP payment channels",
+    "RLUSD",
+    "Open Wallet Standard"
+  ],
+  "keyTakeaways": [
+    "RippleX’s v1.1 kit adds an XRPL settlement method for MPP. It does not establish that Stripe merchants accept XRP. [1][2][7]",
+    "Current MPP sessions use XRP payment channels. Single-payment support also includes issued assets such as RLUSD and Multi-Purpose Tokens. [2][3][8]",
+    "A session budget must distinguish XRP committed, spending authorized and XRP redeemed. CoinDesk reports no disclosed commercial customers or volume for this beta integration. [2][4][5]"
+  ],
+  "sections": [
+    {
+      "heading": "What RippleX’s MPP release changes for XRP payments",
+      "paragraphs": [
+        "RippleX’s updated XRPL AI Starter Kit lets developers build ongoing XRP payment sessions through the Machine Payments Protocol. Businesses can reserve XRP once and authorize charges as software consumes services. Funding, authorized spending and settlement are separate amounts. RLUSD supports single payments, while stablecoin sessions remain dependent on a proposed upgrade. [1][2][3]",
+        "The official developer post was published September 15, 2026 and edited September 16. CoinDesk independently reported the release September 17. The important business change is the option to authorize repeated purchases against prepaid XRP rather than initiate an ordinary transfer for each purchase. That changes the questions a finance team should ask before letting an agent spend. [1][2]",
+        "Analysis: the useful comparison is between two purchasing arrangements for the same workload. How much money must be committed before work starts, how much can the agent authorize, and when does the supplier receive it? A faster payment interaction can still require careful cash allocation. The release establishes new tooling; it does not answer those operating questions for a particular business."
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/the-xrp-ledger-ai-starter-kit-v11-open-standards-not-an-island-358k",
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://mpp.dev/payment-methods/xrpl"
+      ]
+    },
+    {
+      "heading": "MPP compatibility does not establish Stripe merchant acceptance",
+      "paragraphs": [
+        "Stripe’s March 18 announcement describes MPP as an open payment standard co-authored with Tempo. RippleX has supplied an XRP Ledger settlement implementation for that standard. CoinDesk corroborates the connection, but neither this compatibility nor the shared protocol name proves that an existing Stripe merchant account can automatically receive XRP through its ordinary checkout. [1][2][7]",
+        "MPP provides a way for software to encounter a payment request while asking for an online resource. The XRPL documentation distinguishes a charge, meaning a single on-ledger payment, from a session, which uses payment-channel vouchers. CryptoDaily separately reports that both modes are available with different asset limits. [3][8]",
+        "Analysis: procurement should ask a service provider to identify the actual payment method it supports. A supplier accepting another MPP method has not necessarily enabled XRPL. A compatibility label is therefore a starting point for integration review, not a substitute for the supplier’s acceptance terms, pricing unit or supported asset."
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/the-xrp-ledger-ai-starter-kit-v11-open-standards-not-an-island-358k",
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://mpp.dev/payment-methods/xrpl",
+        "https://stripe.com/blog/machine-payments-protocol",
+        "https://cryptodaily.co.uk/2026/09/ripple-xrp-rlusd-stripe-tempo-mpp-ai-agent-standard"
+      ]
+    },
+    {
+      "heading": "XRP sessions create three balances that should not be confused",
+      "paragraphs": [
+        "XRPL’s payment-channel documentation describes XRP being set aside while the payer issues signed claims that a recipient can verify without a ledger transaction. The recipient obtains XRP by redeeming a claim through the ledger. CoinDesk’s independent account likewise describes depositing XRP, authorizing incremental spending and collecting the accumulated payment separately. [2][4]",
+        "The SDK describes the vouchers as cumulative. A later voucher records the total authorization reached, not an additional bill equal to that whole total. Analysis: a finance view should therefore show the funded amount, latest authorized total and already redeemed amount side by side. Adding successive voucher totals together would misstate the amount authorized. [3][5]",
+        "Consider an illustrative session funded with 10 XRP. Suppose three requests raise cumulative authorization to 0.01 XRP, then 0.03 XRP, then 0.06 XRP. The requests have authorized 0.06 XRP altogether, not 0.10 XRP. If the recipient has redeemed 0.02 XRP, another 0.04 XRP remains authorized but unredeemed, while 9.94 XRP remains committed to the channel but has not been authorized for spending.",
+        "These are hypothetical figures, not observed payments or current service prices. The example excludes transaction fees and account reserves. Its purpose is to expose an accounting distinction: the initial 10 XRP commitment, the 0.06 XRP purchasing authorization and the 0.02 XRP collection answer different questions. The authorization record and ledger record need reconciliation before anyone reports a spending total. [3][4][5]"
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://mpp.dev/payment-methods/xrpl",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://github.com/ripple/xrpl-mpp-sdk"
+      ]
+    },
+    {
+      "heading": "Prepaid XRP changes the business budget before it changes the bill",
+      "paragraphs": [
+        "Inference: a business that funds several supplier sessions can commit more XRP than its agents have actually consumed. A low service bill would not, by itself, establish that the arrangement uses working capital efficiently. The funded balance matters because the payment-channel mechanism sets assets aside in advance; the purchasing authorization determines how much of that capacity has been used. [2][4]",
+        "For example, a team evaluating a data service should choose an explicit initial allocation and a rule for replenishment. It should also decide who can increase the budget while an agent is running. A cap that applies only to one request may leave a long sequence of individually acceptable requests above the business’s intended total. These are proposed controls, not claims about defaults supplied by the kit.",
+        "Analysis: compare sessions and individual payments using the same service volume and accounting period. Include the balance committed, fees actually paid, staff time spent on reconciliation and the process for ending an unused session. A promise of many small interactions does not establish a lower total operating cost. No production cost comparison for this integration is established in the reviewed reporting. [2][3]"
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://mpp.dev/payment-methods/xrpl",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels"
+      ]
+    },
+    {
+      "heading": "RLUSD and XRP currently offer different MPP choices",
+      "paragraphs": [
+        "The MPP XRPL reference lists XRP, issued currencies and Multi-Purpose Tokens for charges, but XRP alone for sessions. CryptoDaily corroborates that RLUSD’s single-payment support does not yet extend to channel sessions. That is an asset-and-payment-mode distinction, not a claim that RLUSD is unavailable on the XRP Ledger. [3][8]",
+        "Analysis: a company budgeting in dollars should decide whether its priority is a dollar-denominated payment asset or the current session mechanism. Choosing XRP sessions also requires a policy for valuing XRP against the company’s reporting currency. A fixed XRP authorization cap is not itself a fixed dollar spending cap. No XRP price snapshot is needed to explain that difference.",
+        "Unresolved uncertainty: extending channels to issued assets depends on a proposed ledger change, and the reviewed release does not supply a confirmed availability date for RLUSD sessions. Businesses should evaluate the supported combination today and treat a future stablecoin session as a separate capability requiring fresh verification. [1][8]"
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/the-xrp-ledger-ai-starter-kit-v11-open-standards-not-an-island-358k",
+        "https://mpp.dev/payment-methods/xrpl",
+        "https://cryptodaily.co.uk/2026/09/ripple-xrp-rlusd-stripe-tempo-mpp-ai-agent-standard"
+      ]
+    },
+    {
+      "heading": "Wallet authorization and supplier collection need separate owners",
+      "paragraphs": [
+        "The same release adds Open Wallet Standard support. XRPL’s wallet documentation describes policy-gated signing, and CoinDesk independently reports controls such as spending limits and approved destinations. Keeping private keys behind a signing interface is a different responsibility from deciding how much XRP to allocate to a payment channel or when a supplier collects it. [2][6]",
+        "Analysis: assign an owner to each decision. The buyer defines permitted suppliers, budget increases and the circumstances for stopping an agent. The service operator tracks what it has accepted and what it has redeemed. An internal reviewer reconciles the two records. None of those responsibilities disappears merely because the agent does not directly handle a private key.",
+        "The SDK documentation emphasizes that collection is the server operator’s responsibility; a voucher is not an on-ledger receipt. This agrees with the ledger documentation’s distinction between claims and redemption and CoinDesk’s description of deferred collection. Practical review should ask who monitors outstanding authorized amounts and how collection is recovered after an interruption. This report has not tested a production deployment. [2][4][5]"
+      ],
+      "sourceUrls": [
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+        "https://github.com/ripple/xrpl-mpp-sdk",
+        "https://xrpl.org/docs/agents/xrpl-agent-wallet-skill"
+      ]
+    },
+    {
+      "heading": "What would demonstrate a useful XRP payment service",
+      "paragraphs": [
+        "Confirmed limitation: CoinDesk reports that the payment software remains in beta and that Ripple’s announcement names no commercial MPP customers or payment volume. Those omissions prevent an adoption conclusion. They do not prove that no one is experimenting with the tools, and they should not be converted into a forecast for XRP demand. [1][2]",
+        "Analysis: a useful pilot would report the service purchased, the asset and payment mode used, funded XRP, authorized XRP, redeemed XRP and the remaining balance at closure. It would also record failures and recovery effort. This is a proposed evaluation framework, not an existing industry dataset or an assertion that a successful pilot has occurred.",
+        "For developers, the release opens a concrete integration path to test. For finance teams, the central question is whether its funding and control requirements fit the workload. For XRP holders, credible evidence would be repeat use with transparent settlement records and identifiable commercial terms. A release announcement establishes availability of tooling; durable economic demand requires separate evidence. [2][3][5]"
+      ],
+      "sourceUrls": [
+        "https://dev.to/ripplexdev/the-xrp-ledger-ai-starter-kit-v11-open-standards-not-an-island-358k",
+        "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+        "https://mpp.dev/payment-methods/xrpl",
+        "https://github.com/ripple/xrpl-mpp-sdk"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A stable SDK release with documented compatibility and independent testing beyond the current beta.",
+    "Named service providers specifying XRPL MPP acceptance, supported assets and actual commercial terms.",
+    "Pilot disclosures separating funded XRP, cumulative authorization, redeemed XRP and balances remaining at closure.",
+    "Operational evidence for budget enforcement, replenishment approval and collection after interruptions.",
+    "Official amendment and release records that establish when issued-asset channels can support RLUSD sessions."
+  ],
+  "sources": [
+    {
+      "name": "RippleX: XRPL AI Starter Kit v1.1 (edited September 16, 2026)",
+      "url": "https://dev.to/ripplexdev/the-xrp-ledger-ai-starter-kit-v11-open-standards-not-an-island-358k",
+      "type": "primary",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "CoinDesk: XRP added to Stripe and Tempo’s MPP standard",
+      "url": "https://www.coindesk.com/tech/2026/09/17/ripple-adds-xrp-payments-to-stripe-and-tempo-s-ai-standard-in-new-developer-kit",
+      "type": "supporting",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "name": "MPP documentation: XRP Ledger payments",
+      "url": "https://mpp.dev/payment-methods/xrpl",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger documentation: Payment Channels",
+      "url": "https://xrpl.org/docs/concepts/payment-types/payment-channels",
+      "type": "primary"
+    },
+    {
+      "name": "Ripple: xrpl-mpp-sdk implementation and channel lifecycle",
+      "url": "https://github.com/ripple/xrpl-mpp-sdk",
+      "type": "primary"
+    },
+    {
+      "name": "XRP Ledger documentation: XRPL Agent Wallet",
+      "url": "https://xrpl.org/docs/agents/xrpl-agent-wallet-skill",
+      "type": "primary"
+    },
+    {
+      "name": "Stripe: Introducing the Machine Payments Protocol",
+      "url": "https://stripe.com/blog/machine-payments-protocol",
+      "type": "primary",
+      "publishedAt": "2026-03-18"
+    },
+    {
+      "name": "CryptoDaily: Ripple adds XRP and RLUSD payments to MPP",
+      "url": "https://cryptodaily.co.uk/2026/09/ripple-xrp-rlusd-stripe-tempo-mpp-ai-agent-standard",
+      "type": "supporting",
+      "publishedAt": "2026-09-17"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-ai-payments-merchant-settlement-verification",
+      "label": "How merchants verify AI payment delivery",
+      "topic": "Merchant operations",
+      "description": "Connect a payment record with the service that was actually delivered."
+    },
+    {
+      "href": "/news/xrpl-tokenpaychan-iou-mpt-payment-channels",
+      "label": "The proposal to extend channels beyond XRP",
+      "topic": "Protocol development",
+      "description": "Understand the separate proposed route for issued assets and MPTs."
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "How XRP and the XRP Ledger fit together",
+      "topic": "XRP fundamentals",
+      "description": "Review the native asset, transaction network and settlement roles."
+    },
+    {
+      "href": "/news/ripple-gsmart-treasury-ai-human-approval",
+      "label": "Where human approval fits in treasury AI",
+      "topic": "Financial controls",
+      "description": "Compare payment execution with the approval boundary in treasury workflows."
+    }
+  ]
+}
