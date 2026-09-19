@@ -1,0 +1,181 @@
+{
+  "slug": "xrpl-3-4-0-package-migration-operator-verification",
+  "title": "XRPL 3.4.0 Moves Linux Packages to XRPLF: What Operators Need to Verify",
+  "description": "XRP Ledger 3.4.0 changes Linux package hosting and signing. Operators need separate evidence of trusted software, a running upgrade and amendment readiness.",
+  "category": "XRP Ledger",
+  "publishedAt": "2026-09-19T21:04:58+00:00",
+  "modifiedAt": "2026-09-19T21:04:58+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrplf-signed-dispatch-resonance-editorial.webp",
+  "imageAlt": "A cobalt cylindrical case with a gold crimp band sits beside a gold tuning fork on ivory stone, with a small vermilion pottery shard set apart.",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrplf-signed-dispatch-resonance-courier-ledge",
+  "imageSetting": "An enclosed polished ivory-stone courier inspection ledge against a seamless warm ivory wall, with broad honey-colored reflected light and narrow cool contact shadows; viewed from a slightly elevated front close angle, with the case and fork lower-left and a small shard set apart to their right beneath broad empty space.",
+  "imageMetaphor": "The sealed dispatch case represents a package arriving through the new trusted source, with the intact crimp band representing verifiable provenance. The separate tuning fork represents checking that the installed server is actually running and healthy. The distant ballot shard shows that amendment voting remains a separate evidence track.",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: create one sparse, physically believable three-object still life about trusted XRPL Linux package delivery and separate post-install verification. On a bare ivory-stone courier proofing ledge beneath a natural chalk overhang after frost, place exactly one cobalt glazed cylindrical dispatch case with one integral pale-gold crimp band, exactly one small pale-gold two-prong tuning fork standing on its own ivory foot beside it, and exactly one small unmarked vermilion pottery ballot shard far away in the upper-right. The sealed case represents a package arriving through the new trusted repository and its intact crimp band represents verified signing provenance. The tuning fork represents checking that the installed server is actually running and healthy. The distant shard shows that amendment voting is a separate evidence track. Use a low rear-right macro viewpoint, hold the case and fork in the lower-left, and leave most of the ivory stone untouched between them and the shard. Light the scene with a cool moonset reflection after frost and one thin pale-gold pre-sunrise rim. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine shadows, warm ivory stone, pale-gold metal, one restrained vermilion accent, extraordinary atmospheric clarity. Fine translucent 1, 0, and x marks may appear only inside two small shadow transitions and must dissolve into the negative space. Preserve exactly three objects and physically credible contact. No readable text, numbers, logo, coin, token, literal key, keyway, seal press, package label, dashboard, screen, chart, building, column, arch, ruin, city, harbor, border, watermark, rounded frame, cyberpunk neon, photographic realism, sepia, muddy gray, coarse halftone, retro pixel art, or all-over ASCII. Input images: first is the AllAboutXRP homepage hero; remaining three are Sublime Classical Oil style references only. Borrow palette, light, material finish and crisp paint handling, never scenery, people, animals or composition. The objects must be the sole subject and no overhang should obscure the broad blank ivory field. Deliver a 16:9 landscape image at 1680 by 945 pixels or larger. Revision: retain exactly the cobalt cylinder with crimp band, the gold tuning fork on its ivory foot, and the isolated small vermilion pottery shard. Remove ALL landscape, sky, moon, water, horizon, mountains, cave and rock overhang. Place the same three objects on a perfectly smooth honed ivory stone slab against a seamless warm ivory studio wall. No frost crystals, rough rocks or dramatic environment. Use the predawn color temperature only as abstract studio illumination. Make 65 percent of the image clean empty warm ivory negative space. Preserve oil modeling and material fidelity. The tabletop has no visible cliff edge. Sparse still life is mandatory.",
+  "keywords": [
+    "XRP Ledger",
+    "xrpld 3.4.0",
+    "XRP Ledger Foundation",
+    "Linux package signing",
+    "XRPL node operators"
+  ],
+  "keyTakeaways": [
+    "XRPL's September 16 release moves DEB and RPM distribution to packages.xrplf.org with an XRP Ledger Foundation signing key.",
+    "A trusted package and an upgraded running server require different evidence: preserve the package verification result, then inspect the server's reported version and ledger state.",
+    "Installing 3.4.0 does not by itself activate its new amendments. Operators should track operational readiness separately from validator voting."
+  ],
+  "sections": [
+    {
+      "heading": "What changed for XRP Ledger server operators",
+      "paragraphs": [
+        "XRP Ledger version 3.4.0 moves Linux package distribution to packages.xrplf.org with an XRP Ledger Foundation signing key. Operators should verify the software's provenance, confirm the upgraded process is running and check service health separately. Installing the release does not itself activate its proposed amendments or demonstrate network-wide adoption.",
+        "The official release notice is dated September 16, 2026. Crypto.news independently reported the package move and upgrade request on September 18. That creates a practical maintenance question for exchanges, custodians and infrastructure providers: what evidence closes an upgrade ticket when both the software version and its distribution arrangements change? A successful download answers only part of that question.",
+        "This is a source-led operator explainer, not a claim that an outage has occurred. The immediate development is the published release and distribution change. The analysis below proposes an acceptance record for a maintenance team. It does not report a production rollout performed by AllAboutXRP, a measured failure rate or a deadline beyond the official request to upgrade promptly."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.4.0",
+        "https://crypto.news/xrp-ledger-3-4-0-adds-lending-and-protocol-fixes/"
+      ]
+    },
+    {
+      "heading": "XRPLF package provenance needs its own acceptance record",
+      "paragraphs": [
+        "The XRP Ledger Foundation's distribution domain and signing key belong in the change record alongside the intended version. For Debian-based systems, XRPL's current update instructions explicitly include adding the foundation's key, checking its fingerprint and configuring the repository with a signed-by reference. Debian's APT documentation independently explains how that reference associates a repository with its authentication key.",
+        "Analysis: before approving a production change, ask the operator to preserve the configured repository location, the key fingerprint checked against the official instructions, and the package manager's authentication result. A screenshot showing a familiar filename is weaker evidence because the filename does not identify who authorized the downloaded contents. Treat an unexplained key mismatch as an unresolved provenance problem rather than making the installation succeed by bypassing verification.",
+        "A useful handoff makes the expected state explicit before execution. Record which machine or deployment image is being changed, which package source it is intended to use and who reviewed the migration. That turns an ambiguous instruction to update XRPL into a testable maintenance task. These are suggested controls, not a claim that any particular exchange currently lacks them."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/infrastructure/installation/update-xrpld-manually-on-ubuntu",
+        "https://manpages.debian.org/trixie/apt/apt-secure.8.en.html",
+        "https://crypto.news/xrp-ledger-3-4-0-adds-lending-and-protocol-fixes/"
+      ]
+    },
+    {
+      "heading": "A package signature is an origin check, not a security audit",
+      "paragraphs": [
+        "Debian's apt-secure manual describes an authentication chain built through signed repository metadata and package checksums. It also draws an important boundary: trusting an archive's maintainer does not establish that every package is free of malicious code. Archive authentication does not defend against every compromise of the signing key or the signing infrastructure. That independent reference helps interpret XRPLF's package-signing announcement without overstating its protection.",
+        "Analysis: the maintenance record should keep provenance and software assurance as separate questions. Provenance asks whether the package came through the expected authenticated distribution process. Assurance asks what review, testing and operational observation support using that code. Passing the first check should not silently answer the second. Equally, a clean staging test cannot establish the origin of a different file later installed in production.",
+        "Consider a hypothetical team whose staging environment uses the intended package source but whose production image still points elsewhere. An engineer's statement that staging passed would leave the production artifact unresolved. The appropriate next step is to reconcile the two environments' recorded inputs. This example illustrates a review gap; it is not evidence that the XRPLF repository or a customer system has been compromised."
+      ],
+      "sourceUrls": [
+        "https://manpages.debian.org/trixie/apt/apt-secure.8.en.html",
+        "https://xrpl.org/blog/2026/xrpld-3.4.0"
+      ]
+    },
+    {
+      "heading": "Verify the running xrpld process and the ledger it serves",
+      "paragraphs": [
+        "XRPL's manual update procedure includes reloading service definitions and restarting the service after the package upgrade. For the runtime check, the official server_info reference identifies build_version as the version of the running server and exposes server_state and validated_ledger. QuickNode's independently maintained XRPL API documentation also lists those response fields. They provide a better basis for a completion record than an installation log alone.",
+        "Analysis: collect the intended version and the running version as separate entries, then examine whether the endpoint is serving current validated ledger information. Record the observation time and the specific endpoint tested. If an application uses several backends, a response from one backend should only support a conclusion about that backend. A successful sample should not become a claim that every server behind the application has been upgraded.",
+        "The acceptance question should include the user's workflow. An exchange infrastructure team might check its ledger-reading and transaction-status paths against its staging expectations; a wallet backend team might examine the responses its application actually consumes. Those are proposed tests, not published performance benchmarks. Uncertainty: this reporting has not measured customer endpoint health, restart duration or the fraction of production servers already running 3.4.0."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/docs/infrastructure/installation/update-xrpld-manually-on-ubuntu",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/server_info",
+        "https://www.quicknode.com/docs/xrpl/server_info-rippled"
+      ]
+    },
+    {
+      "heading": "Keep XRPL software readiness separate from amendment decisions",
+      "paragraphs": [
+        "The release introduces LendingProtocolV1_1 and fixCleanup3_4_0. XRPL's amendment documentation explains that transaction-rule changes use validator voting, with more than 80% support maintained for two weeks before activation. September 18 reporting from TronWeekly corroborates that installing the new server software does not itself activate these proposals. Software availability and a network rule becoming effective are different events.",
+        "Analysis: an operations ticket and an amendment decision should therefore have separate owners and evidence. The first asks whether the server can run the selected release and continue its assigned service. The second asks which rules an operator supports and what the network has actually enabled. Combining the two into a single green status can hide either an incomplete upgrade or an unexamined governance choice.",
+        "For readers evaluating XRP-related infrastructure, this distinction prevents an additional mistake: interpreting package migration as proof of new lending usage. Neither a repository change nor a version string measures loans originated, institutional demand or XRP purchased. This article makes no estimate of those outcomes. A future claim about usage would need transaction-level or other appropriate evidence beyond the release announcement."
+      ],
+      "sourceUrls": [
+        "https://xrpl.org/blog/2026/xrpld-3.4.0",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+        "https://www.tronweekly.com/xrp-ledger-releases-version-3-4-0-with-lending/"
+      ]
+    },
+    {
+      "heading": "What exchanges, custodians and XRP holders should ask next",
+      "paragraphs": [
+        "Analysis: a compact completion record can answer four practical questions: which authenticated artifact was selected, which process is now running, which application checks passed and which amendment decisions remain separate. Attach evidence to each answer rather than using one undifferentiated upgraded label. This approach makes it easier for the next operator to distinguish a package-source issue from a runtime or application issue.",
+        "For infrastructure customers, the useful question is whether the provider has completed and verified its maintenance, with a clear description of any affected service. An XRP holder who does not operate a server has a different role from the administrator receiving the upgrade instructions. The cited release addresses server software; it does not establish a need for holders to transfer XRP, change custody or transact because package hosting moved.",
+        "Uncertainty remains around deployment coverage and future amendment timing. The reviewed records do not supply a network-wide completion rate or justify predicting when every operator will finish. The measurable next milestone is narrower: a provider can publish or retain a dated record showing that its intended deployment passed provenance, runtime and service checks. That is the evidence this release makes worth requesting."
+      ],
+      "sourceUrls": [
+        "https://crypto.news/xrp-ledger-3-4-0-adds-lending-and-protocol-fixes/",
+        "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/server_info",
+        "https://www.quicknode.com/docs/xrpl/server_info-rippled",
+        "https://xrpl.org/docs/concepts/networks-and-servers/amendments"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "Official XRPLF release or installation updates that change the recommended package source, key or migration procedure.",
+    "Dated operator confirmation that the intended package source and signing identity were verified before deployment.",
+    "Post-maintenance evidence tying the running version and validated ledger observations to each application endpoint tested.",
+    "Provider incident reports or maintenance notices that identify actual service effects, rather than assuming an outage from the upgrade request.",
+    "Separate official amendment activation records before describing LendingProtocolV1_1 or fixCleanup3_4_0 rules as effective."
+  ],
+  "sources": [
+    {
+      "name": "XRP Ledger: Introducing version 3.4.0",
+      "url": "https://xrpl.org/blog/2026/xrpld-3.4.0",
+      "type": "primary",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Crypto.news: XRP Ledger 3.4.0 adds lending and protocol fixes",
+      "url": "https://crypto.news/xrp-ledger-3-4-0-adds-lending-and-protocol-fixes/",
+      "type": "supporting",
+      "publishedAt": "2026-09-18"
+    },
+    {
+      "name": "XRPL: Update manually on Ubuntu or Debian (living instructions)",
+      "url": "https://xrpl.org/docs/infrastructure/installation/update-xrpld-manually-on-ubuntu",
+      "type": "primary"
+    },
+    {
+      "name": "Debian APT: apt-secure manual (manual dated November 23, 2024)",
+      "url": "https://manpages.debian.org/trixie/apt/apt-secure.8.en.html",
+      "type": "supporting",
+      "publishedAt": "2024-11-23"
+    },
+    {
+      "name": "XRPL: server_info API reference (living documentation)",
+      "url": "https://xrpl.org/docs/references/http-websocket-apis/public-api-methods/server-info-methods/server_info",
+      "type": "primary"
+    },
+    {
+      "name": "QuickNode: server_info API reference (updated June 11, 2026)",
+      "url": "https://www.quicknode.com/docs/xrpl/server_info-rippled",
+      "type": "supporting",
+      "publishedAt": "2026-06-11"
+    },
+    {
+      "name": "XRPL: Amendment process (living documentation)",
+      "url": "https://xrpl.org/docs/concepts/networks-and-servers/amendments",
+      "type": "primary"
+    },
+    {
+      "name": "TronWeekly: XRPL 3.4.0 release and validator activation requirements",
+      "url": "https://www.tronweekly.com/xrp-ledger-releases-version-3-4-0-with-lending/",
+      "type": "supporting",
+      "publishedAt": "2026-09-18"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-340-b1-first-beta-not-stable-release",
+      "label": "Earlier 3.4.0 beta coverage and the stable-release boundary"
+    },
+    {
+      "href": "/news/xrpl-online-deletion-ledger-gap-guard",
+      "label": "Why XRPL online deletion pauses around ledger-history gaps"
+    },
+    {
+      "href": "/news/xrpl-lendingprotocol-v1-1-supported-develop",
+      "label": "LendingProtocol V1.1: code support versus activation"
+    },
+    {
+      "href": "/news/xrpl-peer-resilience-study-operator-deployment-test",
+      "label": "XRPL peer resilience and operator deployment evidence"
+    }
+  ]
+}
