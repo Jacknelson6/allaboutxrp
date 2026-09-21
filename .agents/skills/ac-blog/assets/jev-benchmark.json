@@ -1,0 +1,144 @@
+{
+  "description": "EXAMPLE FIXTURES. Small benchmark for the Jev screening decision layer, shaped after failure patterns found in a real comparison article (a claim that Peec lacked Actions while the official page listed them, an Otterly audit absence claim resting on a silent source, unsupported comparative superlatives, relevant vs irrelevant client links, uncertain evidence). Vendor names are placeholders and every sourceText is synthetic: nothing here is a statement about a real product. Offline, tests replay exampleAnswer (an illustrative Jev answer, not a recorded one) and assert `expected`. In a live run, compare the model's verdict with liveExpectation.",
+  "version": "2",
+  "profile": {
+    "clientId": "benchmark-client",
+    "canonicalDomain": "https://www.exampleclient.com",
+    "articleUrl": "https://www.exampleclient.com/blog/ai-visibility-tools-compared",
+    "approvedDomains": []
+  },
+  "cases": [
+    {
+      "id": "absent-feature-claim-vs-official-availability",
+      "pattern": "Peec actions: article said the feature was absent, the official page listed it.",
+      "kind": "claim",
+      "input": {
+        "id": "toolp-no-actions",
+        "claim": "ToolP does not offer an Actions feature.",
+        "quote": null,
+        "sourceText": "EXAMPLE FIXTURE, synthetic product page. ToolP Actions are available on all current plans. Actions turn visibility findings into recommended next steps for your team.",
+        "sourceUrl": "https://www.toolp.example/features/actions",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": { "choice": "contradicts", "probabilities": { "supports": 0.03, "contradicts": 0.92, "insufficient_evidence": 0.05 }, "confidence": 0.9 },
+      "expected": { "status": "manual_review", "reasons": ["verdict_contradicts"] },
+      "liveExpectation": "contradicts"
+    },
+    {
+      "id": "absence-claim-with-silent-source",
+      "pattern": "Otterly audit absence: the source never mentions audits, so it cannot prove their absence.",
+      "kind": "claim",
+      "input": {
+        "id": "toolo-no-audit",
+        "claim": "ToolO does not include a site audit.",
+        "quote": null,
+        "sourceText": "EXAMPLE FIXTURE, synthetic product page. ToolO monitors brand mentions in AI answers, tracks prompts over time, and sends a weekly summary email.",
+        "sourceUrl": "https://www.toolo.example/product",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": { "choice": "insufficient_evidence", "probabilities": { "supports": 0.06, "contradicts": 0.04, "insufficient_evidence": 0.9 }, "confidence": 0.88 },
+      "expected": { "status": "manual_review", "reasons": ["verdict_insufficient_evidence"] },
+      "liveExpectation": "insufficient_evidence"
+    },
+    {
+      "id": "unsupported-comparative-superlative",
+      "pattern": "A feature list does not support a most/best comparison.",
+      "kind": "claim",
+      "input": {
+        "id": "toolp-most-comprehensive",
+        "claim": "ToolP is the most comprehensive AI visibility platform available.",
+        "quote": null,
+        "sourceText": "EXAMPLE FIXTURE, synthetic product page. ToolP offers prompt tracking, competitor benchmarks, and team reporting.",
+        "sourceUrl": "https://www.toolp.example/product",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": { "choice": "insufficient_evidence", "probabilities": { "supports": 0.08, "contradicts": 0.02, "insufficient_evidence": 0.9 }, "confidence": 0.87 },
+      "expected": { "status": "manual_review", "reasons": ["verdict_insufficient_evidence"] },
+      "liveExpectation": "insufficient_evidence"
+    },
+    {
+      "id": "uncertain-evidence",
+      "pattern": "A leaning-supports answer with a flat distribution must go to a human.",
+      "kind": "claim",
+      "input": {
+        "id": "toolo-daily-refresh",
+        "claim": "ToolO refreshes tracked prompts every day.",
+        "quote": null,
+        "sourceText": "EXAMPLE FIXTURE, synthetic help article. ToolO refreshes tracked prompts on a regular schedule. Refresh frequency depends on your plan.",
+        "sourceUrl": "https://help.toolo.example/refresh-schedule",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": { "choice": "supports", "probabilities": { "supports": 0.48, "contradicts": 0.07, "insufficient_evidence": 0.45 }, "confidence": 0.31 },
+      "expected": { "status": "manual_review", "reasons": ["low_confidence"] },
+      "liveExpectation": "insufficient_evidence or low-confidence supports; either way manual review"
+    },
+    {
+      "id": "clean-supported-claim",
+      "pattern": "Control case: exact quote present and the source states the claim.",
+      "kind": "claim",
+      "input": {
+        "id": "toolp-competitor-benchmarks",
+        "claim": "ToolP includes competitor benchmarks.",
+        "quote": "competitor benchmarks",
+        "sourceText": "EXAMPLE FIXTURE, synthetic product page. ToolP offers prompt tracking, competitor benchmarks, and team reporting.",
+        "sourceUrl": "https://www.toolp.example/product",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": { "choice": "supports", "probabilities": { "supports": 0.95, "contradicts": 0.01, "insufficient_evidence": 0.04 }, "confidence": 0.93 },
+      "expected": { "status": "supported", "reasons": [] },
+      "liveExpectation": "supports"
+    },
+    {
+      "id": "quote-not-in-source",
+      "pattern": "Deterministic check: a quote that is absent from the source never reaches the model.",
+      "kind": "claim",
+      "input": {
+        "id": "toolo-uptime-quote",
+        "claim": "ToolO guarantees 99.99% uptime.",
+        "quote": "We guarantee 99.99% uptime for all customers.",
+        "sourceText": "EXAMPLE FIXTURE, synthetic status page. ToolO runs on cloud infrastructure and aims for high availability.",
+        "sourceUrl": "https://status.toolo.example/",
+        "sourceRetrievedAt": "2026-09-18"
+      },
+      "exampleAnswer": null,
+      "expected": { "status": "manual_review", "reasons": ["quote_not_found"], "requests": 0 },
+      "liveExpectation": "no request is sent"
+    },
+    {
+      "id": "relevant-vs-irrelevant-client-link",
+      "pattern": "Same-client pages: one deepens the paragraph, one only shares the domain. The irrelevant page is listed first so position mapping matters.",
+      "kind": "links",
+      "input": {
+        "id": "para-tracking",
+        "text": "Before you pick a tool, decide which prompts matter to your buyers and track how often your brand appears in the answers.",
+        "linkCandidates": [
+          { "url": "https://www.exampleclient.com/about/careers/", "title": "Careers", "snippet": "Join our team of marketing professionals." },
+          { "url": "https://www.exampleclient.com/services/ai-visibility-tracking/", "title": "AI Visibility Tracking", "snippet": "We choose the prompts your buyers ask and report how often your brand appears in AI answers." }
+        ]
+      },
+      "exampleAnswer": [
+        { "probabilities": { "0": 0.9, "1": 0.08, "2": 0.02, "3": 0 }, "confidence": 0.88 },
+        { "probabilities": { "0": 0.01, "1": 0.04, "2": 0.25, "3": 0.7 }, "confidence": 0.74 }
+      ],
+      "expected": { "status": "scored", "candidateStatuses": ["not_recommended", "recommended"], "shortlist": ["https://www.exampleclient.com/services/ai-visibility-tracking/"] },
+      "liveExpectation": "careers scores under 1, tracking service scores 2 or higher"
+    },
+    {
+      "id": "uncertain-link",
+      "pattern": "A high-looking score with a flat distribution is held for review with its evidence.",
+      "kind": "links",
+      "input": {
+        "id": "para-budget",
+        "text": "Budget matters too: most teams start on an entry plan and upgrade once reporting becomes a weekly habit.",
+        "linkCandidates": [
+          { "url": "https://www.exampleclient.com/blog/marketing-budget-template/", "title": "Marketing Budget Template", "snippet": "A spreadsheet template for planning annual marketing spend." }
+        ]
+      },
+      "exampleAnswer": [
+        { "probabilities": { "0": 0.2, "1": 0.2, "2": 0.2, "3": 0.4 }, "confidence": 0.18 }
+      ],
+      "expected": { "status": "manual_review", "candidateStatuses": ["manual_review"], "shortlist": [] },
+      "liveExpectation": "marginal; low confidence or a score under 2"
+    }
+  ]
+}

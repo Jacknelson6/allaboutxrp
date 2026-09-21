@@ -1,0 +1,7 @@
+interface:
+  display_name: "AC Blog"
+  short_description: "Source-backed blogs for different businesses"
+  default_prompt: "Use $ac-blog to plan, write, repair, audit, or QA a blog article for a client."
+
+policy:
+  allow_implicit_invocation: true

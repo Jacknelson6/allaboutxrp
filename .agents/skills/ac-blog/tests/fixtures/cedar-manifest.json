@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "articleSelector": "#guide",
+  "articleUrl": "https://cedar-example.test/guides/drip-irrigation/",
+  "requiredInternalLinks": [
+    "/guides/watering/"
+  ],
+  "brands": [],
+  "requiredSchemaTypes": [
+    "BlogPosting",
+    "Person",
+    "Organization",
+    "BreadcrumbList"
+  ]
+}

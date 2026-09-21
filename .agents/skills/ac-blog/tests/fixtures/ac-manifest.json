@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "articleSelector": ".post-main",
+  "articleUrl": "https://www.andersoncollaborative.com/best-ai-seo-tools-for-2026/",
+  "requiredInternalLinks": [
+    "/what-is-ai-seo/"
+  ],
+  "brands": [
+    {
+      "name": "RankPrompt",
+      "url": "https://rankprompt.com/",
+      "logoSrc": "/images/blog/best-ai-seo-tools/RankPrompt-Logo-Horizontal-Black-1024x238.png",
+      "screenshotSrc": "/images/blog/best-ai-seo-tools/rankprompt-dashboard.webp"
+    }
+  ],
+  "requiredSchemaTypes": [
+    "BlogPosting",
+    "BreadcrumbList"
+  ]
+}

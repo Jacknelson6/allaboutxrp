@@ -1,0 +1,73 @@
+{
+  "clientId": "example-client",
+  "brand": {
+    "name": "Example Business",
+    "logoUrl": null,
+    "primaryColor": "#2563EB"
+  },
+  "domain": "https://business.example",
+  "audience": "Describe the verified reader and the decision this article helps them make",
+  "voice": {
+    "tone": "Professional, approachable, evidence-driven",
+    "person": "second",
+    "readingLevel": "general business",
+    "notes": "Avoid jargon. Explain technical concepts with examples."
+  },
+  "author": null,
+  "source": {
+    "evidencePolicy": "All material claims must link to a primary or secondary source with a retrieval date. Vendor-stated claims are acceptable with attribution.",
+    "allowedSourceTiers": [
+      "primary",
+      "secondary",
+      "vendor-documentation"
+    ]
+  },
+  "assetPolicy": {
+    "brandLogos": "Use official logos from brand press kits or Brandfetch. No AI-generated logos.",
+    "screenshots": "Real UI captures with visible dates. No staged or mock interfaces.",
+    "articleMedia": "Use original or appropriately licensed educational media with provenance.",
+    "formats": [
+      "webp",
+      "avif",
+      "svg"
+    ],
+    "maxDimensions": {
+      "width": 1600,
+      "height": 1200
+    }
+  },
+  "internalLinks": [],
+  "commercialAffiliations": [],
+  "locale": null,
+  "cms": {
+    "platform": null,
+    "outputFormat": null,
+    "articleSelector": "article",
+    "schemaFormat": "json-ld"
+  },
+  "repoPath": null,
+  "stagingUrl": null,
+  "publishingApproval": {
+    "required": true,
+    "approvers": [],
+    "method": null,
+    "autoMerge": false,
+    "notes": "Confirm the actual client review process. This template grants no publication authorization."
+  },
+  "bannedTerms": [
+    "synergy",
+    "disrupt",
+    "paradigm shift",
+    "circle back"
+  ],
+  "workspace": "/projects/example-editorial",
+  "conversionGoal": null,
+  "geography": [],
+  "units": null,
+  "currency": null,
+  "domainReview": {
+    "required": false,
+    "reviewer": null,
+    "notes": "Determine expertise and review requirements from the topic and client policy."
+  }
+}

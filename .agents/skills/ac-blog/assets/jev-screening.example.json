@@ -1,0 +1,58 @@
+{
+  "clientId": "example-client",
+  "canonicalDomain": "https://www.exampleclient.com",
+  "articleUrl": "https://www.exampleclient.com/blog/best-marketing-automation-tools",
+  "approvedDomains": [],
+  "claims": [
+    {
+      "id": "samplemail-visual-builder",
+      "claim": "SampleMail offers a visual builder for multi-step email sequences.",
+      "quote": "a visual builder that lets you map out multi-step email sequences",
+      "sourceText": "EXAMPLE FIXTURE, fictional vendor. SampleMail automation features: create automations using a visual builder that lets you map out multi-step email sequences. Triggers can be based on site visits or custom events.",
+      "sourceUrl": "https://docs.samplemail.example/features/automation",
+      "sourceRetrievedAt": "2026-09-18"
+    },
+    {
+      "id": "samplecrm-attribution-all-plans",
+      "claim": "SampleCRM includes revenue attribution reporting in all plans.",
+      "quote": "Revenue attribution reporting",
+      "sourceText": "EXAMPLE FIXTURE, fictional vendor. SampleCRM features vary by tier. Revenue attribution reporting is available in the Enterprise plan only. Professional plans include campaign analytics.",
+      "sourceUrl": "https://www.samplecrm.example/pricing",
+      "sourceRetrievedAt": "2026-09-18"
+    },
+    {
+      "id": "samplemail-uptime-quote",
+      "claim": "SampleMail guarantees 99.99% uptime.",
+      "quote": "We guarantee 99.99% uptime for all customers.",
+      "sourceText": "EXAMPLE FIXTURE, fictional vendor. SampleMail runs on cloud infrastructure and aims for high availability.",
+      "sourceUrl": "https://docs.samplemail.example/reliability",
+      "sourceRetrievedAt": "2026-09-18"
+    },
+    {
+      "id": "samplecrm-market-leader",
+      "claim": "SampleCRM is the most widely used CRM among small agencies.",
+      "quote": null,
+      "sourceText": null,
+      "sourceUrl": null,
+      "sourceRetrievedAt": null
+    }
+  ],
+  "paragraphs": [
+    {
+      "id": "para-intro",
+      "text": "Choosing the right marketing automation platform can save your team hours of manual work each week. The best tools combine email sequences, lead scoring, and CRM integration into a single workflow.",
+      "linkCandidates": [
+        {
+          "url": "https://www.exampleclient.com/services/marketing-automation/",
+          "title": "Marketing Automation Services",
+          "snippet": "We set up and optimize automated email sequences, lead nurturing, and CRM workflows for small businesses."
+        },
+        {
+          "url": "https://www.exampleclient.com/about/careers/",
+          "title": "Careers at Example Client",
+          "snippet": "Join our team of digital marketing professionals."
+        }
+      ]
+    }
+  ]
+}

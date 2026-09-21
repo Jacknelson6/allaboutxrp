@@ -1,0 +1,87 @@
+{
+  "clientId": "aaxrp",
+  "brand": {
+    "name": "AllAboutXRP",
+    "logoUrl": null,
+    "primaryColor": null
+  },
+  "domain": "https://allaboutxrp.com",
+  "audience": "Readers seeking clear, source-backed explanations of XRP, the XRP Ledger, Ripple, related products, regulation, and market developments",
+  "voice": {
+    "tone": "Sharp, informed, evidence-driven, practical, and free of hype",
+    "person": "second",
+    "readingLevel": "informed general reader",
+    "notes": "Lead with the answer. Explain technical and financial terms in plain language. Separate confirmed facts, interpretation, uncertainty, and what to watch. Present material bull and bear implications when relevant. Never use em dashes."
+  },
+  "author": {
+    "name": "Jack Nelson",
+    "type": "Person",
+    "url": null
+  },
+  "source": {
+    "evidencePolicy": "Material claims need dated, linked evidence. Prefer an official primary record plus independent support. Attribute vendor claims and distinguish proposals, development branches, releases, and live Mainnet behavior.",
+    "allowedSourceTiers": [
+      "primary",
+      "independent-secondary",
+      "official-vendor-documentation"
+    ]
+  },
+  "assetPolicy": {
+    "brandLogos": "Use verified official logos. Never generate or recreate a logo with AI.",
+    "screenshots": "Use genuine interfaces or clearly labeled official website captures when the article needs them.",
+    "articleMedia": "Follow docs/EDITORIAL_IMAGE_SYSTEM.md and the aaxrp-classical-ascii-v2 system. Preserve provenance and publication rights for third-party media.",
+    "formats": [
+      "webp",
+      "png",
+      "svg"
+    ],
+    "maxDimensions": {
+      "width": 1600,
+      "height": 1200
+    }
+  },
+  "internalLinks": [
+    "https://allaboutxrp.com/news",
+    "https://allaboutxrp.com/learn",
+    "https://allaboutxrp.com/whitepapers"
+  ],
+  "commercialAffiliations": null,
+  "locale": "en-US",
+  "cms": {
+    "platform": "Next.js repository content",
+    "outputFormat": "content/news JSON rendered by the existing article route",
+    "articleSelector": "article",
+    "schemaFormat": "json-ld",
+    "schemaOwner": "src/app/news/[slug]/page.tsx"
+  },
+  "repoPath": "/Users/jacknelson/AAXRP/allaboutxrp",
+  "stagingUrl": null,
+  "publishingApproval": {
+    "required": true,
+    "approvers": [
+      "Jack Nelson"
+    ],
+    "method": "Authorization in the active task",
+    "autoMerge": false,
+    "notes": "This profile records the review owner but grants no publication authorization."
+  },
+  "bannedTerms": [
+    "guaranteed returns",
+    "risk-free",
+    "to the moon",
+    "paradigm shift",
+    "synergy"
+  ],
+  "workspace": "/Users/jacknelson/AAXRP/aeo-scratch/ac-blog/aaxrp",
+  "conversionGoal": "Help readers understand the evidence and continue to the most relevant AllAboutXRP guide, news analysis, data page, or newsletter offer",
+  "geography": [
+    "Global, with jurisdiction-specific claims labeled explicitly"
+  ],
+  "units": "Use source-native units and add reader-friendly conversions when material",
+  "currency": "USD unless the source or topic requires another currency",
+  "domainReview": {
+    "required": true,
+    "reviewer": "Jack Nelson",
+    "notes": "Financial, legal, regulatory, protocol, and security claims require source-level review appropriate to the topic. Do not imply legal, tax, or investment advice."
+  }
+}
