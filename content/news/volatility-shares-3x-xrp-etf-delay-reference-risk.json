@@ -1,0 +1,195 @@
+{
+  "slug": "volatility-shares-3x-xrp-etf-delay-reference-risk",
+  "title": "3x XRP ETF Filing Moves to October 18: Why the Risk Benchmark Matters",
+  "description": "Volatility Shares postpones its proposed 3x XRP ETF registration. The SEC's earlier reference-portfolio objection explains what evidence matters beyond another effective date.",
+  "category": "ETFs",
+  "publishedAt": "2026-09-21T13:06:26+00:00",
+  "modifiedAt": "2026-09-21T13:06:26+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrp-3x-pantograph-reference-editorial.webp",
+  "imageAlt": "Pale-gold drafting pantograph with a cobalt pencil beside an ivory sheet bearing two blue circles of different sizes on ivory stone",
+  "imageWidth": 1680,
+  "imageHeight": 945,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "xrp-3x-pantograph-engraver-transfer-ledge",
+  "imageSetting": "A bare ivory-stone engraver transfer ledge against warm ivory plaster, viewed from a shallow diagonal over its front edge. An elongated pantograph spans the upper field beside one sheet at right, above broad empty foreground, lit by clear warm transmitted morning light with pale amber bounce and localized blue contact shadows.",
+  "imageMetaphor": "A pale-gold mechanical pantograph with a cobalt pencil sits beside one ivory sheet bearing the same circle at two scales. Amplification is assessed against the original shape, representing benchmark-relative risk without implying an approved or operating fund.",
+  "imagePrompt": "Finished AllAboutXRP editorial illustration, landscape EXACT 16:9. A sparse physically believable real mechanical drafting pantograph rests on bare ivory stone engraver's transfer ledge against blank warm ivory plaster. Exactly one pale-gold pantograph assembly of four hinged straight bars forming a parallelogram, small ivory pivot feet, with a cobalt pencil attached at the drawing end; beside it ONE ivory paper sheet with only two plain cobalt circular outlines of different sizes. Three deliberate objects counted as pantograph, attached pencil, paper. All linkage bars rest naturally in one plane; grounded coherent contacts; no impossible machinery. This is a symbolic still life about a proposed leveraged XRP fund measured against its same underlying reference, not performance or regulatory approval. Shallow nearly edge-on rear diagonal camera, elongated horizontal arrangement across upper third, broad completely empty ivory foreground lower-left. Soft clean morning light transmitted through an off-frame parchment shade makes pale amber bounce with localized water-blue contact shadows. Sublime Classical Oil: luminous academic classical-revival oil modeling, crisp sculptural contours, enamel-like glazing, precise metal versus ceramic versus paper textures, selective tiny impasto highlights, pale gold metal and cobalt accents, white ivory dominant. Extremely subtle 1/0/x stipple only in a few shadow transitions and visually imperceptible at thumbnail scale. First reference homepage controls palette and paint only; other three references style only. No scenery, figures, horses, lions, architecture or composition copied from references. This new setting, pantograph primary mechanism, low rear diagonal foreground-dominant composition, transmitted parchment light and proportional reference metaphor differ from every audited registry scene. NO text except the two simple circle outlines, no numbers, labels, logos, coins, dashboards, crypto symbols, cyber cubes, fantasy buildings, ruins, panoramic city, water views, extra props, all-over ASCII, dither, visible pixelation, border, watermark, sepia, photorealism, CGI. Image is an elegant restrained object study, not a diagram.",
+  "keywords": [
+    "XRP ETFs",
+    "Volatility Shares",
+    "3x XRP ETF",
+    "SEC Rule 18f-4",
+    "leveraged ETFs"
+  ],
+  "keyTakeaways": [
+    "Volatility Shares' September 18 filing postpones the proposed 3x XRP ETF's registration effectiveness to October 18, 2026; it does not announce trading.",
+    "The SEC's December 2025 letter specifically includes the 3x XRP ETF and challenges the reference portfolio used to assess leveraged-fund risk.",
+    "A new calendar date supplies no evidence that the earlier objection has been resolved. Watch for substantive correspondence and operative fund terms."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the 3x XRP ETF date changed, but the risk question is separate",
+      "paragraphs": [
+        "Volatility Shares has postponed the proposed 3x XRP ETF's registration effectiveness to October 18, 2026, according to its September 18 filing. The notice establishes no trading launch or resolution of the SEC's earlier leverage-risk objection. The key question is how the fund measures risk against its underlying reference portfolio.",
+        "Confirmed fact: the latest amendment identifies the original October 14, 2025 registration by reference and describes its purpose as postponement. CoinTurk independently reported the new date on September 20. This is a timely filing-led explainer, not a report that a new XRP investment product has opened for business.",
+        "The useful distinction for XRP readers is between keeping a proposal on the regulatory calendar and demonstrating that its design can proceed. The short notice answers the timing question. The older SEC correspondence asks a different, substantive question about the baseline used to judge leverage. Reading those records together avoids treating an updated deadline as an answer to an unresolved design issue."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1884021/000121390026101186/ea0305729-16_485bxt.htm",
+        "https://en.coin-turk.com/volatility-shares-delays-3x-xrp-etf-application-new-effective-date-set-for-october-2026/",
+        "https://www.sec.gov/Archives/edgar/data/1884021/000000000025011191/filename1.pdf"
+      ]
+    },
+    {
+      "heading": "The SEC letter names the 3x XRP ETF directly",
+      "paragraphs": [
+        "Confirmed historical record: a December 2, 2025 SEC staff letter to Volatility Shares includes the 3x XRP ETF in its appendix, alongside other proposed leveraged funds. Staff said substantive review would wait until the stated issues were addressed and requested delayed effectiveness while those issues remained unresolved. Reuters reported the broader review pause on December 3.",
+        "The letter focuses on Rule 18f-4 and the designated reference portfolio, meaning the unleveraged baseline against which a fund's modeled risk is assessed. Staff asked for revised objectives and strategies consistent with the rule or withdrawal of the filings. This was a fund-design objection, not a finding about whether an ordinary XRP transaction is lawful.",
+        "Unresolved uncertainty: the September notice gives no reason for this particular postponement. It does not establish that the December letter caused the September change, and this article does not claim a new SEC rejection. Equally, a date-only amendment contains no substantive explanation showing how that earlier objection was answered. A causal account requires additional correspondence, not inference from the sequence of dates."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1884021/000000000025011191/filename1.pdf",
+        "https://www.investing.com/news/stock-market-news/sec-halts-review-of-highly-leveraged-etf-plans-citing-risk-exposures-4388322"
+      ]
+    },
+    {
+      "heading": "Why the reference portfolio can change the apparent risk",
+      "paragraphs": [
+        "The SEC's compliance guide describes a relative value-at-risk test, generally limiting a covered fund's VaR to 200% of its designated reference portfolio's VaR. VaR is a statistical estimate of potential loss under specified modeling assumptions. It is not the largest loss that can occur, and the test is not a promise that investors cannot lose more than a stated amount.",
+        "ETF.com's December 3 analysis explains the practical dispute: choosing a different reference asset can change the comparison even when the proposed investment exposure stays the same. The SEC staff's position was that the actual tracked reference assets provide the appropriate baseline. A more volatile comparator cannot simply be substituted to make an aggressive target look less extreme.",
+        "Illustration, not a fund calculation: suppose a hypothetical model assigns risk readings of six units to a proposed portfolio and two units to its actual reference asset. The ratio is three. Replacing the denominator with a different asset reading of four produces a ratio of 1.5, despite leaving the portfolio unchanged. These invented units explain denominator sensitivity only. They are neither measured XRP VaR nor proof of compliance or failure for this proposal."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/use-derivatives-registered-investment-companies-business-development-companies-small-entity",
+        "https://www.etf.com/sections/features/sec-says-no-5x-etfs"
+      ]
+    },
+    {
+      "heading": "Existing 3x funds do not settle this XRP proposal",
+      "paragraphs": [
+        "The SEC compliance guide identifies a conditional exception for certain leveraged or inverse funds already operating on October 28, 2020 with return targets above 200%. Reuters' December coverage also discusses an existing triple-leveraged Nasdaq fund while reporting scrutiny of new proposals. Those facts can coexist; the presence of an older product does not establish the route available to a later applicant.",
+        "Analytical implication: comparing fund names alone skips the relevant history. A useful comparison needs the operating date, applicable regulatory treatment, reference asset and proposed strategy. A legacy equity product and a proposed XRP product may share a multiplier while differing on the conditions that matter to review. The multiplier is one product characteristic, not a transferable authorization.",
+        "The same discipline applies in reverse. The earlier staff objection does not prove that every possible future XRP fund design must fail. A materially revised objective, different lawful structure or documented regulatory development would need its own assessment. The present evidence supports a specific question about this registration, rather than a prediction about all leveraged cryptocurrency products."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/use-derivatives-registered-investment-companies-business-development-companies-small-entity",
+        "https://www.investing.com/news/stock-market-news/sec-halts-review-of-highly-leveraged-etf-plans-citing-risk-exposures-4388322",
+        "https://www.etf.com/sections/features/sec-says-no-5x-etfs"
+      ]
+    },
+    {
+      "heading": "The proposed return target and the risk test measure different things",
+      "paragraphs": [
+        "The October 2025 preliminary prospectus targets three times XRP's daily performance before fees and expenses, measured between successive net asset value calculations. It describes exposure through financial instruments, including derivatives, and leaves the ticker and exchange fields incomplete. Those are proposed terms in the incorporated document, not independently verified final launch terms.",
+        "A daily return objective asks what result the portfolio is trying to deliver over a valuation interval. A relative risk test asks how its modeled loss risk compares with a designated baseline. One does not replace the other. Disclosing that a product could lose heavily does not itself answer whether its proposed operation satisfies the applicable derivatives framework.",
+        "FINRA's investor guidance separately explains the risks of leveraged exchange-traded products and the divergence possible over longer holding periods. For a prospective buyer, the review therefore has two layers: whether an operative product exists on stated terms, and whether those terms fit the intended holding period and tolerance for loss. Resolving a registration issue would not remove the second layer."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1884021/000121390025098829/ea0260999-13_485apos.htm",
+        "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/use-derivatives-registered-investment-companies-business-development-companies-small-entity",
+        "https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products"
+      ]
+    },
+    {
+      "heading": "What the filing means for XRP holders, brokers and market observers",
+      "paragraphs": [
+        "For an XRP holder, this record does not establish a new purchase of tokens. The preliminary strategy describes financial exposure; the delay notice reports no assets, creations, holdings or executed positions. A projection of spot buying based on the proposed multiplier would add several unsupported steps between a filed objective and an actual market transaction.",
+        "For brokers and researchers, a practical review file should separate the proposed objective, the latest effective-date notice, the substantive SEC correspondence and any eventual final offering materials. Each item should retain its date. Otherwise, a current cover filing can make old strategy text appear newly approved, or historical staff concerns can be repeated as if they were a fresh enforcement action.",
+        "Inference: the most informative next development would change the substance of that file. A response explaining the reference-portfolio treatment would address the central analytical issue. Revised terms would show whether the intended exposure changed. An exchange trading notice would answer a different operational question. None can be substituted for the others merely because each concerns the same proposed fund."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1884021/000121390026101186/ea0305729-16_485bxt.htm",
+        "https://www.sec.gov/Archives/edgar/data/1884021/000121390025098829/ea0260999-13_485apos.htm",
+        "https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products"
+      ]
+    },
+    {
+      "heading": "What to verify around the October 18 milestone",
+      "paragraphs": [
+        "Watch the next EDGAR amendment for whether October 18 remains the designated date, but place more weight on substantive changes than on calendar movement. Look for published correspondence addressing the December risk-baseline question and compare any revised investment objective with the original daily target. A postponement, a response and a strategy revision are different developments and should be reported separately.",
+        "Before describing the fund as available, verify operative offering documents, an identified exchange and a confirmed trading start. Once operating records exist, assess the actual holdings, valuation interval and trading conditions. Until then, the defensible conclusion is limited: a dated proposal has been postponed again, while the new notice itself provides no answer to the earlier benchmark-relative risk objection."
+      ],
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1884021/000121390026101186/ea0305729-16_485bxt.htm",
+        "https://www.sec.gov/Archives/edgar/data/1884021/000000000025011191/filename1.pdf",
+        "https://www.investing.com/news/stock-market-news/sec-halts-review-of-highly-leveraged-etf-plans-citing-risk-exposures-4388322",
+        "https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A subsequent EDGAR filing that maintains or changes the October 18, 2026 effective date.",
+    "Public SEC correspondence or issuer responses addressing the designated reference portfolio and Rule 18f-4 treatment.",
+    "A revised prospectus showing whether the 3x daily objective or implementation has changed.",
+    "Final offering documents and an exchange notice confirming a ticker and actual first trading session.",
+    "Post-launch holdings and NAV records, if the fund becomes operational, before attributing XRP demand to it."
+  ],
+  "sources": [
+    {
+      "name": "Volatility Shares Trust, September 18 Form 485BXT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1884021/000121390026101186/ea0305729-16_485bxt.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-18"
+    },
+    {
+      "name": "CoinTurk, İlayda Peker, 3x XRP ETF effective-date report",
+      "url": "https://en.coin-turk.com/volatility-shares-delays-3x-xrp-etf-application-new-effective-date-set-for-october-2026/",
+      "type": "supporting",
+      "publishedAt": "2026-09-20"
+    },
+    {
+      "name": "SEC Division of Investment Management, letter to Volatility Shares Trust",
+      "url": "https://www.sec.gov/Archives/edgar/data/1884021/000000000025011191/filename1.pdf",
+      "type": "primary",
+      "publishedAt": "2025-12-02"
+    },
+    {
+      "name": "Reuters, Shashwat Chauhan, highly leveraged ETF review pause",
+      "url": "https://www.investing.com/news/stock-market-news/sec-halts-review-of-highly-leveraged-etf-plans-citing-risk-exposures-4388322",
+      "type": "supporting",
+      "publishedAt": "2025-12-03"
+    },
+    {
+      "name": "SEC, derivatives rule small entity compliance guide",
+      "url": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/use-derivatives-registered-investment-companies-business-development-companies-small-entity",
+      "type": "primary",
+      "publishedAt": "2021-02-04"
+    },
+    {
+      "name": "ETF.com, Sumit Roy, reference-portfolio interpretation of SEC letters",
+      "url": "https://www.etf.com/sections/features/sec-says-no-5x-etfs",
+      "type": "supporting",
+      "publishedAt": "2025-12-03"
+    },
+    {
+      "name": "Volatility Shares Trust, original 3x XRP ETF preliminary prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1884021/000121390025098829/ea0260999-13_485apos.htm",
+      "type": "primary",
+      "publishedAt": "2025-10-14"
+    },
+    {
+      "name": "FINRA, Exchange-Traded Funds and Products (undated reference)",
+      "url": "https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products",
+      "type": "supporting"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/teucrium-short-xrp-etf-daily-reset-hedge-drift",
+      "label": "How daily resets change an XRP hedge"
+    },
+    {
+      "href": "/news/tuttle-xrp-income-blast-etf-effective-date",
+      "label": "Registration dates and XRP income-fund terms"
+    },
+    {
+      "href": "/news/rex-osprey-xrpr-layered-xrp-exposure",
+      "label": "Different layers of XRP fund exposure"
+    },
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "Evaluating XRP investment risk"
+    }
+  ]
+}
