@@ -1,0 +1,204 @@
+{
+  "slug": "xrp-quantum-readiness-ranking-claim-check",
+  "title": "A Viral Graphic Ranks XRP First in Quantum Readiness. The Independent Index Puts It Twelfth.",
+  "description": "A widely shared signature-scheme table places the XRP Ledger at number one for quantum readiness. Its own top row concedes the protection is optional, and an outside index scores XRPL 27 of 100.",
+  "category": "XRP Ledger Security",
+  "publishedAt": "2026-09-22T12:45:00-05:00",
+  "modifiedAt": "2026-09-22T12:45:00-05:00",
+  "author": "Jack Nelson",
+  "image": "/news/xrp-quantum-readiness-bolt-editorial.webp",
+  "imageAlt": "A seated bronze door bolt and an unseated bolt resting beside its empty cut mortise on a pale stone sill at first light",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "quantum-bolt-seated-versus-unseated-sill-still-life",
+  "imageSetting": "The long stone sill of a coastal naval arsenal store hall at first light, seen low and square-on across the sill so both bolt housings read at the same height",
+  "imageMetaphor": "One bronze bolt is driven home inside its strike housing while a second identical bolt lies beside an empty, precisely cut mortise, showing the difference between protection that is installed and protection that is merely possible",
+  "imagePrompt": "Asset type: finished AllAboutXRP editorial illustration, cinematic 16:9 landscape. Primary request: the long pale stone sill of a coastal naval arsenal store hall at first light, viewed low and square-on across the sill. On the sill sit exactly two identical pale-gold bronze door bolts. The left bolt is driven fully home into its bronze strike housing. The right bolt lies loose on the stone beside an empty, crisply cut rectangular mortise that was clearly prepared for it. No other objects. This setting, viewpoint, and object pair appear in no registered AAXRP scene: it is an arsenal sill, not a temple, harbor, chamber, bench, workshop, or instrument room. Style: luminous academic classical-revival oil painting, crisp sculptural modeling, rich glazing, saturated cobalt and ultramarine in the far sea and shadow, warm ivory stone, pale gold metal, at most one restrained vermilion accent, extraordinary atmospheric clarity. ASCII treatment: fine translucent fields made only from 1, 0, and x form selected contours in the low sea haze and in the shadow inside the empty mortise, then dissolve into white space. Never apply a coarse all-over filter. Composition: one clear focal idea, the two bolt positions compared at equal height without declaring a winner, strong thumbnail silhouette, generous calm negative space to the left, no border, sharp corners. Constraints: preserve exact subject and count of two bolts and one empty mortise; no readable text, letters, numbers on objects, logo, coin, wallet, chart, dashboard, computer, person, hand, watermark, rounded frame, cyberpunk neon, photographic realism, sepia, muddy gray, coarse halftone, or retro pixel art.",
+  "keywords": [
+    "XRP quantum readiness",
+    "XRP Ledger post-quantum cryptography",
+    "Quantum Readiness Index",
+    "XLS-295",
+    "ML-DSA",
+    "Algorand Falcon-1024",
+    "Ripple 2028 quantum",
+    "XRP news",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "The viral graphic's own number-one row describes XRPL protection as an upgrade option that can be added later, not as cryptography running on Mainnet today.",
+    "The independent Quantum Readiness Index scored the XRP Ledger 27 out of 100 on 13 August 2026, placing it 12th of 126 assessed projects and in Stage 2 of five.",
+    "Algorand, listed second on the same graphic, has had native Falcon-1024 accounts live on Mainnet since August 2026, so the chart ranks a plan above a deployment.",
+    "XRP spending on Mainnet is still authorized entirely by secp256k1 ECDSA and Ed25519 keys, which are the exact class of cryptography Shor's algorithm breaks."
+  ],
+  "sections": [
+    {
+      "heading": "Direct answer: the ranking puts an option above a live deployment",
+      "paragraphs": [
+        "A signature-scheme comparison table circulated widely on 22 September 2026 under the headline that the XRP Ledger leads the quantum race, and an accompanying post declared that XRP had already won it. The table itself does not support that reading. Its number-one row labels XRPL a quantum-secure upgrade option and explains the status as cryptographic agility, meaning a quantum-resistant signing algorithm can be added when it is needed. That is a statement about what the protocol could accept in the future, not about what protects an account balance today.",
+        "The row directly beneath it describes Algorand as having Falcon-1024 quantum-resistant accounts supported at the protocol level. Read plainly, the chart ranks a chain that has not deployed post-quantum signatures above a chain that has. Everything else in this story follows from that single inversion, and the distinction matters far more than the ordering, because an option that has not been exercised protects nothing."
+      ],
+      "sourceUrls": [
+        "https://x.com/pumpius/status/2102369625891905629",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/"
+      ]
+    },
+    {
+      "heading": "What the XRP Ledger actually runs on Mainnet right now",
+      "paragraphs": [
+        "Ripple's own post-quantum readiness write-up sets a target of full readiness by 2028 across four phases. Phase 1 is a recovery contingency, Phase 2 covered risk assessment and algorithm testing in the first half of 2026, Phase 3 places candidate post-quantum signature schemes on Devnet alongside existing elliptic-curve signatures during the second half of 2026, and Phase 4 is the network-wide transition through a new XRPL amendment, targeted at 2028. Ripple also notes that existing XRPL capabilities such as key rotation and seed-based key generation are foundational but are not post-quantum solutions on their own.",
+        "Nothing in that sequence describes Mainnet protection available in September 2026. Phase 3 is a Devnet exploration window. The signature schemes that authorize an XRP payment today remain secp256k1 ECDSA and Ed25519, and both are elliptic-curve public-key schemes. That is the precise category Shor's algorithm is expected to break outright on a sufficiently large fault-tolerant quantum computer, rather than merely weaken."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://www.coindesk.com/markets/2026/04/21/ripple-wants-the-xrp-ledger-to-be-quantum-proof-by-2028-here-is-its-plan",
+        "https://qrindex.org/projects/xrp/"
+      ]
+    },
+    {
+      "heading": "The independent index scores XRPL 27 out of 100 and caps it at 40",
+      "paragraphs": [
+        "The Blockchain Quantum Readiness Index published a dated XRP Ledger assessment on 13 August 2026 with a score of 27 out of 100, a Stage 2 classification on a five-stage scale, and medium confidence. Across the index's 126 assessed projects, that places the XRP Ledger 12th. The component breakdown is more informative than the headline number: security assessment and evidence preparedness scored a full 5 of 5, algorithm and implementation assurance scored 4.5 of 20, production cryptographic protection scored 14.93 of 35, migration status and value-at-risk scored 0.7 of 25, and migration mechanism, governance, and ecosystem scored 1.75 of 15.",
+        "The index states that the score is capped at 40 by two binding constraints. The first is that active production spend authorization remains entirely ECC and EdDSA on Mainnet, with no post-quantum or hybrid post-quantum transaction signature path in production. The second is that the ML-DSA implementation exists only on the AlphaNet testnet, which has been operational since December 2025, and not on Mainnet. The index's plain conclusion is that zero Mainnet value currently receives post-quantum cryptographic protection.",
+        "It is worth being fair to the XRP Ledger here. A score of 27 still ranks ahead of Bitcoin at 20, Solana at 24, and Ethereum at 17 in the same index, and the perfect mark on evidence preparedness reflects genuinely serious planning work. XRPL is doing better than most large chains. It is simply not first, and the gap between planning well and shipping protection is the entire subject of the index."
+      ],
+      "sourceUrls": [
+        "https://qrindex.org/projects/xrp/",
+        "https://qrindex.org/"
+      ]
+    },
+    {
+      "heading": "Algorand, ranked second on the graphic, shipped first",
+      "paragraphs": [
+        "Algorand has used Falcon signatures for State Proofs since 2022, protecting the historical record of the chain with a post-quantum scheme. Falcon-based logic signature accounts followed in November 2025, and native Falcon-1024 accounts went live on Mainnet in August 2026 after the v5.0.0 upgrade reached its approval threshold, with support in the SDKs, AlgoKit, and Pera Wallet. The same index that scores XRPL at 27 scores Algorand at 46 and places it in Stage 3, ranked 8th.",
+        "Algorand's own roadmap is candid about what is still missing: post-quantum multisig is planned for later in 2026, Falcon-512 support is intended by year end, and a quantum-resilient consensus layer is targeted for end of 2027. Neither chain is finished. But one of them can already hold value in an account whose spending key is post-quantum, and the other cannot. A table that reverses that order is not measuring readiness."
+      ],
+      "sourceUrls": [
+        "https://algorand.co/technology/post-quantum",
+        "https://algorand.co/blog/algorand-post-quantum-ledger",
+        "https://qrindex.org/"
+      ]
+    },
+    {
+      "heading": "XLS-295 is a draft standard, and AlphaNet is a testnet",
+      "paragraphs": [
+        "The concrete XRPL work does exist, and it is public. XLS-295 is the quantum-resistant signatures proposal in the XRPL Standards repository, introducing ML-DSA, the NIST-standardized scheme formerly known as CRYSTALS-Dilithium, as an additional signing option while preserving backward compatibility with existing schemes. It remains in draft status as a standards discussion rather than an activated amendment.",
+        "On the implementation side, XRPL Labs engineer Denis Angell announced in late December 2025 that AlphaNet had integrated post-quantum cryptography, replacing elliptic-curve signatures with ML-DSA and introducing quantum accounts, transactions, and consensus in that environment. AlphaNet is an experimental network. Work landing there is real progress and is exactly how a careful migration should begin, but it is not a Mainnet amendment, it is not subject to validator voting yet, and it does not change the cryptography guarding a single XRP on the live ledger."
+      ],
+      "sourceUrls": [
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+        "https://qrindex.org/projects/xrp/",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/"
+      ]
+    },
+    {
+      "heading": "The hash argument is correct, and it is about a different thing",
+      "paragraphs": [
+        "The viral post quoted a 21 September explainer from DNA Protocol, an XRPL project that anchors genomic and identity hashes on the ledger. That explainer drew a clean and accurate distinction. Public-key encryption such as RSA and ECC is broken by Shor's algorithm. Hash functions such as SHA-2 and SHA-3 are weakened by Grover's algorithm rather than broken, because Grover delivers a quadratic speedup that halves the effective security level instead of collapsing it. DNA Protocol's point was that its anchors are hashes, and that this was a deliberate design choice.",
+        "That claim is sound on its own terms, and it is a reasonable argument about the durability of anchored proofs. It does not transfer to XRP balances. A hash anchored on the XRPL proves that a record existed and has not changed. It does not authorize a payment. Payments are authorized by account keys, and those keys are elliptic-curve. The amplifying post inverted this when it declared that Shor's algorithm is someone else's problem. Shor's algorithm is specifically the XRP Ledger's problem, and Ripple's four-phase roadmap exists precisely because that is true."
+      ],
+      "sourceUrls": [
+        "https://x.com/DNAOnChain/status/2101959257419903190",
+        "https://x.com/pumpius/status/2102369625891905629",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/"
+      ]
+    },
+    {
+      "heading": "What to watch instead of the ranking",
+      "paragraphs": [
+        "There are three checkable milestones that would move XRPL's real position, and none of them is a chart. The first is XLS-295 moving from draft discussion to a named amendment appearing in the Mainnet amendment table, which is publicly observable. The second is validator voting on that amendment crossing the 80 percent threshold and holding it for the required two-week window, which is what actually activates a change on the XRP Ledger. The third is the appearance of a production hybrid or post-quantum signing path that wallets and custodians can use, since the index explicitly caps XRPL's score until spend authorization stops being ECC-only.",
+        "For holders, the practical position in September 2026 is unchanged. No action is required and no action is possible, because there is no post-quantum account type to migrate into on Mainnet. Custodians and builders should track Phase 3 Devnet results and the signature size cost of ML-DSA, which is substantially larger than an Ed25519 signature and carries real fee and throughput implications for a chain that competes on cheap, fast settlement. That cost is one of the genuine reasons a careful migration takes until 2028, and it is a better thing to follow than a ranking that contradicts its own captions."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://qrindex.org/projects/xrp/",
+        "https://github.com/XRPLF/XRPL-Standards/discussions/295"
+      ]
+    },
+    {
+      "heading": "Evidence boundary",
+      "paragraphs": [
+        "Confirmed: Ripple's published four-phase roadmap and 2028 target, the draft status of XLS-295, AlphaNet's ML-DSA integration since December 2025, Algorand's native Falcon-1024 Mainnet accounts as of August 2026, and the Quantum Readiness Index scores dated 13 August 2026. The viral post and its quoted DNA Protocol explainer are quoted as published on 22 and 21 September 2026 respectively.",
+        "Not confirmed: the provenance and methodology of the ranking graphic itself, which carries a third-party brand mark and publishes no stated scoring criteria. This report assesses the claims printed on it against primary records rather than assessing the chart as a study. Also unconfirmed is any date for a Mainnet quantum amendment. No XRPL roadmap has published a hard activation date, and 2028 is a stated target rather than a commitment. Nothing here is a prediction about when a cryptographically relevant quantum computer will exist, which remains genuinely uncertain and is a separate question from whether a ledger is prepared for one."
+      ],
+      "sourceUrls": [
+        "https://qrindex.org/projects/xrp/",
+        "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+        "https://x.com/pumpius/status/2102369625891905629"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "XLS-295 moving from draft discussion to a named amendment listed in the XRPL Mainnet amendment table",
+    "Validator voting on a quantum amendment crossing 80 percent and holding for the two-week activation window",
+    "Phase 3 Devnet results in the second half of 2026, including measured ML-DSA signature size and fee impact",
+    "A revised Quantum Readiness Index score for the XRP Ledger above the current 40-point cap"
+  ],
+  "sources": [
+    {
+      "name": "Blockchain Quantum Readiness Index, XRP Ledger report",
+      "url": "https://qrindex.org/projects/xrp/",
+      "type": "primary",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "XRPLF XRPL-Standards discussion 295, Quantum-Resistant Signatures",
+      "url": "https://github.com/XRPLF/XRPL-Standards/discussions/295",
+      "type": "primary",
+      "publishedAt": "2025-07-08"
+    },
+    {
+      "name": "Ripple, Post-Quantum Readiness on the XRP Ledger",
+      "url": "https://ripple.com/insights/post-quantum-readiness-on-the-xrp-ledger/",
+      "type": "primary"
+    },
+    {
+      "name": "Pumpius post claiming XRP leads quantum readiness",
+      "url": "https://x.com/pumpius/status/2102369625891905629",
+      "type": "primary",
+      "publishedAt": "2026-09-22"
+    },
+    {
+      "name": "DNA Protocol explainer on Shor's and Grover's algorithms",
+      "url": "https://x.com/DNAOnChain/status/2101959257419903190",
+      "type": "supporting",
+      "publishedAt": "2026-09-21"
+    },
+    {
+      "name": "Algorand, Post-Quantum Technology",
+      "url": "https://algorand.co/technology/post-quantum",
+      "type": "supporting"
+    },
+    {
+      "name": "Algorand, Algorand Post-Quantum Ledger",
+      "url": "https://algorand.co/blog/algorand-post-quantum-ledger",
+      "type": "supporting"
+    },
+    {
+      "name": "Blockchain Quantum Readiness Index rankings",
+      "url": "https://qrindex.org/",
+      "type": "supporting"
+    },
+    {
+      "name": "CoinDesk, Ripple wants the XRP Ledger to be quantum-proof by 2028",
+      "url": "https://www.coindesk.com/markets/2026/04/21/ripple-wants-the-xrp-ledger-to-be-quantum-proof-by-2028-here-is-its-plan",
+      "type": "supporting",
+      "publishedAt": "2026-04-21"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/news/xrpl-post-quantum-phase-three-mainnet-classical",
+      "label": "Ripple's quantum roadmap enters its Phase 3 window"
+    },
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "What is XRP?"
+    },
+    {
+      "href": "/learn/xrp-ledger-explained",
+      "label": "How the XRP Ledger works"
+    }
+  ]
+}
