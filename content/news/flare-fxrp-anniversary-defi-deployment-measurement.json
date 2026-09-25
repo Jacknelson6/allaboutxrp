@@ -1,0 +1,171 @@
+{
+  "slug": "flare-fxrp-anniversary-defi-deployment-measurement",
+  "title": "Flare Reports 130M FXRP in DeFi: What Its Anniversary Figures Measure",
+  "description": "Flare's first FXRP anniversary reports substantial DeFi deployment. Its figures measure capital use, while returns, distinct users and the planned borrowing workflow need separate evidence.",
+  "category": "DeFi",
+  "publishedAt": "2026-09-25T13:08:54.965293+00:00",
+  "modifiedAt": "2026-09-25T13:08:54.965293+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/fxrp-single-pebble-reflection-editorial.webp",
+  "imageAlt": "One cobalt-blue pebble rests before a pale-gold tabletop mirror that reflects the same pebble on an ivory stone surface.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "fxrp-single-pebble-mirror-silvering-recess",
+  "imageSetting": "An enclosed ivory-stone mirror-silvering inspection recess against blank warm plaster. A near-frontal low camera offset slightly right shows a supported mirror and pebble at lower right, with broad left negative space, cool upper-right skylight and low-left golden reflected light.",
+  "imageMetaphor": "One cobalt-blue pebble appears directly and in a supported pale-gold mirror. Two views do not create a second physical asset, representing the need to distinguish reported deployment from additional capital and realized returns.",
+  "imagePrompt": "Finished AllAboutXRP editorial still life, exact 16:9 landscape. Exactly TWO physical objects: one smooth asymmetrical cobalt-blue ceramic pebble resting on ivory limestone, and one small rectangular polished pale-gold tabletop mirror with an integrated sturdy foot behind it. The mirror visibly reflects that SAME single pebble, correct physically believable reflection, not a second object outside the mirror. Pale-gold frame and side thickness clearly distinguish reflection from physical object. This symbolizes why a reported capital position and another view of that position are not additional wealth, for a fact-led FXRP anniversary article distinguishing deployment from returns and user adoption.\nSetting: enclosed bare ivory-stone mirror-silvering inspection recess against blank warm plaster. Almost front-on camera at pebble height, slight right offset reveals the mirror stand. Mirror and pebble grouped on lower-right third, generous uninterrupted ivory negative space across left half and upper third. Unique compared with registered gears, clamps, jars, measuring devices, paper, vessels and architecture: the first single-object mirror reflection still life. Upper-right thin cool skylight and low-left warm reflected gold light meet in crisp separated edges with a soft cobalt contact shadow. No architecture visible.\nStyle: luminous academic classical-revival oil painting, crisp sculptural material modeling, smooth rich glazing, selective fine impasto on metal glints, clear ivory, cobalt, pale gold. Reference 1 homepage and references 2-4 are ONLY palette/light/oil-surface references. Do not copy scenery, people, animals, poses, layouts or their heavy texture. No visible dither; at most microscopic 1/0/x stipple in a tiny shadow transition. Keep still life physically simple and elegant.\nConstraints: TWO physical objects only, one pebble and supported mirror; correctly positioned reflected pebble only inside mirror. Full-bleed opaque painted backdrop to every edge, 16:9. No text, numeral, logo, crypto coin, dashboard, person, cyber cube, column, building, ruin, city, horizon, additional prop, decorative border, watermark, all-over ASCII, pixelation, photographic realism, brown sepia or gray mud.",
+  "keywords": [
+    "FXRP",
+    "Flare Network",
+    "XRP DeFi",
+    "FAssets",
+    "RLUSD",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "Flare's September 24 report puts DeFi deployment at about 130 million FXRP against about 145.2 million outstanding, with the figures also reported by Bitcoin.com.",
+    "Dividing the rounded figures gives roughly 90%. This describes reported deployment, not net investment performance, distinct users or additional XRP purchases.",
+    "FXRP-backed RLUSD borrowing exists on Ethereum. Extending the simpler XRP Ledger wallet workflow to borrowing remains a plan in the anniversary coverage."
+  ],
+  "sections": [
+    {
+      "heading": "What Flare’s FXRP anniversary establishes",
+      "paragraphs": [
+        "Flare’s September 24 anniversary report puts about 130 million FXRP in DeFi against about 145.2 million outstanding. That is roughly 90%, calculated from its rounded figures. The snapshot measures reported deployment, not investor returns, distinct users or new XRP purchases, and does not establish how readily positions can exit.",
+        "The dated milestone is FXRP’s first year since its September 24, 2025 launch. Bitcoin.com and CryptoPotato independently reported the anniversary and the expansion into financial applications. Bitcoin.com also reported Flare’s two headline quantities. These are attributed network figures; repeating them in independent coverage does not turn them into an independent audit of every underlying position.",
+        "Our analysis: the useful change for readers is the availability of several ways to use XRP exposure, coupled with a measurable claim about deployed capital. Assessing that claim requires a narrower question than whether XRP has gained utility. Which balances were counted, at what time, under which definition, and what can a holder actually recover after using the relevant service?"
+      ],
+      "sourceUrls": [
+        "https://flare.network/news/one-year-of-fxrp-on-flare",
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/",
+        "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/"
+      ]
+    },
+    {
+      "heading": "The FXRP deployment ratio needs a defined denominator",
+      "paragraphs": [
+        "Flare describes approximately 145.2 million FXRP as outstanding in its anniversary report; Bitcoin.com uses the word minted. We use Flare’s outstanding description for the denominator. Dividing the reported 130 million by 145.2 million gives about 89.5%, sensibly rounded to roughly 90%. This is our calculation from the announcement, not a separately measured utilization series.",
+        "The two quantities should not be added as though each represented a separate pool of XRP. One describes the representation’s reported supply; the other describes its deployment. A useful analogy is a warehouse inventory and the portion allocated to customer orders. Allocation gives information about how inventory is being used. It does not create another warehouse full of goods.",
+        "Unresolved: the cited reports do not provide a complete, address-level reconciliation of the deployment numerator. Before treating the ratio as a precise ecosystem statistic, an analyst would want a common observation time, the included protocols and the treatment of positions represented by other tokens. That request does not establish that Flare double-counted anything. It identifies what would make the aggregate reproducible.",
+        "The same distinction applies to participation. A large balance might reflect many small holders or a smaller number of concentrated positions. Without a separate ownership methodology, neither distribution follows from the token total. For builders, protocol-by-protocol balances and concentration would be more informative than a larger headline alone."
+      ],
+      "sourceUrls": [
+        "https://flare.network/news/one-year-of-fxrp-on-flare",
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/"
+      ]
+    },
+    {
+      "heading": "Capital deployed is different from FXRP performance",
+      "paragraphs": [
+        "Our analysis: deployment records where capital is committed; performance records what changed for its owner. Bitcoin.com distinguishes vault and lending uses from guaranteed returns. A defensible performance report would specify the asset unit, measurement period, external deposits and withdrawals, fees, and whether the ending value was merely quoted or actually received. Each field prevents a different mistaken interpretation.",
+        "Hypothetical example, not a Flare result: a position begins with 100 FXRP, receives another 20 FXRP from its owner and ends with 123 FXRP, with no withdrawals. The balance grew by 23 FXRP, but only 3 FXRP remains after removing the added capital. If a further 1 FXRP exit charge applies and has not already been deducted, the resulting surplus is 2 FXRP. The figures are illustrative and establish no expected yield.",
+        "Even that simple reconciliation is not a time-weighted return. The timing of the additional deposit matters to any percentage performance calculation. It also says nothing about the position’s dollar value. A holder can track more units of an XRP-linked asset while its market value moves differently. Keeping unit performance, external contributions and currency valuation separate makes the result understandable.",
+        "For affected holders, this creates a practical documentation task: preserve entry quantities, subsequent contributions, distributions and exit receipts in the same unit. For researchers, compare like periods and like fee treatment. Neither group can substitute the ecosystem’s deployment percentage for their own investment outcome."
+      ],
+      "sourceUrls": [
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/",
+        "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/"
+      ]
+    },
+    {
+      "heading": "FXRP connects XRP backing to separate application risks",
+      "paragraphs": [
+        "Confirmed mechanism: FXRP represents XRP for use in Flare applications while the backing XRP remains on the XRP Ledger. Flare’s FAssets documentation describes the representation and collateral system; CryptoPotato independently explains the relationship. The relevant question for a holder is therefore broader than whether the XRP Ledger itself processed a valid transaction.",
+        "Ethereum.org’s bridge guidance identifies smart-contract and technology risks when assets are used across networks. Those are general risk categories, not a finding of a current FXRP defect. The independent anniversary reporting likewise explains that using FXRP in applications introduces considerations beyond holding XRP directly. A representation, a transfer route and the application receiving it perform different jobs.",
+        "Our analysis: review the complete exit path as well as the entry path. An application withdrawal, any required cross-chain transfer and redemption into the desired asset should each have a named mechanism. A successful first step does not by itself evidence completion of the remaining steps. The useful record is the asset and network actually received at the end.",
+        "Unresolved: the anniversary deployment total is not a stress test showing how all participants would exit at once. It should support neither a blanket safety claim nor an allegation that withdrawals cannot work. Evidence about redemption timing, fees and operation under pressure would answer a different, consequential question."
+      ],
+      "sourceUrls": [
+        "https://dev.flare.network/fassets/overview",
+        "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/",
+        "https://ethereum.org/bridges/",
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/"
+      ]
+    },
+    {
+      "heading": "Ethereum RLUSD borrowing and simpler wallet access are separate milestones",
+      "paragraphs": [
+        "Flare and the independent anniversary reports describe FXRP being usable as collateral for RLUSD borrowing through a Morpho market on Ethereum. Bitcoin.com explains the current sequence as obtaining FXRP, transferring it to Ethereum and managing the loan there. This is an existing application path, distinct from the planned simplification of how an XRP Ledger wallet initiates borrowing.",
+        "Bitcoin.com also distinguishes the simpler wallet flow already available for vault access from a planned extension to borrowing. The primary anniversary report presents that extension as future work. We do not assign it a launch date or describe it as an already available end-to-end service. Readers should look for an explicit release and supported workflow before assuming the vault experience carries over.",
+        "Our analysis: reducing user steps can make a product easier to operate without changing its economics. The borrowing decision still concerns collateral exposure, a repayment obligation and the possibility of liquidation. Bitcoin.com notes the need to maintain collateral and the risk from falling prices. Fewer signatures would not by itself remove those obligations.",
+        "A useful acceptance test for the planned feature would record what the wallet authorizes, which market receives collateral, where the borrowed asset appears and how repayment closes the position. Those are proposed evaluation criteria, not tests this publication has performed. A demonstration of deposit convenience would answer only part of that review."
+      ],
+      "sourceUrls": [
+        "https://flare.network/news/one-year-of-fxrp-on-flare",
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/",
+        "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/"
+      ]
+    },
+    {
+      "heading": "What XRP holders and ecosystem analysts should track next",
+      "paragraphs": [
+        "The anniversary is a reasonable point to start a dated monitoring record. Our proposed record has four separate entries: reported FXRP supply, capital assigned to named applications, results after contributions and costs, and evidence of completed withdrawals or redemptions. Keeping these entries separate makes it possible to recognize product progress without turning every rising number into a return claim.",
+        "For a holder considering an application, the immediate implication is to identify the actual claim being acquired and the route back to the desired asset. For a developer or integration team, it is to document the supported workflow and failure handling. For an analyst, it is to request comparable snapshots and de-duplicated balances before describing growth or concentration.",
+        "There is a constructive conclusion in the source record: FXRP has financial applications beyond simple holding, and independent reporting describes their availability. The unresolved questions concern measurement quality, individual outcomes and the proposed borrowing interface. A clearer reconciliation of capital, activity and completed exits would make the next update more useful than an isolated increase in reported deployment."
+      ],
+      "sourceUrls": [
+        "https://flare.network/news/one-year-of-fxrp-on-flare",
+        "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/",
+        "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/",
+        "https://ethereum.org/bridges/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "A dated reconciliation of the 145.2 million supply and 130 million deployment figures, with common observation times and included protocol addresses.",
+    "Comparable minting and redemption records over a defined period, separate from estimates of new XRP buying.",
+    "De-duplicated deployment balances and concentration measures that distinguish token quantities from users.",
+    "An official release of the planned wallet borrowing flow, followed by evidence of supported collateral, loan management and repayment steps.",
+    "Period-specific net results and completed withdrawal or redemption records, with asset units, fees and timing stated."
+  ],
+  "sources": [
+    {
+      "name": "Flare: One year of FXRP on Flare",
+      "url": "https://flare.network/news/one-year-of-fxrp-on-flare",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Bitcoin.com, Kevin Helms: FXRP anniversary, deployed capital and borrowing workflow",
+      "url": "https://news.bitcoin.com/featured/xrp-became-programmable-then-gained-vaults-and-wider-defi-access/",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "CryptoPotato, Chayanika Deka: FXRP hits one year",
+      "url": "https://cryptopotato.com/fxrp-hits-one-year-as-flare-expands-what-xrp-can-do-onchain/",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Ethereum.org: Blockchain bridges (page updated July 24, 2026)",
+      "url": "https://ethereum.org/bridges/",
+      "type": "supporting",
+      "publishedAt": "2026-07-24"
+    },
+    {
+      "name": "Flare developer documentation: FAssets overview",
+      "url": "https://dev.flare.network/fassets/overview",
+      "type": "primary"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "XRP, the XRP Ledger and their distinct roles"
+    },
+    {
+      "href": "/learn/is-xrp-a-good-investment",
+      "label": "Assessing XRP exposure and investment risks"
+    },
+    {
+      "href": "/news/flare-derive-fxrp-collateral-usdc-options-settlement",
+      "label": "FXRP collateral versus USDC settlement on Derive"
+    },
+    {
+      "href": "/news/firelight-september-cover-launch-xrp-capital-risk",
+      "label": "How Firelight cover can put backing capital at risk"
+    }
+  ]
+}
