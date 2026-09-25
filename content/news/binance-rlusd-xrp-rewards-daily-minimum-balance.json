@@ -1,0 +1,173 @@
+{
+  "slug": "binance-rlusd-xrp-rewards-daily-minimum-balance",
+  "title": "Binance's XRP Rewards for RLUSD Holders Depend on Daily Minimum Balances",
+  "description": "Binance's four-week XRP rewards campaign uses sampled RLUSD minimums and a weekly average. Here is why account balances, qualifying balances and payouts can differ.",
+  "category": "Markets",
+  "publishedAt": "2026-09-25T21:07:47+00:00",
+  "modifiedAt": "2026-09-25T21:07:47+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/binance-minimum-thermometer-editorial.webp",
+  "imageAlt": "A glass thermometer with blue liquid and a small cobalt index rests in a pale-gold cradle on ivory stone.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "binance-minimum-register-thermometer-calibration-pad",
+  "imageSetting": "A bare ivory-stone thermometer calibration ledge against blank ivory plaster. An elevated oblique view from upper left places one horizontal instrument diagonally across the lower half, with clear white upper-left light and soft cobalt shadows; broad empty ivory space above.",
+  "imageMetaphor": "A glass minimum thermometer holds a small cobalt index within its blue liquid column, representing the retained lowest sampled RLUSD balance used for daily reward calculation rather than a later larger balance.",
+  "imagePrompt": "Create exactly one finished AllAboutXRP editorial illustration, landscape 16:9, 1600x900 or larger. Subject: a physically credible antique minimum-registering alcohol thermometer lying horizontally in an integral low pale-gold metal cradle on an otherwise empty ivory stone calibration pad. One clear straight glass capillary with a bulb at one end, translucent water-blue liquid column and ONE tiny cobalt index fully inside that column, representing the retained minimum reading after the liquid has moved. The thermometer is one assembled object; no scale numerals, letters or inscriptions. Near-axis elevated end-on view from upper left; the entire instrument crosses the lower middle on a gentle diagonal, with huge broad empty ivory upper/right field. Blank warm plaster background. Narrow hard white light from upper left and soft cobalt ceiling bounce, crisp contact shadows, no reflected warm stripe. Story: minimum sampled RLUSD balance controls reward accounting; no suggestion of guaranteed yield or prices. This new thermometer calibration setting, object, lower diagonal arrangement and lighting differs from registered ledger instruments, envelopes, burettes, scales, mirrors, keys, civic architecture and other scenes. Style references: first image is AAXRP homepage palette/finish ONLY. Other three are Sublime Classical Oil palette/material/paint treatment ONLY. Do not copy any scene, layout, figures, animals, landscape or architecture from references. Luminous academic classical-revival oil painting, crisp sculptural modeling, enamel-like glazing, ivory, pale gold, water-blue and cobalt accents; selective impasto on glints. Barely perceptible 1/0/x stipple only inside a few shadow transitions, never all-over ASCII or dither. Sparse, refined, fact-safe, readable thumbnail silhouette. No coins, crypto logos, charts, dashboards, politicians, cubes, buildings, fantasy, ruins, Greek cities, extra objects, envelopes, text, border, watermark, sepia, photographic rendering or muddiness. Entire assembled thermometer remains supported by stone and cradle.",
+  "keywords": [
+    "Binance",
+    "RLUSD",
+    "XRP rewards",
+    "qualifying balance",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "Binance's announced $800,000 XRP pool covers four weeks beginning September 25, 2026. It is a campaign total, not a quoted individual return.",
+    "The lowest hourly snapshot each day feeds a seven-day average, so a later deposit does not erase an earlier sampled shortfall.",
+    "The qualifying asset is RLUSD; the reward asset is XRP. Reconcile qualifying balances, credited tokens and costs separately before assessing the result."
+  ],
+  "sections": [
+    {
+      "heading": "What Binance’s September RLUSD campaign actually measures",
+      "paragraphs": [
+        "Binance’s XRP rewards campaign for eligible RLUSD holders begins September 25, 2026, with an announced $800,000 pool over four weeks. Individual rewards depend on qualifying balances, including daily minimum snapshots, rather than the amount visible when a user checks their account. The pool does not establish a fixed personal return.",
+        "Confirmed campaign terms: Binance’s September 24 announcement, clarified on September 25, schedules the program through October 23 at 00:00 UTC. Coinpedia independently reports the dates and the hourly sampling method. TokenPost also confirms the daily minimum and seven-day average. Together, these records establish a balance-measurement process that readers can examine before any reward arrives.",
+        "The practical question is therefore which amount enters the calculation. An account screen answers how much RLUSD is there now. A qualifying-balance record answers how much counts for a particular day. A distribution record answers how much XRP was actually credited. Treating those three records as interchangeable can make a perfectly ordinary payout look inexplicable. This analysis separates them and provides a hypothetical reconciliation that readers can adapt without assuming a future promotional rate."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpedia.org/news/xrp-news-binance-drops-800k-xrp-rewards-for-rlusd-holders/",
+        "https://www.tokenpost.com/news/business/23628"
+      ]
+    },
+    {
+      "heading": "Why an RLUSD closing balance can overstate the qualifying amount",
+      "paragraphs": [
+        "Confirmed mechanism: Coinpedia reports that Binance takes hourly snapshots, retains the lowest observed RLUSD balance for each day, and uses a seven-day average in the weekly calculation. This is a minimum of sampled balances, not a simple average of every intraday balance and not merely the final balance at midnight. The distinction matters whenever funds move during a day.",
+        "Hypothetical calculation, not observed customer data: suppose the retained daily minimums are 1,000, 1,000, 600, 1,000, 1,000, 1,000 and 1,000 RLUSD. Their sum is 6,600 RLUSD and their average is approximately 942.86 RLUSD. A holder might finish every day with 1,000 RLUSD yet have a smaller qualifying average because one sampled balance was lower. The shortfall in this example is approximately 5.71% relative to a constant 1,000-RLUSD qualifying balance.",
+        "For that arithmetic, assume all amounts are otherwise eligible and that no additional adjustments apply. The example isolates the timing effect; it does not calculate a reward. An extra deposit after the low observation changes the current balance but cannot change the historical observation. A useful personal record would therefore retain the lowest eligible sampled amount for each day, rather than relying on a single end-of-week screenshot."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpedia.org/news/xrp-news-binance-drops-800k-xrp-rewards-for-rlusd-holders/"
+      ]
+    },
+    {
+      "heading": "The $800,000 XRP pool does not supply a personal APR",
+      "paragraphs": [
+        "Confirmed distinction: Coinpaper reports that a Binance payout depends on a holder’s qualifying balance and the broader eligible pool. TokenPost reports that the effective annual percentage rate and distribution XRP value were not fixed in advance. An annual percentage rate, or APR, expresses a rate on a yearly basis; a four-week promotion does not promise that the same opportunity lasts a year.",
+        "Original sensitivity analysis: imagine two calculations with the same eligible balance and the same number of days, but one with half the effective rate of the other. The resulting reward would also be half as large before any additional adjustments. Conversely, a larger balance cannot rescue a forecast that assumes an unsupported rate. The campaign headline alone supplies too little information to estimate an individual payout, because it does not identify the denominator represented by everybody else’s eligible holdings.",
+        "Unresolved at publication: the first realized reward rate and the amount any particular reader will receive. Do not fill those gaps with an example APR shown in promotional material. Keep an estimate labeled as an estimate until a distribution supplies the relevant figures. A practical reconciliation should compare the rate actually applied with the qualifying balance for that same period, rather than combining a later rate with an earlier week’s holdings."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpaper.com/36212/xrp-news-binance-and-bybit-are-paying-users-to-hold-rlusd-will-they-stay",
+        "https://www.tokenpost.com/news/business/23628"
+      ]
+    },
+    {
+      "heading": "Separate Binance incentives from RLUSD reserve rights",
+      "paragraphs": [
+        "Confirmed asset distinction: RLUSD is the asset held for this campaign, while XRP is the reward asset. Coinpaper makes that separation explicit. Ripple’s RLUSD user terms state that holding the token does not confer a property interest in its reserves. Cube Exchange’s April 3 explainer independently describes the same limitation and explains that reserve income does not automatically pass to token holders.",
+        "Analysis: an exchange incentive and a stablecoin’s underlying rights answer different questions. The first concerns a temporary offer, its eligibility conditions and its eventual distribution. The second concerns what the token itself represents. Receiving an exchange reward does not, by itself, rewrite the issuer’s terms or establish a continuing entitlement to reserve earnings. This distinction helps explain why a promotional percentage should not be treated as an intrinsic feature of every RLUSD held everywhere.",
+        "For accounting, keep the starting RLUSD position and the XRP received in separate rows. If the reader later sells the reward, record the actual proceeds and applicable costs rather than valuing the sale at the original promotional estimate. That approach makes the result auditable without assuming a particular XRP price, a guaranteed dollar outcome, or an entitlement that survives the campaign. It also avoids counting the same benefit once as token income and again as a stablecoin price gain."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpaper.com/36212/xrp-news-binance-and-bybit-are-paying-users-to-hold-rlusd-will-they-stay",
+        "https://ripple.com/legal/stablecoin/",
+        "https://www.cube.exchange/what-is/rlusd"
+      ]
+    },
+    {
+      "heading": "What eligible holders should reconcile on the first distribution",
+      "paragraphs": [
+        "Confirmed schedule: Binance and Coinpedia list October 2, October 9, October 16 and October 23 as the distribution dates. TokenPost notes that timing can change. Coinpaper independently confirms that several jurisdictions, including the United States and United Kingdom, are excluded. Eligibility must therefore be established before a reader treats any arithmetic as personally applicable.",
+        "Suggested acceptance record: preserve the campaign version used, the applicable reward period, the daily qualifying amounts, the calculated average, the published effective rate, the XRP quantity credited and the timestamp of that credit. Keep any later conversion or withdrawal as a separate event. These fields distinguish a measurement disagreement from a rate disagreement, a delayed credit or a cost incurred after receipt. They are a proposed recordkeeping method, not a claim about an export feature Binance provides.",
+        "For a reader whose balance fluctuates, the most useful first check is whether the daily minimums explain the gap. For a reader managing funds needed elsewhere, the practical implication is that holding a higher qualifying balance has an opportunity cost: those same funds may have another planned use. Compare the observed benefit with that alternative use and actual expenses. A campaign total cannot make that decision on the reader’s behalf."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpedia.org/news/xrp-news-binance-drops-800k-xrp-rewards-for-rlusd-holders/",
+        "https://coinpaper.com/36212/xrp-news-binance-and-bybit-are-paying-users-to-hold-rlusd-will-they-stay",
+        "https://www.tokenpost.com/news/business/23628"
+      ]
+    },
+    {
+      "heading": "What the campaign can and cannot establish about XRP demand",
+      "paragraphs": [
+        "Analysis: a distribution announcement establishes an incentive design. It does not by itself establish how Binance sources the reward tokens, how many holders will qualify, or what recipients will do with their XRP. Coinpaper likewise distinguishes promotional balances from evidence of payment use or additional XRP demand. A reward credited to an account is a different observation from a new market purchase.",
+        "For XRP Ledger readers, ask for measurements that match the claim being made. A claim about customer payouts needs completed distribution evidence. A claim about additional buying needs sourcing or transaction evidence. A claim about sustained use needs activity observed after the incentive period, with a defined comparison. Adding the advertised pool to another market metric would not supply any of those missing observations.",
+        "What would change the assessment: published distribution figures that let readers reconcile an actual week, clear corrections to the campaign mechanics, and evidence about activity beyond the promotion. Until then, the strongest conclusion is narrower and useful: the program rewards a defined measure of RLUSD holdings, and understanding that measure is essential to interpreting the XRP eventually received. A balance held, a balance counted and a reward credited remain three separate quantities."
+      ],
+      "sourceUrls": [
+        "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+        "https://coinpaper.com/36212/xrp-news-binance-and-bybit-are-paying-users-to-hold-rlusd-will-they-stay"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "October 2: the first scheduled distribution, its published effective rate and the XRP credit actually received, rather than an illustrative APR.",
+    "The seven daily qualifying balances behind each weekly average, especially any sampled shortfall that differs from an end-of-day account screenshot.",
+    "Any change to Binance's eligibility or calculation terms after its September 25 clarification; use the version applicable to the reward period.",
+    "October 23: the scheduled campaign end and final distribution, including any announced timing change.",
+    "Evidence distinguishing completed reward credits from new XRP purchases or sustained payment use; none should be inferred solely from the advertised pool."
+  ],
+  "sources": [
+    {
+      "name": "Binance campaign terms, published September 24 and amended September 25",
+      "url": "https://www.binance.com/en/support/announcement/detail/3bd5e178205f4051bd008994c5a99363",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Coinpedia: Rizwan Ansari on the September campaign mechanics",
+      "url": "https://coinpedia.org/news/xrp-news-binance-drops-800k-xrp-rewards-for-rlusd-holders/",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Coinpaper: Marcus Hale on RLUSD exchange incentives",
+      "url": "https://coinpaper.com/36212/xrp-news-binance-and-bybit-are-paying-users-to-hold-rlusd-will-they-stay",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "TokenPost: John Kim on reward dates and qualifying balances",
+      "url": "https://www.tokenpost.com/news/business/23628",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Ripple RLUSD user terms, last updated October 3, 2024",
+      "url": "https://ripple.com/legal/stablecoin/",
+      "type": "primary",
+      "publishedAt": "2024-10-03"
+    },
+    {
+      "name": "Cube Exchange: Clara Voss explains RLUSD reserve rights",
+      "url": "https://www.cube.exchange/what-is/rlusd",
+      "type": "supporting",
+      "publishedAt": "2026-04-03"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/what-is-xrp",
+      "label": "Understand XRP and its role on the XRP Ledger"
+    },
+    {
+      "href": "/learn/how-to-buy-xrp",
+      "label": "Compare buying, exchange access and custody considerations"
+    },
+    {
+      "href": "/news/rlusd-reserves-latest-attestation-june-2026",
+      "label": "Read what RLUSD reserve attestations actually establish"
+    },
+    {
+      "href": "/news/ripple-mint-rlusd-institutional-workflows",
+      "label": "Separate RLUSD infrastructure availability from measured usage"
+    }
+  ]
+}
