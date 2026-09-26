@@ -1,0 +1,199 @@
+{
+  "slug": "fed-stablecoin-proposal-rlusd-reserves-capital",
+  "title": "Fed Proposes Stablecoin Capital Rules: What RLUSD Reserve Figures Cannot Show",
+  "description": "The Fed’s September 24 stablecoin proposals separate reserve backing, issuer capital and bank approval. For RLUSD readers, each requires different evidence, and the drafts remain open to change.",
+  "category": "Regulation",
+  "publishedAt": "2026-09-26T13:08:22+00:00",
+  "modifiedAt": "2026-09-26T13:08:22+00:00",
+  "author": "Jack Nelson",
+  "image": "/news/fed-inkwell-blotter-capital-editorial.webp",
+  "imageAlt": "A stoppered cobalt glass inkwell and a separate pale-gold blotting rocker with clean ivory paper rest on an ivory stone writing slope.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "imageStyle": "aaxrp-classical-ascii-v2",
+  "imageSceneKey": "fed-genius-inkwell-blotter-writing-slope",
+  "imageSetting": "A bare ivory-stone writing slope with a shallow inclined front plane and warm ivory wall, seen from a low oblique downward viewpoint. A cobalt inkwell at lower-left faces a side-resting blotting rocker at lower-right across an empty interval; broad linen-filtered afternoon light forms a luminous vertical band behind the gap, with short blue-gray contact shadows. Broad upper and central negative space.",
+  "imageMetaphor": "A stoppered cobalt inkwell and a separate clean blotting rocker perform different jobs: containing a reserve and absorbing a loss. They distinguish backing reserved for redemption from issuer capital, without depicting any actual loss, compliance result or regulatory approval.",
+  "imagePrompt": "Use case: stylized-concept. Asset type: original AllAboutXRP editorial illustration, 16:9 landscape, at least 1600 by 900 pixels. Four attached images are STYLE ONLY: first is homepage palette/finish anchor; others are Sublime Classical Oil modeling/detail references. Do not copy any scenery, architecture, people, animals, or composition from them.\nPrimary request: one sparse physically believable symbolic still life, exactly TWO assembled objects: a low squat transparent cobalt glass inkwell filled nearly to its shoulder with water-blue liquid, closed with its fitted glass stopper, at lower left; a separate pale-gold handled blotting rocker at lower right, resting tipped on its side with its clean thick ivory absorbent paper underside clearly visible. The curved blotter is a real traditional desk tool with one handle and smooth metal top. No spill and no ink on the blotter. This explains the difference between contained backing reserves and a separate resource for absorbing losses, not a claim about an actual issuer.\nScene: bare ivory-stone writing slope, shallow inclined plane, seamless warm ivory background. Objects face inward across a broad empty gap; all objects grounded and supported. Close twenty-eight-degree downward camera from the right rear, distinctive low silhouettes. Objects take only the bottom third, broad upper two-thirds negative space. Soft early-afternoon light transmitted through unseen ribbed linen makes a broad vertical luminous band behind the central gap, crisp white glass shoulder highlights and short cool cobalt contact shadows toward foreground. This new inkpot and blotting-rocker object pair, on an inclined writing slope with linen-transmitted light, is distinct from all registered gauges, vessels with measuring tools, springs, keys, gates, cushions beneath weights, rulers, presses, and balance scales.\nStyle: luminous academic classical oil painting, crisp sculptural modeling, rich glazing and controlled material-specific microdetail. Warm ivory stone, cobalt glass, water-blue liquid, pale gold metal, clean ivory paper. Selective tiny impasto highlights. Extremely subtle 1/0/x stipple only in a few shadow transitions, nearly invisible. Never all-over ASCII or dither. Sparse luxurious still life with clean negative space, not photographic product rendering.\nConstraints: exactly two assembled objects; no loose pen, sheet, droplets, coins, logos, text, stamps, dashboards, politicians, cyber cubes, impossible objects, buildings, ruins, Greek city, mountains, horses, lions, robes, decorative props, frame or watermark. No vermilion needed. No sepia, muddy cast, neon, coarse halftone, all-over texture or damaged canvas. Preserve wide 16:9 composition.",
+  "keywords": [
+    "Federal Reserve",
+    "GENIUS Act",
+    "RLUSD",
+    "stablecoin reserves",
+    "issuer capital",
+    "XRP Ledger"
+  ],
+  "keyTakeaways": [
+    "The Fed’s September 24 package proposes full reserve backing, capital requirements and risk controls for issuers within its supervisory scope; it is not a final rule.",
+    "A reserve coverage figure answers whether assets back issued tokens. It does not establish how an issuer would absorb a separate operating loss.",
+    "RLUSD’s issuer identity and applicable regulator must be checked separately. The Fed announcement does not grant Ripple or RLUSD an individual approval."
+  ],
+  "sections": [
+    {
+      "heading": "What the Federal Reserve proposed on September 24",
+      "paragraphs": [
+        "The Federal Reserve proposed separate reserve, capital and application rules for payment stablecoin issuers on September 24, 2026. For RLUSD readers, the useful distinction is between assets backing tokens, resources absorbing issuer losses, and permission to issue. The proposals do not themselves approve RLUSD or establish a new XRP use case.",
+        "The Fed released two proposals under the GENIUS Act. Its announcement covers full backing with permitted assets, capital for certain credit and operational risks, custody safeguards and bank activities. A companion proposal addresses applications to issue stablecoins. Reuters independently reported those elements on September 24. These are proposed supervisory requirements, not findings that any named stablecoin satisfies them.",
+        "The practical question is therefore more precise than whether a token is regulated. A payments team evaluating an issuer needs to know which legal entity owes the redemption obligation, which assets back that obligation, and which resources keep the business operating when something goes wrong. The proposal makes those separate questions harder to collapse into one reassuring reserve percentage."
+      ],
+      "sourceUrls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm",
+        "https://www.marketscreener.com/news/us-federal-reserve-proposes-new-stablecoin-rules-ce785adfd98bf12d"
+      ]
+    },
+    {
+      "heading": "Reserve backing and issuer capital protect against different problems",
+      "paragraphs": [
+        "The Fed’s staff memorandum describes backing as a comparison between the fair value of eligible reserve assets and the par value of outstanding stablecoins. It separately describes capital requirements for operational risk and certain reserve-related credit exposures. Crypto.news likewise distinguishes the proposed backing requirement from the capital and risk-management standards. The distinction matters even when an issuer holds high-quality assets.",
+        "Original illustration, not an RLUSD estimate: imagine a hypothetical issuer with $100 of segregated backing for $100 of token obligations, plus $5 of separately available shareholder-funded operating resources. A $3 operating loss could reduce that separate cushion to $2 while leaving the $100 backing pool untouched, assuming the loss is paid from those operating resources. Reporting 100% backing before and after would conceal that reduction in resilience.",
+        "This simplified example does not calculate regulatory capital, prescribe a reserve ratio or model insolvency priorities. It shows why the two measurements cannot substitute for one another. When reviewing a disclosure, ask what the numerator contains and what obligation it is meant to cover. An apparent surplus in a reserve report should not automatically be counted again as freely usable operating capital."
+      ],
+      "sourceUrls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a1.pdf",
+        "https://crypto.news/fed-proposes-genius-act-rules-for-stablecoin-reserves/"
+      ]
+    },
+    {
+      "heading": "RLUSD requires an entity check before a regulatory conclusion",
+      "paragraphs": [
+        "Ripple’s current transparency page identifies Standard Custody as RLUSD’s issuer and describes its New York Department of Financial Services limited-purpose trust supervision. That identification is independently consistent with the OCC’s December 12, 2025 decision letter. The historical OCC record also distinguishes Standard Custody’s issuance from the proposed Ripple National Trust Bank’s reserve-management and trustee services.",
+        "That separation is essential when reading the new Fed announcement. A rule directed at a class of supervised firms cannot be mapped onto every company sharing a brand or corporate parent. The application memorandum specifically addresses insured state member banks seeking approval for issuing subsidiaries, a scope independently explained by Crypto.news. Naming Ripple, a banking partner or a reserve custodian does not by itself identify the applicant or the regulated issuer.",
+        "Analysis: an RLUSD diligence file should put the issuer’s exact legal name beside its supervisor and the particular activity being assessed. Reserve management, custody and token issuance deserve separate entries. This article does not determine RLUSD’s eventual treatment under a final GENIUS framework, and the September 24 release supplies no individual RLUSD approval. An entity-specific conclusion needs the applicable final rules and authorization record."
+      ],
+      "sourceUrls": [
+        "https://ripple.com/products/stablecoin/transparency/",
+        "https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-125b.pdf",
+        "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a2.pdf",
+        "https://crypto.news/fed-proposes-genius-act-rules-for-stablecoin-reserves/"
+      ]
+    },
+    {
+      "heading": "A bank application is a review of a business, not a reserve certificate",
+      "paragraphs": [
+        "The Fed’s application proposal would require business and financial information, with procedures for decisions, hearings and appeals. That makes the proposed process relevant to the issuer’s planned operations, not merely the existence of a pool of backing assets on a particular reporting date. Independent reporting describes a process for an insured state member bank to seek permission for a subsidiary. Holding acceptable assets is therefore only part of the proposed review.",
+        "Consider a procurement exercise rather than a forecast. Two hypothetical issuers could present the same reserve composition while planning different customer access, staffing, service providers and funding arrangements. Their reserve tables would look alike, but a buyer would still need different answers about operational responsibility and continuity. A balance-sheet snapshot cannot describe the whole service that a business is buying.",
+        "For a bank considering issuance, the immediate use of this proposal is to organize the evidence an application would need. For an institution considering RLUSD, it is a reminder to request the documents relevant to its actual counterparty. Neither group should treat a regulator’s invitation for comments as a completed authorization, a production launch or proof of customer adoption."
+      ],
+      "sourceUrls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a2.pdf",
+        "https://crypto.news/fed-proposes-genius-act-rules-for-stablecoin-reserves/",
+        "https://www.marketscreener.com/news/us-federal-reserve-proposes-new-stablecoin-rules-ce785adfd98bf12d"
+      ]
+    },
+    {
+      "heading": "The unresolved questions include how protection works under stress",
+      "paragraphs": [
+        "Federal Reserve Governor Michael Barr supported the proposed rulemaking while identifying questions for public feedback. His September 24 statement highlights interest-rate and foreign-currency risks alongside the reserve and capital provisions. PYMNTS independently reported those concerns. The statement makes clear that publishing a framework does not settle whether its eventual safeguards will be sufficient in difficult conditions.",
+        "For a treasury team, a useful review would connect three pieces of evidence: the assets backing the token, the resources supporting the issuer, and the procedure for obtaining usable funds. A contractual promise to redeem and a successful transfer on a blockchain answer different operational questions. In a hypothetical disruption, a team would need to identify the party responsible for restoring the affected step, rather than assume that a healthy reserve total fixes every service problem.",
+        "Uncertainty: this proposal does not demonstrate how any particular issuer would perform in a future disruption. Nor does it disclose Standard Custody’s available operating capital or establish an RLUSD stress-test result. The right response to missing information is a targeted evidence request, not an invented estimate of safety or a conclusion that undisclosed information proves weakness."
+      ],
+      "sourceUrls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/barr-statement-20260924.htm",
+        "https://www.pymnts.com/cryptocurrency/2026/fed-proposes-stablecoin-reserve-and-capital-rules-under-genius-act/",
+        "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a1.pdf"
+      ]
+    },
+    {
+      "heading": "What XRP and RLUSD readers should watch before changing their conclusions",
+      "paragraphs": [
+        "The Fed says the comment period closes 60 days after publication in the Federal Register, a timing rule independently confirmed by Reuters. The September 24 announcement date is therefore not enough to calculate a reliable calendar deadline. Readers following implementation should use the notices’ actual publication records and any subsequent official extensions rather than a countdown anchored to the press release.",
+        "Analysis: clearer requirements could make institutional comparison of stablecoin providers more disciplined. They may also require affected businesses to allocate resources to capital, controls and documentation. Neither possibility establishes which issuer will win customers. For XRP readers, the announcement contains no evidence of a new XRP settlement requirement, incremental XRP purchases or a price effect. Those claims would require transaction or business evidence beyond a rulemaking.",
+        "The immediate action for an RLUSD user is to keep three questions separate when reviewing a counterparty: what backs the token, what supports the issuer through losses, and what authorizes the relevant activity. Revisit each answer when a final rule or issuer-specific record changes it. A new regulatory headline is useful information, but it should change the particular conclusion it supports rather than every assumption about the asset."
+      ],
+      "sourceUrls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm",
+        "https://www.marketscreener.com/news/us-federal-reserve-proposes-new-stablecoin-rules-ce785adfd98bf12d",
+        "https://ripple.com/products/stablecoin/transparency/",
+        "https://crypto.news/fed-proposes-genius-act-rules-for-stablecoin-reserves/"
+      ]
+    }
+  ],
+  "whatToWatch": [
+    "The Federal Register publication dates for both September 24 proposals, followed by the actual comment deadlines and any extensions.",
+    "The final Fed text on eligible reserves, capital and operational controls, including changes made after public comments.",
+    "Entity-specific issuer, custodian and authorization records relevant to RLUSD, rather than group-level branding or an unrelated approval.",
+    "Disclosures that distinguish reserve backing from issuer operating resources and explain responsibility during service disruption.",
+    "Observed payment activity and asset routing before assigning any XRP-demand consequence to the stablecoin framework."
+  ],
+  "sources": [
+    {
+      "name": "Federal Reserve: Two GENIUS Act proposals",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260924a.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Reuters, Hannah Lang: Fed proposes new stablecoin rules",
+      "url": "https://www.marketscreener.com/news/us-federal-reserve-proposes-new-stablecoin-rules-ce785adfd98bf12d",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Federal Reserve: Issuer framework staff memo (dated September 3; released September 24)",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a1.pdf",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Crypto.news, Lawrence Mondal: Reserve rules and bank issuer applications",
+      "url": "https://crypto.news/fed-proposes-genius-act-rules-for-stablecoin-reserves/",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Federal Reserve: Bank application staff memo (dated September 3; released September 24)",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/files/bcreg20260924a2.pdf",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "Ripple: RLUSD issuer and reserve transparency (undated reference)",
+      "url": "https://ripple.com/products/stablecoin/transparency/",
+      "type": "primary"
+    },
+    {
+      "name": "OCC: Ripple National Trust Bank conditional decision and issuer identity",
+      "url": "https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-125b.pdf",
+      "type": "primary",
+      "publishedAt": "2025-12-12"
+    },
+    {
+      "name": "Federal Reserve: Governor Barr’s statement on the proposal",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/barr-statement-20260924.htm",
+      "type": "primary",
+      "publishedAt": "2026-09-24"
+    },
+    {
+      "name": "PYMNTS: Fed reserve and capital proposals and Barr’s concerns",
+      "url": "https://www.pymnts.com/cryptocurrency/2026/fed-proposes-stablecoin-reserve-and-capital-rules-under-genius-act/",
+      "type": "supporting",
+      "publishedAt": "2026-09-24"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/rlusd",
+      "label": "How RLUSD works",
+      "topic": "Stablecoin basics",
+      "description": "Understand the token, its issuer and its dollar backing."
+    },
+    {
+      "href": "/news/rlusd-reserves-latest-attestation-june-2026",
+      "label": "What an RLUSD reserve attestation measures",
+      "topic": "Reserve evidence",
+      "description": "A dated explanation of accountant-tested snapshots and issuer disclosures."
+    },
+    {
+      "href": "/news/rlusd-regulation-cftc-collateral-eligibility",
+      "label": "RLUSD supervision and collateral eligibility",
+      "topic": "Regulatory scope",
+      "description": "Why issuer oversight and permission to use collateral answer different questions."
+    },
+    {
+      "href": "/learn/xrp-vs-stablecoins",
+      "label": "XRP and stablecoins serve different roles",
+      "topic": "Asset distinctions",
+      "description": "Separate a stablecoin obligation from the native XRP asset."
+    }
+  ]
+}
